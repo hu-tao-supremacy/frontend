@@ -55,11 +55,11 @@
 </template>
 
 <script>
-import BaseButton from "../../../commons/UI/BaseButton.vue";
+import BaseButton from "@/commons/UI/BaseButton.vue";
 import BaseTag from "./BaseTag.vue";
-import PinIcon from "../../../assets/MapPin.vue";
-import ClockIcon from "../../../assets/Clock.vue";
-import CalendarIcon from "../../../assets/Calendar.vue";
+import PinIcon from "@/assets/MapPin.vue";
+import ClockIcon from "@/assets/Clock.vue";
+import CalendarIcon from "@/assets/Calendar.vue";
 
 export default {
   components: {

@@ -2,6 +2,7 @@
   <h1>Home</h1>
   <CardBanner />
   <CardOrganization class="w-28 bg-pink-200" />
+  <CardOrganization class="w-28 bg-pink-200" />
 </template>
 
 <script>

@@ -3,7 +3,6 @@ import { Button, Row, Col, Tag, Icon } from 'ant-design-vue';
 // import 'ant-design-vue/dist/antd.css';
 import App from './App.vue';
 import router from './router';
-import './index.css';
 
 const app = createApp(App);
 

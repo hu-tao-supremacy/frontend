@@ -87,7 +87,7 @@ export default {
 .event-title {
   color: #161d61;
   font-family: Manrope;
-  /* font-size: 24px; */
+  font-size: 24px;
 }
 
 .event-description {

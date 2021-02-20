@@ -1,7 +1,13 @@
 <template>
   <h1>Home</h1>
+  <CardBanner />
 </template>
 
 <script>
-export default {};
+import CardBanner from "./components/CardBanner.vue";
+export default {
+  components: {
+    CardBanner
+  }
+};
 </script>

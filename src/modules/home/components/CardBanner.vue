@@ -15,10 +15,10 @@
         <div class="flex gap-1 mb-1">
           <base-tag v-for="tag in tags" :key="tag">{{ tag }}</base-tag>
         </div>
-        <div class="text-sm font-body text-left mb-1 w-full event-description">
+        <div class="text-sm text-left mb-1 w-full event-description">
           {{ eventDescription }}
         </div>
-        <div class="flex items-center font-body text-base mb-1">
+        <div class="flex items-center mb-1">
           <base-icon
             width="12px"
             height="12px"
@@ -28,7 +28,7 @@
           /></base-icon>
           {{ eventDate }}
         </div>
-        <div class="flex items-center font-body text-base mb-1">
+        <div class="flex items-center mb-1">
           <base-icon
             width="12px"
             height="12px"
@@ -38,7 +38,7 @@
           /></base-icon>
           {{ eventTime }}
         </div>
-        <div class="flex items-center font-body text-base mb-1">
+        <div class="flex items-center mb-1">
           <base-icon
             width="12px"
             height="12px"
@@ -49,7 +49,7 @@
           {{ eventLocation }}
         </div>
       </section>
-      <base-button class="text-base w-4/5 h-5">Get Tickets</base-button>
+      <base-button class="w-4/5 h-5">Get Tickets</base-button>
     </div>
   </div>
 </template>

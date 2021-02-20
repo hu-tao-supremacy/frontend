@@ -9,10 +9,3 @@ export default defineComponent({
   name: "App"
 });
 </script>
-
-<style>
-#app {
-  font-family: Inter;
-  color: #090c2f;
-}
-</style>

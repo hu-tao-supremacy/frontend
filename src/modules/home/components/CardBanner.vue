@@ -1,7 +1,11 @@
 <template>
-  <div class="grid grid-cols-3 rounded-2xl h-40 event-container">
+  <div class="grid grid-cols-3 rounded-2xl h-40 shadow">
     <div class="col-span-2">
-      <img :src="img" alt="" class="object-cover w-full h-40 rounded-l-2xl" />
+      <img
+        :src="imgUrl"
+        alt=""
+        class="object-cover w-full h-40 rounded-l-2xl"
+      />
     </div>
     <div class="col-span-1 flex flex-col justify-between items-center p-1.5">
       <section>
@@ -11,10 +15,10 @@
         <div class="flex gap-1 mb-1">
           <base-tag v-for="tag in tags" :key="tag">{{ tag }}</base-tag>
         </div>
-        <div class="text-xs font-body text-left mb-1 w-full event-description">
+        <div class="text-sm font-body text-left mb-1 w-full event-description">
           {{ eventDescription }}
         </div>
-        <div class="flex items-center font-body text-sm mb-1">
+        <div class="flex items-center font-body text-base mb-1">
           <base-icon
             width="12px"
             height="12px"
@@ -24,7 +28,7 @@
           /></base-icon>
           {{ eventDate }}
         </div>
-        <div class="flex items-center font-body text-sm mb-1">
+        <div class="flex items-center font-body text-base mb-1">
           <base-icon
             width="12px"
             height="12px"
@@ -34,7 +38,7 @@
           /></base-icon>
           {{ eventTime }}
         </div>
-        <div class="flex items-center font-body text-sm mb-1">
+        <div class="flex items-center font-body text-base mb-1">
           <base-icon
             width="12px"
             height="12px"
@@ -45,7 +49,7 @@
           {{ eventLocation }}
         </div>
       </section>
-      <base-button class="text-sm w-4/5 h-5">Get Tickets</base-button>
+      <base-button class="text-base w-4/5 h-5">Get Tickets</base-button>
     </div>
   </div>
 </template>
@@ -70,13 +74,13 @@ export default {
     const tags = ["Tech", "Math", "Science"];
     const eventDescription =
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer velnisi eu ipsum elementum sollicitudin. Suspendisse aliquam arcu quis cursus cursus. Nulla sollicitudin ut felis sit amet blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel nisi euipsum elementum sollicitudin. Suspendisse aliquam arcu quis cursus          cursus. Nulla sollicitudin ut felis sit amet blandit.";
-    const img = "https://picsum.photos/1000";
+    const imgUrl = "https://picsum.photos/1000";
     const eventDate = "Sun, 14 Feb - 16 April";
     const eventTime = "10:00 - 18:00";
     const eventLocation = "Engineering Faculty, Chula";
 
     return {
-      img,
+      imgUrl,
       eventTitle,
       tags,
       eventDescription,
@@ -89,10 +93,6 @@ export default {
 </script>
 
 <style scoped>
-.event-container {
-  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.08);
-}
-
 .event-description {
   display: -webkit-box;
   -webkit-line-clamp: 6;

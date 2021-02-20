@@ -1,10 +1,10 @@
 <template>
   <div class="grid grid-cols-3 rounded-2xl h-40 shadow">
-    <div class="col-span-2">
+    <div class="col-span-2 min-h-full">
       <img
         :src="imgUrl"
         alt=""
-        class="object-cover w-full h-40 rounded-l-2xl"
+        class="object-cover w-full h-full rounded-l-2xl"
       />
     </div>
     <div class="col-span-1 flex flex-col justify-between items-center p-1.5">
@@ -15,7 +15,7 @@
         <div class="flex gap-1 mb-1">
           <base-tag v-for="tag in tags" :key="tag">{{ tag }}</base-tag>
         </div>
-        <div class="text-sm text-left mb-1 w-full event-description">
+        <div class="text-sm mb-1 w-full event-description">
           {{ eventDescription }}
         </div>
         <div class="flex items-center mb-1">

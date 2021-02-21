@@ -9,7 +9,7 @@
     </div>
     <div class="col-span-1 flex flex-col justify-between items-center p-1.5">
       <section>
-        <h3 class="text-2xl font-heading text-blue-dark mb-1">
+        <h3 class="text-2xl font-heading text-blue-10 mb-1">
           {{ eventTitle }}
         </h3>
         <div class="flex gap-1 mb-1">

@@ -1,7 +1,7 @@
 <template>
   <div
     class="h-12 text-center relative from-transparent bg-gradient-to-b select-none cursor-pointer"
-    :class="gradientColor"
+    :class="[gradientColor]"
     @click="toggleSelect"
   >
     <img
@@ -15,7 +15,6 @@
       }}
     </caption>
   </div>
-  <PageFooter />
 </template>
 
 <script lang="ts">

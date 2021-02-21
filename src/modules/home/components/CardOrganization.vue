@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-9 rounded-lg shadow-sm h-12">
+  <div class="grid grid-cols-9 rounded-lg shadow-sm h-12 w-28">
     <div class="col-span-4 min-h-full">
       <img
         :src="imgUrl"

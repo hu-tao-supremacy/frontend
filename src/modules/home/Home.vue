@@ -2,9 +2,9 @@
   <h1>Home</h1>
   <!-- Will change sizing when use for real -->
   <CardBanner :style="{ width: '960px' }" />
-  <CardOrganization class="w-28" />
-  <CardOrganization class="w-28" />
-  <CardInterest class="w-16" />
+  <CardOrganization />
+  <CardOrganization />
+  <CardInterest />
 </template>
 
 <script lang="ts">

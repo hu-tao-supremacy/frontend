@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-12 text-center relative from-transparent bg-gradient-to-b select-none cursor-pointer"
+    class="h-12 w-16 text-center relative from-transparent bg-gradient-to-b select-none cursor-pointer"
     :class="[gradientColor]"
     @click="toggleSelect"
   >

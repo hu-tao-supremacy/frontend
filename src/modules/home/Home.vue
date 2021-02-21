@@ -11,13 +11,11 @@
 import { defineComponent } from "vue";
 import CardBanner from "./components/CardBanner.vue";
 import CardOrganization from "./components/CardOrganization.vue";
-import CardInterest from "./components/CardInterest.vue";
 
 export default defineComponent({
   components: {
     CardBanner,
-    CardOrganization,
-    CardInterest
+    CardOrganization
   }
 });
 </script>

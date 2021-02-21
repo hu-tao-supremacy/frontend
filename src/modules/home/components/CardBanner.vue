@@ -76,7 +76,7 @@ export default {
   },
   setup() {
     const eventTitle = "Event Title";
-    const tags = ["Tech", "Math", "Science"];
+    const tags = ["Engineering", "Food", "Education"];
     const eventDescription =
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer velnisi eu ipsum elementum sollicitudin. Suspendisse aliquam arcu quis cursus cursus. Nulla sollicitudin ut felis sit amet blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel nisi euipsum elementum sollicitudin. Suspendisse aliquam arcu quis cursus          cursus. Nulla sollicitudin ut felis sit amet blandit.";
     const imgUrl = "https://picsum.photos/1000";

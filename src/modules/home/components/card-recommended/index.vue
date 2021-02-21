@@ -1,13 +1,13 @@
 <template>
   <div
-    class="event-container flex flex-col rounded-lg shadow bg-cover relative min-h-full"
+    class="event-container h-30 flex flex-col rounded-lg shadow bg-cover relative min-h-full"
   >
     <div
-      class="event-date h-6 w-6 absolute rounded-lg font-heading text-lg text-center"
+      class="event-date h-6 w-6 absolute rounded-lg font-heading text-lg text-center bg-primary-1"
     >
       {{ eventDay }}<br />{{ eventMonth }}
     </div>
-    <div class="event-image">
+    <div class="event-image h-20">
       <img
         src="https://picsum.photos/300/600"
         class="h-full w-full object-cover rounded-t-lg"
@@ -18,23 +18,30 @@
       <div
         class="event-detail flex flex-grow flex-row justify-between bg-white pl-2 py-1 pr-1 rounded-br-lg"
       >
-        <div class="event-details-list flex flex-col items-start">
-          <div class="event-duration text-primary text-sm">{{ eventTime }}</div>
-          <div class="event-name font-heading text-xl">{{ eventTitle }}</div>
-          <div class="event-faculty text-blue-dark text-sm">
+        <div class="event-details-list w-28 flex flex-col items-start">
+          <div class="event-duration w-full text-primary text-sm">
+            {{ eventTime }}
+          </div>
+          <div class="event-name w-full font-heading text-xl truncate">
+            {{ eventTitle }}
+          </div>
+          <div class="event-faculty w-full text-blue-10 text-sm truncate">
             {{ eventFaculty }}
           </div>
         </div>
-        <button class="btn flex justify-center items-center bg-primary rounded-lg">
-          <base-icon
-            width="24px"
-            height="24px"
-            iconColor="#FFFFFF"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><ArrowRightIcon
-          /></base-icon>
-        </button>
+        <div class="event-button flex flex-col justify-center">
+          <base-button class="btn w-4/5 h-5 flex justify-center items-center ">
+            <base-icon
+              width="24px"
+              height="24px"
+              iconColor="#FFFFFF"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><ArrowRightIcon
+            /></base-icon>
+          </base-button>
+          <!-- </button> -->
+        </div>
       </div>
     </div>
   </div>
@@ -42,13 +49,15 @@
 
 <script>
 import { defineComponent } from "vue";
+import BaseButton from "@/commons/UI/BaseButton.vue";
 import ArrowRightIcon from "@/assets/ArrowRight.vue";
 export default defineComponent({
   components: {
+    BaseButton,
     ArrowRightIcon
   },
   setup() {
-    const eventTitle = "Chula Invest";
+    const eventTitle = "Chula Collective Investmentnlkjnknlkmlk";
     const imgUrl = "https://picsum.photos/400/500";
     const eventDay = "15";
     const eventMonth = "Feb";
@@ -69,7 +78,6 @@ export default defineComponent({
 
 <style scoped>
 .event-container {
-  height: 240px;
   width: 299px;
 }
 .event-date {
@@ -77,17 +85,14 @@ export default defineComponent({
   bottom: 184px;
   left: 243px;
   right: 8px;
-  background-color: #fff6f0;
   padding: 0px 10px 0px 10px;
 }
 .event-image {
-  height: 160px;
   width: 299px;
 }
 
 .btn {
   height: 38px;
   width: 38px;
-  margin-top: 13px;
 }
 </style>

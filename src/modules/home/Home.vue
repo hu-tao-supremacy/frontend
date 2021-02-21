@@ -1,6 +1,7 @@
 <template>
   <h1>Home</h1>
-  <CardBanner />
+  <!-- Will change sizing when use for real -->
+  <CardBanner :style="{ width: '960px' }" />
   <CardOrganization class="w-28" />
   <CardOrganization class="w-28" />
 </template>

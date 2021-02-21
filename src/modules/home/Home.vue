@@ -4,16 +4,20 @@
   <CardBanner :style="{ width: '960px' }" />
   <CardOrganization class="w-28" />
   <CardOrganization class="w-28" />
+  <CardInterest />
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
 import CardBanner from "./components/CardBanner.vue";
 import CardOrganization from "./components/CardOrganization.vue";
+import CardInterest from "./components/CardInterest.vue";
 
-export default {
+export default defineComponent({
   components: {
     CardBanner,
-    CardOrganization
+    CardOrganization,
+    CardInterest
   }
-};
+});
 </script>

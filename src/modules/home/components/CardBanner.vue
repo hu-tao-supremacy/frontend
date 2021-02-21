@@ -59,14 +59,15 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import BaseTag from "./BaseTag.vue";
 import PinIcon from "@/assets/MapPin.vue";
 import ClockIcon from "@/assets/Clock.vue";
 import CalendarIcon from "@/assets/Calendar.vue";
 
-export default {
+export default defineComponent({
   components: {
     BaseButton,
     BaseTag,
@@ -94,7 +95,7 @@ export default {
       eventLocation
     };
   }
-};
+});
 </script>
 
 <style scoped>

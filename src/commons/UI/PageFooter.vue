@@ -23,14 +23,15 @@
   </footer>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
 import ChevronsUpIcon from "@/assets/ChevronsUp.vue";
 import BaseTransparentButton from "@/commons/UI/BaseTransparentButton.vue";
 
-export default {
+export default defineComponent({
   components: {
     ChevronsUpIcon,
     BaseTransparentButton
   }
-};
+});
 </script>

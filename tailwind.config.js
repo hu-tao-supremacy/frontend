@@ -20,34 +20,82 @@ module.exports = {
       black: colors.black,
       white: colors.white,
       gray: {
-        light: "#FFFFFF",
         DEFAULT: "#F7FAFC",
-        dark: "#EDF2F7"
+        1: "#F7FAFC",
+        2: "#EDF2F7",
+        3: "#E2E8F0",
+        4: "#CBD5E0",
+        5: "#A0AEC0",
+        6: "#718096",
+        7: "#4A5568",
+        8: "#2D3748",
+        9: "#1A202C",
+        10: "#171923"
       },
       primary: {
-        light: "#FFE6D9",
         DEFAULT: "#FF855F",
-        dark: "#B34630"
+        1: "#FFF6F0",
+        2: "#FFE6D9",
+        3: "#FFE6D9",
+        4: "#FFC8B0",
+        5: "#FFA787",
+        6: "#FF855F",
+        7: "#D96345",
+        8: "#B34630",
+        9: "#8C2D1F",
+        10: "#661D15"
       },
       red: {
-        light: "#FFCCC7",
         DEFAULT: "#FF4D4F",
-        dark: "#A8071A"
+        1: "#FFF1F0",
+        2: "#FFCCC7",
+        3: "#FFA39E",
+        4: "#FF7875",
+        5: "#FF4D4F",
+        6: "#F5222D",
+        7: "#CF1322",
+        8: "#A8071A",
+        9: "#820014",
+        10: "#5C0011"
       },
       yellow: {
-        light: "#FFF1B8",
         DEFAULT: "#FFC53D",
-        dark: "#D48806"
+        1: "#FFFBE6",
+        2: "#FFF1B8",
+        3: "#FFE58F",
+        4: "#FFD666",
+        5: "#FFC53D",
+        6: "#FAAD14",
+        7: "#D48806",
+        8: "#AD6800",
+        9: "#874D00",
+        10: "#613400"
       },
       green: {
-        light: "#E6F5ED",
         DEFAULT: "#3EB489",
-        dark: "#0D4234"
+        1: "#E6F5ED",
+        2: "#E6F5ED",
+        3: "#DAE8E1",
+        4: "#B4DBC9",
+        5: "#61C29B",
+        6: "#3EB489",
+        7: "#298F6D",
+        8: "#196951",
+        9: "#0D4234",
+        10: "#051C17"
       },
       blue: {
-        light: "#DEE8FF",
         DEFAULT: "#6182F9",
-        dark: "#161D61",
+        1: "#F0F6FF",
+        2: "#F0F5FF",
+        3: "#DEE8FF",
+        4: "#B5CAFF",
+        5: "#8CA9FF",
+        6: "#6182F9",
+        7: "#6182F9",
+        8: "#3245AD",
+        9: "#202C87",
+        10: "#161D61",
         11: "#090C2F"
       },
       indigo: colors.indigo,
@@ -57,6 +105,7 @@ module.exports = {
     spacing: {
       px: "1px",
       0: "0px",
+      0.25: "0.125rem",
       0.5: "0.25rem",
       1: "0.5rem",
       1.5: "0.75rem",
@@ -150,15 +199,15 @@ module.exports = {
       DEFAULT: "1px",
       0: "0px",
       2: "2px",
+      3: "3px",
       4: "4px",
       8: "8px"
     },
     boxShadow: {
-      sm: "0px 2px 20px rgba(0, 0, 0, 0.08)",
-      DEFAULT:
-        "4px 2px 20px rgba(0, 0, 0, 0.02), 0px 10px 30px rgba(0, 0, 0, 0.1)",
-      md: "4px 2px 20px rgba(0, 0, 0, 0.02), 0px 10px 30px rgba(0, 0, 0, 0.1)",
-      lg: "8px 2px 30px rgba(0, 0, 0, 0.08), 0px 4px 40px rgba(0, 0, 0, 0.12)",
+      sm: "0px 4px 20px rgba(0, 0, 0, 0.08)",
+      DEFAULT: "0px 8px 20px rgba(0, 0, 0, 0.12)",
+      md: "0px 8px 20px rgba(0, 0, 0, 0.12)",
+      lg: "0px 16px 30px rgba(0, 0, 0, 0.16)",
       xl:
         "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
       "2xl": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
@@ -247,8 +296,8 @@ module.exports = {
       ]
     },
     fontSize: {
-      xs: ["0.625rem", { lineHeight: "1.125rem" }],
-      sm: ["0.75rem", { lineHeight: "1.25rem" }],
+      xs: ["0.5rem", { lineHeight: "0.75rem" }],
+      sm: ["0.75rem", { lineHeight: "1rem" }],
       base: ["0.875rem", { lineHeight: "1.375rem" }],
       lg: ["1rem", { lineHeight: "1.5rem" }],
       xl: ["1.25rem", { lineHeight: "1.75rem" }],

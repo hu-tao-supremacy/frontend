@@ -1,21 +1,26 @@
 <template>
   <div class="grid grid-cols-3 rounded-2xl h-40 shadow">
-    <div class="col-span-2">
+    <div class="col-span-2 min-h-full">
       <img
         :src="imgUrl"
         alt=""
-        class="object-cover w-full h-40 rounded-l-2xl"
+        class="object-cover w-full h-full rounded-l-2xl"
       />
     </div>
-    <div class="col-span-1 flex flex-col justify-between items-center p-1.5">
+    <div class="col-span-1 flex flex-col justify-between items-center p-2">
       <section>
-        <h3 class="text-2xl font-heading text-blue-dark mb-1">
+        <h3 class="text-2xl font-heading text-blue-10 mb-1">
           {{ eventTitle }}
         </h3>
-        <div class="flex gap-1 mb-1">
-          <base-tag v-for="tag in tags" :key="tag">{{ tag }}</base-tag>
+        <div class="flex mb-2 items-center">
+          <base-tag
+            v-for="(tag, index) in tags"
+            :key="tag"
+            :class="index === tags.length - 1 ? '' : 'mr-1'"
+            >{{ tag }}</base-tag
+          >
         </div>
-        <div class="text-sm text-left mb-1 w-full event-description">
+        <div class="text-sm mb-1 w-full event-description">
           {{ eventDescription }}
         </div>
         <div class="flex items-center mb-1">
@@ -54,14 +59,15 @@
   </div>
 </template>
 
-<script>
-import BaseButton from "../../../commons/UI/BaseButton.vue";
+<script lang="ts">
+import { defineComponent } from "vue";
+import BaseButton from "@/commons/UI/BaseButton.vue";
 import BaseTag from "./BaseTag.vue";
-import PinIcon from "../../../assets/MapPin.vue";
-import ClockIcon from "../../../assets/Clock.vue";
-import CalendarIcon from "../../../assets/Calendar.vue";
+import PinIcon from "@/assets/MapPin.vue";
+import ClockIcon from "@/assets/Clock.vue";
+import CalendarIcon from "@/assets/Calendar.vue";
 
-export default {
+export default defineComponent({
   components: {
     BaseButton,
     BaseTag,
@@ -71,7 +77,7 @@ export default {
   },
   setup() {
     const eventTitle = "Event Title";
-    const tags = ["Tech", "Math", "Science"];
+    const tags = ["Engineering", "Food", "Education"];
     const eventDescription =
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer velnisi eu ipsum elementum sollicitudin. Suspendisse aliquam arcu quis cursus cursus. Nulla sollicitudin ut felis sit amet blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel nisi euipsum elementum sollicitudin. Suspendisse aliquam arcu quis cursus          cursus. Nulla sollicitudin ut felis sit amet blandit.";
     const imgUrl = "https://picsum.photos/1000";
@@ -89,7 +95,7 @@ export default {
       eventLocation
     };
   }
-};
+});
 </script>
 
 <style scoped>

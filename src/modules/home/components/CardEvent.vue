@@ -12,14 +12,16 @@
     </div>
     <div class="event-detail-container h-10 w-full flex rounded-b-lg bg-blue">
       <div class="w-1"></div>
-      <div class="event-detail w-26 flex flex-col items-start bg-white px-2 py-1 rounded-br-lg ">
-          <div class="event-duration text-primary">{{ eventTime }}</div>
-          <div class="event-name w-full font-heading text-xl leading-6 truncate">
-            {{ eventTitle }}
-          </div>
-          <div class="event-faculty w-full text-blue-10 truncate">
-            {{ eventFaculty }}
-          </div>
+      <div
+        class="event-detail w-26 flex flex-col items-start bg-white px-2 py-1 rounded-br-lg "
+      >
+        <div class="event-duration text-primary">{{ eventTime }}</div>
+        <div class="event-name w-full font-heading text-xl leading-6 truncate">
+          {{ eventTitle }}
+        </div>
+        <div class="event-faculty w-full text-blue-10 truncate">
+          {{ eventFaculty }}
+        </div>
       </div>
     </div>
   </div>

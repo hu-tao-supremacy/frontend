@@ -1,13 +1,13 @@
 <template>
   <div
-    class="h-12 text-center relative from-transparent bg-gradient-to-b select-none cursor-pointer"
+    class="h-12 w-16 text-center relative from-transparent bg-gradient-to-b select-none cursor-pointer rounded-lg shadow-md"
     :class="gradientColor"
     @click="toggleSelect"
   >
     <img
       :src="imgUrl"
       alt=""
-      class="h-full object-cover w-full relative interest-image"
+      class="h-full object-cover w-full relative interest-image rounded-lg"
     />
     <caption class="absolute bottom-1 text-white w-full font-bold">
       {{
@@ -15,7 +15,6 @@
       }}
     </caption>
   </div>
-  <PageFooter />
 </template>
 
 <script lang="ts">

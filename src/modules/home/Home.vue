@@ -4,11 +4,11 @@
   <CardBanner :style="{ width: '960px' }" />
   <CardOrganization class="w-28" />
   <CardOrganization class="w-28" />
-  <br>
-  <CardRecommened/>
-  <br>
-  <CardEvent/>
-  <br>
+  <br />
+  <CardRecommened />
+  <br />
+  <CardEvent />
+  <br />
   <CardInterest class="w-16" />
 </template>
 

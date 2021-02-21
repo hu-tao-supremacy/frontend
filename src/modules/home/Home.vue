@@ -8,6 +8,7 @@
   <CardRecommened/>
   <br>
   <CardEvent/>
+  <CardInterest class="w-16" />
 </template>
 
 <script lang="ts">
@@ -16,12 +17,14 @@ import CardBanner from "./components/CardBanner.vue";
 import CardEvent from "./components/card-event/index.vue";
 import CardRecommened from "./components/card-recommended/index.vue";
 import CardOrganization from "./components/CardOrganization.vue";
+import CardInterest from "./components/CardInterest.vue";
 export default defineComponent({
   components: {
     CardBanner,
     CardEvent,
     CardRecommened,
-    CardOrganization
+    CardOrganization,
+    CardInterest
   }
 });
 </script>

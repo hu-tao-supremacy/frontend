@@ -4,7 +4,7 @@
   <CardBanner :style="{ width: '960px' }" />
   <CardOrganization class="w-28" />
   <CardOrganization class="w-28" />
-  <CardInterest class="w-16"/>
+  <CardInterest class="w-16" />
 </template>
 
 <script lang="ts">

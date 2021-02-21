@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-12 text-center relative from-transparent bg-gradient-to-b select-none"
+    class="h-12 text-center relative from-transparent bg-gradient-to-b select-none cursor-pointer"
     :class="gradientColor"
     @click="toggleSelect"
   >
@@ -15,12 +15,14 @@
       }}
     </caption>
   </div>
+  <PageFooter />
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, computed } from "vue";
 
 export default defineComponent({
+  name: "CardInterest",
   setup() {
     const imgUrl = "https://picsum.photos/400";
     const interestName = "Music & Festival";
@@ -34,6 +36,7 @@ export default defineComponent({
       if (isSelected.value) return "to-primary";
       return "to-gray-10-0.75";
     });
+
     return { imgUrl, interestName, gradientColor, toggleSelect };
   }
 });

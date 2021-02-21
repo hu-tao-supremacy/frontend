@@ -29,6 +29,7 @@ import ChevronsUpIcon from "@/assets/ChevronsUp.vue";
 import BaseTransparentButton from "@/commons/UI/BaseTransparentButton.vue";
 
 export default defineComponent({
+  name: "PageFooter",
   components: {
     ChevronsUpIcon,
     BaseTransparentButton

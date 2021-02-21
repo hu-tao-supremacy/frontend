@@ -68,6 +68,7 @@ import ClockIcon from "@/assets/Clock.vue";
 import CalendarIcon from "@/assets/Calendar.vue";
 
 export default defineComponent({
+  name: "CardBanner",
   components: {
     BaseButton,
     BaseTag,

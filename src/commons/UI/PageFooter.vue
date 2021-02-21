@@ -4,30 +4,33 @@
     <div
       class="col-span-2 flex flex-col items-center text-center py-3 justify-center"
     >
-      <img src="@/assets/one-pass-logo.svg" class="h-5 mb-1" />
+      <img src="@/assets/one-pass-logo-white.png" class="h-5 mb-1" />
       <div class="w-0.5 h-2 bg-white mb-1 rounded-sm"></div>
-      <p class="font-heading text-xl text-primary">HU TAO SUPREMACY</p>
+      <p class="font-heading text-xl text-primary">
+        HU TAO SUPREMACY
+      </p>
     </div>
     <div
       class="flex flex-col items-end justify-between text-right text-white pr-3 py-1"
     >
-      <div class="flex items-center">
+      <base-transparent-button class="flex items-center group">
         Back to the top
-        <base-icon width="16px" height="16px" class="ml-1" iconColor="#FF855F"
-          ><ChevronsUpIcon
-        /></base-icon>
-      </div>
-      <div><span class="text-primary">contact :</span> supanut@onepass.app</div>
+        <span class="text-primary ml-1 group-hover:text-primary-5"
+          ><base-icon width="16px" height="16px"><ChevronsUpIcon /></base-icon
+        ></span>
+      </base-transparent-button>
     </div>
   </footer>
 </template>
 
 <script>
 import ChevronsUpIcon from "@/assets/ChevronsUp.vue";
+import BaseTransparentButton from "@/commons/UI/BaseTransparentButton.vue";
 
 export default {
   components: {
-    ChevronsUpIcon
+    ChevronsUpIcon,
+    BaseTransparentButton
   }
 };
 </script>

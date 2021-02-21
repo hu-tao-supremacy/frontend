@@ -17,8 +17,6 @@
 </template>
 
 <script>
-import { computed } from "vue";
-
 export default {
   setup() {
     const imgUrl =

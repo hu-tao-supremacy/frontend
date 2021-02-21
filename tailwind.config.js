@@ -22,12 +22,16 @@ module.exports = {
       gray: {
         light: "#FFFFFF",
         DEFAULT: "#F7FAFC",
-        dark: "#EDF2F7"
+        dark: "#EDF2F7",
+        5: "#A0AEC0"
       },
       primary: {
         light: "#FFE6D9",
         DEFAULT: "#FF855F",
-        dark: "#B34630"
+        dark: "#B34630",
+        4: "#FFC8B0",
+        5: "#FFA787",
+        7: "#D96345"
       },
       red: {
         light: "#FFCCC7",
@@ -151,15 +155,15 @@ module.exports = {
       DEFAULT: "1px",
       0: "0px",
       2: "2px",
+      3: "3px",
       4: "4px",
       8: "8px"
     },
     boxShadow: {
-      sm: "0px 2px 20px rgba(0, 0, 0, 0.08)",
-      DEFAULT:
-        "4px 2px 20px rgba(0, 0, 0, 0.02), 0px 10px 30px rgba(0, 0, 0, 0.1)",
-      md: "4px 2px 20px rgba(0, 0, 0, 0.02), 0px 10px 30px rgba(0, 0, 0, 0.1)",
-      lg: "8px 2px 30px rgba(0, 0, 0, 0.08), 0px 4px 40px rgba(0, 0, 0, 0.12)",
+      sm: "0px 4px 20px rgba(0, 0, 0, 0.08)",
+      DEFAULT: "0px 8px 20px rgba(0, 0, 0, 0.12)",
+      md: "0px 8px 20px rgba(0, 0, 0, 0.12)",
+      lg: "0px 16px 30px rgba(0, 0, 0, 0.16)",
       xl:
         "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
       "2xl": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",

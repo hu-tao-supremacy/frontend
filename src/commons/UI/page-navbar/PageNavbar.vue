@@ -24,11 +24,12 @@
       >
         Events
       </nav>
-      <nav
+      <router-link
+        to="/test"
         class="font-heading text-primary hover:text-primary-7 text-lg cursor-pointer"
       >
         About One Pass
-      </nav>
+      </router-link>
     </section>
     <base-button class="sign-in-btn w-16" @click="login" v-if="!isLogIn"
       >Login / Signup</base-button

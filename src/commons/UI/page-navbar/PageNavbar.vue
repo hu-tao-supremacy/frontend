@@ -3,11 +3,12 @@
     class="flex justify-between h-8 w-full px-8 py-2 items-center sticky top-0 bg-white z-50"
   >
     <section class="flex items-center">
-      <img
-        src="@/assets/one-pass-logo-color.png"
-        alt=""
-        class="w-20 h-5 mr-6"
-      />
+      <router-link to="/"
+        ><img
+          src="@/assets/one-pass-logo-color.png"
+          alt=""
+          class="w-20 h-5 mr-6"
+      /></router-link>
       <div class="flex items-center mr-6">
         <input
           type="text"
@@ -19,11 +20,12 @@
           ><base-icon width="12.5px" height="12.5px"><SearchIcon /></base-icon
         ></base-button>
       </div>
-      <nav
+      <router-link
+        to="/"
         class="font-heading text-primary hover:text-primary-7 text-lg mr-6 cursor-pointer"
       >
         Events
-      </nav>
+      </router-link>
       <router-link
         to="/test"
         class="font-heading text-primary hover:text-primary-7 text-lg cursor-pointer"

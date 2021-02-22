@@ -50,18 +50,22 @@
 import { defineComponent } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import ArrowRightIcon from "@/assets/ArrowRight.vue";
+import useCardRecommended from "./useCardRecommended";
+
 export default defineComponent({
   components: {
     BaseButton,
     ArrowRightIcon
   },
   setup() {
-    const eventTitle = "Chula Collective Investmentnlkjnknlkmlk";
-    const imgUrl = "https://picsum.photos/400/500";
-    const eventDay = "15";
-    const eventMonth = "Feb";
-    const eventTime = "10:00-18:00";
-    const eventFaculty = "Faculty of Engineering";
+    const {
+      imgUrl,
+      eventTitle,
+      eventDay,
+      eventMonth,
+      eventTime,
+      eventFaculty
+    } = useCardRecommended();
 
     return {
       imgUrl,

@@ -1,6 +1,6 @@
 <template>
   <transition :name="dir">
-    <div v-show="visible">
+    <div v-show="visible" class="absolute inset-0">
       <slot></slot>
     </div>
   </transition>

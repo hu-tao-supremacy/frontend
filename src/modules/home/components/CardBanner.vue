@@ -76,8 +76,13 @@ export default defineComponent({
     CalendarIcon,
     ClockIcon
   },
+  props: {
+    eventTitle: {
+      type: String,
+      default: "Event Title"
+    }
+  },
   setup() {
-    const eventTitle = "Event Title";
     const tags = ["Engineering", "Food", "Education"];
     const eventDescription =
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer velnisi eu ipsum elementum sollicitudin. Suspendisse aliquam arcu quis cursus cursus. Nulla sollicitudin ut felis sit amet blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel nisi euipsum elementum sollicitudin. Suspendisse aliquam arcu quis cursus          cursus. Nulla sollicitudin ut felis sit amet blandit.";
@@ -88,7 +93,6 @@ export default defineComponent({
 
     return {
       imgUrl,
-      eventTitle,
       tags,
       eventDescription,
       eventDate,

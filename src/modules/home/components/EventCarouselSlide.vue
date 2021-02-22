@@ -1,10 +1,9 @@
 <template>
-  <h1>Hi</h1>
-  <!-- <transition :name="transitionAnimation">
+  <transition :name="transitionAnimation">
     <div v-show="isVisible">
       <slot></slot>
     </div>
-  </transition> -->
+  </transition>
 </template>
 
 <script lang="ts">
@@ -21,7 +20,7 @@ export default defineComponent({
     },
     transitionAnimation: {
       type: String,
-      default: "slide-down-enter-active"
+      default: "slide-down"
     }
   },
   setup(props) {

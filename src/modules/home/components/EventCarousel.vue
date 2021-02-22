@@ -46,7 +46,13 @@ export default defineComponent({
     EventCarouselSlide
   },
   setup() {
-    return useEventCarousel();
+    const {
+      testEventProps,
+      currentIndex,
+      transitionAnimation,
+      changeSlide
+    } = useEventCarousel();
+    return { testEventProps, currentIndex, transitionAnimation, changeSlide };
   }
 });
 </script>

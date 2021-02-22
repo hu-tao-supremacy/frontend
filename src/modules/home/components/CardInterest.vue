@@ -9,11 +9,9 @@
       alt=""
       class="h-full object-cover w-full relative interest-image rounded-lg"
     />
-    <caption class="absolute bottom-1 text-white w-full font-bold">
-      {{
-        interestName
-      }}
-    </caption>
+    <header class="absolute bottom-1 text-white w-full font-bold">
+      {{ interestName }}
+    </header>
   </div>
 </template>
 

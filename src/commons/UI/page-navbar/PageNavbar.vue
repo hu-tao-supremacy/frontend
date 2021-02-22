@@ -47,9 +47,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
-import BaseButton from "./BaseButton.vue";
+import { defineComponent } from "vue";
+import BaseButton from "@/commons/UI/BaseButton.vue";
 import SearchIcon from "@/assets/Search.vue";
+import usePageNavbar from "./usePageNavbar";
 
 export default defineComponent({
   name: "PageNavbar",
@@ -58,15 +59,7 @@ export default defineComponent({
     SearchIcon
   },
   setup() {
-    const isLogIn = ref(false);
-    const imgUrl = "https://picsum.photos/50";
-    const fname = "Supanut ";
-    const lname = "Phonampai";
-    const nameShown = fname + lname.charAt(0) + ".";
-
-    function login() {
-      isLogIn.value = true;
-    }
+    const { isLogIn, login, imgUrl, nameShown } = usePageNavbar();
 
     return { isLogIn, login, imgUrl, nameShown };
   }

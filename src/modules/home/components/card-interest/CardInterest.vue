@@ -16,23 +16,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed } from "vue";
+import { defineComponent } from "vue";
+import useCardInterest from "./useCardInterest";
 
 export default defineComponent({
   name: "CardInterest",
   setup() {
-    const imgUrl = "https://picsum.photos/400";
-    const interestName = "Music & Festival";
-    const isSelected = ref(false);
-
-    function toggleSelect() {
-      isSelected.value = !isSelected.value;
-    }
-
-    const gradientColor = computed(() => {
-      if (isSelected.value) return "to-primary";
-      return "to-gray-10-0.75";
-    });
+    const {
+      imgUrl,
+      interestName,
+      gradientColor,
+      toggleSelect
+    } = useCardInterest();
 
     return { imgUrl, interestName, gradientColor, toggleSelect };
   }

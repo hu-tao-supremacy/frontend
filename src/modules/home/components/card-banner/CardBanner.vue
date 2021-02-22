@@ -58,10 +58,11 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
-import BaseTag from "./BaseTag.vue";
+import BaseTag from "../BaseTag.vue";
 import PinIcon from "@/assets/MapPin.vue";
 import ClockIcon from "@/assets/Clock.vue";
 import CalendarIcon from "@/assets/Calendar.vue";
+import useCardBanner from "./useCardBanner";
 
 export default defineComponent({
   name: "CardBanner",
@@ -79,13 +80,14 @@ export default defineComponent({
     }
   },
   setup() {
-    const tags = ["Engineering", "Food", "Education"];
-    const eventDescription =
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer velnisi eu ipsum elementum sollicitudin. Suspendisse aliquam arcu quis cursus cursus. Nulla sollicitudin ut felis sit amet blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel nisi euipsum elementum sollicitudin. Suspendisse aliquam arcu quis cursus          cursus. Nulla sollicitudin ut felis sit amet blandit.";
-    const imgUrl = "https://picsum.photos/1000";
-    const eventDate = "Sun, 14 Feb - 16 April";
-    const eventTime = "10:00 - 18:00";
-    const eventLocation = "Engineering Faculty, Chula";
+    const {
+      imgUrl,
+      tags,
+      eventDescription,
+      eventDate,
+      eventTime,
+      eventLocation
+    } = useCardBanner();
 
     return {
       imgUrl,

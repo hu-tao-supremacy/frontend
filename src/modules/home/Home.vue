@@ -21,12 +21,12 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import CardBanner from "./components/CardBanner.vue";
-import CardEvent from "./components/CardEvent.vue";
-import CardRecommened from "./components/CardRecommended.vue";
-import CardOrganization from "./components/CardOrganization.vue";
-import CardInterest from "./components/CardInterest.vue";
-import EventCarousel from "./components/EventCarousel.vue";
+import CardBanner from "./components/card-banner/CardBanner.vue";
+import CardEvent from "./components/card-event/CardEvent.vue";
+import CardRecommened from "./components/card-recommended/CardRecommended.vue";
+import CardOrganization from "./components/card-organization/CardOrganization.vue";
+import CardInterest from "./components/card-interest/CardInterest.vue";
+import EventCarousel from "./components/event-carousel/EventCarousel.vue";
 import BaseModal from "@/commons/UI/BaseModal.vue";
 
 export default defineComponent({

@@ -1,6 +1,7 @@
 <template>
   <!-- Will change sizing when use for real -->
   <CardBanner :style="{ width: '960px' }" />
+  <EventCarousel />
   <CardOrganization class="w-28" />
   <CardOrganization class="w-28" />
   <br />
@@ -18,6 +19,7 @@ import CardEvent from "./components/CardEvent.vue";
 import CardRecommened from "./components/CardRecommended.vue";
 import CardOrganization from "./components/CardOrganization.vue";
 import CardInterest from "./components/CardInterest.vue";
+import EventCarousel from "./components/EventCarousel.vue";
 
 export default defineComponent({
   components: {
@@ -25,7 +27,8 @@ export default defineComponent({
     CardEvent,
     CardRecommened,
     CardOrganization,
-    CardInterest
+    CardInterest,
+    EventCarousel
   }
 });
 </script>

@@ -1,11 +1,7 @@
 <template>
-  <div class="grid grid-cols-3 rounded-2xl h-40 shadow">
+  <div class="grid grid-cols-3 h-40">
     <div class="col-span-2 min-h-full">
-      <img
-        :src="imgUrl"
-        alt=""
-        class="object-cover w-full h-full rounded-l-2xl"
-      />
+      <img :src="imgUrl" alt="" class="object-cover w-full h-full" />
     </div>
     <div class="col-span-1 flex flex-col justify-between items-center p-2">
       <section>

@@ -1,6 +1,9 @@
 <template>
   <!-- Will change sizing when use for real -->
-  <CardBanner :style="{ width: '960px' }" />
+  <CardBanner
+    :style="{ width: '960px' }"
+    class="rounded-2xl shadow overflow-hidden"
+  />
   <EventCarousel />
   <CardOrganization class="w-28" />
   <CardOrganization class="w-28" />

@@ -1,5 +1,5 @@
 <template>
-  <div class="relative overflow-hidden h-40 w-120 z-20">
+  <div class="relative rounded-2xl overflow-hidden h-40 w-120 z-20 shadow">
     <event-carousel-slide
       v-for="(event, slideIndex) in testEventProps"
       :key="event.eventTitle"
@@ -14,13 +14,19 @@
         v-for="index in indexRange"
         :key="index"
         @click="changeSlide(index)"
-        class="carousel-dot bg-white"
+        class="w-1"
         :class="{
-          'h-3': index === currentIndex,
-          'h-2 bg-opacity-30': index !== currentIndex,
           'carousel-gap': index !== 3
         }"
-      ></div>
+      >
+        <div
+          class="carousel-dot bg-white"
+          :class="{
+            'h-3': index === currentIndex,
+            'h-2 bg-opacity-30': index !== currentIndex
+          }"
+        ></div>
+      </div>
     </section>
   </div>
 </template>
@@ -41,6 +47,7 @@ export default defineComponent({
     const currentIndex = ref(0);
     const indexRange = makeRange(4);
     const transitionAnimation = ref("");
+    let slideTimer: number | undefined;
     const testEventProps = [
       { eventTitle: "Event Title 1" },
       { eventTitle: "Event Title 2" },
@@ -48,12 +55,28 @@ export default defineComponent({
       { eventTitle: "Event Title 4" }
     ];
 
+    function startTimer() {
+      slideTimer = setInterval(function() {
+        transitionAnimation.value = "slide-down";
+        const nextSlide =
+          currentIndex.value + 1 >= 4 ? 0 : currentIndex.value + 1;
+        currentIndex.value = nextSlide;
+      }, 5000);
+    }
+    startTimer();
+
+    function resetTimer() {
+      clearInterval(slideTimer);
+      startTimer();
+    }
+
     function changeSlide(slideIndex: number) {
       if (slideIndex === currentIndex.value) return;
       else if (slideIndex > currentIndex.value)
         transitionAnimation.value = "slide-down";
       else transitionAnimation.value = "slide-up";
       currentIndex.value = slideIndex;
+      resetTimer();
     }
 
     return {
@@ -69,7 +92,6 @@ export default defineComponent({
 
 <style scoped>
 .carousel-misc {
-  width: 3px;
   height: 90px;
   top: 115px;
   bottom: 115px;

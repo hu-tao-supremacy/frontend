@@ -1,6 +1,6 @@
 <template>
   <transition :name="transitionAnimation">
-    <div v-show="isVisible">
+    <div v-show="isVisible" class="absolute inset-0 rounded-2xl">
       <slot></slot>
     </div>
   </transition>
@@ -36,17 +36,17 @@ export default defineComponent({
 
 <style scoped>
 .slide-down-enter-active {
-  animation: slide-down-in 0.5s ease-in;
+  animation: slide-down-in 0.8s ease-in-out;
 }
 .slide-down-leave-active {
-  animation: slide-down-out 0.5s ease-in;
+  animation: slide-down-out 0.8s ease-in-out;
 }
 @keyframes slide-down-in {
   from {
     transform: translateY(-100%);
   }
   to {
-    transform: translateY(0);
+    transform: translateY(0%);
   }
 }
 @keyframes slide-down-out {
@@ -59,10 +59,10 @@ export default defineComponent({
 }
 
 .slide-up-enter-active {
-  animation: slide-yp-in 0.5s ease-in;
+  animation: slide-up-in 0.8s ease-in;
 }
 .slide-up-leave-active {
-  animation: slide-yp-out 0.5s ease-in;
+  animation: slide-up-out 0.8s ease-in;
 }
 @keyframes slide-up-in {
   from {
@@ -77,7 +77,7 @@ export default defineComponent({
     transform: translateY(0%);
   }
   to {
-    transform: translateY(100%);
+    transform: translateY(-100%);
   }
 }
 </style>

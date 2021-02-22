@@ -1,5 +1,7 @@
 <template>
-  <div class="flex justify-between h-8 w-full px-8 py-2 items-center">
+  <div
+    class="flex justify-between h-8 w-full px-8 py-2 items-center sticky top-0 bg-white z-50"
+  >
     <section class="flex items-center">
       <img
         src="@/assets/one-pass-logo-color.png"

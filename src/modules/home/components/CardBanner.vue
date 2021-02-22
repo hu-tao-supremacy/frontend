@@ -1,11 +1,7 @@
 <template>
-  <div class="grid grid-cols-3 rounded-2xl h-40 shadow">
+  <div class="grid grid-cols-3 h-40">
     <div class="col-span-2 min-h-full">
-      <img
-        :src="imgUrl"
-        alt=""
-        class="object-cover w-full h-full rounded-l-2xl"
-      />
+      <img :src="imgUrl" alt="" class="object-cover w-full h-full" />
     </div>
     <div class="col-span-1 flex flex-col justify-between items-center p-2">
       <section>
@@ -76,8 +72,13 @@ export default defineComponent({
     CalendarIcon,
     ClockIcon
   },
+  props: {
+    eventTitle: {
+      type: String,
+      default: "Event Title"
+    }
+  },
   setup() {
-    const eventTitle = "Event Title";
     const tags = ["Engineering", "Food", "Education"];
     const eventDescription =
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer velnisi eu ipsum elementum sollicitudin. Suspendisse aliquam arcu quis cursus cursus. Nulla sollicitudin ut felis sit amet blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel nisi euipsum elementum sollicitudin. Suspendisse aliquam arcu quis cursus          cursus. Nulla sollicitudin ut felis sit amet blandit.";
@@ -88,7 +89,6 @@ export default defineComponent({
 
     return {
       imgUrl,
-      eventTitle,
       tags,
       eventDescription,
       eventDate,

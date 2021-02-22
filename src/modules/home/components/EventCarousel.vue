@@ -9,33 +9,35 @@
     >
       <CardBanner class="w-full" :eventTitle="event.eventTitle" />
     </event-carousel-slide>
-    <section class="carousel-misc absolute z-10">
-      <div
-        v-for="index in indexRange"
-        :key="index"
-        @click="changeSlide(index)"
-        class="w-1"
-        :class="{
-          'carousel-gap': index !== 3
-        }"
-      >
+    <section class="carousel-misc absolute z-10 h-full flex items-center">
+      <div>
         <div
-          class="carousel-dot bg-white"
+          v-for="(_, index) in testEventProps"
+          :key="index"
+          @click="changeSlide(index)"
+          class="w-3 flex flex-col items-center cursor-pointer"
           :class="{
-            'h-3': index === currentIndex,
-            'h-2 bg-opacity-30': index !== currentIndex
+            'carousel-gap': index !== testEventProps.length - 1
           }"
-        ></div>
+        >
+          <div
+            class="carousel-dot bg-white"
+            :class="{
+              'h-3': index === currentIndex,
+              'h-2 bg-opacity-30': index !== currentIndex
+            }"
+          ></div>
+        </div>
       </div>
     </section>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
 import CardBanner from "./CardBanner.vue";
 import EventCarouselSlide from "./EventCarouselSlide.vue";
-import makeRange from "@/commons/utils/range.ts";
+import useEventCarousel from "./use-functions/useEventCarousel";
 
 export default defineComponent({
   name: "EventCarousel",
@@ -44,57 +46,14 @@ export default defineComponent({
     EventCarouselSlide
   },
   setup() {
-    const currentIndex = ref(0);
-    const indexRange = makeRange(4);
-    const transitionAnimation = ref("");
-    let slideTimer: number | undefined;
-    const testEventProps = [
-      { eventTitle: "Event Title 1" },
-      { eventTitle: "Event Title 2" },
-      { eventTitle: "Event Title 3" },
-      { eventTitle: "Event Title 4" }
-    ];
-
-    function startTimer() {
-      slideTimer = setInterval(function() {
-        transitionAnimation.value = "slide-down";
-        const nextSlide =
-          currentIndex.value + 1 >= 4 ? 0 : currentIndex.value + 1;
-        currentIndex.value = nextSlide;
-      }, 5000);
-    }
-    startTimer();
-
-    function resetTimer() {
-      clearInterval(slideTimer);
-      startTimer();
-    }
-
-    function changeSlide(slideIndex: number) {
-      if (slideIndex === currentIndex.value) return;
-      else if (slideIndex > currentIndex.value)
-        transitionAnimation.value = "slide-down";
-      else transitionAnimation.value = "slide-up";
-      currentIndex.value = slideIndex;
-      resetTimer();
-    }
-
-    return {
-      testEventProps,
-      currentIndex,
-      transitionAnimation,
-      changeSlide,
-      indexRange
-    };
+    return useEventCarousel();
   }
 });
 </script>
 
 <style scoped>
 .carousel-misc {
-  height: 90px;
-  top: 115px;
-  bottom: 115px;
+  top: 0%;
   left: 16px;
 }
 

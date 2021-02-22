@@ -25,8 +25,7 @@ export default defineComponent({
   },
   setup(props) {
     const isVisible = computed(function() {
-      if (props.currentIndex === props.slideIndex) return true;
-      return false;
+      return props.currentIndex === props.slideIndex;
     });
 
     return { isVisible };

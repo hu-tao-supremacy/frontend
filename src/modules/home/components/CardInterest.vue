@@ -20,9 +20,11 @@ import { defineComponent, ref, computed } from "vue";
 
 export default defineComponent({
   name: "CardInterest",
+  props :{
+    imgUrl: { type: String },
+    interestName: { type: String, default: "CU" },
+  },
   setup() {
-    const imgUrl = "https://picsum.photos/400";
-    const interestName = "Music & Festival";
     const isSelected = ref(false);
 
     function toggleSelect() {
@@ -34,7 +36,7 @@ export default defineComponent({
       return "to-gray-10-0.75";
     });
 
-    return { imgUrl, interestName, gradientColor, toggleSelect };
+    return { gradientColor, toggleSelect };
   }
 });
 </script>

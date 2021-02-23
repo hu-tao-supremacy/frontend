@@ -2,12 +2,21 @@
   <div class="relative rounded-2xl overflow-hidden h-40 w-120 z-20 shadow">
     <event-carousel-slide
       v-for="(event, slideIndex) in testEventProps"
-      :key="event.eventTitle"
+      :key="event.title"
       :slideIndex="slideIndex"
       :currentIndex="currentIndex"
       :transitionAnimation="transitionAnimation"
     >
-      <CardBanner class="w-full" :eventTitle="event.eventTitle" />
+      <CardBanner
+        class="w-full"
+        :eventTitle="event.title"
+        :tags="event.tags"
+        :eventDescription="event.description"
+        :eventDate="event.date"
+        :eventLocation="event.location"
+        :eventTime="event.time"
+        :imgUrl="event.img"
+      />
     </event-carousel-slide>
     <section class="carousel-misc absolute z-10 h-full flex items-center">
       <div>
@@ -45,13 +54,19 @@ export default defineComponent({
     CardBanner,
     EventCarouselSlide
   },
-  setup() {
+  props: {
+    eventList: {
+      type: Array,
+      default: () => [{}, {}, {}, {}]
+    }
+  },
+  setup(props) {
     const {
       testEventProps,
       currentIndex,
       transitionAnimation,
       changeSlide
-    } = useEventCarousel();
+    } = useEventCarousel(props.eventList);
     return { testEventProps, currentIndex, transitionAnimation, changeSlide };
   }
 });

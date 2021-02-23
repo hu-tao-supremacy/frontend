@@ -1,7 +1,6 @@
 <template>
   <div class="grid grid-cols-3 h-40">
     <div class="col-span-2 min-h-full">
-      <!-- <img :src="imgUrl" alt="" class="object-cover w-full h-full" /> -->
       <LazyImage
         :width="1000"
         :height="1000"

@@ -3,6 +3,7 @@
   <ModalSignUp v-if="showSignUpModal" @close-modal="toggleModal('signup')" />
   <base-button @click="toggleModal('login')">Show Log In Modal</base-button>
   <ModalLogIn v-if="showLogInModal" @close-modal="toggleModal('login')" />
+  <InfoBanner />
 </template>
 
 <script lang="ts">
@@ -10,13 +11,15 @@ import { defineComponent, ref } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import ModalSignUp from "./modal-sign-up/ModalSignUp.vue";
 import ModalLogIn from "./modal-log-in/ModalLogIn.vue";
+import InfoBanner from "@/modules/event-info/InfoBanner.vue";
 
 export default defineComponent({
   name: "TestPage",
   components: {
     ModalSignUp,
     BaseButton,
-    ModalLogIn
+    ModalLogIn,
+    InfoBanner
   },
   setup() {
     const showSignUpModal = ref(false);

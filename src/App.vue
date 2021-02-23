@@ -17,3 +17,17 @@ export default defineComponent({
   }
 });
 </script>
+
+<style>
+.modal-authen-inner-container-width {
+  width: 442px;
+}
+
+.modal-authen-btn-width {
+  width: 130px;
+}
+
+.modal-authen-text-input-height {
+  height: 30px;
+}
+</style>

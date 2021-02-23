@@ -1,17 +1,17 @@
 <template>
-  <div class="grid grid-cols-9 rounded-lg shadow-sm h-12 w-28">
+  <div class="card-org grid grid-cols-9 rounded-lg shadow-sm h-12">
     <div class="col-span-4 min-h-full">
       <img
-        :src="imgUrl"
+        :src="orgs.img"
         alt=""
         class="object-cover w-full h-full rounded-l-lg"
       />
     </div>
     <div class="col-span-5 flex flex-col px-1 py-0.5">
       <div class="font-heading mb-0.25" :class="orgShortNameTextSize">
-        {{ orgShortName }}
+        {{ orgs.shortName }}
       </div>
-      <div class="text-xs w-full org-description">{{ orgFullName }}</div>
+      <div class="text-xs w-full org-description">{{ orgs.fullName }}</div>
     </div>
   </div>
 </template>
@@ -22,6 +22,12 @@ import useCardOrganization from "./useCardOrganization";
 
 export default defineComponent({
   name: "CardOrganization",
+  props: {
+    orgs: {
+      required: true,
+      type: Object
+    }
+  },
   setup() {
     const {
       imgUrl,
@@ -31,9 +37,6 @@ export default defineComponent({
     } = useCardOrganization();
 
     return {
-      imgUrl,
-      orgShortName,
-      orgFullName,
       orgShortNameTextSize
     };
   }
@@ -41,6 +44,9 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.card-org {
+  width: 216px;
+}
 .org-description {
   display: -webkit-box;
   -webkit-line-clamp: 4;

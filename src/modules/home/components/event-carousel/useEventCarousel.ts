@@ -1,15 +1,10 @@
 import { ref } from "vue";
 
-export default function useEventCarousel() {
+export default function useEventCarousel(events: any) {
   const currentIndex = ref(0);
   const transitionAnimation = ref("");
   let slideTimer: number | undefined;
-  const testEventProps = [
-    { eventTitle: "Event Title 1" },
-    { eventTitle: "Event Title 2" },
-    { eventTitle: "Event Title 3" },
-    { eventTitle: "Event Title 4" }
-  ];
+  const testEventProps = events;
 
   function startTimer() {
     slideTimer = setInterval(function() {

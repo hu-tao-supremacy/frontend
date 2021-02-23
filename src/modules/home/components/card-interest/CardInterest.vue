@@ -21,6 +21,10 @@ import useCardInterest from "./useCardInterest";
 
 export default defineComponent({
   name: "CardInterest",
+  props :{
+    imgUrl: { type: String },
+    interestName: { type: String, default: "CU" },
+  },
   setup() {
     const {
       imgUrl,
@@ -29,7 +33,7 @@ export default defineComponent({
       toggleSelect
     } = useCardInterest();
 
-    return { imgUrl, interestName, gradientColor, toggleSelect };
+    return { imgUrl,interestName, gradientColor, toggleSelect };
   }
 });
 </script>

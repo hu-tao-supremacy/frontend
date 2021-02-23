@@ -77,6 +77,28 @@ export default defineComponent({
     eventTitle: {
       type: String,
       default: "Event Title"
+    },
+    eventDescription: {
+      type: String,
+      default: "Event Title"
+    },
+    tags:{
+      type: Array,
+    },
+    imgUrl: {
+      type: String
+    },
+    eventDate: {
+      type: String,
+      default: "99"
+    },
+    eventTime: {
+      type: String,
+      default: "xx:xx-xx:xx"
+    },
+    eventLocation: {
+      type: String,
+      defualt: "Chula"
     }
   },
   setup() {

@@ -16,7 +16,7 @@
         <input
           type="text"
           placeholder="input search text"
-          class="search-input w-28 h-4 rounded-r-none rounded-l-lg px-1.5 text-sm border-t border-b border-l focus:border-r border-gray-3 focus:border-primary focus:outline-none"
+          class="search-input w-28 h-4 rounded-r-none rounded-l-lg px-1.5 border-t border-b border-l focus:border-r border-gray-3 focus:border-primary focus:outline-none"
         />
         <base-button
           class="rounded-l-none h-4 w-6 shadow-sm flex justify-center items-center"

@@ -7,13 +7,13 @@
         class="object-cover w-full h-full"
       />
     </div>
-    <section class="pl-33 flex flex-col pr-8 pt-2 pb-4.5">
+    <section class="pl-33 flex flex-col pr-6 pt-2 pb-4.5">
       <h1 class="text-3xl text-blue-10 font-heading mb-1">{{ eventTitle }}</h1>
       <div class="flex flex-wrap mb-2">
         <base-tag
           v-for="eventTag in eventTags"
           :key="eventTag"
-          class="mr-1 mb-1"
+          class="mr-1 mb-1 h-2"
           >{{ eventTag }}</base-tag
         >
       </div>
@@ -38,7 +38,7 @@
           /></base-icon>
           {{ eventTime }}
         </div>
-        <div class="flex items-center mb-1">
+        <div class="flex items-center">
           <base-icon
             width="14px"
             height="14px"

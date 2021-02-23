@@ -1,28 +1,19 @@
 <template>
-  <base-modal>
-    <div class="modal-authen-inner-container-width flex flex-col">
+  <base-modal maxModalWidth="570px">
+    <div class="flex flex-col">
       <section class="mb-2">
         <h1 class="font-heading text-3xl">Log in</h1>
         <p class="text-gray-5">Powered by Chula SSO</p>
       </section>
       <section class="mb-2">
         <h2>Student Email</h2>
-        <BaseTextInput
-          class="w-full modal-authen-text-input-height"
-          type="email"
-        />
+        <BaseTextInput class="w-full h-4" type="email" />
       </section>
       <section class="mb-4">
         <h2>Password</h2>
-        <BaseTextInput
-          class="w-full modal-authen-text-input-height"
-          type="password"
-        />
+        <BaseTextInput class="w-full h-4" type="password" />
       </section>
-      <base-button
-        class="modal-authen-btn-width modal-authen-text-input-height self-center"
-        >Continue</base-button
-      >
+      <base-button class="w-16 h-4 self-center">Continue</base-button>
     </div>
   </base-modal>
 </template>

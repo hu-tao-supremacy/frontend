@@ -11,7 +11,7 @@ import { defineComponent, ref } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import ModalSignUp from "./modal-sign-up/ModalSignUp.vue";
 import ModalLogIn from "./modal-log-in/ModalLogIn.vue";
-import InfoBanner from "@/modules/event-info/InfoBanner.vue";
+import InfoBanner from "@/modules/Event-Info/info-banner/InfoBanner.vue";
 
 export default defineComponent({
   name: "TestPage",

@@ -17,8 +17,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref, toRefs } from "vue";
-import { decode } from "blurhash";
+import { defineComponent, toRefs } from "vue";
+import useLazyImage from "./useLazyImage";
 
 export default defineComponent({
   name: "LazyImage",
@@ -41,25 +41,12 @@ export default defineComponent({
   },
   setup(props) {
     const { width, height, placeholder } = toRefs(props);
-    const isloaded = ref(false);
-    const canvasRef = ref<HTMLCanvasElement | null>(null);
-
-    onMounted(() => {
-      const pixels = decode(placeholder.value, width.value, height.value);
-
-      const ctx = canvasRef?.value?.getContext("2d");
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      const imageData = ctx!.createImageData(width.value, height.value);
-      imageData?.data.set(pixels);
-      ctx?.putImageData(imageData, 0, 0);
-    });
-
-    const onLoadComplete = () => {
-      console.log("complete");
-      isloaded.value = true;
-    };
-
-    const className = `image-container ${props.class}`;
+    const { canvasRef, isloaded, onLoadComplete, className } = useLazyImage(
+      width,
+      height,
+      placeholder,
+      props.class
+    );
 
     return {
       canvasRef,

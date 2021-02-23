@@ -1,7 +1,15 @@
 <template>
   <div class="grid grid-cols-3 h-40">
     <div class="col-span-2 min-h-full">
-      <img :src="imgUrl" alt="" class="object-cover w-full h-full" />
+      <!-- <img :src="imgUrl" alt="" class="object-cover w-full h-full" /> -->
+      <LazyImage
+        :width="1000"
+        :height="1000"
+        alt="will change to api"
+        :url="imgUrl"
+        placeholder="LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+        class="object-cover w-full h-full"
+      />
     </div>
     <div class="col-span-1 flex flex-col justify-between items-center p-2">
       <section>
@@ -59,6 +67,7 @@
 import { defineComponent } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import BaseTag from "@/commons/UI/BaseTag.vue";
+import LazyImage from "@/commons/UI/LazyImage.vue";
 import PinIcon from "@/assets/MapPin.vue";
 import ClockIcon from "@/assets/Clock.vue";
 import CalendarIcon from "@/assets/Calendar.vue";
@@ -71,7 +80,8 @@ export default defineComponent({
     BaseTag,
     PinIcon,
     CalendarIcon,
-    ClockIcon
+    ClockIcon,
+    LazyImage
   },
   props: {
     eventTitle: {

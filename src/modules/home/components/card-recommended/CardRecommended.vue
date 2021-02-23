@@ -47,7 +47,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
+import { defineComponent } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import ArrowRightIcon from "@/assets/ArrowRight.vue";
 import useCardRecommended from "./useCardRecommended";

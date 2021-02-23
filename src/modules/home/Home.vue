@@ -124,10 +124,10 @@
 
 <script lang="ts">
 import { defineComponent, reactive, ref } from "vue";
-import CardEvent from "./components/CardEvent.vue";
-import CardRecommended from "./components/CardRecommended.vue";
-import CardOrganization from "./components/CardOrganization.vue";
-import EventCarousel from "./components/EventCarousel.vue";
+import CardEvent from "./components/card-event/CardEvent.vue";
+import CardRecommended from "./components/card-recommended/CardRecommended.vue";
+import CardOrganization from "./components/card-organization/CardOrganization.vue";
+import EventCarousel from "./components/event-carousel/EventCarousel.vue";
 import BaseTransparentButton from "@/commons/UI/BaseTransparentButton.vue";
 import ArrowRightIcon from "@/assets/ArrowRight.vue";
 

@@ -101,25 +101,25 @@ export default defineComponent({
       defualt: "Chula"
     }
   },
-  setup() {
-    const {
-      imgUrl,
-      tags,
-      eventDescription,
-      eventDate,
-      eventTime,
-      eventLocation
-    } = useCardBanner();
+  // setup() {
+  //   const {
+  //     imgUrl,
+  //     tags,
+  //     eventDescription,
+  //     eventDate,
+  //     eventTime,
+  //     eventLocation
+  //   } = useCardBanner();
 
-    return {
-      imgUrl,
-      tags,
-      eventDescription,
-      eventDate,
-      eventTime,
-      eventLocation
-    };
-  }
+  //   return {
+  //     imgUrl,
+  //     tags,
+  //     eventDescription,
+  //     eventDate,
+  //     eventTime,
+  //     eventLocation
+  //   };
+  // }
 });
 </script>
 

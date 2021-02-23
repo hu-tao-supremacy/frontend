@@ -18,6 +18,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import useCardOrganization from "./useCardOrganization";
 
 export default defineComponent({
   name: "CardOrganization",
@@ -27,9 +28,13 @@ export default defineComponent({
       type: Object
     }
   },
-  setup(props) {
-    const orgShortNameTextSize =
-      props.orgs.shortName.length > 5 ? "text-2xl" : "text-3xl";
+  setup() {
+    const {
+      imgUrl,
+      orgShortName,
+      orgFullName,
+      orgShortNameTextSize
+    } = useCardOrganization();
 
     return {
       orgShortNameTextSize
@@ -39,7 +44,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.card-org{
+.card-org {
   width: 216px;
 }
 .org-description {

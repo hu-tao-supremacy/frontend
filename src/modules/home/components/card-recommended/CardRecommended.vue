@@ -50,7 +50,8 @@
 import { defineComponent, PropType } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import ArrowRightIcon from "@/assets/ArrowRight.vue";
-import { Event } from "@/modules/home/type";
+import useCardRecommended from "./useCardRecommended";
+
 export default defineComponent({
   components: {
     BaseButton,
@@ -59,8 +60,27 @@ export default defineComponent({
   props: {
     recommended: {
       required: true,
-      type: Object as PropType<Event>
+      type: Object
     }
+  },
+  setup() {
+    const {
+      imgUrl,
+      eventTitle,
+      eventDay,
+      eventMonth,
+      eventTime,
+      eventFaculty
+    } = useCardRecommended();
+
+    return {
+      imgUrl,
+      eventTitle,
+      eventDay,
+      eventMonth,
+      eventTime,
+      eventFaculty
+    };
   }
 });
 </script>

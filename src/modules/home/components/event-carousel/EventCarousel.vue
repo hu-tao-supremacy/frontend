@@ -44,9 +44,9 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import CardBanner from "./CardBanner.vue";
+import CardBanner from "../card-banner/CardBanner.vue";
 import EventCarouselSlide from "./EventCarouselSlide.vue";
-import useEventCarousel from "./use-functions/useEventCarousel";
+import useEventCarousel from "./useEventCarousel";
 
 export default defineComponent({
   name: "EventCarousel",

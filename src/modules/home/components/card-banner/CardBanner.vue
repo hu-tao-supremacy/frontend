@@ -58,10 +58,11 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
-import BaseTag from "./BaseTag.vue";
+import BaseTag from "@/commons/UI/BaseTag.vue";
 import PinIcon from "@/assets/MapPin.vue";
 import ClockIcon from "@/assets/Clock.vue";
 import CalendarIcon from "@/assets/Calendar.vue";
+import useCardBanner from "./useCardBanner";
 
 export default defineComponent({
   name: "CardBanner",
@@ -100,6 +101,25 @@ export default defineComponent({
       defualt: "Chula"
     }
   },
+  setup() {
+    const {
+      imgUrl,
+      tags,
+      eventDescription,
+      eventDate,
+      eventTime,
+      eventLocation
+    } = useCardBanner();
+
+    return {
+      imgUrl,
+      tags,
+      eventDescription,
+      eventDate,
+      eventTime,
+      eventLocation
+    };
+  }
 });
 </script>
 

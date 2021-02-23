@@ -29,12 +29,33 @@
 
 <script>
 import { defineComponent } from "vue";
+import useCardEvent from "./useCardEvent";
+
 export default defineComponent({
   props: {
     events: {
       required: true,
       type: Object
     }
+  },
+  setup() {
+    const {
+      imgUrl,
+      eventTitle,
+      eventDay,
+      eventMonth,
+      eventTime,
+      eventFaculty
+    } = useCardEvent();
+
+    return {
+      imgUrl,
+      eventTitle,
+      eventDay,
+      eventMonth,
+      eventTime,
+      eventFaculty
+    };
   }
 });
 </script>

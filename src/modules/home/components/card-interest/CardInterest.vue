@@ -16,7 +16,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed } from "vue";
+import { defineComponent } from "vue";
+import useCardInterest from "./useCardInterest";
 
 export default defineComponent({
   name: "CardInterest",
@@ -25,18 +26,14 @@ export default defineComponent({
     interestName: { type: String, default: "CU" },
   },
   setup() {
-    const isSelected = ref(false);
+    const {
+      imgUrl,
+      interestName,
+      gradientColor,
+      toggleSelect
+    } = useCardInterest();
 
-    function toggleSelect() {
-      isSelected.value = !isSelected.value;
-    }
-
-    const gradientColor = computed(() => {
-      if (isSelected.value) return "to-primary";
-      return "to-gray-10-0.75";
-    });
-
-    return { gradientColor, toggleSelect };
+    return { imgUrl,interestName, gradientColor, toggleSelect };
   }
 });
 </script>

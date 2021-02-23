@@ -2,7 +2,10 @@
   <div
     class="w-screen h-screen bg-gray-4 fixed inset-0 z-50 bg-opacity-50 flex justify-center items-start pt-18"
   >
-    <section class="bg-white relative p-8 rounded-2xl">
+    <section
+      class="bg-white relative px-8 pt-8 pb-4 rounded-2xl inline-block w-full"
+      :style="{ maxWidth: maxModalWidth }"
+    >
       <base-transparent-button class="cross-btn absolute" @click="closeModal"
         ><base-icon width="24px" height="24px"><XIcon /></base-icon
       ></base-transparent-button>
@@ -21,6 +24,12 @@ export default defineComponent({
   components: {
     BaseTransparentButton,
     XIcon
+  },
+  props: {
+    maxModalWidth: {
+      type: String,
+      default: "712px"
+    }
   },
   setup(_, context) {
     function closeModal() {

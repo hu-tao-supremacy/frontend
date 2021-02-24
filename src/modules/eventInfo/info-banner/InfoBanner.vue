@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col rounded-2xl overflow-hidden relative">
+  <div class="flex flex-col rounded-2xl overflow-hidden relative bg-white">
     <div class="min-w-full h-30">
       <img
         :src="eventBackgroundImg"

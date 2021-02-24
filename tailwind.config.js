@@ -215,6 +215,7 @@ module.exports = {
       8: "8px"
     },
     boxShadow: {
+      xs: "0px 2px 0px rgba(0, 0, 0, 0.043)",
       sm: "0px 4px 20px rgba(0, 0, 0, 0.08)",
       DEFAULT: "0px 8px 20px rgba(0, 0, 0, 0.12)",
       md: "0px 8px 20px rgba(0, 0, 0, 0.12)",
@@ -570,6 +571,7 @@ module.exports = {
       "6xl": "72rem",
       "7xl": "80rem",
       55: "27.5rem",
+      78.5: "39.25rem",
       120: "60rem",
       full: "100%",
       min: "min-content",

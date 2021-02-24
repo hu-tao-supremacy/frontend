@@ -4,7 +4,13 @@
     <div
       class="col-span-2 flex flex-col items-center text-center py-3 justify-center"
     >
-      <img src="@/assets/one-pass-logo-white.png" class="h-5 mb-1" />
+      <base-icon
+        width="160"
+        height="40"
+        viewBox="0 0 161 40"
+        class="mb-1 text-transparent"
+        ><OnePassLogo
+      /></base-icon>
       <div class="w-0.5 h-2 bg-white mb-1 rounded-sm"></div>
       <p class="font-heading text-xl text-primary">
         HU TAO SUPREMACY
@@ -26,13 +32,15 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import ChevronsUpIcon from "@/assets/ChevronsUp.vue";
+import OnePassLogo from "@/assets/OnePassLogoWhite.vue";
 import BaseTransparentButton from "@/commons/UI/BaseTransparentButton.vue";
 
 export default defineComponent({
   name: "PageFooter",
   components: {
     ChevronsUpIcon,
-    BaseTransparentButton
+    BaseTransparentButton,
+    OnePassLogo
   }
 });
 </script>

@@ -7,7 +7,7 @@
     :alt="alt"
   />
   <canvas
-    class="canvas w-full h-full"
+    class="w-full h-full focus:outline-none"
     v-show="!isloaded"
     ref="canvasRef"
     :width="width"

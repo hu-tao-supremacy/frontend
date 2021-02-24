@@ -4,8 +4,9 @@
     <ModalSignUp v-if="showSignUpModal" @close-modal="toggleModal('signup')" />
     <base-button @click="toggleModal('login')">Show Log In Modal</base-button>
     <ModalLogIn v-if="showLogInModal" @close-modal="toggleModal('login')" />
-    <InfoBanner class="max-w-120" />
+    <InfoBanner />
     <EventDetail class="mt-2" />
+    <EventOrganizer class="mt-2" />
   </div>
 </template>
 
@@ -16,6 +17,7 @@ import ModalSignUp from "./modal-sign-up/ModalSignUp.vue";
 import ModalLogIn from "./modal-log-in/ModalLogIn.vue";
 import InfoBanner from "@/modules/eventInfo/info-banner/InfoBanner.vue";
 import EventDetail from "@/modules/eventInfo/event-detail/EventDetail.vue";
+import EventOrganizer from "@/modules/eventInfo/event-organizer/EventOrganizer.vue";
 
 export default defineComponent({
   name: "TestPage",
@@ -24,7 +26,8 @@ export default defineComponent({
     BaseButton,
     ModalLogIn,
     InfoBanner,
-    EventDetail
+    EventDetail,
+    EventOrganizer
   },
   setup() {
     const showSignUpModal = ref(false);

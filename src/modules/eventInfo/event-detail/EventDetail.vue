@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col py-2 px-3 rounded-2xl max-w-78.5 bg-white">
+  <BaseCard maxCardWidth="628px" class="flex flex-col py-2 px-3 bg-white">
     <section class="mb-2">
       {{ eventDetail }}
     </section>
@@ -9,11 +9,12 @@
         ><base-icon width="16" height="16"><ShareIcon /></base-icon
       ></base-circle-button>
     </section>
-  </div>
+  </BaseCard>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import BaseCard from "@/commons/UI/BaseCard.vue";
 import ShareIcon from "@/assets/Share.vue";
 import BaseCircleButton from "@/commons/UI/BaseCircleButton.vue";
 
@@ -21,7 +22,8 @@ export default defineComponent({
   name: "EventDetail",
   components: {
     ShareIcon,
-    BaseCircleButton
+    BaseCircleButton,
+    BaseCard
   },
   setup() {
     const eventDetail = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac libero pellentesque, hendrerit eros vitae, malesuada nisi. Nam tempus dolor vitae mauris luctus aliquet. Sed et finibus erat. Fusce sit amet nisi laoreet purus suscipit luctus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent non gravida lectus, congue euismod sem. Proin vel leo quam. Integer vitae elit elit. Morbi non elit suscipit, posuere est et, hendrerit nulla. Cras ipsum massa, luctus et tellus ac, placerat pretium augue. Nunc eget tempor eros. Cras ac massa eu justo consectetur facilisis vitae eget eros. Mauris sed ultrices sem, nec commodo libero. Quisque gravida non ipsum vel egestas. Duis ultricies ullamcorper lacus vitae auctor.

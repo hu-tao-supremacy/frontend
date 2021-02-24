@@ -36,6 +36,7 @@ import BaseButton from "@/commons/UI/BaseButton.vue";
 import BaseCircleButton from "@/commons/UI/BaseCircleButton.vue";
 import FacebookIcon from "@/assets/Facebook.vue";
 import MailIcon from "@/assets/Mail.vue";
+import useEventOrganizer from "./useEventOrganizer";
 
 export default defineComponent({
   name: "EventOrganizer",
@@ -47,10 +48,12 @@ export default defineComponent({
     MailIcon
   },
   setup() {
-    const imgUrl = "https://picsum.photos/100";
-    const orgShortName = "SGCU";
-    const orgFullName = "องค์การบริหารสโมสรนิสิตจุฬาลงกรณ์มหาวิทยาลัย (อบจ.)";
-    const orgDetail = `<ORG - BIO>   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque pulvinar ornare orci amet. Quis arcu rhoncus velit amet nulla eleifend tristique quis? `;
+    const {
+      imgUrl,
+      orgShortName,
+      orgFullName,
+      orgDetail
+    } = useEventOrganizer();
 
     return {
       imgUrl,

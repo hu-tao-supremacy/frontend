@@ -6,17 +6,19 @@
           :width="100"
           :height="100"
           alt="will change to api"
-          :url="imgUrl"
+          :url="eventOrg.imgUrl"
           placeholder="LEHV6nWB2yk8pyo0adR*.7kCMdnj"
           class="object-cover w-full h-full"
         />
       </div>
       <div class="flex flex-col" :style="{ maxWidth: '170px' }">
-        <h1 class="font-heading text-3xl text-blue-10">{{ orgShortName }}</h1>
-        <p class="text-sm">{{ orgFullName }}</p>
+        <h1 class="font-heading text-3xl text-blue-10">
+          {{ eventOrg.shortName }}
+        </h1>
+        <p class="text-sm">{{ eventOrg.fullName }}</p>
       </div>
     </section>
-    <section class="mb-2">{{ orgDetail }}</section>
+    <section class="mb-2">{{ eventOrg.detail }}</section>
     <section class="flex justify-between items-center">
       <base-button class="px-2 py-0.5">Follow</base-button>
       <div class="flex items-center">
@@ -43,7 +45,6 @@ import BaseCircleButton from "@/commons/UI/BaseCircleButton.vue";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import FacebookIcon from "@/assets/Facebook.vue";
 import MailIcon from "@/assets/Mail.vue";
-import useEventOrganizer from "./useEventOrganizer";
 
 export default defineComponent({
   name: "EventOrganizer",
@@ -54,20 +55,16 @@ export default defineComponent({
     FacebookIcon,
     MailIcon
   },
-  setup() {
-    const {
-      imgUrl,
-      orgShortName,
-      orgFullName,
-      orgDetail
-    } = useEventOrganizer();
-
-    return {
-      imgUrl,
-      orgShortName,
-      orgFullName,
-      orgDetail
-    };
+  props: {
+    eventOrg: {
+      type: Object as () => {
+        imgUrl: string;
+        shortName: string;
+        fullName: string;
+        detail: string;
+      },
+      required: true
+    }
   }
 });
 </script>

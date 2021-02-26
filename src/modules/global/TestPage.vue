@@ -4,9 +4,20 @@
     <ModalSignUp v-if="showSignUpModal" @close-modal="toggleModal('signup')" />
     <base-button @click="toggleModal('login')">Show Log In Modal</base-button>
     <ModalLogIn v-if="showLogInModal" @close-modal="toggleModal('login')" />
-    <InfoBanner :style="{ maxWidth: '960px' }" />
-    <EventDetail class="mt-2" :style="{ maxWidth: '628px' }" />
-    <EventOrganizer class="mt-2" :style="{ maxWidth: '300px' }" />
+    <InfoBanner
+      :style="{ maxWidth: '960px' }"
+      :eventBanner="test.eventBanner"
+    />
+    <EventDetail
+      class="mt-2"
+      :style="{ maxWidth: '628px' }"
+      :eventDetail="test.eventDetail"
+    />
+    <EventOrganizer
+      class="mt-2"
+      :style="{ maxWidth: '300px' }"
+      :eventOrg="test.eventOrganizer"
+    />
   </div>
 </template>
 
@@ -18,6 +29,7 @@ import ModalLogIn from "./modal-log-in/ModalLogIn.vue";
 import InfoBanner from "@/modules/eventInfo/info-banner/InfoBanner.vue";
 import EventDetail from "@/modules/eventInfo/event-detail/EventDetail.vue";
 import EventOrganizer from "@/modules/eventInfo/event-organizer/EventOrganizer.vue";
+import testData from "./testData";
 
 export default defineComponent({
   name: "TestPage",
@@ -32,6 +44,7 @@ export default defineComponent({
   setup() {
     const showSignUpModal = ref(false);
     const showLogInModal = ref(false);
+    const test = testData;
 
     function toggleModal(modal: string) {
       switch (modal) {
@@ -47,7 +60,8 @@ export default defineComponent({
     return {
       showSignUpModal,
       toggleModal,
-      showLogInModal
+      showLogInModal,
+      test
     };
   }
 });

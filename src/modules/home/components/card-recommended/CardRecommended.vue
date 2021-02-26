@@ -51,6 +51,7 @@ import { defineComponent } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import ArrowRightIcon from "@/assets/ArrowRight.vue";
 import useCardRecommended from "./useCardRecommended";
+import {Event} from "@/commons/Interfaces/index.ts"
 
 export default defineComponent({
   components: {
@@ -60,7 +61,15 @@ export default defineComponent({
   props: {
     recommended: {
       required: true,
-      type: Object
+      type: Object as () => Event,
+      default: {
+        day: 99,
+        month: "Jan",
+        time: "10:00-18:00",
+        title: "Fun Event",
+        faculty: "Faculty of Engineering",
+        img: "https://picsum.photos/200"
+      }
     }
   },
   setup() {

@@ -5,7 +5,7 @@
         :width="1000"
         :height="1000"
         alt="will change to api"
-        :url="imgUrl"
+        :url="event.img"
         placeholder="LEHV6nWB2yk8pyo0adR*.7kCMdnj"
         class="object-cover w-full h-full"
       />
@@ -13,18 +13,18 @@
     <div class="col-span-1 flex flex-col justify-between items-center p-2">
       <section>
         <h3 class="text-2xl font-heading text-blue-10 mb-1">
-          {{ eventTitle }}
+          {{ event.title }}
         </h3>
         <div class="flex mb-2 items-center">
           <base-tag
-            v-for="(tag, index) in tags"
+            v-for="(tag, index) in event.tags"
             :key="tag"
-            :class="index === tags.length - 1 ? '' : 'mr-1'"
+            :class="index === event.tags.length - 1 ? '' : 'mr-1'"
             >{{ tag }}</base-tag
           >
         </div>
         <div class="text-sm mb-1 w-full event-description">
-          {{ eventDescription }}
+          {{ event.description }}
         </div>
         <div class="flex items-center mb-1">
           <base-icon
@@ -34,7 +34,7 @@
             class="mr-1.5"
             ><CalendarIcon
           /></base-icon>
-          {{ eventDate }}
+          {{ event.date }}
         </div>
         <div class="flex items-center mb-1">
           <base-icon
@@ -44,7 +44,7 @@
             class="mr-1.5"
             ><ClockIcon
           /></base-icon>
-          {{ eventTime }}
+          {{ event.time }}
         </div>
         <div class="flex items-center mb-1">
           <base-icon
@@ -54,7 +54,7 @@
             class="mr-1.5"
             ><PinIcon
           /></base-icon>
-          {{ eventLocation }}
+          {{ event.location }}
         </div>
       </section>
       <base-button class="w-4/5 h-5">Get Tickets</base-button>
@@ -71,6 +71,7 @@ import PinIcon from "@/assets/MapPin.vue";
 import ClockIcon from "@/assets/Clock.vue";
 import CalendarIcon from "@/assets/Calendar.vue";
 import useCardBanner from "./useCardBanner";
+import { Banner } from "@/commons/Interfaces/index.ts";
 
 export default defineComponent({
   name: "CardBanner",
@@ -83,52 +84,10 @@ export default defineComponent({
     LazyImage
   },
   props: {
-    eventTitle: {
-      type: String,
-      default: "Event Title"
-    },
-    eventDescription: {
-      type: String,
-      default: "Event Title"
-    },
-    tags:{
-      type: Array,
-    },
-    imgUrl: {
-      type: String
-    },
-    eventDate: {
-      type: String,
-      default: "99"
-    },
-    eventTime: {
-      type: String,
-      default: "xx:xx-xx:xx"
-    },
-    eventLocation: {
-      type: String,
-      defualt: "Chula"
+    event: {
+      type: Object as () => Banner
     }
-  },
-  // setup() {
-  //   const {
-  //     imgUrl,
-  //     tags,
-  //     eventDescription,
-  //     eventDate,
-  //     eventTime,
-  //     eventLocation
-  //   } = useCardBanner();
-
-  //   return {
-  //     imgUrl,
-  //     tags,
-  //     eventDescription,
-  //     eventDate,
-  //     eventTime,
-  //     eventLocation
-  //   };
-  // }
+  }
 });
 </script>
 

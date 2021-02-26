@@ -1,4 +1,5 @@
 import { ref } from "vue";
+import { Banner } from "@/commons/Interfaces/index.ts"
 
 export default function useEventCarousel(events: any) {
   const currentIndex = ref(0);

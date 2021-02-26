@@ -9,13 +9,7 @@
     >
       <CardBanner
         class="w-full"
-        :eventTitle="event.title"
-        :tags="event.tags"
-        :eventDescription="event.description"
-        :eventDate="event.date"
-        :eventLocation="event.location"
-        :eventTime="event.time"
-        :imgUrl="event.img"
+        :event ="event"
       />
     </event-carousel-slide>
     <section class="carousel-misc absolute z-10 h-full flex items-center">
@@ -55,9 +49,8 @@ export default defineComponent({
     EventCarouselSlide
   },
   props: {
-    eventList: {
-      type: Array,
-      default: () => [{}, {}, {}, {}]
+    eventsList: {
+      type: Array
     }
   },
   setup(props) {
@@ -66,7 +59,7 @@ export default defineComponent({
       currentIndex,
       transitionAnimation,
       changeSlide
-    } = useEventCarousel(props.eventList);
+    } = useEventCarousel(props.eventsList);
     return { testEventProps, currentIndex, transitionAnimation, changeSlide };
   }
 });

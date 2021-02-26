@@ -27,15 +27,24 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from "vue";
 import useCardEvent from "./useCardEvent";
+import {Event} from "@/commons/Interfaces/index.ts"
 
 export default defineComponent({
   props: {
     events: {
       required: true,
-      type: Object
+      type: Object as () => Event,
+      default: {
+        day: 99,
+        month: "Jan",
+        time: "10:00-18:00",
+        title: "Fun Event",
+        faculty: "Faculty of Engineering",
+        img: "https://picsum.photos/200"
+      }
     }
   },
   setup() {

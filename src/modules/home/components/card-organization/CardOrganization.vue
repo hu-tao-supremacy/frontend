@@ -19,13 +19,17 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import useCardOrganization from "./useCardOrganization";
-
+interface Org {
+  img: string;
+  shortName: string;
+  fullName: string;
+}
 export default defineComponent({
   name: "CardOrganization",
   props: {
     orgs: {
       required: true,
-      type: Object
+      type: Object as () => Org
     }
   },
   setup() {

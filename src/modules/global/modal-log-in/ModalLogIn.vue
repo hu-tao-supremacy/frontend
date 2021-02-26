@@ -1,5 +1,5 @@
 <template>
-  <base-modal maxModalWidth="570px">
+  <base-modal maxModalWidth="570px" @close-modal="closeModal">
     <div class="flex flex-col">
       <section class="mb-2">
         <h1 class="font-heading text-3xl">Log in</h1>
@@ -26,10 +26,18 @@ import BaseButton from "@/commons/UI/BaseButton.vue";
 
 export default defineComponent({
   name: "ModalLogIn",
+  emits: ["close-modal"],
   components: {
     BaseModal,
     BaseTextInput,
     BaseButton
+  },
+  setup(_, context) {
+    function closeModal() {
+      context.emit("close-modal");
+    }
+
+    return { closeModal };
   }
 });
 </script>

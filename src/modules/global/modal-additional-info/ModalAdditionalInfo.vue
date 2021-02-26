@@ -1,5 +1,5 @@
 <template>
-  <base-modal maxModalWidth="570px">
+  <base-modal maxModalWidth="570px" @close-modal="closeModal">
     <div class="flex flex-col">
       <section class="mb-2">
         <h1 class="font-heading text-3xl">Additional Information</h1>
@@ -87,7 +87,8 @@ export default defineComponent({
     BaseTextArea,
     ImageIcon
   },
-  setup() {
+  emits: ["close-modal"],
+  setup(_, context) {
     const img = ref<string | null>(null);
     const reader = new FileReader();
 
@@ -101,6 +102,10 @@ export default defineComponent({
       };
     }
 
+    function closeModal() {
+      context.emit("close-modal");
+    }
+
     const fileLoaded = computed(function() {
       return img.value;
     });
@@ -108,7 +113,8 @@ export default defineComponent({
     return {
       img,
       previewFile,
-      fileLoaded
+      fileLoaded,
+      closeModal
     };
   }
 });

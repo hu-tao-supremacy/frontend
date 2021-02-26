@@ -12,7 +12,7 @@ export default function useEventCarousel() {
   ];
 
   function startTimer() {
-    slideTimer = setInterval(function() {
+    slideTimer = window.setInterval(function() {
       transitionAnimation.value = "slide-down";
       const nextSlide =
         currentIndex.value + 1 >= testEventProps.length

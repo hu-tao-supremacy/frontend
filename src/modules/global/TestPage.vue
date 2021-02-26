@@ -6,7 +6,7 @@
     <ModalLogIn v-if="showLogInModal" @close-modal="toggleModal('login')" />
     <InfoBanner :style="{ maxWidth: '960px' }" />
     <EventDetail class="mt-2" :style="{ maxWidth: '628px' }" />
-    <EventOrganizer class="mt-2" :style="{ maxWdit: '300px' }" />
+    <EventOrganizer class="mt-2" :style="{ maxWidth: '300px' }" />
   </div>
 </template>
 

@@ -5,6 +5,14 @@
   />
 </template>
 
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  name: "BaseTextInput"
+});
+</script>
+
 <style scoped>
 .text-input:focus {
   box-shadow: 0px 0px 0px 2px rgba(255, 133, 95, 0.2);

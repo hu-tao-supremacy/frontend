@@ -38,7 +38,7 @@ module.exports = {
       primary: {
         DEFAULT: "#FF855F",
         1: "#FFF6F0",
-        2: "#FFE6D9",
+        2: "#FFF5F0",
         3: "#FFE6D9",
         4: "#FFC8B0",
         5: "#FFA787",
@@ -131,6 +131,7 @@ module.exports = {
       16: "8rem",
       18: "9rem",
       20: "10rem",
+      21: "10.5rem",
       24: "12rem",
       26: "13rem",
       28: "14rem",

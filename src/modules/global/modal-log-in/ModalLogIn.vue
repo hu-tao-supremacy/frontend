@@ -7,11 +7,11 @@
       </section>
       <section class="mb-2">
         <h2>Student Email</h2>
-        <BaseTextInput class="w-full h-4" type="email" />
+        <BaseTextInput class="w-full h-3.5" type="email" />
       </section>
       <section class="mb-4">
         <h2>Password</h2>
-        <BaseTextInput class="w-full h-4" type="password" />
+        <BaseTextInput class="w-full h-3.5" type="password" />
       </section>
       <base-button class="w-16 h-4 self-center">Continue</base-button>
     </div>

@@ -4,9 +4,9 @@
     <ModalSignUp v-if="showSignUpModal" @close-modal="toggleModal('signup')" />
     <base-button @click="toggleModal('login')">Show Log In Modal</base-button>
     <ModalLogIn v-if="showLogInModal" @close-modal="toggleModal('login')" />
-    <InfoBanner />
-    <EventDetail class="mt-2" />
-    <EventOrganizer class="mt-2" />
+    <InfoBanner :style="{ maxWidth: '960px' }" />
+    <EventDetail class="mt-2" :style="{ maxWidth: '628px' }" />
+    <EventOrganizer class="mt-2" :style="{ maxWdit: '300px' }" />
   </div>
 </template>
 

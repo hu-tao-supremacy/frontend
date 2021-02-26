@@ -1,5 +1,5 @@
 <template>
-  <base-card maxCardWidth="960px" class="flex flex-col relative bg-white">
+  <div class="flex flex-col rounded-2xl overflow-hidden relative bg-white">
     <div class="min-w-full h-30">
       <img
         :src="eventBackgroundImg"
@@ -58,12 +58,11 @@
     <base-button class="absolute bottom-3 right-3 w-15 h-4.5"
       >Register</base-button
     >
-  </base-card>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import BaseCard from "@/commons/UI/BaseCard.vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import BaseTag from "@/commons/UI/BaseTag.vue";
 import PinIcon from "@/assets/MapPin.vue";
@@ -74,7 +73,6 @@ import useInfoBanner from "./useInfoBanner";
 export default defineComponent({
   name: "InfoBanner",
   components: {
-    BaseCard,
     BaseButton,
     BaseTag,
     PinIcon,

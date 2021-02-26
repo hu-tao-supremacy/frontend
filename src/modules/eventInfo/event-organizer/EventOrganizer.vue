@@ -1,5 +1,5 @@
 <template>
-  <base-card maxCardWidth="300px" class="flex flex-col p-2 bg-white">
+  <div class="flex flex-col rounded-2xl overflow-hidden p-2 bg-white">
     <section class="flex w-full mb-2">
       <div class="h-10 w-10 rounded-full overflow-hidden mr-2">
         <img :src="imgUrl" alt="" class="object-cover w-full h-full" />
@@ -26,12 +26,11 @@
         ></base-circle-button>
       </div>
     </section>
-  </base-card>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import BaseCard from "@/commons/UI/BaseCard.vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import BaseCircleButton from "@/commons/UI/BaseCircleButton.vue";
 import FacebookIcon from "@/assets/Facebook.vue";
@@ -41,7 +40,6 @@ import useEventOrganizer from "./useEventOrganizer";
 export default defineComponent({
   name: "EventOrganizer",
   components: {
-    BaseCard,
     BaseButton,
     BaseCircleButton,
     FacebookIcon,

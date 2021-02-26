@@ -2,7 +2,14 @@
   <div class="flex flex-col rounded-2xl overflow-hidden p-2 bg-white">
     <section class="flex w-full mb-2">
       <div class="h-10 w-10 rounded-full overflow-hidden mr-2">
-        <img :src="imgUrl" alt="" class="object-cover w-full h-full" />
+        <LazyImage
+          :width="100"
+          :height="100"
+          alt="will change to api"
+          :url="imgUrl"
+          placeholder="LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+          class="object-cover w-full h-full"
+        />
       </div>
       <div class="flex flex-col" :style="{ maxWidth: '170px' }">
         <h1 class="font-heading text-3xl text-blue-10">{{ orgShortName }}</h1>
@@ -33,6 +40,7 @@
 import { defineComponent } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import BaseCircleButton from "@/commons/UI/BaseCircleButton.vue";
+import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import FacebookIcon from "@/assets/Facebook.vue";
 import MailIcon from "@/assets/Mail.vue";
 import useEventOrganizer from "./useEventOrganizer";
@@ -42,6 +50,7 @@ export default defineComponent({
   components: {
     BaseButton,
     BaseCircleButton,
+    LazyImage,
     FacebookIcon,
     MailIcon
   },

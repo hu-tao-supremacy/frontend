@@ -1,9 +1,12 @@
 <template>
   <div class="flex flex-col rounded-2xl overflow-hidden relative bg-white">
     <div class="min-w-full h-30">
-      <img
-        :src="eventBackgroundImg"
-        alt=""
+      <LazyImage
+        :width="1000"
+        :height="1000"
+        alt="will change to api"
+        :url="eventBackgroundImg"
+        placeholder="LEHV6nWB2yk8pyo0adR*.7kCMdnj"
         class="object-cover w-full h-full"
       />
     </div>
@@ -53,7 +56,14 @@
     <div
       class="absolute top-24 left-6 rounded-lg overflow-hidden w-20 h-30 border-4 border-white"
     >
-      <img :src="eventProfileImg" alt="" class="object-cover w-full h-full" />
+      <LazyImage
+        :width="300"
+        :height="300"
+        alt="will change to api"
+        :url="eventProfileImg"
+        placeholder="LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+        class="object-cover w-full h-full"
+      />
     </div>
     <base-button class="absolute bottom-3 right-3 w-15 h-4.5"
       >Register</base-button
@@ -65,6 +75,7 @@
 import { defineComponent } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import BaseTag from "@/commons/UI/BaseTag.vue";
+import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import PinIcon from "@/assets/MapPin.vue";
 import ClockIcon from "@/assets/Clock.vue";
 import CalendarIcon from "@/assets/Calendar.vue";
@@ -75,6 +86,7 @@ export default defineComponent({
   components: {
     BaseButton,
     BaseTag,
+    LazyImage,
     PinIcon,
     ClockIcon,
     CalendarIcon

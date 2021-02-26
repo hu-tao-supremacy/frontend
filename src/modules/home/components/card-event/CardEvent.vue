@@ -30,12 +30,11 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import useCardEvent from "./useCardEvent";
-import {Event} from "@/commons/Interfaces/index.ts"
+import { Event } from "@/commons/Interfaces/index.ts";
 
 export default defineComponent({
   props: {
     events: {
-      required: true,
       type: Object as () => Event,
       default: {
         day: 99,

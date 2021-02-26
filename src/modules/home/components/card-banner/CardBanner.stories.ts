@@ -2,6 +2,7 @@ import CardBanner from "./CardBanner.vue";
 import "@/index.css";
 import { app, Story } from "@storybook/vue3";
 import BaseIcon from "@/commons/UI/BaseIcon.vue";
+import {Banner} from "@/commons/Interfaces/index.ts"
 
 app.component("base-icon", BaseIcon);
 
@@ -10,11 +11,7 @@ export default {
   component: CardBanner
 };
 
-interface PropTypes {
-  eventTitle: string;
-}
-
-const Template: Story<PropTypes> = args => ({
+const Template: Story<Banner> = args => ({
   components: { CardBanner },
   setup() {
     return { args };
@@ -24,5 +21,5 @@ const Template: Story<PropTypes> = args => ({
 
 export const Primary = Template.bind({});
 Primary.args = {
-  eventTitle: "CU Collective Investment"
+  title: "CU Collective Investment"
 };

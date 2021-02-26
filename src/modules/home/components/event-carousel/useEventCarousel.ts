@@ -1,7 +1,7 @@
 import { ref } from "vue";
 import { Banner } from "@/commons/Interfaces/index.ts"
 
-export default function useEventCarousel(events: any) {
+export default function useEventCarousel(events: Banner[]) {
   const currentIndex = ref(0);
   const transitionAnimation = ref("");
   let slideTimer: number | undefined;

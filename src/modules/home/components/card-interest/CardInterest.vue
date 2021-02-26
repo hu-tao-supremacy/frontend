@@ -26,10 +26,7 @@ export default defineComponent({
     interestName: { type: String }
   },
   setup() {
-    const {
-      gradientColor,
-      toggleSelect
-    } = useCardInterest();
+    const { gradientColor, toggleSelect } = useCardInterest();
 
     return { gradientColor, toggleSelect };
   }

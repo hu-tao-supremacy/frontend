@@ -4,9 +4,12 @@
     :class="gradientColor"
     @click="toggleSelect"
   >
-    <img
-      :src="imgUrl"
-      alt=""
+    <LazyImage
+      :width="128"
+      :height="96"
+      alt="will change to api"
+      :url="imgUrl"
+      placeholder="LEHV6nWB2yk8pyo0adR*.7kCMdnj"
       class="h-full object-cover w-full relative interest-image rounded-lg"
     />
     <header class="absolute bottom-1 text-white w-full font-bold">
@@ -18,8 +21,12 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import useCardInterest from "./useCardInterest";
+import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 
 export default defineComponent({
+  components: {
+    LazyImage
+  },
   name: "CardInterest",
   props: {
     imgUrl: { type: String },

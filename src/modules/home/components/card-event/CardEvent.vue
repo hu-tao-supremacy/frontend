@@ -8,7 +8,14 @@
       {{ events.day }}<br />{{ events.month }}
     </div>
     <div class="event-image">
-      <img :src="events.img" class="w-full h-full object-cover rounded-t-lg" />
+      <LazyImage
+        :width="216"
+        :height="200"
+        alt="will change to api"
+        :url="events.img"
+        placeholder="LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+        class="w-full h-full object-cover rounded-t-lg"
+      />
     </div>
     <div class="event-detail-container h-10 w-full flex rounded-b-lg bg-blue">
       <div class="w-1"></div>
@@ -31,8 +38,12 @@
 import { defineComponent } from "vue";
 import useCardEvent from "./useCardEvent";
 import { Event } from "@/commons/Interfaces/index.ts";
+import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 
 export default defineComponent({
+  components: {
+    LazyImage
+  },
   props: {
     events: {
       type: Object as () => Event,
@@ -78,7 +89,7 @@ export default defineComponent({
   bottom: 224px;
   left: 160px;
   right: 8px;
-  padding: 0px 10px 0px 10px;
+  padding: 0 10px;
 }
 .event-image {
   height: 200px;

@@ -8,10 +8,18 @@
       {{ recommended.day }}<br />{{ recommended.month }}
     </div>
     <div class="event-image h-20">
-      <img
-        :src="recommended.img"
+      <LazyImage
+        :width="299"
+        :height="160"
+        alt="will change to api"
+        :url="recommended.img"
+        placeholder="LEHV6nWB2yk8pyo0adR*.7kCMdnj"
         class="h-full w-full object-cover rounded-t-lg"
       />
+      <!-- <img
+        :src="recommended.img"
+        class="h-full w-full object-cover rounded-t-lg"
+      /> -->
     </div>
     <div class="event-detail-container h-10 w-full flex rounded-b-lg bg-blue">
       <div class="w-1"></div>
@@ -52,9 +60,11 @@ import BaseButton from "@/commons/UI/BaseButton.vue";
 import ArrowRightIcon from "@/assets/ArrowRight.vue";
 import useCardRecommended from "./useCardRecommended";
 import { Event } from "@/commons/Interfaces/index.ts";
+import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 
 export default defineComponent({
   components: {
+    LazyImage,
     BaseButton,
     ArrowRightIcon
   },

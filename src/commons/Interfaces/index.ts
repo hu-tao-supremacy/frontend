@@ -15,3 +15,9 @@ export interface Banner {
   time: string;
   location: string;
 }
+
+export interface Org {
+  img: string;
+  shortName: string;
+  fullName: string;
+}

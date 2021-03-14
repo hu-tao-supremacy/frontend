@@ -18,6 +18,7 @@
 import { defineComponent } from "vue";
 import BaseTransparentButton from "./BaseTransparentButton.vue";
 import XIcon from "@/assets/X.vue";
+import { CLOSE_MODAL } from "../constant";
 
 export default defineComponent({
   name: "BaseModal",
@@ -33,7 +34,7 @@ export default defineComponent({
   },
   setup(_, context) {
     function closeModal() {
-      context.emit("close-modal");
+      context.emit(CLOSE_MODAL);
     }
 
     return { closeModal };

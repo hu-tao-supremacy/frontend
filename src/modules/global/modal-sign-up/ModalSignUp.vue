@@ -23,10 +23,11 @@ import { defineComponent } from "vue";
 import BaseModal from "@/commons/UI/BaseModal.vue";
 import BaseTextInput from "@/commons/UI/BaseTextInput.vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
+import { CLOSE_MODAL } from "@/commons/constant";
 
 export default defineComponent({
   name: "ModalSignUp",
-  emits: ["close-modal"],
+  emits: [CLOSE_MODAL],
   components: {
     BaseModal,
     BaseTextInput,
@@ -34,7 +35,7 @@ export default defineComponent({
   },
   setup(_, context) {
     function closeModal() {
-      context.emit("close-modal");
+      context.emit(CLOSE_MODAL);
     }
 
     return { closeModal };

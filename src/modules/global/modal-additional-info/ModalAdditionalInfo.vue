@@ -70,7 +70,7 @@
           <h2 class="mb-0.25">Address</h2>
           <BaseTextArea :rows="3" class="w-full resize-none" />
         </section>
-        <base-button class="button-height w-20 self-center"
+        <base-button class="button-height w-20 self-center" type="submit"
           >Sign up</base-button
         >
       </form>
@@ -87,6 +87,7 @@ import BaseTextInput from "@/commons/UI/BaseTextInput.vue";
 import BaseTextArea from "@/commons/UI/BaseTextArea.vue";
 import ImageIcon from "@/assets/Image.vue";
 import { uploadFile } from "@/commons/utils/uploadImage";
+import { CLOSE_MODAL } from "@/commons/constant";
 
 export default defineComponent({
   name: "ModalAdditionalInfo",
@@ -97,12 +98,13 @@ export default defineComponent({
     BaseTextArea,
     ImageIcon
   },
-  emits: ["close-modal"],
+  emits: [CLOSE_MODAL],
   setup(_, context) {
     const img = ref<string | null>(null);
     const reader = new FileReader();
 
     async function previewFile(event: Event) {
+      event.preventDefault();
       const target = event.target as HTMLInputElement;
       if (target.files?.[0].type.match("image.*")) {
         const uploadedFile = await uploadFile(reader, target);
@@ -111,7 +113,7 @@ export default defineComponent({
     }
 
     function closeModal() {
-      context.emit("close-modal");
+      context.emit(CLOSE_MODAL);
     }
 
     const fileLoaded = computed(function() {

@@ -1,6 +1,8 @@
 <template>
   <input
     type="text"
+    :value="modelValue"
+    @input="userChange"
     class="text-input border border-gray-4 rounded-lg px-1.5 focus:border-primary focus:outline-none"
   />
 </template>
@@ -9,7 +11,26 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "BaseTextInput"
+  name: "BaseTextInput",
+  props: {
+    type: {
+      type: String,
+      default: "text"
+    },
+    modelValue: {
+      type: String,
+      default: ""
+    }
+  },
+  emits: ["update:modelValue"],
+  setup(_, context) {
+    function userChange(event: Event) {
+      const target = event.target as HTMLInputElement;
+      context.emit("update:modelValue", target.value);
+    }
+
+    return { userChange };
+  }
 });
 </script>
 

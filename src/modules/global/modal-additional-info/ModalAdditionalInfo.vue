@@ -7,7 +7,7 @@
           We would like to know more about you!
         </p>
       </section>
-      <form action="">
+      <form @submit.prevent="validateForm">
         <section class="mb-2">
           <h2 class="mb-1">Profile Picture</h2>
           <div class="flex items-center">
@@ -23,7 +23,7 @@
               /></base-icon>
               <img
                 v-else
-                :src="img"
+                :src="uploadedImg"
                 alt=""
                 class="object-cover w-full h-full"
               />
@@ -34,6 +34,7 @@
               >
               <input
                 id="fileLoader"
+                name="profileImg"
                 type="file"
                 class="hidden"
                 accept="image/*"
@@ -45,38 +46,72 @@
           </div>
         </section>
         <section class="mb-2">
-          <h2 class="mb-0.25">Personal Email</h2>
-          <BaseTextInput class="w-full h-3.5" />
+          <label for="email" class="mb-0.25">Personal Email</label>
+          <BaseTextInput
+            v-model.trim="userEmail"
+            id="email"
+            name="email"
+            type="email"
+            class="w-full h-3.5"
+          />
         </section>
         <section class="mb-2">
-          <h2 class="mb-0.25">Phone Number</h2>
-          <BaseTextInput class="w-full h-3.5" />
+          <label for="phone" class="mb-0.25">Phone Number</label>
+          <BaseTextInput
+            v-model.trim="userPhone"
+            id="phone"
+            name="phone"
+            class="w-full h-3.5"
+          />
         </section>
-        <section class="flex space-between">
+        <section class="flex space-between mb-2">
           <div class="w-9 mr-2">
-            <h2 class="mb-0.25">Zip Code</h2>
-            <BaseTextInput class="w-full h-3.5" />
+            <label for="zipCode" class="mb-0.25">Zip Code</label>
+            <BaseTextInput
+              v-model.trim="userZipCode"
+              id="zipCode"
+              name="zipCode"
+              class="w-full h-3.5"
+            />
           </div>
           <div class="w-21 mr-2">
-            <h2 class="mb-0.25">City</h2>
-            <BaseTextInput class="w-full h-3.5" />
+            <label for="city" class="mb-0.25">City</label>
+            <BaseTextInput
+              v-model.trim="userCity"
+              id="city"
+              name="city"
+              class="w-full h-3.5"
+            />
           </div>
           <div class="w-21">
-            <h2 class="mb-0.25">Province</h2>
-            <BaseTextInput class="w-full h-3.5" />
+            <label for="province" class="mb-0.25">Province</label>
+            <BaseTextInput
+              v-model.trim="userProvince"
+              id="province"
+              name="province"
+              class="w-full h-3.5"
+            />
           </div>
         </section>
         <section class="mb-4">
-          <h2 class="mb-0.25">Address</h2>
-          <BaseTextArea :rows="3" class="w-full resize-none" />
+          <label for="address" class="mb-0.25">Address</label>
+          <BaseTextArea
+            v-model.trim="userAddress"
+            id="address"
+            name="address"
+            :rows="3"
+            class="w-full resize-none"
+          />
         </section>
-        <base-button class="button-height w-20 self-center" type="submit"
+        <base-button
+          class="button-height w-20 self-center"
+          type="submit"
+          value="submit"
           >Sign up</base-button
         >
       </form>
     </div>
   </base-modal>
-  <input type="file" />
 </template>
 
 <script lang="ts">
@@ -100,15 +135,74 @@ export default defineComponent({
   },
   emits: [CLOSE_MODAL],
   setup(_, context) {
-    const img = ref<string | null>(null);
+    const uploadedImg = ref<string | null>(null);
     const reader = new FileReader();
+    const userEmail = ref("");
+    const userPhone = ref("");
+    const userZipCode = ref("");
+    const userCity = ref("");
+    const userProvince = ref("");
+    const userAddress = ref("");
 
     async function previewFile(event: Event) {
       event.preventDefault();
       const target = event.target as HTMLInputElement;
       if (target.files?.[0].type.match("image.*")) {
         const uploadedFile = await uploadFile(reader, target);
-        img.value = uploadedFile;
+        uploadedImg.value = uploadedFile;
+      }
+    }
+
+    function validProfileImage(): boolean {
+      if (uploadedImg.value) return true;
+      return false;
+    }
+
+    function validEmail(): boolean {
+      const expression = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return expression.test(userEmail.value.toLowerCase());
+    }
+
+    function validPhone(): boolean {
+      const expression = /^0[0-9]{9}$/;
+      return expression.test(userPhone.value);
+    }
+
+    function validZipCode(): boolean {
+      const expression = /^[0-9]+$/;
+      return expression.test(userZipCode.value);
+    }
+
+    function validCity(): boolean {
+      const expression = /[^0-9]/;
+      return expression.test(userCity.value);
+    }
+
+    function validProvince(): boolean {
+      if (userProvince.value === "") return false;
+      const expression = /[^0-9]/;
+      return expression.test(userProvince.value);
+    }
+
+    function validAddress(): boolean {
+      return userAddress.value !== "";
+    }
+
+    function validateForm() {
+      const errors = [];
+      if (!validProfileImage()) errors.push("Invalid profile image");
+      if (!validEmail()) errors.push("Invalid email");
+      if (!validPhone()) errors.push("Invalid phone number");
+      if (!validZipCode()) errors.push("Invalid zip code");
+      if (!validCity()) errors.push("Invalid city");
+      if (!validProvince()) errors.push("Invalid province");
+      if (!validAddress()) errors.push("Invalid address");
+      if (errors.length !== 0) {
+        console.log(errors);
+        //do something when error occur
+      } else {
+        console.log("success");
+        //create object and post to api
       }
     }
 
@@ -117,14 +211,21 @@ export default defineComponent({
     }
 
     const fileLoaded = computed(function() {
-      return img.value;
+      return uploadedImg.value;
     });
 
     return {
-      img,
+      uploadedImg,
       previewFile,
       fileLoaded,
-      closeModal
+      closeModal,
+      userEmail,
+      userPhone,
+      userZipCode,
+      userCity,
+      userProvince,
+      userAddress,
+      validateForm
     };
   }
 });

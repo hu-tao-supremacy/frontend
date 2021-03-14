@@ -1,6 +1,8 @@
 <template>
   <textarea
     :rows="rows"
+    :value="modelValue"
+    @input="userChange"
     class="text-input border border-gray-4 rounded-lg px-1.5 focus:border-primary focus:outline-none overflow-hidden"
   ></textarea>
 </template>
@@ -13,7 +15,19 @@ export default defineComponent({
   props: {
     rows: {
       type: Number
+    },
+    modelValue: {
+      type: String,
+      default: ""
     }
+  },
+  setup(_, context) {
+    function userChange(event: Event) {
+      const target = event.target as HTMLInputElement;
+      context.emit("update:modelValue", target.value);
+    }
+
+    return { userChange };
   }
 });
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col rounded-2xl overflow-hidden p-2 bg-white">
     <section class="flex w-full mb-2">
-      <div class="h-10 w-10 rounded-full overflow-hidden mr-2">
+      <div class="h-10 w-10 rounded-full overflow-hidden mr-2 flex-shrink-0">
         <LazyImage
           :width="100"
           :height="100"
@@ -11,7 +11,7 @@
           class="object-cover w-full h-full"
         />
       </div>
-      <div class="flex flex-col" :style="{ maxWidth: '170px' }">
+      <div class="flex flex-col">
         <h1 class="font-heading text-3xl text-blue-10">
           {{ eventOrg.shortName }}
         </h1>

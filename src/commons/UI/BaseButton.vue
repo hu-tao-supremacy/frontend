@@ -1,6 +1,6 @@
 <template>
   <button
-    class="bg-primary rounded-lg text-white font-medium font-body shadow-xs hover:bg-primary-7 focus:outline-none border-3 border-transparent focus:border-primary-5 "
+    class="bg-primary rounded-lg text-white font-body shadow-xs hover:bg-primary-7 focus:outline-none border-3 border-transparent focus:border-primary-5 "
   >
     <slot></slot>
   </button>

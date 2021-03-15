@@ -21,15 +21,20 @@ import useCardInterest from "./useCardInterest";
 
 export default defineComponent({
   name: "CardInterest",
+  props: {
+    interestName: {
+      type: String,
+      required: true
+    },
+    imgUrl: {
+      type: String,
+      required: true
+    }
+  },
   setup() {
-    const {
-      imgUrl,
-      interestName,
-      gradientColor,
-      toggleSelect
-    } = useCardInterest();
+    const { gradientColor, toggleSelect } = useCardInterest();
 
-    return { imgUrl, interestName, gradientColor, toggleSelect };
+    return { gradientColor, toggleSelect };
   }
 });
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-12 w-16 text-center relative from-transparent bg-gradient-to-b select-none cursor-pointer rounded-lg shadow-md"
+    class="h-12 w-16 text-center relative from-transparent bg-gradient-to-b select-none cursor-pointer rounded-lg shadow-md overflow-hidden"
     :class="gradientColor"
     @click="toggleSelect"
   >
@@ -9,7 +9,7 @@
       :height="96"
       alt="will change to api"
       :url="imgUrl"
-      placeholder="LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+      :placeholder="imgHash"
       class="h-full object-cover w-full relative interest-image rounded-lg"
     />
     <header class="absolute bottom-1 text-white w-full font-bold">
@@ -29,6 +29,7 @@ export default defineComponent({
   },
   name: "CardInterest",
   props: {
+    imgHash: { type: String },
     imgUrl: { type: String },
     interestName: { type: String }
   },

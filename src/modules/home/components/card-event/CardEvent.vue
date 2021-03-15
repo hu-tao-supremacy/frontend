@@ -1,6 +1,6 @@
 <template>
   <div
-    class="event-container flex flex-col rounded-lg shadow bg-cover relative"
+    class="event-container flex flex-col rounded-lg shadow bg-cover relative overflow-hidden"
   >
     <div
       class="event-date h-6 w-6 bg-primary-1 absolute rounded-lg font-heading text-lg text-center "
@@ -13,7 +13,7 @@
         :height="200"
         alt="will change to api"
         :url="events.img"
-        placeholder="LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+        :placeholder="events.imgHash"
         class="w-full h-full object-cover rounded-t-lg"
       />
     </div>
@@ -37,7 +37,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import useCardEvent from "./useCardEvent";
-import { Event } from "@/commons/Interfaces/index.ts";
+import { Event } from "@/commons/Interfaces/index";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 
 export default defineComponent({
@@ -46,15 +46,7 @@ export default defineComponent({
   },
   props: {
     events: {
-      type: Object as () => Event,
-      default: {
-        day: 99,
-        month: "Jan",
-        time: "10:00-18:00",
-        title: "Fun Event",
-        faculty: "Faculty of Engineering",
-        img: "https://picsum.photos/200"
-      }
+      type: Object as () => Event
     }
   },
   setup() {

@@ -6,7 +6,7 @@
         :height="1000"
         alt="will change to api"
         :url="event.img"
-        placeholder="LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+        :placeholder="event.imgHash"
         class="object-cover w-full h-full"
       />
     </div>
@@ -70,7 +70,7 @@ import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import PinIcon from "@/assets/MapPin.vue";
 import ClockIcon from "@/assets/Clock.vue";
 import CalendarIcon from "@/assets/Calendar.vue";
-import { Banner } from "@/commons/Interfaces/index.ts";
+import { Banner } from "@/commons/Interfaces/index";
 
 export default defineComponent({
   name: "CardBanner",

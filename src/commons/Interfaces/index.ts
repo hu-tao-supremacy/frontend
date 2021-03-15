@@ -4,12 +4,14 @@ export interface Event {
   time: string;
   title: string;
   faculty: string;
+  imgHash: string;
   img: string;
 }
 export interface Banner {
   title: string;
   description: string;
   tags: Array<string>;
+  imgHash: string;
   img: string;
   date: string;
   time: string;
@@ -17,6 +19,7 @@ export interface Banner {
 }
 
 export interface Org {
+  imgHash: string;
   img: string;
   shortName: string;
   fullName: string;

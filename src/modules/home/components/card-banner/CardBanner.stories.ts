@@ -2,7 +2,7 @@ import CardBanner from "./CardBanner.vue";
 import "@/index.css";
 import { app, Story } from "@storybook/vue3";
 import BaseIcon from "@/commons/UI/BaseIcon.vue";
-import { Banner } from "@/commons/Interfaces/index.ts";
+import { Banner } from "@/commons/Interfaces/index";
 
 app.component("base-icon", BaseIcon);
 
@@ -33,6 +33,7 @@ Primary.args = {
     location: "Engineering Faculty, Chula",
     date: "Sun, 14 Feb - 16 April",
     time: "10:00-18:00",
+    imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
     img: "https://picsum.photos/900"
   }
 };

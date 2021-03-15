@@ -1,6 +1,6 @@
 <template>
   <div
-    class="event-container h-30 w-full flex flex-col rounded-lg shadow bg-cover relative"
+    class="event-container h-30 w-full flex flex-col rounded-lg shadow bg-cover relative overflow-hidden"
   >
     <div
       class="event-date h-6 w-6 absolute rounded-lg font-heading text-lg text-center bg-primary-1"
@@ -13,13 +13,9 @@
         :height="160"
         alt="will change to api"
         :url="recommended.img"
-        placeholder="LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+        :placeholder="recommended.imgHash"
         class="h-full w-full object-cover rounded-t-lg"
       />
-      <!-- <img
-        :src="recommended.img"
-        class="h-full w-full object-cover rounded-t-lg"
-      /> -->
     </div>
     <div class="event-detail-container h-10 w-full flex rounded-b-lg bg-blue">
       <div class="w-1"></div>
@@ -59,7 +55,7 @@ import { defineComponent } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import ArrowRightIcon from "@/assets/ArrowRight.vue";
 import useCardRecommended from "./useCardRecommended";
-import { Event } from "@/commons/Interfaces/index.ts";
+import { Event } from "@/commons/Interfaces/index";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 
 export default defineComponent({
@@ -70,15 +66,7 @@ export default defineComponent({
   },
   props: {
     recommended: {
-      type: Object as () => Event,
-      default: {
-        day: 99,
-        month: "Jan",
-        time: "10:00-18:00",
-        title: "Fun Event",
-        faculty: "Faculty of Engineering",
-        img: "https://picsum.photos/200"
-      }
+      type: Object as () => Event
     }
   },
   setup() {

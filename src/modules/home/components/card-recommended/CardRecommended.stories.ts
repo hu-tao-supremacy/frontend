@@ -2,7 +2,7 @@ import CardRecommended from "./CardRecommended.vue";
 import "@/index.css";
 import { app, Story } from "@storybook/vue3";
 import BaseIcon from "@/commons/UI/BaseIcon.vue";
-import { Event } from "@/commons/Interfaces/index.ts";
+import { Event } from "@/commons/Interfaces/index";
 
 app.component("base-icon", BaseIcon);
 
@@ -30,6 +30,7 @@ Primary.args = {
     day: 15,
     month: "Feb",
     time: "10:00-18:00",
+    imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
     img: "https://picsum.photos/300"
   }
 };

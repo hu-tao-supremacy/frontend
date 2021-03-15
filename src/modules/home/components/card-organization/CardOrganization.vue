@@ -1,12 +1,12 @@
 <template>
-  <div class="card-org grid grid-cols-9 rounded-lg shadow-sm h-12">
+  <div class="card-org grid grid-cols-9 rounded-lg shadow-sm h-12 overflow-hidden">
     <div class="col-span-4 min-h-full">
       <LazyImage
         :width="216"
         :height="96"
         alt="will change to api"
         :url="orgs.img"
-        placeholder="LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+        :placeholder="orgs.imgHash"
         class="w-full h-full object-cover rounded-l-lg"
       />
     </div>
@@ -23,7 +23,7 @@
 import { defineComponent } from "vue";
 import useCardOrganization from "./useCardOrganization";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
-import { Org } from "@/commons/Interfaces/index.ts";
+import { Org } from "@/commons/Interfaces/index";
 
 export default defineComponent({
   components: {
@@ -36,13 +36,10 @@ export default defineComponent({
       type: Object as () => Org
     }
   },
-  setup() {
+  setup(props) {
     const {
-      imgUrl,
-      orgShortName,
-      orgFullName,
       orgShortNameTextSize
-    } = useCardOrganization();
+    } = useCardOrganization(props.orgs.shortName);
 
     return {
       orgShortNameTextSize

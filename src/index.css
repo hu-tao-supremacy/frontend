@@ -6,4 +6,8 @@
   body {
     @apply font-body text-base text-blue-11;
   }
+
+  .defaultModalWidth {
+    max-width: 570px;
+  }
 }

@@ -11,7 +11,6 @@ export default {
 };
 
 interface PropTypes {
-  eventTitle: string;
 }
 
 const Template: Story<PropTypes> = (args) => ({
@@ -23,6 +22,3 @@ const Template: Story<PropTypes> = (args) => ({
 });
 
 export const Primary = Template.bind({});
-Primary.args = {
-  eventTitle: "CU Collective Investment"
-};

@@ -30,28 +30,32 @@ export default function useModalAdditionalInfo(
   }
 
   function validEmail(): boolean {
+    if (userEmail.value === "") return false;
     const expression = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return expression.test(userEmail.value.toLowerCase());
   }
 
   function validPhone(): boolean {
-    const expression = /^0[0-9]{9}$/;
+    if (userPhone.value === "") return false;
+    const expression = /^0[0-9]{9}$/; //Must begin with 0 and have 9 digits follow it
     return expression.test(userPhone.value);
   }
 
   function validZipCode(): boolean {
-    const expression = /^[0-9]+$/;
+    if (userZipCode.value === "") return false;
+    const expression = /^[0-9]+$/; //Must have 1 or more digits only
     return expression.test(userZipCode.value);
   }
 
   function validCity(): boolean {
-    const expression = /[^0-9]/;
+    if (userCity.value === "") return false;
+    const expression = /[^0-9]/; //Must not begin with digit
     return expression.test(userCity.value);
   }
 
   function validProvince(): boolean {
     if (userProvince.value === "") return false;
-    const expression = /[^0-9]/;
+    const expression = /[^0-9]/; //Must not begin with digit
     return expression.test(userProvince.value);
   }
 

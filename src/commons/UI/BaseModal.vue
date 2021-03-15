@@ -4,6 +4,7 @@
   >
     <section
       class="bg-white relative px-8 pt-8 pb-4 rounded-2xl inline-block w-full"
+      :class="{ defaultModalWidth: defaultMaxWidth }"
       :style="{ maxWidth: maxModalWidth }"
     >
       <base-transparent-button class="cross-btn absolute" @click="closeModal"
@@ -28,8 +29,11 @@ export default defineComponent({
   },
   props: {
     maxModalWidth: {
-      type: String,
-      default: "712px"
+      type: String
+    },
+    defaultMaxWidth: {
+      type: Boolean,
+      default: true
     }
   },
   setup(_, context) {

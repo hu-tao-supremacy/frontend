@@ -13,6 +13,7 @@ export default {
 interface PropTypes {
   eventOrg: {
     imgUrl: string;
+    imgHash: string;
     shortName: string;
     fullName: string;
     detail: string;
@@ -31,6 +32,7 @@ export const Primary = Template.bind({});
 Primary.args = {
   eventOrg: {
     imgUrl: "https://picsum.photos/100",
+    imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
     shortName: "SGCU",
     fullName: "องค์การบริหารสโมสรนิสิตจุฬาลงกรณ์มหาวิทยาลัย (อบจ.)",
     detail: `<ORG - BIO>   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque pulvinar ornare orci amet. Quis arcu rhoncus velit amet nulla eleifend tristique quis? `

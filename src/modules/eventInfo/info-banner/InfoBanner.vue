@@ -6,7 +6,7 @@
         :height="1000"
         alt="will change to api"
         :url="eventBanner.bannerImg"
-        placeholder="LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+        :placeholder="eventBanner.bannerImgHash"
         class="object-cover w-full h-full"
       />
     </div>
@@ -63,7 +63,7 @@
         :height="300"
         alt="will change to api"
         :url="eventBanner.profileImg"
-        placeholder="LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+        :placeholder="eventBanner.profileImgHash"
         class="object-cover w-full h-full"
       />
     </div>
@@ -96,7 +96,9 @@ export default defineComponent({
     eventBanner: {
       type: Object as () => {
         bannerImg: string;
+        bannerImgHash: string;
         profileImg: string;
+        profileImgHash: string;
         title: string;
         tags: string[];
         date: string;

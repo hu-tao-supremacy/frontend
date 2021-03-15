@@ -7,7 +7,7 @@
           :height="100"
           alt="will change to api"
           :url="eventOrg.imgUrl"
-          placeholder="LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+          :placeholder="eventOrg.imgHash"
           class="object-cover w-full h-full"
         />
       </div>
@@ -59,6 +59,7 @@ export default defineComponent({
     eventOrg: {
       type: Object as () => {
         imgUrl: string;
+        imgHash: string;
         shortName: string;
         fullName: string;
         detail: string;

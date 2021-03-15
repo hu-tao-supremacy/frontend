@@ -14,7 +14,7 @@
   <br />
   <CardInterest class="w-16" />
   <button @click="toggleModal" class="bg-primary">Show modal</button>
-  <base-modal v-if="showModal" @close-modal="toggleModal"
+  <base-modal v-if="showModal" @close="toggleModal"
     ><div class="w-56 h-32 bg-white">Some div that we want</div>
   </base-modal>
 </template>

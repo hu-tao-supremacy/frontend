@@ -7,10 +7,16 @@
     <base-button @click="toggleModal('additionInfo')"
       >Show Additional Modal</base-button
     >
-    <ModalInterests />
     <ModalAdditionalInfo
       v-if="showAdditionalInfoModal"
       @close-modal="toggleModal('additionInfo')"
+    />
+    <base-button @click="toggleModal('interest')"
+      >Show Interests Modal</base-button
+    >
+    <ModalInterests
+      v-if="showInterestModal"
+      @close-modal="toggleModal('interest')"
     />
     <InfoBanner
       :style="{ maxWidth: '960px' }"
@@ -57,6 +63,7 @@ export default defineComponent({
     const showSignUpModal = ref(false);
     const showLogInModal = ref(false);
     const showAdditionalInfoModal = ref(false);
+    const showInterestModal = ref(false);
     const test = testData;
 
     function toggleModal(modal: string) {
@@ -70,6 +77,9 @@ export default defineComponent({
         case "additionInfo":
           showAdditionalInfoModal.value = !showAdditionalInfoModal.value;
           break;
+        case "interest":
+          showInterestModal.value = !showInterestModal.value;
+          break;
       }
     }
 
@@ -78,6 +88,7 @@ export default defineComponent({
       toggleModal,
       showLogInModal,
       showAdditionalInfoModal,
+      showInterestModal,
       test
     };
   }

@@ -1,10 +1,19 @@
-import { ref, computed } from "vue";
+import { ref, computed, SetupContext } from "vue";
 
-export default function useCardInterest() {
+export default function useCardInterest(
+  props: Readonly<
+    {
+      interestName: string;
+      imgUrl: string;
+    } & {}
+  >,
+  context: SetupContext
+) {
   const isSelected = ref(false);
 
   function toggleSelect() {
     isSelected.value = !isSelected.value;
+    context.emit("toggle-select", props.interestName);
   }
 
   const gradientColor = computed(() => {

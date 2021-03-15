@@ -7,6 +7,7 @@
     <base-button @click="toggleModal('additionInfo')"
       >Show Additional Modal</base-button
     >
+    <ModalInterests />
     <ModalAdditionalInfo
       v-if="showAdditionalInfoModal"
       @close-modal="toggleModal('additionInfo')"
@@ -37,6 +38,7 @@ import InfoBanner from "@/modules/eventInfo/info-banner/InfoBanner.vue";
 import EventDetail from "@/modules/eventInfo/event-detail/EventDetail.vue";
 import EventOrganizer from "@/modules/eventInfo/event-organizer/EventOrganizer.vue";
 import ModalAdditionalInfo from "./modal-additional-info/ModalAdditionalInfo.vue";
+import ModalInterests from "./modal-interests/ModalInterests.vue";
 import testData from "./testData";
 
 export default defineComponent({
@@ -48,7 +50,8 @@ export default defineComponent({
     InfoBanner,
     EventDetail,
     EventOrganizer,
-    ModalAdditionalInfo
+    ModalAdditionalInfo,
+    ModalInterests
   },
   setup() {
     const showSignUpModal = ref(false);

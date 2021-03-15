@@ -25,7 +25,7 @@ import CardBanner from "./components/card-banner/CardBanner.vue";
 import CardEvent from "./components/card-event/CardEvent.vue";
 import CardRecommened from "./components/card-recommended/CardRecommended.vue";
 import CardOrganization from "./components/card-organization/CardOrganization.vue";
-import CardInterest from "./components/card-interest/CardInterest.vue";
+import CardInterest from "@/modules/global/card-interest/CardInterest.vue";
 import EventCarousel from "./components/event-carousel/EventCarousel.vue";
 import BaseModal from "@/commons/UI/BaseModal.vue";
 

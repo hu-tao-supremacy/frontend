@@ -3,7 +3,7 @@
     <div class="flex flex-col">
       <section class="mb-2">
         <h1 class="font-heading text-3xl">Additional Information</h1>
-        <p class="font-medium text-gray-5">
+        <p class="text-gray-5">
           We would like to know more about you!
         </p>
       </section>

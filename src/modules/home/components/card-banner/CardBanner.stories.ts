@@ -14,7 +14,7 @@ interface PropTypes {
   eventTitle: string;
 }
 
-const Template: Story<PropTypes> = (args: any) => ({
+const Template: Story<PropTypes> = (args) => ({
   components: { CardBanner },
   setup() {
     return { args };

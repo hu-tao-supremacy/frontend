@@ -19,7 +19,7 @@
           <base-tag
             v-for="(tag, index) in event.tags"
             :key="tag"
-            :class="index === event.tags.length - 1 ? '' : 'mr-1'"
+            :class="changeClass(index)"
             >{{ tag }}</base-tag
           >
         </div>
@@ -85,6 +85,14 @@ export default defineComponent({
   props: {
     event: {
       type: Object as () => Banner
+    }
+  },
+  setup(props){
+    function changeClass(index : number){
+      return index === props.event!.tags.length - 1 ? '' : 'mr-1'
+    }
+    return{
+      changeClass
     }
   }
 });

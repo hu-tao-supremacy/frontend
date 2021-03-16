@@ -1,15 +1,19 @@
 <template>
   <div
-    class="event-container h-30 flex flex-col rounded-lg shadow bg-cover relative"
+    class="event-container h-30 w-full flex flex-col rounded-lg shadow bg-cover relative overflow-hidden"
   >
     <div
       class="event-date h-6 w-6 absolute rounded-lg font-heading text-lg text-center bg-primary-1"
     >
-      {{ eventDay }}<br />{{ eventMonth }}
+      {{ recommended.day }}<br />{{ recommended.month }}
     </div>
     <div class="event-image h-20">
-      <img
-        src="https://picsum.photos/300/600"
+      <LazyImage
+        :width="299"
+        :height="160"
+        alt="will change to api"
+        :url="recommended.img"
+        :placeholder="recommended.imgHash"
         class="h-full w-full object-cover rounded-t-lg"
       />
     </div>
@@ -20,22 +24,22 @@
       >
         <div class="event-details-list w-28 flex flex-col">
           <div class="event-duration w-full text-primary">
-            {{ eventTime }}
+            {{ recommended.time }}
           </div>
           <div
             class="event-name w-full font-heading text-xl leading-6 truncate"
           >
-            {{ eventTitle }}
+            {{ recommended.title }}
           </div>
           <div class="event-faculty w-full text-blue-10 truncate">
-            {{ eventFaculty }}
+            {{ recommended.faculty }}
           </div>
         </div>
         <base-button class="btn flex justify-center items-center ">
           <base-icon
             width="24px"
             height="24px"
-            iconColor="#FFFFFF"
+            iconColor="white"
             stroke-linecap="round"
             stroke-linejoin="round"
             ><ArrowRightIcon
@@ -46,16 +50,24 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import ArrowRightIcon from "@/assets/ArrowRight.vue";
 import useCardRecommended from "./useCardRecommended";
+import { Event } from "@/commons/Interfaces/index";
+import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 
 export default defineComponent({
   components: {
+    LazyImage,
     BaseButton,
     ArrowRightIcon
+  },
+  props: {
+    recommended: {
+      type: Object as () => Event
+    }
   },
   setup() {
     const {
@@ -81,7 +93,7 @@ export default defineComponent({
 
 <style scoped>
 .event-container {
-  width: 299px;
+  max-width: 299px;
 }
 .event-date {
   top: 8px;

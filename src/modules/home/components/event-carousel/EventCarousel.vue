@@ -2,12 +2,12 @@
   <div class="relative rounded-2xl overflow-hidden h-40 w-120 z-20 shadow">
     <event-carousel-slide
       v-for="(event, slideIndex) in testEventProps"
-      :key="event.eventTitle"
+      :key="event.title"
       :slideIndex="slideIndex"
       :currentIndex="currentIndex"
       :transitionAnimation="transitionAnimation"
     >
-      <CardBanner class="w-full" :eventTitle="event.eventTitle" />
+      <CardBanner class="w-full" :event="event" />
     </event-carousel-slide>
     <section class="carousel-misc absolute z-10 h-full flex items-center">
       <div>
@@ -38,6 +38,7 @@ import { defineComponent } from "vue";
 import CardBanner from "../card-banner/CardBanner.vue";
 import EventCarouselSlide from "./EventCarouselSlide.vue";
 import useEventCarousel from "./useEventCarousel";
+import { Banner } from "@/commons/Interfaces/index";
 
 export default defineComponent({
   name: "EventCarousel",
@@ -45,13 +46,18 @@ export default defineComponent({
     CardBanner,
     EventCarouselSlide
   },
-  setup() {
+  props: {
+    eventsList: {
+      type: Array as () => Banner[]
+    }
+  },
+  setup(props) {
     const {
       testEventProps,
       currentIndex,
       transitionAnimation,
       changeSlide
-    } = useEventCarousel();
+    } = useEventCarousel(props.eventsList!);
     return { testEventProps, currentIndex, transitionAnimation, changeSlide };
   }
 });

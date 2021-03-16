@@ -116,10 +116,6 @@ import { defineComponent, reactive, ref } from "vue";
 import CardEvent from "./components/card-event/CardEvent.vue";
 import CardRecommended from "./components/card-recommended/CardRecommended.vue";
 import CardOrganization from "./components/card-organization/CardOrganization.vue";
-<<<<<<< HEAD
-import CardInterest from "@/modules/global/card-interest/CardInterest.vue";
-=======
->>>>>>> 488b59e56b25a6a8fa00c3e3e5279fda404f70c7
 import EventCarousel from "./components/event-carousel/EventCarousel.vue";
 import BaseTransparentButton from "@/commons/UI/BaseTransparentButton.vue";
 import ArrowRightIcon from "@/assets/ArrowRight.vue";

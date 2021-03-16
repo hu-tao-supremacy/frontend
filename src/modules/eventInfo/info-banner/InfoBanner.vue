@@ -1,20 +1,25 @@
 <template>
-  <div class="flex flex-col rounded-2xl overflow-hidden relative">
+  <div class="flex flex-col rounded-2xl overflow-hidden relative bg-white">
     <div class="min-w-full h-30">
-      <img
-        :src="eventBackgroundImg"
-        alt=""
+      <LazyImage
+        :width="1000"
+        :height="1000"
+        alt="will change to api"
+        :url="eventBanner.bannerImg"
+        :placeholder="eventBanner.bannerImgHash"
         class="object-cover w-full h-full"
       />
     </div>
     <section class="pl-33 flex flex-col pr-6 pt-2 pb-4.5">
-      <h1 class="text-3xl text-blue-10 font-heading mb-1">{{ eventTitle }}</h1>
+      <h1 class="text-3xl text-blue-10 font-heading mb-1">
+        {{ eventBanner.title }}
+      </h1>
       <div class="flex flex-wrap mb-2">
         <base-tag
-          v-for="eventTag in eventTags"
-          :key="eventTag"
+          v-for="tag in eventBanner.tags"
+          :key="tag"
           class="mr-1 mb-1 h-2"
-          >{{ eventTag }}</base-tag
+          >{{ tag }}</base-tag
         >
       </div>
       <section>
@@ -26,7 +31,7 @@
             class="mr-1.5"
             ><CalendarIcon
           /></base-icon>
-          {{ eventDate }}
+          {{ eventBanner.date }}
         </div>
         <div class="flex items-center mb-1">
           <base-icon
@@ -36,7 +41,7 @@
             class="mr-1.5"
             ><ClockIcon
           /></base-icon>
-          {{ eventTime }}
+          {{ eventBanner.time }}
         </div>
         <div class="flex items-center">
           <base-icon
@@ -46,14 +51,21 @@
             class="mr-1.5"
             ><PinIcon
           /></base-icon>
-          {{ eventLocation }}
+          {{ eventBanner.location }}
         </div>
       </section>
     </section>
     <div
       class="absolute top-24 left-6 rounded-lg overflow-hidden w-20 h-30 border-4 border-white"
     >
-      <img :src="eventProfileImg" alt="" class="object-cover w-full h-full" />
+      <LazyImage
+        :width="300"
+        :height="300"
+        alt="will change to api"
+        :url="eventBanner.profileImg"
+        :placeholder="eventBanner.profileImgHash"
+        class="object-cover w-full h-full"
+      />
     </div>
     <base-button class="absolute bottom-3 right-3 w-15 h-4.5"
       >Register</base-button
@@ -65,40 +77,36 @@
 import { defineComponent } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import BaseTag from "@/commons/UI/BaseTag.vue";
+import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import PinIcon from "@/assets/MapPin.vue";
 import ClockIcon from "@/assets/Clock.vue";
 import CalendarIcon from "@/assets/Calendar.vue";
-import useInfoBanner from "./useInfoBanner";
 
 export default defineComponent({
   name: "InfoBanner",
   components: {
     BaseButton,
     BaseTag,
+    LazyImage,
     PinIcon,
     ClockIcon,
     CalendarIcon
   },
-  setup() {
-    const {
-      eventBackgroundImg,
-      eventProfileImg,
-      eventTitle,
-      eventTags,
-      eventDate,
-      eventTime,
-      eventLocation
-    } = useInfoBanner();
-
-    return {
-      eventBackgroundImg,
-      eventProfileImg,
-      eventTitle,
-      eventTags,
-      eventDate,
-      eventTime,
-      eventLocation
-    };
+  props: {
+    eventBanner: {
+      type: Object as () => {
+        bannerImg: string;
+        bannerImgHash: string;
+        profileImg: string;
+        profileImgHash: string;
+        title: string;
+        tags: string[];
+        date: string;
+        time: string;
+        location: string;
+      },
+      required: true
+    }
   }
 });
 </script>

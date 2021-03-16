@@ -21,5 +21,5 @@ export default function useCardInterest(
     return "to-gray-10-0.75";
   });
 
-  return { gradientColor, toggleSelect };
+  return { gradientColor, toggleSelect, isSelected };
 }

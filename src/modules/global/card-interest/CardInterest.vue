@@ -1,6 +1,7 @@
 <template>
   <div
-    class="h-12 w-16 text-center relative select-none cursor-pointer rounded-lg shadow-md overflow-hidden"
+    class="h-12 w-16 text-center relative select-none cursor-pointer rounded-lg overflow-hidden"
+    :class="{ animationSelected: isSelected, animationUnselected: !isSelected }"
     @click="toggleSelect"
   >
     <div
@@ -46,9 +47,44 @@ export default defineComponent({
     }
   },
   setup(props, context) {
-    const { gradientColor, toggleSelect } = useCardInterest(props, context);
+    const { gradientColor, toggleSelect, isSelected } = useCardInterest(
+      props,
+      context
+    );
 
-    return { gradientColor, toggleSelect };
+    return { gradientColor, toggleSelect, isSelected };
   }
 });
 </script>
+
+<style scoped>
+.animationSelected {
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.12);
+  animation: slide-up 0.3s ease-out forwards;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(0px);
+  }
+
+  to {
+    transform: translateY(-4px);
+  }
+}
+
+.animationUnselected {
+  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.043);
+  animation: slide-down 0.3s ease-out forwards;
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-4px);
+  }
+
+  to {
+    transform: translateY(0px);
+  }
+}
+</style>

@@ -87,13 +87,14 @@ export default defineComponent({
       type: Object as () => Banner
     }
   },
-  setup(props){
-    function changeClass(index : number){
-      return index === props.event!.tags.length - 1 ? '' : 'mr-1'
+  setup(props) {
+    function changeClass(index: number) {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      return index === props.event!.tags.length - 1 ? "" : "mr-1";
     }
-    return{
+    return {
       changeClass
-    }
+    };
   }
 });
 </script>

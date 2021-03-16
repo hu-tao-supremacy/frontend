@@ -57,6 +57,7 @@ export default defineComponent({
       currentIndex,
       transitionAnimation,
       changeSlide
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     } = useEventCarousel(props.eventsList!);
     return { testEventProps, currentIndex, transitionAnimation, changeSlide };
   }

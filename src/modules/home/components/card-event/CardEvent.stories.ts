@@ -1,30 +1,27 @@
-import CardRecommended from "./CardRecommended.vue";
+import CardEvent from "./CardEvent.vue";
 import "@/index.css";
-import { app, Story } from "@storybook/vue3";
-import BaseIcon from "@/commons/UI/BaseIcon.vue";
+import { Story } from "@storybook/vue3";
 import { Event } from "@/commons/Interfaces/index";
 
-app.component("base-icon", BaseIcon);
-
 interface PropTypes {
-  recommended: Event;
+  events: Event;
 }
 export default {
-  title: "Home/CardRecommended",
-  component: CardRecommended
+  title: "Home/CardEvent",
+  component: CardEvent
 };
 
 const Template: Story<PropTypes> = args => ({
-  components: { CardRecommended },
+  components: { CardEvent },
   setup() {
     return { args };
   },
-  template: '<CardRecommended v-bind="args" />'
+  template: '<CardEvent v-bind="args" />'
 });
 
 export const Primary = Template.bind({});
 Primary.args = {
-  recommended: {
+  events: {
     title: "Chula Collective Investment",
     faculty: "Faculty of Engineering",
     day: 15,

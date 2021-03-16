@@ -7,16 +7,7 @@
       :currentIndex="currentIndex"
       :transitionAnimation="transitionAnimation"
     >
-      <CardBanner
-        class="w-full"
-        :eventTitle="event.title"
-        :tags="event.tags"
-        :eventDescription="event.description"
-        :eventDate="event.date"
-        :eventLocation="event.location"
-        :eventTime="event.time"
-        :imgUrl="event.img"
-      />
+      <CardBanner class="w-full" :event="event" />
     </event-carousel-slide>
     <section class="carousel-misc absolute z-10 h-full flex items-center">
       <div>
@@ -47,6 +38,7 @@ import { defineComponent } from "vue";
 import CardBanner from "../card-banner/CardBanner.vue";
 import EventCarouselSlide from "./EventCarouselSlide.vue";
 import useEventCarousel from "./useEventCarousel";
+import { Banner } from "@/commons/Interfaces/index";
 
 export default defineComponent({
   name: "EventCarousel",
@@ -55,9 +47,8 @@ export default defineComponent({
     EventCarouselSlide
   },
   props: {
-    eventList: {
-      type: Array,
-      default: () => [{}, {}, {}, {}]
+    eventsList: {
+      type: Array as () => Banner[]
     }
   },
   setup(props) {
@@ -66,7 +57,7 @@ export default defineComponent({
       currentIndex,
       transitionAnimation,
       changeSlide
-    } = useEventCarousel(props.eventList);
+    } = useEventCarousel(props.eventsList!);
     return { testEventProps, currentIndex, transitionAnimation, changeSlide };
   }
 });

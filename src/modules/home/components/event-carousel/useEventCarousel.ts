@@ -1,13 +1,14 @@
 import { ref } from "vue";
+import { Banner } from "@/commons/Interfaces/index";
 
-export default function useEventCarousel(events: any) {
+export default function useEventCarousel(events: Banner[]) {
   const currentIndex = ref(0);
   const transitionAnimation = ref("");
   let slideTimer: number | undefined;
   const testEventProps = events;
 
   function startTimer() {
-    slideTimer = setInterval(function() {
+    slideTimer = window.setInterval(function() {
       transitionAnimation.value = "slide-down";
       const nextSlide =
         currentIndex.value + 1 >= testEventProps.length

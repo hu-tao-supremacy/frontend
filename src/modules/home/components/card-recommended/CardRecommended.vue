@@ -1,6 +1,6 @@
 <template>
   <div
-    class="event-container h-30 w-full flex flex-col rounded-lg shadow bg-cover relative"
+    class="event-container h-30 w-full flex flex-col rounded-lg shadow bg-cover relative overflow-hidden"
   >
     <div
       class="event-date h-6 w-6 absolute rounded-lg font-heading text-lg text-center bg-primary-1"
@@ -8,8 +8,12 @@
       {{ recommended.day }}<br />{{ recommended.month }}
     </div>
     <div class="event-image h-20">
-      <img
-        :src="recommended.img"
+      <LazyImage
+        :width="299"
+        :height="160"
+        alt="will change to api"
+        :url="recommended.img"
+        :placeholder="recommended.imgHash"
         class="h-full w-full object-cover rounded-t-lg"
       />
     </div>
@@ -47,20 +51,22 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
+import { defineComponent } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import ArrowRightIcon from "@/assets/ArrowRight.vue";
 import useCardRecommended from "./useCardRecommended";
+import { Event } from "@/commons/Interfaces/index";
+import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 
 export default defineComponent({
   components: {
+    LazyImage,
     BaseButton,
     ArrowRightIcon
   },
   props: {
     recommended: {
-      required: true,
-      type: Object
+      type: Object as () => Event
     }
   },
   setup() {

@@ -54,7 +54,6 @@
 import { defineComponent } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import ArrowRightIcon from "@/assets/ArrowRight.vue";
-import useCardRecommended from "./useCardRecommended";
 import { Event } from "@/commons/Interfaces/index";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 
@@ -68,25 +67,6 @@ export default defineComponent({
     recommended: {
       type: Object as () => Event
     }
-  },
-  setup() {
-    const {
-      imgUrl,
-      eventTitle,
-      eventDay,
-      eventMonth,
-      eventTime,
-      eventFaculty
-    } = useCardRecommended();
-
-    return {
-      imgUrl,
-      eventTitle,
-      eventDay,
-      eventMonth,
-      eventTime,
-      eventFaculty
-    };
   }
 });
 </script>

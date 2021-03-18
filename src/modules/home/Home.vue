@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col mx-4 justify-center items-center w-full md:mx-0">
+  <div class="bg-gray-1 flex flex-col mx-4 justify-center items-center w-full md:mx-0">
     <div class="container">
       <EventCarousel :eventsList="state.eventsList" class="my-4 w-full" />
       <div class="flex h-6 w-full mb-3 justify-between items-center">

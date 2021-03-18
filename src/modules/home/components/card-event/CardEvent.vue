@@ -36,7 +36,6 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import useCardEvent from "./useCardEvent";
 import { Event } from "@/commons/Interfaces/index";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 
@@ -48,25 +47,6 @@ export default defineComponent({
     events: {
       type: Object as () => Event
     }
-  },
-  setup() {
-    const {
-      imgUrl,
-      eventTitle,
-      eventDay,
-      eventMonth,
-      eventTime,
-      eventFaculty
-    } = useCardEvent();
-
-    return {
-      imgUrl,
-      eventTitle,
-      eventDay,
-      eventMonth,
-      eventTime,
-      eventFaculty
-    };
   }
 });
 </script>

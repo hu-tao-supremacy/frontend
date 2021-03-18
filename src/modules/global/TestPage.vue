@@ -1,5 +1,6 @@
 <template>
   <div class="bg-gray-1 p-2">
+    <BaseSearchableSelect />
     <base-button @click="toggleModal('signup')">Show Sign Up Modal</base-button>
     <ModalSignUp v-if="showSignUpModal" @close-modal="toggleModal('signup')" />
     <base-button @click="toggleModal('login')">Show Log In Modal</base-button>
@@ -37,6 +38,7 @@ import InfoBanner from "@/modules/eventInfo/info-banner/InfoBanner.vue";
 import EventDetail from "@/modules/eventInfo/event-detail/EventDetail.vue";
 import EventOrganizer from "@/modules/eventInfo/event-organizer/EventOrganizer.vue";
 import ModalAdditionalInfo from "./modal-additional-info/ModalAdditionalInfo.vue";
+import BaseSearchableSelect from "@/commons/UI/BaseSearchableSelect.vue";
 import testData from "./testData";
 
 export default defineComponent({
@@ -48,7 +50,8 @@ export default defineComponent({
     InfoBanner,
     EventDetail,
     EventOrganizer,
-    ModalAdditionalInfo
+    ModalAdditionalInfo,
+    BaseSearchableSelect
   },
   setup() {
     const showSignUpModal = ref(false);

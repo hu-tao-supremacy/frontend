@@ -76,12 +76,25 @@
           </div>
           <div class="w-21 mr-2">
             <label for="city" class="mb-0.25">City</label>
-            <BaseTextInput
+            <!-- <BaseTextInput
               v-model.trim="userCity"
               id="city"
               name="city"
               class="w-full h-3.5"
-            />
+            /> -->
+            <select
+              name="city"
+              id="city"
+              class="w-full h-3.5"
+              value="เขตพระนคร"
+            >
+              <option
+                v-for="district in districts"
+                :key="district.DISTRICT_NAME"
+                :value="district.DISTRICT_NAME"
+                >{{ district.DISTRICT_NAME }}</option
+              >
+            </select>
           </div>
           <div class="w-21">
             <label for="province" class="mb-0.25">Province</label>
@@ -123,6 +136,7 @@ import BaseTextArea from "@/commons/UI/BaseTextArea.vue";
 import ImageGalleryIcon from "@/assets/ImageGallery.vue";
 import useModalAdditionalInfo from "./useModalAdditionalInfo";
 import { CLOSE_MODAL } from "@/commons/constant";
+import districts from "@/commons/constant/districtsThailand";
 
 export default defineComponent({
   name: "ModalAdditionalInfo",
@@ -160,7 +174,8 @@ export default defineComponent({
       userCity,
       userProvince,
       userAddress,
-      validateForm
+      validateForm,
+      districts
     };
   }
 });

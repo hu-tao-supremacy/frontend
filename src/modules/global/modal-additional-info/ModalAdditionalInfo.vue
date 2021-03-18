@@ -19,7 +19,7 @@
                 width="24"
                 height="24"
                 class="text-primary"
-                ><ImageIcon
+                ><ImageGalleryIcon
               /></base-icon>
               <img
                 v-else
@@ -120,7 +120,7 @@ import BaseModal from "@/commons/UI/BaseModal.vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import BaseTextInput from "@/commons/UI/BaseTextInput.vue";
 import BaseTextArea from "@/commons/UI/BaseTextArea.vue";
-import ImageIcon from "@/assets/Image.vue";
+import ImageGalleryIcon from "@/assets/ImageGallery.vue";
 import useModalAdditionalInfo from "./useModalAdditionalInfo";
 import { CLOSE_MODAL } from "@/commons/constant";
 
@@ -131,7 +131,7 @@ export default defineComponent({
     BaseButton,
     BaseTextInput,
     BaseTextArea,
-    ImageIcon
+    ImageGalleryIcon
   },
   emits: [CLOSE_MODAL],
   setup(_, context) {

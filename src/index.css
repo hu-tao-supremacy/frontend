@@ -7,6 +7,10 @@
     @apply font-body text-base text-blue-11;
   }
 
+  input {
+    webkitapperance: none;
+  }
+
   .defaultModalWidth {
     max-width: 570px;
   }

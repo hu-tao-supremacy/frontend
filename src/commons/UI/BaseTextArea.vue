@@ -9,6 +9,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { UPDATE_MODEL_VALUE } from "@/commons/constant";
 
 export default defineComponent({
   name: "BaseTextArea",
@@ -24,7 +25,7 @@ export default defineComponent({
   setup(_, context) {
     function userChange(event: Event) {
       const target = event.target as HTMLInputElement;
-      context.emit("update:modelValue", target.value);
+      context.emit(UPDATE_MODEL_VALUE, target.value);
     }
 
     return { userChange };

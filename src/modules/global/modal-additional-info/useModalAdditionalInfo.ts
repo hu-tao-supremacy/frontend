@@ -1,6 +1,14 @@
 import { ref, computed, SetupContext } from "vue";
 import { uploadFile } from "@/commons/utils/uploadImage";
 import { CLOSE_MODAL } from "@/commons/constant";
+import {
+  validEmail,
+  validPhone,
+  validZipCode,
+  validCity,
+  validProvince,
+  validAddress
+} from "@/commons/utils/validForm";
 
 export default function useModalAdditionalInfo(
   _: object,
@@ -29,49 +37,15 @@ export default function useModalAdditionalInfo(
     return false;
   }
 
-  function validEmail(): boolean {
-    if (userEmail.value === "") return false;
-    const expression = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return expression.test(userEmail.value.toLowerCase());
-  }
-
-  function validPhone(): boolean {
-    if (userPhone.value === "") return false;
-    const expression = /^0[0-9]{9}$/; //Must begin with 0 and have 9 digits follow it
-    return expression.test(userPhone.value);
-  }
-
-  function validZipCode(): boolean {
-    if (userZipCode.value === "") return false;
-    const expression = /^[0-9]+$/; //Must have 1 or more digits only
-    return expression.test(userZipCode.value);
-  }
-
-  function validCity(): boolean {
-    if (userCity.value === "") return false;
-    const expression = /[^0-9]/; //Must not begin with digit
-    return expression.test(userCity.value);
-  }
-
-  function validProvince(): boolean {
-    if (userProvince.value === "") return false;
-    const expression = /[^0-9]/; //Must not begin with digit
-    return expression.test(userProvince.value);
-  }
-
-  function validAddress(): boolean {
-    return userAddress.value !== "";
-  }
-
   function validateForm() {
     const errors = [];
     if (!validProfileImage()) errors.push("Invalid profile image");
-    if (!validEmail()) errors.push("Invalid email");
-    if (!validPhone()) errors.push("Invalid phone number");
-    if (!validZipCode()) errors.push("Invalid zip code");
-    if (!validCity()) errors.push("Invalid city");
-    if (!validProvince()) errors.push("Invalid province");
-    if (!validAddress()) errors.push("Invalid address");
+    if (!validEmail(userEmail.value)) errors.push("Invalid email");
+    if (!validPhone(userPhone.value)) errors.push("Invalid phone number");
+    if (!validZipCode(userZipCode.value)) errors.push("Invalid zip code");
+    if (!validCity(userCity.value)) errors.push("Invalid city");
+    if (!validProvince(userProvince.value)) errors.push("Invalid province");
+    if (!validAddress(userAddress.value)) errors.push("Invalid address");
     if (errors.length !== 0) {
       console.log(errors);
       //do something when error occur

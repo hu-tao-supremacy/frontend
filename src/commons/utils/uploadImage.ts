@@ -11,7 +11,6 @@ async function finishUploadFile(
 }
 
 async function uploadFile(reader: FileReader, target: HTMLInputElement) {
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const result = await finishUploadFile(reader, target);
   return result;
 }

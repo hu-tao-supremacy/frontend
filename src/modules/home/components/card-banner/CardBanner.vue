@@ -84,16 +84,17 @@ export default defineComponent({
   },
   props: {
     event: {
-      type: Object as () => Banner
+      type: Object as () => Banner,
+      required: true
     }
   },
-  setup(props){
-    function changeClass(index : number){
-      return index === props.event!.tags.length - 1 ? '' : 'mr-1'
+  setup(props) {
+    function changeClass(index: number) {
+      return index === props.event?.tags.length - 1 ? "" : "mr-1";
     }
-    return{
+    return {
       changeClass
-    }
+    };
   }
 });
 </script>

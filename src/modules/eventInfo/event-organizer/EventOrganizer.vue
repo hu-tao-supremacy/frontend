@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col rounded-2xl overflow-hidden p-2 bg-white">
+  <div class="flex flex-col rounded-2xl overflow-hidden p-2 bg-white shadow">
     <section class="flex w-full mb-2">
       <div class="h-10 w-10 rounded-full overflow-hidden mr-2 flex-shrink-0">
         <LazyImage

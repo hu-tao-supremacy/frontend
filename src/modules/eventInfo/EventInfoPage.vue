@@ -8,17 +8,21 @@
         :style="{ maxWidth: '960px' }"
         :eventBanner="test.eventBanner"
       />
-      <div class="infoContainer flex justify-between flex-shrink-0">
+      <div class="text-4xl font-heading mt-7">Event Information</div>
+      <div class="flex justify-between items-start">
         <EventDetail
-          class="mt-2"
+          class="mt-2 mb-16"
           :style="{ maxWidth: '628px' }"
           :eventDetail="test.eventDetail"
         />
-        <EventOrganizer
-          class="mt-2"
-          :style="{ maxWidth: '300px' }"
-          :eventOrg="test.eventOrganizer"
-        />
+        <div class="relative">
+          <div class="org-by text-lg font-heading absolute">Organized by</div>
+          <EventOrganizer
+            class="mt-2"
+            :style="{ maxWidth: '300px' }"
+            :eventOrg="test.eventOrganizer"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -50,5 +54,9 @@ export default defineComponent({
 <style scoped>
 .container {
   max-width: 960px;
+}
+.org-by {
+  top: -9px;
+  right: 0px;
 }
 </style>

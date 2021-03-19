@@ -1,6 +1,18 @@
 <template>
   <div class="bg-gray-1 p-2">
-    <BaseSearchableSelect />
+    <SingleNameSelect
+      v-if="test.singleSelect.optionNames"
+      :isSearchable="true"
+      :optionNames="test.singleSelect.optionNames"
+      :optionValues="test.singleSelect.optionValues"
+    />
+    <DoubleNameSelect
+      v-if="test.doubleSelect.optionValues"
+      :isSearchable="true"
+      :optionENGNames="test.doubleSelect.optionENGNames"
+      :optionTHNames="test.doubleSelect.optionTHNames"
+      :optionValues="test.doubleSelect.optionValues"
+    />
     <base-button @click="toggleModal('signup')">Show Sign Up Modal</base-button>
     <ModalSignUp v-if="showSignUpModal" @close-modal="toggleModal('signup')" />
     <base-button @click="toggleModal('login')">Show Log In Modal</base-button>
@@ -38,7 +50,8 @@ import InfoBanner from "@/modules/eventInfo/info-banner/InfoBanner.vue";
 import EventDetail from "@/modules/eventInfo/event-detail/EventDetail.vue";
 import EventOrganizer from "@/modules/eventInfo/event-organizer/EventOrganizer.vue";
 import ModalAdditionalInfo from "./modal-additional-info/ModalAdditionalInfo.vue";
-import BaseSearchableSelect from "@/commons/UI/BaseSearchableSelect.vue";
+import SingleNameSelect from "@/commons/UI/select/SingleNameSelect.vue";
+import DoubleNameSelect from "@/commons/UI/select/DoubleNameSelect.vue";
 import testData from "./testData";
 
 export default defineComponent({
@@ -51,7 +64,8 @@ export default defineComponent({
     EventDetail,
     EventOrganizer,
     ModalAdditionalInfo,
-    BaseSearchableSelect
+    SingleNameSelect,
+    DoubleNameSelect
   },
   setup() {
     const showSignUpModal = ref(false);

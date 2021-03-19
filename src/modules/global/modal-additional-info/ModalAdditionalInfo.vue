@@ -82,7 +82,7 @@
               name="city"
               class="w-full h-3.5"
             /> -->
-            <select
+            <!-- <select
               name="city"
               id="city"
               class="w-full h-3.5"
@@ -94,7 +94,8 @@
                 :value="district.DISTRICT_NAME"
                 >{{ district.DISTRICT_NAME }}</option
               >
-            </select>
+            </select> -->
+            <VueThailandAddressAutocomplete type="district" label="district" />
           </div>
           <div class="w-21">
             <label for="province" class="mb-0.25">Province</label>
@@ -137,6 +138,7 @@ import ImageGalleryIcon from "@/assets/ImageGallery.vue";
 import useModalAdditionalInfo from "./useModalAdditionalInfo";
 import { CLOSE_MODAL } from "@/commons/constant";
 import districts from "@/commons/constant/districtsThailand";
+import VueThailandAddressAutocomplete from "@/commons/UI/VueThailandAddressAutocomplete.vue";
 
 export default defineComponent({
   name: "ModalAdditionalInfo",
@@ -145,7 +147,8 @@ export default defineComponent({
     BaseButton,
     BaseTextInput,
     BaseTextArea,
-    ImageGalleryIcon
+    ImageGalleryIcon,
+    VueThailandAddressAutocomplete
   },
   emits: [CLOSE_MODAL],
   setup(_, context) {

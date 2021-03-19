@@ -15,24 +15,32 @@
       >
         {{ option.name }}
       </p>
+      <slot></slot>
     </section>
   </div>
 </template>
 
+
 <script lang="ts">
 import { computed, defineComponent, Ref, ref } from "vue";
-import districts from "@/commons/constant/districtsThailand";
+import districts from "@/commons/constant/thailand-address/district";
+import { UPDATE_MODEL_VALUE } from "@/commons/constant";
 
 export default defineComponent({
   name: "BaseSearchableSelect",
-  setup() {
+  props: {
+    modelValue: {
+      default: null
+    }
+  },
+  setup(props, context) {
     const showOptions = ref(false);
     const selectedOption: Ref<{ name: string; value: unknown }> = ref({
       name: "",
       value: null
     });
     const searchQuery = ref("");
-    const optionNames = districts.map(district => district.DISTRICT_NAME); //props
+    const optionNames = districts.map(district => district.DISTRICT_TH_NAME); //props
     const optionValues: unknown[] = districts; //props
     const options: { name: string; value: unknown }[] = [];
     optionNames.forEach((name, i) => {
@@ -46,7 +54,8 @@ export default defineComponent({
 
     function changeOption(option: { name: string; value: unknown }) {
       selectedOption.value = option;
-      console.log(selectedOption.value); //emit v-model
+      context.emit(UPDATE_MODEL_VALUE, selectedOption.value.value);
+      console.log(selectedOption.value);
       toggleShowOptions();
     }
 

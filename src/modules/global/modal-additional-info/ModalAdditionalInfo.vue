@@ -137,8 +137,6 @@ import BaseTextArea from "@/commons/UI/BaseTextArea.vue";
 import ImageGalleryIcon from "@/assets/ImageGallery.vue";
 import useModalAdditionalInfo from "./useModalAdditionalInfo";
 import { CLOSE_MODAL } from "@/commons/constant";
-import districts from "@/commons/constant/districtsThailand";
-import VueThailandAddressAutocomplete from "@/commons/UI/VueThailandAddressAutocomplete.vue";
 
 export default defineComponent({
   name: "ModalAdditionalInfo",
@@ -147,8 +145,7 @@ export default defineComponent({
     BaseButton,
     BaseTextInput,
     BaseTextArea,
-    ImageGalleryIcon,
-    VueThailandAddressAutocomplete
+    ImageGalleryIcon
   },
   emits: [CLOSE_MODAL],
   setup(_, context) {
@@ -177,8 +174,7 @@ export default defineComponent({
       userCity,
       userProvince,
       userAddress,
-      validateForm,
-      districts
+      validateForm
     };
   }
 });

@@ -9,19 +9,31 @@
         :eventBanner="test.eventBanner"
       />
       <div class="text-4xl font-heading mt-7">Event Information</div>
-      <div class="flex justify-between items-start">
-        <EventDetail
-          class="mt-2 mb-16"
-          :style="{ maxWidth: '628px' }"
-          :eventDetail="test.eventDetail"
-        />
-        <div class="relative">
-          <div class="org-by text-lg font-heading absolute">Organized by</div>
+      <div class="flex w-full h-full mt-3 mb-4 overflow-auto">
+        <div class="flex flex-col">
+          <EventDetail
+            class="mb-3"
+            :style="{ maxWidth: '628px' }"
+            :eventDetail="test.eventDetail"
+          />
+          <div class="text-lg font-heading">Organized by</div>
           <EventOrganizer
-            class="mt-2"
-            :style="{ maxWidth: '300px' }"
+            class="mt-1"
+            :style="{ maxWidth: '628px' }"
             :eventOrg="test.eventOrganizer"
           />
+        </div>
+        <div class="flex flex-col ml-4">
+          <div class="text-lg font-heading">Event Schedule</div>
+          <div class="event-schedule-container rounded-lg flex flex-col justify-center items-center mt-1 py-1 bg-gray-2">
+            <EventSchedule
+              class="mb-1"
+              v-for="schedule in test.eventsSchedule"
+              :style="{ maxWidth: '283px' }"
+              :key="schedule.id"
+              :eventsSchedule="schedule"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -33,6 +45,7 @@ import { defineComponent } from "vue";
 import InfoBanner from "@/modules/eventInfo/info-banner/InfoBanner.vue";
 import EventDetail from "@/modules/eventInfo/event-detail/EventDetail.vue";
 import EventOrganizer from "@/modules/eventInfo/event-organizer/EventOrganizer.vue";
+import EventSchedule from "@/modules/eventInfo/event-schedule/EventSchedule.vue";
 import testData from "@/modules/global/testData";
 
 export default defineComponent({
@@ -40,7 +53,8 @@ export default defineComponent({
   components: {
     InfoBanner,
     EventDetail,
-    EventOrganizer
+    EventOrganizer,
+    EventSchedule
   },
   setup() {
     const test = testData;
@@ -55,8 +69,7 @@ export default defineComponent({
 .container {
   max-width: 960px;
 }
-.org-by {
-  top: -9px;
-  right: 0px;
+.event-schedule-container{
+  width: 299px;
 }
 </style>

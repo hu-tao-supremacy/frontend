@@ -15,10 +15,10 @@
         <h1 class="font-heading text-3xl text-blue-10">
           {{ eventOrg.shortName }}
         </h1>
-        <p class="text-sm">{{ eventOrg.fullName }}</p>
+        <p class="font-body text-sm">{{ eventOrg.fullName }}</p>
+        <div class="mt-1">{{ eventOrg.detail }}</div>
       </div>
     </section>
-    <section class="mb-2">{{ eventOrg.detail }}</section>
     <section class="flex justify-between items-center">
       <base-button class="px-2 py-0.5">Follow</base-button>
       <div class="flex items-center">

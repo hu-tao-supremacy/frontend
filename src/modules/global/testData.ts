@@ -19,7 +19,93 @@ const testData = {
     date: "Sun, 14 Feb - 16 April",
     time: "10:00 -18:00",
     location: "Engineering Faculty, Chula"
-  }
+  },
+  eventsSchedule: [
+    {
+      id: 1,
+      faculty: "TGR Faculty, Chula",
+      day: 14,
+      month: "Feb",
+      time: "10:00-18:00"
+    },
+    {
+      id: 2,
+      faculty: "Engineering Faculty, Chula",
+      day: 16,
+      month: "Apr",
+      time: "10:00-18:00"
+    },
+    {
+      id: 3,
+      faculty: "Engineering Faculty, Chula",
+      day: 16,
+      month: "Apr",
+      time: "10:00-18:00"
+    },
+    {
+      id: 4,
+      faculty: "TGR Faculty, Chula",
+      day: 14,
+      month: "Feb",
+      time: "10:00-18:00"
+    },
+    {
+      id: 5,
+      faculty: "Engineering Faculty, Chula",
+      day: 16,
+      month: "Apr",
+      time: "10:00-18:00"
+    },
+    {
+      id: 6,
+      faculty: "Engineering Faculty, Chula",
+      day: 16,
+      month: "Apr",
+      time: "10:00-18:00"
+    },
+    {
+      id: 7,
+      faculty: "TGR Faculty, Chula",
+      day: 14,
+      month: "Feb",
+      time: "10:00-18:00"
+    },
+    {
+      id: 8,
+      faculty: "Engineering Faculty, Chula",
+      day: 16,
+      month: "Apr",
+      time: "10:00-18:00"
+    },
+    {
+      id: 9,
+      faculty: "Engineering Faculty, Chula",
+      day: 16,
+      month: "Apr",
+      time: "10:00-18:00"
+    },
+    {
+      id: 10,
+      faculty: "TGR Faculty, Chula",
+      day: 14,
+      month: "Feb",
+      time: "10:00-18:00"
+    },
+    {
+      id: 11,
+      faculty: "Engineering Faculty, Chula",
+      day: 16,
+      month: "Apr",
+      time: "10:00-18:00"
+    },
+    {
+      id: 12,
+      faculty: "Engineering Faculty, Chula",
+      day: 16,
+      month: "Apr",
+      time: "10:00-18:00"
+    }
+  ]
 };
 
 export default testData;

@@ -21,12 +21,8 @@
 
 <script lang="ts">
 import { defineComponent } from "@vue/runtime-core";
-interface Schedule {
-  faculty: string;
-  day: number;
-  month: string;
-  time: string;
-}
+import { Schedule } from "@/commons/Interfaces/index"
+
 export default defineComponent({
   name: "EventSchdule",
   props: {

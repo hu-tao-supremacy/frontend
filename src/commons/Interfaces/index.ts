@@ -24,3 +24,10 @@ export interface Org {
   shortName: string;
   fullName: string;
 }
+
+export interface Schedule {
+  faculty: string;
+  day: number;
+  month: string;
+  time: string;
+}

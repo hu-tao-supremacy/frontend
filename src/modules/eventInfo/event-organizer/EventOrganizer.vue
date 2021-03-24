@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col rounded-2xl overflow-hidden p-2 bg-white shadow">
+  <div class="flex flex-col rounded-2xl overflow-hidden p-2 bg-white shadow-sm">
     <section class="flex w-full mb-2">
       <div class="h-10 w-10 rounded-full overflow-hidden mr-2 flex-shrink-0">
         <LazyImage
@@ -15,7 +15,7 @@
         <h1 class="font-heading text-3xl text-blue-10">
           {{ eventOrg.shortName }}
         </h1>
-        <p class="font-body text-sm">{{ eventOrg.fullName }}</p>
+        <p class="text-sm">{{ eventOrg.fullName }}</p>
         <div class="mt-1">{{ eventOrg.detail }}</div>
       </div>
     </section>

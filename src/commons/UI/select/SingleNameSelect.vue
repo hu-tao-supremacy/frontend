@@ -1,16 +1,15 @@
 <template>
   <base-select
-    v-model:searchText="searchText"
-    :selectedOption="displayedOption"
-    :showOptions="showOptions"
-    @toggle-show-select-option="toggleShowOptions"
+    v-model:searchTextModel="searchText"
+    :displayedOption="displayedOption"
     :isSearchable="isSearchable"
-    v-click-outside="closeOptions"
   >
     <p
-      v-for="option in filteredOptions"
+      v-for="(option, index) in filteredOptions"
       :key="option.value"
       @click="changeOption(option)"
+      class="p-1 border-gray-2"
+      :class="{ 'border-b': index !== filteredOptions.length - 1 }"
     >
       {{ option.name }}
     </p>
@@ -21,6 +20,7 @@
 import { computed, defineComponent, PropType, Ref, ref } from "vue";
 import BaseSelect from "./BaseSelect.vue";
 import { UPDATE_MODEL_VALUE } from "@/commons/constant";
+import Fuse from "fuse.js";
 
 export default defineComponent({
   name: "SingleNameSelect",
@@ -42,7 +42,6 @@ export default defineComponent({
     }
   },
   setup(props, context) {
-    const showOptions = ref(false);
     const searchText = ref("");
     const selectedOption: Ref<{ name: string; value: unknown }> = ref({
       name: "",
@@ -54,41 +53,29 @@ export default defineComponent({
       options.push(option);
     });
 
-    function toggleShowOptions() {
-      showOptions.value = !showOptions.value;
-    }
-
-    function closeOptions() {
-      showOptions.value = false;
-    }
-
     function changeOption(option: { name: string; value: unknown }) {
       selectedOption.value = option;
       context.emit(UPDATE_MODEL_VALUE, selectedOption.value.value);
-      toggleShowOptions();
     }
 
     const displayedOption = computed(() => {
-      if (!selectedOption.value.value) return "Select Option";
+      if (!selectedOption.value.value) return "";
       return selectedOption.value.name;
     });
 
     const filteredOptions = computed(() => {
-      const expression = new RegExp(searchText.value, "i");
-      const passedCondition = options.filter(option =>
-        expression.test(option.name)
-      );
-      return passedCondition;
+      if (searchText.value === "") return options;
+      const config = { keys: ["name"] };
+      const fuse = new Fuse(options, config);
+      const filteredOptions = fuse.search(searchText.value);
+      return filteredOptions;
     });
 
     return {
       searchText,
-      showOptions,
-      toggleShowOptions,
       changeOption,
       displayedOption,
-      filteredOptions,
-      closeOptions
+      filteredOptions
     };
   }
 });

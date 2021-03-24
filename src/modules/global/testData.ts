@@ -23,12 +23,7 @@ const testData = {
     location: "Engineering Faculty, Chula"
   },
   singleSelect: {
-    optionNames: districts.map(district => district.DISTRICT_TH_NAME),
-    optionValues: districts
-  },
-  doubleSelect: {
-    optionTHNames: districts.map(district => district.DISTRICT_TH_NAME),
-    optionENGNames: districts.map(district => district.DISTRICT_ENG_NAME),
+    optionNames: districts.map(district => district.DISTRICT_ENG_NAME),
     optionValues: districts
   }
 };

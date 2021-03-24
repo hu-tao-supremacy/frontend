@@ -28,7 +28,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch } from "vue";
+import { defineComponent } from "vue";
+import { UPDATE_SEARCH_TEXT_MODEL } from "@/commons/constant/index";
+import useBaseSelect from "./useBaseSelect";
 
 export default defineComponent({
   name: "BaseSelect",
@@ -46,34 +48,16 @@ export default defineComponent({
       default: false
     }
   },
-  emits: ["update:searchTextModel"],
+  emits: [UPDATE_SEARCH_TEXT_MODEL],
   setup(props, context) {
-    const isOptionShown = ref(false);
-    const userInput = ref("");
-    const buttonDisplay = ref("Select Option");
-
-    function showOption() {
-      isOptionShown.value = true;
-    }
-
-    function hideOption() {
-      isOptionShown.value = false;
-      if (props.displayedOption !== "") userInput.value = props.displayedOption;
-    }
-
-    function userChangeSearch(event: Event) {
-      const target = event.target as HTMLInputElement;
-      context.emit("update:searchTextModel", target.value);
-    }
-
-    watch(
-      () => props.displayedOption,
-      () => {
-        isOptionShown.value = false;
-        userInput.value = props.displayedOption;
-        buttonDisplay.value = props.displayedOption;
-      }
-    );
+    const {
+      isOptionShown,
+      userInput,
+      buttonDisplay,
+      showOption,
+      hideOption,
+      userChangeSearch
+    } = useBaseSelect(props, context);
 
     return {
       isOptionShown,

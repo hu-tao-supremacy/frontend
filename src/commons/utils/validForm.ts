@@ -16,7 +16,7 @@ export function validZipCode(zipCode: string) {
   return expression.test(zipCode);
 }
 
-export function validCity(city: string) {
+export function validDistrict(city: string) {
   if (city === "") return false;
   const expression = /[^0-9]/; //Must not begin with digit
   return expression.test(city);

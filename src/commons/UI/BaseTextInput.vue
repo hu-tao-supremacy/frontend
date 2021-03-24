@@ -4,6 +4,7 @@
     :value="modelValue"
     @input="userChange"
     class="text-input border border-gray-4 rounded-lg px-1.5 focus:border-primary focus:outline-none"
+    :disabled="disabled"
   />
 </template>
 
@@ -21,6 +22,10 @@ export default defineComponent({
     modelValue: {
       type: String,
       default: ""
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   emits: ["update:modelValue"],

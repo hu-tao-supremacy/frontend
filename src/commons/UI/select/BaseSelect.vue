@@ -1,8 +1,8 @@
 <template>
-  <div class="relative w-16">
+  <div class="relative">
     <input
       v-if="isSearchable"
-      class="displayed-area border border-gray-4 rounded-lg px-1.5 focus:border-primary focus:outline-none"
+      class="displayed-area border border-gray-4 rounded-lg px-1.5 focus:border-primary focus:outline-none w-full h-full"
       v-model="userInput"
       @focus="showOption"
       v-click-outside="hideOption"
@@ -12,7 +12,7 @@
     />
     <input
       v-else
-      class="displayed-area border border-gray-4 rounded-lg px-1.5 focus:border-primary focus:outline-none bg-white"
+      class="displayed-area border border-gray-4 rounded-lg px-1.5 focus:border-primary focus:outline-none bg-white w-full h-full"
       :value="buttonDisplay"
       @click="showOption"
       v-click-outside="hideOption"

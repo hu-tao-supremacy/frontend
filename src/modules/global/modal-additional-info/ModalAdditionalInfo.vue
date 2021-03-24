@@ -65,45 +65,42 @@
           />
         </section>
         <section class="flex space-between mb-2">
-          <div class="w-9 mr-2">
-            <label for="zipCode" class="mb-0.25">Zip Code</label>
-            <BaseTextInput
+          <div class="w-21 mr-2 flex-shrink-0">
+            <label for="district" class="mb-0.25">District</label>
+            <!-- <BaseTextInput
               v-model.trim="userZipCode"
-              id="zipCode"
-              name="zipCode"
+              id="district"
+              name="district"
+              class="w-full h-3.5"
+            /> -->
+            <BaseSelect
+              v-model="userLocation"
+              :isSearchable="true"
+              :optionNames="districtOptionNames"
+              :optionValues="districtOptionValues"
               class="w-full h-3.5"
             />
           </div>
-          <div class="w-21 mr-2">
-            <label for="city" class="mb-0.25">City</label>
-            <!-- <BaseTextInput
-              v-model.trim="userCity"
-              id="city"
-              name="city"
-              class="w-full h-3.5"
-            /> -->
-            <!-- <select
-              name="city"
-              id="city"
-              class="w-full h-3.5"
-              value="เขตพระนคร"
-            >
-              <option
-                v-for="district in districts"
-                :key="district.DISTRICT_NAME"
-                :value="district.DISTRICT_NAME"
-                >{{ district.DISTRICT_NAME }}</option
-              >
-            </select> -->
-            <VueThailandAddressAutocomplete type="district" label="district" />
-          </div>
-          <div class="w-21">
+          <div class="w-21 mr-2 flex-shrink-0">
             <label for="province" class="mb-0.25">Province</label>
             <BaseTextInput
-              v-model.trim="userProvince"
+              v-model="userProvince"
               id="province"
               name="province"
               class="w-full h-3.5"
+              :disabled="true"
+              placeholder="autofilled"
+            />
+          </div>
+          <div class="">
+            <label for="zipCode" class="mb-0.25">Zip Code</label>
+            <BaseTextInput
+              v-model="userZipCode"
+              id="zipCode"
+              name="zipCode"
+              class="w-full h-3.5"
+              :disabled="true"
+              placeholder="auto"
             />
           </div>
         </section>
@@ -134,6 +131,7 @@ import BaseModal from "@/commons/UI/BaseModal.vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import BaseTextInput from "@/commons/UI/BaseTextInput.vue";
 import BaseTextArea from "@/commons/UI/BaseTextArea.vue";
+import BaseSelect from "@/commons/UI/select/SingleNameSelect.vue";
 import ImageGalleryIcon from "@/assets/ImageGallery.vue";
 import useModalAdditionalInfo from "./useModalAdditionalInfo";
 import { CLOSE_MODAL } from "@/commons/constant";
@@ -145,6 +143,7 @@ export default defineComponent({
     BaseButton,
     BaseTextInput,
     BaseTextArea,
+    BaseSelect,
     ImageGalleryIcon
   },
   emits: [CLOSE_MODAL],
@@ -156,10 +155,13 @@ export default defineComponent({
       closeModal,
       userEmail,
       userPhone,
+      userLocation,
       userZipCode,
-      userCity,
+      userDistrict,
       userProvince,
       userAddress,
+      districtOptionNames,
+      districtOptionValues,
       validateForm
     } = useModalAdditionalInfo(_, context);
 
@@ -170,10 +172,13 @@ export default defineComponent({
       closeModal,
       userEmail,
       userPhone,
+      userLocation,
       userZipCode,
-      userCity,
+      userDistrict,
       userProvince,
       userAddress,
+      districtOptionNames,
+      districtOptionValues,
       validateForm
     };
   }

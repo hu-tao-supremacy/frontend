@@ -5,7 +5,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Phra Nakhon",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10200
+    ZIPCODE: "10200"
   },
   {
     DISTRICT_ID: 1002,
@@ -13,7 +13,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Dusit",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10300
+    ZIPCODE: "10300"
   },
   {
     DISTRICT_ID: 1003,
@@ -21,7 +21,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Nong Chok",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10530
+    ZIPCODE: "10530"
   },
   {
     DISTRICT_ID: 1004,
@@ -29,7 +29,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Bang Rak",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10500
+    ZIPCODE: "10500"
   },
   {
     DISTRICT_ID: 1005,
@@ -37,7 +37,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Bang Khen",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10220
+    ZIPCODE: "10220"
   },
   {
     DISTRICT_ID: 1006,
@@ -45,7 +45,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Bang Kapi",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10240
+    ZIPCODE: "10240"
   },
   {
     DISTRICT_ID: 1007,
@@ -53,7 +53,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Pathum Wan",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10330
+    ZIPCODE: "10330"
   },
   {
     DISTRICT_ID: 1008,
@@ -61,7 +61,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Pom Prap Sattru Phai",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10100
+    ZIPCODE: "10100"
   },
   {
     DISTRICT_ID: 1009,
@@ -69,7 +69,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Phra Khanong",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10260
+    ZIPCODE: "10260"
   },
   {
     DISTRICT_ID: 1010,
@@ -77,7 +77,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Min Buri",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10510
+    ZIPCODE: "10510"
   },
   {
     DISTRICT_ID: 1011,
@@ -85,7 +85,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Lat Krabang",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10520
+    ZIPCODE: "10520"
   },
   {
     DISTRICT_ID: 1012,
@@ -93,7 +93,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Yan Nawa",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10120
+    ZIPCODE: "10120"
   },
   {
     DISTRICT_ID: 1013,
@@ -101,7 +101,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Samphanthawong",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10100
+    ZIPCODE: "10100"
   },
   {
     DISTRICT_ID: 1014,
@@ -109,7 +109,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Phaya Thai",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10400
+    ZIPCODE: "10400"
   },
   {
     DISTRICT_ID: 1015,
@@ -117,7 +117,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Thon Buri",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10600
+    ZIPCODE: "10600"
   },
   {
     DISTRICT_ID: 1016,
@@ -125,7 +125,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Bangkok Yai",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10600
+    ZIPCODE: "10600"
   },
   {
     DISTRICT_ID: 1017,
@@ -133,7 +133,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Huai Khwang",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10310
+    ZIPCODE: "10310"
   },
   {
     DISTRICT_ID: 1018,
@@ -141,7 +141,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Khlong San",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10600
+    ZIPCODE: "10600"
   },
   {
     DISTRICT_ID: 1019,
@@ -149,7 +149,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Taling Chan",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10170
+    ZIPCODE: "10170"
   },
   {
     DISTRICT_ID: 1020,
@@ -157,7 +157,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Bangkok Noi",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10700
+    ZIPCODE: "10700"
   },
   {
     DISTRICT_ID: 1021,
@@ -165,7 +165,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Bang Khun Thian",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10150
+    ZIPCODE: "10150"
   },
   {
     DISTRICT_ID: 1022,
@@ -173,7 +173,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Phasi Charoen",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10160
+    ZIPCODE: "10160"
   },
   {
     DISTRICT_ID: 1023,
@@ -181,7 +181,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Nong Khaem",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10160
+    ZIPCODE: "10160"
   },
   {
     DISTRICT_ID: 1024,
@@ -189,7 +189,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Rat Burana",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10140
+    ZIPCODE: "10140"
   },
   {
     DISTRICT_ID: 1025,
@@ -197,7 +197,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Bang Phlat",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10700
+    ZIPCODE: "10700"
   },
   {
     DISTRICT_ID: 1026,
@@ -205,7 +205,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Din Daeng",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10400
+    ZIPCODE: "10400"
   },
   {
     DISTRICT_ID: 1027,
@@ -213,7 +213,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Bueng Kum",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10240
+    ZIPCODE: "10240"
   },
   {
     DISTRICT_ID: 1028,
@@ -221,7 +221,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Sathon",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10120
+    ZIPCODE: "10120"
   },
   {
     DISTRICT_ID: 1029,
@@ -229,7 +229,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Bang Sue",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10800
+    ZIPCODE: "10800"
   },
   {
     DISTRICT_ID: 1030,
@@ -237,7 +237,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Chatuchak",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10900
+    ZIPCODE: "10900"
   },
   {
     DISTRICT_ID: 1031,
@@ -245,7 +245,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Bang Kho Laem",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10120
+    ZIPCODE: "10120"
   },
   {
     DISTRICT_ID: 1032,
@@ -253,7 +253,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Prawet",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10250
+    ZIPCODE: "10250"
   },
   {
     DISTRICT_ID: 1033,
@@ -261,7 +261,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Khlong Toei",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10110
+    ZIPCODE: "10110"
   },
   {
     DISTRICT_ID: 1034,
@@ -269,7 +269,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Suan Luang",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10250
+    ZIPCODE: "10250"
   },
   {
     DISTRICT_ID: 1035,
@@ -277,7 +277,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Chom Thong",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10150
+    ZIPCODE: "10150"
   },
   {
     DISTRICT_ID: 1036,
@@ -285,7 +285,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Don Mueang",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10210
+    ZIPCODE: "10210"
   },
   {
     DISTRICT_ID: 1037,
@@ -293,7 +293,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Ratchathewi",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10400
+    ZIPCODE: "10400"
   },
   {
     DISTRICT_ID: 1038,
@@ -301,7 +301,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Lat Phrao",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10230
+    ZIPCODE: "10230"
   },
   {
     DISTRICT_ID: 1039,
@@ -309,7 +309,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Vadhana",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10110
+    ZIPCODE: "10110"
   },
   {
     DISTRICT_ID: 1040,
@@ -317,7 +317,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Bang Khae",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10160
+    ZIPCODE: "10160"
   },
   {
     DISTRICT_ID: 1041,
@@ -325,7 +325,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Lak Si",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10210
+    ZIPCODE: "10210"
   },
   {
     DISTRICT_ID: 1042,
@@ -333,7 +333,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Sai Mai",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10220
+    ZIPCODE: "10220"
   },
   {
     DISTRICT_ID: 1043,
@@ -341,7 +341,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Khan Na Yao",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10230
+    ZIPCODE: "10230"
   },
   {
     DISTRICT_ID: 1044,
@@ -349,7 +349,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Saphan Sung",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10250
+    ZIPCODE: "10240"
   },
   {
     DISTRICT_ID: 1045,
@@ -357,7 +357,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Wang Thonglang",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10310
+    ZIPCODE: "10310"
   },
   {
     DISTRICT_ID: 1046,
@@ -365,7 +365,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Khlong Sam Wa",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10510
+    ZIPCODE: "10510"
   },
   {
     DISTRICT_ID: 1047,
@@ -373,7 +373,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Bang Na",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10260
+    ZIPCODE: "10260"
   },
   {
     DISTRICT_ID: 1048,
@@ -381,7 +381,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Thawi Watthana",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10170
+    ZIPCODE: "10170"
   },
   {
     DISTRICT_ID: 1049,
@@ -389,7 +389,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Thung Khru",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10140
+    ZIPCODE: "10140"
   },
   {
     DISTRICT_ID: 1050,
@@ -397,7 +397,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Khet Bang Bon",
     PROVINCE_ID: 10,
     GEO_ID: 1,
-    ZIPCODE: 10150
+    ZIPCODE: "10150"
   },
   {
     DISTRICT_ID: 1101,
@@ -405,7 +405,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Samut Prakan",
     PROVINCE_ID: 11,
     GEO_ID: 1,
-    ZIPCODE: 10280
+    ZIPCODE: "10270"
   },
   {
     DISTRICT_ID: 1102,
@@ -413,7 +413,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bang Bo",
     PROVINCE_ID: 11,
     GEO_ID: 1,
-    ZIPCODE: 10560
+    ZIPCODE: "10560"
   },
   {
     DISTRICT_ID: 1103,
@@ -421,7 +421,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bang Phli",
     PROVINCE_ID: 11,
     GEO_ID: 1,
-    ZIPCODE: 10540
+    ZIPCODE: "10540"
   },
   {
     DISTRICT_ID: 1104,
@@ -429,7 +429,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phra Pradaeng",
     PROVINCE_ID: 11,
     GEO_ID: 1,
-    ZIPCODE: 10130
+    ZIPCODE: "10130"
   },
   {
     DISTRICT_ID: 1105,
@@ -437,7 +437,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phra Samut Chedi",
     PROVINCE_ID: 11,
     GEO_ID: 1,
-    ZIPCODE: 10290
+    ZIPCODE: "10290"
   },
   {
     DISTRICT_ID: 1106,
@@ -445,7 +445,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bang Sao Thong",
     PROVINCE_ID: 11,
     GEO_ID: 1,
-    ZIPCODE: 10570
+    ZIPCODE: "10570"
   },
   {
     DISTRICT_ID: 1201,
@@ -453,7 +453,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Nonthaburi",
     PROVINCE_ID: 12,
     GEO_ID: 1,
-    ZIPCODE: 11000
+    ZIPCODE: "11000"
   },
   {
     DISTRICT_ID: 1202,
@@ -461,7 +461,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bang Kruai",
     PROVINCE_ID: 12,
     GEO_ID: 1,
-    ZIPCODE: 11130
+    ZIPCODE: "11130"
   },
   {
     DISTRICT_ID: 1203,
@@ -469,7 +469,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bang Yai",
     PROVINCE_ID: 12,
     GEO_ID: 1,
-    ZIPCODE: 11140
+    ZIPCODE: "11140"
   },
   {
     DISTRICT_ID: 1204,
@@ -477,7 +477,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bang Bua Thong",
     PROVINCE_ID: 12,
     GEO_ID: 1,
-    ZIPCODE: 11110
+    ZIPCODE: "11110"
   },
   {
     DISTRICT_ID: 1205,
@@ -485,7 +485,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sai Noi",
     PROVINCE_ID: 12,
     GEO_ID: 1,
-    ZIPCODE: 11150
+    ZIPCODE: "11150"
   },
   {
     DISTRICT_ID: 1206,
@@ -493,7 +493,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pak Kret",
     PROVINCE_ID: 12,
     GEO_ID: 1,
-    ZIPCODE: 11120
+    ZIPCODE: "11120"
   },
   {
     DISTRICT_ID: 1301,
@@ -501,7 +501,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Pathum Thani",
     PROVINCE_ID: 13,
     GEO_ID: 1,
-    ZIPCODE: 12000
+    ZIPCODE: "12000"
   },
   {
     DISTRICT_ID: 1302,
@@ -509,7 +509,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khlong Luang",
     PROVINCE_ID: 13,
     GEO_ID: 1,
-    ZIPCODE: 12120
+    ZIPCODE: "12120"
   },
   {
     DISTRICT_ID: 1303,
@@ -517,7 +517,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Thanyaburi",
     PROVINCE_ID: 13,
     GEO_ID: 1,
-    ZIPCODE: 12130
+    ZIPCODE: "12110"
   },
   {
     DISTRICT_ID: 1304,
@@ -525,7 +525,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Suea",
     PROVINCE_ID: 13,
     GEO_ID: 1,
-    ZIPCODE: 12170
+    ZIPCODE: "12170"
   },
   {
     DISTRICT_ID: 1305,
@@ -533,7 +533,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Lat Lum Kaeo",
     PROVINCE_ID: 13,
     GEO_ID: 1,
-    ZIPCODE: 12140
+    ZIPCODE: "12140"
   },
   {
     DISTRICT_ID: 1306,
@@ -541,7 +541,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Lam Luk Ka",
     PROVINCE_ID: 13,
     GEO_ID: 1,
-    ZIPCODE: 12150
+    ZIPCODE: "12150"
   },
   {
     DISTRICT_ID: 1307,
@@ -549,7 +549,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sam Khok",
     PROVINCE_ID: 13,
     GEO_ID: 1,
-    ZIPCODE: 12160
+    ZIPCODE: "12160"
   },
   {
     DISTRICT_ID: 1401,
@@ -557,7 +557,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phra Nakhon Si Ayutthaya",
     PROVINCE_ID: 14,
     GEO_ID: 1,
-    ZIPCODE: 13000
+    ZIPCODE: "13000"
   },
   {
     DISTRICT_ID: 1402,
@@ -565,7 +565,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tha Ruea",
     PROVINCE_ID: 14,
     GEO_ID: 1,
-    ZIPCODE: 18270
+    ZIPCODE: "13130"
   },
   {
     DISTRICT_ID: 1403,
@@ -573,7 +573,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nakhon Luang",
     PROVINCE_ID: 14,
     GEO_ID: 1,
-    ZIPCODE: 13260
+    ZIPCODE: "13260"
   },
   {
     DISTRICT_ID: 1404,
@@ -581,7 +581,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bang Sai",
     PROVINCE_ID: 14,
     GEO_ID: 1,
-    ZIPCODE: 13290
+    ZIPCODE: "13190"
   },
   {
     DISTRICT_ID: 1405,
@@ -589,7 +589,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bang Ban",
     PROVINCE_ID: 14,
     GEO_ID: 1,
-    ZIPCODE: 13250
+    ZIPCODE: "13250"
   },
   {
     DISTRICT_ID: 1406,
@@ -597,7 +597,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bang Pa-in",
     PROVINCE_ID: 14,
     GEO_ID: 1,
-    ZIPCODE: 13180
+    ZIPCODE: "13160"
   },
   {
     DISTRICT_ID: 1407,
@@ -605,7 +605,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bang Pahan",
     PROVINCE_ID: 14,
     GEO_ID: 1,
-    ZIPCODE: 13220
+    ZIPCODE: "13220"
   },
   {
     DISTRICT_ID: 1408,
@@ -613,7 +613,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phak Hai",
     PROVINCE_ID: 14,
     GEO_ID: 1,
-    ZIPCODE: 13280
+    ZIPCODE: "13120"
   },
   {
     DISTRICT_ID: 1409,
@@ -621,7 +621,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phachi",
     PROVINCE_ID: 14,
     GEO_ID: 1,
-    ZIPCODE: 13140
+    ZIPCODE: "13140"
   },
   {
     DISTRICT_ID: 1410,
@@ -629,7 +629,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Lat Bua Luang",
     PROVINCE_ID: 14,
     GEO_ID: 1,
-    ZIPCODE: 13230
+    ZIPCODE: "13230"
   },
   {
     DISTRICT_ID: 1411,
@@ -637,7 +637,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wang Noi",
     PROVINCE_ID: 14,
     GEO_ID: 1,
-    ZIPCODE: 13170
+    ZIPCODE: "13170"
   },
   {
     DISTRICT_ID: 1412,
@@ -645,7 +645,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sena",
     PROVINCE_ID: 14,
     GEO_ID: 1,
-    ZIPCODE: 13110
+    ZIPCODE: "13110"
   },
   {
     DISTRICT_ID: 1413,
@@ -653,7 +653,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bang Sai",
     PROVINCE_ID: 14,
     GEO_ID: 1,
-    ZIPCODE: 13270
+    ZIPCODE: "13270"
   },
   {
     DISTRICT_ID: 1414,
@@ -661,7 +661,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Uthai",
     PROVINCE_ID: 14,
     GEO_ID: 1,
-    ZIPCODE: 13210
+    ZIPCODE: "13210"
   },
   {
     DISTRICT_ID: 1415,
@@ -669,7 +669,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Maha Rat",
     PROVINCE_ID: 14,
     GEO_ID: 1,
-    ZIPCODE: 13150
+    ZIPCODE: "13150"
   },
   {
     DISTRICT_ID: 1416,
@@ -677,7 +677,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Phraek",
     PROVINCE_ID: 14,
     GEO_ID: 1,
-    ZIPCODE: 13240
+    ZIPCODE: "13240"
   },
   {
     DISTRICT_ID: 1501,
@@ -685,7 +685,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Ang Thong",
     PROVINCE_ID: 15,
     GEO_ID: 1,
-    ZIPCODE: 14000
+    ZIPCODE: "14000"
   },
   {
     DISTRICT_ID: 1502,
@@ -693,7 +693,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chaiyo",
     PROVINCE_ID: 15,
     GEO_ID: 1,
-    ZIPCODE: 14140
+    ZIPCODE: "14140"
   },
   {
     DISTRICT_ID: 1503,
@@ -701,7 +701,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pa Mok",
     PROVINCE_ID: 15,
     GEO_ID: 1,
-    ZIPCODE: 14130
+    ZIPCODE: "14130"
   },
   {
     DISTRICT_ID: 1504,
@@ -709,7 +709,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pho Thong",
     PROVINCE_ID: 15,
     GEO_ID: 1,
-    ZIPCODE: 14120
+    ZIPCODE: "14120"
   },
   {
     DISTRICT_ID: 1505,
@@ -717,7 +717,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sawaeng Ha",
     PROVINCE_ID: 15,
     GEO_ID: 1,
-    ZIPCODE: 14150
+    ZIPCODE: "14150"
   },
   {
     DISTRICT_ID: 1506,
@@ -725,7 +725,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wiset Chai Chan",
     PROVINCE_ID: 15,
     GEO_ID: 1,
-    ZIPCODE: 14110
+    ZIPCODE: "14110"
   },
   {
     DISTRICT_ID: 1507,
@@ -733,7 +733,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Samko",
     PROVINCE_ID: 15,
     GEO_ID: 1,
-    ZIPCODE: 14160
+    ZIPCODE: "14160"
   },
   {
     DISTRICT_ID: 1601,
@@ -741,7 +741,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Lop Buri",
     PROVINCE_ID: 16,
     GEO_ID: 1,
-    ZIPCODE: 15210
+    ZIPCODE: "15000"
   },
   {
     DISTRICT_ID: 1602,
@@ -749,7 +749,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phatthana Nikhom",
     PROVINCE_ID: 16,
     GEO_ID: 1,
-    ZIPCODE: 18220
+    ZIPCODE: "15140"
   },
   {
     DISTRICT_ID: 1603,
@@ -757,7 +757,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khok Samrong",
     PROVINCE_ID: 16,
     GEO_ID: 1,
-    ZIPCODE: 15120
+    ZIPCODE: "15120"
   },
   {
     DISTRICT_ID: 1604,
@@ -765,7 +765,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chai Badan",
     PROVINCE_ID: 16,
     GEO_ID: 1,
-    ZIPCODE: 15230
+    ZIPCODE: "15130"
   },
   {
     DISTRICT_ID: 1605,
@@ -773,7 +773,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tha Wung",
     PROVINCE_ID: 16,
     GEO_ID: 1,
-    ZIPCODE: 15180
+    ZIPCODE: "15150"
   },
   {
     DISTRICT_ID: 1606,
@@ -781,7 +781,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Mi",
     PROVINCE_ID: 16,
     GEO_ID: 1,
-    ZIPCODE: 15180
+    ZIPCODE: "15110"
   },
   {
     DISTRICT_ID: 1607,
@@ -789,7 +789,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tha Luang",
     PROVINCE_ID: 16,
     GEO_ID: 1,
-    ZIPCODE: 15230
+    ZIPCODE: "15230"
   },
   {
     DISTRICT_ID: 1608,
@@ -797,7 +797,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sa Bot",
     PROVINCE_ID: 16,
     GEO_ID: 1,
-    ZIPCODE: 15240
+    ZIPCODE: "15240"
   },
   {
     DISTRICT_ID: 1609,
@@ -805,7 +805,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khok Charoen",
     PROVINCE_ID: 16,
     GEO_ID: 1,
-    ZIPCODE: 15250
+    ZIPCODE: "15250"
   },
   {
     DISTRICT_ID: 1610,
@@ -813,7 +813,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Lam Sonthi",
     PROVINCE_ID: 16,
     GEO_ID: 1,
-    ZIPCODE: 15190
+    ZIPCODE: "15190"
   },
   {
     DISTRICT_ID: 1611,
@@ -821,7 +821,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Muang",
     PROVINCE_ID: 16,
     GEO_ID: 1,
-    ZIPCODE: 15170
+    ZIPCODE: "15170"
   },
   {
     DISTRICT_ID: 1701,
@@ -829,7 +829,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Sing Buri",
     PROVINCE_ID: 17,
     GEO_ID: 1,
-    ZIPCODE: 16000
+    ZIPCODE: "16000"
   },
   {
     DISTRICT_ID: 1702,
@@ -837,7 +837,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bang Rachan",
     PROVINCE_ID: 17,
     GEO_ID: 1,
-    ZIPCODE: 16130
+    ZIPCODE: "16130"
   },
   {
     DISTRICT_ID: 1703,
@@ -845,7 +845,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khai Bang Rachan",
     PROVINCE_ID: 17,
     GEO_ID: 1,
-    ZIPCODE: 16150
+    ZIPCODE: "16150"
   },
   {
     DISTRICT_ID: 1704,
@@ -853,7 +853,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phrom Buri",
     PROVINCE_ID: 17,
     GEO_ID: 1,
-    ZIPCODE: 16160
+    ZIPCODE: "16120"
   },
   {
     DISTRICT_ID: 1705,
@@ -861,7 +861,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tha Chang",
     PROVINCE_ID: 17,
     GEO_ID: 1,
-    ZIPCODE: 16140
+    ZIPCODE: "16140"
   },
   {
     DISTRICT_ID: 1706,
@@ -869,7 +869,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe In Buri",
     PROVINCE_ID: 17,
     GEO_ID: 1,
-    ZIPCODE: 16110
+    ZIPCODE: "16110"
   },
   {
     DISTRICT_ID: 1801,
@@ -877,7 +877,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Chai Nat",
     PROVINCE_ID: 18,
     GEO_ID: 1,
-    ZIPCODE: 17000
+    ZIPCODE: "17000"
   },
   {
     DISTRICT_ID: 1802,
@@ -885,7 +885,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Manorom",
     PROVINCE_ID: 18,
     GEO_ID: 1,
-    ZIPCODE: 17170
+    ZIPCODE: "17110"
   },
   {
     DISTRICT_ID: 1803,
@@ -893,7 +893,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wat Sing",
     PROVINCE_ID: 18,
     GEO_ID: 1,
-    ZIPCODE: 17120
+    ZIPCODE: "17120"
   },
   {
     DISTRICT_ID: 1804,
@@ -901,7 +901,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sapphaya",
     PROVINCE_ID: 18,
     GEO_ID: 1,
-    ZIPCODE: 17150
+    ZIPCODE: "17150"
   },
   {
     DISTRICT_ID: 1805,
@@ -909,7 +909,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sankhaburi",
     PROVINCE_ID: 18,
     GEO_ID: 1,
-    ZIPCODE: 17140
+    ZIPCODE: "17140"
   },
   {
     DISTRICT_ID: 1806,
@@ -917,7 +917,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Hankha",
     PROVINCE_ID: 18,
     GEO_ID: 1,
-    ZIPCODE: 17160
+    ZIPCODE: "17130"
   },
   {
     DISTRICT_ID: 1807,
@@ -925,7 +925,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Mamong",
     PROVINCE_ID: 18,
     GEO_ID: 1,
-    ZIPCODE: 17120
+    ZIPCODE: "17120"
   },
   {
     DISTRICT_ID: 1808,
@@ -933,7 +933,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Noen Kham",
     PROVINCE_ID: 18,
     GEO_ID: 1,
-    ZIPCODE: 17130
+    ZIPCODE: "17130"
   },
   {
     DISTRICT_ID: 1901,
@@ -941,7 +941,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Saraburi",
     PROVINCE_ID: 19,
     GEO_ID: 1,
-    ZIPCODE: 18000
+    ZIPCODE: "18000"
   },
   {
     DISTRICT_ID: 1902,
@@ -949,7 +949,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kaeng Khoi",
     PROVINCE_ID: 19,
     GEO_ID: 1,
-    ZIPCODE: 18260
+    ZIPCODE: "18110"
   },
   {
     DISTRICT_ID: 1903,
@@ -957,7 +957,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Khae",
     PROVINCE_ID: 19,
     GEO_ID: 1,
-    ZIPCODE: 18250
+    ZIPCODE: "18140"
   },
   {
     DISTRICT_ID: 1904,
@@ -965,7 +965,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wihan Daeng",
     PROVINCE_ID: 19,
     GEO_ID: 1,
-    ZIPCODE: 18150
+    ZIPCODE: "18150"
   },
   {
     DISTRICT_ID: 1905,
@@ -973,7 +973,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Saeng",
     PROVINCE_ID: 19,
     GEO_ID: 1,
-    ZIPCODE: 18170
+    ZIPCODE: "18170"
   },
   {
     DISTRICT_ID: 1906,
@@ -981,7 +981,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Mo",
     PROVINCE_ID: 19,
     GEO_ID: 1,
-    ZIPCODE: 18270
+    ZIPCODE: "18130"
   },
   {
     DISTRICT_ID: 1907,
@@ -989,7 +989,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Don Phut",
     PROVINCE_ID: 19,
     GEO_ID: 1,
-    ZIPCODE: 18210
+    ZIPCODE: "18210"
   },
   {
     DISTRICT_ID: 1908,
@@ -997,7 +997,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Don",
     PROVINCE_ID: 19,
     GEO_ID: 1,
-    ZIPCODE: 18190
+    ZIPCODE: "18190"
   },
   {
     DISTRICT_ID: 1909,
@@ -1005,7 +1005,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phra Phutthabat",
     PROVINCE_ID: 19,
     GEO_ID: 1,
-    ZIPCODE: 18120
+    ZIPCODE: "18120"
   },
   {
     DISTRICT_ID: 1910,
@@ -1013,7 +1013,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sao Hai",
     PROVINCE_ID: 19,
     GEO_ID: 1,
-    ZIPCODE: 18160
+    ZIPCODE: "18160"
   },
   {
     DISTRICT_ID: 1911,
@@ -1021,7 +1021,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Muak Lek",
     PROVINCE_ID: 19,
     GEO_ID: 1,
-    ZIPCODE: 30130
+    ZIPCODE: "18180"
   },
   {
     DISTRICT_ID: 1912,
@@ -1029,7 +1029,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wang Muang",
     PROVINCE_ID: 19,
     GEO_ID: 1,
-    ZIPCODE: 18220
+    ZIPCODE: "18220"
   },
   {
     DISTRICT_ID: 1913,
@@ -1037,7 +1037,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chaloem Phra Kiat",
     PROVINCE_ID: 19,
     GEO_ID: 1,
-    ZIPCODE: 18240
+    ZIPCODE: "18000"
   },
   {
     DISTRICT_ID: 2001,
@@ -1045,7 +1045,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Chon Buri",
     PROVINCE_ID: 20,
     GEO_ID: 2,
-    ZIPCODE: 20130
+    ZIPCODE: "20000"
   },
   {
     DISTRICT_ID: 2002,
@@ -1053,7 +1053,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Bueng",
     PROVINCE_ID: 20,
     GEO_ID: 2,
-    ZIPCODE: 20220
+    ZIPCODE: "20170"
   },
   {
     DISTRICT_ID: 2003,
@@ -1061,7 +1061,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Yai",
     PROVINCE_ID: 20,
     GEO_ID: 2,
-    ZIPCODE: 20190
+    ZIPCODE: "20190"
   },
   {
     DISTRICT_ID: 2004,
@@ -1069,7 +1069,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bang Lamung",
     PROVINCE_ID: 20,
     GEO_ID: 2,
-    ZIPCODE: 20150
+    ZIPCODE: "20150"
   },
   {
     DISTRICT_ID: 2005,
@@ -1077,7 +1077,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phan Thong",
     PROVINCE_ID: 20,
     GEO_ID: 2,
-    ZIPCODE: 20160
+    ZIPCODE: "20160"
   },
   {
     DISTRICT_ID: 2006,
@@ -1085,7 +1085,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phanat Nikhom",
     PROVINCE_ID: 20,
     GEO_ID: 2,
-    ZIPCODE: 20140
+    ZIPCODE: "20140"
   },
   {
     DISTRICT_ID: 2007,
@@ -1093,7 +1093,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Si Racha",
     PROVINCE_ID: 20,
     GEO_ID: 2,
-    ZIPCODE: 20230
+    ZIPCODE: "20110"
   },
   {
     DISTRICT_ID: 2008,
@@ -1101,7 +1101,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ko Sichang",
     PROVINCE_ID: 20,
     GEO_ID: 2,
-    ZIPCODE: 20120
+    ZIPCODE: "20120"
   },
   {
     DISTRICT_ID: 2009,
@@ -1109,7 +1109,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sattahip",
     PROVINCE_ID: 20,
     GEO_ID: 2,
-    ZIPCODE: 20250
+    ZIPCODE: "20180"
   },
   {
     DISTRICT_ID: 2010,
@@ -1117,7 +1117,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bo Thong",
     PROVINCE_ID: 20,
     GEO_ID: 2,
-    ZIPCODE: 20270
+    ZIPCODE: "20270"
   },
   {
     DISTRICT_ID: 2011,
@@ -1125,7 +1125,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ko Chan",
     PROVINCE_ID: 20,
     GEO_ID: 2,
-    ZIPCODE: 20240
+    ZIPCODE: "20240"
   },
   {
     DISTRICT_ID: 2101,
@@ -1133,7 +1133,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Rayong",
     PROVINCE_ID: 21,
     GEO_ID: 2,
-    ZIPCODE: 21160
+    ZIPCODE: "21000"
   },
   {
     DISTRICT_ID: 2102,
@@ -1141,7 +1141,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Chang",
     PROVINCE_ID: 21,
     GEO_ID: 2,
-    ZIPCODE: 21130
+    ZIPCODE: "21130"
   },
   {
     DISTRICT_ID: 2103,
@@ -1149,7 +1149,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Klaeng",
     PROVINCE_ID: 21,
     GEO_ID: 2,
-    ZIPCODE: 22160
+    ZIPCODE: "21110"
   },
   {
     DISTRICT_ID: 2104,
@@ -1157,7 +1157,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wang Chan",
     PROVINCE_ID: 21,
     GEO_ID: 2,
-    ZIPCODE: 21210
+    ZIPCODE: "21210"
   },
   {
     DISTRICT_ID: 2105,
@@ -1165,7 +1165,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Khai",
     PROVINCE_ID: 21,
     GEO_ID: 2,
-    ZIPCODE: 21120
+    ZIPCODE: "21120"
   },
   {
     DISTRICT_ID: 2106,
@@ -1173,7 +1173,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pluak Daeng",
     PROVINCE_ID: 21,
     GEO_ID: 2,
-    ZIPCODE: 21140
+    ZIPCODE: "21140"
   },
   {
     DISTRICT_ID: 2107,
@@ -1181,7 +1181,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khao Chamao",
     PROVINCE_ID: 21,
     GEO_ID: 2,
-    ZIPCODE: 21110
+    ZIPCODE: "21110"
   },
   {
     DISTRICT_ID: 2108,
@@ -1189,7 +1189,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nikhom Phatthana",
     PROVINCE_ID: 21,
     GEO_ID: 2,
-    ZIPCODE: 21180
+    ZIPCODE: "21180"
   },
   {
     DISTRICT_ID: 2201,
@@ -1197,7 +1197,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Chanthaburi",
     PROVINCE_ID: 22,
     GEO_ID: 2,
-    ZIPCODE: 22000
+    ZIPCODE: "22000"
   },
   {
     DISTRICT_ID: 2202,
@@ -1205,7 +1205,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khlung",
     PROVINCE_ID: 22,
     GEO_ID: 2,
-    ZIPCODE: 22150
+    ZIPCODE: "22110"
   },
   {
     DISTRICT_ID: 2203,
@@ -1213,7 +1213,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tha Mai",
     PROVINCE_ID: 22,
     GEO_ID: 2,
-    ZIPCODE: 22170
+    ZIPCODE: "22120"
   },
   {
     DISTRICT_ID: 2204,
@@ -1221,7 +1221,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pong Nam Ron",
     PROVINCE_ID: 22,
     GEO_ID: 2,
-    ZIPCODE: 22140
+    ZIPCODE: "22140"
   },
   {
     DISTRICT_ID: 2205,
@@ -1229,7 +1229,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Makham",
     PROVINCE_ID: 22,
     GEO_ID: 2,
-    ZIPCODE: 22150
+    ZIPCODE: "22150"
   },
   {
     DISTRICT_ID: 2206,
@@ -1237,7 +1237,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Laem Sing",
     PROVINCE_ID: 22,
     GEO_ID: 2,
-    ZIPCODE: 22190
+    ZIPCODE: "22190"
   },
   {
     DISTRICT_ID: 2207,
@@ -1245,7 +1245,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Soi Dao",
     PROVINCE_ID: 22,
     GEO_ID: 2,
-    ZIPCODE: 22180
+    ZIPCODE: "22180"
   },
   {
     DISTRICT_ID: 2208,
@@ -1253,7 +1253,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kaeng Hang Maeo",
     PROVINCE_ID: 22,
     GEO_ID: 2,
-    ZIPCODE: 22160
+    ZIPCODE: "22160"
   },
   {
     DISTRICT_ID: 2209,
@@ -1261,7 +1261,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Na Yai Am",
     PROVINCE_ID: 22,
     GEO_ID: 2,
-    ZIPCODE: 22170
+    ZIPCODE: "22170"
   },
   {
     DISTRICT_ID: 2210,
@@ -1269,7 +1269,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khao Khitchakut",
     PROVINCE_ID: 22,
     GEO_ID: 2,
-    ZIPCODE: 22210
+    ZIPCODE: "22210"
   },
   {
     DISTRICT_ID: 2301,
@@ -1277,7 +1277,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Trat",
     PROVINCE_ID: 23,
     GEO_ID: 2,
-    ZIPCODE: 23000
+    ZIPCODE: "23000"
   },
   {
     DISTRICT_ID: 2302,
@@ -1285,7 +1285,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khlong Yai",
     PROVINCE_ID: 23,
     GEO_ID: 2,
-    ZIPCODE: 23110
+    ZIPCODE: "23110"
   },
   {
     DISTRICT_ID: 2303,
@@ -1293,7 +1293,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khao Saming",
     PROVINCE_ID: 23,
     GEO_ID: 2,
-    ZIPCODE: 23150
+    ZIPCODE: "23150"
   },
   {
     DISTRICT_ID: 2304,
@@ -1301,7 +1301,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bo Rai",
     PROVINCE_ID: 23,
     GEO_ID: 2,
-    ZIPCODE: 23140
+    ZIPCODE: "23140"
   },
   {
     DISTRICT_ID: 2305,
@@ -1309,7 +1309,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Laem Ngop",
     PROVINCE_ID: 23,
     GEO_ID: 2,
-    ZIPCODE: 23120
+    ZIPCODE: "23120"
   },
   {
     DISTRICT_ID: 2306,
@@ -1317,7 +1317,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ko Kut",
     PROVINCE_ID: 23,
     GEO_ID: 2,
-    ZIPCODE: 23120
+    ZIPCODE: "23120"
   },
   {
     DISTRICT_ID: 2307,
@@ -1325,7 +1325,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ko Chang",
     PROVINCE_ID: 23,
     GEO_ID: 2,
-    ZIPCODE: 23170
+    ZIPCODE: "23170"
   },
   {
     DISTRICT_ID: 2401,
@@ -1333,7 +1333,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Chachoengsao",
     PROVINCE_ID: 24,
     GEO_ID: 2,
-    ZIPCODE: 24000
+    ZIPCODE: "24000"
   },
   {
     DISTRICT_ID: 2402,
@@ -1341,7 +1341,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bang Khla",
     PROVINCE_ID: 24,
     GEO_ID: 2,
-    ZIPCODE: 24110
+    ZIPCODE: "24110"
   },
   {
     DISTRICT_ID: 2403,
@@ -1349,7 +1349,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bang Nam Priao",
     PROVINCE_ID: 24,
     GEO_ID: 2,
-    ZIPCODE: 24170
+    ZIPCODE: "24150"
   },
   {
     DISTRICT_ID: 2404,
@@ -1357,7 +1357,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bang Pakong",
     PROVINCE_ID: 24,
     GEO_ID: 2,
-    ZIPCODE: 24180
+    ZIPCODE: "24130"
   },
   {
     DISTRICT_ID: 2405,
@@ -1365,7 +1365,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Pho",
     PROVINCE_ID: 24,
     GEO_ID: 2,
-    ZIPCODE: 24140
+    ZIPCODE: "24140"
   },
   {
     DISTRICT_ID: 2406,
@@ -1373,7 +1373,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phanom Sarakham",
     PROVINCE_ID: 24,
     GEO_ID: 2,
-    ZIPCODE: 24120
+    ZIPCODE: "24120"
   },
   {
     DISTRICT_ID: 2407,
@@ -1381,7 +1381,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ratchasan",
     PROVINCE_ID: 24,
     GEO_ID: 2,
-    ZIPCODE: 24120
+    ZIPCODE: "24120"
   },
   {
     DISTRICT_ID: 2408,
@@ -1389,7 +1389,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sanam Chai Khet",
     PROVINCE_ID: 24,
     GEO_ID: 2,
-    ZIPCODE: 24160
+    ZIPCODE: "24160"
   },
   {
     DISTRICT_ID: 2409,
@@ -1397,7 +1397,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Plaeng Yao",
     PROVINCE_ID: 24,
     GEO_ID: 2,
-    ZIPCODE: 24190
+    ZIPCODE: "24190"
   },
   {
     DISTRICT_ID: 2410,
@@ -1405,7 +1405,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tha Takiap",
     PROVINCE_ID: 24,
     GEO_ID: 2,
-    ZIPCODE: 24160
+    ZIPCODE: "24160"
   },
   {
     DISTRICT_ID: 2411,
@@ -1413,7 +1413,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khlong Khuean",
     PROVINCE_ID: 24,
     GEO_ID: 2,
-    ZIPCODE: 24110
+    ZIPCODE: "24000"
   },
   {
     DISTRICT_ID: 2501,
@@ -1421,7 +1421,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Prachin Buri",
     PROVINCE_ID: 25,
     GEO_ID: 2,
-    ZIPCODE: 25230
+    ZIPCODE: "25000"
   },
   {
     DISTRICT_ID: 2502,
@@ -1429,7 +1429,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kabin Buri",
     PROVINCE_ID: 25,
     GEO_ID: 2,
-    ZIPCODE: 25240
+    ZIPCODE: "25110"
   },
   {
     DISTRICT_ID: 2503,
@@ -1437,7 +1437,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Na Di",
     PROVINCE_ID: 25,
     GEO_ID: 2,
-    ZIPCODE: 25220
+    ZIPCODE: "25220"
   },
   {
     DISTRICT_ID: 2506,
@@ -1445,7 +1445,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Sang",
     PROVINCE_ID: 25,
     GEO_ID: 2,
-    ZIPCODE: 25150
+    ZIPCODE: "25150"
   },
   {
     DISTRICT_ID: 2507,
@@ -1453,7 +1453,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Prachantakham",
     PROVINCE_ID: 25,
     GEO_ID: 2,
-    ZIPCODE: 25130
+    ZIPCODE: "25130"
   },
   {
     DISTRICT_ID: 2508,
@@ -1461,7 +1461,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Si Maha Phot",
     PROVINCE_ID: 25,
     GEO_ID: 2,
-    ZIPCODE: 25140
+    ZIPCODE: "25140"
   },
   {
     DISTRICT_ID: 2509,
@@ -1469,7 +1469,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Si Mahosot",
     PROVINCE_ID: 25,
     GEO_ID: 2,
-    ZIPCODE: 25190
+    ZIPCODE: "25190"
   },
   {
     DISTRICT_ID: 2601,
@@ -1477,7 +1477,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Nakhon Nayok",
     PROVINCE_ID: 26,
     GEO_ID: 1,
-    ZIPCODE: 26000
+    ZIPCODE: "26000"
   },
   {
     DISTRICT_ID: 2602,
@@ -1485,7 +1485,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pak Phli",
     PROVINCE_ID: 26,
     GEO_ID: 1,
-    ZIPCODE: 26130
+    ZIPCODE: "26130"
   },
   {
     DISTRICT_ID: 2603,
@@ -1493,7 +1493,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Na",
     PROVINCE_ID: 26,
     GEO_ID: 1,
-    ZIPCODE: 26110
+    ZIPCODE: "26110"
   },
   {
     DISTRICT_ID: 2604,
@@ -1501,7 +1501,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ongkharak",
     PROVINCE_ID: 26,
     GEO_ID: 1,
-    ZIPCODE: 26120
+    ZIPCODE: "26120"
   },
   {
     DISTRICT_ID: 2701,
@@ -1509,7 +1509,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Sa Kaeo",
     PROVINCE_ID: 27,
     GEO_ID: 2,
-    ZIPCODE: 27000
+    ZIPCODE: "27000"
   },
   {
     DISTRICT_ID: 2702,
@@ -1517,7 +1517,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khlong Hat",
     PROVINCE_ID: 27,
     GEO_ID: 2,
-    ZIPCODE: 27260
+    ZIPCODE: "27260"
   },
   {
     DISTRICT_ID: 2703,
@@ -1525,7 +1525,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ta Phraya",
     PROVINCE_ID: 27,
     GEO_ID: 2,
-    ZIPCODE: 27180
+    ZIPCODE: "27180"
   },
   {
     DISTRICT_ID: 2704,
@@ -1533,7 +1533,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wang Nam Yen",
     PROVINCE_ID: 27,
     GEO_ID: 2,
-    ZIPCODE: 27210
+    ZIPCODE: "27210"
   },
   {
     DISTRICT_ID: 2705,
@@ -1541,7 +1541,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Watthana Nakhon",
     PROVINCE_ID: 27,
     GEO_ID: 2,
-    ZIPCODE: 27160
+    ZIPCODE: "27160"
   },
   {
     DISTRICT_ID: 2706,
@@ -1549,7 +1549,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Aranyaprathet",
     PROVINCE_ID: 27,
     GEO_ID: 2,
-    ZIPCODE: 27120
+    ZIPCODE: "27120"
   },
   {
     DISTRICT_ID: 2707,
@@ -1557,7 +1557,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khao Chakan",
     PROVINCE_ID: 27,
     GEO_ID: 2,
-    ZIPCODE: 27000
+    ZIPCODE: "27000"
   },
   {
     DISTRICT_ID: 2708,
@@ -1565,7 +1565,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khok Sung",
     PROVINCE_ID: 27,
     GEO_ID: 2,
-    ZIPCODE: 27120
+    ZIPCODE: "27120"
   },
   {
     DISTRICT_ID: 2709,
@@ -1573,7 +1573,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wang Sombun",
     PROVINCE_ID: 27,
     GEO_ID: 2,
-    ZIPCODE: 27250
+    ZIPCODE: "27250"
   },
   {
     DISTRICT_ID: 3001,
@@ -1581,7 +1581,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Nakhon Ratchasima",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30310
+    ZIPCODE: "30000"
   },
   {
     DISTRICT_ID: 3002,
@@ -1589,7 +1589,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khon Buri",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30250
+    ZIPCODE: "30250"
   },
   {
     DISTRICT_ID: 3003,
@@ -1597,7 +1597,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Soeng Sang",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30330
+    ZIPCODE: "30330"
   },
   {
     DISTRICT_ID: 3004,
@@ -1605,7 +1605,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khong",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30260
+    ZIPCODE: "30260"
   },
   {
     DISTRICT_ID: 3005,
@@ -1613,7 +1613,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Lueam",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30350
+    ZIPCODE: "30350"
   },
   {
     DISTRICT_ID: 3006,
@@ -1621,7 +1621,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chakkarat",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30230
+    ZIPCODE: "30230"
   },
   {
     DISTRICT_ID: 3007,
@@ -1629,7 +1629,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chok Chai",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30190
+    ZIPCODE: "30190"
   },
   {
     DISTRICT_ID: 3008,
@@ -1637,7 +1637,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Dan Khun Thot",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 36220
+    ZIPCODE: "30210"
   },
   {
     DISTRICT_ID: 3009,
@@ -1645,7 +1645,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Non Thai",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30220
+    ZIPCODE: "30220"
   },
   {
     DISTRICT_ID: 3010,
@@ -1653,7 +1653,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Non Sung",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30420
+    ZIPCODE: "30160"
   },
   {
     DISTRICT_ID: 3011,
@@ -1661,7 +1661,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kham Sakaesaeng",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30290
+    ZIPCODE: "30290"
   },
   {
     DISTRICT_ID: 3012,
@@ -1669,7 +1669,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bua Yai",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30120
+    ZIPCODE: "30120"
   },
   {
     DISTRICT_ID: 3013,
@@ -1677,7 +1677,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Prathai",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30180
+    ZIPCODE: "30180"
   },
   {
     DISTRICT_ID: 3014,
@@ -1685,7 +1685,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pak Thong Chai",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30150
+    ZIPCODE: "30150"
   },
   {
     DISTRICT_ID: 3015,
@@ -1693,7 +1693,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phimai",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30110
+    ZIPCODE: "30110"
   },
   {
     DISTRICT_ID: 3016,
@@ -1701,7 +1701,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Huai Thalaeng",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30240
+    ZIPCODE: "30240"
   },
   {
     DISTRICT_ID: 3017,
@@ -1709,7 +1709,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chum Phuang",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30270
+    ZIPCODE: "30270"
   },
   {
     DISTRICT_ID: 3018,
@@ -1717,7 +1717,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sung Noen",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30380
+    ZIPCODE: "30170"
   },
   {
     DISTRICT_ID: 3019,
@@ -1725,7 +1725,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kham Thale So",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30280
+    ZIPCODE: "30280"
   },
   {
     DISTRICT_ID: 3020,
@@ -1733,7 +1733,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sikhio",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30340
+    ZIPCODE: "30140"
   },
   {
     DISTRICT_ID: 3021,
@@ -1741,7 +1741,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pak Chong",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30320
+    ZIPCODE: "30130"
   },
   {
     DISTRICT_ID: 3022,
@@ -1749,7 +1749,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Bunmak",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30410
+    ZIPCODE: "30410"
   },
   {
     DISTRICT_ID: 3023,
@@ -1757,7 +1757,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kaeng Sanam Nang",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30440
+    ZIPCODE: "30440"
   },
   {
     DISTRICT_ID: 3024,
@@ -1765,7 +1765,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Non Daeng",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30360
+    ZIPCODE: "30360"
   },
   {
     DISTRICT_ID: 3025,
@@ -1773,7 +1773,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wang Nam Khiao",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30370
+    ZIPCODE: "30370"
   },
   {
     DISTRICT_ID: 3026,
@@ -1781,7 +1781,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Thepharak",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30210
+    ZIPCODE: "30210"
   },
   {
     DISTRICT_ID: 3027,
@@ -1789,7 +1789,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Yang",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30270
+    ZIPCODE: "30270"
   },
   {
     DISTRICT_ID: 3028,
@@ -1797,7 +1797,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phra Thong Kham",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30220
+    ZIPCODE: "30220"
   },
   {
     DISTRICT_ID: 3029,
@@ -1805,7 +1805,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Lam Thamenchai",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30270
+    ZIPCODE: "30270"
   },
   {
     DISTRICT_ID: 3030,
@@ -1813,7 +1813,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bua Lai",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30120
+    ZIPCODE: "30120"
   },
   {
     DISTRICT_ID: 3031,
@@ -1821,7 +1821,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sida",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30430
+    ZIPCODE: "30430"
   },
   {
     DISTRICT_ID: 3032,
@@ -1829,7 +1829,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chaloem Phra Kiat",
     PROVINCE_ID: 30,
     GEO_ID: 3,
-    ZIPCODE: 30230
+    ZIPCODE: "30230"
   },
   {
     DISTRICT_ID: 3101,
@@ -1837,7 +1837,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Buri Ram",
     PROVINCE_ID: 31,
     GEO_ID: 3,
-    ZIPCODE: 31000
+    ZIPCODE: "31000"
   },
   {
     DISTRICT_ID: 3102,
@@ -1845,7 +1845,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khu Mueang",
     PROVINCE_ID: 31,
     GEO_ID: 3,
-    ZIPCODE: 31190
+    ZIPCODE: "31190"
   },
   {
     DISTRICT_ID: 3103,
@@ -1853,7 +1853,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Krasang",
     PROVINCE_ID: 31,
     GEO_ID: 3,
-    ZIPCODE: 31160
+    ZIPCODE: "31160"
   },
   {
     DISTRICT_ID: 3104,
@@ -1861,7 +1861,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nang Rong",
     PROVINCE_ID: 31,
     GEO_ID: 3,
-    ZIPCODE: 31110
+    ZIPCODE: "31110"
   },
   {
     DISTRICT_ID: 3105,
@@ -1869,7 +1869,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Ki",
     PROVINCE_ID: 31,
     GEO_ID: 3,
-    ZIPCODE: 31210
+    ZIPCODE: "31210"
   },
   {
     DISTRICT_ID: 3106,
@@ -1877,7 +1877,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Lahan Sai",
     PROVINCE_ID: 31,
     GEO_ID: 3,
-    ZIPCODE: 31170
+    ZIPCODE: "31170"
   },
   {
     DISTRICT_ID: 3107,
@@ -1885,7 +1885,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Prakhon Chai",
     PROVINCE_ID: 31,
     GEO_ID: 3,
-    ZIPCODE: 31140
+    ZIPCODE: "31140"
   },
   {
     DISTRICT_ID: 3108,
@@ -1893,7 +1893,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Kruat",
     PROVINCE_ID: 31,
     GEO_ID: 3,
-    ZIPCODE: 31180
+    ZIPCODE: "31180"
   },
   {
     DISTRICT_ID: 3109,
@@ -1901,7 +1901,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phutthaisong",
     PROVINCE_ID: 31,
     GEO_ID: 3,
-    ZIPCODE: 31120
+    ZIPCODE: "31120"
   },
   {
     DISTRICT_ID: 3110,
@@ -1909,7 +1909,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Lam Plai Mat",
     PROVINCE_ID: 31,
     GEO_ID: 3,
-    ZIPCODE: 31130
+    ZIPCODE: "31130"
   },
   {
     DISTRICT_ID: 3111,
@@ -1917,7 +1917,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Satuek",
     PROVINCE_ID: 31,
     GEO_ID: 3,
-    ZIPCODE: 31150
+    ZIPCODE: "31150"
   },
   {
     DISTRICT_ID: 3112,
@@ -1925,7 +1925,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pakham",
     PROVINCE_ID: 31,
     GEO_ID: 3,
-    ZIPCODE: 31220
+    ZIPCODE: "31220"
   },
   {
     DISTRICT_ID: 3113,
@@ -1933,7 +1933,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Na Pho",
     PROVINCE_ID: 31,
     GEO_ID: 3,
-    ZIPCODE: 31230
+    ZIPCODE: "31230"
   },
   {
     DISTRICT_ID: 3114,
@@ -1941,7 +1941,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Hong",
     PROVINCE_ID: 31,
     GEO_ID: 3,
-    ZIPCODE: 31240
+    ZIPCODE: "31240"
   },
   {
     DISTRICT_ID: 3115,
@@ -1949,7 +1949,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phlapphla Chai",
     PROVINCE_ID: 31,
     GEO_ID: 3,
-    ZIPCODE: 31250
+    ZIPCODE: "31250"
   },
   {
     DISTRICT_ID: 3116,
@@ -1957,7 +1957,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Huai Rat",
     PROVINCE_ID: 31,
     GEO_ID: 3,
-    ZIPCODE: 31000
+    ZIPCODE: "31000"
   },
   {
     DISTRICT_ID: 3117,
@@ -1965,7 +1965,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Non Suwan",
     PROVINCE_ID: 31,
     GEO_ID: 3,
-    ZIPCODE: 31110
+    ZIPCODE: "31110"
   },
   {
     DISTRICT_ID: 3118,
@@ -1973,7 +1973,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chamni",
     PROVINCE_ID: 31,
     GEO_ID: 3,
-    ZIPCODE: 31110
+    ZIPCODE: "31110"
   },
   {
     DISTRICT_ID: 3119,
@@ -1981,7 +1981,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Mai Chaiyaphot",
     PROVINCE_ID: 31,
     GEO_ID: 3,
-    ZIPCODE: 31120
+    ZIPCODE: "31120"
   },
   {
     DISTRICT_ID: 3120,
@@ -1989,7 +1989,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Non Din Daeng",
     PROVINCE_ID: 31,
     GEO_ID: 3,
-    ZIPCODE: 31260
+    ZIPCODE: "31260"
   },
   {
     DISTRICT_ID: 3121,
@@ -1997,7 +1997,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Dan",
     PROVINCE_ID: 31,
     GEO_ID: 3,
-    ZIPCODE: 31000
+    ZIPCODE: "31000"
   },
   {
     DISTRICT_ID: 3122,
@@ -2005,7 +2005,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khaen Dong",
     PROVINCE_ID: 31,
     GEO_ID: 3,
-    ZIPCODE: 31150
+    ZIPCODE: "31150"
   },
   {
     DISTRICT_ID: 3123,
@@ -2013,7 +2013,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chaloem Phra Kiat",
     PROVINCE_ID: 31,
     GEO_ID: 3,
-    ZIPCODE: 31170
+    ZIPCODE: "31110"
   },
   {
     DISTRICT_ID: 3201,
@@ -2021,7 +2021,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Surin",
     PROVINCE_ID: 32,
     GEO_ID: 3,
-    ZIPCODE: 32000
+    ZIPCODE: "32000"
   },
   {
     DISTRICT_ID: 3202,
@@ -2029,7 +2029,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chumphon Buri",
     PROVINCE_ID: 32,
     GEO_ID: 3,
-    ZIPCODE: 32190
+    ZIPCODE: "32190"
   },
   {
     DISTRICT_ID: 3203,
@@ -2037,7 +2037,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tha Tum",
     PROVINCE_ID: 32,
     GEO_ID: 3,
-    ZIPCODE: 32120
+    ZIPCODE: "32120"
   },
   {
     DISTRICT_ID: 3204,
@@ -2045,7 +2045,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chom Phra",
     PROVINCE_ID: 32,
     GEO_ID: 3,
-    ZIPCODE: 32180
+    ZIPCODE: "32180"
   },
   {
     DISTRICT_ID: 3205,
@@ -2053,7 +2053,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Prasat",
     PROVINCE_ID: 32,
     GEO_ID: 3,
-    ZIPCODE: 32140
+    ZIPCODE: "32140"
   },
   {
     DISTRICT_ID: 3206,
@@ -2061,7 +2061,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kap Choeng",
     PROVINCE_ID: 32,
     GEO_ID: 3,
-    ZIPCODE: 32210
+    ZIPCODE: "32210"
   },
   {
     DISTRICT_ID: 3207,
@@ -2069,7 +2069,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Rattanaburi",
     PROVINCE_ID: 32,
     GEO_ID: 3,
-    ZIPCODE: 32130
+    ZIPCODE: "32130"
   },
   {
     DISTRICT_ID: 3208,
@@ -2077,7 +2077,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sanom",
     PROVINCE_ID: 32,
     GEO_ID: 3,
-    ZIPCODE: 32160
+    ZIPCODE: "32160"
   },
   {
     DISTRICT_ID: 3209,
@@ -2085,7 +2085,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sikhoraphum",
     PROVINCE_ID: 32,
     GEO_ID: 3,
-    ZIPCODE: 32110
+    ZIPCODE: "32110"
   },
   {
     DISTRICT_ID: 3210,
@@ -2093,7 +2093,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sangkha",
     PROVINCE_ID: 32,
     GEO_ID: 3,
-    ZIPCODE: 32150
+    ZIPCODE: "32150"
   },
   {
     DISTRICT_ID: 3211,
@@ -2101,7 +2101,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Lamduan",
     PROVINCE_ID: 32,
     GEO_ID: 3,
-    ZIPCODE: 32220
+    ZIPCODE: "32220"
   },
   {
     DISTRICT_ID: 3212,
@@ -2109,7 +2109,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Samrong Thap",
     PROVINCE_ID: 32,
     GEO_ID: 3,
-    ZIPCODE: 32170
+    ZIPCODE: "32170"
   },
   {
     DISTRICT_ID: 3213,
@@ -2117,7 +2117,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Buachet",
     PROVINCE_ID: 32,
     GEO_ID: 3,
-    ZIPCODE: 32230
+    ZIPCODE: "32230"
   },
   {
     DISTRICT_ID: 3214,
@@ -2125,7 +2125,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phanom Dong Rak",
     PROVINCE_ID: 32,
     GEO_ID: 3,
-    ZIPCODE: 32140
+    ZIPCODE: "32140"
   },
   {
     DISTRICT_ID: 3215,
@@ -2133,7 +2133,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Si Narong",
     PROVINCE_ID: 32,
     GEO_ID: 3,
-    ZIPCODE: 32150
+    ZIPCODE: "32150"
   },
   {
     DISTRICT_ID: 3216,
@@ -2141,7 +2141,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khwao Sinrin",
     PROVINCE_ID: 32,
     GEO_ID: 3,
-    ZIPCODE: 32000
+    ZIPCODE: "32000"
   },
   {
     DISTRICT_ID: 3217,
@@ -2149,7 +2149,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Non Narai",
     PROVINCE_ID: 32,
     GEO_ID: 3,
-    ZIPCODE: 32130
+    ZIPCODE: "32130"
   },
   {
     DISTRICT_ID: 3301,
@@ -2157,7 +2157,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Si Sa Ket",
     PROVINCE_ID: 33,
     GEO_ID: 3,
-    ZIPCODE: 33000
+    ZIPCODE: "33000"
   },
   {
     DISTRICT_ID: 3302,
@@ -2165,7 +2165,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Yang Chum Noi",
     PROVINCE_ID: 33,
     GEO_ID: 3,
-    ZIPCODE: 33190
+    ZIPCODE: "33190"
   },
   {
     DISTRICT_ID: 3303,
@@ -2173,7 +2173,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kanthararom",
     PROVINCE_ID: 33,
     GEO_ID: 3,
-    ZIPCODE: 33130
+    ZIPCODE: "33130"
   },
   {
     DISTRICT_ID: 3304,
@@ -2181,7 +2181,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kantharalak",
     PROVINCE_ID: 33,
     GEO_ID: 3,
-    ZIPCODE: 33110
+    ZIPCODE: "33110"
   },
   {
     DISTRICT_ID: 3305,
@@ -2189,7 +2189,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khukhan",
     PROVINCE_ID: 33,
     GEO_ID: 3,
-    ZIPCODE: 33140
+    ZIPCODE: "33140"
   },
   {
     DISTRICT_ID: 3306,
@@ -2197,7 +2197,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phrai Bueng",
     PROVINCE_ID: 33,
     GEO_ID: 3,
-    ZIPCODE: 33180
+    ZIPCODE: "33180"
   },
   {
     DISTRICT_ID: 3307,
@@ -2205,7 +2205,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Prang Ku",
     PROVINCE_ID: 33,
     GEO_ID: 3,
-    ZIPCODE: 33170
+    ZIPCODE: "33170"
   },
   {
     DISTRICT_ID: 3308,
@@ -2213,7 +2213,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khun Han",
     PROVINCE_ID: 33,
     GEO_ID: 3,
-    ZIPCODE: 33150
+    ZIPCODE: "33150"
   },
   {
     DISTRICT_ID: 3309,
@@ -2221,7 +2221,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Rasi Salai",
     PROVINCE_ID: 33,
     GEO_ID: 3,
-    ZIPCODE: 33160
+    ZIPCODE: "33160"
   },
   {
     DISTRICT_ID: 3310,
@@ -2229,7 +2229,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Uthumphon Phisai",
     PROVINCE_ID: 33,
     GEO_ID: 3,
-    ZIPCODE: 33120
+    ZIPCODE: "33120"
   },
   {
     DISTRICT_ID: 3311,
@@ -2237,7 +2237,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bueng Bun",
     PROVINCE_ID: 33,
     GEO_ID: 3,
-    ZIPCODE: 33220
+    ZIPCODE: "33220"
   },
   {
     DISTRICT_ID: 3312,
@@ -2245,7 +2245,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Huai Thap Than",
     PROVINCE_ID: 33,
     GEO_ID: 3,
-    ZIPCODE: 33210
+    ZIPCODE: "33210"
   },
   {
     DISTRICT_ID: 3313,
@@ -2253,7 +2253,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Non Khun",
     PROVINCE_ID: 33,
     GEO_ID: 3,
-    ZIPCODE: 33250
+    ZIPCODE: "33250"
   },
   {
     DISTRICT_ID: 3314,
@@ -2261,7 +2261,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Si Rattana",
     PROVINCE_ID: 33,
     GEO_ID: 3,
-    ZIPCODE: 33240
+    ZIPCODE: "33240"
   },
   {
     DISTRICT_ID: 3315,
@@ -2269,7 +2269,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nam Kliang",
     PROVINCE_ID: 33,
     GEO_ID: 3,
-    ZIPCODE: 33130
+    ZIPCODE: "33130"
   },
   {
     DISTRICT_ID: 3316,
@@ -2277,7 +2277,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wang Hin",
     PROVINCE_ID: 33,
     GEO_ID: 3,
-    ZIPCODE: 33270
+    ZIPCODE: "33270"
   },
   {
     DISTRICT_ID: 3317,
@@ -2285,7 +2285,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phu Sing",
     PROVINCE_ID: 33,
     GEO_ID: 3,
-    ZIPCODE: 33140
+    ZIPCODE: "33140"
   },
   {
     DISTRICT_ID: 3318,
@@ -2293,7 +2293,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Chan",
     PROVINCE_ID: 33,
     GEO_ID: 3,
-    ZIPCODE: 33120
+    ZIPCODE: "33120"
   },
   {
     DISTRICT_ID: 3319,
@@ -2301,7 +2301,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Benchalak",
     PROVINCE_ID: 33,
     GEO_ID: 3,
-    ZIPCODE: 33110
+    ZIPCODE: "33110"
   },
   {
     DISTRICT_ID: 3320,
@@ -2309,7 +2309,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phayu",
     PROVINCE_ID: 33,
     GEO_ID: 3,
-    ZIPCODE: 33230
+    ZIPCODE: "33230"
   },
   {
     DISTRICT_ID: 3321,
@@ -2317,7 +2317,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pho Si Suwan",
     PROVINCE_ID: 33,
     GEO_ID: 3,
-    ZIPCODE: 33120
+    ZIPCODE: "33120"
   },
   {
     DISTRICT_ID: 3322,
@@ -2325,7 +2325,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sila Lat",
     PROVINCE_ID: 33,
     GEO_ID: 3,
-    ZIPCODE: 33160
+    ZIPCODE: "33160"
   },
   {
     DISTRICT_ID: 3401,
@@ -2333,7 +2333,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Ubon Ratchathani",
     PROVINCE_ID: 34,
     GEO_ID: 3,
-    ZIPCODE: 34000
+    ZIPCODE: "34000"
   },
   {
     DISTRICT_ID: 3402,
@@ -2341,7 +2341,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Si Mueang Mai",
     PROVINCE_ID: 34,
     GEO_ID: 3,
-    ZIPCODE: 34250
+    ZIPCODE: "34250"
   },
   {
     DISTRICT_ID: 3403,
@@ -2349,7 +2349,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khong Chiam",
     PROVINCE_ID: 34,
     GEO_ID: 3,
-    ZIPCODE: 34220
+    ZIPCODE: "34220"
   },
   {
     DISTRICT_ID: 3404,
@@ -2357,7 +2357,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khueang Nai",
     PROVINCE_ID: 34,
     GEO_ID: 3,
-    ZIPCODE: 34320
+    ZIPCODE: "34150"
   },
   {
     DISTRICT_ID: 3405,
@@ -2365,7 +2365,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khemarat",
     PROVINCE_ID: 34,
     GEO_ID: 3,
-    ZIPCODE: 34170
+    ZIPCODE: "34170"
   },
   {
     DISTRICT_ID: 3407,
@@ -2373,7 +2373,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Det Udom",
     PROVINCE_ID: 34,
     GEO_ID: 3,
-    ZIPCODE: 34160
+    ZIPCODE: "34160"
   },
   {
     DISTRICT_ID: 3408,
@@ -2381,7 +2381,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Na Chaluai",
     PROVINCE_ID: 34,
     GEO_ID: 3,
-    ZIPCODE: 34280
+    ZIPCODE: "34280"
   },
   {
     DISTRICT_ID: 3409,
@@ -2389,7 +2389,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nam Yuen",
     PROVINCE_ID: 34,
     GEO_ID: 3,
-    ZIPCODE: 34260
+    ZIPCODE: "34260"
   },
   {
     DISTRICT_ID: 3410,
@@ -2397,7 +2397,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Buntharik",
     PROVINCE_ID: 34,
     GEO_ID: 3,
-    ZIPCODE: 34230
+    ZIPCODE: "34230"
   },
   {
     DISTRICT_ID: 3411,
@@ -2405,7 +2405,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Trakan Phuet Phon",
     PROVINCE_ID: 34,
     GEO_ID: 3,
-    ZIPCODE: 34130
+    ZIPCODE: "34130"
   },
   {
     DISTRICT_ID: 3412,
@@ -2413,7 +2413,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kut Khaopun",
     PROVINCE_ID: 34,
     GEO_ID: 3,
-    ZIPCODE: 34270
+    ZIPCODE: "34270"
   },
   {
     DISTRICT_ID: 3414,
@@ -2421,7 +2421,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Muang Sam Sip",
     PROVINCE_ID: 34,
     GEO_ID: 3,
-    ZIPCODE: 34140
+    ZIPCODE: "34140"
   },
   {
     DISTRICT_ID: 3415,
@@ -2429,7 +2429,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Warin Chamrap",
     PROVINCE_ID: 34,
     GEO_ID: 3,
-    ZIPCODE: 34310
+    ZIPCODE: "34190"
   },
   {
     DISTRICT_ID: 3419,
@@ -2437,7 +2437,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phibun Mangsahan",
     PROVINCE_ID: 34,
     GEO_ID: 3,
-    ZIPCODE: 34110
+    ZIPCODE: "34110"
   },
   {
     DISTRICT_ID: 3420,
@@ -2445,7 +2445,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tan Sum",
     PROVINCE_ID: 34,
     GEO_ID: 3,
-    ZIPCODE: 34330
+    ZIPCODE: "34330"
   },
   {
     DISTRICT_ID: 3421,
@@ -2453,7 +2453,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pho Sai",
     PROVINCE_ID: 34,
     GEO_ID: 3,
-    ZIPCODE: 34340
+    ZIPCODE: "34340"
   },
   {
     DISTRICT_ID: 3422,
@@ -2461,7 +2461,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Samrong",
     PROVINCE_ID: 34,
     GEO_ID: 3,
-    ZIPCODE: 34360
+    ZIPCODE: "34360"
   },
   {
     DISTRICT_ID: 3424,
@@ -2469,7 +2469,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Don Mot Daeng",
     PROVINCE_ID: 34,
     GEO_ID: 3,
-    ZIPCODE: 34000
+    ZIPCODE: "34000"
   },
   {
     DISTRICT_ID: 3425,
@@ -2477,7 +2477,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sirindhorn",
     PROVINCE_ID: 34,
     GEO_ID: 3,
-    ZIPCODE: 34350
+    ZIPCODE: "34350"
   },
   {
     DISTRICT_ID: 3426,
@@ -2485,7 +2485,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Thung Si Udom",
     PROVINCE_ID: 34,
     GEO_ID: 3,
-    ZIPCODE: 34160
+    ZIPCODE: "34160"
   },
   {
     DISTRICT_ID: 3429,
@@ -2493,7 +2493,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Na Yia",
     PROVINCE_ID: 34,
     GEO_ID: 3,
-    ZIPCODE: 34160
+    ZIPCODE: "34160"
   },
   {
     DISTRICT_ID: 3430,
@@ -2501,7 +2501,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Na Tan",
     PROVINCE_ID: 34,
     GEO_ID: 3,
-    ZIPCODE: 34170
+    ZIPCODE: "34170"
   },
   {
     DISTRICT_ID: 3431,
@@ -2509,7 +2509,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Fang Kham",
     PROVINCE_ID: 34,
     GEO_ID: 3,
-    ZIPCODE: 34000
+    ZIPCODE: "34000"
   },
   {
     DISTRICT_ID: 3432,
@@ -2517,7 +2517,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sawang Wirawong",
     PROVINCE_ID: 34,
     GEO_ID: 3,
-    ZIPCODE: 34190
+    ZIPCODE: "34190"
   },
   {
     DISTRICT_ID: 3433,
@@ -2525,7 +2525,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nam Khun",
     PROVINCE_ID: 34,
     GEO_ID: 3,
-    ZIPCODE: 34260
+    ZIPCODE: "34260"
   },
   {
     DISTRICT_ID: 3501,
@@ -2533,7 +2533,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Yasothon",
     PROVINCE_ID: 35,
     GEO_ID: 3,
-    ZIPCODE: 35000
+    ZIPCODE: "35000"
   },
   {
     DISTRICT_ID: 3502,
@@ -2541,7 +2541,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sai Mun",
     PROVINCE_ID: 35,
     GEO_ID: 3,
-    ZIPCODE: 35170
+    ZIPCODE: "35170"
   },
   {
     DISTRICT_ID: 3503,
@@ -2549,7 +2549,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kut Chum",
     PROVINCE_ID: 35,
     GEO_ID: 3,
-    ZIPCODE: 35140
+    ZIPCODE: "35140"
   },
   {
     DISTRICT_ID: 3504,
@@ -2557,7 +2557,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kham Khuean Kaeo",
     PROVINCE_ID: 35,
     GEO_ID: 3,
-    ZIPCODE: 35180
+    ZIPCODE: "35110"
   },
   {
     DISTRICT_ID: 3505,
@@ -2565,7 +2565,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pa Tio",
     PROVINCE_ID: 35,
     GEO_ID: 3,
-    ZIPCODE: 35150
+    ZIPCODE: "35150"
   },
   {
     DISTRICT_ID: 3506,
@@ -2573,7 +2573,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Maha Chana Chai",
     PROVINCE_ID: 35,
     GEO_ID: 3,
-    ZIPCODE: 35130
+    ZIPCODE: "35130"
   },
   {
     DISTRICT_ID: 3507,
@@ -2581,7 +2581,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kho Wang",
     PROVINCE_ID: 35,
     GEO_ID: 3,
-    ZIPCODE: 35160
+    ZIPCODE: "35160"
   },
   {
     DISTRICT_ID: 3508,
@@ -2589,7 +2589,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Loeng Nok Tha",
     PROVINCE_ID: 35,
     GEO_ID: 3,
-    ZIPCODE: 35120
+    ZIPCODE: "35120"
   },
   {
     DISTRICT_ID: 3509,
@@ -2597,7 +2597,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Thai Charoen",
     PROVINCE_ID: 35,
     GEO_ID: 3,
-    ZIPCODE: 35120
+    ZIPCODE: "35120"
   },
   {
     DISTRICT_ID: 3601,
@@ -2605,7 +2605,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Chaiyaphum",
     PROVINCE_ID: 36,
     GEO_ID: 3,
-    ZIPCODE: 36240
+    ZIPCODE: "36000"
   },
   {
     DISTRICT_ID: 3602,
@@ -2613,7 +2613,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Khwao",
     PROVINCE_ID: 36,
     GEO_ID: 3,
-    ZIPCODE: 36170
+    ZIPCODE: "36170"
   },
   {
     DISTRICT_ID: 3603,
@@ -2621,7 +2621,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khon Sawan",
     PROVINCE_ID: 36,
     GEO_ID: 3,
-    ZIPCODE: 36140
+    ZIPCODE: "36140"
   },
   {
     DISTRICT_ID: 3604,
@@ -2629,7 +2629,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kaset Sombun",
     PROVINCE_ID: 36,
     GEO_ID: 3,
-    ZIPCODE: 36120
+    ZIPCODE: "36120"
   },
   {
     DISTRICT_ID: 3605,
@@ -2637,7 +2637,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Bua Daeng",
     PROVINCE_ID: 36,
     GEO_ID: 3,
-    ZIPCODE: 36210
+    ZIPCODE: "36210"
   },
   {
     DISTRICT_ID: 3606,
@@ -2645,7 +2645,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chatturat",
     PROVINCE_ID: 36,
     GEO_ID: 3,
-    ZIPCODE: 36220
+    ZIPCODE: "36130"
   },
   {
     DISTRICT_ID: 3607,
@@ -2653,7 +2653,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bamnet Narong",
     PROVINCE_ID: 36,
     GEO_ID: 3,
-    ZIPCODE: 36220
+    ZIPCODE: "36160"
   },
   {
     DISTRICT_ID: 3608,
@@ -2661,7 +2661,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Bua Rawe",
     PROVINCE_ID: 36,
     GEO_ID: 3,
-    ZIPCODE: 36250
+    ZIPCODE: "36250"
   },
   {
     DISTRICT_ID: 3609,
@@ -2669,7 +2669,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Thep Sathit",
     PROVINCE_ID: 36,
     GEO_ID: 3,
-    ZIPCODE: 36230
+    ZIPCODE: "36230"
   },
   {
     DISTRICT_ID: 3610,
@@ -2677,7 +2677,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phu Khiao",
     PROVINCE_ID: 36,
     GEO_ID: 3,
-    ZIPCODE: 36110
+    ZIPCODE: "36110"
   },
   {
     DISTRICT_ID: 3611,
@@ -2685,7 +2685,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Thaen",
     PROVINCE_ID: 36,
     GEO_ID: 3,
-    ZIPCODE: 36190
+    ZIPCODE: "36190"
   },
   {
     DISTRICT_ID: 3612,
@@ -2693,7 +2693,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kaeng Khro",
     PROVINCE_ID: 36,
     GEO_ID: 3,
-    ZIPCODE: 36150
+    ZIPCODE: "36150"
   },
   {
     DISTRICT_ID: 3613,
@@ -2701,7 +2701,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khon San",
     PROVINCE_ID: 36,
     GEO_ID: 3,
-    ZIPCODE: 36180
+    ZIPCODE: "36180"
   },
   {
     DISTRICT_ID: 3614,
@@ -2709,7 +2709,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phakdi Chumphon",
     PROVINCE_ID: 36,
     GEO_ID: 3,
-    ZIPCODE: 36260
+    ZIPCODE: "36260"
   },
   {
     DISTRICT_ID: 3615,
@@ -2717,7 +2717,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Noen Sa-nga",
     PROVINCE_ID: 36,
     GEO_ID: 3,
-    ZIPCODE: 36130
+    ZIPCODE: "36130"
   },
   {
     DISTRICT_ID: 3616,
@@ -2725,7 +2725,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sap Yai",
     PROVINCE_ID: 36,
     GEO_ID: 3,
-    ZIPCODE: 36130
+    ZIPCODE: "36130"
   },
   {
     DISTRICT_ID: 3701,
@@ -2733,7 +2733,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Amnat Charoen",
     PROVINCE_ID: 37,
     GEO_ID: 3,
-    ZIPCODE: 37000
+    ZIPCODE: "37000"
   },
   {
     DISTRICT_ID: 3702,
@@ -2741,7 +2741,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chanuman",
     PROVINCE_ID: 37,
     GEO_ID: 3,
-    ZIPCODE: 37210
+    ZIPCODE: "37210"
   },
   {
     DISTRICT_ID: 3703,
@@ -2749,7 +2749,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pathum Ratchawongsa",
     PROVINCE_ID: 37,
     GEO_ID: 3,
-    ZIPCODE: 37110
+    ZIPCODE: "37110"
   },
   {
     DISTRICT_ID: 3704,
@@ -2757,7 +2757,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phana",
     PROVINCE_ID: 37,
     GEO_ID: 3,
-    ZIPCODE: 37180
+    ZIPCODE: "37180"
   },
   {
     DISTRICT_ID: 3705,
@@ -2765,7 +2765,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Senangkhanikhom",
     PROVINCE_ID: 37,
     GEO_ID: 3,
-    ZIPCODE: 37290
+    ZIPCODE: "37290"
   },
   {
     DISTRICT_ID: 3706,
@@ -2773,7 +2773,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Hua Taphan",
     PROVINCE_ID: 37,
     GEO_ID: 3,
-    ZIPCODE: 37240
+    ZIPCODE: "37240"
   },
   {
     DISTRICT_ID: 3707,
@@ -2781,7 +2781,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Lue Amnat",
     PROVINCE_ID: 37,
     GEO_ID: 3,
-    ZIPCODE: 37120
+    ZIPCODE: "37120"
   },
   {
     DISTRICT_ID: 3801,
@@ -2789,7 +2789,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Bueng Kan",
     PROVINCE_ID: 38,
     GEO_ID: 3,
-    ZIPCODE: 38000
+    ZIPCODE: "38000"
   },
   {
     DISTRICT_ID: 3802,
@@ -2797,7 +2797,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phon Charoen",
     PROVINCE_ID: 38,
     GEO_ID: 3,
-    ZIPCODE: 38180
+    ZIPCODE: "38180"
   },
   {
     DISTRICT_ID: 3803,
@@ -2805,7 +2805,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe So Phisai",
     PROVINCE_ID: 38,
     GEO_ID: 3,
-    ZIPCODE: 38170
+    ZIPCODE: "38170"
   },
   {
     DISTRICT_ID: 3804,
@@ -2813,7 +2813,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Seka",
     PROVINCE_ID: 38,
     GEO_ID: 3,
-    ZIPCODE: 38150
+    ZIPCODE: "38150"
   },
   {
     DISTRICT_ID: 3805,
@@ -2821,7 +2821,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pak Khat",
     PROVINCE_ID: 38,
     GEO_ID: 3,
-    ZIPCODE: 38190
+    ZIPCODE: "38190"
   },
   {
     DISTRICT_ID: 3806,
@@ -2829,7 +2829,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bueng Khong Long",
     PROVINCE_ID: 38,
     GEO_ID: 3,
-    ZIPCODE: 38220
+    ZIPCODE: "38220"
   },
   {
     DISTRICT_ID: 3807,
@@ -2837,7 +2837,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Si Wilai",
     PROVINCE_ID: 38,
     GEO_ID: 3,
-    ZIPCODE: 38210
+    ZIPCODE: "38210"
   },
   {
     DISTRICT_ID: 3808,
@@ -2845,7 +2845,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bung Khla",
     PROVINCE_ID: 38,
     GEO_ID: 3,
-    ZIPCODE: 38000
+    ZIPCODE: "38000"
   },
   {
     DISTRICT_ID: 3901,
@@ -2853,7 +2853,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Nong Bua Lam Phu",
     PROVINCE_ID: 39,
     GEO_ID: 3,
-    ZIPCODE: 39000
+    ZIPCODE: "39000"
   },
   {
     DISTRICT_ID: 3902,
@@ -2861,7 +2861,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Na Klang",
     PROVINCE_ID: 39,
     GEO_ID: 3,
-    ZIPCODE: 39350
+    ZIPCODE: "39170"
   },
   {
     DISTRICT_ID: 3903,
@@ -2869,7 +2869,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Non Sang",
     PROVINCE_ID: 39,
     GEO_ID: 3,
-    ZIPCODE: 39140
+    ZIPCODE: "39140"
   },
   {
     DISTRICT_ID: 3904,
@@ -2877,7 +2877,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Si Bun Rueang",
     PROVINCE_ID: 39,
     GEO_ID: 3,
-    ZIPCODE: 39180
+    ZIPCODE: "39180"
   },
   {
     DISTRICT_ID: 3905,
@@ -2885,7 +2885,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Suwannakhuha",
     PROVINCE_ID: 39,
     GEO_ID: 3,
-    ZIPCODE: 39270
+    ZIPCODE: "39270"
   },
   {
     DISTRICT_ID: 3906,
@@ -2893,7 +2893,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Na Wang",
     PROVINCE_ID: 39,
     GEO_ID: 3,
-    ZIPCODE: 39170
+    ZIPCODE: "39170"
   },
   {
     DISTRICT_ID: 4001,
@@ -2901,7 +2901,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Khon Kaen",
     PROVINCE_ID: 40,
     GEO_ID: 3,
-    ZIPCODE: 40260
+    ZIPCODE: "40000"
   },
   {
     DISTRICT_ID: 4002,
@@ -2909,7 +2909,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Fang",
     PROVINCE_ID: 40,
     GEO_ID: 3,
-    ZIPCODE: 40270
+    ZIPCODE: "40270"
   },
   {
     DISTRICT_ID: 4003,
@@ -2917,7 +2917,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phra Yuen",
     PROVINCE_ID: 40,
     GEO_ID: 3,
-    ZIPCODE: 40320
+    ZIPCODE: "40320"
   },
   {
     DISTRICT_ID: 4004,
@@ -2925,7 +2925,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Ruea",
     PROVINCE_ID: 40,
     GEO_ID: 3,
-    ZIPCODE: 40240
+    ZIPCODE: "40210"
   },
   {
     DISTRICT_ID: 4005,
@@ -2933,7 +2933,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chum Phae",
     PROVINCE_ID: 40,
     GEO_ID: 3,
-    ZIPCODE: 40290
+    ZIPCODE: "40130"
   },
   {
     DISTRICT_ID: 4006,
@@ -2941,7 +2941,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Si Chomphu",
     PROVINCE_ID: 40,
     GEO_ID: 3,
-    ZIPCODE: 40220
+    ZIPCODE: "40220"
   },
   {
     DISTRICT_ID: 4007,
@@ -2949,7 +2949,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nam Phong",
     PROVINCE_ID: 40,
     GEO_ID: 3,
-    ZIPCODE: 40310
+    ZIPCODE: "40140"
   },
   {
     DISTRICT_ID: 4008,
@@ -2957,7 +2957,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ubolratana",
     PROVINCE_ID: 40,
     GEO_ID: 3,
-    ZIPCODE: 40250
+    ZIPCODE: "40250"
   },
   {
     DISTRICT_ID: 4009,
@@ -2965,7 +2965,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kranuan",
     PROVINCE_ID: 40,
     GEO_ID: 3,
-    ZIPCODE: 40170
+    ZIPCODE: "40170"
   },
   {
     DISTRICT_ID: 4010,
@@ -2973,7 +2973,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Phai",
     PROVINCE_ID: 40,
     GEO_ID: 3,
-    ZIPCODE: 40110
+    ZIPCODE: "40110"
   },
   {
     DISTRICT_ID: 4011,
@@ -2981,7 +2981,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pueai Noi",
     PROVINCE_ID: 40,
     GEO_ID: 3,
-    ZIPCODE: 40340
+    ZIPCODE: "40340"
   },
   {
     DISTRICT_ID: 4012,
@@ -2989,7 +2989,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phon",
     PROVINCE_ID: 40,
     GEO_ID: 3,
-    ZIPCODE: 40120
+    ZIPCODE: "40120"
   },
   {
     DISTRICT_ID: 4013,
@@ -2997,7 +2997,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Waeng Yai",
     PROVINCE_ID: 40,
     GEO_ID: 3,
-    ZIPCODE: 40330
+    ZIPCODE: "40330"
   },
   {
     DISTRICT_ID: 4014,
@@ -3005,7 +3005,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Waeng Noi",
     PROVINCE_ID: 40,
     GEO_ID: 3,
-    ZIPCODE: 40230
+    ZIPCODE: "40230"
   },
   {
     DISTRICT_ID: 4015,
@@ -3013,7 +3013,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Song Hong",
     PROVINCE_ID: 40,
     GEO_ID: 3,
-    ZIPCODE: 40190
+    ZIPCODE: "40190"
   },
   {
     DISTRICT_ID: 4016,
@@ -3021,7 +3021,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phu Wiang",
     PROVINCE_ID: 40,
     GEO_ID: 3,
-    ZIPCODE: 40150
+    ZIPCODE: "40150"
   },
   {
     DISTRICT_ID: 4017,
@@ -3029,7 +3029,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mancha Khiri",
     PROVINCE_ID: 40,
     GEO_ID: 3,
-    ZIPCODE: 40160
+    ZIPCODE: "40160"
   },
   {
     DISTRICT_ID: 4018,
@@ -3037,7 +3037,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chonnabot",
     PROVINCE_ID: 40,
     GEO_ID: 3,
-    ZIPCODE: 40180
+    ZIPCODE: "40180"
   },
   {
     DISTRICT_ID: 4019,
@@ -3045,7 +3045,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khao Suan Kwang",
     PROVINCE_ID: 40,
     GEO_ID: 3,
-    ZIPCODE: 40280
+    ZIPCODE: "40280"
   },
   {
     DISTRICT_ID: 4020,
@@ -3053,7 +3053,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phu Pha Man",
     PROVINCE_ID: 40,
     GEO_ID: 3,
-    ZIPCODE: 40350
+    ZIPCODE: "40350"
   },
   {
     DISTRICT_ID: 4021,
@@ -3061,7 +3061,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sam Sung",
     PROVINCE_ID: 40,
     GEO_ID: 3,
-    ZIPCODE: 40170
+    ZIPCODE: "40170"
   },
   {
     DISTRICT_ID: 4022,
@@ -3069,7 +3069,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khok Pho Chai",
     PROVINCE_ID: 40,
     GEO_ID: 3,
-    ZIPCODE: 40160
+    ZIPCODE: "40160"
   },
   {
     DISTRICT_ID: 4023,
@@ -3077,7 +3077,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Na Kham",
     PROVINCE_ID: 40,
     GEO_ID: 3,
-    ZIPCODE: 40150
+    ZIPCODE: "40150"
   },
   {
     DISTRICT_ID: 4024,
@@ -3085,7 +3085,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Haet",
     PROVINCE_ID: 40,
     GEO_ID: 3,
-    ZIPCODE: 40110
+    ZIPCODE: "40110"
   },
   {
     DISTRICT_ID: 4025,
@@ -3093,7 +3093,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Non Sila",
     PROVINCE_ID: 40,
     GEO_ID: 3,
-    ZIPCODE: 40110
+    ZIPCODE: "40110"
   },
   {
     DISTRICT_ID: 4026,
@@ -3101,7 +3101,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wiang Kao",
     PROVINCE_ID: 40,
     GEO_ID: 3,
-    ZIPCODE: 40150
+    ZIPCODE: "40150"
   },
   {
     DISTRICT_ID: 4101,
@@ -3109,7 +3109,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Udon Thani",
     PROVINCE_ID: 41,
     GEO_ID: 3,
-    ZIPCODE: 41330
+    ZIPCODE: "41000"
   },
   {
     DISTRICT_ID: 4102,
@@ -3117,7 +3117,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kut Chap",
     PROVINCE_ID: 41,
     GEO_ID: 3,
-    ZIPCODE: 41250
+    ZIPCODE: "41250"
   },
   {
     DISTRICT_ID: 4103,
@@ -3125,7 +3125,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Wua So",
     PROVINCE_ID: 41,
     GEO_ID: 3,
-    ZIPCODE: 41360
+    ZIPCODE: "41360"
   },
   {
     DISTRICT_ID: 4104,
@@ -3133,7 +3133,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kumphawapi",
     PROVINCE_ID: 41,
     GEO_ID: 3,
-    ZIPCODE: 41370
+    ZIPCODE: "41110"
   },
   {
     DISTRICT_ID: 4105,
@@ -3141,7 +3141,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Non Sa-at",
     PROVINCE_ID: 41,
     GEO_ID: 3,
-    ZIPCODE: 41240
+    ZIPCODE: "41240"
   },
   {
     DISTRICT_ID: 4106,
@@ -3149,7 +3149,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Han",
     PROVINCE_ID: 41,
     GEO_ID: 3,
-    ZIPCODE: 41320
+    ZIPCODE: "41130"
   },
   {
     DISTRICT_ID: 4107,
@@ -3157,7 +3157,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Thung Fon",
     PROVINCE_ID: 41,
     GEO_ID: 3,
-    ZIPCODE: 41310
+    ZIPCODE: "41310"
   },
   {
     DISTRICT_ID: 4108,
@@ -3165,7 +3165,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chai Wan",
     PROVINCE_ID: 41,
     GEO_ID: 3,
-    ZIPCODE: 41290
+    ZIPCODE: "41290"
   },
   {
     DISTRICT_ID: 4109,
@@ -3173,7 +3173,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Si That",
     PROVINCE_ID: 41,
     GEO_ID: 3,
-    ZIPCODE: 41230
+    ZIPCODE: "41230"
   },
   {
     DISTRICT_ID: 4110,
@@ -3181,7 +3181,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wang Sam Mo",
     PROVINCE_ID: 41,
     GEO_ID: 3,
-    ZIPCODE: 41280
+    ZIPCODE: "41280"
   },
   {
     DISTRICT_ID: 4111,
@@ -3189,7 +3189,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Dung",
     PROVINCE_ID: 41,
     GEO_ID: 3,
-    ZIPCODE: 41190
+    ZIPCODE: "41190"
   },
   {
     DISTRICT_ID: 4117,
@@ -3197,7 +3197,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Phue",
     PROVINCE_ID: 41,
     GEO_ID: 3,
-    ZIPCODE: 41160
+    ZIPCODE: "41160"
   },
   {
     DISTRICT_ID: 4118,
@@ -3205,7 +3205,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nam Som",
     PROVINCE_ID: 41,
     GEO_ID: 3,
-    ZIPCODE: 41210
+    ZIPCODE: "41210"
   },
   {
     DISTRICT_ID: 4119,
@@ -3213,7 +3213,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phen",
     PROVINCE_ID: 41,
     GEO_ID: 3,
-    ZIPCODE: 41150
+    ZIPCODE: "41150"
   },
   {
     DISTRICT_ID: 4120,
@@ -3221,7 +3221,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sang Khom",
     PROVINCE_ID: 41,
     GEO_ID: 3,
-    ZIPCODE: 41260
+    ZIPCODE: "41260"
   },
   {
     DISTRICT_ID: 4121,
@@ -3229,7 +3229,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Saeng",
     PROVINCE_ID: 41,
     GEO_ID: 3,
-    ZIPCODE: 41340
+    ZIPCODE: "41340"
   },
   {
     DISTRICT_ID: 4122,
@@ -3237,7 +3237,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Na Yung",
     PROVINCE_ID: 41,
     GEO_ID: 3,
-    ZIPCODE: 41380
+    ZIPCODE: "41380"
   },
   {
     DISTRICT_ID: 4123,
@@ -3245,7 +3245,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phibun Rak",
     PROVINCE_ID: 41,
     GEO_ID: 3,
-    ZIPCODE: 41130
+    ZIPCODE: "41130"
   },
   {
     DISTRICT_ID: 4124,
@@ -3253,7 +3253,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ku Kaeo",
     PROVINCE_ID: 41,
     GEO_ID: 3,
-    ZIPCODE: 41130
+    ZIPCODE: "41130"
   },
   {
     DISTRICT_ID: 4125,
@@ -3261,7 +3261,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Prachak Sinlapakhom",
     PROVINCE_ID: 41,
     GEO_ID: 3,
-    ZIPCODE: 41110
+    ZIPCODE: "41110"
   },
   {
     DISTRICT_ID: 4201,
@@ -3269,7 +3269,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Loei",
     PROVINCE_ID: 42,
     GEO_ID: 3,
-    ZIPCODE: 42100
+    ZIPCODE: "42000"
   },
   {
     DISTRICT_ID: 4202,
@@ -3277,7 +3277,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Na Duang",
     PROVINCE_ID: 42,
     GEO_ID: 3,
-    ZIPCODE: 42210
+    ZIPCODE: "42210"
   },
   {
     DISTRICT_ID: 4203,
@@ -3285,7 +3285,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chiang Khan",
     PROVINCE_ID: 42,
     GEO_ID: 3,
-    ZIPCODE: 42110
+    ZIPCODE: "42110"
   },
   {
     DISTRICT_ID: 4204,
@@ -3293,7 +3293,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pak Chom",
     PROVINCE_ID: 42,
     GEO_ID: 3,
-    ZIPCODE: 42150
+    ZIPCODE: "42150"
   },
   {
     DISTRICT_ID: 4205,
@@ -3301,7 +3301,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Dan Sai",
     PROVINCE_ID: 42,
     GEO_ID: 3,
-    ZIPCODE: 42120
+    ZIPCODE: "42120"
   },
   {
     DISTRICT_ID: 4206,
@@ -3309,7 +3309,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Na Haeo",
     PROVINCE_ID: 42,
     GEO_ID: 3,
-    ZIPCODE: 42170
+    ZIPCODE: "42170"
   },
   {
     DISTRICT_ID: 4207,
@@ -3317,7 +3317,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phu Ruea",
     PROVINCE_ID: 42,
     GEO_ID: 3,
-    ZIPCODE: 42160
+    ZIPCODE: "42160"
   },
   {
     DISTRICT_ID: 4208,
@@ -3325,7 +3325,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tha Li",
     PROVINCE_ID: 42,
     GEO_ID: 3,
-    ZIPCODE: 42140
+    ZIPCODE: "42140"
   },
   {
     DISTRICT_ID: 4209,
@@ -3333,7 +3333,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wang Saphung",
     PROVINCE_ID: 42,
     GEO_ID: 3,
-    ZIPCODE: 42130
+    ZIPCODE: "42130"
   },
   {
     DISTRICT_ID: 4210,
@@ -3341,7 +3341,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phu Kradueng",
     PROVINCE_ID: 42,
     GEO_ID: 3,
-    ZIPCODE: 42180
+    ZIPCODE: "42180"
   },
   {
     DISTRICT_ID: 4211,
@@ -3349,7 +3349,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phu Luang",
     PROVINCE_ID: 42,
     GEO_ID: 3,
-    ZIPCODE: 42230
+    ZIPCODE: "42230"
   },
   {
     DISTRICT_ID: 4212,
@@ -3357,7 +3357,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pha Khao",
     PROVINCE_ID: 42,
     GEO_ID: 3,
-    ZIPCODE: 42240
+    ZIPCODE: "42240"
   },
   {
     DISTRICT_ID: 4213,
@@ -3365,7 +3365,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Erawan",
     PROVINCE_ID: 42,
     GEO_ID: 3,
-    ZIPCODE: 42220
+    ZIPCODE: "42220"
   },
   {
     DISTRICT_ID: 4214,
@@ -3373,7 +3373,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Hin",
     PROVINCE_ID: 42,
     GEO_ID: 3,
-    ZIPCODE: 42190
+    ZIPCODE: "42190"
   },
   {
     DISTRICT_ID: 4301,
@@ -3381,7 +3381,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Nong Khai",
     PROVINCE_ID: 43,
     GEO_ID: 3,
-    ZIPCODE: 43100
+    ZIPCODE: "43000"
   },
   {
     DISTRICT_ID: 4302,
@@ -3389,7 +3389,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tha Bo",
     PROVINCE_ID: 43,
     GEO_ID: 3,
-    ZIPCODE: 43110
+    ZIPCODE: "43110"
   },
   {
     DISTRICT_ID: 4305,
@@ -3397,7 +3397,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phon Phisai",
     PROVINCE_ID: 43,
     GEO_ID: 3,
-    ZIPCODE: 43120
+    ZIPCODE: "43120"
   },
   {
     DISTRICT_ID: 4307,
@@ -3405,7 +3405,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Si Chiang Mai",
     PROVINCE_ID: 43,
     GEO_ID: 3,
-    ZIPCODE: 43130
+    ZIPCODE: "43130"
   },
   {
     DISTRICT_ID: 4308,
@@ -3413,7 +3413,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sangkhom",
     PROVINCE_ID: 43,
     GEO_ID: 3,
-    ZIPCODE: 43160
+    ZIPCODE: "43160"
   },
   {
     DISTRICT_ID: 4314,
@@ -3421,7 +3421,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sakhrai",
     PROVINCE_ID: 43,
     GEO_ID: 3,
-    ZIPCODE: 43100
+    ZIPCODE: "43100"
   },
   {
     DISTRICT_ID: 4315,
@@ -3429,7 +3429,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Fao Rai",
     PROVINCE_ID: 43,
     GEO_ID: 3,
-    ZIPCODE: 43120
+    ZIPCODE: "43120"
   },
   {
     DISTRICT_ID: 4316,
@@ -3437,7 +3437,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Rattanawapi",
     PROVINCE_ID: 43,
     GEO_ID: 3,
-    ZIPCODE: 43120
+    ZIPCODE: "43120"
   },
   {
     DISTRICT_ID: 4317,
@@ -3445,7 +3445,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pho Tak",
     PROVINCE_ID: 43,
     GEO_ID: 3,
-    ZIPCODE: 43130
+    ZIPCODE: "43130"
   },
   {
     DISTRICT_ID: 4401,
@@ -3453,7 +3453,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Maha Sarakham",
     PROVINCE_ID: 44,
     GEO_ID: 3,
-    ZIPCODE: 44000
+    ZIPCODE: "44000"
   },
   {
     DISTRICT_ID: 4402,
@@ -3461,7 +3461,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kae Dam",
     PROVINCE_ID: 44,
     GEO_ID: 3,
-    ZIPCODE: 44190
+    ZIPCODE: "44190"
   },
   {
     DISTRICT_ID: 4403,
@@ -3469,7 +3469,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kosum Phisai",
     PROVINCE_ID: 44,
     GEO_ID: 3,
-    ZIPCODE: 44140
+    ZIPCODE: "44140"
   },
   {
     DISTRICT_ID: 4404,
@@ -3477,7 +3477,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kantharawichai",
     PROVINCE_ID: 44,
     GEO_ID: 3,
-    ZIPCODE: 44150
+    ZIPCODE: "44150"
   },
   {
     DISTRICT_ID: 4405,
@@ -3485,7 +3485,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chiang Yuen",
     PROVINCE_ID: 44,
     GEO_ID: 3,
-    ZIPCODE: 44160
+    ZIPCODE: "44160"
   },
   {
     DISTRICT_ID: 4406,
@@ -3493,7 +3493,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Borabue",
     PROVINCE_ID: 44,
     GEO_ID: 3,
-    ZIPCODE: 44130
+    ZIPCODE: "44130"
   },
   {
     DISTRICT_ID: 4407,
@@ -3501,7 +3501,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Na Chueak",
     PROVINCE_ID: 44,
     GEO_ID: 3,
-    ZIPCODE: 44170
+    ZIPCODE: "44170"
   },
   {
     DISTRICT_ID: 4408,
@@ -3509,7 +3509,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phayakkhaphum Phisai",
     PROVINCE_ID: 44,
     GEO_ID: 3,
-    ZIPCODE: 44110
+    ZIPCODE: "44110"
   },
   {
     DISTRICT_ID: 4409,
@@ -3517,7 +3517,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wapi Pathum",
     PROVINCE_ID: 44,
     GEO_ID: 3,
-    ZIPCODE: 44120
+    ZIPCODE: "44120"
   },
   {
     DISTRICT_ID: 4410,
@@ -3525,7 +3525,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Na Dun",
     PROVINCE_ID: 44,
     GEO_ID: 3,
-    ZIPCODE: 44180
+    ZIPCODE: "44180"
   },
   {
     DISTRICT_ID: 4411,
@@ -3533,7 +3533,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Yang Si Surat",
     PROVINCE_ID: 44,
     GEO_ID: 3,
-    ZIPCODE: 44210
+    ZIPCODE: "44210"
   },
   {
     DISTRICT_ID: 4412,
@@ -3541,7 +3541,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kut Rang",
     PROVINCE_ID: 44,
     GEO_ID: 3,
-    ZIPCODE: 44130
+    ZIPCODE: "44130"
   },
   {
     DISTRICT_ID: 4413,
@@ -3549,7 +3549,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chuen Chom",
     PROVINCE_ID: 44,
     GEO_ID: 3,
-    ZIPCODE: 44160
+    ZIPCODE: "44160"
   },
   {
     DISTRICT_ID: 4501,
@@ -3557,7 +3557,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Roi Et",
     PROVINCE_ID: 45,
     GEO_ID: 3,
-    ZIPCODE: 45000
+    ZIPCODE: "45000"
   },
   {
     DISTRICT_ID: 4502,
@@ -3565,7 +3565,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kaset Wisai",
     PROVINCE_ID: 45,
     GEO_ID: 3,
-    ZIPCODE: 45150
+    ZIPCODE: "45150"
   },
   {
     DISTRICT_ID: 4503,
@@ -3573,7 +3573,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pathum Rat",
     PROVINCE_ID: 45,
     GEO_ID: 3,
-    ZIPCODE: 45190
+    ZIPCODE: "45190"
   },
   {
     DISTRICT_ID: 4504,
@@ -3581,7 +3581,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chaturaphak Phiman",
     PROVINCE_ID: 45,
     GEO_ID: 3,
-    ZIPCODE: 45180
+    ZIPCODE: "45180"
   },
   {
     DISTRICT_ID: 4505,
@@ -3589,7 +3589,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Thawat Buri",
     PROVINCE_ID: 45,
     GEO_ID: 3,
-    ZIPCODE: 45170
+    ZIPCODE: "45170"
   },
   {
     DISTRICT_ID: 4506,
@@ -3597,7 +3597,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phanom Phrai",
     PROVINCE_ID: 45,
     GEO_ID: 3,
-    ZIPCODE: 45140
+    ZIPCODE: "45140"
   },
   {
     DISTRICT_ID: 4507,
@@ -3605,7 +3605,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phon Thong",
     PROVINCE_ID: 45,
     GEO_ID: 3,
-    ZIPCODE: 45110
+    ZIPCODE: "45110"
   },
   {
     DISTRICT_ID: 4508,
@@ -3613,7 +3613,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pho Chai",
     PROVINCE_ID: 45,
     GEO_ID: 3,
-    ZIPCODE: 45230
+    ZIPCODE: "45230"
   },
   {
     DISTRICT_ID: 4509,
@@ -3621,7 +3621,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Phok",
     PROVINCE_ID: 45,
     GEO_ID: 3,
-    ZIPCODE: 45210
+    ZIPCODE: "45210"
   },
   {
     DISTRICT_ID: 4510,
@@ -3629,7 +3629,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Selaphum",
     PROVINCE_ID: 45,
     GEO_ID: 3,
-    ZIPCODE: 45120
+    ZIPCODE: "45120"
   },
   {
     DISTRICT_ID: 4511,
@@ -3637,7 +3637,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Suwannaphum",
     PROVINCE_ID: 45,
     GEO_ID: 3,
-    ZIPCODE: 45130
+    ZIPCODE: "45130"
   },
   {
     DISTRICT_ID: 4512,
@@ -3645,7 +3645,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Suang",
     PROVINCE_ID: 45,
     GEO_ID: 3,
-    ZIPCODE: 45220
+    ZIPCODE: "45220"
   },
   {
     DISTRICT_ID: 4513,
@@ -3653,7 +3653,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phon Sai",
     PROVINCE_ID: 45,
     GEO_ID: 3,
-    ZIPCODE: 45240
+    ZIPCODE: "45240"
   },
   {
     DISTRICT_ID: 4514,
@@ -3661,7 +3661,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe At Samat",
     PROVINCE_ID: 45,
     GEO_ID: 3,
-    ZIPCODE: 45160
+    ZIPCODE: "45160"
   },
   {
     DISTRICT_ID: 4515,
@@ -3669,7 +3669,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Moei Wadi",
     PROVINCE_ID: 45,
     GEO_ID: 3,
-    ZIPCODE: 45250
+    ZIPCODE: "45250"
   },
   {
     DISTRICT_ID: 4516,
@@ -3677,7 +3677,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Si Somdet",
     PROVINCE_ID: 45,
     GEO_ID: 3,
-    ZIPCODE: 45280
+    ZIPCODE: "45000"
   },
   {
     DISTRICT_ID: 4517,
@@ -3685,7 +3685,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Changhan",
     PROVINCE_ID: 45,
     GEO_ID: 3,
-    ZIPCODE: 45000
+    ZIPCODE: "45000"
   },
   {
     DISTRICT_ID: 4518,
@@ -3693,7 +3693,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chiang Khwan",
     PROVINCE_ID: 45,
     GEO_ID: 3,
-    ZIPCODE: 45170
+    ZIPCODE: "45000"
   },
   {
     DISTRICT_ID: 4519,
@@ -3701,7 +3701,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Hi",
     PROVINCE_ID: 45,
     GEO_ID: 3,
-    ZIPCODE: 45140
+    ZIPCODE: "45140"
   },
   {
     DISTRICT_ID: 4520,
@@ -3709,7 +3709,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Thung Khao Luang",
     PROVINCE_ID: 45,
     GEO_ID: 3,
-    ZIPCODE: 45170
+    ZIPCODE: "45170"
   },
   {
     DISTRICT_ID: 4601,
@@ -3717,7 +3717,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Kalasin",
     PROVINCE_ID: 46,
     GEO_ID: 3,
-    ZIPCODE: 46000
+    ZIPCODE: "46000"
   },
   {
     DISTRICT_ID: 4602,
@@ -3725,7 +3725,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Na Mon",
     PROVINCE_ID: 46,
     GEO_ID: 3,
-    ZIPCODE: 46230
+    ZIPCODE: "46230"
   },
   {
     DISTRICT_ID: 4603,
@@ -3733,7 +3733,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kamalasai",
     PROVINCE_ID: 46,
     GEO_ID: 3,
-    ZIPCODE: 46130
+    ZIPCODE: "46130"
   },
   {
     DISTRICT_ID: 4604,
@@ -3741,7 +3741,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Rong Kham",
     PROVINCE_ID: 46,
     GEO_ID: 3,
-    ZIPCODE: 46210
+    ZIPCODE: "46210"
   },
   {
     DISTRICT_ID: 4605,
@@ -3749,7 +3749,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kuchinarai",
     PROVINCE_ID: 46,
     GEO_ID: 3,
-    ZIPCODE: 46110
+    ZIPCODE: "46110"
   },
   {
     DISTRICT_ID: 4606,
@@ -3757,7 +3757,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khao Wong",
     PROVINCE_ID: 46,
     GEO_ID: 3,
-    ZIPCODE: 46160
+    ZIPCODE: "46160"
   },
   {
     DISTRICT_ID: 4607,
@@ -3765,7 +3765,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Yang Talat",
     PROVINCE_ID: 46,
     GEO_ID: 3,
-    ZIPCODE: 46120
+    ZIPCODE: "46120"
   },
   {
     DISTRICT_ID: 4608,
@@ -3773,7 +3773,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Huai Mek",
     PROVINCE_ID: 46,
     GEO_ID: 3,
-    ZIPCODE: 46170
+    ZIPCODE: "46170"
   },
   {
     DISTRICT_ID: 4609,
@@ -3781,7 +3781,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sahatsakhan",
     PROVINCE_ID: 46,
     GEO_ID: 3,
-    ZIPCODE: 46140
+    ZIPCODE: "46140"
   },
   {
     DISTRICT_ID: 4610,
@@ -3789,7 +3789,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kham Muang",
     PROVINCE_ID: 46,
     GEO_ID: 3,
-    ZIPCODE: 46180
+    ZIPCODE: "46180"
   },
   {
     DISTRICT_ID: 4611,
@@ -3797,7 +3797,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tha Khantho",
     PROVINCE_ID: 46,
     GEO_ID: 3,
-    ZIPCODE: 46190
+    ZIPCODE: "46190"
   },
   {
     DISTRICT_ID: 4612,
@@ -3805,7 +3805,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Kung Si",
     PROVINCE_ID: 46,
     GEO_ID: 3,
-    ZIPCODE: 46220
+    ZIPCODE: "46220"
   },
   {
     DISTRICT_ID: 4613,
@@ -3813,7 +3813,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Somdet",
     PROVINCE_ID: 46,
     GEO_ID: 3,
-    ZIPCODE: 46150
+    ZIPCODE: "46150"
   },
   {
     DISTRICT_ID: 4614,
@@ -3821,7 +3821,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Huai Phueng",
     PROVINCE_ID: 46,
     GEO_ID: 3,
-    ZIPCODE: 46240
+    ZIPCODE: "46240"
   },
   {
     DISTRICT_ID: 4615,
@@ -3829,7 +3829,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sam Chai",
     PROVINCE_ID: 46,
     GEO_ID: 3,
-    ZIPCODE: 46180
+    ZIPCODE: "46180"
   },
   {
     DISTRICT_ID: 4616,
@@ -3837,7 +3837,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Na Khu",
     PROVINCE_ID: 46,
     GEO_ID: 3,
-    ZIPCODE: 46160
+    ZIPCODE: "46160"
   },
   {
     DISTRICT_ID: 4617,
@@ -3845,7 +3845,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Don Chan",
     PROVINCE_ID: 46,
     GEO_ID: 3,
-    ZIPCODE: 46000
+    ZIPCODE: "46000"
   },
   {
     DISTRICT_ID: 4618,
@@ -3853,7 +3853,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khong Chai",
     PROVINCE_ID: 46,
     GEO_ID: 3,
-    ZIPCODE: 46130
+    ZIPCODE: "46130"
   },
   {
     DISTRICT_ID: 4701,
@@ -3861,7 +3861,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Sakon Nakhon",
     PROVINCE_ID: 47,
     GEO_ID: 3,
-    ZIPCODE: 47230
+    ZIPCODE: "47000"
   },
   {
     DISTRICT_ID: 4702,
@@ -3869,7 +3869,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kusuman",
     PROVINCE_ID: 47,
     GEO_ID: 3,
-    ZIPCODE: 47230
+    ZIPCODE: "47210"
   },
   {
     DISTRICT_ID: 4703,
@@ -3877,7 +3877,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kut Bak",
     PROVINCE_ID: 47,
     GEO_ID: 3,
-    ZIPCODE: 47180
+    ZIPCODE: "47180"
   },
   {
     DISTRICT_ID: 4704,
@@ -3885,7 +3885,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phanna Nikhom",
     PROVINCE_ID: 47,
     GEO_ID: 3,
-    ZIPCODE: 47220
+    ZIPCODE: "47130"
   },
   {
     DISTRICT_ID: 4705,
@@ -3893,7 +3893,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phang Khon",
     PROVINCE_ID: 47,
     GEO_ID: 3,
-    ZIPCODE: 47160
+    ZIPCODE: "47160"
   },
   {
     DISTRICT_ID: 4706,
@@ -3901,7 +3901,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Waritchaphum",
     PROVINCE_ID: 47,
     GEO_ID: 3,
-    ZIPCODE: 47150
+    ZIPCODE: "47150"
   },
   {
     DISTRICT_ID: 4707,
@@ -3909,7 +3909,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nikhom Nam Un",
     PROVINCE_ID: 47,
     GEO_ID: 3,
-    ZIPCODE: 47270
+    ZIPCODE: "47270"
   },
   {
     DISTRICT_ID: 4708,
@@ -3917,7 +3917,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wanon Niwat",
     PROVINCE_ID: 47,
     GEO_ID: 3,
-    ZIPCODE: 47120
+    ZIPCODE: "47120"
   },
   {
     DISTRICT_ID: 4709,
@@ -3925,7 +3925,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kham Ta Kla",
     PROVINCE_ID: 47,
     GEO_ID: 3,
-    ZIPCODE: 47250
+    ZIPCODE: "47250"
   },
   {
     DISTRICT_ID: 4710,
@@ -3933,7 +3933,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Muang",
     PROVINCE_ID: 47,
     GEO_ID: 3,
-    ZIPCODE: 47140
+    ZIPCODE: "47140"
   },
   {
     DISTRICT_ID: 4711,
@@ -3941,7 +3941,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Akat Amnuai",
     PROVINCE_ID: 47,
     GEO_ID: 3,
-    ZIPCODE: 47170
+    ZIPCODE: "47170"
   },
   {
     DISTRICT_ID: 4712,
@@ -3949,7 +3949,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sawang Daen Din",
     PROVINCE_ID: 47,
     GEO_ID: 3,
-    ZIPCODE: 47240
+    ZIPCODE: "47110"
   },
   {
     DISTRICT_ID: 4713,
@@ -3957,7 +3957,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Song Dao",
     PROVINCE_ID: 47,
     GEO_ID: 3,
-    ZIPCODE: 47190
+    ZIPCODE: "47190"
   },
   {
     DISTRICT_ID: 4714,
@@ -3965,7 +3965,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tao Ngoi",
     PROVINCE_ID: 47,
     GEO_ID: 3,
-    ZIPCODE: 47260
+    ZIPCODE: "47260"
   },
   {
     DISTRICT_ID: 4715,
@@ -3973,7 +3973,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khok Si Suphan",
     PROVINCE_ID: 47,
     GEO_ID: 3,
-    ZIPCODE: 47280
+    ZIPCODE: "47280"
   },
   {
     DISTRICT_ID: 4716,
@@ -3981,7 +3981,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Charoen Sin",
     PROVINCE_ID: 47,
     GEO_ID: 3,
-    ZIPCODE: 47290
+    ZIPCODE: "47290"
   },
   {
     DISTRICT_ID: 4717,
@@ -3989,7 +3989,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phon Na Kaeo",
     PROVINCE_ID: 47,
     GEO_ID: 3,
-    ZIPCODE: 47230
+    ZIPCODE: "47230"
   },
   {
     DISTRICT_ID: 4718,
@@ -3997,7 +3997,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phu Phan",
     PROVINCE_ID: 47,
     GEO_ID: 3,
-    ZIPCODE: 47180
+    ZIPCODE: "47180"
   },
   {
     DISTRICT_ID: 4801,
@@ -4005,7 +4005,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Nakhon Phanom",
     PROVINCE_ID: 48,
     GEO_ID: 3,
-    ZIPCODE: 48000
+    ZIPCODE: "48000"
   },
   {
     DISTRICT_ID: 4802,
@@ -4013,7 +4013,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pla Pak",
     PROVINCE_ID: 48,
     GEO_ID: 3,
-    ZIPCODE: 48160
+    ZIPCODE: "48160"
   },
   {
     DISTRICT_ID: 4803,
@@ -4021,7 +4021,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tha Uthen",
     PROVINCE_ID: 48,
     GEO_ID: 3,
-    ZIPCODE: 48120
+    ZIPCODE: "48120"
   },
   {
     DISTRICT_ID: 4804,
@@ -4029,7 +4029,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Phaeng",
     PROVINCE_ID: 48,
     GEO_ID: 3,
-    ZIPCODE: 48140
+    ZIPCODE: "48140"
   },
   {
     DISTRICT_ID: 4805,
@@ -4037,7 +4037,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe That Phanom",
     PROVINCE_ID: 48,
     GEO_ID: 3,
-    ZIPCODE: 48110
+    ZIPCODE: "48110"
   },
   {
     DISTRICT_ID: 4806,
@@ -4045,7 +4045,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Renu Nakhon",
     PROVINCE_ID: 48,
     GEO_ID: 3,
-    ZIPCODE: 48170
+    ZIPCODE: "48170"
   },
   {
     DISTRICT_ID: 4807,
@@ -4053,7 +4053,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Na Kae",
     PROVINCE_ID: 48,
     GEO_ID: 3,
-    ZIPCODE: 48130
+    ZIPCODE: "48130"
   },
   {
     DISTRICT_ID: 4808,
@@ -4061,7 +4061,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Si Songkhram",
     PROVINCE_ID: 48,
     GEO_ID: 3,
-    ZIPCODE: 48150
+    ZIPCODE: "48150"
   },
   {
     DISTRICT_ID: 4809,
@@ -4069,7 +4069,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Na Wa",
     PROVINCE_ID: 48,
     GEO_ID: 3,
-    ZIPCODE: 48180
+    ZIPCODE: "48180"
   },
   {
     DISTRICT_ID: 4810,
@@ -4077,7 +4077,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phon Sawan",
     PROVINCE_ID: 48,
     GEO_ID: 3,
-    ZIPCODE: 48190
+    ZIPCODE: "48190"
   },
   {
     DISTRICT_ID: 4811,
@@ -4085,7 +4085,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Na Thom",
     PROVINCE_ID: 48,
     GEO_ID: 3,
-    ZIPCODE: 48140
+    ZIPCODE: "48140"
   },
   {
     DISTRICT_ID: 4812,
@@ -4093,7 +4093,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wang Yang",
     PROVINCE_ID: 48,
     GEO_ID: 3,
-    ZIPCODE: 48130
+    ZIPCODE: "48130"
   },
   {
     DISTRICT_ID: 4901,
@@ -4101,7 +4101,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Mukdahan",
     PROVINCE_ID: 49,
     GEO_ID: 3,
-    ZIPCODE: 49000
+    ZIPCODE: "49000"
   },
   {
     DISTRICT_ID: 4902,
@@ -4109,7 +4109,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nikhom Kham Soi",
     PROVINCE_ID: 49,
     GEO_ID: 3,
-    ZIPCODE: 49130
+    ZIPCODE: "49130"
   },
   {
     DISTRICT_ID: 4903,
@@ -4117,7 +4117,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Don Tan",
     PROVINCE_ID: 49,
     GEO_ID: 3,
-    ZIPCODE: 49120
+    ZIPCODE: "49120"
   },
   {
     DISTRICT_ID: 4904,
@@ -4125,7 +4125,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Dong Luang",
     PROVINCE_ID: 49,
     GEO_ID: 3,
-    ZIPCODE: 49140
+    ZIPCODE: "49140"
   },
   {
     DISTRICT_ID: 4905,
@@ -4133,7 +4133,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khamcha-i",
     PROVINCE_ID: 49,
     GEO_ID: 3,
-    ZIPCODE: 49110
+    ZIPCODE: "49110"
   },
   {
     DISTRICT_ID: 4906,
@@ -4141,7 +4141,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wan Yai",
     PROVINCE_ID: 49,
     GEO_ID: 3,
-    ZIPCODE: 49150
+    ZIPCODE: "49150"
   },
   {
     DISTRICT_ID: 4907,
@@ -4149,7 +4149,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Sung",
     PROVINCE_ID: 49,
     GEO_ID: 3,
-    ZIPCODE: 49160
+    ZIPCODE: "49160"
   },
   {
     DISTRICT_ID: 5001,
@@ -4157,7 +4157,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Chiang Mai",
     PROVINCE_ID: 50,
     GEO_ID: 4,
-    ZIPCODE: 50300
+    ZIPCODE: "50000"
   },
   {
     DISTRICT_ID: 5002,
@@ -4165,7 +4165,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chom Thong",
     PROVINCE_ID: 50,
     GEO_ID: 4,
-    ZIPCODE: 50240
+    ZIPCODE: "50160"
   },
   {
     DISTRICT_ID: 5003,
@@ -4173,7 +4173,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mae Chaem",
     PROVINCE_ID: 50,
     GEO_ID: 4,
-    ZIPCODE: 50270
+    ZIPCODE: "50270"
   },
   {
     DISTRICT_ID: 5004,
@@ -4181,7 +4181,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chiang Dao",
     PROVINCE_ID: 50,
     GEO_ID: 4,
-    ZIPCODE: 50170
+    ZIPCODE: "50170"
   },
   {
     DISTRICT_ID: 5005,
@@ -4189,7 +4189,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Doi Saket",
     PROVINCE_ID: 50,
     GEO_ID: 4,
-    ZIPCODE: 50220
+    ZIPCODE: "50220"
   },
   {
     DISTRICT_ID: 5006,
@@ -4197,7 +4197,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mae Taeng",
     PROVINCE_ID: 50,
     GEO_ID: 4,
-    ZIPCODE: 50330
+    ZIPCODE: "50150"
   },
   {
     DISTRICT_ID: 5007,
@@ -4205,7 +4205,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mae Rim",
     PROVINCE_ID: 50,
     GEO_ID: 4,
-    ZIPCODE: 50330
+    ZIPCODE: "50180"
   },
   {
     DISTRICT_ID: 5008,
@@ -4213,7 +4213,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Samoeng",
     PROVINCE_ID: 50,
     GEO_ID: 4,
-    ZIPCODE: 50250
+    ZIPCODE: "50250"
   },
   {
     DISTRICT_ID: 5009,
@@ -4221,7 +4221,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Fang",
     PROVINCE_ID: 50,
     GEO_ID: 4,
-    ZIPCODE: 50320
+    ZIPCODE: "50110"
   },
   {
     DISTRICT_ID: 5010,
@@ -4229,7 +4229,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mae Ai",
     PROVINCE_ID: 50,
     GEO_ID: 4,
-    ZIPCODE: 50280
+    ZIPCODE: "50280"
   },
   {
     DISTRICT_ID: 5011,
@@ -4237,7 +4237,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phrao",
     PROVINCE_ID: 50,
     GEO_ID: 4,
-    ZIPCODE: 50190
+    ZIPCODE: "50190"
   },
   {
     DISTRICT_ID: 5012,
@@ -4245,7 +4245,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe San Pa Tong",
     PROVINCE_ID: 50,
     GEO_ID: 4,
-    ZIPCODE: 50120
+    ZIPCODE: "50120"
   },
   {
     DISTRICT_ID: 5013,
@@ -4253,7 +4253,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe San Kamphaeng",
     PROVINCE_ID: 50,
     GEO_ID: 4,
-    ZIPCODE: 50130
+    ZIPCODE: "50130"
   },
   {
     DISTRICT_ID: 5014,
@@ -4261,7 +4261,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe San Sai",
     PROVINCE_ID: 50,
     GEO_ID: 4,
-    ZIPCODE: 50290
+    ZIPCODE: "50210"
   },
   {
     DISTRICT_ID: 5015,
@@ -4269,7 +4269,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Hang Dong",
     PROVINCE_ID: 50,
     GEO_ID: 4,
-    ZIPCODE: 50340
+    ZIPCODE: "50230"
   },
   {
     DISTRICT_ID: 5016,
@@ -4277,7 +4277,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Hot",
     PROVINCE_ID: 50,
     GEO_ID: 4,
-    ZIPCODE: 50240
+    ZIPCODE: "50240"
   },
   {
     DISTRICT_ID: 5017,
@@ -4285,7 +4285,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Doi Tao",
     PROVINCE_ID: 50,
     GEO_ID: 4,
-    ZIPCODE: 50260
+    ZIPCODE: "50260"
   },
   {
     DISTRICT_ID: 5018,
@@ -4293,7 +4293,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Omkoi",
     PROVINCE_ID: 50,
     GEO_ID: 4,
-    ZIPCODE: 50310
+    ZIPCODE: "50310"
   },
   {
     DISTRICT_ID: 5019,
@@ -4301,7 +4301,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Saraphi",
     PROVINCE_ID: 50,
     GEO_ID: 4,
-    ZIPCODE: 50140
+    ZIPCODE: "50140"
   },
   {
     DISTRICT_ID: 5020,
@@ -4309,7 +4309,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wiang Haeng",
     PROVINCE_ID: 50,
     GEO_ID: 4,
-    ZIPCODE: 50350
+    ZIPCODE: "50350"
   },
   {
     DISTRICT_ID: 5021,
@@ -4317,7 +4317,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chai Prakan",
     PROVINCE_ID: 50,
     GEO_ID: 4,
-    ZIPCODE: 50320
+    ZIPCODE: "50320"
   },
   {
     DISTRICT_ID: 5022,
@@ -4325,7 +4325,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mae Wang",
     PROVINCE_ID: 50,
     GEO_ID: 4,
-    ZIPCODE: 50360
+    ZIPCODE: "50360"
   },
   {
     DISTRICT_ID: 5023,
@@ -4333,7 +4333,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mae On",
     PROVINCE_ID: 50,
     GEO_ID: 4,
-    ZIPCODE: 50130
+    ZIPCODE: "50130"
   },
   {
     DISTRICT_ID: 5024,
@@ -4341,7 +4341,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Doi Lo",
     PROVINCE_ID: 50,
     GEO_ID: 4,
-    ZIPCODE: 50160
+    ZIPCODE: "50160"
   },
   {
     DISTRICT_ID: 5025,
@@ -4349,7 +4349,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Galayani Vadhana",
     PROVINCE_ID: 50,
     GEO_ID: 4,
-    ZIPCODE: 58130
+    ZIPCODE: "58130"
   },
   {
     DISTRICT_ID: 5101,
@@ -4357,7 +4357,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Lamphun",
     PROVINCE_ID: 51,
     GEO_ID: 4,
-    ZIPCODE: 51150
+    ZIPCODE: "51000"
   },
   {
     DISTRICT_ID: 5102,
@@ -4365,7 +4365,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mae Tha",
     PROVINCE_ID: 51,
     GEO_ID: 4,
-    ZIPCODE: 51170
+    ZIPCODE: "51170"
   },
   {
     DISTRICT_ID: 5103,
@@ -4373,7 +4373,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Hong",
     PROVINCE_ID: 51,
     GEO_ID: 4,
-    ZIPCODE: 51130
+    ZIPCODE: "51130"
   },
   {
     DISTRICT_ID: 5104,
@@ -4381,7 +4381,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Li",
     PROVINCE_ID: 51,
     GEO_ID: 4,
-    ZIPCODE: 51110
+    ZIPCODE: "51110"
   },
   {
     DISTRICT_ID: 5105,
@@ -4389,7 +4389,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Thung Hua Chang",
     PROVINCE_ID: 51,
     GEO_ID: 4,
-    ZIPCODE: 51160
+    ZIPCODE: "51160"
   },
   {
     DISTRICT_ID: 5106,
@@ -4397,7 +4397,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pa Sang",
     PROVINCE_ID: 51,
     GEO_ID: 4,
-    ZIPCODE: 51120
+    ZIPCODE: "51120"
   },
   {
     DISTRICT_ID: 5107,
@@ -4405,7 +4405,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Thi",
     PROVINCE_ID: 51,
     GEO_ID: 4,
-    ZIPCODE: 51180
+    ZIPCODE: "51180"
   },
   {
     DISTRICT_ID: 5108,
@@ -4413,7 +4413,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wiang Nong Long",
     PROVINCE_ID: 51,
     GEO_ID: 4,
-    ZIPCODE: 51120
+    ZIPCODE: "51120"
   },
   {
     DISTRICT_ID: 5201,
@@ -4421,7 +4421,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Lampang",
     PROVINCE_ID: 52,
     GEO_ID: 4,
-    ZIPCODE: 52100
+    ZIPCODE: "52000"
   },
   {
     DISTRICT_ID: 5202,
@@ -4429,7 +4429,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mae Mo",
     PROVINCE_ID: 52,
     GEO_ID: 4,
-    ZIPCODE: 52220
+    ZIPCODE: "52220"
   },
   {
     DISTRICT_ID: 5203,
@@ -4437,7 +4437,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ko Kha",
     PROVINCE_ID: 52,
     GEO_ID: 4,
-    ZIPCODE: 52130
+    ZIPCODE: "52130"
   },
   {
     DISTRICT_ID: 5204,
@@ -4445,7 +4445,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Soem Ngam",
     PROVINCE_ID: 52,
     GEO_ID: 4,
-    ZIPCODE: 52210
+    ZIPCODE: "52210"
   },
   {
     DISTRICT_ID: 5205,
@@ -4453,7 +4453,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ngao",
     PROVINCE_ID: 52,
     GEO_ID: 4,
-    ZIPCODE: 52110
+    ZIPCODE: "52110"
   },
   {
     DISTRICT_ID: 5206,
@@ -4461,7 +4461,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chae Hom",
     PROVINCE_ID: 52,
     GEO_ID: 4,
-    ZIPCODE: 52120
+    ZIPCODE: "52120"
   },
   {
     DISTRICT_ID: 5207,
@@ -4469,7 +4469,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wang Nuea",
     PROVINCE_ID: 52,
     GEO_ID: 4,
-    ZIPCODE: 52140
+    ZIPCODE: "52140"
   },
   {
     DISTRICT_ID: 5208,
@@ -4477,7 +4477,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Thoen",
     PROVINCE_ID: 52,
     GEO_ID: 4,
-    ZIPCODE: 52230
+    ZIPCODE: "52160"
   },
   {
     DISTRICT_ID: 5209,
@@ -4485,7 +4485,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mae Phrik",
     PROVINCE_ID: 52,
     GEO_ID: 4,
-    ZIPCODE: 52230
+    ZIPCODE: "52180"
   },
   {
     DISTRICT_ID: 5210,
@@ -4493,7 +4493,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mae Tha",
     PROVINCE_ID: 52,
     GEO_ID: 4,
-    ZIPCODE: 52150
+    ZIPCODE: "52150"
   },
   {
     DISTRICT_ID: 5211,
@@ -4501,7 +4501,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sop Prap",
     PROVINCE_ID: 52,
     GEO_ID: 4,
-    ZIPCODE: 52170
+    ZIPCODE: "52170"
   },
   {
     DISTRICT_ID: 5212,
@@ -4509,7 +4509,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Hang Chat",
     PROVINCE_ID: 52,
     GEO_ID: 4,
-    ZIPCODE: 52190
+    ZIPCODE: "52190"
   },
   {
     DISTRICT_ID: 5213,
@@ -4517,7 +4517,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Pan",
     PROVINCE_ID: 52,
     GEO_ID: 4,
-    ZIPCODE: 52240
+    ZIPCODE: "52240"
   },
   {
     DISTRICT_ID: 5301,
@@ -4525,7 +4525,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Uttaradit",
     PROVINCE_ID: 53,
     GEO_ID: 4,
-    ZIPCODE: 53170
+    ZIPCODE: "53000"
   },
   {
     DISTRICT_ID: 5302,
@@ -4533,7 +4533,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tron",
     PROVINCE_ID: 53,
     GEO_ID: 4,
-    ZIPCODE: 53140
+    ZIPCODE: "53140"
   },
   {
     DISTRICT_ID: 5303,
@@ -4541,7 +4541,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tha Pla",
     PROVINCE_ID: 53,
     GEO_ID: 4,
-    ZIPCODE: 53190
+    ZIPCODE: "53150"
   },
   {
     DISTRICT_ID: 5304,
@@ -4549,7 +4549,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nam Pat",
     PROVINCE_ID: 53,
     GEO_ID: 4,
-    ZIPCODE: 53110
+    ZIPCODE: "53110"
   },
   {
     DISTRICT_ID: 5305,
@@ -4557,7 +4557,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Fak Tha",
     PROVINCE_ID: 53,
     GEO_ID: 4,
-    ZIPCODE: 53160
+    ZIPCODE: "53160"
   },
   {
     DISTRICT_ID: 5306,
@@ -4565,7 +4565,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Khok",
     PROVINCE_ID: 53,
     GEO_ID: 4,
-    ZIPCODE: 53180
+    ZIPCODE: "53180"
   },
   {
     DISTRICT_ID: 5307,
@@ -4573,7 +4573,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phichai",
     PROVINCE_ID: 53,
     GEO_ID: 4,
-    ZIPCODE: 53220
+    ZIPCODE: "53120"
   },
   {
     DISTRICT_ID: 5308,
@@ -4581,7 +4581,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Laplae",
     PROVINCE_ID: 53,
     GEO_ID: 4,
-    ZIPCODE: 53210
+    ZIPCODE: "53130"
   },
   {
     DISTRICT_ID: 5309,
@@ -4589,7 +4589,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Thong Saen Khan",
     PROVINCE_ID: 53,
     GEO_ID: 4,
-    ZIPCODE: 53230
+    ZIPCODE: "53230"
   },
   {
     DISTRICT_ID: 5401,
@@ -4597,7 +4597,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Phrae",
     PROVINCE_ID: 54,
     GEO_ID: 4,
-    ZIPCODE: 54000
+    ZIPCODE: "54000"
   },
   {
     DISTRICT_ID: 5402,
@@ -4605,7 +4605,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Rong Kwang",
     PROVINCE_ID: 54,
     GEO_ID: 4,
-    ZIPCODE: 54140
+    ZIPCODE: "54140"
   },
   {
     DISTRICT_ID: 5403,
@@ -4613,7 +4613,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Long",
     PROVINCE_ID: 54,
     GEO_ID: 4,
-    ZIPCODE: 54150
+    ZIPCODE: "54150"
   },
   {
     DISTRICT_ID: 5404,
@@ -4621,7 +4621,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sung Men",
     PROVINCE_ID: 54,
     GEO_ID: 4,
-    ZIPCODE: 54130
+    ZIPCODE: "54130"
   },
   {
     DISTRICT_ID: 5405,
@@ -4629,7 +4629,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Den Chai",
     PROVINCE_ID: 54,
     GEO_ID: 4,
-    ZIPCODE: 54110
+    ZIPCODE: "54110"
   },
   {
     DISTRICT_ID: 5406,
@@ -4637,7 +4637,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Song",
     PROVINCE_ID: 54,
     GEO_ID: 4,
-    ZIPCODE: 54120
+    ZIPCODE: "54120"
   },
   {
     DISTRICT_ID: 5407,
@@ -4645,7 +4645,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wang Chin",
     PROVINCE_ID: 54,
     GEO_ID: 4,
-    ZIPCODE: 54160
+    ZIPCODE: "54160"
   },
   {
     DISTRICT_ID: 5408,
@@ -4653,7 +4653,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Muang Khai",
     PROVINCE_ID: 54,
     GEO_ID: 4,
-    ZIPCODE: 54170
+    ZIPCODE: "54170"
   },
   {
     DISTRICT_ID: 5501,
@@ -4661,7 +4661,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Nan",
     PROVINCE_ID: 55,
     GEO_ID: 4,
-    ZIPCODE: 55000
+    ZIPCODE: "55000"
   },
   {
     DISTRICT_ID: 5502,
@@ -4669,7 +4669,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mae Charim",
     PROVINCE_ID: 55,
     GEO_ID: 4,
-    ZIPCODE: 55170
+    ZIPCODE: "55170"
   },
   {
     DISTRICT_ID: 5503,
@@ -4677,7 +4677,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Luang",
     PROVINCE_ID: 55,
     GEO_ID: 4,
-    ZIPCODE: 55190
+    ZIPCODE: "55190"
   },
   {
     DISTRICT_ID: 5504,
@@ -4685,7 +4685,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Na Noi",
     PROVINCE_ID: 55,
     GEO_ID: 4,
-    ZIPCODE: 55150
+    ZIPCODE: "55150"
   },
   {
     DISTRICT_ID: 5505,
@@ -4693,7 +4693,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pua",
     PROVINCE_ID: 55,
     GEO_ID: 4,
-    ZIPCODE: 55120
+    ZIPCODE: "55120"
   },
   {
     DISTRICT_ID: 5506,
@@ -4701,7 +4701,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tha Wang Pha",
     PROVINCE_ID: 55,
     GEO_ID: 4,
-    ZIPCODE: 55140
+    ZIPCODE: "55140"
   },
   {
     DISTRICT_ID: 5507,
@@ -4709,7 +4709,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wiang Sa",
     PROVINCE_ID: 55,
     GEO_ID: 4,
-    ZIPCODE: 55110
+    ZIPCODE: "55110"
   },
   {
     DISTRICT_ID: 5508,
@@ -4717,7 +4717,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Thung Chang",
     PROVINCE_ID: 55,
     GEO_ID: 4,
-    ZIPCODE: 55130
+    ZIPCODE: "55130"
   },
   {
     DISTRICT_ID: 5509,
@@ -4725,7 +4725,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chiang Klang",
     PROVINCE_ID: 55,
     GEO_ID: 4,
-    ZIPCODE: 55160
+    ZIPCODE: "55160"
   },
   {
     DISTRICT_ID: 5510,
@@ -4733,7 +4733,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Na Muen",
     PROVINCE_ID: 55,
     GEO_ID: 4,
-    ZIPCODE: 55180
+    ZIPCODE: "55180"
   },
   {
     DISTRICT_ID: 5511,
@@ -4741,7 +4741,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Santi Suk",
     PROVINCE_ID: 55,
     GEO_ID: 4,
-    ZIPCODE: 55210
+    ZIPCODE: "55210"
   },
   {
     DISTRICT_ID: 5512,
@@ -4749,7 +4749,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bo Kluea",
     PROVINCE_ID: 55,
     GEO_ID: 4,
-    ZIPCODE: 55220
+    ZIPCODE: "55220"
   },
   {
     DISTRICT_ID: 5513,
@@ -4757,7 +4757,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Song Khwae",
     PROVINCE_ID: 55,
     GEO_ID: 4,
-    ZIPCODE: 55160
+    ZIPCODE: "55160"
   },
   {
     DISTRICT_ID: 5514,
@@ -4765,7 +4765,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phu Phiang",
     PROVINCE_ID: 55,
     GEO_ID: 4,
-    ZIPCODE: 55000
+    ZIPCODE: "55000"
   },
   {
     DISTRICT_ID: 5515,
@@ -4773,7 +4773,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chaloem Phra Kiat",
     PROVINCE_ID: 55,
     GEO_ID: 4,
-    ZIPCODE: 55220
+    ZIPCODE: "55130"
   },
   {
     DISTRICT_ID: 5601,
@@ -4781,7 +4781,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Phayao",
     PROVINCE_ID: 56,
     GEO_ID: 4,
-    ZIPCODE: 56000
+    ZIPCODE: "56000"
   },
   {
     DISTRICT_ID: 5602,
@@ -4789,7 +4789,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chun",
     PROVINCE_ID: 56,
     GEO_ID: 4,
-    ZIPCODE: 56150
+    ZIPCODE: "56150"
   },
   {
     DISTRICT_ID: 5603,
@@ -4797,7 +4797,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chiang Kham",
     PROVINCE_ID: 56,
     GEO_ID: 4,
-    ZIPCODE: 56110
+    ZIPCODE: "56110"
   },
   {
     DISTRICT_ID: 5604,
@@ -4805,7 +4805,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chiang Muan",
     PROVINCE_ID: 56,
     GEO_ID: 4,
-    ZIPCODE: 56160
+    ZIPCODE: "56160"
   },
   {
     DISTRICT_ID: 5605,
@@ -4813,7 +4813,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Dok Khamtai",
     PROVINCE_ID: 56,
     GEO_ID: 4,
-    ZIPCODE: 56120
+    ZIPCODE: "56120"
   },
   {
     DISTRICT_ID: 5606,
@@ -4821,7 +4821,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pong",
     PROVINCE_ID: 56,
     GEO_ID: 4,
-    ZIPCODE: 56140
+    ZIPCODE: "56140"
   },
   {
     DISTRICT_ID: 5607,
@@ -4829,7 +4829,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mae Chai",
     PROVINCE_ID: 56,
     GEO_ID: 4,
-    ZIPCODE: 56130
+    ZIPCODE: "56130"
   },
   {
     DISTRICT_ID: 5608,
@@ -4837,7 +4837,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phu Sang",
     PROVINCE_ID: 56,
     GEO_ID: 4,
-    ZIPCODE: 56110
+    ZIPCODE: "56110"
   },
   {
     DISTRICT_ID: 5609,
@@ -4845,7 +4845,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phu Kamyao",
     PROVINCE_ID: 56,
     GEO_ID: 4,
-    ZIPCODE: 56000
+    ZIPCODE: "56000"
   },
   {
     DISTRICT_ID: 5701,
@@ -4853,7 +4853,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Chiang Rai",
     PROVINCE_ID: 57,
     GEO_ID: 4,
-    ZIPCODE: 57100
+    ZIPCODE: "57000"
   },
   {
     DISTRICT_ID: 5702,
@@ -4861,7 +4861,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wiang Chai",
     PROVINCE_ID: 57,
     GEO_ID: 4,
-    ZIPCODE: 57210
+    ZIPCODE: "57210"
   },
   {
     DISTRICT_ID: 5703,
@@ -4869,7 +4869,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chiang Khong",
     PROVINCE_ID: 57,
     GEO_ID: 4,
-    ZIPCODE: 57140
+    ZIPCODE: "57140"
   },
   {
     DISTRICT_ID: 5704,
@@ -4877,7 +4877,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Thoeng",
     PROVINCE_ID: 57,
     GEO_ID: 4,
-    ZIPCODE: 57230
+    ZIPCODE: "57230"
   },
   {
     DISTRICT_ID: 5705,
@@ -4885,7 +4885,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phan",
     PROVINCE_ID: 57,
     GEO_ID: 4,
-    ZIPCODE: 57280
+    ZIPCODE: "57120"
   },
   {
     DISTRICT_ID: 5706,
@@ -4893,7 +4893,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pa Daet",
     PROVINCE_ID: 57,
     GEO_ID: 4,
-    ZIPCODE: 57190
+    ZIPCODE: "57190"
   },
   {
     DISTRICT_ID: 5707,
@@ -4901,7 +4901,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mae Chan",
     PROVINCE_ID: 57,
     GEO_ID: 4,
-    ZIPCODE: 57270
+    ZIPCODE: "57110"
   },
   {
     DISTRICT_ID: 5708,
@@ -4909,7 +4909,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chiang Saen",
     PROVINCE_ID: 57,
     GEO_ID: 4,
-    ZIPCODE: 57150
+    ZIPCODE: "57150"
   },
   {
     DISTRICT_ID: 5709,
@@ -4917,7 +4917,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mae Sai",
     PROVINCE_ID: 57,
     GEO_ID: 4,
-    ZIPCODE: 57220
+    ZIPCODE: "57130"
   },
   {
     DISTRICT_ID: 5710,
@@ -4925,7 +4925,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mae Suai",
     PROVINCE_ID: 57,
     GEO_ID: 4,
-    ZIPCODE: 57180
+    ZIPCODE: "57180"
   },
   {
     DISTRICT_ID: 5711,
@@ -4933,7 +4933,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wiang Pa Pao",
     PROVINCE_ID: 57,
     GEO_ID: 4,
-    ZIPCODE: 57260
+    ZIPCODE: "57170"
   },
   {
     DISTRICT_ID: 5712,
@@ -4941,7 +4941,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phaya Mengrai",
     PROVINCE_ID: 57,
     GEO_ID: 4,
-    ZIPCODE: 57290
+    ZIPCODE: "57290"
   },
   {
     DISTRICT_ID: 5713,
@@ -4949,7 +4949,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wiang Kaen",
     PROVINCE_ID: 57,
     GEO_ID: 4,
-    ZIPCODE: 57310
+    ZIPCODE: "57310"
   },
   {
     DISTRICT_ID: 5714,
@@ -4957,7 +4957,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khun Tan",
     PROVINCE_ID: 57,
     GEO_ID: 4,
-    ZIPCODE: 57340
+    ZIPCODE: "57340"
   },
   {
     DISTRICT_ID: 5715,
@@ -4965,7 +4965,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mae Fa Luang",
     PROVINCE_ID: 57,
     GEO_ID: 4,
-    ZIPCODE: 57240
+    ZIPCODE: "57240"
   },
   {
     DISTRICT_ID: 5716,
@@ -4973,7 +4973,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mae Lao",
     PROVINCE_ID: 57,
     GEO_ID: 4,
-    ZIPCODE: 57250
+    ZIPCODE: "57250"
   },
   {
     DISTRICT_ID: 5717,
@@ -4981,7 +4981,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wiang Chiang Rung",
     PROVINCE_ID: 57,
     GEO_ID: 4,
-    ZIPCODE: 57210
+    ZIPCODE: "57210"
   },
   {
     DISTRICT_ID: 5718,
@@ -4989,7 +4989,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Doi Luang",
     PROVINCE_ID: 57,
     GEO_ID: 4,
-    ZIPCODE: 57110
+    ZIPCODE: "57110"
   },
   {
     DISTRICT_ID: 5801,
@@ -4997,7 +4997,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Mae Hong Son",
     PROVINCE_ID: 58,
     GEO_ID: 4,
-    ZIPCODE: 58000
+    ZIPCODE: "58000"
   },
   {
     DISTRICT_ID: 5802,
@@ -5005,7 +5005,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khun Yuam",
     PROVINCE_ID: 58,
     GEO_ID: 4,
-    ZIPCODE: 58140
+    ZIPCODE: "58140"
   },
   {
     DISTRICT_ID: 5803,
@@ -5013,7 +5013,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pai",
     PROVINCE_ID: 58,
     GEO_ID: 4,
-    ZIPCODE: 58130
+    ZIPCODE: "58130"
   },
   {
     DISTRICT_ID: 5804,
@@ -5021,7 +5021,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mae Sariang",
     PROVINCE_ID: 58,
     GEO_ID: 4,
-    ZIPCODE: 58110
+    ZIPCODE: "58110"
   },
   {
     DISTRICT_ID: 5805,
@@ -5029,7 +5029,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mae La Noi",
     PROVINCE_ID: 58,
     GEO_ID: 4,
-    ZIPCODE: 58120
+    ZIPCODE: "58120"
   },
   {
     DISTRICT_ID: 5806,
@@ -5037,7 +5037,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sop Moei",
     PROVINCE_ID: 58,
     GEO_ID: 4,
-    ZIPCODE: 58110
+    ZIPCODE: "58110"
   },
   {
     DISTRICT_ID: 5807,
@@ -5045,7 +5045,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pang Mapha",
     PROVINCE_ID: 58,
     GEO_ID: 4,
-    ZIPCODE: 58150
+    ZIPCODE: "58150"
   },
   {
     DISTRICT_ID: 6001,
@@ -5053,7 +5053,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Nakhon Sawan",
     PROVINCE_ID: 60,
     GEO_ID: 1,
-    ZIPCODE: 60240
+    ZIPCODE: "60000"
   },
   {
     DISTRICT_ID: 6002,
@@ -5061,7 +5061,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Krok Phra",
     PROVINCE_ID: 60,
     GEO_ID: 1,
-    ZIPCODE: 60170
+    ZIPCODE: "60170"
   },
   {
     DISTRICT_ID: 6003,
@@ -5069,7 +5069,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chum Saeng",
     PROVINCE_ID: 60,
     GEO_ID: 1,
-    ZIPCODE: 60250
+    ZIPCODE: "60120"
   },
   {
     DISTRICT_ID: 6004,
@@ -5077,7 +5077,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Bua",
     PROVINCE_ID: 60,
     GEO_ID: 1,
-    ZIPCODE: 60110
+    ZIPCODE: "60110"
   },
   {
     DISTRICT_ID: 6005,
@@ -5085,7 +5085,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Banphot Phisai",
     PROVINCE_ID: 60,
     GEO_ID: 1,
-    ZIPCODE: 60180
+    ZIPCODE: "60180"
   },
   {
     DISTRICT_ID: 6006,
@@ -5093,7 +5093,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kao Liao",
     PROVINCE_ID: 60,
     GEO_ID: 1,
-    ZIPCODE: 60230
+    ZIPCODE: "60230"
   },
   {
     DISTRICT_ID: 6007,
@@ -5101,7 +5101,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Takhli",
     PROVINCE_ID: 60,
     GEO_ID: 1,
-    ZIPCODE: 60260
+    ZIPCODE: "60210"
   },
   {
     DISTRICT_ID: 6008,
@@ -5109,7 +5109,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tha Tako",
     PROVINCE_ID: 60,
     GEO_ID: 1,
-    ZIPCODE: 60160
+    ZIPCODE: "60160"
   },
   {
     DISTRICT_ID: 6009,
@@ -5117,7 +5117,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phaisali",
     PROVINCE_ID: 60,
     GEO_ID: 1,
-    ZIPCODE: 60220
+    ZIPCODE: "60220"
   },
   {
     DISTRICT_ID: 6010,
@@ -5125,7 +5125,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phayuha Khiri",
     PROVINCE_ID: 60,
     GEO_ID: 1,
-    ZIPCODE: 60130
+    ZIPCODE: "60130"
   },
   {
     DISTRICT_ID: 6011,
@@ -5133,7 +5133,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Lat Yao",
     PROVINCE_ID: 60,
     GEO_ID: 1,
-    ZIPCODE: 60150
+    ZIPCODE: "60150"
   },
   {
     DISTRICT_ID: 6012,
@@ -5141,7 +5141,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tak Fa",
     PROVINCE_ID: 60,
     GEO_ID: 1,
-    ZIPCODE: 60190
+    ZIPCODE: "60190"
   },
   {
     DISTRICT_ID: 6013,
@@ -5149,7 +5149,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mae Wong",
     PROVINCE_ID: 60,
     GEO_ID: 1,
-    ZIPCODE: 60150
+    ZIPCODE: "60150"
   },
   {
     DISTRICT_ID: 6014,
@@ -5157,7 +5157,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mae Poen",
     PROVINCE_ID: 60,
     GEO_ID: 1,
-    ZIPCODE: 60150
+    ZIPCODE: "60150"
   },
   {
     DISTRICT_ID: 6015,
@@ -5165,7 +5165,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chum Ta Bong",
     PROVINCE_ID: 60,
     GEO_ID: 1,
-    ZIPCODE: 60150
+    ZIPCODE: "60150"
   },
   {
     DISTRICT_ID: 6101,
@@ -5173,7 +5173,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Uthai Thani",
     PROVINCE_ID: 61,
     GEO_ID: 1,
-    ZIPCODE: 61000
+    ZIPCODE: "61000"
   },
   {
     DISTRICT_ID: 6102,
@@ -5181,7 +5181,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Thap Than",
     PROVINCE_ID: 61,
     GEO_ID: 1,
-    ZIPCODE: 61120
+    ZIPCODE: "61120"
   },
   {
     DISTRICT_ID: 6103,
@@ -5189,7 +5189,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sawang Arom",
     PROVINCE_ID: 61,
     GEO_ID: 1,
-    ZIPCODE: 61150
+    ZIPCODE: "61150"
   },
   {
     DISTRICT_ID: 6104,
@@ -5197,7 +5197,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Chang",
     PROVINCE_ID: 61,
     GEO_ID: 1,
-    ZIPCODE: 61170
+    ZIPCODE: "61110"
   },
   {
     DISTRICT_ID: 6105,
@@ -5205,7 +5205,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Khayang",
     PROVINCE_ID: 61,
     GEO_ID: 1,
-    ZIPCODE: 61130
+    ZIPCODE: "61130"
   },
   {
     DISTRICT_ID: 6106,
@@ -5213,7 +5213,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Rai",
     PROVINCE_ID: 61,
     GEO_ID: 1,
-    ZIPCODE: 61180
+    ZIPCODE: "61140"
   },
   {
     DISTRICT_ID: 6107,
@@ -5221,7 +5221,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Lan Sak",
     PROVINCE_ID: 61,
     GEO_ID: 1,
-    ZIPCODE: 61160
+    ZIPCODE: "61160"
   },
   {
     DISTRICT_ID: 6108,
@@ -5229,7 +5229,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Huai Khot",
     PROVINCE_ID: 61,
     GEO_ID: 1,
-    ZIPCODE: 61170
+    ZIPCODE: "61170"
   },
   {
     DISTRICT_ID: 6201,
@@ -5237,7 +5237,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Kamphaeng Phet",
     PROVINCE_ID: 62,
     GEO_ID: 1,
-    ZIPCODE: 62160
+    ZIPCODE: "62000"
   },
   {
     DISTRICT_ID: 6202,
@@ -5245,7 +5245,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sai Ngam",
     PROVINCE_ID: 62,
     GEO_ID: 1,
-    ZIPCODE: 62150
+    ZIPCODE: "62150"
   },
   {
     DISTRICT_ID: 6203,
@@ -5253,7 +5253,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khlong Lan",
     PROVINCE_ID: 62,
     GEO_ID: 1,
-    ZIPCODE: 62180
+    ZIPCODE: "62180"
   },
   {
     DISTRICT_ID: 6204,
@@ -5261,7 +5261,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khanu Woralaksaburi",
     PROVINCE_ID: 62,
     GEO_ID: 1,
-    ZIPCODE: 62140
+    ZIPCODE: "62140"
   },
   {
     DISTRICT_ID: 6205,
@@ -5269,7 +5269,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khlong Khlung",
     PROVINCE_ID: 62,
     GEO_ID: 1,
-    ZIPCODE: 62120
+    ZIPCODE: "62120"
   },
   {
     DISTRICT_ID: 6206,
@@ -5277,7 +5277,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phran Kratai",
     PROVINCE_ID: 62,
     GEO_ID: 1,
-    ZIPCODE: 62110
+    ZIPCODE: "62110"
   },
   {
     DISTRICT_ID: 6207,
@@ -5285,7 +5285,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Lan Krabue",
     PROVINCE_ID: 62,
     GEO_ID: 1,
-    ZIPCODE: 62170
+    ZIPCODE: "62170"
   },
   {
     DISTRICT_ID: 6208,
@@ -5293,7 +5293,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sai Thong Watthana",
     PROVINCE_ID: 62,
     GEO_ID: 1,
-    ZIPCODE: 62190
+    ZIPCODE: "62190"
   },
   {
     DISTRICT_ID: 6209,
@@ -5301,7 +5301,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pang Sila Thong",
     PROVINCE_ID: 62,
     GEO_ID: 1,
-    ZIPCODE: 62120
+    ZIPCODE: "62120"
   },
   {
     DISTRICT_ID: 6210,
@@ -5309,7 +5309,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bueng Samakkhi",
     PROVINCE_ID: 62,
     GEO_ID: 1,
-    ZIPCODE: 62210
+    ZIPCODE: "62210"
   },
   {
     DISTRICT_ID: 6211,
@@ -5317,7 +5317,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kosamphi Nakhon",
     PROVINCE_ID: 62,
     GEO_ID: 1,
-    ZIPCODE: 62000
+    ZIPCODE: "62000"
   },
   {
     DISTRICT_ID: 6301,
@@ -5325,7 +5325,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Tak",
     PROVINCE_ID: 63,
     GEO_ID: 5,
-    ZIPCODE: 63000
+    ZIPCODE: "63000"
   },
   {
     DISTRICT_ID: 6302,
@@ -5333,7 +5333,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Tak",
     PROVINCE_ID: 63,
     GEO_ID: 5,
-    ZIPCODE: 63120
+    ZIPCODE: "63120"
   },
   {
     DISTRICT_ID: 6303,
@@ -5341,7 +5341,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sam Ngao",
     PROVINCE_ID: 63,
     GEO_ID: 5,
-    ZIPCODE: 63130
+    ZIPCODE: "63130"
   },
   {
     DISTRICT_ID: 6304,
@@ -5349,7 +5349,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mae Ramat",
     PROVINCE_ID: 63,
     GEO_ID: 5,
-    ZIPCODE: 63140
+    ZIPCODE: "63140"
   },
   {
     DISTRICT_ID: 6305,
@@ -5357,7 +5357,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tha Song Yang",
     PROVINCE_ID: 63,
     GEO_ID: 5,
-    ZIPCODE: 63150
+    ZIPCODE: "63150"
   },
   {
     DISTRICT_ID: 6306,
@@ -5365,7 +5365,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mae Sot",
     PROVINCE_ID: 63,
     GEO_ID: 5,
-    ZIPCODE: 63110
+    ZIPCODE: "63110"
   },
   {
     DISTRICT_ID: 6307,
@@ -5373,7 +5373,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phop Phra",
     PROVINCE_ID: 63,
     GEO_ID: 5,
-    ZIPCODE: 63160
+    ZIPCODE: "63160"
   },
   {
     DISTRICT_ID: 6308,
@@ -5381,7 +5381,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Umphang",
     PROVINCE_ID: 63,
     GEO_ID: 5,
-    ZIPCODE: 63170
+    ZIPCODE: "63170"
   },
   {
     DISTRICT_ID: 6309,
@@ -5389,7 +5389,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wang Chao",
     PROVINCE_ID: 63,
     GEO_ID: 5,
-    ZIPCODE: 63180
+    ZIPCODE: "63180"
   },
   {
     DISTRICT_ID: 6401,
@@ -5397,7 +5397,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Sukhothai",
     PROVINCE_ID: 64,
     GEO_ID: 1,
-    ZIPCODE: 64220
+    ZIPCODE: "64000"
   },
   {
     DISTRICT_ID: 6402,
@@ -5405,7 +5405,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Dan Lan Hoi",
     PROVINCE_ID: 64,
     GEO_ID: 1,
-    ZIPCODE: 64140
+    ZIPCODE: "64140"
   },
   {
     DISTRICT_ID: 6403,
@@ -5413,7 +5413,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khiri Mat",
     PROVINCE_ID: 64,
     GEO_ID: 1,
-    ZIPCODE: 64160
+    ZIPCODE: "64160"
   },
   {
     DISTRICT_ID: 6404,
@@ -5421,7 +5421,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kong Krailat",
     PROVINCE_ID: 64,
     GEO_ID: 1,
-    ZIPCODE: 64170
+    ZIPCODE: "64170"
   },
   {
     DISTRICT_ID: 6405,
@@ -5429,7 +5429,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Si Satchanalai",
     PROVINCE_ID: 64,
     GEO_ID: 1,
-    ZIPCODE: 64190
+    ZIPCODE: "64130"
   },
   {
     DISTRICT_ID: 6406,
@@ -5437,7 +5437,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Si Samrong",
     PROVINCE_ID: 64,
     GEO_ID: 1,
-    ZIPCODE: 64120
+    ZIPCODE: "64120"
   },
   {
     DISTRICT_ID: 6407,
@@ -5445,7 +5445,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sawankhalok",
     PROVINCE_ID: 64,
     GEO_ID: 1,
-    ZIPCODE: 64110
+    ZIPCODE: "64110"
   },
   {
     DISTRICT_ID: 6408,
@@ -5453,7 +5453,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Si Nakhon",
     PROVINCE_ID: 64,
     GEO_ID: 1,
-    ZIPCODE: 64180
+    ZIPCODE: "64180"
   },
   {
     DISTRICT_ID: 6409,
@@ -5461,7 +5461,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Thung Saliam",
     PROVINCE_ID: 64,
     GEO_ID: 1,
-    ZIPCODE: 64230
+    ZIPCODE: "64150"
   },
   {
     DISTRICT_ID: 6501,
@@ -5469,7 +5469,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Phitsanulok",
     PROVINCE_ID: 65,
     GEO_ID: 1,
-    ZIPCODE: 65230
+    ZIPCODE: "65000"
   },
   {
     DISTRICT_ID: 6502,
@@ -5477,7 +5477,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nakhon Thai",
     PROVINCE_ID: 65,
     GEO_ID: 1,
-    ZIPCODE: 65120
+    ZIPCODE: "65120"
   },
   {
     DISTRICT_ID: 6503,
@@ -5485,7 +5485,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chat Trakan",
     PROVINCE_ID: 65,
     GEO_ID: 1,
-    ZIPCODE: 65170
+    ZIPCODE: "65170"
   },
   {
     DISTRICT_ID: 6504,
@@ -5493,7 +5493,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bang Rakam",
     PROVINCE_ID: 65,
     GEO_ID: 1,
-    ZIPCODE: 65240
+    ZIPCODE: "65140"
   },
   {
     DISTRICT_ID: 6505,
@@ -5501,7 +5501,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bang Krathum",
     PROVINCE_ID: 65,
     GEO_ID: 1,
-    ZIPCODE: 65210
+    ZIPCODE: "65110"
   },
   {
     DISTRICT_ID: 6506,
@@ -5509,7 +5509,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phrom Phiram",
     PROVINCE_ID: 65,
     GEO_ID: 1,
-    ZIPCODE: 65180
+    ZIPCODE: "65150"
   },
   {
     DISTRICT_ID: 6507,
@@ -5517,7 +5517,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wat Bot",
     PROVINCE_ID: 65,
     GEO_ID: 1,
-    ZIPCODE: 65160
+    ZIPCODE: "65160"
   },
   {
     DISTRICT_ID: 6508,
@@ -5525,7 +5525,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wang Thong",
     PROVINCE_ID: 65,
     GEO_ID: 1,
-    ZIPCODE: 65220
+    ZIPCODE: "65130"
   },
   {
     DISTRICT_ID: 6509,
@@ -5533,7 +5533,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Noen Maprang",
     PROVINCE_ID: 65,
     GEO_ID: 1,
-    ZIPCODE: 65190
+    ZIPCODE: "65190"
   },
   {
     DISTRICT_ID: 6601,
@@ -5541,7 +5541,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Phichit",
     PROVINCE_ID: 66,
     GEO_ID: 1,
-    ZIPCODE: 66170
+    ZIPCODE: "66000"
   },
   {
     DISTRICT_ID: 6602,
@@ -5549,7 +5549,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wang Sai Phun",
     PROVINCE_ID: 66,
     GEO_ID: 1,
-    ZIPCODE: 66180
+    ZIPCODE: "66180"
   },
   {
     DISTRICT_ID: 6603,
@@ -5557,7 +5557,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pho Prathap Chang",
     PROVINCE_ID: 66,
     GEO_ID: 1,
-    ZIPCODE: 66190
+    ZIPCODE: "66190"
   },
   {
     DISTRICT_ID: 6604,
@@ -5565,7 +5565,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Taphan Hin",
     PROVINCE_ID: 66,
     GEO_ID: 1,
-    ZIPCODE: 66150
+    ZIPCODE: "66110"
   },
   {
     DISTRICT_ID: 6605,
@@ -5573,7 +5573,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bang Mun Nak",
     PROVINCE_ID: 66,
     GEO_ID: 1,
-    ZIPCODE: 66210
+    ZIPCODE: "66120"
   },
   {
     DISTRICT_ID: 6606,
@@ -5581,7 +5581,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pho Thale",
     PROVINCE_ID: 66,
     GEO_ID: 1,
-    ZIPCODE: 66130
+    ZIPCODE: "66130"
   },
   {
     DISTRICT_ID: 6607,
@@ -5589,7 +5589,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sam Ngam",
     PROVINCE_ID: 66,
     GEO_ID: 1,
-    ZIPCODE: 66220
+    ZIPCODE: "66140"
   },
   {
     DISTRICT_ID: 6608,
@@ -5597,7 +5597,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Thap Khlo",
     PROVINCE_ID: 66,
     GEO_ID: 1,
-    ZIPCODE: 66230
+    ZIPCODE: "66150"
   },
   {
     DISTRICT_ID: 6609,
@@ -5605,7 +5605,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sak Lek",
     PROVINCE_ID: 66,
     GEO_ID: 1,
-    ZIPCODE: 66160
+    ZIPCODE: "66160"
   },
   {
     DISTRICT_ID: 6610,
@@ -5613,7 +5613,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bueng Na Rang",
     PROVINCE_ID: 66,
     GEO_ID: 1,
-    ZIPCODE: 66130
+    ZIPCODE: "66130"
   },
   {
     DISTRICT_ID: 6611,
@@ -5621,7 +5621,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Dong Charoen",
     PROVINCE_ID: 66,
     GEO_ID: 1,
-    ZIPCODE: 66210
+    ZIPCODE: "66210"
   },
   {
     DISTRICT_ID: 6612,
@@ -5629,7 +5629,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wachirabarami",
     PROVINCE_ID: 66,
     GEO_ID: 1,
-    ZIPCODE: 66220
+    ZIPCODE: "66140"
   },
   {
     DISTRICT_ID: 6701,
@@ -5637,7 +5637,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Phetchabun",
     PROVINCE_ID: 67,
     GEO_ID: 1,
-    ZIPCODE: 67250
+    ZIPCODE: "67000"
   },
   {
     DISTRICT_ID: 6702,
@@ -5645,7 +5645,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chon Daen",
     PROVINCE_ID: 67,
     GEO_ID: 1,
-    ZIPCODE: 67190
+    ZIPCODE: "67150"
   },
   {
     DISTRICT_ID: 6703,
@@ -5653,7 +5653,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Lom Sak",
     PROVINCE_ID: 67,
     GEO_ID: 1,
-    ZIPCODE: 67110
+    ZIPCODE: "67110"
   },
   {
     DISTRICT_ID: 6704,
@@ -5661,7 +5661,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Lom Kao",
     PROVINCE_ID: 67,
     GEO_ID: 1,
-    ZIPCODE: 67120
+    ZIPCODE: "67120"
   },
   {
     DISTRICT_ID: 6705,
@@ -5669,7 +5669,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wichian Buri",
     PROVINCE_ID: 67,
     GEO_ID: 1,
-    ZIPCODE: 67180
+    ZIPCODE: "67130"
   },
   {
     DISTRICT_ID: 6706,
@@ -5677,7 +5677,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Si Thep",
     PROVINCE_ID: 67,
     GEO_ID: 1,
-    ZIPCODE: 67170
+    ZIPCODE: "67170"
   },
   {
     DISTRICT_ID: 6707,
@@ -5685,7 +5685,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Phai",
     PROVINCE_ID: 67,
     GEO_ID: 1,
-    ZIPCODE: 67220
+    ZIPCODE: "67140"
   },
   {
     DISTRICT_ID: 6708,
@@ -5693,7 +5693,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bueng Sam Phan",
     PROVINCE_ID: 67,
     GEO_ID: 1,
-    ZIPCODE: 67230
+    ZIPCODE: "67160"
   },
   {
     DISTRICT_ID: 6709,
@@ -5701,7 +5701,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nam Nao",
     PROVINCE_ID: 67,
     GEO_ID: 1,
-    ZIPCODE: 67260
+    ZIPCODE: "67260"
   },
   {
     DISTRICT_ID: 6710,
@@ -5709,7 +5709,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wang Pong",
     PROVINCE_ID: 67,
     GEO_ID: 1,
-    ZIPCODE: 67240
+    ZIPCODE: "67240"
   },
   {
     DISTRICT_ID: 6711,
@@ -5717,7 +5717,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khao Kho",
     PROVINCE_ID: 67,
     GEO_ID: 1,
-    ZIPCODE: 67280
+    ZIPCODE: "67270"
   },
   {
     DISTRICT_ID: 7001,
@@ -5725,7 +5725,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Ratchaburi",
     PROVINCE_ID: 70,
     GEO_ID: 5,
-    ZIPCODE: 70000
+    ZIPCODE: "70000"
   },
   {
     DISTRICT_ID: 7002,
@@ -5733,7 +5733,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chom Bueng",
     PROVINCE_ID: 70,
     GEO_ID: 5,
-    ZIPCODE: 70150
+    ZIPCODE: "70150"
   },
   {
     DISTRICT_ID: 7003,
@@ -5741,7 +5741,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Suan Phueng",
     PROVINCE_ID: 70,
     GEO_ID: 5,
-    ZIPCODE: 70180
+    ZIPCODE: "70180"
   },
   {
     DISTRICT_ID: 7004,
@@ -5749,7 +5749,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Damnoen Saduak",
     PROVINCE_ID: 70,
     GEO_ID: 5,
-    ZIPCODE: 70210
+    ZIPCODE: "70130"
   },
   {
     DISTRICT_ID: 7005,
@@ -5757,7 +5757,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Pong",
     PROVINCE_ID: 70,
     GEO_ID: 5,
-    ZIPCODE: 70190
+    ZIPCODE: "70110"
   },
   {
     DISTRICT_ID: 7006,
@@ -5765,7 +5765,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bang Phae",
     PROVINCE_ID: 70,
     GEO_ID: 5,
-    ZIPCODE: 70160
+    ZIPCODE: "70160"
   },
   {
     DISTRICT_ID: 7007,
@@ -5773,7 +5773,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Photharam",
     PROVINCE_ID: 70,
     GEO_ID: 5,
-    ZIPCODE: 70120
+    ZIPCODE: "70120"
   },
   {
     DISTRICT_ID: 7008,
@@ -5781,7 +5781,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pak Tho",
     PROVINCE_ID: 70,
     GEO_ID: 5,
-    ZIPCODE: 70140
+    ZIPCODE: "70140"
   },
   {
     DISTRICT_ID: 7009,
@@ -5789,7 +5789,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wat Phleng",
     PROVINCE_ID: 70,
     GEO_ID: 5,
-    ZIPCODE: 70170
+    ZIPCODE: "70170"
   },
   {
     DISTRICT_ID: 7010,
@@ -5797,7 +5797,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Kha",
     PROVINCE_ID: 70,
     GEO_ID: 5,
-    ZIPCODE: 70180
+    ZIPCODE: "70180"
   },
   {
     DISTRICT_ID: 7101,
@@ -5805,7 +5805,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Kanchanaburi",
     PROVINCE_ID: 71,
     GEO_ID: 5,
-    ZIPCODE: 71190
+    ZIPCODE: "71000"
   },
   {
     DISTRICT_ID: 7102,
@@ -5813,7 +5813,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sai Yok",
     PROVINCE_ID: 71,
     GEO_ID: 5,
-    ZIPCODE: 71150
+    ZIPCODE: "71150"
   },
   {
     DISTRICT_ID: 7103,
@@ -5821,7 +5821,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bo Phloi",
     PROVINCE_ID: 71,
     GEO_ID: 5,
-    ZIPCODE: 71220
+    ZIPCODE: "71160"
   },
   {
     DISTRICT_ID: 7104,
@@ -5829,7 +5829,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Si Sawat",
     PROVINCE_ID: 71,
     GEO_ID: 5,
-    ZIPCODE: 71250
+    ZIPCODE: "71250"
   },
   {
     DISTRICT_ID: 7105,
@@ -5837,7 +5837,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tha Maka",
     PROVINCE_ID: 71,
     GEO_ID: 5,
-    ZIPCODE: 71130
+    ZIPCODE: "71120"
   },
   {
     DISTRICT_ID: 7106,
@@ -5845,7 +5845,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tha Muang",
     PROVINCE_ID: 71,
     GEO_ID: 5,
-    ZIPCODE: 71130
+    ZIPCODE: "71110"
   },
   {
     DISTRICT_ID: 7107,
@@ -5853,7 +5853,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Thong Pha Phum",
     PROVINCE_ID: 71,
     GEO_ID: 5,
-    ZIPCODE: 71180
+    ZIPCODE: "71180"
   },
   {
     DISTRICT_ID: 7108,
@@ -5861,7 +5861,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sangkhla Buri",
     PROVINCE_ID: 71,
     GEO_ID: 5,
-    ZIPCODE: 71240
+    ZIPCODE: "71240"
   },
   {
     DISTRICT_ID: 7109,
@@ -5869,7 +5869,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phanom Thuan",
     PROVINCE_ID: 71,
     GEO_ID: 5,
-    ZIPCODE: 71170
+    ZIPCODE: "71140"
   },
   {
     DISTRICT_ID: 7110,
@@ -5877,7 +5877,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Lao Khwan",
     PROVINCE_ID: 71,
     GEO_ID: 5,
-    ZIPCODE: 71210
+    ZIPCODE: "71210"
   },
   {
     DISTRICT_ID: 7111,
@@ -5885,7 +5885,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Dan Makham Tia",
     PROVINCE_ID: 71,
     GEO_ID: 5,
-    ZIPCODE: 71260
+    ZIPCODE: "71260"
   },
   {
     DISTRICT_ID: 7112,
@@ -5893,7 +5893,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Prue",
     PROVINCE_ID: 71,
     GEO_ID: 5,
-    ZIPCODE: 71220
+    ZIPCODE: "71220"
   },
   {
     DISTRICT_ID: 7113,
@@ -5901,7 +5901,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Huai Krachao",
     PROVINCE_ID: 71,
     GEO_ID: 5,
-    ZIPCODE: 71170
+    ZIPCODE: "71170"
   },
   {
     DISTRICT_ID: 7201,
@@ -5909,7 +5909,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Suphan Buri",
     PROVINCE_ID: 72,
     GEO_ID: 1,
-    ZIPCODE: 72230
+    ZIPCODE: "72000"
   },
   {
     DISTRICT_ID: 7202,
@@ -5917,7 +5917,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Doem Bang Nang Buat",
     PROVINCE_ID: 72,
     GEO_ID: 1,
-    ZIPCODE: 72120
+    ZIPCODE: "72120"
   },
   {
     DISTRICT_ID: 7203,
@@ -5925,7 +5925,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Dan Chang",
     PROVINCE_ID: 72,
     GEO_ID: 1,
-    ZIPCODE: 72180
+    ZIPCODE: "72180"
   },
   {
     DISTRICT_ID: 7204,
@@ -5933,7 +5933,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bang Pla Ma",
     PROVINCE_ID: 72,
     GEO_ID: 1,
-    ZIPCODE: 72150
+    ZIPCODE: "72150"
   },
   {
     DISTRICT_ID: 7205,
@@ -5941,7 +5941,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Si Prachan",
     PROVINCE_ID: 72,
     GEO_ID: 1,
-    ZIPCODE: 72140
+    ZIPCODE: "72140"
   },
   {
     DISTRICT_ID: 7206,
@@ -5949,7 +5949,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Don Chedi",
     PROVINCE_ID: 72,
     GEO_ID: 1,
-    ZIPCODE: 72250
+    ZIPCODE: "72170"
   },
   {
     DISTRICT_ID: 7207,
@@ -5957,7 +5957,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Song Phi Nong",
     PROVINCE_ID: 72,
     GEO_ID: 1,
-    ZIPCODE: 72190
+    ZIPCODE: "72110"
   },
   {
     DISTRICT_ID: 7208,
@@ -5965,7 +5965,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sam Chuk",
     PROVINCE_ID: 72,
     GEO_ID: 1,
-    ZIPCODE: 72130
+    ZIPCODE: "72130"
   },
   {
     DISTRICT_ID: 7209,
@@ -5973,7 +5973,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe U Thong",
     PROVINCE_ID: 72,
     GEO_ID: 1,
-    ZIPCODE: 72220
+    ZIPCODE: "72160"
   },
   {
     DISTRICT_ID: 7210,
@@ -5981,7 +5981,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Ya Sai",
     PROVINCE_ID: 72,
     GEO_ID: 1,
-    ZIPCODE: 72240
+    ZIPCODE: "72240"
   },
   {
     DISTRICT_ID: 7301,
@@ -5989,7 +5989,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Nakhon Pathom",
     PROVINCE_ID: 73,
     GEO_ID: 1,
-    ZIPCODE: 73000
+    ZIPCODE: "73000"
   },
   {
     DISTRICT_ID: 7302,
@@ -5997,7 +5997,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kamphaeng Saen",
     PROVINCE_ID: 73,
     GEO_ID: 1,
-    ZIPCODE: 73180
+    ZIPCODE: "73140"
   },
   {
     DISTRICT_ID: 7303,
@@ -6005,7 +6005,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nakhon Chai Si",
     PROVINCE_ID: 73,
     GEO_ID: 1,
-    ZIPCODE: 73120
+    ZIPCODE: "73120"
   },
   {
     DISTRICT_ID: 7304,
@@ -6013,7 +6013,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Don Tum",
     PROVINCE_ID: 73,
     GEO_ID: 1,
-    ZIPCODE: 73150
+    ZIPCODE: "73150"
   },
   {
     DISTRICT_ID: 7305,
@@ -6021,7 +6021,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bang Len",
     PROVINCE_ID: 73,
     GEO_ID: 1,
-    ZIPCODE: 73190
+    ZIPCODE: "73130"
   },
   {
     DISTRICT_ID: 7306,
@@ -6029,7 +6029,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sam Phran",
     PROVINCE_ID: 73,
     GEO_ID: 1,
-    ZIPCODE: 73220
+    ZIPCODE: "73110"
   },
   {
     DISTRICT_ID: 7307,
@@ -6037,7 +6037,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phutthamonthon",
     PROVINCE_ID: 73,
     GEO_ID: 1,
-    ZIPCODE: 73170
+    ZIPCODE: "73170"
   },
   {
     DISTRICT_ID: 7401,
@@ -6045,7 +6045,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Samut Sakhon",
     PROVINCE_ID: 74,
     GEO_ID: 1,
-    ZIPCODE: 74000
+    ZIPCODE: "74000"
   },
   {
     DISTRICT_ID: 7402,
@@ -6053,7 +6053,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Krathum Baen",
     PROVINCE_ID: 74,
     GEO_ID: 1,
-    ZIPCODE: 74130
+    ZIPCODE: "74110"
   },
   {
     DISTRICT_ID: 7403,
@@ -6061,7 +6061,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Phaeo",
     PROVINCE_ID: 74,
     GEO_ID: 1,
-    ZIPCODE: 74120
+    ZIPCODE: "74120"
   },
   {
     DISTRICT_ID: 7501,
@@ -6069,7 +6069,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Samut Songkhram",
     PROVINCE_ID: 75,
     GEO_ID: 1,
-    ZIPCODE: 75000
+    ZIPCODE: "75000"
   },
   {
     DISTRICT_ID: 7502,
@@ -6077,7 +6077,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bang Khonthi",
     PROVINCE_ID: 75,
     GEO_ID: 1,
-    ZIPCODE: 75120
+    ZIPCODE: "75120"
   },
   {
     DISTRICT_ID: 7503,
@@ -6085,7 +6085,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Amphawa",
     PROVINCE_ID: 75,
     GEO_ID: 1,
-    ZIPCODE: 75110
+    ZIPCODE: "75110"
   },
   {
     DISTRICT_ID: 7601,
@@ -6093,7 +6093,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Phetchaburi",
     PROVINCE_ID: 76,
     GEO_ID: 5,
-    ZIPCODE: 76100
+    ZIPCODE: "76000"
   },
   {
     DISTRICT_ID: 7602,
@@ -6101,7 +6101,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khao Yoi",
     PROVINCE_ID: 76,
     GEO_ID: 5,
-    ZIPCODE: 76140
+    ZIPCODE: "76140"
   },
   {
     DISTRICT_ID: 7603,
@@ -6109,7 +6109,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Ya Plong",
     PROVINCE_ID: 76,
     GEO_ID: 5,
-    ZIPCODE: 76160
+    ZIPCODE: "76160"
   },
   {
     DISTRICT_ID: 7604,
@@ -6117,7 +6117,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Cha-am",
     PROVINCE_ID: 76,
     GEO_ID: 5,
-    ZIPCODE: 76120
+    ZIPCODE: "76120"
   },
   {
     DISTRICT_ID: 7605,
@@ -6125,7 +6125,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tha Yang",
     PROVINCE_ID: 76,
     GEO_ID: 5,
-    ZIPCODE: 76130
+    ZIPCODE: "76130"
   },
   {
     DISTRICT_ID: 7606,
@@ -6133,7 +6133,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Lat",
     PROVINCE_ID: 76,
     GEO_ID: 5,
-    ZIPCODE: 76150
+    ZIPCODE: "76150"
   },
   {
     DISTRICT_ID: 7607,
@@ -6141,7 +6141,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Laem",
     PROVINCE_ID: 76,
     GEO_ID: 5,
-    ZIPCODE: 76110
+    ZIPCODE: "76110"
   },
   {
     DISTRICT_ID: 7608,
@@ -6149,7 +6149,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kaeng Krachan",
     PROVINCE_ID: 76,
     GEO_ID: 5,
-    ZIPCODE: 76170
+    ZIPCODE: "76170"
   },
   {
     DISTRICT_ID: 7701,
@@ -6157,7 +6157,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Prachuap Khiri Khan",
     PROVINCE_ID: 77,
     GEO_ID: 5,
-    ZIPCODE: 77210
+    ZIPCODE: "77000"
   },
   {
     DISTRICT_ID: 7702,
@@ -6165,7 +6165,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kui Buri",
     PROVINCE_ID: 77,
     GEO_ID: 5,
-    ZIPCODE: 77150
+    ZIPCODE: "77150"
   },
   {
     DISTRICT_ID: 7703,
@@ -6173,7 +6173,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Thap Sakae",
     PROVINCE_ID: 77,
     GEO_ID: 5,
-    ZIPCODE: 77130
+    ZIPCODE: "77130"
   },
   {
     DISTRICT_ID: 7704,
@@ -6181,7 +6181,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bang Saphan",
     PROVINCE_ID: 77,
     GEO_ID: 5,
-    ZIPCODE: 77230
+    ZIPCODE: "77140"
   },
   {
     DISTRICT_ID: 7705,
@@ -6189,7 +6189,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bang Saphan Noi",
     PROVINCE_ID: 77,
     GEO_ID: 5,
-    ZIPCODE: 77170
+    ZIPCODE: "77170"
   },
   {
     DISTRICT_ID: 7706,
@@ -6197,7 +6197,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pran Buri",
     PROVINCE_ID: 77,
     GEO_ID: 5,
-    ZIPCODE: 77220
+    ZIPCODE: "77120"
   },
   {
     DISTRICT_ID: 7707,
@@ -6205,7 +6205,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Hua Hin",
     PROVINCE_ID: 77,
     GEO_ID: 5,
-    ZIPCODE: 77110
+    ZIPCODE: "77110"
   },
   {
     DISTRICT_ID: 7708,
@@ -6213,7 +6213,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sam Roi Yot",
     PROVINCE_ID: 77,
     GEO_ID: 5,
-    ZIPCODE: 77180
+    ZIPCODE: "77180"
   },
   {
     DISTRICT_ID: 8001,
@@ -6221,7 +6221,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Nakhon Si Thammarat",
     PROVINCE_ID: 80,
     GEO_ID: 6,
-    ZIPCODE: 80330
+    ZIPCODE: "80000"
   },
   {
     DISTRICT_ID: 8002,
@@ -6229,7 +6229,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phrom Khiri",
     PROVINCE_ID: 80,
     GEO_ID: 6,
-    ZIPCODE: 80320
+    ZIPCODE: "80320"
   },
   {
     DISTRICT_ID: 8003,
@@ -6237,7 +6237,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Lan Saka",
     PROVINCE_ID: 80,
     GEO_ID: 6,
-    ZIPCODE: 80230
+    ZIPCODE: "80230"
   },
   {
     DISTRICT_ID: 8004,
@@ -6245,7 +6245,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chawang",
     PROVINCE_ID: 80,
     GEO_ID: 6,
-    ZIPCODE: 80260
+    ZIPCODE: "80260"
   },
   {
     DISTRICT_ID: 8005,
@@ -6253,7 +6253,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phipun",
     PROVINCE_ID: 80,
     GEO_ID: 6,
-    ZIPCODE: 80270
+    ZIPCODE: "80270"
   },
   {
     DISTRICT_ID: 8006,
@@ -6261,7 +6261,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chian Yai",
     PROVINCE_ID: 80,
     GEO_ID: 6,
-    ZIPCODE: 80190
+    ZIPCODE: "80190"
   },
   {
     DISTRICT_ID: 8007,
@@ -6269,7 +6269,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Cha-uat",
     PROVINCE_ID: 80,
     GEO_ID: 6,
-    ZIPCODE: 80180
+    ZIPCODE: "80180"
   },
   {
     DISTRICT_ID: 8008,
@@ -6277,7 +6277,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tha Sala",
     PROVINCE_ID: 80,
     GEO_ID: 6,
-    ZIPCODE: 80160
+    ZIPCODE: "80160"
   },
   {
     DISTRICT_ID: 8009,
@@ -6285,7 +6285,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Thung Song",
     PROVINCE_ID: 80,
     GEO_ID: 6,
-    ZIPCODE: 80310
+    ZIPCODE: "80110"
   },
   {
     DISTRICT_ID: 8010,
@@ -6293,7 +6293,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Na Bon",
     PROVINCE_ID: 80,
     GEO_ID: 6,
-    ZIPCODE: 80220
+    ZIPCODE: "80220"
   },
   {
     DISTRICT_ID: 8011,
@@ -6301,7 +6301,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Thung Yai",
     PROVINCE_ID: 80,
     GEO_ID: 6,
-    ZIPCODE: 80240
+    ZIPCODE: "80240"
   },
   {
     DISTRICT_ID: 8012,
@@ -6309,7 +6309,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pak Phanang",
     PROVINCE_ID: 80,
     GEO_ID: 6,
-    ZIPCODE: 80330
+    ZIPCODE: "80140"
   },
   {
     DISTRICT_ID: 8013,
@@ -6317,7 +6317,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ron Phibun",
     PROVINCE_ID: 80,
     GEO_ID: 6,
-    ZIPCODE: 80350
+    ZIPCODE: "80130"
   },
   {
     DISTRICT_ID: 8014,
@@ -6325,7 +6325,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sichon",
     PROVINCE_ID: 80,
     GEO_ID: 6,
-    ZIPCODE: 80340
+    ZIPCODE: "80120"
   },
   {
     DISTRICT_ID: 8015,
@@ -6333,7 +6333,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khanom",
     PROVINCE_ID: 80,
     GEO_ID: 6,
-    ZIPCODE: 80210
+    ZIPCODE: "80210"
   },
   {
     DISTRICT_ID: 8016,
@@ -6341,7 +6341,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Hua Sai",
     PROVINCE_ID: 80,
     GEO_ID: 6,
-    ZIPCODE: 80170
+    ZIPCODE: "80170"
   },
   {
     DISTRICT_ID: 8017,
@@ -6349,7 +6349,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bang Khan",
     PROVINCE_ID: 80,
     GEO_ID: 6,
-    ZIPCODE: 80360
+    ZIPCODE: "80360"
   },
   {
     DISTRICT_ID: 8018,
@@ -6357,7 +6357,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tham Phannara",
     PROVINCE_ID: 80,
     GEO_ID: 6,
-    ZIPCODE: 80260
+    ZIPCODE: "80260"
   },
   {
     DISTRICT_ID: 8019,
@@ -6365,7 +6365,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chulabhorn",
     PROVINCE_ID: 80,
     GEO_ID: 6,
-    ZIPCODE: 80180
+    ZIPCODE: "80130"
   },
   {
     DISTRICT_ID: 8020,
@@ -6373,7 +6373,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phra Phrom",
     PROVINCE_ID: 80,
     GEO_ID: 6,
-    ZIPCODE: 80000
+    ZIPCODE: "80000"
   },
   {
     DISTRICT_ID: 8021,
@@ -6381,7 +6381,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nopphitam",
     PROVINCE_ID: 80,
     GEO_ID: 6,
-    ZIPCODE: 80160
+    ZIPCODE: "80160"
   },
   {
     DISTRICT_ID: 8022,
@@ -6389,7 +6389,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chang Klang",
     PROVINCE_ID: 80,
     GEO_ID: 6,
-    ZIPCODE: 80250
+    ZIPCODE: "80250"
   },
   {
     DISTRICT_ID: 8023,
@@ -6397,7 +6397,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chaloem Phra Kiat",
     PROVINCE_ID: 80,
     GEO_ID: 6,
-    ZIPCODE: 80290
+    ZIPCODE: "80290"
   },
   {
     DISTRICT_ID: 8101,
@@ -6405,7 +6405,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Krabi",
     PROVINCE_ID: 81,
     GEO_ID: 6,
-    ZIPCODE: 81000
+    ZIPCODE: "81000"
   },
   {
     DISTRICT_ID: 8102,
@@ -6413,7 +6413,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khao Phanom",
     PROVINCE_ID: 81,
     GEO_ID: 6,
-    ZIPCODE: 81140
+    ZIPCODE: "81140"
   },
   {
     DISTRICT_ID: 8103,
@@ -6421,7 +6421,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ko Lanta",
     PROVINCE_ID: 81,
     GEO_ID: 6,
-    ZIPCODE: 81150
+    ZIPCODE: "81150"
   },
   {
     DISTRICT_ID: 8104,
@@ -6429,7 +6429,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khlong Thom",
     PROVINCE_ID: 81,
     GEO_ID: 6,
-    ZIPCODE: 81170
+    ZIPCODE: "81120"
   },
   {
     DISTRICT_ID: 8105,
@@ -6437,7 +6437,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ao Luek",
     PROVINCE_ID: 81,
     GEO_ID: 6,
-    ZIPCODE: 81110
+    ZIPCODE: "81110"
   },
   {
     DISTRICT_ID: 8106,
@@ -6445,7 +6445,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Plai Phraya",
     PROVINCE_ID: 81,
     GEO_ID: 6,
-    ZIPCODE: 81160
+    ZIPCODE: "81160"
   },
   {
     DISTRICT_ID: 8107,
@@ -6453,7 +6453,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Lam Thap",
     PROVINCE_ID: 81,
     GEO_ID: 6,
-    ZIPCODE: 81190
+    ZIPCODE: "81190"
   },
   {
     DISTRICT_ID: 8108,
@@ -6461,7 +6461,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nuea Khlong",
     PROVINCE_ID: 81,
     GEO_ID: 6,
-    ZIPCODE: 81130
+    ZIPCODE: "81130"
   },
   {
     DISTRICT_ID: 8201,
@@ -6469,7 +6469,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Phang-nga",
     PROVINCE_ID: 82,
     GEO_ID: 6,
-    ZIPCODE: 82000
+    ZIPCODE: "82000"
   },
   {
     DISTRICT_ID: 8202,
@@ -6477,7 +6477,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ko Yao",
     PROVINCE_ID: 82,
     GEO_ID: 6,
-    ZIPCODE: 83000
+    ZIPCODE: "82160"
   },
   {
     DISTRICT_ID: 8203,
@@ -6485,7 +6485,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kapong",
     PROVINCE_ID: 82,
     GEO_ID: 6,
-    ZIPCODE: 82170
+    ZIPCODE: "82170"
   },
   {
     DISTRICT_ID: 8204,
@@ -6493,7 +6493,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Takua Thung",
     PROVINCE_ID: 82,
     GEO_ID: 6,
-    ZIPCODE: 82140
+    ZIPCODE: "82130"
   },
   {
     DISTRICT_ID: 8205,
@@ -6501,7 +6501,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Takua Pa",
     PROVINCE_ID: 82,
     GEO_ID: 6,
-    ZIPCODE: 82190
+    ZIPCODE: "82110"
   },
   {
     DISTRICT_ID: 8206,
@@ -6509,7 +6509,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khura Buri",
     PROVINCE_ID: 82,
     GEO_ID: 6,
-    ZIPCODE: 82150
+    ZIPCODE: "82150"
   },
   {
     DISTRICT_ID: 8207,
@@ -6517,7 +6517,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Thap Put",
     PROVINCE_ID: 82,
     GEO_ID: 6,
-    ZIPCODE: 82180
+    ZIPCODE: "82180"
   },
   {
     DISTRICT_ID: 8208,
@@ -6525,7 +6525,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Thai Mueang",
     PROVINCE_ID: 82,
     GEO_ID: 6,
-    ZIPCODE: 82210
+    ZIPCODE: "82120"
   },
   {
     DISTRICT_ID: 8301,
@@ -6533,7 +6533,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Phuket",
     PROVINCE_ID: 83,
     GEO_ID: 6,
-    ZIPCODE: 83130
+    ZIPCODE: "83000"
   },
   {
     DISTRICT_ID: 8302,
@@ -6541,7 +6541,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kathu",
     PROVINCE_ID: 83,
     GEO_ID: 6,
-    ZIPCODE: 83150
+    ZIPCODE: "83150"
   },
   {
     DISTRICT_ID: 8303,
@@ -6549,7 +6549,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Thalang",
     PROVINCE_ID: 83,
     GEO_ID: 6,
-    ZIPCODE: 83110
+    ZIPCODE: "83110"
   },
   {
     DISTRICT_ID: 8401,
@@ -6557,7 +6557,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Surat Thani",
     PROVINCE_ID: 84,
     GEO_ID: 6,
-    ZIPCODE: 84100
+    ZIPCODE: "84000"
   },
   {
     DISTRICT_ID: 8402,
@@ -6565,7 +6565,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kanchanadit",
     PROVINCE_ID: 84,
     GEO_ID: 6,
-    ZIPCODE: 84290
+    ZIPCODE: "84160"
   },
   {
     DISTRICT_ID: 8403,
@@ -6573,7 +6573,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Don Sak",
     PROVINCE_ID: 84,
     GEO_ID: 6,
-    ZIPCODE: 84340
+    ZIPCODE: "84220"
   },
   {
     DISTRICT_ID: 8404,
@@ -6581,7 +6581,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ko Samui",
     PROVINCE_ID: 84,
     GEO_ID: 6,
-    ZIPCODE: 84330
+    ZIPCODE: "84140"
   },
   {
     DISTRICT_ID: 8405,
@@ -6589,7 +6589,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ko Pha-ngan",
     PROVINCE_ID: 84,
     GEO_ID: 6,
-    ZIPCODE: 84360
+    ZIPCODE: "84280"
   },
   {
     DISTRICT_ID: 8406,
@@ -6597,7 +6597,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chaiya",
     PROVINCE_ID: 84,
     GEO_ID: 6,
-    ZIPCODE: 84110
+    ZIPCODE: "84110"
   },
   {
     DISTRICT_ID: 8407,
@@ -6605,7 +6605,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tha Chana",
     PROVINCE_ID: 84,
     GEO_ID: 6,
-    ZIPCODE: 84170
+    ZIPCODE: "84170"
   },
   {
     DISTRICT_ID: 8408,
@@ -6613,7 +6613,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khiri Rat Nikhom",
     PROVINCE_ID: 84,
     GEO_ID: 6,
-    ZIPCODE: 84180
+    ZIPCODE: "84180"
   },
   {
     DISTRICT_ID: 8409,
@@ -6621,7 +6621,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Ta Khun",
     PROVINCE_ID: 84,
     GEO_ID: 6,
-    ZIPCODE: 84230
+    ZIPCODE: "84230"
   },
   {
     DISTRICT_ID: 8410,
@@ -6629,7 +6629,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phanom",
     PROVINCE_ID: 84,
     GEO_ID: 6,
-    ZIPCODE: 84250
+    ZIPCODE: "84250"
   },
   {
     DISTRICT_ID: 8411,
@@ -6637,7 +6637,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tha Chang",
     PROVINCE_ID: 84,
     GEO_ID: 6,
-    ZIPCODE: 84150
+    ZIPCODE: "84150"
   },
   {
     DISTRICT_ID: 8412,
@@ -6645,7 +6645,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Na San",
     PROVINCE_ID: 84,
     GEO_ID: 6,
-    ZIPCODE: 84270
+    ZIPCODE: "84120"
   },
   {
     DISTRICT_ID: 8413,
@@ -6653,7 +6653,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ban Na Doem",
     PROVINCE_ID: 84,
     GEO_ID: 6,
-    ZIPCODE: 84240
+    ZIPCODE: "84240"
   },
   {
     DISTRICT_ID: 8414,
@@ -6661,7 +6661,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khian Sa",
     PROVINCE_ID: 84,
     GEO_ID: 6,
-    ZIPCODE: 84260
+    ZIPCODE: "84260"
   },
   {
     DISTRICT_ID: 8415,
@@ -6669,7 +6669,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wiang Sa",
     PROVINCE_ID: 84,
     GEO_ID: 6,
-    ZIPCODE: 84190
+    ZIPCODE: "84190"
   },
   {
     DISTRICT_ID: 8416,
@@ -6677,7 +6677,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phrasaeng",
     PROVINCE_ID: 84,
     GEO_ID: 6,
-    ZIPCODE: 84210
+    ZIPCODE: "84210"
   },
   {
     DISTRICT_ID: 8417,
@@ -6685,7 +6685,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phunphin",
     PROVINCE_ID: 84,
     GEO_ID: 6,
-    ZIPCODE: 84130
+    ZIPCODE: "84130"
   },
   {
     DISTRICT_ID: 8418,
@@ -6693,7 +6693,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chai Buri",
     PROVINCE_ID: 84,
     GEO_ID: 6,
-    ZIPCODE: 84350
+    ZIPCODE: "84350"
   },
   {
     DISTRICT_ID: 8419,
@@ -6701,7 +6701,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Vibhavadi",
     PROVINCE_ID: 84,
     GEO_ID: 6,
-    ZIPCODE: 84370
+    ZIPCODE: "84370"
   },
   {
     DISTRICT_ID: 8501,
@@ -6709,7 +6709,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Ranong",
     PROVINCE_ID: 85,
     GEO_ID: 6,
-    ZIPCODE: 85130
+    ZIPCODE: "85000"
   },
   {
     DISTRICT_ID: 8502,
@@ -6717,7 +6717,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe La-un",
     PROVINCE_ID: 85,
     GEO_ID: 6,
-    ZIPCODE: 85130
+    ZIPCODE: "85130"
   },
   {
     DISTRICT_ID: 8503,
@@ -6725,7 +6725,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kapoe",
     PROVINCE_ID: 85,
     GEO_ID: 6,
-    ZIPCODE: 85120
+    ZIPCODE: "85120"
   },
   {
     DISTRICT_ID: 8504,
@@ -6733,7 +6733,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kra Buri",
     PROVINCE_ID: 85,
     GEO_ID: 6,
-    ZIPCODE: 85110
+    ZIPCODE: "85110"
   },
   {
     DISTRICT_ID: 8505,
@@ -6741,7 +6741,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Suk Samran",
     PROVINCE_ID: 85,
     GEO_ID: 6,
-    ZIPCODE: 85120
+    ZIPCODE: "85120"
   },
   {
     DISTRICT_ID: 8601,
@@ -6749,7 +6749,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Chumphon",
     PROVINCE_ID: 86,
     GEO_ID: 6,
-    ZIPCODE: 86190
+    ZIPCODE: "86000"
   },
   {
     DISTRICT_ID: 8602,
@@ -6757,7 +6757,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tha Sae",
     PROVINCE_ID: 86,
     GEO_ID: 6,
-    ZIPCODE: 86190
+    ZIPCODE: "86140"
   },
   {
     DISTRICT_ID: 8603,
@@ -6765,7 +6765,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pathio",
     PROVINCE_ID: 86,
     GEO_ID: 6,
-    ZIPCODE: 86230
+    ZIPCODE: "86160"
   },
   {
     DISTRICT_ID: 8604,
@@ -6773,7 +6773,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Lang Suan",
     PROVINCE_ID: 86,
     GEO_ID: 6,
-    ZIPCODE: 86150
+    ZIPCODE: "86110"
   },
   {
     DISTRICT_ID: 8605,
@@ -6781,7 +6781,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Lamae",
     PROVINCE_ID: 86,
     GEO_ID: 6,
-    ZIPCODE: 86170
+    ZIPCODE: "86170"
   },
   {
     DISTRICT_ID: 8606,
@@ -6789,7 +6789,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Phato",
     PROVINCE_ID: 86,
     GEO_ID: 6,
-    ZIPCODE: 86180
+    ZIPCODE: "86180"
   },
   {
     DISTRICT_ID: 8607,
@@ -6797,7 +6797,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sawi",
     PROVINCE_ID: 86,
     GEO_ID: 6,
-    ZIPCODE: 86130
+    ZIPCODE: "86130"
   },
   {
     DISTRICT_ID: 8608,
@@ -6805,7 +6805,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Thung Tako",
     PROVINCE_ID: 86,
     GEO_ID: 6,
-    ZIPCODE: 86220
+    ZIPCODE: "86220"
   },
   {
     DISTRICT_ID: 9001,
@@ -6813,7 +6813,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Songkhla",
     PROVINCE_ID: 90,
     GEO_ID: 6,
-    ZIPCODE: 90100
+    ZIPCODE: "90000"
   },
   {
     DISTRICT_ID: 9002,
@@ -6821,7 +6821,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sathing Phra",
     PROVINCE_ID: 90,
     GEO_ID: 6,
-    ZIPCODE: 90190
+    ZIPCODE: "90190"
   },
   {
     DISTRICT_ID: 9003,
@@ -6829,7 +6829,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chana",
     PROVINCE_ID: 90,
     GEO_ID: 6,
-    ZIPCODE: 90130
+    ZIPCODE: "90130"
   },
   {
     DISTRICT_ID: 9004,
@@ -6837,7 +6837,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Na Thawi",
     PROVINCE_ID: 90,
     GEO_ID: 6,
-    ZIPCODE: 90160
+    ZIPCODE: "90160"
   },
   {
     DISTRICT_ID: 9005,
@@ -6845,7 +6845,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Thepha",
     PROVINCE_ID: 90,
     GEO_ID: 6,
-    ZIPCODE: 90260
+    ZIPCODE: "90150"
   },
   {
     DISTRICT_ID: 9006,
@@ -6853,7 +6853,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Saba Yoi",
     PROVINCE_ID: 90,
     GEO_ID: 6,
-    ZIPCODE: 90210
+    ZIPCODE: "90210"
   },
   {
     DISTRICT_ID: 9007,
@@ -6861,7 +6861,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ranot",
     PROVINCE_ID: 90,
     GEO_ID: 6,
-    ZIPCODE: 90140
+    ZIPCODE: "90140"
   },
   {
     DISTRICT_ID: 9008,
@@ -6869,7 +6869,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Krasae Sin",
     PROVINCE_ID: 90,
     GEO_ID: 6,
-    ZIPCODE: 90270
+    ZIPCODE: "90270"
   },
   {
     DISTRICT_ID: 9009,
@@ -6877,7 +6877,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Rattaphum",
     PROVINCE_ID: 90,
     GEO_ID: 6,
-    ZIPCODE: 90180
+    ZIPCODE: "90180"
   },
   {
     DISTRICT_ID: 9010,
@@ -6885,7 +6885,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sadao",
     PROVINCE_ID: 90,
     GEO_ID: 6,
-    ZIPCODE: 90320
+    ZIPCODE: "90170"
   },
   {
     DISTRICT_ID: 9011,
@@ -6893,7 +6893,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Hat Yai",
     PROVINCE_ID: 90,
     GEO_ID: 6,
-    ZIPCODE: 90250
+    ZIPCODE: "90110"
   },
   {
     DISTRICT_ID: 9012,
@@ -6901,7 +6901,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Na Mom",
     PROVINCE_ID: 90,
     GEO_ID: 6,
-    ZIPCODE: 90310
+    ZIPCODE: "90310"
   },
   {
     DISTRICT_ID: 9013,
@@ -6909,7 +6909,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khuan Niang",
     PROVINCE_ID: 90,
     GEO_ID: 6,
-    ZIPCODE: 90220
+    ZIPCODE: "90220"
   },
   {
     DISTRICT_ID: 9014,
@@ -6917,7 +6917,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bang Klam",
     PROVINCE_ID: 90,
     GEO_ID: 6,
-    ZIPCODE: 90110
+    ZIPCODE: "90110"
   },
   {
     DISTRICT_ID: 9015,
@@ -6925,7 +6925,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Singhanakhon",
     PROVINCE_ID: 90,
     GEO_ID: 6,
-    ZIPCODE: 90330
+    ZIPCODE: "90330"
   },
   {
     DISTRICT_ID: 9016,
@@ -6933,7 +6933,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khlong Hoi Khong",
     PROVINCE_ID: 90,
     GEO_ID: 6,
-    ZIPCODE: 90230
+    ZIPCODE: "90230"
   },
   {
     DISTRICT_ID: 9101,
@@ -6941,7 +6941,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Satun",
     PROVINCE_ID: 91,
     GEO_ID: 6,
-    ZIPCODE: 91140
+    ZIPCODE: "91000"
   },
   {
     DISTRICT_ID: 9102,
@@ -6949,7 +6949,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khuan Don",
     PROVINCE_ID: 91,
     GEO_ID: 6,
-    ZIPCODE: 91160
+    ZIPCODE: "91160"
   },
   {
     DISTRICT_ID: 9103,
@@ -6957,7 +6957,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khuan Kalong",
     PROVINCE_ID: 91,
     GEO_ID: 6,
-    ZIPCODE: 91130
+    ZIPCODE: "91130"
   },
   {
     DISTRICT_ID: 9104,
@@ -6965,7 +6965,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tha Phae",
     PROVINCE_ID: 91,
     GEO_ID: 6,
-    ZIPCODE: 91150
+    ZIPCODE: "91150"
   },
   {
     DISTRICT_ID: 9105,
@@ -6973,7 +6973,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe La-ngu",
     PROVINCE_ID: 91,
     GEO_ID: 6,
-    ZIPCODE: 91110
+    ZIPCODE: "91110"
   },
   {
     DISTRICT_ID: 9106,
@@ -6981,7 +6981,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Thung Wa",
     PROVINCE_ID: 91,
     GEO_ID: 6,
-    ZIPCODE: 91120
+    ZIPCODE: "91120"
   },
   {
     DISTRICT_ID: 9107,
@@ -6989,7 +6989,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Manang",
     PROVINCE_ID: 91,
     GEO_ID: 6,
-    ZIPCODE: 91130
+    ZIPCODE: "91130"
   },
   {
     DISTRICT_ID: 9201,
@@ -6997,7 +6997,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Trang",
     PROVINCE_ID: 92,
     GEO_ID: 6,
-    ZIPCODE: 92190
+    ZIPCODE: "92000"
   },
   {
     DISTRICT_ID: 9202,
@@ -7005,7 +7005,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kantang",
     PROVINCE_ID: 92,
     GEO_ID: 6,
-    ZIPCODE: 92110
+    ZIPCODE: "92110"
   },
   {
     DISTRICT_ID: 9203,
@@ -7013,7 +7013,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Yan Ta Khao",
     PROVINCE_ID: 92,
     GEO_ID: 6,
-    ZIPCODE: 92140
+    ZIPCODE: "92140"
   },
   {
     DISTRICT_ID: 9204,
@@ -7021,7 +7021,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Palian",
     PROVINCE_ID: 92,
     GEO_ID: 6,
-    ZIPCODE: 92180
+    ZIPCODE: "92180"
   },
   {
     DISTRICT_ID: 9205,
@@ -7029,7 +7029,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sikao",
     PROVINCE_ID: 92,
     GEO_ID: 6,
-    ZIPCODE: 92150
+    ZIPCODE: "92150"
   },
   {
     DISTRICT_ID: 9206,
@@ -7037,7 +7037,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Huai Yot",
     PROVINCE_ID: 92,
     GEO_ID: 6,
-    ZIPCODE: 92210
+    ZIPCODE: "92130"
   },
   {
     DISTRICT_ID: 9207,
@@ -7045,7 +7045,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Wang Wiset",
     PROVINCE_ID: 92,
     GEO_ID: 6,
-    ZIPCODE: 92220
+    ZIPCODE: "92220"
   },
   {
     DISTRICT_ID: 9208,
@@ -7053,7 +7053,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Na Yong",
     PROVINCE_ID: 92,
     GEO_ID: 6,
-    ZIPCODE: 92170
+    ZIPCODE: "92170"
   },
   {
     DISTRICT_ID: 9209,
@@ -7061,7 +7061,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ratsada",
     PROVINCE_ID: 92,
     GEO_ID: 6,
-    ZIPCODE: 92160
+    ZIPCODE: "92160"
   },
   {
     DISTRICT_ID: 9210,
@@ -7069,7 +7069,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Hat Samran",
     PROVINCE_ID: 92,
     GEO_ID: 6,
-    ZIPCODE: 92120
+    ZIPCODE: "92120"
   },
   {
     DISTRICT_ID: 9301,
@@ -7077,7 +7077,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Phatthalung",
     PROVINCE_ID: 93,
     GEO_ID: 6,
-    ZIPCODE: 93000
+    ZIPCODE: "93000"
   },
   {
     DISTRICT_ID: 9302,
@@ -7085,7 +7085,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kong Ra",
     PROVINCE_ID: 93,
     GEO_ID: 6,
-    ZIPCODE: 93180
+    ZIPCODE: "93180"
   },
   {
     DISTRICT_ID: 9303,
@@ -7093,7 +7093,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khao Chaison",
     PROVINCE_ID: 93,
     GEO_ID: 6,
-    ZIPCODE: 93130
+    ZIPCODE: "93130"
   },
   {
     DISTRICT_ID: 9304,
@@ -7101,7 +7101,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tamot",
     PROVINCE_ID: 93,
     GEO_ID: 6,
-    ZIPCODE: 93160
+    ZIPCODE: "93160"
   },
   {
     DISTRICT_ID: 9305,
@@ -7109,7 +7109,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khuan Khanun",
     PROVINCE_ID: 93,
     GEO_ID: 6,
-    ZIPCODE: 93150
+    ZIPCODE: "93110"
   },
   {
     DISTRICT_ID: 9306,
@@ -7117,7 +7117,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pak Phayun",
     PROVINCE_ID: 93,
     GEO_ID: 6,
-    ZIPCODE: 93120
+    ZIPCODE: "93120"
   },
   {
     DISTRICT_ID: 9307,
@@ -7125,7 +7125,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Si Banphot",
     PROVINCE_ID: 93,
     GEO_ID: 6,
-    ZIPCODE: 93190
+    ZIPCODE: "93190"
   },
   {
     DISTRICT_ID: 9308,
@@ -7133,7 +7133,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pa Bon",
     PROVINCE_ID: 93,
     GEO_ID: 6,
-    ZIPCODE: 93170
+    ZIPCODE: "93170"
   },
   {
     DISTRICT_ID: 9309,
@@ -7141,7 +7141,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bang Kaeo",
     PROVINCE_ID: 93,
     GEO_ID: 6,
-    ZIPCODE: 93140
+    ZIPCODE: "93140"
   },
   {
     DISTRICT_ID: 9310,
@@ -7149,7 +7149,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Pa Phayom",
     PROVINCE_ID: 93,
     GEO_ID: 6,
-    ZIPCODE: 93210
+    ZIPCODE: "93210"
   },
   {
     DISTRICT_ID: 9311,
@@ -7157,7 +7157,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Srinagarindra",
     PROVINCE_ID: 93,
     GEO_ID: 6,
-    ZIPCODE: 93000
+    ZIPCODE: "93000"
   },
   {
     DISTRICT_ID: 9401,
@@ -7165,7 +7165,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Pattani",
     PROVINCE_ID: 94,
     GEO_ID: 6,
-    ZIPCODE: 94000
+    ZIPCODE: "94000"
   },
   {
     DISTRICT_ID: 9402,
@@ -7173,7 +7173,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Khok Pho",
     PROVINCE_ID: 94,
     GEO_ID: 6,
-    ZIPCODE: 94180
+    ZIPCODE: "94120"
   },
   {
     DISTRICT_ID: 9403,
@@ -7181,7 +7181,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Nong Chik",
     PROVINCE_ID: 94,
     GEO_ID: 6,
-    ZIPCODE: 94170
+    ZIPCODE: "94170"
   },
   {
     DISTRICT_ID: 9404,
@@ -7189,7 +7189,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Panare",
     PROVINCE_ID: 94,
     GEO_ID: 6,
-    ZIPCODE: 94190
+    ZIPCODE: "94130"
   },
   {
     DISTRICT_ID: 9405,
@@ -7197,7 +7197,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mayo",
     PROVINCE_ID: 94,
     GEO_ID: 6,
-    ZIPCODE: 94190
+    ZIPCODE: "94140"
   },
   {
     DISTRICT_ID: 9406,
@@ -7205,7 +7205,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Thung Yang Daeng",
     PROVINCE_ID: 94,
     GEO_ID: 6,
-    ZIPCODE: 94140
+    ZIPCODE: "94140"
   },
   {
     DISTRICT_ID: 9407,
@@ -7213,7 +7213,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sai Buri",
     PROVINCE_ID: 94,
     GEO_ID: 6,
-    ZIPCODE: 94190
+    ZIPCODE: "94110"
   },
   {
     DISTRICT_ID: 9408,
@@ -7221,7 +7221,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mai Kaen",
     PROVINCE_ID: 94,
     GEO_ID: 6,
-    ZIPCODE: 94220
+    ZIPCODE: "94220"
   },
   {
     DISTRICT_ID: 9409,
@@ -7229,7 +7229,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Yaring",
     PROVINCE_ID: 94,
     GEO_ID: 6,
-    ZIPCODE: 94190
+    ZIPCODE: "94150"
   },
   {
     DISTRICT_ID: 9410,
@@ -7237,7 +7237,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Yarang",
     PROVINCE_ID: 94,
     GEO_ID: 6,
-    ZIPCODE: 94160
+    ZIPCODE: "94160"
   },
   {
     DISTRICT_ID: 9411,
@@ -7245,7 +7245,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kapho",
     PROVINCE_ID: 94,
     GEO_ID: 6,
-    ZIPCODE: 94230
+    ZIPCODE: "94230"
   },
   {
     DISTRICT_ID: 9412,
@@ -7253,7 +7253,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mae Lan",
     PROVINCE_ID: 94,
     GEO_ID: 6,
-    ZIPCODE: 94180
+    ZIPCODE: "94180"
   },
   {
     DISTRICT_ID: 9501,
@@ -7261,7 +7261,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Yala",
     PROVINCE_ID: 95,
     GEO_ID: 6,
-    ZIPCODE: 95160
+    ZIPCODE: "95000"
   },
   {
     DISTRICT_ID: 9502,
@@ -7269,7 +7269,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Betong",
     PROVINCE_ID: 95,
     GEO_ID: 6,
-    ZIPCODE: 95110
+    ZIPCODE: "95110"
   },
   {
     DISTRICT_ID: 9503,
@@ -7277,7 +7277,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bannang Sata",
     PROVINCE_ID: 95,
     GEO_ID: 6,
-    ZIPCODE: 95130
+    ZIPCODE: "95130"
   },
   {
     DISTRICT_ID: 9504,
@@ -7285,7 +7285,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Than To",
     PROVINCE_ID: 95,
     GEO_ID: 6,
-    ZIPCODE: 95170
+    ZIPCODE: "95150"
   },
   {
     DISTRICT_ID: 9505,
@@ -7293,7 +7293,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Yaha",
     PROVINCE_ID: 95,
     GEO_ID: 6,
-    ZIPCODE: 95120
+    ZIPCODE: "95120"
   },
   {
     DISTRICT_ID: 9506,
@@ -7301,7 +7301,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Raman",
     PROVINCE_ID: 95,
     GEO_ID: 6,
-    ZIPCODE: 95140
+    ZIPCODE: "95140"
   },
   {
     DISTRICT_ID: 9507,
@@ -7309,7 +7309,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Kabang",
     PROVINCE_ID: 95,
     GEO_ID: 6,
-    ZIPCODE: 95120
+    ZIPCODE: "95120"
   },
   {
     DISTRICT_ID: 9508,
@@ -7317,7 +7317,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Krong Pinang",
     PROVINCE_ID: 95,
     GEO_ID: 6,
-    ZIPCODE: 95000
+    ZIPCODE: "95000"
   },
   {
     DISTRICT_ID: 9601,
@@ -7325,7 +7325,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Mueang Narathiwat",
     PROVINCE_ID: 96,
     GEO_ID: 6,
-    ZIPCODE: 96000
+    ZIPCODE: "96000"
   },
   {
     DISTRICT_ID: 9602,
@@ -7333,7 +7333,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Tak Bai",
     PROVINCE_ID: 96,
     GEO_ID: 6,
-    ZIPCODE: 96110
+    ZIPCODE: "96110"
   },
   {
     DISTRICT_ID: 9603,
@@ -7341,7 +7341,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Bacho",
     PROVINCE_ID: 96,
     GEO_ID: 6,
-    ZIPCODE: 96170
+    ZIPCODE: "96170"
   },
   {
     DISTRICT_ID: 9604,
@@ -7349,7 +7349,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Yi-ngo",
     PROVINCE_ID: 96,
     GEO_ID: 6,
-    ZIPCODE: 96180
+    ZIPCODE: "96180"
   },
   {
     DISTRICT_ID: 9605,
@@ -7357,7 +7357,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Ra-ngae",
     PROVINCE_ID: 96,
     GEO_ID: 6,
-    ZIPCODE: 96220
+    ZIPCODE: "96130"
   },
   {
     DISTRICT_ID: 9606,
@@ -7365,7 +7365,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Rueso",
     PROVINCE_ID: 96,
     GEO_ID: 6,
-    ZIPCODE: 96150
+    ZIPCODE: "96150"
   },
   {
     DISTRICT_ID: 9607,
@@ -7373,7 +7373,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Si Sakhon",
     PROVINCE_ID: 96,
     GEO_ID: 6,
-    ZIPCODE: 96210
+    ZIPCODE: "96210"
   },
   {
     DISTRICT_ID: 9608,
@@ -7381,7 +7381,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Waeng",
     PROVINCE_ID: 96,
     GEO_ID: 6,
-    ZIPCODE: 96160
+    ZIPCODE: "96160"
   },
   {
     DISTRICT_ID: 9609,
@@ -7389,7 +7389,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Sukhirin",
     PROVINCE_ID: 96,
     GEO_ID: 6,
-    ZIPCODE: 96190
+    ZIPCODE: "96190"
   },
   {
     DISTRICT_ID: 9610,
@@ -7397,7 +7397,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Su-ngai Kolok",
     PROVINCE_ID: 96,
     GEO_ID: 6,
-    ZIPCODE: 96120
+    ZIPCODE: "96120"
   },
   {
     DISTRICT_ID: 9611,
@@ -7405,7 +7405,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Su-ngai Padi",
     PROVINCE_ID: 96,
     GEO_ID: 6,
-    ZIPCODE: 96140
+    ZIPCODE: "96140"
   },
   {
     DISTRICT_ID: 9612,
@@ -7413,7 +7413,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Chanae",
     PROVINCE_ID: 96,
     GEO_ID: 6,
-    ZIPCODE: 96220
+    ZIPCODE: "96220"
   },
   {
     DISTRICT_ID: 9613,
@@ -7421,7 +7421,7 @@ const districts = [
     DISTRICT_ENG_NAME: "Amphoe Cho-airong",
     PROVINCE_ID: 96,
     GEO_ID: 6,
-    ZIPCODE: 96130
+    ZIPCODE: "96130"
   }
 ];
 

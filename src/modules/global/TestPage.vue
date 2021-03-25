@@ -1,6 +1,11 @@
 <template>
   <div class="bg-gray-1 p-2">
-    <Wallet class="content-max-width" :profile="wallet.profile" />
+    <Wallet
+      class="content-max-width"
+      :profile="test.profile"
+      :ongoingTickets="wallet.ongoingTickets"
+      :historyTickets="wallet.historyTickets"
+    />
     <base-button @click="toggleModal('signup')">Show Sign Up Modal</base-button>
     <ModalSignUp v-if="showSignUpModal" @close-modal="toggleModal('signup')" />
     <base-button @click="toggleModal('login')">Show Log In Modal</base-button>

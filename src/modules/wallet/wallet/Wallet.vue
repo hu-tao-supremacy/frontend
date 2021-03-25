@@ -34,10 +34,10 @@
           <h3 class="mr-1">Like</h3>
           <div class="w-1 h-1 rounded-full bg-primary mr-1"></div>
           <p class="mr-1">{{ profile.ticket }}</p>
-          <h3 class="mr-1">Like</h3>
+          <h3 class="mr-1">Tickets</h3>
           <div class="w-1 h-1 rounded-full bg-primary mr-1"></div>
           <p class="mr-1">{{ profile.following }}</p>
-          <h3>Like</h3>
+          <h3>Following</h3>
         </div>
       </div>
     </section>
@@ -100,7 +100,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, PropType, ref } from "vue";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import EditIcon from "@/assets/Edit.vue";
 import TicketComponent from "@/modules/wallet/ticket/Ticket.vue";
@@ -117,34 +117,18 @@ export default defineComponent({
     profile: {
       type: Object as () => Profile,
       required: true
+    },
+    ongoingTickets: {
+      type: Array as PropType<Array<Ticket>>,
+      required: true
+    },
+    historyTickets: {
+      type: Array as PropType<Array<Ticket>>,
+      required: true
     }
   },
   setup() {
     const isOngoingTicket = ref(true);
-    const ticket = {
-      event: {
-        title: "Information and Communication Event (ICE)",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac libero pellentesque, hendrerit eros vitae, malesuada nisi. Nam tempus dolor vitae mauris luctus aliquet. Sed et finibus erat.",
-        date: "Sun, 14 Feb - 16 April",
-        time: "10:00 - 18:00",
-        location: "Engineering Faculty, Chula",
-        faculty: "ISE",
-        imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
-        img: "https://picsum.photos/400",
-        tags: ["Engineering", "Food", "Education"]
-      },
-      organization: {
-        img: "https://picsum.photos/100",
-        imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
-        shortName: "SGCU",
-        fullName: "องค์การบริหารสโมสรนิสิตจุฬาลงกรณ์มหาวิทยาลัย (อบจ.)",
-        description: `<ORG - BIO>   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque pulvinar ornare orci amet. Quis arcu rhoncus velit amet nulla eleifend tristique quis? `
-      },
-      ticketID: "175FD57"
-    };
-    const ongoingTickets = [ticket, ticket, ticket];
-    const historyTickets = [ticket, ticket];
 
     function showOngoingTicket() {
       isOngoingTicket.value = true;
@@ -161,8 +145,6 @@ export default defineComponent({
 
     return {
       isOngoingTicket,
-      ongoingTickets,
-      historyTickets,
       showOngoingTicket,
       showHistoryTicket,
       editInfo

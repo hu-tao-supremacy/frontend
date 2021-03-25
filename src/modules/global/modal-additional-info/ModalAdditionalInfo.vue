@@ -55,6 +55,9 @@
             class="w-full h-3.5"
             :isError="!isValidEmail"
           />
+          <p v-if="!isValidEmail" class="text-sm text-red-5 mt-0.25 ml-1.5">
+            Please input valid email
+          </p>
         </section>
         <section class="mb-2">
           <label for="phone" class="mb-0.25">Phone Number</label>
@@ -65,6 +68,9 @@
             class="w-full h-3.5"
             :isError="!isValidPhone"
           />
+          <p v-if="!isValidPhone" class="text-sm text-red-5 mt-0.25 ml-1.5">
+            Please input phone number without '-'
+          </p>
         </section>
         <section class="flex space-between mb-2">
           <div class="w-21 mr-2 flex-shrink-0">
@@ -79,6 +85,9 @@
               class="w-full h-3.5"
               :isError="!isValidLocation"
             />
+            <p v-if="!isValidEmail" class="text-sm text-red-5 mt-0.25 ml-1.5">
+              Please select district
+            </p>
           </div>
           <div class="w-21 mr-2 flex-shrink-0">
             <label for="province" class="mb-0.25">Province</label>
@@ -113,6 +122,9 @@
             class="w-full resize-none"
             :isError="!isValidAddress"
           />
+          <p v-if="!isValidEmail" class="text-sm text-red-5 mt-0.25 ml-1.5">
+            Please input address
+          </p>
         </section>
         <base-button
           class="button-height w-20 self-center"

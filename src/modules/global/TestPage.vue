@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gray-1 p-2">
-    <Wallet class="content-max-width" />
+    <Wallet class="content-max-width" :profile="wallet.profile" />
     <base-button @click="toggleModal('signup')">Show Sign Up Modal</base-button>
     <ModalSignUp v-if="showSignUpModal" @close-modal="toggleModal('signup')" />
     <base-button @click="toggleModal('login')">Show Log In Modal</base-button>
@@ -47,7 +47,7 @@ import EventOrganizer from "@/modules/eventInfo/event-organizer/EventOrganizer.v
 import ModalAdditionalInfo from "./modal-additional-info/ModalAdditionalInfo.vue";
 import Ticket from "@/modules/wallet/ticket/Ticket.vue";
 import Wallet from "@/modules/wallet/wallet/Wallet.vue";
-import testData from "./testData";
+import { testData, walletData } from "./testData";
 
 export default defineComponent({
   name: "TestPage",
@@ -67,6 +67,7 @@ export default defineComponent({
     const showLogInModal = ref(false);
     const showAdditionalInfoModal = ref(false);
     const test = testData;
+    const wallet = walletData;
 
     function toggleModal(modal: string) {
       switch (modal) {
@@ -87,7 +88,8 @@ export default defineComponent({
       toggleModal,
       showLogInModal,
       showAdditionalInfoModal,
-      test
+      test,
+      wallet
     };
   }
 });

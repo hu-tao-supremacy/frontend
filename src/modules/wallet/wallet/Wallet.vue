@@ -10,14 +10,16 @@
           :width="200"
           :height="200"
           alt="will change to api"
-          :url="profileImg"
-          :placeholder="profileImgHash"
+          :url="profile.img"
+          :placeholder="profile.imgHash"
           class="object-cover w-full h-full"
         />
       </div>
       <div class="flex flex-col">
         <div class="flex items-center mb-1">
-          <h1 class="font-heading text-4xl mr-3">{{ profileName }}</h1>
+          <h1 class="font-heading text-4xl mr-3">
+            {{ profile.firstName }} {{ profile.lastName }}
+          </h1>
           <base-icon
             @click="editInfo"
             width="20px"
@@ -26,15 +28,15 @@
             ><EditIcon
           /></base-icon>
         </div>
-        <p class="text-gray-6 mb-1">{{ profileEmail }}</p>
+        <p class="text-gray-6 mb-1">{{ profile.email }}</p>
         <div class="flex items-center">
-          <p class="mr-1">{{ profileLike }}</p>
+          <p class="mr-1">{{ profile.like }}</p>
           <h3 class="mr-1">Like</h3>
           <div class="w-1 h-1 rounded-full bg-primary mr-1"></div>
-          <p class="mr-1">{{ profileTicket }}</p>
+          <p class="mr-1">{{ profile.ticket }}</p>
           <h3 class="mr-1">Like</h3>
           <div class="w-1 h-1 rounded-full bg-primary mr-1"></div>
-          <p class="mr-1">{{ profileFollowing }}</p>
+          <p class="mr-1">{{ profile.following }}</p>
           <h3>Like</h3>
         </div>
       </div>
@@ -73,7 +75,7 @@
       <div class="w-full h-0.5 rounded-full bg-gray-2 absolute bottom-0"></div>
     </section>
     <section class="flex flex-col">
-      <Ticket
+      <TicketComponent
         v-show="isOngoingTicket"
         v-for="(ticket, index) in ongoingTickets"
         :key="ticket"
@@ -83,7 +85,7 @@
         :bgColor="'bg-white'"
         :class="{ 'mb-2': index != ongoingTickets.length - 1 }"
       />
-      <Ticket
+      <TicketComponent
         v-show="!isOngoingTicket"
         v-for="(ticket, index) in historyTickets"
         :key="ticket"
@@ -101,23 +103,23 @@
 import { defineComponent, ref } from "vue";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import EditIcon from "@/assets/Edit.vue";
-import Ticket from "@/modules/wallet/ticket/Ticket.vue";
+import TicketComponent from "@/modules/wallet/ticket/Ticket.vue";
+import { Profile, Ticket } from "@/commons/Interfaces";
 
 export default defineComponent({
   name: "Wallet",
   components: {
     LazyImage,
     EditIcon,
-    Ticket
+    TicketComponent
+  },
+  props: {
+    profile: {
+      type: Object as () => Profile,
+      required: true
+    }
   },
   setup() {
-    const profileImg = "https://picsum.photos/200";
-    const profileImgHash = "LEHV6nWB2yk8pyo0adR*.7kCMdnj";
-    const profileName = "Elon Musk";
-    const profileEmail = "613XXXX21@student.chula.ac.th";
-    const profileLike = 16;
-    const profileTicket = 24;
-    const profileFollowing = 48;
     const isOngoingTicket = ref(true);
     const ticket = {
       event: {
@@ -158,13 +160,6 @@ export default defineComponent({
     }
 
     return {
-      profileImg,
-      profileImgHash,
-      profileName,
-      profileEmail,
-      profileLike,
-      profileTicket,
-      profileFollowing,
       isOngoingTicket,
       ongoingTickets,
       historyTickets,

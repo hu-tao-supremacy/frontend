@@ -26,3 +26,21 @@ export interface District {
   GEO_ID: number;
   ZIPCODE: string;
 }
+
+export interface Ticket {
+  event: Event;
+  organization: Org;
+  ticketID: string;
+  bgColor: string;
+}
+
+export interface Profile {
+  firstName: string;
+  lastName: string;
+  img: string;
+  imgHash: string;
+  email: string;
+  like: number;
+  ticket: number;
+  following: number;
+}

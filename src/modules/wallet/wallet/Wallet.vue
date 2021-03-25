@@ -100,11 +100,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, ref } from "vue";
+import { defineComponent, PropType } from "vue";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import EditIcon from "@/assets/Edit.vue";
 import TicketComponent from "@/modules/wallet/ticket/Ticket.vue";
 import { Profile, Ticket } from "@/commons/Interfaces";
+import useWallet from "./useWallet";
 
 export default defineComponent({
   name: "Wallet",
@@ -128,20 +129,12 @@ export default defineComponent({
     }
   },
   setup() {
-    const isOngoingTicket = ref(true);
-
-    function showOngoingTicket() {
-      isOngoingTicket.value = true;
-    }
-
-    function showHistoryTicket() {
-      isOngoingTicket.value = false;
-    }
-
-    function editInfo() {
-      //Send to edit info page
-      console.log("Edit info");
-    }
+    const {
+      isOngoingTicket,
+      showOngoingTicket,
+      showHistoryTicket,
+      editInfo
+    } = useWallet();
 
     return {
       isOngoingTicket,

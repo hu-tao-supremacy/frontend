@@ -2,7 +2,11 @@
   <div class="relative">
     <input
       v-if="isSearchable"
-      class="displayed-area border border-gray-4 rounded-lg px-1.5 focus:border-primary focus:outline-none w-full h-full"
+      class="displayed-area border rounded-lg px-1.5 focus:border-primary focus:outline-none w-full h-full"
+      :class="{
+        'border-gray-4': !isError,
+        'error-shadow border-red-5': isError
+      }"
       v-model="userInput"
       @focus="showOption"
       v-click-outside="hideOption"
@@ -12,7 +16,11 @@
     />
     <input
       v-else
-      class="displayed-area border border-gray-4 rounded-lg px-1.5 focus:border-primary focus:outline-none bg-white w-full h-full"
+      class="displayed-area border rounded-lg px-1.5 focus:border-primary focus:outline-none bg-white w-full h-full"
+      :class="{
+        'border-gray-4': !isError,
+        'error-shadow border-red-5': isError
+      }"
       :value="buttonDisplay"
       @click="showOption"
       v-click-outside="hideOption"
@@ -46,6 +54,10 @@ export default defineComponent({
     isSearchable: {
       type: Boolean,
       default: false
+    },
+    isError: {
+      type: Boolean,
+      default: false
     }
   },
   emits: [UPDATE_SEARCH_TEXT_MODEL],
@@ -74,5 +86,9 @@ export default defineComponent({
 <style scoped>
 displayed-area:focus {
   box-shadow: 0px 0px 0px 2px rgba(255, 133, 95, 0.2);
+}
+
+.error-shadow {
+  box-shadow: 0px 0px 0px 2px rgba(255, 163, 158, 0.5);
 }
 </style>

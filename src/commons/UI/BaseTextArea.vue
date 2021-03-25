@@ -3,7 +3,8 @@
     :rows="rows"
     :value="modelValue"
     @input="userChange"
-    class="text-input border border-gray-4 rounded-lg px-1.5 focus:border-primary focus:outline-none overflow-hidden"
+    class="text-input border rounded-lg px-1.5 focus:border-primary focus:outline-none overflow-hidden"
+    :class="{ 'border-gray-4': !isError, 'error-shadow border-red-5': isError }"
   ></textarea>
 </template>
 
@@ -20,6 +21,10 @@ export default defineComponent({
     modelValue: {
       type: String,
       default: ""
+    },
+    isError: {
+      type: Boolean,
+      default: false
     }
   },
   setup(_, context) {
@@ -36,5 +41,9 @@ export default defineComponent({
 <style scoped>
 .text-input:focus {
   box-shadow: 0px 0px 0px 2px rgba(255, 133, 95, 0.2);
+}
+
+.error-shadow {
+  box-shadow: 0px 0px 0px 2px rgba(255, 163, 158, 0.5);
 }
 </style>

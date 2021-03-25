@@ -67,13 +67,9 @@
         <section class="flex space-between mb-2">
           <div class="w-21 mr-2 flex-shrink-0">
             <label for="district" class="mb-0.25">District</label>
-            <!-- <BaseTextInput
-              v-model.trim="userZipCode"
+            <BaseSelect
               id="district"
               name="district"
-              class="w-full h-3.5"
-            /> -->
-            <BaseSelect
               v-model="userLocation"
               :isSearchable="true"
               :optionNames="districtOptionNames"

@@ -1,7 +1,11 @@
 <template>
   <button
-    class="bg-primary rounded-lg text-white font-body shadow-xs hover:bg-primary-7 focus:outline-none border-3 border-transparent focus:border-primary-5 "
+    class="rounded-lg font-body shadow-xs focus:outline-none"
     :type="type"
+    :class="{
+      'bg-primary hover:bg-primary-7 border-3 border-transparent focus:border-primary-5 text-white': !disabled,
+      'bg-gray-1 border border-gray-4 cursor-not-allowed text-gray-5': disabled
+    }"
   >
     <slot></slot>
   </button>
@@ -16,6 +20,10 @@ export default defineComponent({
     type: {
       type: String,
       default: "button"
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   }
 });

@@ -1,5 +1,6 @@
 <template>
   <div class="bg-gray-1 p-2">
+    <Ticket class="mb-3" />
     <base-button @click="toggleModal('signup')">Show Sign Up Modal</base-button>
     <ModalSignUp v-if="showSignUpModal" @close-modal="toggleModal('signup')" />
     <base-button @click="toggleModal('login')">Show Log In Modal</base-button>
@@ -38,6 +39,7 @@ import EventDetail from "@/modules/eventInfo/event-detail/EventDetail.vue";
 import EventOrganizer from "@/modules/eventInfo/event-organizer/EventOrganizer.vue";
 import ModalAdditionalInfo from "./modal-additional-info/ModalAdditionalInfo.vue";
 import testData from "./testData";
+import Ticket from "@/modules/wallet/ticket/Ticket.vue";
 
 export default defineComponent({
   name: "TestPage",
@@ -48,7 +50,8 @@ export default defineComponent({
     InfoBanner,
     EventDetail,
     EventOrganizer,
-    ModalAdditionalInfo
+    ModalAdditionalInfo,
+    Ticket
   },
   setup() {
     const showSignUpModal = ref(false);

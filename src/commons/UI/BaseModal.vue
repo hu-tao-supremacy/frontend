@@ -4,7 +4,7 @@
   >
     <section
       class="bg-white relative px-8 pt-8 pb-4 rounded-2xl inline-block w-full"
-      :class="{ defaultModalWidth: !hasMaxModalWidth }"
+      :class="{ 'default-modal-width': !hasMaxModalWidth }"
       :style="{ maxWidth: maxModalWidth }"
     >
       <base-transparent-button class="cross-btn absolute" @click="closeModal"

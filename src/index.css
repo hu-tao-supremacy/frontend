@@ -11,7 +11,11 @@
     webkitapperance: none;
   }
 
-  .defaultModalWidth {
+  .default-modal-width {
     max-width: 570px;
+  }
+
+  .content-max-width {
+    max-width: 960px;
   }
 }

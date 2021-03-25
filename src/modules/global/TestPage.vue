@@ -1,12 +1,6 @@
 <template>
   <div class="bg-gray-1 p-2">
-    <Ticket
-      class="mb-3"
-      :event="test.event"
-      :organization="test.organization"
-      :ticketID="test.ticketID"
-      :bgColor="'bg-gray-1'"
-    />
+    <Wallet class="content-max-width" />
     <base-button @click="toggleModal('signup')">Show Sign Up Modal</base-button>
     <ModalSignUp v-if="showSignUpModal" @close-modal="toggleModal('signup')" />
     <base-button @click="toggleModal('login')">Show Log In Modal</base-button>
@@ -32,6 +26,13 @@
       :style="{ maxWidth: '300px' }"
       :eventOrg="test.eventOrganizer"
     />
+    <Ticket
+      class="mb-3"
+      :event="test.event"
+      :organization="test.organization"
+      :ticketID="test.ticketID"
+      :bgColor="'bg-gray-1'"
+    />
   </div>
 </template>
 
@@ -44,8 +45,9 @@ import InfoBanner from "@/modules/eventInfo/info-banner/InfoBanner.vue";
 import EventDetail from "@/modules/eventInfo/event-detail/EventDetail.vue";
 import EventOrganizer from "@/modules/eventInfo/event-organizer/EventOrganizer.vue";
 import ModalAdditionalInfo from "./modal-additional-info/ModalAdditionalInfo.vue";
-import testData from "./testData";
 import Ticket from "@/modules/wallet/ticket/Ticket.vue";
+import Wallet from "@/modules/wallet/wallet/Wallet.vue";
+import testData from "./testData";
 
 export default defineComponent({
   name: "TestPage",
@@ -57,7 +59,8 @@ export default defineComponent({
     EventDetail,
     EventOrganizer,
     ModalAdditionalInfo,
-    Ticket
+    Ticket,
+    Wallet
   },
   setup() {
     const showSignUpModal = ref(false);

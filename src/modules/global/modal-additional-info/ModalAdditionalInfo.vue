@@ -7,7 +7,7 @@
           We would like to know more about you!
         </p>
       </section>
-      <form @submit.prevent="validateForm">
+      <form @submit.prevent="submitForm">
         <section class="mb-2">
           <h2 class="mb-1">Profile Picture</h2>
           <div class="flex items-center">
@@ -53,6 +53,7 @@
             name="email"
             type="email"
             class="w-full h-3.5"
+            :isError="!isValidEmail"
           />
         </section>
         <section class="mb-2">
@@ -62,6 +63,7 @@
             id="phone"
             name="phone"
             class="w-full h-3.5"
+            :isError="!isValidPhone"
           />
         </section>
         <section class="flex space-between mb-2">
@@ -75,6 +77,7 @@
               :optionNames="districtOptionNames"
               :optionValues="districtOptionValues"
               class="w-full h-3.5"
+              :isError="!isValidLocation"
             />
           </div>
           <div class="w-21 mr-2 flex-shrink-0">
@@ -108,12 +111,14 @@
             name="address"
             :rows="3"
             class="w-full resize-none"
+            :isError="!isValidAddress"
           />
         </section>
         <base-button
           class="button-height w-20 self-center"
           type="submit"
           value="submit"
+          :disabled="!isValidForm"
           >Sign up</base-button
         >
       </form>
@@ -158,7 +163,12 @@ export default defineComponent({
       userAddress,
       districtOptionNames,
       districtOptionValues,
-      validateForm
+      isValidEmail,
+      isValidPhone,
+      isValidLocation,
+      isValidAddress,
+      isValidForm,
+      submitForm
     } = useModalAdditionalInfo(_, context);
 
     return {
@@ -175,7 +185,12 @@ export default defineComponent({
       userAddress,
       districtOptionNames,
       districtOptionValues,
-      validateForm
+      isValidEmail,
+      isValidPhone,
+      isValidLocation,
+      isValidAddress,
+      isValidForm,
+      submitForm
     };
   }
 });

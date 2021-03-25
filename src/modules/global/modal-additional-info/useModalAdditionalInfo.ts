@@ -2,12 +2,12 @@ import { ref, computed, SetupContext, watch, Ref } from "vue";
 import { uploadFile } from "@/commons/utils/uploadImage";
 import { CLOSE_MODAL } from "@/commons/constant";
 import {
-  validEmail,
-  validPhone,
-  validZipCode,
-  validDistrict,
-  validProvince,
-  validAddress
+  validateEmail,
+  validatePhone,
+  validateZipCode,
+  validateDistrict,
+  validateProvince,
+  validateAddress
 } from "@/commons/utils/validForm";
 import districts from "@/commons/constant/thailand-address/district";
 import provinces from "@/commons/constant/thailand-address/province";
@@ -48,32 +48,49 @@ export default function useModalAdditionalInfo(
     }
   }
 
-  function validProfileImage(): boolean {
+  function validateProfileImage(): boolean {
     if (uploadedImg.value) return true;
     return false;
   }
 
-  function validateForm() {
-    const errors = [];
-    if (!validProfileImage()) errors.push("Invalid profile image");
-    if (!validEmail(userEmail.value)) errors.push("Invalid email");
-    if (!validPhone(userPhone.value)) errors.push("Invalid phone number");
-    if (!validZipCode(userZipCode.value)) errors.push("Invalid zip code");
-    if (!validDistrict(userDistrict.value)) errors.push("Invalid city");
-    if (!validProvince(userProvince.value)) errors.push("Invalid province");
-    if (!validAddress(userAddress.value)) errors.push("Invalid address");
-    if (errors.length !== 0) {
-      console.log(errors);
-      //do something when error occur
-    } else {
-      console.log("success");
-      //create object and post to api
-    }
+  function submitForm() {
+    if (validateProfileImage()) console.log("Has image");
+    console.log("success");
+    //create object and post to api
   }
 
   function closeModal() {
     context.emit(CLOSE_MODAL);
   }
+
+  const isValidEmail = computed(() => {
+    return validateEmail(userEmail.value);
+  });
+
+  const isValidPhone = computed(() => {
+    return validatePhone(userPhone.value);
+  });
+
+  const isValidLocation = computed(() => {
+    return (
+      validateDistrict(userDistrict.value) &&
+      validateProvince(userProvince.value) &&
+      validateZipCode(userZipCode.value)
+    );
+  });
+
+  const isValidAddress = computed(() => {
+    return validateAddress(userAddress.value);
+  });
+
+  const isValidForm = computed(() => {
+    return (
+      isValidEmail.value &&
+      isValidPhone.value &&
+      isValidLocation.value &&
+      isValidAddress.value
+    );
+  });
 
   const fileLoaded = computed(function() {
     return uploadedImg.value;
@@ -101,6 +118,11 @@ export default function useModalAdditionalInfo(
     userAddress,
     districtOptionNames,
     districtOptionValues,
-    validateForm
+    isValidEmail,
+    isValidPhone,
+    isValidLocation,
+    isValidAddress,
+    isValidForm,
+    submitForm
   };
 }

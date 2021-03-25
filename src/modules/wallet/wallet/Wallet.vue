@@ -74,13 +74,24 @@
     </section>
     <section class="flex flex-col">
       <Ticket
-        v-for="(ticket, index) in tickets"
+        v-show="isOngoingTicket"
+        v-for="(ticket, index) in ongoingTickets"
         :key="ticket"
         :event="ticket.event"
         :organization="ticket.organization"
         :ticketID="ticket.ticketID"
         :bgColor="'bg-white'"
-        :class="{ 'mb-2': index != tickets.length - 1 }"
+        :class="{ 'mb-2': index != ongoingTickets.length - 1 }"
+      />
+      <Ticket
+        v-show="!isOngoingTicket"
+        v-for="(ticket, index) in historyTickets"
+        :key="ticket"
+        :event="ticket.event"
+        :organization="ticket.organization"
+        :ticketID="ticket.ticketID"
+        :bgColor="'bg-white'"
+        :class="{ 'mb-2': index != historyTickets.length - 1 }"
       />
     </section>
   </div>
@@ -130,7 +141,8 @@ export default defineComponent({
       },
       ticketID: "175FD57"
     };
-    const tickets = [ticket, ticket, ticket];
+    const ongoingTickets = [ticket, ticket, ticket];
+    const historyTickets = [ticket, ticket];
 
     function showOngoingTicket() {
       isOngoingTicket.value = true;
@@ -154,7 +166,8 @@ export default defineComponent({
       profileTicket,
       profileFollowing,
       isOngoingTicket,
-      tickets,
+      ongoingTickets,
+      historyTickets,
       showOngoingTicket,
       showHistoryTicket,
       editInfo

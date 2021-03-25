@@ -144,7 +144,7 @@ export default defineComponent({
     }
   },
   setup() {
-    const checkIn = useTicket();
+    const { checkIn } = useTicket();
 
     return {
       checkIn

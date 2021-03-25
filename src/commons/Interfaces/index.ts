@@ -1,21 +1,13 @@
 export interface Event {
-  day: number;
-  month: string;
-  time: string;
-  title: string;
-  faculty: string;
-  imgHash: string;
-  img: string;
-}
-export interface Banner {
   title: string;
   description: string;
-  tags: Array<string>;
-  imgHash: string;
-  img: string;
   date: string;
   time: string;
   location: string;
+  faculty: string;
+  imgHash: string;
+  img: string;
+  tags: Array<string>;
 }
 
 export interface Org {
@@ -23,6 +15,7 @@ export interface Org {
   img: string;
   shortName: string;
   fullName: string;
+  description: string;
 }
 
 export interface District {

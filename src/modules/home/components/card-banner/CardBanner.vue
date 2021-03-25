@@ -70,7 +70,7 @@ import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import PinIcon from "@/assets/MapPin.vue";
 import ClockIcon from "@/assets/Clock.vue";
 import CalendarIcon from "@/assets/Calendar.vue";
-import { Banner } from "@/commons/Interfaces/index";
+import { Event } from "@/commons/Interfaces/index";
 
 export default defineComponent({
   name: "CardBanner",
@@ -84,13 +84,13 @@ export default defineComponent({
   },
   props: {
     event: {
-      type: Object as () => Banner,
+      type: Object as () => Event,
       required: true
     }
   },
   setup(props) {
     function changeClass(index: number) {
-      return index === props.event?.tags.length - 1 ? "" : "mr-1";
+      return index === props.event.tags.length - 1 ? "" : "mr-1";
     }
     return {
       changeClass

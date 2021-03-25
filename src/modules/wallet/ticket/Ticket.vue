@@ -1,5 +1,5 @@
 <template>
-  <div class="flex bg-primary-1 rounded-2xl" :style="{ maxWidth: '832px' }">
+  <div class="flex bg-primary-1 rounded-2xl">
     <section
       class="image-container h-auto shadow-sm rounded-l-2xl overflow-hidden"
     >
@@ -7,18 +7,18 @@
         :width="200"
         :height="200"
         alt="will change to api"
-        :url="eventImg"
-        :placeholder="eventImgHash"
+        :url="event.img"
+        :placeholder="event.imgHash"
         class="object-cover w-full h-full"
       />
     </section>
     <section
       class="event-info-container flex flex-col pt-2 px-2 pb-1 shadow-sm z-10"
     >
-      <h1 class="text-blue-10 font-heading text-xl mb-1">{{ eventTitle }}</h1>
+      <h1 class="text-blue-10 font-heading text-xl mb-1">{{ event.title }}</h1>
       <div class="flex flex-wrap mb-1">
         <base-tag
-          v-for="tag in eventTags"
+          v-for="tag in event.tags"
           :key="tag"
           class="mr-1 mb-1 h-2 bg-primary-3"
           >{{ tag }}</base-tag
@@ -33,13 +33,13 @@
             :width="100"
             :height="100"
             alt="will change to api"
-            :url="eventOrgImg"
-            :placeholder="eventOrgImgHash"
+            :url="organization.img"
+            :placeholder="organization.imgHash"
             class="object-cover w-full h-full"
           />
         </div>
-        <h2 class="font-heading text-xl mr-1">{{ eventOrgShortName }}</h2>
-        <p class="text-sm">{{ eventOrgLongName }}</p>
+        <h2 class="font-heading text-xl mr-1">{{ organization.shortName }}</h2>
+        <p class="text-sm">{{ organization.longName }}</p>
       </div>
     </section>
     <section
@@ -71,7 +71,7 @@
             class="mr-1.5"
             ><CalendarIcon
           /></base-icon>
-          {{ eventDate }}
+          {{ event.date }}
         </div>
         <div class="flex items-center mb-1">
           <base-icon
@@ -81,7 +81,7 @@
             class="mr-1.5"
             ><ClockIcon
           /></base-icon>
-          {{ eventTime }}
+          {{ event.time }}
         </div>
         <div class="flex items-center">
           <base-icon
@@ -91,7 +91,7 @@
             class="mr-1.5"
             ><PinIcon
           /></base-icon>
-          {{ eventLocation }}
+          {{ event.location }}
         </div>
       </div>
       <base-button
@@ -111,6 +111,8 @@ import BaseButton from "@/commons/UI/BaseButton.vue";
 import PinIcon from "@/assets/MapPin.vue";
 import ClockIcon from "@/assets/Clock.vue";
 import CalendarIcon from "@/assets/Calendar.vue";
+import { Event, Org } from "@/commons/Interfaces";
+import useTicket from "./useTicket";
 
 export default defineComponent({
   name: "Ticket",
@@ -122,41 +124,29 @@ export default defineComponent({
     ClockIcon,
     CalendarIcon
   },
-  setup() {
-    const eventImg = "https://picsum.photos/200";
-    const eventImgHash = "LEHV6nWB2yk8pyo0adR*.7kCMdnj";
-    const eventTitle = "Information and Communication Event (ICE)";
-    const eventTags = ["Engineering", "Food", "Education"];
-    const eventOrgImg = "https://picsum.photos/201";
-    const eventOrgImgHash = "LEHV6nWB2yk8pyo0adR*.7kCMdnj";
-    const eventOrgShortName = "SGCU";
-    const eventOrgLongName =
-      "องค์การบริหารสโมสรนิสิต จุฬาลงกรณ์มหาวิทยาลัย (อบจ.)";
-    const ticketID = "175FD57";
-    const eventDate = "Sun, 14 Feb - 16 April";
-    const eventTime = "10:00 - 18:00";
-    const eventLocation = "Engineering Faculty, Chula";
-    const bgColor = "bg-gray-1";
-
-    function checkIn() {
-      //Do something when check in
-      console.log("Do checkin");
+  props: {
+    event: {
+      type: Object as () => Event,
+      required: true
+    },
+    organization: {
+      type: Object as () => Org,
+      required: true
+    },
+    ticketID: {
+      type: String,
+      required: true,
+      default: "000000"
+    },
+    bgColor: {
+      type: String,
+      default: "bg-white"
     }
+  },
+  setup() {
+    const checkIn = useTicket();
 
     return {
-      eventImg,
-      eventImgHash,
-      eventTitle,
-      eventTags,
-      eventOrgImg,
-      eventOrgImgHash,
-      eventOrgShortName,
-      eventOrgLongName,
-      ticketID,
-      eventDate,
-      eventTime,
-      eventLocation,
-      bgColor,
       checkIn
     };
   }
@@ -190,10 +180,12 @@ export default defineComponent({
 
 .circle-top {
   box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.04) inset;
+  margin-top: -50%;
 }
 
 .circle-bottom {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.055) inset;
+  margin-bottom: -50%;
 }
 
 .dash-line {

@@ -1,6 +1,12 @@
 <template>
   <div class="bg-gray-1 p-2">
-    <Ticket class="mb-3" />
+    <Ticket
+      class="mb-3"
+      :event="test.event"
+      :organization="test.organization"
+      :ticketID="test.ticketID"
+      :bgColor="'bg-gray-1'"
+    />
     <base-button @click="toggleModal('signup')">Show Sign Up Modal</base-button>
     <ModalSignUp v-if="showSignUpModal" @close-modal="toggleModal('signup')" />
     <base-button @click="toggleModal('login')">Show Log In Modal</base-button>

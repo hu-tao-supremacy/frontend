@@ -11,6 +11,14 @@
       v-if="showAdditionalInfoModal"
       @close-modal="toggleModal('additionInfo')"
     />
+    <base-button @click="toggleModal('interest')"
+      >Show Interests Modal</base-button
+    >
+    <ModalInterests
+      v-if="showInterestModal"
+      :interests="test.interests"
+      @close-modal="toggleModal('interest')"
+    />
     <InfoBanner
       :style="{ maxWidth: '960px' }"
       :eventBanner="test.eventBanner"
@@ -37,6 +45,7 @@ import InfoBanner from "@/modules/eventInfo/info-banner/InfoBanner.vue";
 import EventDetail from "@/modules/eventInfo/event-detail/EventDetail.vue";
 import EventOrganizer from "@/modules/eventInfo/event-organizer/EventOrganizer.vue";
 import ModalAdditionalInfo from "./modal-additional-info/ModalAdditionalInfo.vue";
+import ModalInterests from "./modal-interests/ModalInterests.vue";
 import testData from "./testData";
 
 export default defineComponent({
@@ -48,12 +57,14 @@ export default defineComponent({
     InfoBanner,
     EventDetail,
     EventOrganizer,
-    ModalAdditionalInfo
+    ModalAdditionalInfo,
+    ModalInterests
   },
   setup() {
     const showSignUpModal = ref(false);
     const showLogInModal = ref(false);
     const showAdditionalInfoModal = ref(false);
+    const showInterestModal = ref(false);
     const test = testData;
 
     function toggleModal(modal: string) {
@@ -67,6 +78,9 @@ export default defineComponent({
         case "additionInfo":
           showAdditionalInfoModal.value = !showAdditionalInfoModal.value;
           break;
+        case "interest":
+          showInterestModal.value = !showInterestModal.value;
+          break;
       }
     }
 
@@ -75,6 +89,7 @@ export default defineComponent({
       toggleModal,
       showLogInModal,
       showAdditionalInfoModal,
+      showInterestModal,
       test
     };
   }

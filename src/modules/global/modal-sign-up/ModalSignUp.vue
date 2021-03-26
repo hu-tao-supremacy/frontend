@@ -1,5 +1,9 @@
 <template>
+<<<<<<< HEAD
   <base-modal maxModalWidth="570px" @close="closeModal">
+=======
+  <base-modal @close-modal="closeModal">
+>>>>>>> 3d589f05e3252d0fef632949c0c0b14e856df549
     <div class="flex flex-col">
       <section class="mb-2">
         <h1 class="font-heading text-3xl">Sign up</h1>

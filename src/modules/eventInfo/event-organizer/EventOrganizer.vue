@@ -26,7 +26,7 @@
           ><base-icon
             width="32"
             height="32"
-            viewBox="0 0 30 30"
+            viewBox="0 0 112.196 112.196"
             iconColor="none"
             ><FacebookIcon /></base-icon
         ></base-circle-button>

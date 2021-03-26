@@ -31,7 +31,9 @@
           >
             {{ recommended.title }}
           </div>
-          <div class="event-faculty w-full text-blue-10 text-sm mt-0.5 truncate">
+          <div
+            class="event-faculty w-full text-blue-10 text-sm mt-0.5 truncate"
+          >
             {{ recommended.faculty }}
           </div>
         </div>

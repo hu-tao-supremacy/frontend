@@ -1,7 +1,7 @@
 <template>
   <div class="relative rounded-2xl overflow-hidden h-40 w-120 z-20 shadow">
     <event-carousel-slide
-      v-for="(event, slideIndex) in testEventProps"
+      v-for="(event, slideIndex) in eventsList"
       :key="event.title"
       :slideIndex="slideIndex"
       :currentIndex="currentIndex"
@@ -12,12 +12,12 @@
     <section class="carousel-misc absolute z-10 h-full flex items-center">
       <div>
         <div
-          v-for="(_, index) in testEventProps"
+          v-for="(_, index) in eventsList"
           :key="index"
           @click="changeSlide(index)"
           class="w-3 flex flex-col items-center cursor-pointer"
           :class="{
-            'carousel-gap': index !== testEventProps.length - 1
+            'carousel-gap': index !== eventsList.length - 1
           }"
         >
           <div
@@ -48,18 +48,15 @@ export default defineComponent({
   },
   props: {
     eventsList: {
-      type: Array as () => Banner[]
+      type: Array as () => Banner[],
+      required: true
     }
   },
   setup(props) {
-    const {
-      testEventProps,
-      currentIndex,
-      transitionAnimation,
-      changeSlide
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    } = useEventCarousel(props.eventsList!);
-    return { testEventProps, currentIndex, transitionAnimation, changeSlide };
+    const { currentIndex, transitionAnimation, changeSlide } = useEventCarousel(
+      props.eventsList
+    );
+    return { currentIndex, transitionAnimation, changeSlide };
   }
 });
 </script>

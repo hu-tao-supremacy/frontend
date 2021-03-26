@@ -10,8 +10,13 @@ async function finishUploadFile(
   });
 }
 
+/**
+ *
+ * @param reader A FileReader object
+ * @param target The target HTML input element we are going to read file from
+ * @returns The first uploaded file received from the the HTML input element
+ */
 async function uploadFile(reader: FileReader, target: HTMLInputElement) {
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const result = await finishUploadFile(reader, target);
   return result;
 }

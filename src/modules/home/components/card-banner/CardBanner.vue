@@ -84,13 +84,13 @@ export default defineComponent({
   },
   props: {
     event: {
-      type: Object as () => Event
+      type: Object as () => Event,
+      required: true
     }
   },
   setup(props) {
     function changeClass(index: number) {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      return index === props.event!.tags.length - 1 ? "" : "mr-1";
+      return index === props.event.tags.length - 1 ? "" : "mr-1";
     }
     return {
       changeClass

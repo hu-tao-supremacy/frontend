@@ -2,8 +2,10 @@ import ModalAdditionalInfo from "./ModalAdditionalInfo.vue";
 import "@/index.css";
 import { app, Story } from "@storybook/vue3";
 import BaseIcon from "@/commons/UI/BaseIcon.vue";
+import VClickOutside from "@/commons/utils/VClickOutside";
 
 app.component("base-icon", BaseIcon);
+app.directive("clickOutside", VClickOutside);
 
 export default {
   title: "Global/ModalAdditionalInfo",
@@ -11,10 +13,9 @@ export default {
 };
 
 interface PropTypes {
-  eventTitle: string;
 }
 
-const Template: Story<PropTypes> = (args: any) => ({
+const Template: Story<PropTypes> = (args) => ({
   components: { ModalAdditionalInfo },
   setup() {
     return { args };
@@ -23,6 +24,3 @@ const Template: Story<PropTypes> = (args: any) => ({
 });
 
 export const Primary = Template.bind({});
-Primary.args = {
-  eventTitle: "CU Collective Investment"
-};

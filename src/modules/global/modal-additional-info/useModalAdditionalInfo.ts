@@ -1,6 +1,17 @@
-import { ref, computed, SetupContext } from "vue";
+import { ref, computed, SetupContext, watch, Ref } from "vue";
 import { uploadFile } from "@/commons/utils/uploadImage";
 import { CLOSE_MODAL } from "@/commons/constant";
+import {
+  validateEmail,
+  validatePhone,
+  validateZipCode,
+  validateDistrict,
+  validateProvince,
+  validateAddress
+} from "@/commons/utils/validForm";
+import districts from "@/commons/constant/thailand-address/district";
+import provinces from "@/commons/constant/thailand-address/province";
+import { District } from "@/commons/Interfaces";
 
 export default function useModalAdditionalInfo(
   _: object,
@@ -10,10 +21,23 @@ export default function useModalAdditionalInfo(
   const reader = new FileReader();
   const userEmail = ref("");
   const userPhone = ref("");
+  const userLocation: Ref<District> = ref({
+    DISTRICT_ID: -1,
+    DISTRICT_TH_NAME: "",
+    DISTRICT_ENG_NAME: "",
+    PROVINCE_ID: -1,
+    GEO_ID: -1,
+    ZIPCODE: ""
+  });
   const userZipCode = ref("");
-  const userCity = ref("");
+  const userDistrict = ref("");
   const userProvince = ref("");
   const userAddress = ref("");
+
+  const districtOptionNames = districts.map(
+    district => district.DISTRICT_ENG_NAME
+  );
+  const districtOptionValues = districts;
 
   async function previewFile(event: Event) {
     event.preventDefault();
@@ -24,65 +48,60 @@ export default function useModalAdditionalInfo(
     }
   }
 
-  function validProfileImage(): boolean {
+  function validateProfileImage(): boolean {
     if (uploadedImg.value) return true;
     return false;
   }
 
-  function validEmail(): boolean {
-    const expression = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return expression.test(userEmail.value.toLowerCase());
-  }
-
-  function validPhone(): boolean {
-    const expression = /^0[0-9]{9}$/;
-    return expression.test(userPhone.value);
-  }
-
-  function validZipCode(): boolean {
-    const expression = /^[0-9]+$/;
-    return expression.test(userZipCode.value);
-  }
-
-  function validCity(): boolean {
-    const expression = /[^0-9]/;
-    return expression.test(userCity.value);
-  }
-
-  function validProvince(): boolean {
-    if (userProvince.value === "") return false;
-    const expression = /[^0-9]/;
-    return expression.test(userProvince.value);
-  }
-
-  function validAddress(): boolean {
-    return userAddress.value !== "";
-  }
-
-  function validateForm() {
-    const errors = [];
-    if (!validProfileImage()) errors.push("Invalid profile image");
-    if (!validEmail()) errors.push("Invalid email");
-    if (!validPhone()) errors.push("Invalid phone number");
-    if (!validZipCode()) errors.push("Invalid zip code");
-    if (!validCity()) errors.push("Invalid city");
-    if (!validProvince()) errors.push("Invalid province");
-    if (!validAddress()) errors.push("Invalid address");
-    if (errors.length !== 0) {
-      console.log(errors);
-      //do something when error occur
-    } else {
-      console.log("success");
-      //create object and post to api
-    }
+  function submitForm() {
+    if (validateProfileImage()) console.log("Has image");
+    console.log("success");
+    //create object and post to api
   }
 
   function closeModal() {
     context.emit(CLOSE_MODAL);
   }
 
+  const isValidEmail = computed(() => {
+    return validateEmail(userEmail.value);
+  });
+
+  const isValidPhone = computed(() => {
+    return validatePhone(userPhone.value);
+  });
+
+  const isValidLocation = computed(() => {
+    return (
+      validateDistrict(userDistrict.value) &&
+      validateProvince(userProvince.value) &&
+      validateZipCode(userZipCode.value)
+    );
+  });
+
+  const isValidAddress = computed(() => {
+    return validateAddress(userAddress.value);
+  });
+
+  const isValidForm = computed(() => {
+    return (
+      isValidEmail.value &&
+      isValidPhone.value &&
+      isValidLocation.value &&
+      isValidAddress.value
+    );
+  });
+
   const fileLoaded = computed(function() {
     return uploadedImg.value;
+  });
+
+  watch(userLocation, () => {
+    userDistrict.value = userLocation.value.DISTRICT_ENG_NAME;
+    userZipCode.value = userLocation.value.ZIPCODE;
+    userProvince.value = provinces.find(province => {
+      return province.PROVINCE_ID === userLocation.value.PROVINCE_ID;
+    })?.PROVINCE_ENG_NAME as string;
   });
 
   return {
@@ -92,10 +111,18 @@ export default function useModalAdditionalInfo(
     closeModal,
     userEmail,
     userPhone,
+    userLocation,
     userZipCode,
-    userCity,
+    userDistrict,
     userProvince,
     userAddress,
-    validateForm
+    districtOptionNames,
+    districtOptionValues,
+    isValidEmail,
+    isValidPhone,
+    isValidLocation,
+    isValidAddress,
+    isValidForm,
+    submitForm
   };
 }

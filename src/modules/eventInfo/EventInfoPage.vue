@@ -17,7 +17,7 @@
         </div>
         <div class="flex flex-col h-0 min-h-full">
           <div class="text-lg font-heading mb-1">Event Schedule</div>
-          <div class="overflow-y-auto">
+          <div class="overflow-y-auto overflow-x-hidden">
             <div
               class="event-schedule-container rounded-lg flex flex-col justify-center items-center pt-1 bg-gray-2"
             >

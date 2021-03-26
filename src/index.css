@@ -8,7 +8,7 @@
   }
 
   input {
-    webkitapperance: none;
+    -webkit-apperance: none;
   }
 
   .default-modal-width {

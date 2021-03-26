@@ -37,6 +37,7 @@ import CardInterest from "../card-interest/CardInterest.vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import { CLOSE_MODAL } from "@/commons/constant";
 import { Interest } from "@/commons/Interfaces";
+import useModalInterests from "./useModalInterests";
 
 export default defineComponent({
   name: "ModalInterests",
@@ -51,25 +52,11 @@ export default defineComponent({
       required: true
     }
   },
+  emits: [CLOSE_MODAL],
   setup(_, context) {
-    const selectedInterestIDs: number[] = [];
-
-    function toggleInterest(id: number) {
-      const index = selectedInterestIDs.findIndex(
-        interestID => interestID === id
-      );
-      if (index === -1) selectedInterestIDs.push(id);
-      else selectedInterestIDs.splice(index, 1);
-    }
-
-    function submitInterest() {
-      //something to do with API
-      console.log(selectedInterestIDs);
-    }
-
-    function closeModal() {
-      context.emit(CLOSE_MODAL);
-    }
+    const { toggleInterest, submitInterest, closeModal } = useModalInterests(
+      context
+    );
 
     return { toggleInterest, submitInterest, closeModal };
   }

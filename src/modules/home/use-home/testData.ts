@@ -97,7 +97,7 @@ export const testData = {
       tags: ["Engineering", "Food", "Education", "Fun"],
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer velnisi eu ipsum elementum sollicitudin. Suspendisse aliquam arcu quis cursus cursus. Nulla sollicitudin ut felis sit amet blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel nisi euipsum elementum sollicitudin. Suspendisse aliquam arcu quis cursus          cursus. Nulla sollicitudin ut felis sit amet blandit.",
-      location: "Engineering Faculty, Chula",
+      faculty: "Engineering Faculty, Chula",
       date: "Sun, 14 Feb - 16 April",
       time: "10:00-18:00",
       imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
@@ -108,7 +108,7 @@ export const testData = {
       tags: ["Engineering", "Food", "Education", "Fun"],
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer velnisi eu ipsum elementum sollicitudin. Suspendisse aliquam arcu quis cursus cursus. Nulla sollicitudin ut felis sit amet blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel nisi euipsum elementum sollicitudin. Suspendisse aliquam arcu quis cursus          cursus. Nulla sollicitudin ut felis sit amet blandit.",
-      location: "Engineering Faculty, Chula",
+      faculty: "Engineering Faculty, Chula",
       date: "Sun, 14 Feb - 16 April",
       time: "10:00-18:00",
       imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
@@ -119,7 +119,7 @@ export const testData = {
       tags: ["Engineering", "Food", "Education", "Fun"],
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer velnisi eu ipsum elementum sollicitudin. Suspendisse aliquam arcu quis cursus cursus. Nulla sollicitudin ut felis sit amet blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel nisi euipsum elementum sollicitudin. Suspendisse aliquam arcu quis cursus          cursus. Nulla sollicitudin ut felis sit amet blandit.",
-      location: "Engineering Faculty, Chula",
+      faculty: "Engineering Faculty, Chula",
       date: "Sun, 14 Feb - 16 April",
       time: "10:00-18:00",
       imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
@@ -130,7 +130,7 @@ export const testData = {
       tags: ["Engineering", "Food", "Education", "Fun"],
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer velnisi eu ipsum elementum sollicitudin. Suspendisse aliquam arcu quis cursus cursus. Nulla sollicitudin ut felis sit amet blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel nisi euipsum elementum sollicitudin. Suspendisse aliquam arcu quis cursus          cursus. Nulla sollicitudin ut felis sit amet blandit.",
-      location: "Engineering Faculty, Chula",
+      faculty: "Engineering Faculty, Chula",
       date: "Sun, 14 Feb - 16 April",
       time: "10:00-18:00",
       imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",

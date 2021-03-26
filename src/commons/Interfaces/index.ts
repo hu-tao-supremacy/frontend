@@ -1,11 +1,14 @@
 export interface Event {
+  description: string;
   day: number;
+  date: string;
   month: string;
   time: string;
   title: string;
   faculty: string;
   imgHash: string;
   img: string;
+  tags: Array<string>;
 }
 export interface Banner {
   title: string;

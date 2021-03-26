@@ -10,6 +10,7 @@ export interface Event {
   img: string;
   tags: Array<string>;
 }
+
 export interface Banner {
   title: string;
   description: string;
@@ -42,4 +43,11 @@ export interface Schedule {
   day: number;
   month: string;
   time: string;
+}
+
+export interface Interest {
+  id: number;
+  name: string;
+  img: string;
+  imgHash: string;
 }

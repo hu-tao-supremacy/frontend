@@ -10,7 +10,9 @@
           v-for="interest in interests"
           :key="interest"
           :interestName="interest.name"
-          :imgUrl="interest.img"
+          :img="interest.img"
+          :imgHash="interest.imgHash"
+          :interestID="interest.id"
           @toggle-select="toggleInterest"
         />
       </section>
@@ -29,11 +31,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, PropType } from "vue";
 import BaseModal from "@/commons/UI/BaseModal.vue";
 import CardInterest from "../card-interest/CardInterest.vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import { CLOSE_MODAL } from "@/commons/constant";
+import { Interest } from "@/commons/Interfaces";
 
 export default defineComponent({
   name: "ModalInterests",
@@ -42,86 +45,33 @@ export default defineComponent({
     CardInterest,
     BaseButton
   },
+  props: {
+    interests: {
+      type: Array as PropType<Array<Interest>>,
+      required: true
+    }
+  },
   setup(_, context) {
-    const interests = {
-      interest1: {
-        name: "Music & Festival",
-        img: "https://picsum.photos/200"
-      },
-      interest2: {
-        name: "Online Event",
-        img: "https://picsum.photos/201"
-      },
-      interest3: {
-        name: "Stories",
-        img: "https://picsum.photos/202"
-      },
-      interest4: {
-        name: "Education",
-        img: "https://picsum.photos/203"
-      },
-      interest5: {
-        name: "IT & Technology",
-        img: "https://picsum.photos/204"
-      },
-      interest6: {
-        name: "Internship",
-        img: "https://picsum.photos/205"
-      },
-      interest7: {
-        name: "Investment",
-        img: "https://picsum.photos/206"
-      },
-      interest8: {
-        name: "Art & Design",
-        img: "https://picsum.photos/207"
-      },
-      interest9: {
-        name: "Sport",
-        img: "https://picsum.photos/208"
-      },
-      interest10: {
-        name: "Seft-growth",
-        img: "https://picsum.photos/209"
-      },
-      interest11: {
-        name: "Gaming",
-        img: "https://picsum.photos/210"
-      },
-      interest12: {
-        name: "Business",
-        img: "https://picsum.photos/211"
-      },
-      interest13: {
-        name: "Entertainment",
-        img: "https://picsum.photos/212"
-      },
-      interest14: {
-        name: "Chula Event",
-        img: "https://picsum.photos/213"
-      }
-    };
+    const selectedInterestIDs: number[] = [];
 
-    const selectedInterests: string[] = [];
-
-    function toggleInterest(interestName: string) {
-      const index = selectedInterests.findIndex(
-        interest => interest === interestName
+    function toggleInterest(id: number) {
+      const index = selectedInterestIDs.findIndex(
+        interestID => interestID === id
       );
-      if (index === -1) selectedInterests.push(interestName);
-      else selectedInterests.splice(index, 1);
+      if (index === -1) selectedInterestIDs.push(id);
+      else selectedInterestIDs.splice(index, 1);
     }
 
     function submitInterest() {
       //something to do with API
-      console.log(selectedInterests);
+      console.log(selectedInterestIDs);
     }
 
     function closeModal() {
       context.emit(CLOSE_MODAL);
     }
 
-    return { interests, toggleInterest, submitInterest, closeModal };
+    return { toggleInterest, submitInterest, closeModal };
   }
 });
 </script>

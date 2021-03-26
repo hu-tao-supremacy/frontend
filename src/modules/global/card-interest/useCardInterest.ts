@@ -4,16 +4,18 @@ export default function useCardInterest(
   props: Readonly<
     {
       interestName: string;
-      imgUrl: string;
+      img: string;
+      imgHash: string;
+      interestID: number;
     } & {}
   >,
-  context: SetupContext
+  context: SetupContext<"toggle-select"[]>
 ) {
   const isSelected = ref(false);
 
   function toggleSelect() {
     isSelected.value = !isSelected.value;
-    context.emit("toggle-select", props.interestName);
+    context.emit("toggle-select", props.interestID);
   }
 
   const gradientColor = computed(() => {

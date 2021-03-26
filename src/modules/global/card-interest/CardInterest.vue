@@ -12,7 +12,7 @@
       :width="200"
       :height="200"
       alt="will change to api"
-      :url="imgUrl"
+      :url="img"
       :placeholder="imgHash"
       class="h-full object-cover w-full relative z-0"
     />
@@ -37,15 +37,20 @@ export default defineComponent({
       type: String,
       required: true
     },
-    imgUrl: {
+    img: {
       type: String,
       required: true
     },
     imgHash: {
       type: String,
       default: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    },
+    interestID: {
+      type: Number,
+      required: true
     }
   },
+  emits: ["toggle-select"],
   setup(props, context) {
     const { gradientColor, toggleSelect, isSelected } = useCardInterest(
       props,

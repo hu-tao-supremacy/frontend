@@ -16,6 +16,7 @@
     >
     <ModalInterests
       v-if="showInterestModal"
+      :interests="test.interests"
       @close-modal="toggleModal('interest')"
     />
     <InfoBanner

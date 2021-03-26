@@ -1,12 +1,15 @@
 <template>
   <div
     class="h-12 w-16 text-center relative select-none cursor-pointer rounded-lg overflow-hidden"
-    :class="{ animationSelected: isSelected, animationUnselected: !isSelected }"
+    :class="{
+      'animation-selected': isSelected,
+      'animation-unselected': !isSelected
+    }"
     @click="toggleSelect"
   >
     <div
       class="from-transparent bg-gradient-to-b absolute top-0 left-0 w-full h-full z-10"
-      :class="gradientColor"
+      :class="{ 'to-primary': isSelected, 'to-gray-10-0.75': !isSelected }"
     ></div>
     <LazyImage
       :width="200"
@@ -24,7 +27,6 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import useCardInterest from "./useCardInterest";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 
 export default defineComponent({
@@ -45,25 +47,17 @@ export default defineComponent({
       type: String,
       default: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
     },
-    interestID: {
-      type: Number,
-      required: true
+    isSelected: {
+      type: Boolean,
+      required: true,
+      default: false
     }
-  },
-  emits: ["toggle-select"],
-  setup(props, context) {
-    const { gradientColor, toggleSelect, isSelected } = useCardInterest(
-      props,
-      context
-    );
-
-    return { gradientColor, toggleSelect, isSelected };
   }
 });
 </script>
 
 <style scoped>
-.animationSelected {
+.animation-selected {
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.12);
   animation: slide-up 0.3s ease-out forwards;
 }
@@ -78,7 +72,7 @@ export default defineComponent({
   }
 }
 
-.animationUnselected {
+.animation-unselected {
   box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.043);
   animation: slide-down 0.3s ease-out forwards;
 }

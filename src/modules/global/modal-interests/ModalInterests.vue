@@ -12,8 +12,8 @@
           :interestName="interest.name"
           :img="interest.img"
           :imgHash="interest.imgHash"
-          :interestID="interest.id"
-          @toggle-select="toggleInterest"
+          :isSelected="isSelected(interest.id)"
+          @click="toggleInterest(interest.id)"
         />
       </section>
       <section class="flex items-center self-end">
@@ -54,11 +54,14 @@ export default defineComponent({
   },
   emits: [CLOSE_MODAL],
   setup(_, context) {
-    const { toggleInterest, submitInterest, closeModal } = useModalInterests(
-      context
-    );
+    const {
+      toggleInterest,
+      isSelected,
+      submitInterest,
+      closeModal
+    } = useModalInterests(context);
 
-    return { toggleInterest, submitInterest, closeModal };
+    return { toggleInterest, isSelected, submitInterest, closeModal };
   }
 });
 </script>

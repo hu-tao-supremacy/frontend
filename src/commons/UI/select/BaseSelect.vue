@@ -37,7 +37,6 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { UPDATE_SEARCH_TEXT_MODEL } from "@/commons/constant/index";
 import useBaseSelect from "./useBaseSelect";
 
 export default defineComponent({
@@ -60,7 +59,7 @@ export default defineComponent({
       default: false
     }
   },
-  emits: [UPDATE_SEARCH_TEXT_MODEL],
+  emits: ["update:searchTextModel"],
   setup(props, context) {
     const {
       isOptionShown,

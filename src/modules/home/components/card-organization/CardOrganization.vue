@@ -26,7 +26,6 @@ import { defineComponent } from "vue";
 import useCardOrganization from "./useCardOrganization";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import { Org } from "@/commons/Interfaces/index";
-
 export default defineComponent({
   components: {
     LazyImage
@@ -40,7 +39,6 @@ export default defineComponent({
   },
   setup(props) {
     const { orgShortNameTextSize } = useCardOrganization(props.orgs.shortName);
-
     return {
       orgShortNameTextSize
     };

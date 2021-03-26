@@ -31,6 +31,7 @@ export default defineComponent({
       type: String
     }
   },
+  emits: ["close"],
   setup(props, context) {
     function closeModal() {
       context.emit("close");

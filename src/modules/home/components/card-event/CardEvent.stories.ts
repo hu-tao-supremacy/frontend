@@ -25,9 +25,12 @@ Primary.args = {
     title: "Chula Collective Investment",
     faculty: "Faculty of Engineering",
     day: 15,
+    date: '15 Feb',
     month: "Feb",
     time: "10:00-18:00",
     imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
-    img: "https://picsum.photos/300"
+    img: "https://picsum.photos/300",
+    description: 'Short description',
+    tags: ['Tech']
   }
 };

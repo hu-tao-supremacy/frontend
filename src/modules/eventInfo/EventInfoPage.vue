@@ -19,7 +19,7 @@
           <div class="text-lg font-heading mb-1">Event Schedule</div>
           <div class="overflow-y-auto overflow-x-hidden">
             <div
-              class="event-schedule-container rounded-lg flex flex-col justify-center items-center pt-1 bg-gray-2"
+              class="event-schedule-container rounded-lg flex flex-col justify-center items-center pt-1 px-1 bg-gray-2"
             >
               <EventSchedule
                 class="mb-1"

@@ -5,19 +5,15 @@ export default function useEventCarousel(events: Banner[]) {
   const currentIndex = ref(0);
   const transitionAnimation = ref("");
   let slideTimer: number | undefined;
-  const testEventProps = events;
 
   function startTimer() {
     slideTimer = window.setInterval(function() {
       transitionAnimation.value = "slide-down";
       const nextSlide =
-        currentIndex.value + 1 >= testEventProps.length
-          ? 0
-          : currentIndex.value + 1;
+        currentIndex.value + 1 >= events.length ? 0 : currentIndex.value + 1;
       currentIndex.value = nextSlide;
     }, 5000);
   }
-  startTimer();
 
   function resetTimer() {
     clearInterval(slideTimer);
@@ -34,7 +30,6 @@ export default function useEventCarousel(events: Banner[]) {
   }
 
   return {
-    testEventProps,
     currentIndex,
     transitionAnimation,
     changeSlide

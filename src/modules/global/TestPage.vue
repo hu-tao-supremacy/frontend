@@ -4,6 +4,13 @@
     <ModalSignUp v-if="showSignUpModal" @close-modal="toggleModal('signup')" />
     <base-button @click="toggleModal('login')">Show Log In Modal</base-button>
     <ModalLogIn v-if="showLogInModal" @close-modal="toggleModal('login')" />
+    <base-button @click="toggleModal('additionInfo')"
+      >Show Additional Modal</base-button
+    >
+    <ModalAdditionalInfo
+      v-if="showAdditionalInfoModal"
+      @close-modal="toggleModal('additionInfo')"
+    />
     <InfoBanner
       :style="{ maxWidth: '960px' }"
       :eventBanner="test.eventBanner"
@@ -29,6 +36,7 @@ import ModalLogIn from "./modal-log-in/ModalLogIn.vue";
 import InfoBanner from "@/modules/eventInfo/info-banner/InfoBanner.vue";
 import EventDetail from "@/modules/eventInfo/event-detail/EventDetail.vue";
 import EventOrganizer from "@/modules/eventInfo/event-organizer/EventOrganizer.vue";
+import ModalAdditionalInfo from "./modal-additional-info/ModalAdditionalInfo.vue";
 import testData from "./testData";
 
 export default defineComponent({
@@ -39,11 +47,13 @@ export default defineComponent({
     ModalLogIn,
     InfoBanner,
     EventDetail,
-    EventOrganizer
+    EventOrganizer,
+    ModalAdditionalInfo
   },
   setup() {
     const showSignUpModal = ref(false);
     const showLogInModal = ref(false);
+    const showAdditionalInfoModal = ref(false);
     const test = testData;
 
     function toggleModal(modal: string) {
@@ -54,6 +64,9 @@ export default defineComponent({
         case "login":
           showLogInModal.value = !showLogInModal.value;
           break;
+        case "additionInfo":
+          showAdditionalInfoModal.value = !showAdditionalInfoModal.value;
+          break;
       }
     }
 
@@ -61,6 +74,7 @@ export default defineComponent({
       showSignUpModal,
       toggleModal,
       showLogInModal,
+      showAdditionalInfoModal,
       test
     };
   }

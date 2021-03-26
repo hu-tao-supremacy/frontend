@@ -1,12 +1,11 @@
 <template>
-  <input
-    :type="type"
+  <textarea
+    :rows="rows"
     :value="modelValue"
     @input="userChange"
-    class="text-input border rounded-lg px-1.5 focus:border-primary focus:outline-none"
+    class="text-input border rounded-lg px-1.5 focus:border-primary focus:outline-none overflow-hidden"
     :class="{ 'border-gray-4': !isError, 'error-shadow border-red-5': isError }"
-    :disabled="disabled"
-  />
+  ></textarea>
 </template>
 
 <script lang="ts">
@@ -14,26 +13,20 @@ import { defineComponent } from "vue";
 import { UPDATE_MODEL_VALUE } from "@/commons/constant";
 
 export default defineComponent({
-  name: "BaseTextInput",
+  name: "BaseTextArea",
   props: {
-    type: {
-      type: String,
-      default: "text"
+    rows: {
+      type: Number
     },
     modelValue: {
       type: String,
       default: ""
-    },
-    disabled: {
-      type: Boolean,
-      default: false
     },
     isError: {
       type: Boolean,
       default: false
     }
   },
-  emits: ["update:modelValue"],
   setup(_, context) {
     function userChange(event: Event) {
       const target = event.target as HTMLInputElement;

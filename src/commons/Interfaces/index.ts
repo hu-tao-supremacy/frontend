@@ -28,6 +28,15 @@ export interface Org {
   fullName: string;
 }
 
+export interface District {
+  DISTRICT_ID: number;
+  DISTRICT_TH_NAME: string;
+  DISTRICT_ENG_NAME: string;
+  PROVINCE_ID: number;
+  GEO_ID: number;
+  ZIPCODE: string;
+}
+
 export interface Schedule {
   faculty: string;
   day: number;

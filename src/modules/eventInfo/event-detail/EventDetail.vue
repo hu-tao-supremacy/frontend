@@ -1,5 +1,7 @@
 <template>
-  <div class="flex flex-col rounded-2xl overflow-hidden py-2 px-3 bg-white shadow-sm">
+  <div
+    class="flex flex-col rounded-2xl overflow-hidden py-2 px-3 bg-white shadow-sm"
+  >
     <section class="mb-2">
       {{ eventDetail }}
     </section>

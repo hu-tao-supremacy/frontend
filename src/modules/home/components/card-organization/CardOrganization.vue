@@ -1,5 +1,7 @@
 <template>
-  <div class="card-org grid grid-cols-9 rounded-lg shadow-sm h-12 overflow-hidden">
+  <div
+    class="card-org grid grid-cols-9 rounded-lg shadow-sm h-12 overflow-hidden"
+  >
     <div class="col-span-4 min-h-full">
       <LazyImage
         :width="216"
@@ -36,9 +38,7 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const {
-      orgShortNameTextSize
-    } = useCardOrganization(props.orgs.shortName);
+    const { orgShortNameTextSize } = useCardOrganization(props.orgs.shortName);
     return {
       orgShortNameTextSize
     };

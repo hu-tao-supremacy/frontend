@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col mx-4 justify-center items-center w-full md:mx-0">
+  <div class="bg-gray-1 flex flex-col px-4 justify-center items-center w-full">
     <div class="container">
       <EventCarousel
         v-if="state.eventsList"
@@ -136,7 +136,7 @@ import CardOrganization from "./components/card-organization/CardOrganization.vu
 import EventCarousel from "./components/event-carousel/EventCarousel.vue";
 import BaseTransparentButton from "@/commons/UI/BaseTransparentButton.vue";
 import ArrowRightIcon from "@/assets/ArrowRight.vue";
-import { testData } from "./useHome/testData";
+import { testData } from "./use-home/testData";
 
 export default defineComponent({
   components: {

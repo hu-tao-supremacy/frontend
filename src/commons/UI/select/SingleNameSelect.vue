@@ -9,7 +9,7 @@
       :key="option.value"
       @click="changeOption(option)"
       class="p-1 border-gray-2"
-      :class="{ 'border-b': index !== filteredOptions.length - 1 }"
+      :class="{ 'border-b': !isLastOption(index) }"
     >
       {{ option.name }}
     </p>
@@ -46,6 +46,7 @@ export default defineComponent({
     const {
       searchText,
       changeOption,
+      isLastOption,
       displayedOption,
       filteredOptions
     } = useSingleNameSelect(props, context);
@@ -53,6 +54,7 @@ export default defineComponent({
     return {
       searchText,
       changeOption,
+      isLastOption,
       displayedOption,
       filteredOptions
     };

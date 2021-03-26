@@ -1,11 +1,14 @@
 export interface Event {
+  description: string;
   day: number;
+  date: string;
   month: string;
   time: string;
   title: string;
   faculty: string;
   imgHash: string;
   img: string;
+  tags: Array<string>;
 }
 export interface Banner {
   title: string;
@@ -32,4 +35,11 @@ export interface District {
   PROVINCE_ID: number;
   GEO_ID: number;
   ZIPCODE: string;
+}
+
+export interface Schedule {
+  faculty: string;
+  day: number;
+  month: string;
+  time: string;
 }

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-screen h-screen bg-gray-4 fixed inset-0 z-50 bg-opacity-50 flex justify-center items-start pt-18"
+    class="w-screen h-screen bg-gray-4 fixed inset-0 z-50 bg-opacity-50 flex justify-center items-center"
   >
     <section
       class="bg-white relative px-8 pt-8 pb-4 rounded-2xl inline-block w-full"

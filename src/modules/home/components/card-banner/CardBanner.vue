@@ -54,7 +54,7 @@
             class="mr-1.5"
             ><PinIcon
           /></base-icon>
-          {{ event.location }}
+          {{ event.faculty }}
         </div>
       </section>
       <base-button class="w-4/5 h-5">Get Tickets</base-button>
@@ -70,7 +70,7 @@ import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import PinIcon from "@/assets/MapPin.vue";
 import ClockIcon from "@/assets/Clock.vue";
 import CalendarIcon from "@/assets/Calendar.vue";
-import { Banner } from "@/commons/Interfaces/index";
+import { Event } from "@/commons/Interfaces/index";
 
 export default defineComponent({
   name: "CardBanner",
@@ -84,7 +84,7 @@ export default defineComponent({
   },
   props: {
     event: {
-      type: Object as () => Banner
+      type: Object as () => Event
     }
   },
   setup(props){

@@ -1,11 +1,7 @@
 <template>
-  <div
-    class="bg-gray-1 flex flex-col p-4 justify-center items-center w-full"
-  >
+  <div class="bg-gray-1 flex flex-col p-4 justify-center items-center w-full">
     <div class="container">
-      <InfoBanner
-        :eventBanner="test.eventBanner"
-      />
+      <InfoBanner :eventBanner="test.eventBanner" />
       <div class="text-4xl font-heading mt-7">Event Information</div>
       <div class="event w-full mt-3 grid gap-4">
         <div class="flex flex-col">
@@ -26,7 +22,7 @@
               class="event-schedule-container rounded-lg flex flex-col justify-center items-center pt-1 bg-gray-2"
             >
               <EventSchedule
-                class="event-schedule mb-1"
+                class="mb-1"
                 v-for="schedule in test.eventsSchedule"
                 :key="schedule.id"
                 :eventsSchedule="schedule"
@@ -71,14 +67,10 @@ export default defineComponent({
 .event {
   grid-template-columns: auto auto;
 }
-.event-inner{
+.event-inner {
   max-width: 629px;
 }
 .event-schedule-container {
   width: 299px;
-}
-
-.event-schedule {
-  max-width: 283px;
 }
 </style>

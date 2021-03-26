@@ -45,7 +45,7 @@ import InfoBanner from "@/modules/eventInfo/info-banner/InfoBanner.vue";
 import EventDetail from "@/modules/eventInfo/event-detail/EventDetail.vue";
 import EventOrganizer from "@/modules/eventInfo/event-organizer/EventOrganizer.vue";
 import EventSchedule from "@/modules/eventInfo/event-schedule/EventSchedule.vue";
-import testData from "@/modules/eventInfo/useEventInfo/testData";
+import testData from "@/modules/eventInfo/use-event-info/testData";
 
 export default defineComponent({
   name: "EventInfoPage",

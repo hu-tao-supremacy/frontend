@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-gray-1 flex flex-col mx-4 justify-center items-center py-4 w-full md:mx-0"
+    class="bg-gray-1 flex flex-col p-4 justify-center items-center w-full"
   >
     <div class="container">
       <InfoBanner

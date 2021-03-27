@@ -47,12 +47,12 @@
     >
       <div
         class="circle circle-top w-full h-3 rounded-b-full mb-1.5"
-        :class="bgColor"
+        :class="parentBgColor"
       ></div>
       <div class="dash-line h-full w-px"></div>
       <div
         class="circle circle-bottom w-full h-3 rounded-t-full mt-1.5"
-        :class="bgColor"
+        :class="parentBgColor"
       ></div>
     </section>
     <section
@@ -138,7 +138,7 @@ export default defineComponent({
       required: true,
       default: "000000"
     },
-    bgColor: {
+    parentBgColor: {
       type: String,
       default: "bg-white"
     }

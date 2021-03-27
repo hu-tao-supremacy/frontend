@@ -82,7 +82,7 @@
         :event="ticket.event"
         :organization="ticket.organization"
         :ticketID="ticket.ticketID"
-        :bgColor="'bg-white'"
+        :parentBgColor="'bg-white'"
         :class="{ 'mb-2': index != ongoingTickets.length - 1 }"
       />
       <TicketComponent

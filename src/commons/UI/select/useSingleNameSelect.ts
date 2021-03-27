@@ -41,9 +41,14 @@ export default function useSingleNameSelect(
     return filteredOptions;
   });
 
+  function isLastOption(index: number) {
+    return index === filteredOptions.value.length;
+  }
+
   return {
     searchText,
     changeOption,
+    isLastOption,
     displayedOption,
     filteredOptions
   };

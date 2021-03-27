@@ -54,7 +54,7 @@
             class="mr-1.5"
             ><PinIcon
           /></base-icon>
-          {{ event.location }}
+          {{ event.faculty }}
         </div>
       </section>
       <base-button class="w-4/5 h-5">Get Tickets</base-button>

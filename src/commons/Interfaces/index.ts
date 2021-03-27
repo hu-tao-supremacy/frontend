@@ -1,4 +1,17 @@
 export interface Event {
+  description: string;
+  day: number;
+  date: string;
+  month: string;
+  time: string;
+  title: string;
+  faculty: string;
+  imgHash: string;
+  img: string;
+  tags: Array<string>;
+}
+
+export interface Banner {
   title: string;
   description: string;
   date: string;
@@ -43,4 +56,18 @@ export interface Profile {
   like: number;
   ticket: number;
   following: number;
+}
+
+export interface Schedule {
+  faculty: string;
+  day: number;
+  month: string;
+  time: string;
+}
+
+export interface Interest {
+  id: number;
+  name: string;
+  img: string;
+  imgHash: string;
 }

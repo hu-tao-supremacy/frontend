@@ -17,6 +17,14 @@
       v-if="showAdditionalInfoModal"
       @close-modal="toggleModal('additionInfo')"
     />
+    <base-button @click="toggleModal('interest')"
+      >Show Interests Modal</base-button
+    >
+    <ModalInterests
+      v-if="showInterestModal"
+      :interests="test.interests"
+      @close-modal="toggleModal('interest')"
+    />
     <InfoBanner
       :style="{ maxWidth: '960px' }"
       :eventBanner="test.eventBanner"
@@ -53,6 +61,7 @@ import ModalAdditionalInfo from "./modal-additional-info/ModalAdditionalInfo.vue
 import Ticket from "@/modules/wallet/ticket/Ticket.vue";
 import Wallet from "@/modules/wallet/wallet/Wallet.vue";
 import { testData, walletData } from "./testData";
+import ModalInterests from "./modal-interests/ModalInterests.vue";
 
 export default defineComponent({
   name: "TestPage",
@@ -65,12 +74,14 @@ export default defineComponent({
     EventOrganizer,
     ModalAdditionalInfo,
     Ticket,
-    Wallet
+    Wallet,
+    ModalInterests
   },
   setup() {
     const showSignUpModal = ref(false);
     const showLogInModal = ref(false);
     const showAdditionalInfoModal = ref(false);
+    const showInterestModal = ref(false);
     const test = testData;
     const wallet = walletData;
 
@@ -85,6 +96,9 @@ export default defineComponent({
         case "additionInfo":
           showAdditionalInfoModal.value = !showAdditionalInfoModal.value;
           break;
+        case "interest":
+          showInterestModal.value = !showInterestModal.value;
+          break;
       }
     }
 
@@ -94,7 +108,8 @@ export default defineComponent({
       showLogInModal,
       showAdditionalInfoModal,
       test,
-      wallet
+      wallet,
+      showInterestModal
     };
   }
 });

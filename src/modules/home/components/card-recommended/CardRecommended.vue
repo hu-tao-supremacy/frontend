@@ -27,11 +27,13 @@
             {{ recommended.time }}
           </div>
           <div
-            class="event-name w-full font-heading text-xl leading-6 truncate"
+            class="event-name w-full font-heading text-lg leading-6 truncate"
           >
             {{ recommended.title }}
           </div>
-          <div class="event-faculty w-full text-blue-10 truncate">
+          <div
+            class="event-faculty w-full text-blue-10 text-sm mt-0.5 truncate"
+          >
             {{ recommended.faculty }}
           </div>
         </div>
@@ -54,10 +56,8 @@
 import { defineComponent } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import ArrowRightIcon from "@/assets/ArrowRight.vue";
-import useCardRecommended from "./useCardRecommended";
 import { Event } from "@/commons/Interfaces/index";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
-
 export default defineComponent({
   components: {
     LazyImage,
@@ -68,25 +68,6 @@ export default defineComponent({
     recommended: {
       type: Object as () => Event
     }
-  },
-  setup() {
-    const {
-      imgUrl,
-      eventTitle,
-      eventDay,
-      eventMonth,
-      eventTime,
-      eventFaculty
-    } = useCardRecommended();
-
-    return {
-      imgUrl,
-      eventTitle,
-      eventDay,
-      eventMonth,
-      eventTime,
-      eventFaculty
-    };
   }
 });
 </script>
@@ -105,7 +86,6 @@ export default defineComponent({
 .event-image {
   width: 299px;
 }
-
 .btn {
   height: 38px;
   width: 38px;

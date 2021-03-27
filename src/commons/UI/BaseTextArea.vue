@@ -27,6 +27,7 @@ export default defineComponent({
       default: false
     }
   },
+  emits: [UPDATE_MODEL_VALUE],
   setup(_, context) {
     function userChange(event: Event) {
       const target = event.target as HTMLInputElement;

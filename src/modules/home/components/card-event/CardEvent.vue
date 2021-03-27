@@ -23,10 +23,10 @@
         class="event-detail w-26 flex flex-col items-start bg-white px-2 py-1 rounded-br-lg "
       >
         <div class="event-duration text-primary">{{ events.time }}</div>
-        <div class="event-name w-full font-heading text-xl leading-6 truncate">
+        <div class="event-name w-full font-heading text-lg leading-6 truncate">
           {{ events.title }}
         </div>
-        <div class="event-faculty w-full text-blue-10 truncate">
+        <div class="event-faculty w-full text-blue-10 text-sm truncate mt-0.5">
           {{ events.faculty }}
         </div>
       </div>
@@ -36,10 +36,8 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import useCardEvent from "./useCardEvent";
 import { Event } from "@/commons/Interfaces/index";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
-
 export default defineComponent({
   components: {
     LazyImage
@@ -48,25 +46,6 @@ export default defineComponent({
     events: {
       type: Object as () => Event
     }
-  },
-  setup() {
-    const {
-      imgUrl,
-      eventTitle,
-      eventDay,
-      eventMonth,
-      eventTime,
-      eventFaculty
-    } = useCardEvent();
-
-    return {
-      imgUrl,
-      eventTitle,
-      eventDay,
-      eventMonth,
-      eventTime,
-      eventFaculty
-    };
   }
 });
 </script>

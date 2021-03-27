@@ -19,7 +19,6 @@
 import { computed, defineComponent } from "vue";
 import BaseTransparentButton from "./BaseTransparentButton.vue";
 import XIcon from "@/assets/X.vue";
-import { CLOSE_MODAL } from "../constant";
 
 export default defineComponent({
   name: "BaseModal",
@@ -32,9 +31,10 @@ export default defineComponent({
       type: String
     }
   },
+  emits: ["close"],
   setup(props, context) {
     function closeModal() {
-      context.emit(CLOSE_MODAL);
+      context.emit("close");
     }
 
     const hasMaxModalWidth = computed(() => {

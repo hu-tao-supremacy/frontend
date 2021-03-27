@@ -1,5 +1,4 @@
 import { ref, SetupContext, watch } from "vue";
-import { UPDATE_SEARCH_TEXT_MODEL } from "@/commons/constant/index";
 
 export default function useBaseSelect(
   props: Readonly<
@@ -26,7 +25,7 @@ export default function useBaseSelect(
 
   function userChangeSearch(event: Event) {
     const target = event.target as HTMLInputElement;
-    context.emit(UPDATE_SEARCH_TEXT_MODEL, target.value);
+    context.emit("update:searchTextModel", target.value);
   }
 
   watch(

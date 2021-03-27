@@ -1,5 +1,5 @@
 <template>
-  <base-modal @close-modal="closeModal">
+  <base-modal @close="closeModal">
     <div class="flex flex-col">
       <section class="mb-2">
         <h1 class="font-heading text-3xl">Log in</h1>
@@ -27,12 +27,12 @@ import { CLOSE_MODAL } from "@/commons/constant";
 
 export default defineComponent({
   name: "ModalLogIn",
-  emits: [CLOSE_MODAL],
   components: {
     BaseModal,
     BaseTextInput,
     BaseButton
   },
+  emits: [CLOSE_MODAL],
   setup(_, context) {
     function closeModal() {
       context.emit(CLOSE_MODAL);

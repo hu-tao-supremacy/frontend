@@ -5,7 +5,7 @@
     <div class="font-heading text-3xl">
       Ticket ID:<span class="text-primary ml-2">{{ ticket.id }}</span>
     </div>
-    <qrcode-vue class='mt-4' :value="ticket.id" size="300" renderAs="svg" />
+    <qrcode-vue class="mt-4" :value="ticket.id" size="300" renderAs="svg" />
     <div class="flex flex-col self-start mt-11">
       <div class="font-heading text-xl">Owner's Information</div>
       <div class="flex mt-2">
@@ -19,9 +19,7 @@
             class="object-cover w-full h-full"
           />
         </div>
-        <div
-          class="flex flex-col justify-center font-heading text-lg mr-2 "
-        >
+        <div class="flex flex-col justify-center font-heading text-lg mr-2 ">
           <div>Name:</div>
           <div class="mt-0.5">Email:</div>
           <div class="mt-0.5">Phone:</div>

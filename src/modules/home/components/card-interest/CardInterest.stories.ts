@@ -3,7 +3,7 @@ import "@/index.css";
 import { Story } from "@storybook/vue3";
 
 interface PropTypes {
-  imgHash: string,
+  imgHash: string;
   imgUrl: string;
   interestName: string;
 }

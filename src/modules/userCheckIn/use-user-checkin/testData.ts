@@ -10,7 +10,8 @@ const testData = {
   },
   ticket: {
     id: "175FD57",
-    profileImg: "https://cdn.myanimelist.net/images/userimages/10056043.jpg?t=1616259000",
+    profileImg:
+      "https://cdn.myanimelist.net/images/userimages/10056043.jpg?t=1616259000",
     profileImgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
     ownerName: "Summa Tongerring",
     ownerEmail: "6969669699@student.chula.ac.th",

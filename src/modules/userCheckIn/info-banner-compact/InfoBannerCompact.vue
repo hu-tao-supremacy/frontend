@@ -95,7 +95,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.event{
-  top: -40px
+.event {
+  top: -40px;
 }
 </style>

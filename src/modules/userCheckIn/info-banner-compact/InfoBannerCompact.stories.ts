@@ -1,10 +1,10 @@
-import InfoBannerTransparent from "./InfoBannerTransparent.vue";
+import InfoBannerCompact from "./InfoBannerCompact.vue";
 import "@/index.css";
 import { Story } from "@storybook/vue3";
 
 export default {
-  title: "UserCheckIn/InfoBannerTransparent",
-  component: InfoBannerTransparent
+  title: "UserCheckIn/InfoBannerCompact",
+  component: InfoBannerCompact
 };
 
 interface PropTypes {
@@ -20,11 +20,11 @@ interface PropTypes {
 }
 
 const Template: Story<PropTypes> = args => ({
-  components: { InfoBannerTransparent },
+  components: { InfoBannerCompact },
   setup() {
     return { args };
   },
-  template: '<InfoBannerTransparent v-bind="args" :style="{maxWidth:`960px`}"/>'
+  template: '<InfoBannerCompact v-bind="args" :style="{maxWidth:`960px`}"/>'
 });
 
 export const Primary = Template.bind({});

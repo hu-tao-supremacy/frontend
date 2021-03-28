@@ -11,7 +11,6 @@ import PageNavbar from "./commons/UI/page-navbar/PageNavbar.vue";
 import apolloClient from "./apollo/client";
 import { DefaultApolloClient } from "@vue/apollo-composable";
 
-// test
 export default defineComponent({
   name: "App",
   components: {

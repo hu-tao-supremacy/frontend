@@ -147,7 +147,7 @@ export default defineComponent({
     BaseTransparentButton,
     ArrowRightIcon
   },
-
+  //test
   setup() {
     const { state, showModal, toggleModal, upcomingEvents } = useHome();
 

@@ -1,7 +1,7 @@
 <template>
   <div class="bg-gray-1 flex flex-col p-4 justify-center items-center w-full">
     <div class="container">
-      <InfoBannerTransparent :eventBanner="test.eventBanner" />
+      <InfoBannerCompact :eventBanner="test.eventBanner" />
       <TicketQR class='mt-3' :ticket="test.ticket"/>
     </div>
   </div>
@@ -9,14 +9,14 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import InfoBannerTransparent from "@/modules/userCheckIn/info-banner-transparent/InfoBannerTransparent.vue";
+import InfoBannerCompact from "@/modules/userCheckIn/info-banner-compact/InfoBannerCompact.vue";
 import TicketQR from "@/modules/userCheckIn/ticket-qr/TicketQR.vue"
 import testData from "@/modules/userCheckIn/use-user-checkin/testData";
 
 export default defineComponent({
   name: "UserCheckInPage",
   components: {
-    InfoBannerTransparent,
+    InfoBannerCompact,
     TicketQR
   },
   setup() {

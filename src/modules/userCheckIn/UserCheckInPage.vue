@@ -20,6 +20,7 @@ export default defineComponent({
     TicketQR
   },
   setup() {
+    console.log("test");
     const test = testData;
     return {
       test

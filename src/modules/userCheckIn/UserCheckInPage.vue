@@ -7,6 +7,8 @@
   </div>
 </template>
 
+// test
+
 <script lang="ts">
 import { defineComponent } from "vue";
 import InfoBannerCompact from "@/modules/userCheckIn/info-banner-compact/InfoBannerCompact.vue";

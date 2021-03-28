@@ -33,6 +33,8 @@ Primary.args = {
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac libero pellentesque, hendrerit eros vitae, malesuada nisi. Nam tempus dolor vitae mauris luctus aliquet. Sed et finibus erat.",
         date: "Sun, 14 Feb - 16 April",
+        day: 14, 
+        month: 'Feb',
         time: "10:00 - 18:00",
         location: "Engineering Faculty, Chula",
         faculty: "ISE",

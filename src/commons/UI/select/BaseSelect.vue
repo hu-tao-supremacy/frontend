@@ -9,7 +9,6 @@
       }"
       v-model="userInput"
       @focus="showOption"
-      v-click-outside="hideOption"
       @input="userChangeSearch"
       placeholder="Select Option"
       type="text"

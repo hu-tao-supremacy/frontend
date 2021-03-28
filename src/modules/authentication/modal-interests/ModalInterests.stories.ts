@@ -11,7 +11,7 @@ interface PropTypes {
 }
 
 export default {
-  title: "Global/ModalInterests",
+  title: "Authentication/ModalInterests",
   component: ModalInterests
 };
 

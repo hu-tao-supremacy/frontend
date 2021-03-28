@@ -129,14 +129,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref } from "vue";
+import { defineComponent, watch } from "vue";
 import CardEvent from "./components/card-event/CardEvent.vue";
 import CardRecommended from "./components/card-recommended/CardRecommended.vue";
 import CardOrganization from "./components/card-organization/CardOrganization.vue";
 import EventCarousel from "./components/event-carousel/EventCarousel.vue";
 import BaseTransparentButton from "@/commons/UI/BaseTransparentButton.vue";
 import ArrowRightIcon from "@/assets/ArrowRight.vue";
-import { testData } from "./use-home/testData";
+import useHome from "./useHome";
 
 export default defineComponent({
   components: {
@@ -149,12 +149,12 @@ export default defineComponent({
   },
 
   setup() {
-    const state = reactive(testData);
-    const showModal = ref(false);
+    const { state, showModal, toggleModal, upcomingEvents } = useHome();
 
-    function toggleModal() {
-      showModal.value = !showModal.value;
-    }
+    // for demo only
+    watch(upcomingEvents, () => {
+      console.log(upcomingEvents.value);
+    });
 
     return { state, showModal, toggleModal };
   }

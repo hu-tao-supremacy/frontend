@@ -8,7 +8,7 @@ app.component("base-icon", BaseIcon);
 app.directive("clickOutside", VClickOutside);
 
 export default {
-  title: "Global/ModalAdditionalInfo",
+  title: "Authentication/ModalAdditionalInfo",
   component: ModalAdditionalInfo
 };
 

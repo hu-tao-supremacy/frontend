@@ -37,16 +37,28 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineAsyncComponent, defineComponent, ref } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
-import ModalSignUp from "./modal-sign-up/ModalSignUp.vue";
-import ModalLogIn from "./modal-log-in/ModalLogIn.vue";
 import InfoBanner from "@/modules/eventInfo/info-banner/InfoBanner.vue";
 import EventDetail from "@/modules/eventInfo/event-detail/EventDetail.vue";
 import EventOrganizer from "@/modules/eventInfo/event-organizer/EventOrganizer.vue";
-import ModalAdditionalInfo from "./modal-additional-info/ModalAdditionalInfo.vue";
-import ModalInterests from "./modal-interests/ModalInterests.vue";
 import testData from "./testData";
+
+const ModalLogIn = defineAsyncComponent(() =>
+  import("./modal-log-in/ModalLogIn.vue")
+);
+
+const ModalInterests = defineAsyncComponent(() =>
+  import("./modal-interests/ModalInterests.vue")
+);
+
+const ModalSignUp = defineAsyncComponent(() =>
+  import("./modal-sign-up/ModalSignUp.vue")
+);
+
+const ModalAdditionalInfo = defineAsyncComponent(() =>
+  import("./modal-additional-info/ModalAdditionalInfo.vue")
+);
 
 export default defineComponent({
   name: "TestPage",

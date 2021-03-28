@@ -85,7 +85,10 @@
               class="w-full h-3.5"
               :isError="!isValidLocation"
             />
-            <p v-if="!isValidEmail" class="text-sm text-red-5 mt-0.25 ml-1.5">
+            <p
+              v-if="!isValidLocation"
+              class="text-sm text-red-5 mt-0.25 ml-1.5"
+            >
               Please select district
             </p>
           </div>

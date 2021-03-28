@@ -1,5 +1,5 @@
 <template>
-  <div class="relative">
+  <div v-click-outside="hideOption" class="relative">
     <input
       v-if="isSearchable"
       class="displayed-area border rounded-lg px-1.5 focus:border-primary focus:outline-none w-full h-full"
@@ -9,7 +9,6 @@
       }"
       v-model="userInput"
       @focus="showOption"
-      v-click-outside="hideOption"
       @input="userChangeSearch"
       placeholder="Select Option"
       type="text"
@@ -23,7 +22,6 @@
       }"
       :value="buttonDisplay"
       @click="showOption"
-      v-click-outside="hideOption"
       type="button"
     />
     <section

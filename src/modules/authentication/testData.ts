@@ -236,4 +236,8 @@ export const walletData = {
   historyTickets: [ticket, ticket]
 };
 
+export const questionData = {
+  text: "What you like in these activities?"
+};
+
 export default testData;

@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gray-1 p-2">
-    <QuestionText />
+    <QuestionText :question="question.text" />
     <base-button @click="toggleModal('signup')">Show Sign Up Modal</base-button>
     <ModalSignUp v-if="showSignUpModal" @close-modal="toggleModal('signup')" />
     <base-button @click="toggleModal('login')">Show Log In Modal</base-button>
@@ -46,7 +46,7 @@ import InfoBanner from "@/modules/eventInfo/info-banner/InfoBanner.vue";
 import EventDetail from "@/modules/eventInfo/event-detail/EventDetail.vue";
 import EventOrganizer from "@/modules/eventInfo/event-organizer/EventOrganizer.vue";
 import ModalAdditionalInfo from "./modal-additional-info/ModalAdditionalInfo.vue";
-import { testData, walletData } from "./testData";
+import { testData, walletData, questionData } from "./testData";
 import ModalInterests from "./modal-interests/ModalInterests.vue";
 import QuestionText from "@/modules/question/question-text/QuestionText.vue";
 
@@ -70,6 +70,7 @@ export default defineComponent({
     const showInterestModal = ref(false);
     const test = testData;
     const wallet = walletData;
+    const question = questionData;
 
     function toggleModal(modal: string) {
       switch (modal) {
@@ -95,7 +96,8 @@ export default defineComponent({
       showAdditionalInfoModal,
       test,
       wallet,
-      showInterestModal
+      showInterestModal,
+      question
     };
   }
 });

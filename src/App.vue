@@ -1,7 +1,9 @@
 <template>
-  <PageNavbar />
-  <router-view></router-view>
-  <PageFooter />
+  <div class="flex flex-col justify-between h-full">
+    <PageNavbar />
+    <router-view></router-view>
+    <PageFooter />
+  </div>
 </template>
 
 <script lang="ts">

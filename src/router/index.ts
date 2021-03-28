@@ -3,6 +3,7 @@ import Home from "../modules/home/Home.vue";
 
 const Test = () => import("@/modules/global/TestPage.vue");
 const EventInfo = () => import("@/modules/eventInfo/EventInfoPage.vue");
+const UserCheckIn = () => import("@/modules/userCheckIn/UserCheckInPage.vue");
 
 const router = createRouter({
   history: createWebHistory(),
@@ -18,6 +19,10 @@ const router = createRouter({
     {
       path: "/event",
       component: EventInfo
+    },
+    {
+      path: "/user-checkin",
+      component: UserCheckIn
     }
   ]
 });

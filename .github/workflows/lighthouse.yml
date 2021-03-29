@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: "12"
       - uses: actions/setup-node@v2
-      - run: npm install -g @lhci/cli@0.7.x
+      - run: sudo npm install -g @lhci/cli@0.7.x
       - run: yarn
       - run: yarn build
       - run: yarn lhci autorun \

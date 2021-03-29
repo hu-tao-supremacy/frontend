@@ -23,9 +23,9 @@ jobs:
       - run: yarn build
       - run: lhci autorun \
           --collect.startServerCommand="vue-cli-service serve --mode=production" \
-          --collect.url="http://localhost:8080/"` \
-          --collect.url="http://localhost:8080/test"` \
-          --collect.url="http://localhost:8080/event"` \
-          --collect.url="http://localhost:8080/user-checkin"`
+          --collect.url="http://localhost:8080/" \
+          --collect.url="http://localhost:8080/test" \
+          --collect.url="http://localhost:8080/event" \
+          --collect.url="http://localhost:8080/user-checkin"
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}

@@ -20,7 +20,7 @@ jobs:
       - uses: actions/setup-node@v2
       - run: sudo npm install -g @lhci/cli@0.7.x
       - run: sudo npm install -g local-web-server
-      - run: yarn
+      - run: yarn install --frozen-lockfile
       - run: yarn build
       - run: lhci autorun --collect.startServerCommand="ws --directory ./dist/ --http2 --compress --spa index.html"
         env:

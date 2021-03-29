@@ -24,9 +24,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
 import BaseRadio from "@/commons/UI/BaseRadio.vue";
 import { USER_INPUT } from "@/commons/constant";
+import useQuestionRadio from "./useQuestionRadio";
 
 export default defineComponent({
   name: "QuestionRadio",
@@ -41,17 +42,12 @@ export default defineComponent({
   },
   emits: [USER_INPUT],
   setup(_, context) {
-    const values = [1, 2, 3, 4, 5];
-    const currentValue = ref(-1);
-
-    function changeCurrentValue(value: number) {
-      currentValue.value = value;
-      context.emit(USER_INPUT, currentValue.value);
-    }
-
-    function isCurrentValue(value: number) {
-      return currentValue.value === value;
-    }
+    const {
+      values,
+      currentValue,
+      changeCurrentValue,
+      isCurrentValue
+    } = useQuestionRadio(_, context);
 
     return { values, currentValue, changeCurrentValue, isCurrentValue };
   }

@@ -15,9 +15,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
 import BaseTextInput from "@/commons/UI/BaseTextInput.vue";
 import { USER_INPUT } from "@/commons/constant";
+import useQuestionText from "./useQuestionText";
 
 export default defineComponent({
   name: "QuestionText",
@@ -32,11 +33,7 @@ export default defineComponent({
   },
   emits: [USER_INPUT],
   setup(_, context) {
-    const userAnswer = ref("");
-
-    function userChange() {
-      context.emit(USER_INPUT, userAnswer.value);
-    }
+    const { userAnswer, userChange } = useQuestionText(_, context);
 
     return { userAnswer, userChange };
   }

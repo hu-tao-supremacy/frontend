@@ -1,19 +1,20 @@
 import { useQuery } from "@vue/apollo-composable";
 import gql from "graphql-tag";
-import { Event } from '@/apollo/types'
+import { Event } from "@/apollo/types";
 
-export const useUpcomingEvents = () => useQuery<Event[]>(gql`
+export const useUpcomingEvents = () =>
+  useQuery<Event[]>(gql`
     query getUpcomingEvents {
       upcomingEvents {
         description
         name
         location {
-            name
+          name
         }
         profileImageUrl
         profileImageHash
         tags {
-            name
+          name
         }
       }
     }

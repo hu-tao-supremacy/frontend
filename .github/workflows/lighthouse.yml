@@ -13,6 +13,8 @@ on:
 jobs:
   lighthouseci:
     runs-on: ubuntu-latest
+    env:
+      LHCI_SERVER_TOKEN: ${{ secrets.LHCI_SERVER_TOKEN }}
     steps:
       - uses: actions/checkout@v2
         with:

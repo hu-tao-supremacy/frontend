@@ -1,18 +1,26 @@
 <template>
-  <img :class="className" @load="onLoadComplete" :src="url" :alt="alt" />
-  <!-- <canvas
+  <img
+    v-show="isloaded"
+    :class="className"
+    @load="onLoadComplete"
+    :src="url"
+    :alt="alt"
+    :width="width"
+    :height="height"
+  />
+  <canvas
     class="w-full h-full focus:outline-none"
     v-show="!isloaded"
     ref="canvasRef"
-    :width="width"
-    :height="height"
+    :width="canvasWidth"
+    :height="canvasHeight"
     tabindex="0"
-  ></canvas> -->
+  ></canvas>
 </template>
 
 <script lang="ts">
 import { defineComponent, toRefs } from "vue";
-// import useLazyImage from "./useLazyImage";
+import useLazyImage from "./useLazyImage";
 
 export default defineComponent({
   name: "LazyImage",
@@ -27,26 +35,32 @@ export default defineComponent({
     },
     width: {
       type: Number,
+      Number,
       required: true
     },
     height: { type: Number, required: true },
+    canvasWidth: {
+      type: Number,
+      default: 32
+    },
+    canvasHeight: { type: Number, default: 32 },
     alt: { type: String, required: true },
     class: { type: String }
   },
-  setup() {
-    // const { width, height, placeholder } = toRefs(props);
-    // const { canvasRef, isloaded, onLoadComplete, className } = useLazyImage(
-    //   width,
-    //   height,
-    //   placeholder,
-    //   props.class
-    // );
-    // return {
-    //   canvasRef,
-    //   isloaded,
-    //   onLoadComplete,
-    //   className
-    // };
+  setup(props) {
+    const { canvasWidth, canvasHeight, placeholder } = toRefs(props);
+    const { canvasRef, isloaded, onLoadComplete, className } = useLazyImage(
+      canvasWidth,
+      canvasHeight,
+      placeholder,
+      props.class
+    );
+    return {
+      canvasRef,
+      isloaded,
+      onLoadComplete,
+      className
+    };
   }
 });
 </script>

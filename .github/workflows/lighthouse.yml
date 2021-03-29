@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [dev, master]
+  pull_request:
+    branches: [dev, master]
+
+  workflow_dispatch:
+
+jobs:
+  lighthouseci:
+    runs-on: ubuntu-latest
+    env:
+      LHCI_SERVER_TOKEN: ${{ secrets.LHCI_SERVER_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          node-version: "12"
+      - uses: actions/setup-node@v2
+      - run: sudo npm install -g @lhci/cli@0.7.x
+      - run: sudo npm install -g local-web-server
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
+      - run: lhci autorun --collect.startServerCommand="ws --directory ./dist/ --http2 --compress --spa index.html"
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}

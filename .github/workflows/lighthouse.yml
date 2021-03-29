@@ -14,6 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-      - run: yarn && yarn -g @lhci/cli@0.7.x
+      - run: yarn && yarn global add @lhci/cli@0.7.x
       - run: yarn build
       - run: lhci autorun

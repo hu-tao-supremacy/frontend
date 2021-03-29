@@ -20,11 +20,6 @@ jobs:
       - uses: actions/setup-node@v2
       - run: yarn && yarn add @lhci/cli@0.7.x
       - run: yarn build
-      - run: yarn lhci autorun \
-          --collect.startServerCommand="vue-cli-service serve --mode=production" \
-          --collect.url="http://localhost:8080/"` \
-          --collect.url="http://localhost:8080/test"` \
-          --collect.url="http://localhost:8080/event"` \
-          --collect.url="http://localhost:8080/user-checkin"`
+      - run: yarn lhci autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}

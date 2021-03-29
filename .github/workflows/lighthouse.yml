@@ -21,11 +21,6 @@ jobs:
       - run: sudo npm install -g @lhci/cli@0.7.x
       - run: yarn
       - run: yarn build
-      - run: lhci autorun \
-          --collect.startServerCommand="yarn serve --mode=production" \
-          --collect.url="http://localhost:8080/" \
-          --collect.url="http://localhost:8080/test/" \
-          --collect.url="http://localhost:8080/event/" \
-          --collect.url="http://localhost:8080/user-checkin/"
+      - run: lhci autorun --collect.startServerCommand="yarn serve --mode=production"
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}

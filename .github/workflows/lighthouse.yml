@@ -4,7 +4,7 @@ on:
   # Triggers the workflow on push or pull request events but only for the dev branch
   # push:
   #   branches: [feat/light-house]
-  pull-request:
+  pull_request:
     branches: [dev]
 
   # Allows you to run this workflow manually from the Actions tab

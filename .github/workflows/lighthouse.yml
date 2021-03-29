@@ -22,6 +22,6 @@ jobs:
       - run: sudo npm install -g serve
       - run: yarn
       - run: yarn build
-      - run: lhci autorun --collect.startServerCommand="serve -s dist"
+      - run: lhci autorun --collect.startServerCommand="serve -s dist -l 8080"
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}

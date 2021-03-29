@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-const Home = () => import("@/modules/home/Home.vue");
+import Home from "@/modules/home/Home.vue";
 const Test = () => import("@/modules/global/TestPage.vue");
 const EventInfo = () => import("@/modules/eventInfo/EventInfoPage.vue");
 const UserCheckIn = () => import("@/modules/userCheckIn/UserCheckInPage.vue");

@@ -237,7 +237,8 @@ export const walletData = {
 };
 
 export const questionData = {
-  text: "What you like in these activities?"
+  text: "What you like in these activities?",
+  radio: "I learned useful knowledge from these activities."
 };
 
 export default testData;

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="rounded-full border p-0.25 flex"
+    class="rounded-full border p-0.25 flex cursor-pointer"
     :class="{ 'border-gray-4': !isChecked, 'border-primary': isChecked }"
   >
     <div v-show="isChecked" class="w-full h-full rounded-full bg-primary"></div>

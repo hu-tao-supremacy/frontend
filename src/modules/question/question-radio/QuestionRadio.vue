@@ -14,7 +14,7 @@
         <label :for="value" name="choice" class="mb-0.75">{{ value }}</label>
         <BaseRadio
           :id="value"
-          :isChecked="currentValue === value"
+          :isChecked="isCurrentValue(value)"
           class="w-2 h-2"
         />
       </div>
@@ -33,9 +33,14 @@ export default defineComponent({
   components: {
     BaseRadio
   },
+  props: {
+    question: {
+      type: String,
+      required: true
+    }
+  },
   emits: [USER_INPUT],
   setup(_, context) {
-    const question = "I learned useful knowledge from these activities.";
     const values = [1, 2, 3, 4, 5];
     const currentValue = ref(-1);
 
@@ -44,7 +49,11 @@ export default defineComponent({
       context.emit(USER_INPUT, currentValue.value);
     }
 
-    return { question, values, currentValue, changeCurrentValue };
+    function isCurrentValue(value: number) {
+      return currentValue.value === value;
+    }
+
+    return { values, currentValue, changeCurrentValue, isCurrentValue };
   }
 });
 </script>

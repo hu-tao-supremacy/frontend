@@ -1,7 +1,7 @@
 <template>
   <div class="bg-gray-1 p-2">
-    <BaseRadio :isChecked="true" class="w-2 h-2" />
-    <QuestionRadio />
+    <BaseStarRating />
+    <QuestionRadio :question="question.radio" />
     <QuestionText :question="question.text" />
     <base-button @click="toggleModal('signup')">Show Sign Up Modal</base-button>
     <ModalSignUp v-if="showSignUpModal" @close-modal="toggleModal('signup')" />
@@ -52,7 +52,7 @@ import { testData, walletData, questionData } from "./testData";
 import ModalInterests from "./modal-interests/ModalInterests.vue";
 import QuestionText from "@/modules/question/question-text/QuestionText.vue";
 import QuestionRadio from "@/modules/question/question-radio/QuestionRadio.vue";
-import BaseRadio from "@/commons/UI/BaseRadio.vue";
+import BaseStarRating from "@/commons/UI/BaseStarRating.vue";
 
 export default defineComponent({
   name: "TestPage",
@@ -67,7 +67,7 @@ export default defineComponent({
     ModalInterests,
     QuestionText,
     QuestionRadio,
-    BaseRadio
+    BaseStarRating
   },
   setup() {
     const showSignUpModal = ref(false);

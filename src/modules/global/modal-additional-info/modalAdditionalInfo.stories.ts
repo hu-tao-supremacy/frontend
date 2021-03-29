@@ -12,10 +12,9 @@ export default {
   component: ModalAdditionalInfo
 };
 
-interface PropTypes {
-}
+interface PropTypes {}
 
-const Template: Story<PropTypes> = (args) => ({
+const Template: Story<PropTypes> = args => ({
   components: { ModalAdditionalInfo },
   setup() {
     return { args };

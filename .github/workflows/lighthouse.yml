@@ -19,8 +19,9 @@ jobs:
           node-version: "12"
       - uses: actions/setup-node@v2
       - run: sudo npm install -g @lhci/cli@0.7.x
+      - run: sudo npm install -g serve
       - run: yarn
       - run: yarn build
-      - run: lhci autorun --collect.startServerCommand="yarn serve --mode=production"
+      - run: lhci autorun --collect.startServerCommand="serve -s dist"
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}

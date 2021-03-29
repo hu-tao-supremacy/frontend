@@ -13,19 +13,19 @@ interface PropTypes {
 }
 
 const Template: Story<PropTypes> = args => ({
-    components: { EventSchedule },
-    setup() {
-      return { args };
-    },
-    template: '<EventSchedule v-bind="args" />'
-  });
-  
-  export const Primary = Template.bind({});
-  Primary.args = {
-    eventsSchedule: {
-        faculty: "TGR Faculty, Chula",
-        day: 14,
-        month: "Feb",
-        time: "10:00-18:00"
-    }
-  };
+  components: { EventSchedule },
+  setup() {
+    return { args };
+  },
+  template: '<EventSchedule v-bind="args" />'
+});
+
+export const Primary = Template.bind({});
+Primary.args = {
+  eventsSchedule: {
+    faculty: "TGR Faculty, Chula",
+    day: 14,
+    month: "Feb",
+    time: "10:00-18:00"
+  }
+};

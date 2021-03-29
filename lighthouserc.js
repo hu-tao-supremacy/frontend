@@ -2,8 +2,11 @@
 module.exports = {
     ci: {
         collect: {
+            settings: {
+                chromeFlags: "--ignore-certificate-errors"
+            },
             numberOfRuns: 3,
-            url: ["http://localhost:8080/", "http://localhost:8080/test/", "http://localhost:8080/event/", "http://localhost:8080/user-checkin/"]
+            url: ["https://localhost:8080/", "https://localhost:8080/test/", "https://localhost:8080/event/", "https://localhost:8080/user-checkin/"]
         },
         upload: {
             target: "temporary-public-storage"

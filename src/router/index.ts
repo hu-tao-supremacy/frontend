@@ -5,6 +5,7 @@ const Test = () => import("@/modules/authentication/TestPage.vue");
 const EventInfo = () => import("@/modules/eventInfo/EventInfoPage.vue");
 const Wallet = () => import("@/modules/wallet/WalletPage.vue");
 const UserCheckIn = () => import("@/modules/userCheckIn/UserCheckInPage.vue");
+const EventRegister = () => import("@/modules/eventRegister/EventRegisterPage.vue");
 
 const router = createRouter({
   history: createWebHistory(),
@@ -28,7 +29,11 @@ const router = createRouter({
     {
       path: "/user-checkin",
       component: UserCheckIn
-    }
+    },
+    {
+      path: "/event-register",
+      component: EventRegister
+    },
   ]
 });
 

@@ -5,13 +5,15 @@
     @load="onLoadComplete"
     :src="url"
     :alt="alt"
+    :width="width"
+    :height="height"
   />
   <canvas
     class="w-full h-full focus:outline-none"
     v-show="!isloaded"
     ref="canvasRef"
-    :width="width"
-    :height="height"
+    :width="canvasWidth"
+    :height="canvasHeight"
     tabindex="0"
   ></canvas>
 </template>
@@ -33,21 +35,26 @@ export default defineComponent({
     },
     width: {
       type: Number,
+      Number,
       required: true
     },
     height: { type: Number, required: true },
+    canvasWidth: {
+      type: Number,
+      default: 32
+    },
+    canvasHeight: { type: Number, default: 32 },
     alt: { type: String, required: true },
     class: { type: String }
   },
   setup(props) {
-    const { width, height, placeholder } = toRefs(props);
+    const { canvasWidth, canvasHeight, placeholder } = toRefs(props);
     const { canvasRef, isloaded, onLoadComplete, className } = useLazyImage(
-      width,
-      height,
+      canvasWidth,
+      canvasHeight,
       placeholder,
       props.class
     );
-
     return {
       canvasRef,
       isloaded,

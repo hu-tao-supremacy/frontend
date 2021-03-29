@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "../modules/home/Home.vue";
 
+import Home from "@/modules/home/Home.vue";
 const Test = () => import("@/modules/authentication/TestPage.vue");
 const EventInfo = () => import("@/modules/eventInfo/EventInfoPage.vue");
 const Wallet = () => import("@/modules/wallet/WalletPage.vue");

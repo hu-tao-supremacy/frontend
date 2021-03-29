@@ -7,6 +7,7 @@ export default {
   component: TicketQR
 };
 
+
 interface PropTypes {
   ticket: {
     id: string;

@@ -19,7 +19,7 @@ export default function useModalInterests(
   }
 
   function submitInterest() {
-    //something to do with API
+    //something to do with API.
     console.log(selectedInterestIDs.value);
   }
 

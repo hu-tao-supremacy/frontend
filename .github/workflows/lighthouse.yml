@@ -22,6 +22,6 @@ jobs:
       - run: sudo npm install -g local-web-server
       - run: yarn
       - run: yarn build
-      - run: lhci autorun --collect.startServerCommand="ws --directory ./dist/ --http2 --compress --spa"
+      - run: lhci autorun --collect.startServerCommand="ws --directory ./dist/ --http2 --compress --spa index.html"
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}

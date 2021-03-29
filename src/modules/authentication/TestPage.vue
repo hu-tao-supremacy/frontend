@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gray-1 p-2">
-    <BaseStarRating />
+    <QuestionStar />
     <QuestionRadio :question="question.radio" />
     <QuestionText :question="question.text" />
     <base-button @click="toggleModal('signup')">Show Sign Up Modal</base-button>
@@ -48,7 +48,7 @@ import EventOrganizer from "@/modules/eventInfo/event-organizer/EventOrganizer.v
 import { testData, walletData, questionData } from "./testData";
 import QuestionText from "@/modules/question/question-text/QuestionText.vue";
 import QuestionRadio from "@/modules/question/question-radio/QuestionRadio.vue";
-import BaseStarRating from "@/commons/UI/BaseStarRating.vue";
+import QuestionStar from "@/modules/question/question-star/QuestionStar.vue";
 
 const ModalLogIn = defineAsyncComponent(() =>
   import("./modal-log-in/ModalLogIn.vue")
@@ -79,7 +79,7 @@ export default defineComponent({
     ModalInterests,
     QuestionText,
     QuestionRadio,
-    BaseStarRating
+    QuestionStar
   },
   setup() {
     const showSignUpModal = ref(false);

@@ -1,15 +1,11 @@
 import { testData } from "./testData";
 import { reactive, ref, watch } from "vue";
 import { useUpcomingEvents } from "../api";
-import { useResult } from "@vue/apollo-composable";
 
 const useHome = () => {
     const state = reactive(testData);
     const showModal = ref(false);
-    const { result } = useUpcomingEvents();
-
-    const upcomingEvents = useResult(result);
-
+    const { result: upcomingEvents } = useUpcomingEvents();
 
     function toggleModal() {
         showModal.value = !showModal.value;

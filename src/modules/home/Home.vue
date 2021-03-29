@@ -136,7 +136,7 @@ import CardOrganization from "./components/card-organization/CardOrganization.vu
 import EventCarousel from "./components/event-carousel/EventCarousel.vue";
 import BaseTransparentButton from "@/commons/UI/BaseTransparentButton.vue";
 import ArrowRightIcon from "@/assets/ArrowRight.vue";
-import useHome from "./useHome";
+import useHome from "./use-home";
 
 export default defineComponent({
   components: {

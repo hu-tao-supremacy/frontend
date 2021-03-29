@@ -21,7 +21,7 @@ jobs:
       - run: sudo npm install -g @lhci/cli@0.7.x
       - run: yarn
       - run: yarn build
-      - run: yarn lhci autorun \
+      - run: lhci autorun \
           --collect.startServerCommand="vue-cli-service serve --mode=production" \
           --collect.url="http://localhost:8080/"` \
           --collect.url="http://localhost:8080/test"` \

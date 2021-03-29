@@ -1,9 +1,7 @@
 <template>
-  <div class="flex flex-col justify-between min-h-screen">
-    <PageNavbar />
-    <router-view></router-view>
-    <PageFooter />
-  </div>
+  <PageNavbar />
+  <router-view></router-view>
+  <PageFooter />
 </template>
 
 <script lang="ts">

@@ -38,7 +38,7 @@ import { defineComponent } from "vue";
 import CardBanner from "../card-banner/CardBanner.vue";
 import EventCarouselSlide from "./EventCarouselSlide.vue";
 import useEventCarousel from "./useEventCarousel";
-import { Banner } from "@/commons/Interfaces/index";
+import { Event } from "@/commons/Interfaces/index";
 
 export default defineComponent({
   name: "EventCarousel",
@@ -48,7 +48,7 @@ export default defineComponent({
   },
   props: {
     eventsList: {
-      type: Array as () => Banner[],
+      type: Array as () => Event[],
       required: true
     }
   },

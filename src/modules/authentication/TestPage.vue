@@ -1,5 +1,11 @@
 <template>
   <div class="bg-gray-1 p-2">
+    <Wallet
+      class="content-max-width"
+      :profile="test.profile"
+      :ongoingTickets="wallet.ongoingTickets"
+      :historyTickets="wallet.historyTickets"
+    />
     <base-button @click="toggleModal('signup')">Show Sign Up Modal</base-button>
     <ModalSignUp v-if="showSignUpModal" @close-modal="toggleModal('signup')" />
     <base-button @click="toggleModal('login')">Show Log In Modal</base-button>
@@ -33,6 +39,13 @@
       :style="{ maxWidth: '300px' }"
       :eventOrg="test.eventOrganizer"
     />
+    <Ticket
+      class="mb-3"
+      :event="test.event"
+      :organization="test.organization"
+      :ticketID="test.ticketID"
+      :bgColor="'bg-gray-1'"
+    />
   </div>
 </template>
 
@@ -42,7 +55,9 @@ import BaseButton from "@/commons/UI/BaseButton.vue";
 import InfoBanner from "@/modules/eventInfo/info-banner/InfoBanner.vue";
 import EventDetail from "@/modules/eventInfo/event-detail/EventDetail.vue";
 import EventOrganizer from "@/modules/eventInfo/event-organizer/EventOrganizer.vue";
-import testData from "./testData";
+import Ticket from "@/modules/wallet/ticket/Ticket.vue";
+import Wallet from "@/modules/wallet/wallet/Wallet.vue";
+import { testData, walletData } from "./testData";
 
 const ModalLogIn = defineAsyncComponent(() =>
   import("./modal-log-in/ModalLogIn.vue")
@@ -70,6 +85,8 @@ export default defineComponent({
     EventDetail,
     EventOrganizer,
     ModalAdditionalInfo,
+    Ticket,
+    Wallet,
     ModalInterests
   },
   setup() {
@@ -78,6 +95,7 @@ export default defineComponent({
     const showAdditionalInfoModal = ref(false);
     const showInterestModal = ref(false);
     const test = testData;
+    const wallet = walletData;
 
     function toggleModal(modal: string) {
       switch (modal) {
@@ -101,8 +119,9 @@ export default defineComponent({
       toggleModal,
       showLogInModal,
       showAdditionalInfoModal,
-      showInterestModal,
-      test
+      test,
+      wallet,
+      showInterestModal
     };
   }
 });

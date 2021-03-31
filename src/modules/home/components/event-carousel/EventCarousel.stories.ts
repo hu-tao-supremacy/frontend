@@ -2,12 +2,12 @@ import EventCarousel from "./EventCarousel.vue";
 import "@/index.css";
 import { app, Story } from "@storybook/vue3";
 import BaseIcon from "@/commons/UI/BaseIcon.vue";
-import { Banner } from "@/commons/Interfaces/index";
+import { Event } from "@/commons/Interfaces/index";
 
 app.component("base-icon", BaseIcon);
 
 interface PropTypes {
-  eventsList: Banner[];
+  eventsList: Event[];
 }
 
 export default {

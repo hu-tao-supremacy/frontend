@@ -5,6 +5,7 @@ export interface Event {
   month: string;
   time: string;
   title: string;
+  location: string;
   faculty: string;
   imgHash: string;
   img: string;
@@ -14,12 +15,13 @@ export interface Event {
 export interface Banner {
   title: string;
   description: string;
-  tags: Array<string>;
-  imgHash: string;
-  img: string;
   date: string;
   time: string;
   location: string;
+  faculty: string;
+  imgHash: string;
+  img: string;
+  tags: Array<string>;
 }
 
 export interface Org {
@@ -27,6 +29,7 @@ export interface Org {
   img: string;
   shortName: string;
   fullName: string;
+  description: string;
 }
 
 export interface District {
@@ -36,6 +39,24 @@ export interface District {
   PROVINCE_ID: number;
   GEO_ID: number;
   ZIPCODE: string;
+}
+
+export interface Ticket {
+  event: Event;
+  organization: Org;
+  ticketID: string;
+  bgColor: string;
+}
+
+export interface Profile {
+  firstName: string;
+  lastName: string;
+  img: string;
+  imgHash: string;
+  email: string;
+  like: number;
+  ticket: number;
+  following: number;
 }
 
 export interface Schedule {

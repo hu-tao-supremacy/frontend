@@ -87,7 +87,6 @@ export default defineComponent({
     const showAdditionalInfoModal = ref(false);
     const showInterestModal = ref(false);
     const test = testData;
-    const wallet = walletData;
     const question = questionData;
 
     function toggleModal(modal: string) {
@@ -113,7 +112,6 @@ export default defineComponent({
       showLogInModal,
       showAdditionalInfoModal,
       test,
-      wallet,
       showInterestModal,
       question
     };

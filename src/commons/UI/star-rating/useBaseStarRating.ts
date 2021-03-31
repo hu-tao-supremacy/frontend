@@ -33,11 +33,11 @@ export default function useBaseStarRating(
 
   function fillColor(rating: number) {
     if (temporaryRating.value !== -1) {
-      if (rating > temporaryRating.value) return "rgb(203, 213, 224)";
-      else return "rgb(255, 133, 95)";
+      if (rating > temporaryRating.value) return "#CBD5E0";
+      else return "#FF855F";
     }
-    if (rating > currentRating.value) return "rgb(203, 213, 224)"; //gray-4
-    return "rgb(255, 133, 95)"; //primary
+    if (rating > currentRating.value) return "#CBD5E0"; //gray-4
+    return "#FF855F"; //primary
   }
 
   return {

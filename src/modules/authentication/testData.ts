@@ -224,18 +224,6 @@ export const testData = {
   ]
 };
 
-const ticket = {
-  event: testData.event,
-  organization: testData.organization,
-  ticketID: testData.ticketID
-};
-
-export const walletData = {
-  ticket: ticket,
-  ongoingTickets: [ticket, ticket, ticket],
-  historyTickets: [ticket, ticket]
-};
-
 export const questionData = {
   text: "What you like in these activities?",
   radio: "I learned useful knowledge from these activities."

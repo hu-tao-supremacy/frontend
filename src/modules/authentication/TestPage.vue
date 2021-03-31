@@ -45,7 +45,7 @@ import BaseButton from "@/commons/UI/BaseButton.vue";
 import InfoBanner from "@/modules/eventInfo/info-banner/InfoBanner.vue";
 import EventDetail from "@/modules/eventInfo/event-detail/EventDetail.vue";
 import EventOrganizer from "@/modules/eventInfo/event-organizer/EventOrganizer.vue";
-import { testData, walletData, questionData } from "./testData";
+import { testData, questionData } from "./testData";
 import QuestionText from "@/modules/question/question-text/QuestionText.vue";
 import QuestionRadio from "@/modules/question/question-radio/QuestionRadio.vue";
 import QuestionStar from "@/modules/question/question-star/QuestionStar.vue";

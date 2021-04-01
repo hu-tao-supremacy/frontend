@@ -1,8 +1,8 @@
 <template>
   <div class="bg-gray-1 p-2">
-    <QuestionStar />
-    <QuestionRadio :question="question.radio" />
-    <QuestionText :question="question.text" />
+    <QuestionStar class="mb-4" />
+    <QuestionRadio class="mb-4" :question="question.radio" />
+    <QuestionText class="mb-4" :question="question.text" />
     <base-button @click="toggleModal('signup')">Show Sign Up Modal</base-button>
     <ModalSignUp v-if="showSignUpModal" @close-modal="toggleModal('signup')" />
     <base-button @click="toggleModal('login')">Show Log In Modal</base-button>
@@ -45,7 +45,7 @@ import BaseButton from "@/commons/UI/BaseButton.vue";
 import InfoBanner from "@/modules/eventInfo/info-banner/InfoBanner.vue";
 import EventDetail from "@/modules/eventInfo/event-detail/EventDetail.vue";
 import EventOrganizer from "@/modules/eventInfo/event-organizer/EventOrganizer.vue";
-import { testData, walletData, questionData } from "./testData";
+import { testData, questionData } from "./testData";
 import QuestionText from "@/modules/question/question-text/QuestionText.vue";
 import QuestionRadio from "@/modules/question/question-radio/QuestionRadio.vue";
 import QuestionStar from "@/modules/question/question-star/QuestionStar.vue";
@@ -87,7 +87,6 @@ export default defineComponent({
     const showAdditionalInfoModal = ref(false);
     const showInterestModal = ref(false);
     const test = testData;
-    const wallet = walletData;
     const question = questionData;
 
     function toggleModal(modal: string) {
@@ -113,7 +112,6 @@ export default defineComponent({
       showLogInModal,
       showAdditionalInfoModal,
       test,
-      wallet,
       showInterestModal,
       question
     };

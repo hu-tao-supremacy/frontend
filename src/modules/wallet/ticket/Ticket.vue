@@ -1,20 +1,16 @@
 <template>
-  <div class="flex bg-primary-1 rounded-2xl">
-    <section
-      class="image-container h-auto shadow-sm rounded-l-2xl overflow-hidden"
-    >
+  <div class="grid ticket-container bg-primary-1 rounded-2xl">
+    <section class="h-auto shadow-sm rounded-l-2xl overflow-hidden">
       <LazyImage
-        :width="200"
-        :height="200"
+        :width="120"
+        :height="160"
         alt="will change to api"
         :url="event.img"
         :placeholder="event.imgHash"
         class="object-cover w-full h-full"
       />
     </section>
-    <section
-      class="event-info-container flex flex-col pt-2 px-2 pb-1 shadow-sm z-10"
-    >
+    <section class="flex flex-col pt-2 px-2 pb-1 shadow-sm z-10">
       <h1 class="text-blue-10 font-heading text-xl mb-1">{{ event.title }}</h1>
       <div class="flex flex-wrap mb-1">
         <base-tag
@@ -43,7 +39,7 @@
       </div>
     </section>
     <section
-      class="dash-container flex flex-col items-center justify-between bg-primary-1 z-20 overflow-hidden relative"
+      class="flex flex-col items-center justify-between bg-primary-1 z-20 overflow-hidden relative"
     >
       <div
         class="circle circle-top w-full h-3 rounded-b-full mb-1.5"
@@ -55,9 +51,7 @@
         :class="parentBgColor"
       ></div>
     </section>
-    <section
-      class="ticket-info-container rounded-r-2xl flex flex-col pt-2 pb-1 px-2 shadow-sm"
-    >
+    <section class="rounded-r-2xl flex flex-col pt-2 pb-1 px-2 shadow-sm">
       <div class="flex font-heading text-lg items-center mb-1">
         <h2 class="mr-1">Ticket ID:</h2>
         <p class="text-primary">{{ ticketID }}</p>
@@ -154,20 +148,8 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.image-container {
-  width: 15%;
-}
-
-.event-info-container {
-  width: 56%;
-}
-
-.dash-container {
-  width: 3%;
-}
-
-.ticket-info-container {
-  width: 26%;
+.ticket-container {
+  grid-template-columns: 15% 56% 3% 26%;
 }
 
 .check-in-btn {
@@ -189,12 +171,7 @@ export default defineComponent({
 }
 
 .dash-line {
-  background-image: linear-gradient(
-    rgb(160, 174, 192) 50%,
-    rgba(255, 255, 255, 0) 0%
-  );
-  background-position: right;
-  background-size: 2px 8px;
-  background-repeat: repeat-y;
+  background: linear-gradient(rgb(160, 174, 192) 50%, rgba(255, 255, 255, 0) 0%)
+    right/2px 8px repeat-y;
 }
 </style>

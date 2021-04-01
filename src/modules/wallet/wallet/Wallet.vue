@@ -1,6 +1,6 @@
 <template>
   <div
-    class="rounded-2xl overflow-hidden shadow-sm bg-white flex flex-col pt-3 pb-8 px-8"
+    class="rounded-2xl overflow-hidden shadow-sm bg-white flex flex-col pt-3 pb-8 px-8 w-full"
   >
     <section class="flex items-center mb-4">
       <div

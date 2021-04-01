@@ -1,8 +1,8 @@
 <template>
   <div class="bg-gray-1 p-2">
-    <QuestionStar />
-    <QuestionRadio :question="question.radio" />
-    <QuestionText :question="question.text" />
+    <QuestionStar class="mb-4" />
+    <QuestionRadio class="mb-4" :question="question.radio" />
+    <QuestionText class="mb-4" :question="question.text" />
     <base-button @click="toggleModal('signup')">Show Sign Up Modal</base-button>
     <ModalSignUp v-if="showSignUpModal" @close-modal="toggleModal('signup')" />
     <base-button @click="toggleModal('login')">Show Log In Modal</base-button>

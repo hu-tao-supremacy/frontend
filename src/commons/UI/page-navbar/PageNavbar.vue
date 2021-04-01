@@ -36,18 +36,43 @@
         About One Pass
       </router-link>
     </section>
-    <base-button class="sign-in-btn w-16" @click="login" v-if="!isLogIn"
-      >Login / Signup</base-button
+    <base-button class="sign-in-btn w-20" @click="login" v-if="!isLogIn"
+      >Login in with CU SSO</base-button
     >
-    <section v-else class="flex items-center">
-      <div class="mr-3 h-5 w-5 border-2 border-primary rounded-full">
-        <img
-          :src="imgUrl"
-          alt=""
-          class="h-full object-cover w-full rounded-full"
+    <section
+      v-else
+      class="flex items-center relative"
+      v-click-outside="hideDropDown"
+    >
+      <div
+        class="mr-3 h-5 w-5 border-2 border-primary rounded-full overflow-hidden flex-shrink-0"
+      >
+        <LazyImage
+          :width="50"
+          :height="50"
+          alt="will change to api"
+          :url="imgUrl"
+          :placeholder="imgHash"
+          class="object-cover w-full h-full"
         />
       </div>
-      <div class="text-lg font-heading max-w-20 truncate">{{ nameShown }}</div>
+      <div @click="toggleDropDown" class="flex items-center cursor-pointer">
+        <div class="text-lg font-heading max-w-20 truncate mr-1.5">
+          {{ nameShown }}
+        </div>
+        <base-icon v-show="!isDropDownShown" :height="14" :width="14">
+          <ChevronDownIcon />
+        </base-icon>
+        <base-icon v-show="isDropDownShown" :height="14" :width="14">
+          <ChevronUpIcon />
+        </base-icon>
+      </div>
+      <NavbarDropDownOptions
+        v-show="isDropDownShown"
+        @select-navbar-option="hideDropDown"
+        @logout="logout"
+        class="w-25 absolute top-full right-0 mt-1.5"
+      />
     </section>
   </div>
 </template>
@@ -57,6 +82,10 @@ import { defineComponent } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import SearchIcon from "@/assets/Search.vue";
 import OnePassLogo from "@/assets/OnePassLogoColor.vue";
+import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
+import ChevronDownIcon from "@/assets/ChevronDown.vue";
+import ChevronUpIcon from "@/assets/ChevronUp.vue";
+import NavbarDropDownOptions from "./NavbarDropDownOptions.vue";
 import usePageNavbar from "./usePageNavbar";
 
 export default defineComponent({
@@ -64,12 +93,36 @@ export default defineComponent({
   components: {
     BaseButton,
     SearchIcon,
-    OnePassLogo
+    LazyImage,
+    OnePassLogo,
+    ChevronDownIcon,
+    ChevronUpIcon,
+    NavbarDropDownOptions
   },
   setup() {
-    const { isLogIn, login, imgUrl, nameShown } = usePageNavbar();
+    const {
+      isLogIn,
+      imgUrl,
+      imgHash,
+      nameShown,
+      isDropDownShown,
+      login,
+      toggleDropDown,
+      hideDropDown,
+      logout
+    } = usePageNavbar();
 
-    return { isLogIn, login, imgUrl, nameShown };
+    return {
+      isLogIn,
+      imgUrl,
+      imgHash,
+      nameShown,
+      isDropDownShown,
+      login,
+      toggleDropDown,
+      hideDropDown,
+      logout
+    };
   }
 });
 </script>

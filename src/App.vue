@@ -10,6 +10,7 @@ import PageFooter from "./commons/UI/PageFooter.vue";
 import PageNavbar from "./commons/UI/page-navbar/PageNavbar.vue";
 import apolloClient from "./apollo/client";
 import { DefaultApolloClient } from "@vue/apollo-composable";
+// import { useAuth } from "./modules/authentication/useAuth";
 
 export default defineComponent({
   name: "App",
@@ -19,6 +20,7 @@ export default defineComponent({
   },
   setup() {
     provide(DefaultApolloClient, apolloClient);
+    // useAuth();
   }
 });
 </script>

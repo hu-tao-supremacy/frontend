@@ -58,6 +58,7 @@ import EventOrganizer from "@/modules/eventInfo/event-organizer/EventOrganizer.v
 import Ticket from "@/modules/wallet/ticket/Ticket.vue";
 import Wallet from "@/modules/wallet/wallet/Wallet.vue";
 import { testData, walletData } from "./testData";
+import { useAuth } from "./useAuth";
 
 const ModalLogIn = defineAsyncComponent(() =>
   import("./modal-log-in/ModalLogIn.vue")
@@ -113,6 +114,7 @@ export default defineComponent({
           break;
       }
     }
+    useAuth();
 
     return {
       showSignUpModal,

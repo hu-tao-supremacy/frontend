@@ -49,13 +49,7 @@ export default function useModalAdditionalInfo(
     }
   }
 
-  function validateProfileImage() {
-    if (uploadedImg.value) return true;
-    return false;
-  }
-
   function submitForm() {
-    if (validateProfileImage()) console.log("Has image");
     console.log("success");
     context.emit(CLOSE_MODAL, userZipCode.value);
     //create object and post to api
@@ -85,7 +79,12 @@ export default function useModalAdditionalInfo(
     return validateAddress(userAddress.value);
   });
 
+  const fileLoaded = computed(() => {
+    return !!uploadedImg.value;
+  });
+
   const isValidForm = computed(() => {
+    console.log(fileLoaded, uploadedImg.value);
     return (
       isValidEmail.value &&
       userEmail.value !== "" &&
@@ -96,12 +95,9 @@ export default function useModalAdditionalInfo(
       userProvince.value !== "" &&
       userZipCode.value !== "" &&
       isValidAddress.value &&
-      userAddress.value !== ""
+      userAddress.value !== "" &&
+      fileLoaded.value
     );
-  });
-
-  const fileLoaded = computed(function() {
-    return uploadedImg.value;
   });
 
   watch(userLocation, () => {

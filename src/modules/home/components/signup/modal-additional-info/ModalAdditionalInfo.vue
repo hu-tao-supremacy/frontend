@@ -29,7 +29,7 @@
               />
             </div>
             <div>
-              <base-button class="button-height px-1 mb-0.25"
+              <base-button class="button-height mb-0.25"
                 ><label for="fileLoader">Upload</label></base-button
               >
               <input

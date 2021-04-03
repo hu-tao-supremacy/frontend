@@ -18,6 +18,7 @@
       </section>
       <section class="flex items-center self-end">
         <button
+          @click="closeModal"
           class="bg-transparent text-gray-5 hover:text-primary focus:text-primary focus:outline-none mr-3"
         >
           Not now

@@ -30,7 +30,7 @@ export default defineComponent({
   name: "CardInterest",
   props: {
     imgHash: { type: String },
-    imgUrl: { type: String },
+    imgUrl: { type: String, default: "" },
     interestName: { type: String }
   },
   setup() {

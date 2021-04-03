@@ -14,7 +14,6 @@ import provinces from "@/commons/constant/thailand-address/province";
 import { District } from "@/commons/Interfaces";
 
 export default function useModalAdditionalInfo(
-  _: object,
   context: SetupContext<"close-modal"[]>
 ) {
   const uploadedImg = ref<string | null>(null);
@@ -56,6 +55,7 @@ export default function useModalAdditionalInfo(
   function submitForm() {
     if (validateProfileImage()) console.log("Has image");
     console.log("success");
+    context.emit(CLOSE_MODAL, userZipCode.value);
     //create object and post to api
   }
 

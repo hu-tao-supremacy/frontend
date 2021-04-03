@@ -1,6 +1,7 @@
 <template>
   <div class="bg-gray-1 flex flex-col px-4 justify-center items-center w-full">
     <div class="container">
+      <Signup v-if="isSignup" />
       <EventCarousel
         v-if="state.eventsList"
         :eventsList="state.eventsList"
@@ -129,7 +130,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, watch } from "vue";
+import { defineAsyncComponent, defineComponent, watch } from "vue";
 import CardEvent from "./components/card-event/CardEvent.vue";
 import CardRecommended from "./components/card-recommended/CardRecommended.vue";
 import CardOrganization from "./components/card-organization/CardOrganization.vue";
@@ -138,6 +139,10 @@ import BaseTransparentButton from "@/commons/UI/BaseTransparentButton.vue";
 import ArrowRightIcon from "@/assets/ArrowRight.vue";
 import useHome from "./use-home";
 
+const Signup = defineAsyncComponent(() =>
+  import("./components/signup/Signup.vue")
+);
+
 export default defineComponent({
   components: {
     CardEvent,
@@ -145,18 +150,25 @@ export default defineComponent({
     CardOrganization,
     EventCarousel,
     BaseTransparentButton,
-    ArrowRightIcon
+    ArrowRightIcon,
+    Signup
   },
 
   setup() {
-    const { state, showModal, toggleModal, upcomingEvents } = useHome();
+    const {
+      state,
+      showModal,
+      toggleModal,
+      upcomingEvents,
+      isSignup
+    } = useHome();
 
     // for demo only
     watch(upcomingEvents, () => {
       console.log(upcomingEvents.value, "value");
     });
 
-    return { state, showModal, toggleModal };
+    return { state, showModal, toggleModal, isSignup };
   }
 });
 </script>

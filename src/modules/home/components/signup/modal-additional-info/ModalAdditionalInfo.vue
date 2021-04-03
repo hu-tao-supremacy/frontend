@@ -184,7 +184,7 @@ export default defineComponent({
       isValidAddress,
       isValidForm,
       submitForm
-    } = useModalAdditionalInfo(_, context);
+    } = useModalAdditionalInfo(context);
 
     return {
       uploadedImg,

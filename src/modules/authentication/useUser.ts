@@ -1,4 +1,4 @@
-import { computed, reactive, ref } from "vue";
+import { computed, onMounted, reactive, ref, watch } from "vue";
 import { AUTH_KEY } from "../home/components/signup/constant";
 
 const EMPTY_USER = {};
@@ -16,24 +16,21 @@ const useUserHooks = () => {
     token.value = tokenText;
   };
 
-  function clearUser() {
-    Object.assign(user, EMPTY_USER);
-  }
-
   const logout = () => {
     window.localStorage.removeItem(AUTH_KEY);
-    token.value = "";
-    clearUser();
+    window.location.reload();
   };
 
-  const isSignIn = computed(() => {
-    console.log();
+  onMounted(() => {
     if (token.value.length === 0) {
       const currentToken = window.localStorage.getItem(AUTH_KEY);
       if (currentToken) {
         setToken(currentToken);
       }
     }
+  });
+
+  const isSignIn = computed(() => {
     return token.value.length !== 0;
   });
 

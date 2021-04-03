@@ -12,7 +12,7 @@ export default {
   component: ModalAdditionalInfo
 };
 
-interface PropTypes {}
+type PropTypes = Record<string, any>;
 
 const Template: Story<PropTypes> = args => ({
   components: { ModalAdditionalInfo },

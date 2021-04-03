@@ -33,11 +33,11 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import BaseModal from "@/commons/UI/BaseModal.vue";
-import CardInterest from "../../card-interest/CardInterest.vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import { CLOSE_MODAL } from "@/commons/constant";
 import { Interest } from "@/commons/Interfaces";
 import useModalInterests from "./useModalInterests";
+import CardInterest from "./card-interest/CardInterest.vue";
 
 export default defineComponent({
   name: "ModalInterests",

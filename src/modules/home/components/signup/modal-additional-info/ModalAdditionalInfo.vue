@@ -30,7 +30,7 @@
             </div>
             <div>
               <base-button class="button-height mb-0.25"
-                ><label for="fileLoader">Upload</label></base-button
+                ><label class="p-1" for="fileLoader">Upload</label></base-button
               >
               <input
                 id="fileLoader"
@@ -93,7 +93,7 @@
             </p>
           </div>
           <div class="w-21 mr-2 flex-shrink-0">
-            <label for="province" class="mb-0.25 p-1">Province</label>
+            <label for="province" class="mb-0.25">Province</label>
             <BaseTextInput
               v-model="userProvince"
               id="province"

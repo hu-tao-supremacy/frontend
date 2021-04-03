@@ -36,6 +36,9 @@
         About One Pass
       </router-link>
     </section>
+    <base-button class="sign-in-btn w-16" @click="logout" v-if="isLogIn"
+      >Logout</base-button
+    >
     <base-button class="sign-in-btn w-16" @click="login" v-if="!isLogIn"
       >Login / Signup</base-button
     >
@@ -67,9 +70,9 @@ export default defineComponent({
     OnePassLogo
   },
   setup() {
-    const { isLogIn, login, imgUrl, nameShown } = usePageNavbar();
+    const { isLogIn, imgUrl, nameShown, login, logout } = usePageNavbar();
 
-    return { isLogIn, login, imgUrl, nameShown };
+    return { isLogIn, imgUrl, nameShown, login, logout };
   }
 });
 </script>

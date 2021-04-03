@@ -13,6 +13,15 @@ import districts from "@/commons/constant/thailand-address/district";
 import provinces from "@/commons/constant/thailand-address/province";
 import { District } from "@/commons/Interfaces";
 
+const USER_LOCATION = {
+  DISTRICT_ID: -1,
+  DISTRICT_TH_NAME: "",
+  DISTRICT_ENG_NAME: "",
+  PROVINCE_ID: -1,
+  GEO_ID: -1,
+  ZIPCODE: ""
+};
+
 export default function useModalAdditionalInfo(
   context: SetupContext<"close-modal"[]>
 ) {
@@ -20,14 +29,7 @@ export default function useModalAdditionalInfo(
   const reader = new FileReader();
   const userEmail = ref("");
   const userPhone = ref("");
-  const userLocation: Ref<District> = ref({
-    DISTRICT_ID: -1,
-    DISTRICT_TH_NAME: "",
-    DISTRICT_ENG_NAME: "",
-    PROVINCE_ID: -1,
-    GEO_ID: -1,
-    ZIPCODE: ""
-  });
+  const userLocation: Ref<District> = ref(USER_LOCATION);
   const userZipCode = ref("");
   const userDistrict = ref("");
   const userProvince = ref("");
@@ -47,7 +49,7 @@ export default function useModalAdditionalInfo(
     }
   }
 
-  function validateProfileImage(): boolean {
+  function validateProfileImage() {
     if (uploadedImg.value) return true;
     return false;
   }
@@ -86,9 +88,15 @@ export default function useModalAdditionalInfo(
   const isValidForm = computed(() => {
     return (
       isValidEmail.value &&
+      userEmail.value !== "" &&
       isValidPhone.value &&
+      userPhone.value !== "" &&
       isValidLocation.value &&
-      isValidAddress.value
+      userDistrict.value !== "" &&
+      userProvince.value !== "" &&
+      userZipCode.value !== "" &&
+      isValidAddress.value &&
+      userAddress.value !== ""
     );
   });
 

@@ -125,7 +125,7 @@
             class="w-full resize-none"
             :isError="!isValidAddress"
           />
-          <p v-if="!isValidEmail" class="text-sm text-red-5 mt-0.25 ml-1.5">
+          <p v-if="!isValidAddress" class="text-sm text-red-5 mt-0.25 ml-1.5">
             Please input address
           </p>
         </section>

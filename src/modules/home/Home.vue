@@ -153,7 +153,7 @@ export default defineComponent({
 
     // for demo only
     watch(upcomingEvents, () => {
-      console.log(upcomingEvents.value);
+      console.log(upcomingEvents.value, "value");
     });
 
     return { state, showModal, toggleModal };

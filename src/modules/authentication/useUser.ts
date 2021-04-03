@@ -27,13 +27,14 @@ const useUserHooks = () => {
   };
 
   const isSignIn = computed(() => {
+    console.log();
     if (token.value.length === 0) {
       const currentToken = window.localStorage.getItem(AUTH_KEY);
       if (currentToken) {
         setToken(currentToken);
       }
     }
-    return token.value.length === 0;
+    return token.value.length !== 0;
   });
 
   return { user, logout, setToken, isSignIn };

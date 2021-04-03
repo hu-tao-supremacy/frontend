@@ -10,21 +10,21 @@ const useLogin = () => {
   const { authenticate, onDone, onError } = useAuthentication();
 
   onMounted(() => {
-    if (route.query.ticket) {
+    if (route.query.ticket && route.query.target) {
       authenticate({
         input: {
           providerAccessToken: route.query.ticket
         }
       });
+    } else {
+      router.push("/");
     }
   });
 
   onDone(result => {
     const token = result.data.authenticate.accessToken;
     setToken(token);
-    if (route.query.target) {
-      router.push(route.query.target as string);
-    }
+    router.push(route.query.target as string);
   });
 
   onError(error => {

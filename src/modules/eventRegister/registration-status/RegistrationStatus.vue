@@ -46,14 +46,15 @@
 
 <script lang="ts">
 import useRegistrationStatus from "./useRegistrationStatus";
-import { defineComponent } from "vue";
+import { defineComponent, toRefs } from "vue";
 export default defineComponent({
   name: "RegistrationStatus",
   props: {
     step: { type: Number, required: true }
   },
   setup(props) {
-    const { step1, step2, step3 } = useRegistrationStatus(props.step);
+    const { step } = toRefs(props);
+    const { step1, step2, step3 } = useRegistrationStatus(step);
     return { step1, step2, step3 };
   }
 });

@@ -1,57 +1,43 @@
 <template>
   <div class="bg-gray-1 p-2">
-    <ModalSignUp
-      v-if="showSignUpModal"
-      @close-modal="toggleModal('additionInfo')"
-    />
     <ModalAdditionalInfo
       v-if="showAdditionalInfoModal"
       @close-modal="toggleModal('interest')"
     />
-    <ModalInterests v-if="showInterestModal" :interests="test.interests" />
+    <ModalInterests
+      v-if="showInterestModal"
+      :interests="test.interests"
+      @close-modal="finishModal"
+    />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
-import { testData } from "@/modules/test/testData";
+import { defineComponent } from "vue";
 import ModalInterests from "./modal-interests/ModalInterests.vue";
 import ModalAdditionalInfo from "./modal-additional-info/ModalAdditionalInfo.vue";
-import ModalSignUp from "./modal-sign-up/ModalSignUp.vue";
+import useSignup from "./useSignup";
 
 export default defineComponent({
-  name: "TestPage",
+  name: "Signup",
   components: {
-    ModalSignUp,
     ModalAdditionalInfo,
     ModalInterests
   },
   setup() {
-    const showSignUpModal = ref(false);
-    const showAdditionalInfoModal = ref(false);
-    const showInterestModal = ref(false);
-    const test = testData;
-
-    function toggleModal(modal: string) {
-      switch (modal) {
-        case "signup":
-          showSignUpModal.value = !showSignUpModal.value;
-          break;
-        case "additionInfo":
-          showAdditionalInfoModal.value = !showAdditionalInfoModal.value;
-          break;
-        case "interest":
-          showInterestModal.value = !showInterestModal.value;
-          break;
-      }
-    }
-
-    return {
-      showSignUpModal,
+    const {
       toggleModal,
       showAdditionalInfoModal,
       test,
-      showInterestModal
+      showInterestModal,
+      finishModal
+    } = useSignup();
+    return {
+      toggleModal,
+      showAdditionalInfoModal,
+      test,
+      showInterestModal,
+      finishModal
     };
   }
 });

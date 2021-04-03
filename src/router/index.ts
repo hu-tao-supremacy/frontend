@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import authGuard from "./authGuard";
 
 const Home = () => import("@/modules/home/Home.vue");
 const Test = () => import("@/modules/test/TestPage.vue");
@@ -33,7 +34,8 @@ const router = createRouter({
         },
         {
           path: "/user-checkin",
-          component: UserCheckIn
+          component: UserCheckIn,
+          beforeEnter: authGuard
         }
       ]
     },

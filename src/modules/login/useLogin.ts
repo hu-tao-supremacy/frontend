@@ -24,7 +24,13 @@ const useLogin = () => {
   onDone(result => {
     const token = result.data.authenticate.accessToken;
     setToken(token);
-    router.push(route.query.target as string);
+    // wait to connect to backend status
+    const isFirstTimeLogin = true;
+    if (isFirstTimeLogin) {
+      router.push("/?signup=1");
+    } else {
+      router.push(route.query.target as string);
+    }
   });
 
   onError(error => {

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-1 p-2"></div>
+  <div></div>
 </template>
 
 <script lang="ts">

@@ -15,7 +15,6 @@ export default defineComponent({
   components: {
     AuthProvider
   },
-  props: ["cleanPage"],
   setup() {
     provide(DefaultApolloClient, apolloClient);
   }

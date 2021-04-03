@@ -93,7 +93,7 @@
             </p>
           </div>
           <div class="w-21 mr-2 flex-shrink-0">
-            <label for="province" class="mb-0.25">Province</label>
+            <label for="province" class="mb-0.25 p-1">Province</label>
             <BaseTextInput
               v-model="userProvince"
               id="province"

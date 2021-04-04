@@ -1,9 +1,17 @@
+import isEmpty from "@/commons/utils/isEmpty";
 import useUser from "@/modules/authentication";
-import { watch } from "vue";
+import { computed } from "vue";
+
 export default function usePageNavbar() {
   const { isSignIn: isLogIn, logout, user } = useUser();
   const imgUrl = user.value.profilePictureUrl;
-  const nameShown = user.value.firstName + user.value.lastName?.charAt(0) + ".";
+
+  const nameShown = computed(() => {
+    if (isEmpty(user.value)) {
+      return "";
+    }
+    return user.value.firstName + user.value.lastName?.charAt(0) + ".";
+  });
 
   function login() {
     const redirectPage = `${window.location.origin}/login?target=${window.location}`;

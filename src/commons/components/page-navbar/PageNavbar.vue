@@ -42,7 +42,7 @@
     <base-button class="sign-in-btn w-16" @click="login" v-if="!isLogIn"
       >Login / Signup</base-button
     >
-    <section v-else class="flex items-center">
+    <section v-else-if="imgUrl" class="flex items-center">
       <div class="mr-3 h-5 w-5 border-2 border-primary rounded-full">
         <img
           :src="imgUrl"

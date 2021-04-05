@@ -1,16 +1,13 @@
 import { UPDATE_MODEL_VALUE } from "@/commons/constant";
 import { ref, SetupContext } from "vue";
+import { PRIMARY_6, GRAY_4 } from "@/commons/constant/color";
 
 export default function useBaseStarRating(
-  props: Readonly<
-    {
-      modelValue: number;
-    } & {}
-  >,
+  initialRating: number,
   context: SetupContext<"update:modelValue"[]>
 ) {
   const ratings = [1, 2, 3, 4, 5];
-  const currentRating = ref(props.modelValue);
+  const currentRating = ref(initialRating);
   const temporaryRating = ref(-1);
 
   function isLastStar(index: number) {
@@ -33,11 +30,11 @@ export default function useBaseStarRating(
 
   function fillColor(rating: number) {
     if (temporaryRating.value !== -1) {
-      if (rating > temporaryRating.value) return "#CBD5E0";
-      else return "#FF855F";
+      if (rating > temporaryRating.value) return GRAY_4;
+      else return PRIMARY_6;
     }
-    if (rating > currentRating.value) return "#CBD5E0"; //gray-4
-    return "#FF855F"; //primary
+    if (rating > currentRating.value) return GRAY_4;
+    return PRIMARY_6;
   }
 
   return {

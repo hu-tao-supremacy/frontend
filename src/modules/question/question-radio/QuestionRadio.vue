@@ -47,7 +47,7 @@ export default defineComponent({
       currentValue,
       changeCurrentValue,
       isCurrentValue
-    } = useQuestionRadio(_, context);
+    } = useQuestionRadio(context);
 
     return { values, currentValue, changeCurrentValue, isCurrentValue };
   }

@@ -45,7 +45,7 @@ export default defineComponent({
       changeRating,
       changeTemporaryRating,
       fillColor
-    } = useBaseStarRating(props, context);
+    } = useBaseStarRating(props.modelValue, context);
 
     return {
       ratings,

@@ -1,7 +1,8 @@
 import { ref } from "vue";
+import useUser from "@/modules/authentication";
 
 export default function usePageNavbar() {
-  const isLogIn = ref(false);
+  const { isSignIn: isLogIn, logout: performLogout } = useUser();
   const imgUrl = "https://picsum.photos/50";
   const imgHash = "LEHV6nWB2yk8pyo0adR*.7kCMdnj";
   const fname = "Supanut";
@@ -10,8 +11,10 @@ export default function usePageNavbar() {
   const isDropDownShown = ref(false);
 
   function login() {
-    //Perform login procedure
-    isLogIn.value = true;
+    const redirectPage = `${window.location.origin}/login?target=${window.location}`;
+    window.location.replace(
+      `https://account.it.chula.ac.th/html/login.html?service=${redirectPage}`
+    );
   }
 
   function toggleDropDown() {
@@ -25,7 +28,7 @@ export default function usePageNavbar() {
   function logout() {
     //Perform logout procedure
     hideDropDown();
-    isLogIn.value = false;
+    performLogout();
   }
 
   return {

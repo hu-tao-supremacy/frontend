@@ -86,7 +86,7 @@ import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import ChevronDownIcon from "@/assets/ChevronDown.vue";
 import ChevronUpIcon from "@/assets/ChevronUp.vue";
 import NavbarDropDownOptions from "./NavbarDropDownOptions.vue";
-import usePageNavbar from "./usePageNavbar";
+import usePageNavbar from "./usePageNavbarTEMP";
 
 export default defineComponent({
   name: "PageNavbar",

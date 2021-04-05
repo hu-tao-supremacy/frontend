@@ -23,43 +23,28 @@ const router = createRouter({
           component: Home
         },
         {
-          path: "/test",
+          path: "test",
           component: Test
         },
         {
-          path: "/event",
+          path: "event",
           component: EventInfo
         },
         {
-          path: "/wallet",
+          path: "wallet",
           component: Wallet
         },
         {
-          path: "/user-checkin",
+          path: "user-checkin",
           component: UserCheckIn,
           beforeEnter: authGuard
         }
       ]
     },
     {
-      path: "/test",
-      component: Test
-    },
-    {
-      path: "/event",
-      component: EventInfo
-    },
-    {
-      path: "/wallet",
-      component: Wallet
-    },
-    {
-      path: "/user-checkin",
-      component: UserCheckIn
-    },
-    {
-      path: "/org/greet",
-      component: OrgGreet
+      path: "/org",
+      component: PageSkeleton, //Will later change to page skeleton of org page
+      children: [{ path: "", component: OrgGreet }]
     },
     { path: "/login", component: Login }
   ]

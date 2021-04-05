@@ -1,11 +1,8 @@
 <template>
   <div class="bg-gray-1 p-2">
-    <Wallet
-      class="content-max-width"
-      :profile="test.profile"
-      :ongoingTickets="wallet.ongoingTickets"
-      :historyTickets="wallet.historyTickets"
-    />
+    <QuestionStar class="mb-4" />
+    <QuestionRadio class="mb-4" :question="question.radio" />
+    <QuestionText class="mb-4" :question="question.text" />
     <InfoBanner
       :style="{ maxWidth: '960px' }"
       :eventBanner="test.eventBanner"
@@ -20,13 +17,6 @@
       :style="{ maxWidth: '300px' }"
       :eventOrg="test.eventOrganizer"
     />
-    <Ticket
-      class="mb-3"
-      :event="test.event"
-      :organization="test.organization"
-      :ticketID="test.ticketID"
-      :bgColor="'bg-gray-1'"
-    />
   </div>
 </template>
 
@@ -35,9 +25,10 @@ import { defineComponent } from "vue";
 import InfoBanner from "@/modules/eventInfo/info-banner/InfoBanner.vue";
 import EventDetail from "@/modules/eventInfo/event-detail/EventDetail.vue";
 import EventOrganizer from "@/modules/eventInfo/event-organizer/EventOrganizer.vue";
-import Ticket from "@/modules/wallet/ticket/Ticket.vue";
-import Wallet from "@/modules/wallet/wallet/Wallet.vue";
-import { testData, walletData } from "./testData";
+import { testData, questionData } from "./testData";
+import QuestionText from "@/modules/question/question-text/QuestionText.vue";
+import QuestionRadio from "@/modules/question/question-radio/QuestionRadio.vue";
+import QuestionStar from "@/modules/question/question-star/QuestionStar.vue";
 
 export default defineComponent({
   name: "TestPage",
@@ -45,16 +36,17 @@ export default defineComponent({
     InfoBanner,
     EventDetail,
     EventOrganizer,
-    Ticket,
-    Wallet
+    QuestionText,
+    QuestionRadio,
+    QuestionStar
   },
   setup() {
     const test = testData;
-    const wallet = walletData;
+    const question = questionData;
 
     return {
       test,
-      wallet
+      question
     };
   }
 });

@@ -38,6 +38,10 @@ const router = createRouter({
           path: "/user-checkin",
           component: UserCheckIn,
           beforeEnter: authGuard
+        },
+        {
+          path: "/event-register",
+          component: EventRegister
         }
       ]
     },

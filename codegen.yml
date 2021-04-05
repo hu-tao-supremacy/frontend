@@ -1,4 +1,4 @@
-schema: https://graph.onepass.app/graphql
+schema: https://graph.onepass.app
 generates:
   ./src/types.d.ts:
     plugins:

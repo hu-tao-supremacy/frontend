@@ -5,7 +5,7 @@ import { AUTH_KEY } from "@/modules/home/components/signup/constant";
 
 const httpLink = createHttpLink({
   // You should use an absolute URL here
-  uri: "https://graph.onepass.app/graphql",
+  uri: "https://graph.onepass.app",
   headers: { authorization: `Bearer ${window.localStorage.getItem(AUTH_KEY)}` }
 });
 

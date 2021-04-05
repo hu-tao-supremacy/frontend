@@ -1,6 +1,7 @@
 <template>
   <div class="px-10 py-4 bg-white rounded-lg flex flex-col shadow-sm">
-    <div class="flex">
+    <div class="font-heading text-4xl">Personal Information</div>
+    <div class="flex mt-4">
       <div class="flex flex-col w-1/3 mr-4">
         <div>First Name</div>
         <BaseTextInput
@@ -70,7 +71,7 @@ import BaseTextInput from "@/commons/UI/BaseTextInput.vue";
 import BaseTextArea from "@/commons/UI/BaseTextArea.vue";
 
 export default defineComponent({
-  name: "PersonalInfo",
+  name: "PersonalInfoDes",
   props: {
     user: {
       type: Object as () => {
@@ -101,5 +102,6 @@ export default defineComponent({
 <style>
 .text-input:disabled {
   background: white;
+  color: #ff855f;
 }
 </style>

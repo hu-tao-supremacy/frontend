@@ -33,7 +33,7 @@ export default defineComponent({
   },
   emits: [USER_INPUT],
   setup(_, context) {
-    const { userAnswer, userChange } = useQuestionText(_, context);
+    const { userAnswer, userChange } = useQuestionText(context);
 
     return { userAnswer, userChange };
   }

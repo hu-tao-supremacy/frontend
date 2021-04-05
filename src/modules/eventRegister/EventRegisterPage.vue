@@ -1,11 +1,16 @@
 <template>
   <div class="bg-gray-1 flex flex-col p-4 justify-center items-center w-full">
     <RegistrationStatus :step="step" />
-    <div v-if="step === 2" class="container">
+    <div v-if="step === 2" class="container flex flex-col">
       <div class="mt-4 font-heading text-4xl">Summary</div>
       <PersonalInfoDes class="mt-3" />
-      <div class="flex flex-col mt-4">
-        <div class="font-heading text-4xl">Additional Question</div>
+      <div class="flex justify-between mt-10">
+        <base-button @click="decreaseStep" class="w-18 h-4 color"
+          >Back {{ step }}</base-button
+        >
+        <base-button @click="increaseStep" class="w-18 h-4"
+          >Sumbit {{ step }}</base-button
+        >
       </div>
     </div>
     <div
@@ -25,30 +30,23 @@
         <base-button class="w-20 h-4">Browse more event</base-button>
       </div>
     </div>
-    <div v-else class="container">
+    <div v-else class="container flex flex-col">
       <div class="mt-4 font-heading text-4xl">Personal Information</div>
       <PersonalInfo
         class="mt-3"
         :modelValue="test.user.firstName"
         @update:modelValue="value = $event"
       />
-      <div class="flex flex-col mt-4">
-        <div class="font-heading text-4xl">Additional Question</div>
-        <form @submit.prevent="submitAnswer">
-          <BaseTextInput :value="test.user.firstName" />
-        </form>
+      <div class="font-heading text-4xl mb-3 mt-4">Additional Question</div>
+      <form @submit.prevent="submitAnswer">
+        <BaseTextInput :value="test.user.firstName" />
+      </form>
+      <div class="flex mt-10 self-end">
+        <base-button @click="increaseStep" class="w-18 h-4"
+          >Continue {{ step }}</base-button
+        >
       </div>
     </div>
-    <base-button v-if="step === 1" @click="increaseStep" class="w-18 h-4"
-      >Continue {{ step }}</base-button
-    >
-    <base-button v-else-if="step === 2" @click="increaseStep" class="w-18 h-4"
-      >Sumbit {{ step }}</base-button
-    >
-    <br />
-    <base-button v-if="step === 2" @click="decreaseStep" class="w-18 h-4"
-      >Back {{ step }}</base-button
-    >
   </div>
 </template>
 
@@ -115,5 +113,8 @@ export default defineComponent({
 }
 .event-banner {
   max-width: 960px;
+}
+.color {
+  background: #cbd5e0;
 }
 </style>

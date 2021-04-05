@@ -29,8 +29,8 @@
               />
             </div>
             <div>
-              <base-button class="button-height px-1 mb-0.25"
-                ><label for="fileLoader">Upload</label></base-button
+              <base-button class="button-height mb-0.25"
+                ><label class="p-1" for="fileLoader">Upload</label></base-button
               >
               <input
                 id="fileLoader"
@@ -125,7 +125,7 @@
             class="w-full resize-none"
             :isError="!isValidAddress"
           />
-          <p v-if="!isValidEmail" class="text-sm text-red-5 mt-0.25 ml-1.5">
+          <p v-if="!isValidAddress" class="text-sm text-red-5 mt-0.25 ml-1.5">
             Please input address
           </p>
         </section>
@@ -184,7 +184,7 @@ export default defineComponent({
       isValidAddress,
       isValidForm,
       submitForm
-    } = useModalAdditionalInfo(_, context);
+    } = useModalAdditionalInfo(context);
 
     return {
       uploadedImg,

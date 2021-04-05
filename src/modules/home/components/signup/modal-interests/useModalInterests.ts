@@ -18,13 +18,14 @@ export default function useModalInterests(
     return selectedInterestIDs.value.includes(id);
   }
 
+  function closeModal() {
+    context.emit(CLOSE_MODAL);
+  }
+
   function submitInterest() {
     //something to do with API.
     console.log(selectedInterestIDs.value);
-  }
-
-  function closeModal() {
-    context.emit(CLOSE_MODAL);
+    closeModal();
   }
 
   return { toggleInterest, isSelected, submitInterest, closeModal };

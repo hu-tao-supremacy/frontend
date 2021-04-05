@@ -2,7 +2,6 @@ import { USER_INPUT } from "@/commons/constant";
 import { ref, SetupContext } from "vue";
 
 export default function useQuestionRadio(
-  _: object,
   context: SetupContext<"user-input"[]>
 ) {
   const values = [1, 2, 3, 4, 5];

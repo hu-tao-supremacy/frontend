@@ -1,21 +1,19 @@
 <template>
-  <PageNavbar />
-  <router-view></router-view>
-  <PageFooter />
+  <AuthProvider>
+    <router-view></router-view>
+  </AuthProvider>
 </template>
 
 <script lang="ts">
 import { defineComponent, provide } from "vue";
-import PageFooter from "./commons/UI/PageFooter.vue";
-import PageNavbar from "./commons/UI/page-navbar/PageNavbar.vue";
 import apolloClient from "./apollo/client";
 import { DefaultApolloClient } from "@vue/apollo-composable";
+import AuthProvider from "@/modules/authentication/components/AuthProvider.vue";
 
 export default defineComponent({
   name: "App",
   components: {
-    PageFooter,
-    PageNavbar
+    AuthProvider
   },
   setup() {
     provide(DefaultApolloClient, apolloClient);

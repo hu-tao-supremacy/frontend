@@ -44,7 +44,7 @@ const router = createRouter({
     {
       path: "/org",
       component: PageSkeleton, //Will later change to page skeleton of org page
-      children: [{ path: "", component: OrgGreet }]
+      children: [{ path: "greeting", component: OrgGreet }]
     },
     { path: "/login", component: Login }
   ]

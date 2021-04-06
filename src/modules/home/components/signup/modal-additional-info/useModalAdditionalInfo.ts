@@ -1,5 +1,5 @@
 import { ref, computed, SetupContext, watch, Ref } from "vue";
-import { uploadFile } from "@/commons/utils/uploadImage";
+import { parseImageFile } from "@/commons/utils/parseImage";
 import { CLOSE_MODAL } from "@/commons/constant";
 import {
   validateEmail,
@@ -13,6 +13,7 @@ import districts from "@/commons/constant/thailand-address/district";
 import provinces from "@/commons/constant/thailand-address/province";
 import { District } from "@/commons/Interfaces";
 import { SUBMIT_MODAL } from "../constant";
+import { UpdateUserInput } from "@/apollo/types";
 
 const USER_LOCATION = {
   DISTRICT_ID: -1,
@@ -26,6 +27,7 @@ const USER_LOCATION = {
 export default function useModalAdditionalInfo(
   context: SetupContext<("close-modal" | "submit-modal")[]>
 ) {
+  const uploadedImgFile = ref<Blob | null>(null);
   const uploadedImg = ref<string | null>(null);
   const reader = new FileReader();
   const userEmail = ref("");
@@ -44,14 +46,27 @@ export default function useModalAdditionalInfo(
   async function previewFile(event: Event) {
     event.preventDefault();
     const target = event.target as HTMLInputElement;
-    if (target.files?.[0].type.match("image.*")) {
-      const uploadedFile = await uploadFile(reader, target);
-      uploadedImg.value = uploadedFile;
+    const file = target.files?.[0];
+    if (file?.type.match("image.*")) {
+      uploadedImgFile.value = file;
     }
   }
 
+  watch(uploadedImgFile, async () => {
+    if (uploadedImgFile.value !== null) {
+      const uploadedFile = await parseImageFile(reader, uploadedImgFile.value);
+      uploadedImg.value = uploadedFile;
+    }
+  });
+
   function submitForm() {
-    context.emit(SUBMIT_MODAL, userZipCode.value);
+    // toadd phone and complete address
+    const userInfo = {
+      address: userAddress.value,
+      email: userEmail.value,
+      profilePicture: uploadedImgFile.value
+    } as UpdateUserInput;
+    context.emit(SUBMIT_MODAL, userInfo);
   }
 
   function closeModal() {

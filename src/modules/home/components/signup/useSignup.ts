@@ -2,6 +2,8 @@ import { computed, onMounted, ref, watch } from "vue";
 import { testData } from "@/modules/test/testData";
 import { useRouter } from "vue-router";
 import useUser from "@/modules/authentication";
+import { useUpdateUserInfo } from "./api";
+import { User } from "@/apollo/types";
 
 const ADDITIONAL_INFO = "additionInfo";
 const INTEREST = "interest";
@@ -11,6 +13,11 @@ const useSignup = () => {
   const currentModal = ref(ADDITIONAL_INFO);
   const router = useRouter();
   const { hotLogout } = useUser();
+  const {
+    updateUser,
+    onUpdateUserDone,
+    onUpdateUserErrror
+  } = useUpdateUserInfo();
 
   function toggleModal(modal: string) {
     currentModal.value = modal;
@@ -34,13 +41,25 @@ const useSignup = () => {
     finishModal();
   };
 
+  const updateInfo = (data: User) => {
+    console.log(data, "data");
+    updateUser({ input: data });
+  };
+
+  onUpdateUserDone(() => {
+    toggleModal("interest");
+  });
+
+  onUpdateUserErrror(cancelSignup);
+
   return {
     toggleModal,
     showAdditionalInfoModal,
     test,
     showInterestModal,
     finishModal,
-    cancelSignup
+    cancelSignup,
+    updateInfo
   };
 };
 

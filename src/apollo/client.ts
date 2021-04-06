@@ -1,10 +1,10 @@
 import { ApolloClient } from "apollo-client";
-import { createHttpLink } from "apollo-link-http";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { AUTH_KEY } from "@/modules/home/components/signup/constant";
 import { setContext } from "apollo-link-context";
+import { createUploadLink } from "apollo-upload-client";
 
-const httpLink = createHttpLink({
+const uploadLink = createUploadLink({
   uri: "https://api.onepass.app/graphql"
 });
 
@@ -20,7 +20,7 @@ const authLink = setContext((_, { headers }) => {
 const cache = new InMemoryCache();
 
 const apolloClient = new ApolloClient({
-  link: authLink.concat(httpLink),
+  link: authLink.concat(uploadLink as any),
   cache
 });
 

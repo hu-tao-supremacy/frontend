@@ -3,7 +3,7 @@
     <ModalAdditionalInfo
       v-if="showAdditionalInfoModal"
       @close-modal="cancelSignup"
-      @submit-modal="toggleModal('interest')"
+      @submit-modal="updateInfo"
     />
     <ModalInterests
       v-if="showInterestModal"
@@ -32,7 +32,8 @@ export default defineComponent({
       test,
       showInterestModal,
       finishModal,
-      cancelSignup
+      cancelSignup,
+      updateInfo
     } = useSignup();
     return {
       toggleModal,
@@ -40,7 +41,8 @@ export default defineComponent({
       test,
       showInterestModal,
       finishModal,
-      cancelSignup
+      cancelSignup,
+      updateInfo
     };
   }
 });

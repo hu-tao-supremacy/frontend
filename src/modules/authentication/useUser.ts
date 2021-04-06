@@ -1,8 +1,10 @@
-import { computed, onMounted, ref } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import { AUTH_KEY } from "../home/components/signup/constant";
 import { useCurrentUser } from "./api";
 import { useResult } from "@vue/apollo-composable";
 import { User } from "@/apollo/types";
+import isEmpty from "@/commons/utils/isEmpty";
+import { useRouter } from "vue-router";
 
 const EMPTY_USER = {} as User;
 
@@ -12,15 +14,23 @@ const EMPTY_USER = {} as User;
  */
 const useUserHooks = () => {
   const token = ref("");
-
-  const isSignIn = computed(() => {
+  const router = useRouter();
+  const hasToken = computed(() => {
     return token.value.length !== 0;
   });
 
-  const { result: currentUser } = useCurrentUser(isSignIn);
-  const userResult = useResult(currentUser, EMPTY_USER);
-  const user = computed(() => {
-    return isSignIn.value ? userResult.value : EMPTY_USER;
+  const { result: currentUser } = useCurrentUser(hasToken);
+  const user = useResult(currentUser, EMPTY_USER);
+
+  const isSignIn = computed(() => {
+    return !isEmpty(user.value);
+  });
+
+  watch(user, () => {
+    console.log(user.value, "user");
+    if (user.value.didSetup === false) {
+      router.push("/?signup=1");
+    }
   });
 
   const setToken = (tokenText: string) => {

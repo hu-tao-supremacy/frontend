@@ -13,6 +13,11 @@ export type Scalars = {
   Upload: any;
 };
 
+export type AddMembersToOrganizationInput = {
+  organizationId: Scalars['Int'];
+  emails: Array<Scalars['String']>;
+};
+
 export enum AnswerType {
   Scale = 'SCALE',
   Text = 'TEXT'
@@ -136,13 +141,21 @@ export type LocationInput = {
 export type Mutation = {
   __typename?: 'Mutation';
   authenticate: AuthenticateOutput;
+  signInWithServiceAccount: AuthenticateOutput;
   upload: Scalars['Boolean'];
   createOrganization: Scalars['Boolean'];
+  addMembersToOrganization: Organization;
+  updateUser: User;
 };
 
 
 export type MutationAuthenticateArgs = {
   input: AuthenticateInput;
+};
+
+
+export type MutationSignInWithServiceAccountArgs = {
+  serviceAccount: Scalars['String'];
 };
 
 
@@ -153,6 +166,16 @@ export type MutationUploadArgs = {
 
 export type MutationCreateOrganizationArgs = {
   input: CreateOrganizationInput;
+};
+
+
+export type MutationAddMembersToOrganizationArgs = {
+  input: AddMembersToOrganizationInput;
+};
+
+
+export type MutationUpdateUserArgs = {
+  input: UpdateUserInput;
 };
 
 export type Organization = {
@@ -273,6 +296,16 @@ export type Tag = {
 export type TagInput = {
   id: Scalars['Int'];
   name: Scalars['String'];
+};
+
+export type UpdateUserInput = {
+  firstName?: Maybe<Scalars['String']>;
+  lastName?: Maybe<Scalars['String']>;
+  email?: Maybe<Scalars['String']>;
+  nickname?: Maybe<Scalars['String']>;
+  address?: Maybe<Scalars['String']>;
+  gender?: Maybe<Gender>;
+  profilePicture?: Maybe<Scalars['Upload']>;
 };
 
 

@@ -5,7 +5,6 @@ export interface Event {
   month: string;
   time: string;
   title: string;
-  location: string;
   faculty: string;
   imgHash: string;
   img: string;

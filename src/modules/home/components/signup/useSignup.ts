@@ -1,4 +1,4 @@
-import { computed, ref } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import { testData } from "@/modules/test/testData";
 import { useRouter } from "vue-router";
 import useUser from "@/modules/authentication";
@@ -10,7 +10,7 @@ const useSignup = () => {
   const test = testData;
   const currentModal = ref(ADDITIONAL_INFO);
   const router = useRouter();
-  const { hotLogout } = useUser();
+  const { hotLogout, user } = useUser();
 
   function toggleModal(modal: string) {
     currentModal.value = modal;

@@ -14,11 +14,15 @@ const useUserHooks = () => {
   const token = ref("");
 
   const isSignIn = computed(() => {
+    console.log("is signin");
     return token.value.length !== 0;
   });
 
   const { result: currentUser } = useCurrentUser(isSignIn);
-  const user = useResult(currentUser, EMPTY_USER);
+  const userResult = useResult(currentUser, EMPTY_USER);
+  const user = computed(() => {
+    return isSignIn.value ? userResult.value : EMPTY_USER;
+  });
 
   const setToken = (tokenText: string) => {
     window.localStorage.setItem(AUTH_KEY, tokenText);

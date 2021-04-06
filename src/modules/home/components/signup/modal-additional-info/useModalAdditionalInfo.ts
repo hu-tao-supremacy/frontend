@@ -55,7 +55,6 @@ export default function useModalAdditionalInfo(
   }
 
   function closeModal() {
-    console.log("close modal");
     context.emit(CLOSE_MODAL);
   }
 
@@ -84,7 +83,6 @@ export default function useModalAdditionalInfo(
   });
 
   const isValidForm = computed(() => {
-    console.log(fileLoaded, uploadedImg.value);
     return (
       isValidEmail.value &&
       userEmail.value !== "" &&

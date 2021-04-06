@@ -12,6 +12,7 @@ import {
 import districts from "@/commons/constant/thailand-address/district";
 import provinces from "@/commons/constant/thailand-address/province";
 import { District } from "@/commons/Interfaces";
+import { SUBMIT_MODAL } from "../constant";
 
 const USER_LOCATION = {
   DISTRICT_ID: -1,
@@ -23,7 +24,7 @@ const USER_LOCATION = {
 };
 
 export default function useModalAdditionalInfo(
-  context: SetupContext<"close-modal"[]>
+  context: SetupContext<("close-modal" | "submit-modal")[]>
 ) {
   const uploadedImg = ref<string | null>(null);
   const reader = new FileReader();
@@ -50,12 +51,11 @@ export default function useModalAdditionalInfo(
   }
 
   function submitForm() {
-    console.log("success");
-    context.emit(CLOSE_MODAL, userZipCode.value);
-    //create object and post to api
+    context.emit(SUBMIT_MODAL, userZipCode.value);
   }
 
   function closeModal() {
+    console.log("close modal");
     context.emit(CLOSE_MODAL);
   }
 

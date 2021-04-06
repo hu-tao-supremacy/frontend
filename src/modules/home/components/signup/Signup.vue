@@ -2,7 +2,8 @@
   <div class="bg-gray-1 p-2">
     <ModalAdditionalInfo
       v-if="showAdditionalInfoModal"
-      @close-modal="toggleModal('interest')"
+      @close-modal="cancelSignup"
+      @submit-modal="toggleModal('interest')"
     />
     <ModalInterests
       v-if="showInterestModal"
@@ -30,14 +31,16 @@ export default defineComponent({
       showAdditionalInfoModal,
       test,
       showInterestModal,
-      finishModal
+      finishModal,
+      cancelSignup
     } = useSignup();
     return {
       toggleModal,
       showAdditionalInfoModal,
       test,
       showInterestModal,
-      finishModal
+      finishModal,
+      cancelSignup
     };
   }
 });

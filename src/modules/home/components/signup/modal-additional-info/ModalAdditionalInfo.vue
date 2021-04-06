@@ -151,6 +151,7 @@ import BaseSelect from "@/commons/UI/select/SingleNameSelect.vue";
 import ImageGalleryIcon from "@/assets/ImageGallery.vue";
 import useModalAdditionalInfo from "./useModalAdditionalInfo";
 import { CLOSE_MODAL } from "@/commons/constant";
+import { SUBMIT_MODAL } from "../constant";
 
 export default defineComponent({
   name: "ModalAdditionalInfo",
@@ -162,7 +163,7 @@ export default defineComponent({
     BaseSelect,
     ImageGalleryIcon
   },
-  emits: [CLOSE_MODAL],
+  emits: [CLOSE_MODAL, SUBMIT_MODAL],
   setup(_, context) {
     const {
       uploadedImg,

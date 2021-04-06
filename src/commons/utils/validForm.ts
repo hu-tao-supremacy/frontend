@@ -47,5 +47,5 @@ export function validateProvince(province: string) {
  * Check whether address is not empty
  */
 export function validateAddress(address: string) {
-  return address.trim() !== "";
+  return true;
 }

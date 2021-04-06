@@ -30,6 +30,11 @@ const useUserHooks = () => {
     window.location.reload();
   };
 
+  const hotLogout = () => {
+    token.value = "";
+    window.localStorage.removeItem(AUTH_KEY);
+  };
+
   onMounted(() => {
     if (token.value.length === 0) {
       const currentToken = window.localStorage.getItem(AUTH_KEY);
@@ -39,7 +44,7 @@ const useUserHooks = () => {
     }
   });
 
-  return { user, logout, setToken, isSignIn };
+  return { user, logout, setToken, hotLogout, isSignIn };
 };
 
 export default useUserHooks;

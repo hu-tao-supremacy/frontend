@@ -1,7 +1,7 @@
 import { computed, ref } from "vue";
 import { testData } from "@/modules/test/testData";
 import { useRouter } from "vue-router";
-import useUser from "@/modules/authentication/useUser";
+import useUser from "@/modules/authentication";
 
 const ADDITIONAL_INFO = "additionInfo";
 const INTEREST = "interest";

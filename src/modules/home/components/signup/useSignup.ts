@@ -10,7 +10,7 @@ const useSignup = () => {
   const test = testData;
   const currentModal = ref(ADDITIONAL_INFO);
   const router = useRouter();
-  const { hotLogout, user } = useUser();
+  const { hotLogout } = useUser();
 
   function toggleModal(modal: string) {
     currentModal.value = modal;

@@ -14,7 +14,6 @@ const useUserHooks = () => {
   const token = ref("");
 
   const isSignIn = computed(() => {
-    console.log("is signin");
     return token.value.length !== 0;
   });
 
@@ -29,11 +28,17 @@ const useUserHooks = () => {
     token.value = tokenText;
   };
 
+  /**
+   * Logout is auth guard gaurantee.
+   */
   const logout = () => {
     window.localStorage.removeItem(AUTH_KEY);
     window.location.reload();
   };
 
+  /**
+   * Hot logout will not gaurantee auth guard.
+   */
   const hotLogout = () => {
     token.value = "";
     window.localStorage.removeItem(AUTH_KEY);

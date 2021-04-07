@@ -78,9 +78,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.search-input {
-  -webkit-appearance: none;
-}
 .search-input:focus {
   box-shadow: 0px 0px 0px 2px rgba(255, 133, 95, 0.2);
 }

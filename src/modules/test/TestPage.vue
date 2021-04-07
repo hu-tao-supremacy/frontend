@@ -31,8 +31,8 @@ import { testData, questionData } from "./testData";
 import QuestionText from "@/modules/question/question-text/QuestionText.vue";
 import QuestionRadio from "@/modules/question/question-radio/QuestionRadio.vue";
 import QuestionStar from "@/modules/question/question-star/QuestionStar.vue";
-import OrgBanner from "@/modules/organization/home/org-banner/OrgBanner.vue";
-import OrgEventListCard from "@/modules/organization/home/org-event-list-card/OrgEventListCard.vue";
+import OrgBanner from "@/modules/organization/home/team/org-banner/OrgBanner.vue";
+import OrgEventListCard from "@/modules/organization/home/team/org-event-list-card/OrgEventListCard.vue";
 
 export default defineComponent({
   name: "TestPage",

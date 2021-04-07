@@ -47,6 +47,7 @@ export default defineComponent({
     BaseButton
   },
   setup() {
+    //Later will get from backend using organization selected from side navbar using provide
     const test = testData;
     const eventsList = eventsListData;
 

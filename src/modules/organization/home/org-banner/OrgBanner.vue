@@ -2,7 +2,7 @@
   <div
     class="flex w-full min-container-height shadow-sm rounded-2xl overflow-hidden bg-white"
   >
-    <section class="w-24 flex-shrink-0">
+    <section class="w-24 flex-shrink-0 min-h-full">
       <LazyImage
         :width="200"
         :height="200"

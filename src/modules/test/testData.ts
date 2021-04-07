@@ -30,7 +30,9 @@ export const testData = {
     faculty: "ISE",
     imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
     img: "https://picsum.photos/400",
-    tags: ["Engineering", "Food", "Education"]
+    tags: ["Engineering", "Food", "Education"],
+    attendeeLimit: 180,
+    currentAttendee: 100
   },
   organization: {
     img: "https://picsum.photos/100",

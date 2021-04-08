@@ -55,7 +55,7 @@
             class="w-full h-3.5"
             :isError="!isValidEmail"
           />
-          <p v-if="!isValidEmail" class="text-sm text-red-5 mt-0.25 ml-1.5">
+          <p v-show="!isValidEmail" class="text-sm text-red-5 mt-0.25 ml-1.5">
             Please input valid email
           </p>
         </section>
@@ -68,7 +68,7 @@
             class="w-full h-3.5"
             :isError="!isValidPhone"
           />
-          <p v-if="!isValidPhone" class="text-sm text-red-5 mt-0.25 ml-1.5">
+          <p v-show="!isValidPhone" class="text-sm text-red-5 mt-0.25 ml-1.5">
             Please input phone number without '-'
           </p>
         </section>
@@ -86,7 +86,7 @@
               :isError="!isValidLocation"
             />
             <p
-              v-if="!isValidLocation"
+              v-show="!isValidLocation"
               class="text-sm text-red-5 mt-0.25 ml-1.5"
             >
               Please select district
@@ -125,7 +125,7 @@
             class="w-full resize-none"
             :isError="!isValidAddress"
           />
-          <p v-if="!isValidAddress" class="text-sm text-red-5 mt-0.25 ml-1.5">
+          <p v-show="!isValidAddress" class="text-sm text-red-5 mt-0.25 ml-1.5">
             Please input address
           </p>
         </section>

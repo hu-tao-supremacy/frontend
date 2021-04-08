@@ -1,7 +1,5 @@
 <template>
   <div class="bg-gray-1 p-2">
-    <OrgEventListCard :event="test.event" :status="'Open'" class="mb-4" />
-    <OrgBanner :org="test.eventOrganizer" class="mb-4" />
     <QuestionStar class="mb-4" />
     <QuestionRadio class="mb-4" :question="question.radio" />
     <QuestionText class="mb-4" :question="question.text" />
@@ -31,8 +29,6 @@ import { testData, questionData } from "./testData";
 import QuestionText from "@/modules/question/question-text/QuestionText.vue";
 import QuestionRadio from "@/modules/question/question-radio/QuestionRadio.vue";
 import QuestionStar from "@/modules/question/question-star/QuestionStar.vue";
-import OrgBanner from "@/modules/organization/home/team/org-banner/OrgBanner.vue";
-import OrgEventListCard from "@/modules/organization/home/team/org-event-list-card/OrgEventListCard.vue";
 
 export default defineComponent({
   name: "TestPage",
@@ -42,9 +38,7 @@ export default defineComponent({
     EventOrganizer,
     QuestionText,
     QuestionRadio,
-    QuestionStar,
-    OrgBanner,
-    OrgEventListCard
+    QuestionStar
   },
   setup() {
     const test = testData;

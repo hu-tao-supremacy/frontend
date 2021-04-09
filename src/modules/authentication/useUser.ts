@@ -5,6 +5,7 @@ import { useResult } from "@vue/apollo-composable";
 import { User } from "@/apollo/types";
 import isEmpty from "@/commons/utils/isEmpty";
 import { useRoute, useRouter } from "vue-router";
+import hasAuthGuard from "@/router/hasAuthGuard";
 
 const EMPTY_USER = {} as User;
 
@@ -41,20 +42,13 @@ const useUserHooks = () => {
     token.value = tokenText;
   };
 
-  /**
-   * Logout is auth guard gaurantee.
-   */
   const logout = () => {
     window.localStorage.removeItem(AUTH_KEY);
-    window.location.reload();
-  };
-
-  /**
-   * Hot logout will not gaurantee auth guard.
-   */
-  const hotLogout = () => {
-    token.value = "";
-    window.localStorage.removeItem(AUTH_KEY);
+    if (hasAuthGuard(route)) {
+      window.location.reload();
+    } else {
+      token.value = "";
+    }
   };
 
   onMounted(() => {
@@ -66,7 +60,7 @@ const useUserHooks = () => {
     }
   });
 
-  return { user, logout, setToken, hotLogout, isSignIn, refetch };
+  return { user, logout, setToken, isSignIn, refetch };
 };
 
 export default useUserHooks;

@@ -4,7 +4,7 @@ import { useCurrentUser } from "./api";
 import { useResult } from "@vue/apollo-composable";
 import { User } from "@/apollo/types";
 import isEmpty from "@/commons/utils/isEmpty";
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 
 const EMPTY_USER = {} as User;
 
@@ -15,12 +15,16 @@ const EMPTY_USER = {} as User;
 const useUserHooks = () => {
   const token = ref("");
   const router = useRouter();
+  const route = useRoute();
   const hasToken = computed(() => {
     return token.value.length !== 0;
   });
 
-  const { result: currentUser } = useCurrentUser(hasToken);
-  const user = useResult(currentUser, EMPTY_USER);
+  const { result, refetch } = useCurrentUser(hasToken);
+  const userResult = useResult(result, EMPTY_USER, data => data.currentUser);
+  const user = computed(() => {
+    return hasToken.value ? userResult.value : EMPTY_USER;
+  });
 
   const isSignIn = computed(() => {
     return !isEmpty(user.value);
@@ -28,7 +32,7 @@ const useUserHooks = () => {
 
   watch(user, () => {
     if (user.value.didSetup === false) {
-      router.push("/?signup=1");
+      router.push(`${route.path}?signup=1`);
     }
   });
 
@@ -62,7 +66,7 @@ const useUserHooks = () => {
     }
   });
 
-  return { user, logout, setToken, hotLogout, isSignIn };
+  return { user, logout, setToken, hotLogout, isSignIn, refetch };
 };
 
 export default useUserHooks;

@@ -6,8 +6,12 @@ import { useAuthentication } from "./api";
 const useLogin = () => {
   const route = useRoute();
   const router = useRouter();
-  const { setToken, user } = useUser();
-  const { authenticate, onDone, onError } = useAuthentication();
+  const { setToken } = useUser();
+  const {
+    authenticate,
+    onDone: onAuthDone,
+    onError: onAuthError
+  } = useAuthentication();
 
   onMounted(() => {
     if (route.query.ticket && route.query.target) {
@@ -21,19 +25,13 @@ const useLogin = () => {
     }
   });
 
-  onDone(result => {
+  onAuthDone(result => {
     const token = result.data.authenticate.accessToken;
     setToken(token);
-    // wait to connect to backend status
-    const isFirstTimeLogin = !user.value.didSetup;
-    if (isFirstTimeLogin) {
-      router.push(`${route.query.target}?signup=1`);
-    } else {
-      router.push(route.query.target as string);
-    }
+    router.push(route.query.target as string);
   });
 
-  onError(error => {
+  onAuthError(error => {
     console.log(error);
   });
 

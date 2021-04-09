@@ -13,7 +13,7 @@ const useSignup = () => {
   const currentModal = ref(ADDITIONAL_INFO);
   const router = useRouter();
   const route = useRoute();
-  const { hotLogout } = useUser();
+  const { hotLogout, refetch } = useUser();
   const {
     updateUser,
     onUpdateUserDone,
@@ -47,6 +47,7 @@ const useSignup = () => {
   };
 
   onUpdateUserDone(() => {
+    refetch();
     toggleModal("interest");
   });
 

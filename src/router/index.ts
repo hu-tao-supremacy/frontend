@@ -6,6 +6,8 @@ const Test = () => import("@/modules/test/TestPage.vue");
 const EventInfo = () => import("@/modules/eventInfo/EventInfoPage.vue");
 const Wallet = () => import("@/modules/wallet/WalletPage.vue");
 const UserCheckIn = () => import("@/modules/userCheckIn/UserCheckInPage.vue");
+const OrgGreet = () =>
+  import("@/modules/organization/greeting/GreetingPage.vue");
 const Login = () => import("@/modules/login/Login.vue");
 const PageSkeleton = () => import("@/commons/components/PageSkeleton.vue");
 
@@ -21,28 +23,30 @@ const router = createRouter({
           component: Home
         },
         {
-          path: "/test",
+          path: "test",
           component: Test
         },
         {
-          path: "/event",
+          path: "event",
           component: EventInfo
         },
         {
-          path: "/wallet",
+          path: "wallet",
           component: Wallet
         },
         {
-          path: "/user-checkin",
+          path: "user-checkin",
           component: UserCheckIn,
           beforeEnter: authGuard
         }
       ]
     },
     {
-      path: "/login",
-      component: Login
-    }
+      path: "/org",
+      component: PageSkeleton, //Will later change to page skeleton of org page
+      children: [{ path: "greeting", component: OrgGreet }]
+    },
+    { path: "/login", component: Login }
   ]
 });
 

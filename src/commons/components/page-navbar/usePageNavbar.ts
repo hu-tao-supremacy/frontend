@@ -4,7 +4,9 @@ import { computed } from "vue";
 
 export default function usePageNavbar() {
   const { isSignIn: isLogIn, logout, user } = useUser();
-  const imgUrl = user.value.profilePictureUrl;
+  const imgUrl = computed(() => {
+    return user.value.profilePictureUrl;
+  });
 
   const nameShown = computed(() => {
     if (isEmpty(user.value)) {

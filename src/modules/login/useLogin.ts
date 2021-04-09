@@ -25,7 +25,7 @@ const useLogin = () => {
     const token = result.data.authenticate.accessToken;
     setToken(token);
     // wait to connect to backend status
-    const isFirstTimeLogin = user.value.didSetup;
+    const isFirstTimeLogin = !user.value.didSetup;
     if (isFirstTimeLogin) {
       router.push(`${route.query.target}?signup=1`);
     } else {

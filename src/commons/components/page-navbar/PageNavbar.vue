@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex justify-between h-8 w-full px-8 py-2 items-center sticky top-0 bg-white z-50"
+    class="flex justify-between h-8 w-full px-8 py-2 items-center sticky top-0 bg-white z-40"
   >
     <section class="flex items-center">
       <router-link to="/">
@@ -43,13 +43,7 @@
       >Login / Signup</base-button
     >
     <section v-else class="flex items-center">
-      <div class="mr-3 h-5 w-5 border-2 border-primary rounded-full">
-        <img
-          :src="imgUrl"
-          alt=""
-          class="h-full object-cover w-full rounded-full"
-        />
-      </div>
+      <UserProfile :user="user" />
       <div class="text-lg font-heading max-w-20 truncate">{{ nameShown }}</div>
     </section>
   </div>
@@ -58,6 +52,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
+import UserProfile from "@/commons/UI/user-profile/UserProfile.vue";
 import SearchIcon from "@/assets/Search.vue";
 import OnePassLogo from "@/assets/OnePassLogoColor.vue";
 import usePageNavbar from "./usePageNavbar";
@@ -67,12 +62,13 @@ export default defineComponent({
   components: {
     BaseButton,
     SearchIcon,
-    OnePassLogo
+    OnePassLogo,
+    UserProfile
   },
   setup() {
-    const { isLogIn, imgUrl, nameShown, login, logout } = usePageNavbar();
+    const { isLogIn, imgUrl, nameShown, login, logout, user } = usePageNavbar();
 
-    return { isLogIn, imgUrl, nameShown, login, logout };
+    return { isLogIn, imgUrl, nameShown, login, logout, user };
   }
 });
 </script>

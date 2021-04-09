@@ -6,8 +6,7 @@ import {
   validatePhone,
   validateZipCode,
   validateDistrict,
-  validateProvince,
-  validateAddress
+  validateProvince
 } from "@/commons/utils/validForm";
 import districts from "@/commons/constant/thailand-address/district";
 import provinces from "@/commons/constant/thailand-address/province";
@@ -89,10 +88,6 @@ export default function useModalAdditionalInfo(
     );
   });
 
-  const isValidAddress = computed(() => {
-    return validateAddress(userAddress.value);
-  });
-
   const fileLoaded = computed(() => {
     return !!uploadedImg.value;
   });
@@ -107,7 +102,6 @@ export default function useModalAdditionalInfo(
       userDistrict.value !== "" &&
       userProvince.value !== "" &&
       userZipCode.value !== "" &&
-      isValidAddress.value &&
       userAddress.value !== "" &&
       fileLoaded.value
     );
@@ -138,7 +132,6 @@ export default function useModalAdditionalInfo(
     isValidEmail,
     isValidPhone,
     isValidLocation,
-    isValidAddress,
     isValidForm,
     submitForm
   };

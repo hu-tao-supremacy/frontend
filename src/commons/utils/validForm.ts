@@ -42,10 +42,3 @@ export function validateProvince(province: string) {
   const expression = /[^0-9]/;
   return expression.test(province);
 }
-
-/**
- * Check whether address is not empty
- */
-export function validateAddress(address: string) {
-  return true;
-}

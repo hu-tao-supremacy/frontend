@@ -123,11 +123,7 @@
             name="address"
             :rows="3"
             class="w-full resize-none"
-            :isError="!isValidAddress"
           />
-          <p v-if="!isValidAddress" class="text-sm text-red-5 mt-0.25 ml-1.5">
-            Please input address
-          </p>
         </section>
         <base-button
           class="button-height w-20 self-center"
@@ -182,7 +178,6 @@ export default defineComponent({
       isValidEmail,
       isValidPhone,
       isValidLocation,
-      isValidAddress,
       isValidForm,
       submitForm
     } = useModalAdditionalInfo(context);
@@ -204,7 +199,6 @@ export default defineComponent({
       isValidEmail,
       isValidPhone,
       isValidLocation,
-      isValidAddress,
       isValidForm,
       submitForm
     };

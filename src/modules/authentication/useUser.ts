@@ -1,5 +1,5 @@
 import { computed, onMounted, ref, watch } from "vue";
-import { AUTH_KEY } from "../home/components/signup/constant";
+import { AUTH_KEY } from "../signup/constant";
 import { useCurrentUser } from "./api";
 import { useResult } from "@vue/apollo-composable";
 import { User } from "@/apollo/types";
@@ -27,7 +27,6 @@ const useUserHooks = () => {
   });
 
   watch(user, () => {
-    console.log(user.value, "user");
     if (user.value.didSetup === false) {
       router.push("/?signup=1");
     }

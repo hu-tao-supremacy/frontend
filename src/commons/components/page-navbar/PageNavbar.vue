@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex justify-between h-8 w-full px-8 py-2 items-center sticky top-0 bg-white z-50"
+    class="flex justify-between h-8 w-full px-8 py-2 items-center sticky top-0 bg-white z-40"
   >
     <section class="flex items-center">
       <router-link to="/">

@@ -27,7 +27,7 @@ const useLogin = () => {
     // wait to connect to backend status
     const isFirstTimeLogin = true;
     if (isFirstTimeLogin) {
-      router.push("/?signup=1");
+      router.push(`${route.query.target}?signup=1`);
     } else {
       router.push(route.query.target as string);
     }

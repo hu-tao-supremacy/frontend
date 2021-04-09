@@ -6,7 +6,7 @@ import { useAuthentication } from "./api";
 const useLogin = () => {
   const route = useRoute();
   const router = useRouter();
-  const { setToken } = useUser();
+  const { setToken, user } = useUser();
   const { authenticate, onDone, onError } = useAuthentication();
 
   onMounted(() => {
@@ -25,7 +25,7 @@ const useLogin = () => {
     const token = result.data.authenticate.accessToken;
     setToken(token);
     // wait to connect to backend status
-    const isFirstTimeLogin = true;
+    const isFirstTimeLogin = user.value.didSetup;
     if (isFirstTimeLogin) {
       router.push(`${route.query.target}?signup=1`);
     } else {

@@ -3,14 +3,17 @@
     <RegistrationStatus :step="step" />
     <div v-if="step === 2" class="container flex flex-col">
       <div class="mt-4 font-heading text-4xl">Summary</div>
-      <PersonalInfoDes class="mt-3" />
+      <PersonalInfoDes
+        class="mt-3"
+        :modelValue="test.user"
+        @update:modelValue="value = $event"
+      />
+      <EventAnswer class="mt-3" :question="questionData" />
       <div class="flex justify-between mt-10">
         <base-button @click="decreaseStep" class="w-18 h-4 color"
-          >Back {{ step }}</base-button
+          >Back</base-button
         >
-        <base-button @click="increaseStep" class="w-18 h-4"
-          >Sumbit {{ step }}</base-button
-        >
+        <base-button @click="increaseStep" class="w-18 h-4">Sumbit</base-button>
       </div>
     </div>
     <div
@@ -34,16 +37,20 @@
       <div class="mt-4 font-heading text-4xl">Personal Information</div>
       <PersonalInfo
         class="mt-3"
-        :modelValue="test.user.firstName"
+        :modelValue="test.user"
         @update:modelValue="value = $event"
       />
-      <div class="font-heading text-4xl mb-3 mt-4">Additional Question</div>
-      <form @submit.prevent="submitAnswer">
-        <BaseTextInput :value="test.user.firstName" />
-      </form>
+      <div class="font-heading text-4xl mt-4">Additional Question</div>
+      <QuestionText
+        class="mt-4"
+        v-for="detail in questionData"
+        :key="detail.id"
+        :question="detail.seq + '. ' + detail.title"
+        @user-input="handleUserAnswer(detail.id, $event)"
+      />
       <div class="flex mt-10 self-end">
         <base-button @click="increaseStep" class="w-18 h-4"
-          >Continue {{ step }}</base-button
+          >Continue</base-button
         >
       </div>
     </div>
@@ -51,15 +58,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onUpdated, ref, watch, reactive } from "vue";
+import { defineComponent, onUpdated, ref, reactive } from "vue";
 import RegistrationStatus from "./registration-status/RegistrationStatus.vue";
 import PersonalInfo from "./personal-info/PersonalInfo.vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
-import usePersonalInfo from "./api";
-import { testData } from "./testData";
-import BaseTextInput from "@/commons/UI/BaseTextInput.vue";
 import InfoBanner from "./info-banner/InfoBanner.vue";
 import PersonalInfoDes from "./personal-info-des/PersonalInfoDes.vue";
+import QuestionText from "@/modules/question/question-text/QuestionText.vue";
+import EventAnswer from "./event-answer/EventAnswer.vue";
+import { testData } from "./testData";
+import { useQuestions } from "./api";
+import { QuestionWithAnswer } from "./type";
 
 export default defineComponent({
   name: "EventRegisterPage",
@@ -68,12 +77,15 @@ export default defineComponent({
     PersonalInfo,
     PersonalInfoDes,
     BaseButton,
-    BaseTextInput,
-    InfoBanner
+    InfoBanner,
+    QuestionText,
+    EventAnswer
   },
   setup() {
     const test = reactive(testData);
     const step = ref(1);
+    const questionData = reactive([] as QuestionWithAnswer[]);
+
     onUpdated(() => console.log("component update"));
     const increaseStep = () => {
       step.value++;
@@ -83,25 +95,30 @@ export default defineComponent({
       step.value--;
       console.log(step.value);
     };
-    const submitForm = () => {
-      step.value++;
-      console.log(step.value);
+    const handleUserAnswer = (id: number, answer: string) => {
+      const question = questionData.find(
+        value => value.id === id
+      ) as QuestionWithAnswer;
+      question.answer = answer;
+      console.log(questionData);
     };
-    const submitAnswer = () => {
-      console.log("hello");
-    };
-    const { result: personalInfo } = usePersonalInfo();
+    const { result: questions, onResult } = useQuestions();
 
-    watch(personalInfo, () => {
-      console.log(personalInfo.value, "value");
+    onResult(result => {
+      Object.assign(
+        questionData,
+        result.data.event.questionGroups[0].questions
+      );
     });
+
     return {
       test,
       step,
       increaseStep,
       decreaseStep,
-      submitForm,
-      personalInfo
+      handleUserAnswer,
+      questions,
+      questionData
     };
   }
 });

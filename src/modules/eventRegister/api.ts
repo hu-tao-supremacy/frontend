@@ -1,18 +1,18 @@
+import { Query } from "@/apollo/types";
 import { useQuery } from "@vue/apollo-composable";
 import gql from "graphql-tag";
-import { Event } from "@/apollo/types";
 
-export const usePersonalInfo = () =>
-  useQuery(gql`
-    query getCurrentUser {
-      currentUser {
-        firstName
-        lastName
-        gender
-        chulaId
-        email
-        address
+export const useQuestions = () =>
+  useQuery<Query>(gql`
+    query getQuestionsByEventId {
+      event(id: 1) {
+        questionGroups(type: PRE_EVENT) {
+          questions {
+            id
+            seq
+            title
+          }
+        }
       }
     }
   `);
-export default usePersonalInfo;

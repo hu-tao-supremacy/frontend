@@ -20,5 +20,10 @@ export const testData = {
     date: "Sun, 14 Feb - 16 April",
     time: "10:00 -18:00",
     location: "Engineering Faculty, Chula"
-  }
+  },
+  question: [
+    { id: 0, question: "You like ISE?" },
+    { id: 1, question: "You like Chula?" },
+    { id: 2, question: "You like Tongerring?" }
+  ]
 };

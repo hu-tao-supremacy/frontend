@@ -5,10 +5,10 @@
       <div class="flex flex-col w-1/3 mr-4">
         <div>First Name</div>
         <BaseTextInput
-          :value="modelValue"
-          @input="$emit('update:modelValue', $event.target.value)"
           class="w-full h-4"
           :disabled="true"
+          :value="modelValue.firstName"
+          @input="$emit('update:modelValue', $event.target.value)"
         />
       </div>
       <div class="flex flex-col w-1/3 mr-4">
@@ -73,7 +73,7 @@ import BaseTextArea from "@/commons/UI/BaseTextArea.vue";
 export default defineComponent({
   name: "PersonalInfoDes",
   props: {
-    user: {
+    modelValue: {
       type: Object as () => {
         firstName: string;
         lastName: string;
@@ -86,10 +86,6 @@ export default defineComponent({
         address: string;
       },
       required: true
-    },
-    modelValue: {
-      type: String,
-      required: true
     }
   },
   components: {
@@ -99,7 +95,7 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style scoped>
 .text-input:disabled {
   background: white;
   color: #ff855f;

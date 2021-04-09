@@ -4,15 +4,20 @@
       <div class="flex flex-col w-1/3 mr-4">
         <div>First Name</div>
         <BaseTextInput
-          :value="modelValue"
-          @input="$emit('update:modelValue', $event.target.value)"
           class="w-full h-4"
+          :value="modelValue.firstName"
+          @input="$emit('update:modelValue', $event.target.value)"
           :disabled="true"
         />
       </div>
       <div class="flex flex-col w-1/3 mr-4">
         <div>Last Name</div>
-        <BaseTextInput class="w-full h-4" :disabled="true" />
+        <BaseTextInput
+          class="w-full h-4"
+          :value="modelValue.lastName"
+          @input="$emit('update:modelValue', $event.target.value)"
+          :disabled="true"
+        />
       </div>
       <div class="flex flex-col w-1/3">
         <div>Gender</div>
@@ -101,5 +106,6 @@ export default defineComponent({
 <style>
 .text-input:disabled {
   background: white;
+  color: #a0aec0;
 }
 </style>

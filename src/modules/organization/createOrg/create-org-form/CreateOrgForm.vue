@@ -89,7 +89,7 @@
         </p>
       </div>
     </section>
-    <section class="w-full">
+    <section class="w-full mb-3">
       <label for="description" class="mb-0.25">Organization Description</label>
       <BaseExpandableTextArea
         v-model.trim="description"
@@ -102,6 +102,145 @@
         Please input organization description
       </p>
     </section>
+    <section class="flex mb-3">
+      <div class="w-20 mr-6 flex-shrink-0">
+        <h1 class="font-heading text-xl mb-2">Member</h1>
+        <p>Organization member</p>
+        <div class="flex -space-x-1 overflow-hidden">
+          <span
+            v-for="member in members"
+            :key="member.id"
+            class="flex justify-center items-center w-6 h-6 rounded-full overflow-hidden ring-2 ring-white bg-primary-3"
+            ><LazyImage
+              v-if="member.img"
+              :width="50"
+              :height="50"
+              alt="will change to api"
+              :url="member.img"
+              placeholder="LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+              class="object-cover w-full h-full"
+            />
+            <p v-else class="font-heading text-lg text-primary">
+              {{ showMemberName(member.firstName, member.lastName) }}
+            </p>
+          </span>
+          <span
+            @click="addMember"
+            class="flex justify-center items-center w-6 h-6 rounded-full overflow-hidden ring-2 ring-white bg-primary-3 cursor-pointer"
+            ><base-icon :width="24" :height="24" class="text-primary"
+              ><PlusIcon /></base-icon
+          ></span>
+        </div>
+      </div>
+      <div class="w-full">
+        <h1 class="font-heading text-xl mb-2">Contact Person</h1>
+        <section class="flex mb-1">
+          <div class="w-30 mr-1 flex-shrink-0">
+            <label for="contactName" class="mb-0.25">Full Name</label>
+            <BaseTextInput
+              v-model.trim="contactName"
+              id="contactName"
+              name="contactName"
+              class="w-full h-4"
+              :isError="!isValidContactName"
+            />
+            <p
+              v-show="!isValidContactName"
+              class="text-sm text-red-5 mt-0.25 ml-1.5"
+            >
+              Please input contact person full name
+            </p>
+          </div>
+          <div class="w-full">
+            <label for="contactEmail" class="mb-0.25">Email</label>
+            <BaseTextInput
+              v-model.trim="contactEmail"
+              id="contactEmail"
+              name="contactEmail"
+              class="w-full h-4"
+              :isError="!isValidContactEmail"
+            />
+            <p
+              v-show="!isValidContactEmail"
+              class="text-sm text-red-5 mt-0.25 ml-1.5"
+            >
+              Please input contact email
+            </p>
+          </div>
+        </section>
+        <section class="flex">
+          <div class="w-30 mr-1 flex-shrink-0">
+            <label for="contactPhone" class="mb-0.25">Phone Number</label>
+            <BaseTextInput
+              v-model.trim="contactPhone"
+              id="contactPhone"
+              name="contactPhone"
+              class="w-full h-4"
+              :isError="!isValidContactPhone"
+            />
+            <p
+              v-show="!isValidContactPhone"
+              class="text-sm text-red-5 mt-0.25 ml-1.5"
+            >
+              Please input contact phone number
+            </p>
+          </div>
+          <div class="w-full">
+            <label for="contactEmail" class="mb-0.25">Line</label>
+            <BaseTextInput
+              v-model.trim="contactLINE"
+              id="contactLINE"
+              name="contactLINE"
+              class="w-full h-4"
+            />
+          </div>
+        </section>
+      </div>
+    </section>
+    <section class="mb-6">
+      <h1 class="font-heading text-xl mb-2">Social Media</h1>
+      <div class="flex mb-1">
+        <div class="w-30 flex-shrink-0 mr-4">
+          <label for="facebook" class="mb-0.25">Facebook Page</label>
+          <BaseTextInput
+            v-model.trim="facebook"
+            id="facebook"
+            name="facebook"
+            class="w-full h-4"
+          />
+        </div>
+        <div class="w-30 flex-shrink-0">
+          <label for="instagram" class="mb-0.25">Instagram</label>
+          <BaseTextInput
+            v-model.trim="instagram"
+            id="instagram"
+            name="instagram"
+            class="w-full h-4"
+          />
+        </div>
+      </div>
+      <div class="flex">
+        <div class="w-30 flex-shrink-0 mr-4">
+          <label for="line" class="mb-0.25">Line Official Account</label>
+          <BaseTextInput
+            v-model.trim="line"
+            id="line"
+            name="line"
+            class="w-full h-4"
+          />
+        </div>
+        <div class="w-30 flex-shrink-0">
+          <label for="email" class="mb-0.25">Organization Email</label>
+          <BaseTextInput
+            v-model.trim="email"
+            id="email"
+            name="email"
+            class="w-full h-4"
+          />
+        </div>
+      </div>
+    </section>
+    <base-button class="px-2 py-0.5 self-end">Create Organization</base-button>
   </div>
 </template>
 
@@ -111,6 +250,8 @@ import ImageGalleryIcon from "@/assets/ImageGallery.vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import BaseTextInput from "@/commons/UI/BaseTextInput.vue";
 import BaseExpandableTextArea from "@/commons/UI/BaseExpandableTextArea.vue";
+import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
+import PlusIcon from "@/assets/Plus.vue";
 
 export default defineComponent({
   name: "CreateOrgForm",
@@ -118,7 +259,9 @@ export default defineComponent({
     ImageGalleryIcon,
     BaseButton,
     BaseTextInput,
-    BaseExpandableTextArea
+    BaseExpandableTextArea,
+    LazyImage,
+    PlusIcon
   },
   setup() {
     const isFileLoaded = false;
@@ -133,6 +276,41 @@ export default defineComponent({
     const isValidFaculty = false;
     const description = ref("");
     const isValidDescription = false;
+    const members = [
+      {
+        id: 1,
+        firstName: "Adam",
+        lastName: "Smith",
+        img: "https://picsum.photos/101"
+      },
+      {
+        id: 2,
+        firstName: "Ben",
+        lastName: "Foss",
+        img: "https://picsum.photos/102"
+      },
+      { id: 3, firstName: "Kark", lastName: "Titanium", img: null }
+    ];
+    const contactName = ref("");
+    const isValidContactName = false;
+    const contactEmail = ref("");
+    const isValidContactEmail = false;
+    const contactPhone = ref("");
+    const isValidContactPhone = false;
+    const contactLINE = ref("");
+    const facebook = ref("");
+    const instagram = ref("");
+    const line = ref("");
+    const email = ref("");
+
+    function showMemberName(firstName: string, lastName: string) {
+      return firstName.charAt(0) + lastName.charAt(0);
+    }
+
+    function addMember() {
+      //Do something to add member
+      console.log("Add member");
+    }
 
     return {
       isFileLoaded,
@@ -146,7 +324,21 @@ export default defineComponent({
       faculty,
       isValidFaculty,
       description,
-      isValidDescription
+      isValidDescription,
+      members,
+      contactName,
+      isValidContactName,
+      contactEmail,
+      isValidContactEmail,
+      contactPhone,
+      isValidContactPhone,
+      contactLINE,
+      facebook,
+      instagram,
+      line,
+      email,
+      showMemberName,
+      addMember
     };
   }
 });

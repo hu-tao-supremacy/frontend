@@ -12,7 +12,7 @@ export default function usePageNavbar() {
     if (isEmpty(user.value)) {
       return "";
     }
-    return user.value.firstName + user.value.lastName?.charAt(0) + ".";
+    return `${user.value.firstName} ${user.value.lastName?.charAt(0)}.`;
   });
 
   function login() {
@@ -22,5 +22,5 @@ export default function usePageNavbar() {
     );
   }
 
-  return { isLogIn, login, imgUrl, nameShown, logout };
+  return { isLogIn, login, imgUrl, nameShown, logout, user };
 }

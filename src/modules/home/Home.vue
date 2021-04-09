@@ -1,7 +1,11 @@
 <template>
-  <div class="flex flex-col mx-4 justify-center items-center w-full md:mx-0">
+  <div class="bg-gray-1 flex flex-col px-4 justify-center items-center w-full">
     <div class="container">
-      <EventCarousel :eventsList="state.eventsList" class="my-4 w-full" />
+      <EventCarousel
+        v-if="state.eventsList"
+        :eventsList="state.eventsList"
+        class="my-4 w-full"
+      />
       <div class="flex h-6 w-full mb-3 justify-between items-center">
         <div class="text-4xl font-heading">Recommended For You</div>
         <base-transparent-button
@@ -22,6 +26,7 @@
 
       <div
         class="recommended grid gap-4 mb-4 w-full justify-center md:justify-start"
+        v-if="state.recommendedEvents"
       >
         <CardRecommended
           v-for="detail in state.recommendedEvents"
@@ -46,7 +51,10 @@
           </span>
         </base-transparent-button>
       </div>
-      <div class="card grid gap-4 mb-4 w-full justify-center md:justify-start">
+      <div
+        class="card grid gap-4 mb-4 w-full justify-center md:justify-start"
+        v-if="state.events"
+      >
         <CardEvent
           v-for="event in state.events"
           :key="event.id"
@@ -56,7 +64,10 @@
       <div class="flex h-6 w-full mb-3 justify-between items-center">
         <div class="text-4xl font-heading">Organization</div>
       </div>
-      <div class="card grid gap-4 mb-4 w-full justify-center md:justify-start">
+      <div
+        class="card grid gap-4 mb-4 w-full justify-center md:justify-start"
+        v-if="state.orgs"
+      >
         <CardOrganization v-for="org in state.orgs" :key="org.id" :orgs="org" />
       </div>
       <div class="flex h-6 w-full mb-3 justify-between items-center">
@@ -76,7 +87,10 @@
           </span>
         </base-transparent-button>
       </div>
-      <div class="card grid gap-4 mb-4 w-full justify-center md:justify-start">
+      <div
+        class="card grid gap-4 mb-4 w-full justify-center md:justify-start"
+        v-if="state.events"
+      >
         <CardEvent
           v-for="event in state.events"
           :key="event.id"
@@ -100,7 +114,10 @@
           </span>
         </base-transparent-button>
       </div>
-      <div class="card grid gap-4 mb-20 w-full justify-center md:justify-start">
+      <div
+        class="card grid gap-4 mb-20 w-full justify-center md:justify-start"
+        v-if="state.events"
+      >
         <CardEvent
           v-for="event in state.events"
           :key="event.id"
@@ -112,14 +129,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref } from "vue";
+import { defineComponent, watch } from "vue";
 import CardEvent from "./components/card-event/CardEvent.vue";
 import CardRecommended from "./components/card-recommended/CardRecommended.vue";
 import CardOrganization from "./components/card-organization/CardOrganization.vue";
 import EventCarousel from "./components/event-carousel/EventCarousel.vue";
 import BaseTransparentButton from "@/commons/UI/BaseTransparentButton.vue";
 import ArrowRightIcon from "@/assets/ArrowRight.vue";
-import { testData } from "./useHome/testData";
+import useHome from "./use-home";
 
 export default defineComponent({
   components: {
@@ -132,12 +149,12 @@ export default defineComponent({
   },
 
   setup() {
-    const state = reactive(testData);
-    const showModal = ref(false);
+    const { state, showModal, toggleModal, upcomingEvents } = useHome();
 
-    function toggleModal() {
-      showModal.value = !showModal.value;
-    }
+    // for demo only
+    watch(upcomingEvents, () => {
+      console.log(upcomingEvents.value, "value");
+    });
 
     return { state, showModal, toggleModal };
   }

@@ -2,12 +2,12 @@ import CardBanner from "./CardBanner.vue";
 import "@/index.css";
 import { app, Story } from "@storybook/vue3";
 import BaseIcon from "@/commons/UI/BaseIcon.vue";
-import { Banner } from "@/commons/Interfaces/index";
+import { Event } from "@/commons/Interfaces/index";
 
 app.component("base-icon", BaseIcon);
 
 interface PropTypes {
-  event: Banner;
+  event: Event;
 }
 
 export default {
@@ -34,6 +34,7 @@ Primary.args = {
     date: "Sun, 14 Feb - 16 April",
     time: "10:00-18:00",
     imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
-    img: "https://picsum.photos/900"
+    img: "https://picsum.photos/900",
+    faculty: 'ISE'
   }
 };

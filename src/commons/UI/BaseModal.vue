@@ -1,9 +1,10 @@
 <template>
   <div
-    class="w-screen h-screen bg-gray-4 fixed inset-0 z-50 bg-opacity-50 flex justify-center items-start pt-18"
+    class="w-screen h-screen bg-gray-4 fixed inset-0 z-50 bg-opacity-50 flex justify-center items-center"
   >
     <section
       class="bg-white relative px-8 pt-8 pb-4 rounded-2xl inline-block w-full"
+      :class="{ 'default-modal-width': !hasMaxModalWidth }"
       :style="{ maxWidth: maxModalWidth }"
     >
       <base-transparent-button class="cross-btn absolute" @click="closeModal"
@@ -15,7 +16,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
 import BaseTransparentButton from "./BaseTransparentButton.vue";
 import XIcon from "@/assets/X.vue";
 
@@ -27,16 +28,20 @@ export default defineComponent({
   },
   props: {
     maxModalWidth: {
-      type: String,
-      default: "712px"
+      type: String
     }
   },
-  setup(_, context) {
+  emits: ["close"],
+  setup(props, context) {
     function closeModal() {
-      context.emit("close-modal");
+      context.emit("close");
     }
 
-    return { closeModal };
+    const hasMaxModalWidth = computed(() => {
+      return !!props.maxModalWidth;
+    });
+
+    return { closeModal, hasMaxModalWidth };
   }
 });
 </script>

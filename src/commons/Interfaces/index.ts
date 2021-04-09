@@ -1,21 +1,26 @@
 export interface Event {
+  description: string;
   day: number;
+  date: string;
   month: string;
   time: string;
   title: string;
   faculty: string;
   imgHash: string;
   img: string;
+  tags: Array<string>;
 }
+
 export interface Banner {
   title: string;
   description: string;
-  tags: Array<string>;
-  imgHash: string;
-  img: string;
   date: string;
   time: string;
   location: string;
+  faculty: string;
+  imgHash: string;
+  img: string;
+  tags: Array<string>;
 }
 
 export interface Org {
@@ -23,4 +28,46 @@ export interface Org {
   img: string;
   shortName: string;
   fullName: string;
+  description: string;
+}
+
+export interface District {
+  DISTRICT_ID: number;
+  DISTRICT_TH_NAME: string;
+  DISTRICT_ENG_NAME: string;
+  PROVINCE_ID: number;
+  GEO_ID: number;
+  ZIPCODE: string;
+}
+
+export interface Ticket {
+  event: Event;
+  organization: Org;
+  ticketID: string;
+  bgColor: string;
+}
+
+export interface Profile {
+  firstName: string;
+  lastName: string;
+  img: string;
+  imgHash: string;
+  email: string;
+  like: number;
+  ticket: number;
+  following: number;
+}
+
+export interface Schedule {
+  faculty: string;
+  day: number;
+  month: string;
+  time: string;
+}
+
+export interface Interest {
+  id: number;
+  name: string;
+  img: string;
+  imgHash: string;
 }

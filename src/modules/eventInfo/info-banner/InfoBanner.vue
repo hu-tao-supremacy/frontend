@@ -1,5 +1,7 @@
 <template>
-  <div class="flex flex-col rounded-2xl overflow-hidden relative bg-white">
+  <div
+    class="flex flex-col rounded-2xl overflow-hidden relative bg-white shadow-sm"
+  >
     <div class="min-w-full h-30">
       <LazyImage
         :width="1000"

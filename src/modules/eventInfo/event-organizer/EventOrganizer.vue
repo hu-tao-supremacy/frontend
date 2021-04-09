@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col rounded-2xl overflow-hidden p-2 bg-white">
+  <div class="flex flex-col rounded-2xl overflow-hidden p-2 bg-white shadow-sm">
     <section class="flex w-full mb-2">
       <div class="h-10 w-10 rounded-full overflow-hidden mr-2 flex-shrink-0">
         <LazyImage
@@ -16,9 +16,9 @@
           {{ eventOrg.shortName }}
         </h1>
         <p class="text-sm">{{ eventOrg.fullName }}</p>
+        <div class="mt-1">{{ eventOrg.detail }}</div>
       </div>
     </section>
-    <section class="mb-2">{{ eventOrg.detail }}</section>
     <section class="flex justify-between items-center">
       <base-button class="px-2 py-0.5">Follow</base-button>
       <div class="flex items-center">
@@ -26,7 +26,7 @@
           ><base-icon
             width="32"
             height="32"
-            viewBox="0 0 30 30"
+            viewBox="0 0 112.196 112.196"
             iconColor="none"
             ><FacebookIcon /></base-icon
         ></base-circle-button>

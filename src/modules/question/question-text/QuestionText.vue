@@ -29,11 +29,15 @@ export default defineComponent({
     question: {
       type: String,
       required: true
+    },
+    answer: {
+      type: String,
+      default: ""
     }
   },
   emits: [USER_INPUT],
-  setup(_, context) {
-    const { userAnswer, userChange } = useQuestionText(context);
+  setup(props, context) {
+    const { userAnswer, userChange } = useQuestionText(context, props.answer);
     return { userAnswer, userChange };
   }
 });

@@ -47,6 +47,7 @@
         :key="detail.id"
         :question="detail.seq + '. ' + detail.title"
         @user-input="handleUserAnswer(detail.id, $event)"
+        :answer="detail.answer"
       />
       <div class="flex mt-10 self-end">
         <base-button @click="increaseStep" class="w-18 h-4"
@@ -58,7 +59,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onUpdated, ref, reactive } from "vue";
+import { defineComponent, ref, reactive } from "vue";
 import RegistrationStatus from "./registration-status/RegistrationStatus.vue";
 import PersonalInfo from "./personal-info/PersonalInfo.vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
@@ -66,6 +67,7 @@ import InfoBanner from "./info-banner/InfoBanner.vue";
 import PersonalInfoDes from "./personal-info-des/PersonalInfoDes.vue";
 import QuestionText from "@/modules/question/question-text/QuestionText.vue";
 import EventAnswer from "./event-answer/EventAnswer.vue";
+import useUser from "@/modules/authentication";
 import { testData } from "./testData";
 import { useQuestions } from "./api";
 import { QuestionWithAnswer } from "./type";
@@ -86,7 +88,6 @@ export default defineComponent({
     const step = ref(1);
     const questionData = reactive([] as QuestionWithAnswer[]);
 
-    onUpdated(() => console.log("component update"));
     const increaseStep = () => {
       step.value++;
       console.log(step.value);

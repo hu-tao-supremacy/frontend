@@ -113,7 +113,3 @@ export default defineComponent({
   background: #cbd5e0;
 }
 </style>
-
-function useEventRegister(): { user: any; step: any; increaseStep: any;
-decreaseStep: any; handleUserAnswer: any; questionData: any; questions: any; } {
-throw new Error("Function not implemented."); }

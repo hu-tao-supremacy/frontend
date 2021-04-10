@@ -1,10 +1,10 @@
 import { useQuery } from "@vue/apollo-composable";
 import gql from "graphql-tag";
-import { Query } from "@/apollo/types";
+import { GetCurrentUserQuery } from "@/apollo/types";
 import { Ref } from "vue";
 
 export const useCurrentUser = (enabled: Ref<boolean>) =>
-  useQuery<Query>(
+  useQuery<GetCurrentUserQuery>(
     gql`
       query getCurrentUser {
         currentUser {

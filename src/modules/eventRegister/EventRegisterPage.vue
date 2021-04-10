@@ -3,11 +3,7 @@
     <RegistrationStatus :step="step" />
     <div v-if="step === 2" class="container flex flex-col">
       <div class="mt-4 font-heading text-4xl">Summary</div>
-      <PersonalInfoDes
-        class="mt-3"
-        :modelValue="test.user"
-        @update:modelValue="value = $event"
-      />
+      <PersonalInfoDes class="mt-3" :user="user" />
       <EventAnswer class="mt-3" :question="questionData" />
       <div class="flex justify-between mt-10">
         <base-button @click="decreaseStep" class="w-18 h-4 color"
@@ -35,11 +31,7 @@
     </div>
     <div v-else class="container flex flex-col">
       <div class="mt-4 font-heading text-4xl">Personal Information</div>
-      <PersonalInfo
-        class="mt-3"
-        :modelValue="test.user"
-        @update:modelValue="value = $event"
-      />
+      <PersonalInfo class="mt-3" :user="user" />
       <div class="font-heading text-4xl mt-4">Additional Question</div>
       <QuestionText
         class="mt-4"
@@ -84,6 +76,7 @@ export default defineComponent({
     EventAnswer
   },
   setup() {
+    const { user } = useUser();
     const test = reactive(testData);
     const step = ref(1);
     const questionData = reactive([] as QuestionWithAnswer[]);
@@ -91,6 +84,7 @@ export default defineComponent({
     const increaseStep = () => {
       step.value++;
       console.log(step.value);
+      console.log(user);
     };
     const decreaseStep = () => {
       step.value--;
@@ -115,6 +109,7 @@ export default defineComponent({
     return {
       test,
       step,
+      user,
       increaseStep,
       decreaseStep,
       handleUserAnswer,

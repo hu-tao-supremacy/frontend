@@ -4,48 +4,70 @@
       <div class="flex flex-col w-1/3 mr-4">
         <div>First Name</div>
         <BaseTextInput
+          :value="user.firstName"
           class="w-full h-4"
-          :value="modelValue.firstName"
-          @input="$emit('update:modelValue', $event.target.value)"
           :disabled="true"
         />
       </div>
       <div class="flex flex-col w-1/3 mr-4">
         <div>Last Name</div>
         <BaseTextInput
+          :value="user.lastName"
           class="w-full h-4"
-          :value="modelValue.lastName"
-          @input="$emit('update:modelValue', $event.target.value)"
           :disabled="true"
         />
       </div>
       <div class="flex flex-col w-1/3">
         <div>Gender</div>
-        <BaseTextInput class="w-full h-4" :disabled="true" />
+        <BaseTextInput
+          :value="user.gender"
+          class="w-full h-4"
+          :disabled="true"
+        />
       </div>
     </div>
     <div class="flex mt-4">
       <div class="flex flex-col w-1/3 mr-4">
         <div>Student ID</div>
-        <BaseTextInput class="w-full h-4" :disabled="true" />
+        <BaseTextInput
+          :value="user.chulaId"
+          class="w-full h-4"
+          :disabled="true"
+        />
       </div>
       <div class="flex flex-col w-1/3 mr-4">
         <div>Faculty</div>
-        <BaseTextInput class="w-full h-4" :disabled="true" />
+        <BaseTextInput
+          :value="user.chulaId"
+          class="w-full h-4"
+          :disabled="true"
+        />
       </div>
       <div class="flex flex-col w-1/3">
         <div>Year</div>
-        <BaseTextInput class="w-full h-4" :disabled="true" />
+        <BaseTextInput
+          :value="user.chulaId"
+          class="w-full h-4"
+          :disabled="true"
+        />
       </div>
     </div>
     <div class="flex justify-between mt-4">
       <div class="flex flex-col w-1/2 mr-4">
         <div>Phone</div>
-        <BaseTextInput class="w-full h-4" :disabled="true" />
+        <BaseTextInput
+          :value="user.chulaId"
+          class="w-full h-4"
+          :disabled="true"
+        />
       </div>
       <div class="flex flex-col w-1/2 ">
         <div>Email</div>
-        <BaseTextInput class="w-full h-4" :disabled="true" />
+        <BaseTextInput
+          :value="user.email"
+          class="w-full h-4"
+          :disabled="true"
+        />
       </div>
     </div>
     <div class="flex mt-4">
@@ -64,35 +86,27 @@
     </div>
     <div class="flex flex-col mt-4">
       <div>Address</div>
-      <BaseTextArea class="w-full resize-none" :disabled="true" :rows="2" />
+      <BaseTextArea
+        :value="user.address"
+        class="w-full resize-none"
+        :disabled="true"
+        :rows="2"
+      />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { ComputedRef, defineComponent, toRefs } from "vue";
 import BaseTextInput from "@/commons/UI/BaseTextInput.vue";
 import BaseTextArea from "@/commons/UI/BaseTextArea.vue";
+import { User } from "@/apollo/types";
 
 export default defineComponent({
   name: "PersonalInfo",
   props: {
     user: {
-      type: Object as () => {
-        firstName: string;
-        lastName: string;
-        gender: string;
-        studentId: string;
-        faculty: string;
-        year: number;
-        phone: string;
-        email: string;
-        address: string;
-      },
-      required: true
-    },
-    modelValue: {
-      type: String,
+      type: Object as () => ComputedRef<User>,
       required: true
     }
   },
@@ -103,7 +117,7 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style scoped>
 .text-input:disabled {
   background: white;
   color: #a0aec0;

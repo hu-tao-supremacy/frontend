@@ -17,7 +17,7 @@ const useLogin = () => {
     if (route.query.ticket && route.query.target) {
       authenticate({
         input: {
-          providerAccessToken: route.query.ticket
+          providerAccessToken: route.query.ticket as string
         }
       });
     } else {
@@ -26,8 +26,8 @@ const useLogin = () => {
   });
 
   onAuthDone(result => {
-    const token = result.data.authenticate.accessToken;
-    setToken(token);
+    const token = result.data?.authenticate.accessToken;
+    setToken(token as string);
     router.push(route.query.target as string);
   });
 

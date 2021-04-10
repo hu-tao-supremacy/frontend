@@ -1,5 +1,7 @@
-schema: https://api.onepass.app/graphql
+schema: https://graph.onepass.app/
+documents: "src/**/api.ts"
 generates:
-  ./src/types.d.ts:
+  ./src/apollo/types.d.ts:
     plugins:
       - typescript
+      - typescript-operations

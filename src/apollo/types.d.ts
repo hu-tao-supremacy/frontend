@@ -18,10 +18,48 @@ export type AddMembersToOrganizationInput = {
   emails: Array<Scalars['String']>;
 };
 
+export type Answer = {
+  __typename?: 'Answer';
+  id: Scalars['Int'];
+  userEventId: Scalars['Int'];
+  questionId: Scalars['Int'];
+  value: Scalars['String'];
+};
+
+export type AnswerInput = {
+  id: Scalars['Int'];
+  userEventId: Scalars['Int'];
+  questionId: Scalars['Int'];
+  value: Scalars['String'];
+};
+
 export enum AnswerType {
   Scale = 'SCALE',
   Text = 'TEXT'
 }
+
+export type Attendance = {
+  __typename?: 'Attendance';
+  id: Scalars['Int'];
+  userId: Scalars['Int'];
+  user: User;
+  eventId: Scalars['Int'];
+  event: Event;
+  rating?: Maybe<Scalars['Int']>;
+  ticket?: Maybe<Scalars['String']>;
+  status: UserEventStatus;
+};
+
+export type AttendanceInput = {
+  id: Scalars['Int'];
+  userId: Scalars['Int'];
+  user: UserInput;
+  eventId: Scalars['Int'];
+  event: EventInput;
+  rating?: Maybe<Scalars['Int']>;
+  ticket?: Maybe<Scalars['String']>;
+  status: UserEventStatus;
+};
 
 export type AuthenticateInput = {
   providerAccessToken: Scalars['String'];
@@ -30,6 +68,16 @@ export type AuthenticateInput = {
 export type AuthenticateOutput = {
   __typename?: 'AuthenticateOutput';
   accessToken: Scalars['String'];
+};
+
+export type CreateAnswerInput = {
+  questionId: Scalars['Int'];
+  value: Scalars['String'];
+};
+
+export type CreateJoinRequestInput = {
+  eventId: Scalars['Int'];
+  answers: Array<CreateAnswerInput>;
 };
 
 export type CreateOrganizationInput = {
@@ -47,6 +95,10 @@ export type CreateOrganizationInput = {
   contactPhoneNumber?: Maybe<Scalars['String']>;
   contactLineId?: Maybe<Scalars['String']>;
   profilePicture?: Maybe<Scalars['Upload']>;
+};
+
+export type DeleteJoinRequestInput = {
+  eventId: Scalars['Int'];
 };
 
 export type Event = {
@@ -69,6 +121,12 @@ export type Event = {
   questionGroups: Array<QuestionGroup>;
   durations: Array<EventDuration>;
   tags: Array<Tag>;
+  attendance?: Maybe<Attendance>;
+};
+
+
+export type EventQuestionGroupsArgs = {
+  type: QuestionGroupType;
 };
 
 export type EventDuration = {
@@ -107,6 +165,30 @@ export type EventInput = {
   questionGroups: Array<QuestionGroupInput>;
   durations: Array<EventDurationInput>;
   tags: Array<TagInput>;
+  attendance?: Maybe<AttendanceInput>;
+};
+
+export type Facility = {
+  __typename?: 'Facility';
+  id: Scalars['Int'];
+  organizationId: Scalars['Int'];
+  organization: Organization;
+  name: Scalars['String'];
+  latitude: Scalars['Float'];
+  longitude: Scalars['Float'];
+  operatingHours: Scalars['String'];
+  description: Scalars['String'];
+};
+
+export type FacilityInput = {
+  id: Scalars['Int'];
+  organizationId: Scalars['Int'];
+  organization: OrganizationInput;
+  name: Scalars['String'];
+  latitude: Scalars['Float'];
+  longitude: Scalars['Float'];
+  operatingHours: Scalars['String'];
+  description: Scalars['String'];
 };
 
 export type FileUploadInput = {
@@ -143,9 +225,13 @@ export type Mutation = {
   authenticate: AuthenticateOutput;
   signInWithServiceAccount: AuthenticateOutput;
   upload: Scalars['Boolean'];
-  createOrganization: Scalars['Boolean'];
+  createOrganization: Organization;
+  updateOrganization: Organization;
   addMembersToOrganization: Organization;
+  removeMembersFromOrganization: Organization;
   updateUser: User;
+  createJoinRequest: Scalars['Boolean'];
+  deleteJoinRequest: Scalars['Boolean'];
 };
 
 
@@ -169,13 +255,33 @@ export type MutationCreateOrganizationArgs = {
 };
 
 
+export type MutationUpdateOrganizationArgs = {
+  input: UpdateOrganizationInput;
+};
+
+
 export type MutationAddMembersToOrganizationArgs = {
+  input: AddMembersToOrganizationInput;
+};
+
+
+export type MutationRemoveMembersFromOrganizationArgs = {
   input: AddMembersToOrganizationInput;
 };
 
 
 export type MutationUpdateUserArgs = {
   input: UpdateUserInput;
+};
+
+
+export type MutationCreateJoinRequestArgs = {
+  input: CreateJoinRequestInput;
+};
+
+
+export type MutationDeleteJoinRequestArgs = {
+  input: DeleteJoinRequestInput;
 };
 
 export type Organization = {
@@ -228,6 +334,9 @@ export type Query = {
   organizations: Array<Organization>;
   organization: Organization;
   currentUser: User;
+  user: User;
+  tags: Array<Tag>;
+  tag: Tag;
 };
 
 
@@ -240,6 +349,16 @@ export type QueryOrganizationArgs = {
   id: Scalars['Int'];
 };
 
+
+export type QueryUserArgs = {
+  email: Scalars['String'];
+};
+
+
+export type QueryTagArgs = {
+  id: Scalars['Int'];
+};
+
 export type Question = {
   __typename?: 'Question';
   id: Scalars['Int'];
@@ -249,6 +368,7 @@ export type Question = {
   isOptional: Scalars['Boolean'];
   title: Scalars['String'];
   subtitle: Scalars['String'];
+  answer: Answer;
 };
 
 export type QuestionGroup = {
@@ -285,17 +405,38 @@ export type QuestionInput = {
   isOptional: Scalars['Boolean'];
   title: Scalars['String'];
   subtitle: Scalars['String'];
+  answer: AnswerInput;
 };
 
 export type Tag = {
   __typename?: 'Tag';
   id: Scalars['Int'];
   name: Scalars['String'];
+  events: Array<Event>;
 };
 
 export type TagInput = {
   id: Scalars['Int'];
   name: Scalars['String'];
+  events: Array<EventInput>;
+};
+
+export type UpdateOrganizationInput = {
+  name?: Maybe<Scalars['String']>;
+  abbreviation?: Maybe<Scalars['String']>;
+  advisor?: Maybe<Scalars['String']>;
+  associatedFaculty?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  facebookPage?: Maybe<Scalars['String']>;
+  instagram?: Maybe<Scalars['String']>;
+  lineOfficialAccount?: Maybe<Scalars['String']>;
+  email?: Maybe<Scalars['String']>;
+  contactFullName?: Maybe<Scalars['String']>;
+  contactEmail?: Maybe<Scalars['String']>;
+  contactPhoneNumber?: Maybe<Scalars['String']>;
+  contactLineId?: Maybe<Scalars['String']>;
+  profilePicture?: Maybe<Scalars['Upload']>;
+  id: Scalars['Int'];
 };
 
 export type UpdateUserInput = {
@@ -305,6 +446,9 @@ export type UpdateUserInput = {
   nickname?: Maybe<Scalars['String']>;
   address?: Maybe<Scalars['String']>;
   gender?: Maybe<Gender>;
+  organizations?: Maybe<Array<OrganizationInput>>;
+  events?: Maybe<Array<EventInput>>;
+  interests?: Maybe<Array<TagInput>>;
   profilePicture?: Maybe<Scalars['Upload']>;
 };
 
@@ -322,7 +466,16 @@ export type User = {
   isChulaStudent: Scalars['Boolean'];
   didSetup: Scalars['Boolean'];
   gender: Gender;
+  organizations: Array<Organization>;
+  events: Array<Event>;
+  interests: Array<Tag>;
 };
+
+export enum UserEventStatus {
+  Approved = 'APPROVED',
+  Rejected = 'REJECTED',
+  Pending = 'PENDING'
+}
 
 export type UserInput = {
   id: Scalars['Int'];
@@ -336,4 +489,79 @@ export type UserInput = {
   isChulaStudent: Scalars['Boolean'];
   didSetup: Scalars['Boolean'];
   gender: Gender;
+  organizations: Array<OrganizationInput>;
+  events: Array<EventInput>;
+  interests: Array<TagInput>;
 };
+
+export type UserOrganization = {
+  __typename?: 'UserOrganization';
+  id: Scalars['Int'];
+  userId: Scalars['Int'];
+  user: User;
+  organizationId: Scalars['Int'];
+  organization: Organization;
+};
+
+export type UserOrganizationInput = {
+  id: Scalars['Int'];
+  userId: Scalars['Int'];
+  user: UserInput;
+  organizationId: Scalars['Int'];
+  organization: OrganizationInput;
+};
+
+export type GetCurrentUserQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetCurrentUserQuery = (
+  { __typename?: 'Query' }
+  & { currentUser: (
+    { __typename?: 'User' }
+    & Pick<User, 'firstName' | 'lastName' | 'email' | 'chulaId' | 'address' | 'profilePictureUrl' | 'didSetup' | 'gender'>
+  ) }
+);
+
+export type GetUpcomingEventsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetUpcomingEventsQuery = (
+  { __typename?: 'Query' }
+  & { upcomingEvents: Array<(
+    { __typename?: 'Event' }
+    & Pick<Event, 'description' | 'name' | 'profileImageUrl' | 'profileImageHash'>
+    & { location?: Maybe<(
+      { __typename?: 'Location' }
+      & Pick<Location, 'name'>
+    )>, tags: Array<(
+      { __typename?: 'Tag' }
+      & Pick<Tag, 'name'>
+    )> }
+  )> }
+);
+
+export type AuthenticateMutationVariables = Exact<{
+  input: AuthenticateInput;
+}>;
+
+
+export type AuthenticateMutation = (
+  { __typename?: 'Mutation' }
+  & { authenticate: (
+    { __typename?: 'AuthenticateOutput' }
+    & Pick<AuthenticateOutput, 'accessToken'>
+  ) }
+);
+
+export type UpdateUserMutationVariables = Exact<{
+  input: UpdateUserInput;
+}>;
+
+
+export type UpdateUserMutation = (
+  { __typename?: 'Mutation' }
+  & { updateUser: (
+    { __typename?: 'User' }
+    & Pick<User, 'id'>
+  ) }
+);

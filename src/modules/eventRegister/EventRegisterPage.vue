@@ -1,7 +1,7 @@
 <template>
   <div class="bg-gray-1 flex flex-col p-4 justify-center items-center w-full">
     <RegistrationStatus :step="step" />
-    <div v-if="step === 2" class="container flex flex-col">
+    <div v-if="checkStep2(step)" class="container flex flex-col">
       <div class="mt-4 font-heading text-4xl">Summary</div>
       <PersonalInfoDes class="mt-3" :user="user" />
       <EventAnswer class="mt-3" :question="questionData" />
@@ -13,7 +13,7 @@
       </div>
     </div>
     <div
-      v-else-if="step === 3"
+      v-else-if="checkStep3(step)"
       class="event-banner flex flex-col items-center justify-center"
     >
       <div class="mt-4 font-heading text-4xl">Congratulations!</div>
@@ -37,7 +37,7 @@
         class="mt-4"
         v-for="detail in questionData"
         :key="detail.id"
-        :question="detail.seq + '. ' + detail.title"
+        :question="getQuestion(detail.seq, detail.title)"
         @user-input="handleUserAnswer(detail.id, $event)"
         :answer="detail.answer"
       />
@@ -51,7 +51,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, reactive } from "vue";
+import { defineComponent } from "vue";
 import RegistrationStatus from "./registration-status/RegistrationStatus.vue";
 import PersonalInfo from "./personal-info/PersonalInfo.vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
@@ -59,10 +59,7 @@ import InfoBanner from "./info-banner/InfoBanner.vue";
 import PersonalInfoDes from "./personal-info-des/PersonalInfoDes.vue";
 import QuestionText from "@/modules/question/question-text/QuestionText.vue";
 import EventAnswer from "./event-answer/EventAnswer.vue";
-import useUser from "@/modules/authentication";
-import { testData } from "./testData";
-import { useQuestions } from "./api";
-import { QuestionWithAnswer } from "./type";
+import useEventRegister from "./use-event-register";
 
 export default defineComponent({
   name: "EventRegisterPage",
@@ -76,45 +73,30 @@ export default defineComponent({
     EventAnswer
   },
   setup() {
-    const { user } = useUser();
-    const test = reactive(testData);
-    const step = ref(1);
-    const questionData = reactive([] as QuestionWithAnswer[]);
-
-    const increaseStep = () => {
-      step.value++;
-      console.log(step.value);
-      console.log(user);
-    };
-    const decreaseStep = () => {
-      step.value--;
-      console.log(step.value);
-    };
-    const handleUserAnswer = (id: number, answer: string) => {
-      const question = questionData.find(
-        value => value.id === id
-      ) as QuestionWithAnswer;
-      question.answer = answer;
-      console.log(questionData);
-    };
-    const { result: questions, onResult } = useQuestions();
-
-    onResult(result => {
-      Object.assign(
-        questionData,
-        result.data.event.questionGroups[0].questions
-      );
-    });
-
-    return {
-      test,
-      step,
+    const {
       user,
+      step,
       increaseStep,
       decreaseStep,
+      checkStep2,
+      checkStep3,
+      getQuestion,
       handleUserAnswer,
-      questions,
-      questionData
+      questionData,
+      questions
+    } = useEventRegister();
+
+    return {
+      user,
+      step,
+      increaseStep,
+      decreaseStep,
+      checkStep2,
+      checkStep3,
+      getQuestion,
+      handleUserAnswer,
+      questionData,
+      questions
     };
   }
 });
@@ -131,3 +113,7 @@ export default defineComponent({
   background: #cbd5e0;
 }
 </style>
+
+function useEventRegister(): { user: any; step: any; increaseStep: any;
+decreaseStep: any; handleUserAnswer: any; questionData: any; questions: any; } {
+throw new Error("Function not implemented."); }

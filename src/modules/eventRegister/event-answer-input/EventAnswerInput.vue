@@ -12,7 +12,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import QuestionText from "@/modules/question/question-text/QuestionText.vue";
-import { QuestionWithAnswer } from "../type";
+import { QuestionWithAnswer } from "../use-event-register/type";
 
 export default defineComponent({
   name: "EventAnswerInput",

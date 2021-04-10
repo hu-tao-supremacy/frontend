@@ -18,7 +18,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import BaseTextInput from "@/commons/UI/BaseTextInput.vue";
-import { QuestionWithAnswer } from "../type";
+import { QuestionWithAnswer } from "../use-event-register/type";
 
 export default defineComponent({
   name: "EventAnswer",

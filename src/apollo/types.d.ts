@@ -13,11 +13,6 @@ export type Scalars = {
   Upload: any;
 };
 
-export type AddMembersToOrganizationInput = {
-  organizationId: Scalars['Int'];
-  emails: Array<Scalars['String']>;
-};
-
 export type Answer = {
   __typename?: 'Answer';
   id: Scalars['Int'];
@@ -70,14 +65,14 @@ export type AuthenticateOutput = {
   accessToken: Scalars['String'];
 };
 
-export type CreateAnswerInput = {
+export type CreateJoinRequestAnswerInput = {
   questionId: Scalars['Int'];
   value: Scalars['String'];
 };
 
 export type CreateJoinRequestInput = {
   eventId: Scalars['Int'];
-  answers: Array<CreateAnswerInput>;
+  answers: Array<CreateJoinRequestAnswerInput>;
 };
 
 export type CreateOrganizationInput = {
@@ -230,6 +225,7 @@ export type Mutation = {
   addMembersToOrganization: Organization;
   removeMembersFromOrganization: Organization;
   updateUser: User;
+  setUserInterests: Scalars['Boolean'];
   createJoinRequest: Scalars['Boolean'];
   deleteJoinRequest: Scalars['Boolean'];
 };
@@ -261,17 +257,22 @@ export type MutationUpdateOrganizationArgs = {
 
 
 export type MutationAddMembersToOrganizationArgs = {
-  input: AddMembersToOrganizationInput;
+  input: UpdateMembersInOrganizationInput;
 };
 
 
 export type MutationRemoveMembersFromOrganizationArgs = {
-  input: AddMembersToOrganizationInput;
+  input: UpdateMembersInOrganizationInput;
 };
 
 
 export type MutationUpdateUserArgs = {
   input: UpdateUserInput;
+};
+
+
+export type MutationSetUserInterestsArgs = {
+  input: SetUserInterestsInput;
 };
 
 
@@ -408,6 +409,14 @@ export type QuestionInput = {
   answer: AnswerInput;
 };
 
+export type SetUserInterestsInput = {
+  tags: Array<SetUserInterestsTagInput>;
+};
+
+export type SetUserInterestsTagInput = {
+  id: Scalars['Int'];
+};
+
 export type Tag = {
   __typename?: 'Tag';
   id: Scalars['Int'];
@@ -419,6 +428,11 @@ export type TagInput = {
   id: Scalars['Int'];
   name: Scalars['String'];
   events: Array<EventInput>;
+};
+
+export type UpdateMembersInOrganizationInput = {
+  organizationId: Scalars['Int'];
+  emails: Array<Scalars['String']>;
 };
 
 export type UpdateOrganizationInput = {
@@ -445,10 +459,13 @@ export type UpdateUserInput = {
   email?: Maybe<Scalars['String']>;
   nickname?: Maybe<Scalars['String']>;
   address?: Maybe<Scalars['String']>;
+  phoneNumber?: Maybe<Scalars['String']>;
+  district?: Maybe<Scalars['String']>;
+  province?: Maybe<Scalars['String']>;
+  zipCode?: Maybe<Scalars['String']>;
   gender?: Maybe<Gender>;
   organizations?: Maybe<Array<OrganizationInput>>;
   events?: Maybe<Array<EventInput>>;
-  interests?: Maybe<Array<TagInput>>;
   profilePicture?: Maybe<Scalars['Upload']>;
 };
 
@@ -462,6 +479,10 @@ export type User = {
   nickname?: Maybe<Scalars['String']>;
   chulaId?: Maybe<Scalars['String']>;
   address?: Maybe<Scalars['String']>;
+  phoneNumber?: Maybe<Scalars['String']>;
+  district?: Maybe<Scalars['String']>;
+  province?: Maybe<Scalars['String']>;
+  zipCode?: Maybe<Scalars['String']>;
   profilePictureUrl?: Maybe<Scalars['String']>;
   isChulaStudent: Scalars['Boolean'];
   didSetup: Scalars['Boolean'];
@@ -485,6 +506,10 @@ export type UserInput = {
   nickname?: Maybe<Scalars['String']>;
   chulaId?: Maybe<Scalars['String']>;
   address?: Maybe<Scalars['String']>;
+  phoneNumber?: Maybe<Scalars['String']>;
+  district?: Maybe<Scalars['String']>;
+  province?: Maybe<Scalars['String']>;
+  zipCode?: Maybe<Scalars['String']>;
   profilePictureUrl?: Maybe<Scalars['String']>;
   isChulaStudent: Scalars['Boolean'];
   didSetup: Scalars['Boolean'];

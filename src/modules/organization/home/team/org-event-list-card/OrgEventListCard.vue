@@ -1,17 +1,22 @@
 <template>
-  <div class="flex w-full shadow-sm rounded-2xl overflow-hidden bg-white">
-    <section class="w-16.5 flex-shrink-0 min-h-full">
+  <div
+    class="flex relative w-full shadow-sm rounded-2xl overflow-hidden bg-white"
+  >
+    <section class="w-16.5 relative flex-shrink-0 min-h-full">
       <LazyImage
         :width="150"
         :height="150"
         alt="will change to api"
         :url="event.img"
         :placeholder="event.imgHash"
-        class="object-cover w-full h-full"
+        class="object-cover absolute w-full h-full"
+        :canvasClass="'absolute'"
       />
     </section>
-    <section class="relative py-2 pl-2 pr-8 w-full">
-      <h1 class="text-blue-10 font-heading text-2xl mb-2">{{ event.title }}</h1>
+    <section class="py-2 pl-2 pr-8 min-w-0 w-full">
+      <h1 class="truncate w-full text-blue-10 font-heading text-2xl mb-2">
+        {{ event.title }}
+      </h1>
       <div class="flex flex-col lg:flex-row lg:justify-between">
         <div class="flex items-center mb-2 lg:mb-0">
           <section class="flex items-center mr-2">
@@ -73,13 +78,13 @@
           </section>
         </div>
       </div>
-      <base-icon
-        :width="32"
-        :height="32"
-        class="absolute top-4 right-2 text-primary cursor-pointer"
-        ><ArrowRight
-      /></base-icon>
     </section>
+    <base-icon
+      :width="32"
+      :height="32"
+      class="absolute top-1/2 right-2 -translate-y-1/2 transform text-primary cursor-pointer"
+      ><ArrowRight
+    /></base-icon>
   </div>
 </template>
 

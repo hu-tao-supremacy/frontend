@@ -1,4 +1,4 @@
-schema: https://api.onepass.app/graphql
+schema: https://graph.onepass.app/
 documents: "src/**/api.ts"
 generates:
   ./src/apollo/types.d.ts:

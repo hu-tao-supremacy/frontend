@@ -1,3 +1,4 @@
+import { MutationUpdateUserArgs, UpdateUserMutation } from "@/apollo/types";
 import { useMutation } from "@vue/apollo-composable";
 import gql from "graphql-tag";
 
@@ -6,7 +7,7 @@ export const useUpdateUserInfo = () => {
     mutate: updateUser,
     onDone: onUpdateUserDone,
     onError: onUpdateUserErrror
-  } = useMutation(gql`
+  } = useMutation<UpdateUserMutation, MutationUpdateUserArgs>(gql`
     mutation updateUser($input: UpdateUserInput!) {
       updateUser(input: $input) {
         id

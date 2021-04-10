@@ -1,5 +1,5 @@
 schema: https://api.onepass.app/graphql
 generates:
-  ./src/types.d.ts:
+  ./src/apollo/types.d.ts:
     plugins:
       - typescript

@@ -57,7 +57,7 @@
       <div class="flex flex-col w-1/2 mr-4">
         <div>Phone</div>
         <BaseTextInput
-          :value="user.chulaId"
+          :value="user.phoneNumber"
           class="w-full h-4"
           :disabled="true"
         />
@@ -73,16 +73,28 @@
     </div>
     <div class="flex mt-4">
       <div class="flex flex-col w-1/3 mr-4">
-        <div>City</div>
-        <BaseTextInput class="w-full h-4" :disabled="true" />
+        <div>District</div>
+        <BaseTextInput
+          :value="user.district"
+          class="w-full h-4"
+          :disabled="true"
+        />
       </div>
       <div class="flex flex-col w-1/3 mr-4">
         <div>Province</div>
-        <BaseTextInput class="w-full h-4" :disabled="true" />
+        <BaseTextInput
+          :value="user.province"
+          class="w-full h-4"
+          :disabled="true"
+        />
       </div>
       <div class="flex flex-col w-1/3">
         <div>Zip code</div>
-        <BaseTextInput class="w-full h-4" :disabled="true" />
+        <BaseTextInput
+          :value="user.zipCode"
+          class="w-full h-4"
+          :disabled="true"
+        />
       </div>
     </div>
     <div class="flex flex-col mt-4">

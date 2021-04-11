@@ -51,7 +51,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, reactive } from "vue";
 import RegistrationStatus from "./registration-status/RegistrationStatus.vue";
 import PersonalInfo from "./personal-info/PersonalInfo.vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
@@ -60,6 +60,7 @@ import PersonalInfoDes from "./personal-info-des/PersonalInfoDes.vue";
 import QuestionText from "@/modules/question/question-text/QuestionText.vue";
 import EventAnswer from "./event-answer/EventAnswer.vue";
 import useEventRegister from "./use-event-register";
+import testData from "./use-event-register/testData";
 
 export default defineComponent({
   name: "EventRegisterPage",
@@ -73,6 +74,7 @@ export default defineComponent({
     EventAnswer
   },
   setup() {
+    const test = reactive(testData);
     const {
       user,
       step,
@@ -87,6 +89,7 @@ export default defineComponent({
     } = useEventRegister();
 
     return {
+      test,
       user,
       step,
       increaseStep,

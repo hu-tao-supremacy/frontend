@@ -1,4 +1,3 @@
-import { questionData } from "./../../test/testData";
 import useUser from "@/modules/authentication";
 import { reactive, ref } from "vue";
 import { useQuestions } from "../api";
@@ -36,6 +35,7 @@ const useEventRegister = () => {
       value => value.id === id
     ) as QuestionWithAnswer;
     question.answer = answer;
+    console.log(questionData);
   };
   const { result: questions, onResult } = useQuestions();
 

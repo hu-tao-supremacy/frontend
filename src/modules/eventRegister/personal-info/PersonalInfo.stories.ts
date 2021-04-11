@@ -1,12 +1,7 @@
-import { Gender, User } from "./../../../apollo/types.d";
+import { Gender, User } from "@/apollo/types";
 import PersonalInfo from "./PersonalInfo.vue";
 import "@/index.css";
 import { Story } from "@storybook/vue3";
-import { provide } from "vue";
-import apolloClient from "@/apollo/client";
-import { DefaultApolloClient } from "@vue/apollo-composable";
-import { userSymbol } from "@/modules/authentication/constant";
-import useUserHooks from "@/modules/authentication/useUser";
 
 export default {
   title: "EventRegister/PersonalInfo",
@@ -20,8 +15,6 @@ interface PropTypes {
 const Template: Story<PropTypes> = args => ({
   components: { PersonalInfo },
   setup() {
-    provide(DefaultApolloClient, apolloClient);
-    provide(userSymbol, useUserHooks());
     return { args };
   },
   template: '<PersonalInfo v-bind="args"/>'

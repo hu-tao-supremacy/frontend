@@ -63,7 +63,11 @@ export default function useModalAdditionalInfo(
     const userInfo = {
       address: userAddress.value,
       email: userEmail.value,
-      profilePicture: uploadedImgFile.value
+      profilePicture: uploadedImgFile.value,
+      district: userDistrict.value,
+      province: userProvince.value,
+      zipCode: userZipCode.value,
+      phoneNumber: userPhone.value
     } as UpdateUserInput;
     context.emit(SUBMIT_MODAL, userInfo);
   }

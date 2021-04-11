@@ -20,7 +20,6 @@ export default defineComponent({
     const hasTeam = ref(false);
 
     function togglePage() {
-      console.log("toggle", hasTeam.value);
       hasTeam.value = !hasTeam.value;
     }
 

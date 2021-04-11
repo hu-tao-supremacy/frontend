@@ -536,6 +536,8 @@ export type GetCurrentUserQuery = { __typename?: "Query" } & {
     | "district"
     | "province"
     | "zipCode"
+    | "email"
+    | "chulaId"
     | "address"
     | "profilePictureUrl"
     | "didSetup"

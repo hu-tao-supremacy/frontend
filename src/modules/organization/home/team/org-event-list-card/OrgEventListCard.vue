@@ -19,63 +19,41 @@
       </h1>
       <div class="flex flex-col lg:flex-row lg:justify-between">
         <div class="flex items-center mb-2 lg:mb-0">
-          <section class="flex items-center mr-2">
-            <base-icon
-              :width="14"
-              :height="14"
-              class="text-primary mr-1 flex-shrink-0"
-              ><CalendarIcon
-            /></base-icon>
-            <p>{{ event.date }}</p>
-          </section>
-          <section class="flex items-center mr-2">
-            <base-icon
-              :width="14"
-              :height="14"
-              class="text-primary mr-1 flex-shrink-0"
-              ><ClockIcon
-            /></base-icon>
-            <p>{{ event.time }}</p>
-          </section>
-          <section class="flex items-center mr-2">
-            <base-icon
-              :width="14"
-              :height="14"
-              class="text-primary mr-1 flex-shrink-0"
-              ><MapPinIcon
-            /></base-icon>
-            <p class="max-width-location">{{ event.location }}</p>
-          </section>
+          <base-icon-and-detail
+            class="mr-2"
+            :iconClass="'mr-1'"
+            :detail="event.date"
+            ><CalendarIcon
+          /></base-icon-and-detail>
+          <base-icon-and-detail
+            class="mr-2"
+            :iconClass="'mr-1'"
+            :detail="event.time"
+            ><ClockIcon
+          /></base-icon-and-detail>
+          <base-icon-and-detail
+            :iconClass="'mr-1'"
+            :detail="event.location"
+            :detailClass="'max-width-location'"
+            ><MapPinIcon
+          /></base-icon-and-detail>
         </div>
         <div class="flex">
-          <section class="flex items-center mr-2">
-            <base-icon
-              :width="14"
-              :height="14"
-              class="mr-1"
-              :class="{
-                'text-red-6': isParticipantFull,
-                'text-primary': !isParticipantFull
-              }"
-              ><UsersIcon
-            /></base-icon>
-            <p :class="{ 'text-red-6': isParticipantFull }">
-              {{ participantNumber }}
-            </p>
-          </section>
-          <section class="flex items-center">
-            <base-icon
-              :width="14"
-              :height="14"
-              class="mr-1"
-              :class="{
-                'text-red-6': isEventClosed,
-                'text-primary': !isEventClosed
-              }"
-              ><ClipboardIcon
-            /></base-icon>
-            <p :class="{ 'text-red-6': isEventClosed }">{{ status }}</p>
-          </section>
+          <base-icon-and-detail
+            class="mr-2"
+            :detail="participantNumber"
+            :detailClass="participantTextColor"
+            :iconClass="'mr-1'"
+            :iconColor="participantIconColor"
+            ><UsersIcon
+          /></base-icon-and-detail>
+          <base-icon-and-detail
+            :detail="status"
+            :detailClass="eventStatusTextColor"
+            :iconClass="'mr-1'"
+            :iconColor="eventStatusIconColor"
+            ><ClipboardIcon
+          /></base-icon-and-detail>
         </div>
       </div>
     </section>
@@ -91,6 +69,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
+import BaseIconAndDetail from "@/commons/UI/BaseIconAndDetail.vue";
 import CalendarIcon from "@/assets/Calendar.vue";
 import ClockIcon from "@/assets/Clock.vue";
 import MapPinIcon from "@/assets/MapPin.vue";
@@ -104,6 +83,7 @@ export default defineComponent({
   name: "OrgEventListCard",
   components: {
     LazyImage,
+    BaseIconAndDetail,
     CalendarIcon,
     ClockIcon,
     MapPinIcon,
@@ -126,7 +106,11 @@ export default defineComponent({
     const {
       participantNumber,
       isParticipantFull,
-      isEventClosed
+      participantIconColor,
+      participantTextColor,
+      isEventClosed,
+      eventStatusIconColor,
+      eventStatusTextColor
     } = useOrgEventListCard(
       props.event.attendeeLimit,
       props.event.currentAttendee,
@@ -136,7 +120,11 @@ export default defineComponent({
     return {
       participantNumber,
       isParticipantFull,
-      isEventClosed
+      participantIconColor,
+      participantTextColor,
+      isEventClosed,
+      eventStatusIconColor,
+      eventStatusTextColor
     };
   }
 });

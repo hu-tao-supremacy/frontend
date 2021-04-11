@@ -20,7 +20,7 @@ export default function useOrgEventListCard(
 
   const participantTextColor = computed(() => {
     if (isParticipantFull.value) return "text-red-6";
-    return "";
+    return "text-green-6";
   });
 
   const isEventClosed = computed(() => {
@@ -34,7 +34,7 @@ export default function useOrgEventListCard(
 
   const eventStatusTextColor = computed(() => {
     if (isEventClosed.value) return "text-red-6";
-    return "";
+    return "text-green-6";
   });
 
   return {

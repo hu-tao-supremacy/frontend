@@ -3,6 +3,7 @@
     <base-icon
       :width="iconWidth"
       :height="iconHeight"
+      :viewBox="iconViewBox"
       class="flex-shrink-0"
       :class="[iconClass, iconColor]"
       ><slot></slot
@@ -28,6 +29,9 @@ export default defineComponent({
     iconColor: {
       type: String,
       default: "text-primary"
+    },
+    iconViewBox: {
+      type: String
     },
     detail: {
       type: String,

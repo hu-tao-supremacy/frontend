@@ -52,7 +52,7 @@
             :detailClass="eventStatusTextColor"
             :iconClass="'mr-1'"
             :iconColor="eventStatusIconColor"
-            ><ClipboardIcon
+            ><MinusCircleIcon v-if="isEventClosed"/><ClipboardIcon v-else
           /></base-icon-and-detail>
         </div>
       </div>
@@ -75,6 +75,7 @@ import ClockIcon from "@/assets/Clock.vue";
 import MapPinIcon from "@/assets/MapPin.vue";
 import UsersIcon from "@/assets/Users.vue";
 import ClipboardIcon from "@/assets/Clipboard.vue";
+import MinusCircleIcon from "@/assets/MinusCircle.vue";
 import ArrowRight from "@/assets/ArrowRight.vue";
 import { Event } from "@/commons/Interfaces";
 import useOrgEventListCard from "./useOrgEventListCard";
@@ -89,6 +90,7 @@ export default defineComponent({
     MapPinIcon,
     UsersIcon,
     ClipboardIcon,
+    MinusCircleIcon,
     ArrowRight
   },
   props: {

@@ -41,6 +41,7 @@ const useEventRegister = () => {
 
   onResult(result => {
     Object.assign(questionData, result.data.event.questionGroups[0].questions);
+    console.log(user);
   });
 
   return {

@@ -44,7 +44,7 @@
     <section class="flex mb-3">
       <div class="flex flex-col flex-shrink-0 mr-3">
         <label for="shortName" class="mb-0.25"
-          >Organization Abbreviations</label
+          >Organization abbreviations</label
         >
         <BaseTextInput
           v-model.trim="shortName"
@@ -58,7 +58,7 @@
         </p>
       </div>
       <div class="w-full">
-        <label for="fullName" class="mb-0.25">Organization Full Name</label>
+        <label for="fullName" class="mb-0.25">Organization full name</label>
         <BaseTextInput
           v-model.trim="fullName"
           id="fullName"
@@ -73,7 +73,7 @@
     </section>
     <section class="flex mb-3">
       <div class="flex flex-col w-40 flex-shrink-0 mr-3">
-        <label for="advisor" class="mb-0.25">Organization Advisor</label>
+        <label for="advisor" class="mb-0.25">Organization advisor</label>
         <BaseTextInput
           v-model.trim="advisor"
           id="advisor"
@@ -86,7 +86,7 @@
         </p>
       </div>
       <div class="w-full">
-        <label for="faculty" class="mb-0.25">Associated Faculty</label>
+        <label for="faculty" class="mb-0.25">Associated faculty</label>
         <BaseTextInput
           v-model.trim="faculty"
           id="faculty"
@@ -100,7 +100,7 @@
       </div>
     </section>
     <section class="w-full mb-3">
-      <label for="description" class="mb-0.25">Organization Description</label>
+      <label for="description" class="mb-0.25">Organization description</label>
       <BaseExpandableTextArea
         v-model.trim="description"
         id="description"
@@ -146,7 +146,7 @@
         <h1 class="font-heading text-xl mb-2">Contact Person</h1>
         <section class="flex mb-1">
           <div class="w-30 mr-1 flex-shrink-0">
-            <label for="contactName" class="mb-0.25">Full Name</label>
+            <label for="contactName" class="mb-0.25">Full name</label>
             <BaseTextInput
               v-model.trim="contactName"
               id="contactName"
@@ -180,7 +180,7 @@
         </section>
         <section class="flex">
           <div class="w-30 mr-1 flex-shrink-0">
-            <label for="contactPhone" class="mb-0.25">Phone Number</label>
+            <label for="contactPhone" class="mb-0.25">Phone number</label>
             <BaseTextInput
               v-model.trim="contactPhone"
               id="contactPhone"
@@ -211,7 +211,7 @@
       <h1 class="font-heading text-xl mb-2">Social Media</h1>
       <div class="flex mb-1">
         <div class="w-30 flex-shrink-0 mr-4">
-          <label for="facebook" class="mb-0.25">Facebook Page</label>
+          <label for="facebook" class="mb-0.25">Facebook page</label>
           <BaseTextInput
             v-model.trim="facebook"
             id="facebook"
@@ -231,7 +231,7 @@
       </div>
       <div class="flex">
         <div class="w-30 flex-shrink-0 mr-4">
-          <label for="line" class="mb-0.25">Line Official Account</label>
+          <label for="line" class="mb-0.25">Line official account</label>
           <BaseTextInput
             v-model.trim="line"
             id="line"
@@ -240,7 +240,7 @@
           />
         </div>
         <div class="w-30 flex-shrink-0">
-          <label for="email" class="mb-0.25">Organization Email</label>
+          <label for="email" class="mb-0.25">Organization email</label>
           <BaseTextInput
             v-model.trim="email"
             id="email"
@@ -283,7 +283,6 @@ export default defineComponent({
     const uploadedImgFile = ref<Blob | null>(null);
     const uploadedImg = ref<string | null>(null);
     const reader = new FileReader();
-    const orgImg = "https://picsum.photos/100";
     const shortName = ref("");
     const isValidShortName = false;
     const fullName = ref("");

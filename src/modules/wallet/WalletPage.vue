@@ -5,6 +5,7 @@
       :profile="test.profile"
       :ongoingTickets="test.ongoingTickets"
       :historyTickets="test.historyTickets"
+      :pendingTickets="test.pendingTickets"
     />
   </div>
 </template>
@@ -20,7 +21,7 @@ export default defineComponent({
     Wallet
   },
   setup() {
-    const test: object = testData;
+    const test = testData;
 
     return { test };
   }

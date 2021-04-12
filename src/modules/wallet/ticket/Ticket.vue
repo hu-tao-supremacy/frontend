@@ -54,7 +54,8 @@
     <section class="rounded-r-2xl flex flex-col pt-2 pb-1 px-2 shadow-sm">
       <div class="flex font-heading text-lg items-center mb-1">
         <h2 class="mr-1">Ticket ID:</h2>
-        <p class="text-primary">{{ ticketID }}</p>
+        <p v-if="isPending" class="text-primary">Pending</p>
+        <p v-else class="text-primary">{{ ticketID }}</p>
       </div>
       <div class="text-sm mb-1">
         <base-icon-and-detail class="mb-1" :detail="event.date"
@@ -68,16 +69,24 @@
         /></base-icon-and-detail>
       </div>
       <base-button
-        class="check-in-btn self-center mt-auto py-0.25 w-full"
+        v-if="!isHistory"
         @click="checkIn"
+        :disabled="isPending"
+        class="check-in-btn self-center mt-auto h-3.5 w-full"
         >Check in</base-button
+      >
+      <base-button
+        v-else
+        class="check-in-btn self-center mt-auto h-3.5 w-full"
+        @click="giveFeedback"
+        >Feedback</base-button
       >
     </section>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, PropType } from "vue";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import BaseTag from "@/commons/UI/BaseTag.vue";
 import BaseIconAndDetail from "@/commons/UI/BaseIconAndDetail.vue";
@@ -87,6 +96,7 @@ import ClockIcon from "@/assets/Clock.vue";
 import CalendarIcon from "@/assets/Calendar.vue";
 import { Event, Org } from "@/commons/Interfaces";
 import useTicket from "./useTicket";
+import { TicketStatus } from "@/commons/constant";
 
 export default defineComponent({
   name: "Ticket",
@@ -110,19 +120,32 @@ export default defineComponent({
     },
     ticketID: {
       type: String,
-      required: true,
       default: "000000"
     },
     parentBgColor: {
       type: String,
       default: "bg-white"
+    },
+    ticketStatus: {
+      type: String as PropType<TicketStatus>,
+      required: true
     }
   },
-  setup() {
-    const { checkIn } = useTicket();
+  setup(props) {
+    const {
+      isPending,
+      isOngoing,
+      isHistory,
+      checkIn,
+      giveFeedback
+    } = useTicket(props.ticketStatus);
 
     return {
-      checkIn
+      isPending,
+      isOngoing,
+      isHistory,
+      checkIn,
+      giveFeedback
     };
   }
 });

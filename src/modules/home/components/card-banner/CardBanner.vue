@@ -26,36 +26,15 @@
         <div class="text-sm mb-1 w-full event-description">
           {{ event.description }}
         </div>
-        <div class="flex items-center mb-1">
-          <base-icon
-            width="12px"
-            height="12px"
-            iconColor="#FF855F"
-            class="mr-1.5"
-            ><CalendarIcon
-          /></base-icon>
-          {{ event.date }}
-        </div>
-        <div class="flex items-center mb-1">
-          <base-icon
-            width="12px"
-            height="12px"
-            iconColor="#FF855F"
-            class="mr-1.5"
-            ><ClockIcon
-          /></base-icon>
-          {{ event.time }}
-        </div>
-        <div class="flex items-center mb-1">
-          <base-icon
-            width="12px"
-            height="12px"
-            iconColor="#FF855F"
-            class="mr-1.5"
-            ><PinIcon
-          /></base-icon>
-          {{ event.faculty }}
-        </div>
+        <base-icon-and-detail class="mb-1" :detail="event.date"
+          ><CalendarIcon
+        /></base-icon-and-detail>
+        <base-icon-and-detail class="mb-1" :detail="event.time"
+          ><ClockIcon
+        /></base-icon-and-detail>
+        <base-icon-and-detail class="mb-1" :detail="event.faculty"
+          ><PinIcon
+        /></base-icon-and-detail>
       </section>
       <base-button class="w-4/5 h-5">Get Tickets</base-button>
     </div>
@@ -66,6 +45,7 @@
 import { defineComponent } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import BaseTag from "@/commons/UI/BaseTag.vue";
+import BaseIconAndDetail from "@/commons/UI/BaseIconAndDetail.vue";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import PinIcon from "@/assets/MapPin.vue";
 import ClockIcon from "@/assets/Clock.vue";
@@ -77,6 +57,7 @@ export default defineComponent({
   components: {
     BaseButton,
     BaseTag,
+    BaseIconAndDetail,
     PinIcon,
     CalendarIcon,
     ClockIcon,

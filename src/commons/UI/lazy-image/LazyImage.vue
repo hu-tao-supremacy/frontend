@@ -10,6 +10,7 @@
   />
   <canvas
     class="w-full h-full focus:outline-none"
+    :class="canvasClass"
     v-show="!isloaded"
     ref="canvasRef"
     :width="canvasWidth"
@@ -45,7 +46,8 @@ export default defineComponent({
     },
     canvasHeight: { type: Number, default: 32 },
     alt: { type: String, required: true },
-    class: { type: String }
+    class: { type: String },
+    canvasClass: { type: String }
   },
   setup(props) {
     const { canvasWidth, canvasHeight, placeholder } = toRefs(props);

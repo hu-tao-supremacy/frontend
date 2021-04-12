@@ -5,18 +5,12 @@
     <div class="flex flex-col content-max-width">
       <OrgBanner :org="test.eventOrganizer" class="mb-3" />
       <section class="flex justify-between mb-3">
-        <div class="flex items-center">
-          <input
-            type="text"
-            placeholder="Search"
-            class="w-31.5 h-4 rounded-r-none rounded-l-lg px-1.5 border-t border-b border-l focus:border-r border-gray-3 focus:border-primary focus:outline-none"
-          />
-          <base-button
-            class="rounded-l-none h-4 w-6 flex justify-center items-center"
-            ><base-icon width="12.5px" height="12.5px" class="text-white"
-              ><SearchIcon /></base-icon
-          ></base-button>
-        </div>
+        <BaseSearch
+          @search="filterEvents"
+          class="h-4"
+          :inputClass="'w-31.5'"
+          :placeholder="'Search'"
+        />
         <base-button class="px-1.5">Create an Event</base-button>
       </section>
       <OrgEventListCard
@@ -34,7 +28,7 @@
 import { defineComponent } from "vue";
 import OrgBanner from "./org-banner/OrgBanner.vue";
 import OrgEventListCard from "./org-event-list-card/OrgEventListCard.vue";
-import SearchIcon from "@/assets/Search.vue";
+import BaseSearch from "@/commons/UI/BaseSearch.vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import { testData, eventsListData } from "@/modules/test/testData";
 
@@ -43,8 +37,8 @@ export default defineComponent({
   components: {
     OrgBanner,
     OrgEventListCard,
-    SearchIcon,
-    BaseButton
+    BaseButton,
+    BaseSearch
   },
   setup() {
     //Later will get from backend using organization selected from side navbar using provide
@@ -55,7 +49,12 @@ export default defineComponent({
       return index === eventsList.length - 1;
     }
 
-    return { test, eventsList, isLastEvent };
+    function filterEvents(search: string) {
+      //Perform filtering of events
+      console.log(search);
+    }
+
+    return { test, eventsList, isLastEvent, filterEvents };
   }
 });
 </script>

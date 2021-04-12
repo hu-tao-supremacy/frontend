@@ -6,8 +6,7 @@ const Test = () => import("@/modules/test/TestPage.vue");
 const EventInfo = () => import("@/modules/eventInfo/EventInfoPage.vue");
 const Wallet = () => import("@/modules/wallet/WalletPage.vue");
 const UserCheckIn = () => import("@/modules/userCheckIn/UserCheckInPage.vue");
-const OrgGreet = () =>
-  import("@/modules/organization/greeting/GreetingPage.vue");
+const OrgHome = () => import("@/modules/organization/home/OrgHomePage.vue");
 const Login = () => import("@/modules/login/Login.vue");
 const PageSkeleton = () => import("@/commons/components/PageSkeleton.vue");
 
@@ -44,7 +43,7 @@ const router = createRouter({
     {
       path: "/org",
       component: PageSkeleton, //Will later change to page skeleton of org page
-      children: [{ path: "greeting", component: OrgGreet }]
+      children: [{ path: "", component: OrgHome }]
     },
     { path: "/login", component: Login }
   ]

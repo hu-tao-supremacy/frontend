@@ -6,9 +6,12 @@ export interface Event {
   time: string;
   title: string;
   faculty: string;
+  location: string;
   imgHash: string;
   img: string;
   tags: Array<string>;
+  attendeeLimit: number;
+  currentAttendee: number;
 }
 
 export interface Banner {

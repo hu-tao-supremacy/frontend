@@ -3,11 +3,11 @@ export const testData = {
 
     Vivamus pretium ac mi quis hendrerit. Pellentesque quis enim lectus. Sed facilisis et felis vitae porta. Suspendisse egestas, eros vel scelerisque dictum, nibh est venenatis erat, at egestas dolor ipsum vel diam. Praesent in vestibulum mauris. Cras porta tincidunt ante, vel euismod urna blandit feugiat. Phasellus auctor sollicitudin leo, et dictum libero rutrum a. Nulla est neque, malesuada quis mattis vel, commodo sit amet justo. Donec a sapien elit. Curabitur et lacinia diam. Ut gravida faucibus magna. Ut ac odio diam.`,
   eventOrganizer: {
-    imgUrl: "https://picsum.photos/100",
+    img: "https://picsum.photos/100",
     imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
     shortName: "SGCU",
     fullName: "องค์การบริหารสโมสรนิสิตจุฬาลงกรณ์มหาวิทยาลัย (อบจ.)",
-    detail: `<ORG - BIO>   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque pulvinar ornare orci amet. Quis arcu rhoncus velit amet nulla eleifend tristique quis? `
+    description: `<ORG - BIO>   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque pulvinar ornare orci amet. Quis arcu rhoncus velit amet nulla eleifend tristique quis? `
   },
   eventBanner: {
     bannerImg: "https://picsum.photos/1000",
@@ -30,7 +30,9 @@ export const testData = {
     faculty: "ISE",
     imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
     img: "https://picsum.photos/400",
-    tags: ["Engineering", "Food", "Education"]
+    tags: ["Engineering", "Food", "Education"],
+    attendeeLimit: 180,
+    currentAttendee: 100
   },
   organization: {
     img: "https://picsum.photos/100",
@@ -228,5 +230,42 @@ export const questionData = {
   text: "What you like in these activities?",
   radio: "I learned useful knowledge from these activities."
 };
+
+export const eventsListData = [
+  {
+    event: {
+      title: "Information and Communication Event (ICE)",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac libero pellentesque, hendrerit eros vitae, malesuada nisi. Nam tempus dolor vitae mauris luctus aliquet. Sed et finibus erat.",
+      date: "Sun, 14 Feb - 16 April",
+      time: "10:00 - 18:00",
+      location: "Engineering Faculty, Chula",
+      faculty: "ISE",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
+      img: "https://picsum.photos/200",
+      tags: ["Engineering", "Food", "Education"],
+      attendeeLimit: 180,
+      currentAttendee: 100
+    },
+    status: "Open"
+  },
+  {
+    event: {
+      title: "Running, running!",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac libero pellentesque, hendrerit eros vitae, malesuada nisi. Nam tempus dolor vitae mauris luctus aliquet. Sed et finibus erat.",
+      date: "Sun, 12 Mar - 14 April",
+      time: "8:00 - 9:00",
+      location: "CU Sport Complex",
+      faculty: "ISE",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
+      img: "https://picsum.photos/201",
+      tags: ["Engineering", "Food", "Education"],
+      attendeeLimit: 999,
+      currentAttendee: 999
+    },
+    status: "Closed"
+  }
+];
 
 export default testData;

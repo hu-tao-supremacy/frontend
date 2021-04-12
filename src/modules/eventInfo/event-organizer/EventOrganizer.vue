@@ -6,7 +6,7 @@
           :width="100"
           :height="100"
           alt="will change to api"
-          :url="eventOrg.imgUrl"
+          :url="eventOrg.img"
           :placeholder="eventOrg.imgHash"
           class="object-cover w-full h-full"
         />
@@ -16,7 +16,7 @@
           {{ eventOrg.shortName }}
         </h1>
         <p class="text-sm">{{ eventOrg.fullName }}</p>
-        <div class="mt-1">{{ eventOrg.detail }}</div>
+        <div class="mt-1">{{ eventOrg.description }}</div>
       </div>
     </section>
     <section class="flex justify-between items-center">
@@ -45,6 +45,7 @@ import BaseCircleButton from "@/commons/UI/BaseCircleButton.vue";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import FacebookIcon from "@/assets/Facebook.vue";
 import MailIcon from "@/assets/Mail.vue";
+import { Org } from "@/commons/Interfaces";
 
 export default defineComponent({
   name: "EventOrganizer",
@@ -57,13 +58,7 @@ export default defineComponent({
   },
   props: {
     eventOrg: {
-      type: Object as () => {
-        imgUrl: string;
-        imgHash: string;
-        shortName: string;
-        fullName: string;
-        detail: string;
-      },
+      type: Object as () => Org,
       required: true
     }
   }

@@ -8,7 +8,7 @@
         class="flex justify-center items-center w-8 h-8 border-2 border-primary bg-primary-2 rounded-lg overflow-hidden mr-4"
       >
         <base-icon
-          v-if="!isFileLoaded"
+          v-if="!fileLoaded"
           :width="18"
           :height="18"
           class="text-primary"
@@ -16,15 +16,25 @@
         /></base-icon>
         <img
           v-else
-          :src="orgImg"
-          alt="orgImg"
+          :src="uploadedImg"
+          alt="uploadedImg"
           class="object-cover w-full h-full"
         />
       </div>
       <div class="flex flex-col min-h-full justify-between">
         <h3>Profile picture</h3>
         <div class="flex">
-          <base-button class="px-1 mr-1">Upload</base-button>
+          <base-button class="mr-1"
+            ><label class="px-1" for="fileLoader">Upload</label></base-button
+          >
+          <input
+            id="fileLoader"
+            name="profileImg"
+            type="file"
+            class="hidden"
+            accept="image/*"
+            :onchange="previewFile"
+          />
           <p class="text-xs text-gray-5 self-end">
             (JPEG or .PNG, Less than 5MB)
           </p>
@@ -240,18 +250,24 @@
         </div>
       </div>
     </section>
-    <base-button class="px-2 py-0.5 self-end">Create Organization</base-button>
+    <base-button
+      :disabled="!isValidForm"
+      @click="createOrg"
+      class="px-2 py-0.5 self-end"
+      >Create Organization</base-button
+    >
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { computed, defineComponent, ref, watch } from "vue";
 import ImageGalleryIcon from "@/assets/ImageGallery.vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import BaseTextInput from "@/commons/UI/BaseTextInput.vue";
 import BaseExpandableTextArea from "@/commons/UI/BaseExpandableTextArea.vue";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import PlusIcon from "@/assets/Plus.vue";
+import { parseImageFile } from "@/commons/utils/parseImage";
 
 export default defineComponent({
   name: "CreateOrgForm",
@@ -264,7 +280,9 @@ export default defineComponent({
     PlusIcon
   },
   setup() {
-    const isFileLoaded = false;
+    const uploadedImgFile = ref<Blob | null>(null);
+    const uploadedImg = ref<string | null>(null);
+    const reader = new FileReader();
     const orgImg = "https://picsum.photos/100";
     const shortName = ref("");
     const isValidShortName = false;
@@ -303,6 +321,33 @@ export default defineComponent({
     const line = ref("");
     const email = ref("");
 
+    const isValidForm = computed(() => {
+      return isValidFullName;
+    });
+
+    async function previewFile(event: Event) {
+      event.preventDefault();
+      const target = event.target as HTMLInputElement;
+      const file = target.files?.[0];
+      if (file?.type.match("image.*")) {
+        uploadedImgFile.value = file;
+      }
+    }
+
+    const fileLoaded = computed(() => {
+      return !!uploadedImg.value;
+    });
+
+    watch(uploadedImgFile, async () => {
+      if (uploadedImgFile.value !== null) {
+        const uploadedFile = await parseImageFile(
+          reader,
+          uploadedImgFile.value
+        );
+        uploadedImg.value = uploadedFile;
+      }
+    });
+
     function showMemberName(firstName: string, lastName: string) {
       return firstName.charAt(0) + lastName.charAt(0);
     }
@@ -312,9 +357,15 @@ export default defineComponent({
       console.log("Add member");
     }
 
+    function createOrg() {
+      if (!isValidForm.value) return;
+      //Send information to API to create org
+      console.log("Create org");
+    }
+
     return {
-      isFileLoaded,
-      orgImg,
+      fileLoaded,
+      uploadedImg,
       shortName,
       isValidShortName,
       fullName,
@@ -338,7 +389,10 @@ export default defineComponent({
       line,
       email,
       showMemberName,
-      addMember
+      addMember,
+      createOrg,
+      isValidForm,
+      previewFile
     };
   }
 });

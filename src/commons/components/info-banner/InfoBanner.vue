@@ -48,7 +48,7 @@
         class="object-cover w-full h-full"
       />
     </div>
-    <base-button class="absolute bottom-3 right-3 w-15 h-4.5"
+    <base-button v-if="hasButton" class="absolute bottom-3 right-3 w-15 h-4.5"
       >Register</base-button
     >
   </div>
@@ -89,6 +89,10 @@ export default defineComponent({
         location: string;
       },
       required: true
+    },
+    hasButton: {
+      type: Boolean,
+      defualt: false
     }
   }
 });

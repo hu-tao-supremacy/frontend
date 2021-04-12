@@ -12,8 +12,8 @@
         ><OnePassLogo
       /></base-icon>
       <div class="w-0.5 h-2 bg-white mb-1 rounded-sm"></div>
-      <p class="font-heading text-xl text-primary">
-        HU TAO SUPREMACY
+      <p class="font-heading text-xl tracking-widest text-primary">
+        GITHUB ORGANIZATION
       </p>
     </div>
     <div

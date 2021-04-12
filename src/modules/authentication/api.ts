@@ -10,8 +10,13 @@ export const useCurrentUser = (enabled: Ref<boolean>) =>
         currentUser {
           firstName
           lastName
+          phoneNumber
           email
           chulaId
+          academicYear
+          district
+          province
+          zipCode
           address
           profilePictureUrl
           didSetup

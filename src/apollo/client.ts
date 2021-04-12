@@ -5,7 +5,7 @@ import { setContext } from "apollo-link-context";
 import { createUploadLink } from "apollo-upload-client";
 
 const uploadLink = createUploadLink({
-  uri: "https://api.onepass.app/graphql"
+  uri: "https://graph.onepass.app"
 });
 
 const authLink = setContext((_, { headers }) => {

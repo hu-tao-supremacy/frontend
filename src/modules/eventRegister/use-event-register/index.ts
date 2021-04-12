@@ -29,7 +29,6 @@ const useEventRegister = () => {
       } as CreateJoinRequestAnswerInput;
     });
     answerData.answers = output;
-    console.log(answerData);
     mutate({ input: answerData });
   };
   const checkStep2 = (step: number) => {
@@ -53,7 +52,6 @@ const useEventRegister = () => {
       value => value.id === id
     ) as QuestionWithAnswer;
     question.answer = answer;
-    console.log(questionData);
   };
   const { result: questions, onResult } = useQuestions();
 

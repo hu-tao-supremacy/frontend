@@ -240,7 +240,6 @@ export type Mutation = {
   setEventQuestions: Scalars["Boolean"];
   createEvent: Event;
   authenticate: AuthenticateOutput;
-  signInWithServiceAccount: AuthenticateOutput;
   upload: Scalars["Boolean"];
   createOrganization: Organization;
   updateOrganization: Organization;
@@ -262,10 +261,6 @@ export type MutationCreateEventArgs = {
 
 export type MutationAuthenticateArgs = {
   input: AuthenticateInput;
-};
-
-export type MutationSignInWithServiceAccountArgs = {
-  serviceAccount: Scalars["String"];
 };
 
 export type MutationUploadArgs = {
@@ -503,6 +498,7 @@ export type UpdateUserInput = {
   province?: Maybe<Scalars["String"]>;
   zipCode?: Maybe<Scalars["String"]>;
   gender?: Maybe<Gender>;
+  academicYear?: Maybe<Scalars["Int"]>;
   organizations?: Maybe<Array<OrganizationInput>>;
   events?: Maybe<Array<EventInput>>;
   profilePicture?: Maybe<Scalars["Upload"]>;
@@ -525,6 +521,7 @@ export type User = {
   isChulaStudent: Scalars["Boolean"];
   didSetup: Scalars["Boolean"];
   gender: Gender;
+  academicYear?: Maybe<Scalars["Int"]>;
   organizations: Array<Organization>;
   events: Array<Event>;
   interests: Array<Tag>;
@@ -552,6 +549,7 @@ export type UserInput = {
   isChulaStudent: Scalars["Boolean"];
   didSetup: Scalars["Boolean"];
   gender: Gender;
+  academicYear?: Maybe<Scalars["Int"]>;
   organizations: Array<OrganizationInput>;
   events: Array<EventInput>;
   interests: Array<TagInput>;
@@ -584,6 +582,7 @@ export type GetCurrentUserQuery = { __typename?: "Query" } & {
     | "phoneNumber"
     | "email"
     | "chulaId"
+    | "academicYear"
     | "district"
     | "province"
     | "zipCode"
@@ -603,7 +602,10 @@ export type GetQuestionsByEventIdQuery = { __typename?: "Query" } & {
     questionGroups: Array<
       { __typename?: "QuestionGroup" } & Pick<QuestionGroup, "eventId"> & {
           questions: Array<
-            { __typename?: "Question" } & Pick<Question, "id" | "seq" | "title">
+            { __typename?: "Question" } & Pick<
+              Question,
+              "id" | "seq" | "title" | "isOptional"
+            >
           >;
         }
     >;

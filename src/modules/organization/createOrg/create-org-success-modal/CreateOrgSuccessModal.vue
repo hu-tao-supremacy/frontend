@@ -1,11 +1,11 @@
 <template>
-  <base-modal :maxModalWidth="'650px'" :isClosable="false"
+  <base-modal :maxModalWidth="'570px'" :isClosable="false"
     ><div class="flex flex-col items-center">
       <base-icon :width="85" :height="85" class="text-green-5 mb-4"
         ><CheckCircleIcon
       /></base-icon>
       <h1 class="font-heading text-3xl mb-2">
-        Your organization has been created!
+        Your team has been created!
       </h1>
       <p class="text-gray-5 text-center mb-7 leading-relaxed">
         Your organization has been created.<br />

@@ -10,7 +10,7 @@
       v-model="userInput"
       @focus="showOption"
       @input="userChangeSearch"
-      placeholder="Select Option"
+      :placeholder="placeholder"
       type="text"
     />
     <input
@@ -26,7 +26,7 @@
     />
     <section
       v-show="isOptionShown"
-      class="absolute left-0 top-full flex flex-col break-words bg-white z-10 w-27 mt-0.5 rounded-lg text-sm shadow-sm max-h-20 overflow-y-auto"
+      class="absolute left-0 top-full flex flex-col break-words bg-white z-10 w-full mt-0.5 rounded-lg text-sm shadow-sm max-h-20 overflow-y-auto"
     >
       <slot></slot>
     </section>
@@ -55,6 +55,10 @@ export default defineComponent({
     isError: {
       type: Boolean,
       default: false
+    },
+    placeholder: {
+      type: String,
+      default: "Select Option"
     }
   },
   emits: ["update:searchTextModel"],

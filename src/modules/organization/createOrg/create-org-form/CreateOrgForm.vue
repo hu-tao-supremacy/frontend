@@ -87,12 +87,16 @@
       </div>
       <div class="w-full">
         <label for="faculty" class="mb-0.25">Associated faculty</label>
-        <BaseTextInput
-          v-model.trim="faculty"
+        <SingleNameSelect
           id="faculty"
           name="faculty"
-          class="w-full h-4"
+          v-model="faculty"
+          :isSearchable="false"
+          :optionNames="facultyList"
+          :optionValues="facultyList"
+          :placeholder="'--- Select faculty ---'"
           :isError="!isValidFaculty"
+          class="w-full h-4"
         />
         <p v-show="!isValidFaculty" class="text-sm text-red-5 mt-0.25 ml-1.5">
           Please input associated faculty
@@ -265,9 +269,11 @@ import ImageGalleryIcon from "@/assets/ImageGallery.vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import BaseTextInput from "@/commons/UI/BaseTextInput.vue";
 import BaseExpandableTextArea from "@/commons/UI/BaseExpandableTextArea.vue";
+import SingleNameSelect from "@/commons/UI/select/SingleNameSelect.vue";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import PlusIcon from "@/assets/Plus.vue";
 import { parseImageFile } from "@/commons/utils/parseImage";
+import FacultyData from "@/commons/constant/faculty";
 
 export default defineComponent({
   name: "CreateOrgForm",
@@ -276,6 +282,7 @@ export default defineComponent({
     BaseButton,
     BaseTextInput,
     BaseExpandableTextArea,
+    SingleNameSelect,
     LazyImage,
     PlusIcon
   },
@@ -290,6 +297,7 @@ export default defineComponent({
     const advisor = ref("");
     const isValidAdvisor = false;
     const faculty = ref("");
+    const facultyList = FacultyData.map(fac => fac.name);
     const isValidFaculty = false;
     const description = ref("");
     const isValidDescription = false;
@@ -391,7 +399,8 @@ export default defineComponent({
       addMember,
       createOrg,
       isValidForm,
-      previewFile
+      previewFile,
+      facultyList
     };
   }
 });

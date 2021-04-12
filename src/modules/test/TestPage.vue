@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gray-1 p-2">
-    <CraeteOrgSuccessModal />
+    <!-- <CraeteOrgSuccessModal /> -->
     <div class="w-100 mb-4"><CreateOrgForm /></div>
     <QuestionStar class="mb-4" />
     <QuestionRadio class="mb-4" :question="question.radio" />
@@ -32,7 +32,7 @@ import QuestionText from "@/modules/question/question-text/QuestionText.vue";
 import QuestionRadio from "@/modules/question/question-radio/QuestionRadio.vue";
 import QuestionStar from "@/modules/question/question-star/QuestionStar.vue";
 import CreateOrgForm from "@/modules/organization/createOrg/create-org-form/CreateOrgForm.vue";
-import CraeteOrgSuccessModal from "@/modules/organization/createOrg/create-org-success-modal/CreateOrgSuccessModal.vue";
+// import CraeteOrgSuccessModal from "@/modules/organization/createOrg/create-org-success-modal/CreateOrgSuccessModal.vue";
 
 export default defineComponent({
   name: "TestPage",
@@ -43,8 +43,8 @@ export default defineComponent({
     QuestionText,
     QuestionRadio,
     QuestionStar,
-    CreateOrgForm,
-    CraeteOrgSuccessModal
+    CreateOrgForm
+    // CraeteOrgSuccessModal
   },
   setup() {
     const test = testData;

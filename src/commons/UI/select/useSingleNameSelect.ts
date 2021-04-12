@@ -3,13 +3,8 @@ import { computed, Ref, ref, SetupContext } from "vue";
 import Fuse from "fuse.js";
 
 export default function useSingleNameSelect(
-  props: Readonly<
-    {
-      isSearchable: boolean;
-      optionNames: string[];
-      optionValues: unknown[];
-    } & {}
-  >,
+  optionNames: string[],
+  optionValues: unknown[],
   context: SetupContext<"update:modelValue"[]>
 ) {
   const searchText = ref("");
@@ -18,8 +13,8 @@ export default function useSingleNameSelect(
     value: null
   });
   const options: { name: string; value: unknown }[] = [];
-  props.optionNames.forEach((name, i) => {
-    const option = { name: name, value: props.optionValues[i] };
+  optionNames.forEach((name, i) => {
+    const option = { name: name, value: optionValues[i] };
     options.push(option);
   });
 

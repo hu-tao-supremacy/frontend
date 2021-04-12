@@ -1,18 +1,21 @@
 import { ref, SetupContext, watch } from "vue";
 
 export default function useBaseSelect(
+  //Required whole props to be able to watch displayedOption prop
   props: Readonly<
     {
       searchTextModel: string;
       displayedOption: string;
       isSearchable: boolean;
+      isError: boolean;
+      placeholder: string;
     } & {}
   >,
   context: SetupContext<"update:searchTextModel"[]>
 ) {
   const isOptionShown = ref(false);
-  const userInput = ref("");
-  const buttonDisplay = ref("Select Option");
+  const userInput = ref(""); //Is use only when able to search
+  const buttonDisplay = ref(props.placeholder); //Is use only when unable to search
 
   function showOption() {
     isOptionShown.value = true;
@@ -20,6 +23,7 @@ export default function useBaseSelect(
 
   function hideOption() {
     isOptionShown.value = false;
+    //Reset search field to previously selected value
     if (props.displayedOption !== "") userInput.value = props.displayedOption;
   }
 

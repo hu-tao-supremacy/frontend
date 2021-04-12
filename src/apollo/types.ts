@@ -69,6 +69,19 @@ export type AuthenticateOutput = {
   accessToken: Scalars["String"];
 };
 
+export type CreateEventInput = {
+  id: Scalars["Int"];
+  organizationId: Scalars["Int"];
+  description: Scalars["String"];
+  name: Scalars["String"];
+  attendeeLimit: Scalars["Int"];
+  contact?: Maybe<Scalars["String"]>;
+  coverImage?: Maybe<Scalars["Upload"]>;
+  posterImage?: Maybe<Scalars["Upload"]>;
+  profileImage?: Maybe<Scalars["Upload"]>;
+  tags?: Maybe<Array<SetEventTagsTagInput>>;
+};
+
 export type CreateJoinRequestAnswerInput = {
   questionId: Scalars["Int"];
   value: Scalars["String"];
@@ -121,6 +134,8 @@ export type Event = {
   durations: Array<EventDuration>;
   tags: Array<Tag>;
   attendance?: Maybe<Attendance>;
+  attendees: Array<User>;
+  attendeeCount: Scalars["Int"];
 };
 
 export type EventQuestionGroupsArgs = {
@@ -164,6 +179,8 @@ export type EventInput = {
   durations: Array<EventDurationInput>;
   tags: Array<TagInput>;
   attendance?: Maybe<AttendanceInput>;
+  attendees: Array<UserInput>;
+  attendeeCount: Scalars["Int"];
 };
 
 export type Facility = {
@@ -220,6 +237,8 @@ export type LocationInput = {
 
 export type Mutation = {
   __typename?: "Mutation";
+  setEventQuestions: Scalars["Boolean"];
+  createEvent: Event;
   authenticate: AuthenticateOutput;
   signInWithServiceAccount: AuthenticateOutput;
   upload: Scalars["Boolean"];
@@ -231,6 +250,14 @@ export type Mutation = {
   setUserInterests: Scalars["Boolean"];
   createJoinRequest: Scalars["Boolean"];
   deleteJoinRequest: Scalars["Boolean"];
+};
+
+export type MutationSetEventQuestionsArgs = {
+  input: SetEventQuestionsInput;
+};
+
+export type MutationCreateEventArgs = {
+  input: CreateEventInput;
 };
 
 export type MutationAuthenticateArgs = {
@@ -397,6 +424,30 @@ export type QuestionInput = {
   answer: AnswerInput;
 };
 
+export type SetEventQuestionsInput = {
+  eventId: Scalars["Int"];
+  questionGroups: Array<SetEventQuestionsQuestionGroupInput>;
+};
+
+export type SetEventQuestionsQuestionGroupInput = {
+  type: QuestionGroupType;
+  seq: Scalars["Int"];
+  title: Scalars["String"];
+  questions: Array<SetEventQuestionsQuestionInput>;
+};
+
+export type SetEventQuestionsQuestionInput = {
+  seq: Scalars["Int"];
+  answerType: AnswerType;
+  isOptional: Scalars["Boolean"];
+  title: Scalars["String"];
+  subtitle: Scalars["String"];
+};
+
+export type SetEventTagsTagInput = {
+  id: Scalars["Int"];
+};
+
 export type SetUserInterestsInput = {
   tags: Array<SetUserInterestsTagInput>;
 };
@@ -536,8 +587,6 @@ export type GetCurrentUserQuery = { __typename?: "Query" } & {
     | "district"
     | "province"
     | "zipCode"
-    | "email"
-    | "chulaId"
     | "address"
     | "profilePictureUrl"
     | "didSetup"
@@ -552,14 +601,23 @@ export type GetQuestionsByEventIdQueryVariables = Exact<{
 export type GetQuestionsByEventIdQuery = { __typename?: "Query" } & {
   event: { __typename?: "Event" } & {
     questionGroups: Array<
-      { __typename?: "QuestionGroup" } & {
-        questions: Array<
-          { __typename?: "Question" } & Pick<Question, "id" | "seq" | "title">
-        >;
-      }
+      { __typename?: "QuestionGroup" } & Pick<QuestionGroup, "eventId"> & {
+          questions: Array<
+            { __typename?: "Question" } & Pick<Question, "id" | "seq" | "title">
+          >;
+        }
     >;
   };
 };
+
+export type CreateJoinRequestMutationVariables = Exact<{
+  input: CreateJoinRequestInput;
+}>;
+
+export type CreateJoinRequestMutation = { __typename?: "Mutation" } & Pick<
+  Mutation,
+  "createJoinRequest"
+>;
 
 export type GetUpcomingEventsQueryVariables = Exact<{ [key: string]: never }>;
 

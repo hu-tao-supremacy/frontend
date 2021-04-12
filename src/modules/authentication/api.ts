@@ -13,6 +13,7 @@ export const useCurrentUser = (enabled: Ref<boolean>) =>
           phoneNumber
           email
           chulaId
+          academicYear
           district
           province
           zipCode

@@ -46,7 +46,7 @@
       <div class="flex flex-col w-1/3">
         <div>Year</div>
         <BaseTextInput
-          :value="user.chulaId"
+          :value="user.academicYear"
           class="w-full h-4"
           :disabled="true"
         />

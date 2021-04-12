@@ -1,18 +1,36 @@
+import {
+  CreateJoinRequestAnswerInput,
+  CreateJoinRequestInput
+} from "./../../../apollo/types";
 import useUser from "@/modules/authentication";
 import { reactive, ref } from "vue";
 import { useQuestions } from "../api";
 import { QuestionWithAnswer } from "./type";
+import { updateAnswer } from "../api";
 
 const useEventRegister = () => {
   const { user } = useUser();
   const step = ref(1);
   const questionData = reactive([] as QuestionWithAnswer[]);
-
+  const answerData = reactive({} as CreateJoinRequestInput);
+  const { mutate } = updateAnswer();
   const increaseStep = () => {
     step.value++;
   };
   const decreaseStep = () => {
     step.value--;
+  };
+  const sendAnswer = () => {
+    step.value++;
+    const output = questionData.map(question => {
+      return {
+        questionId: question.id,
+        value: question.answer
+      } as CreateJoinRequestAnswerInput;
+    });
+    answerData.answers = output;
+    console.log(answerData);
+    mutate({ input: answerData });
   };
   const checkStep2 = (step: number) => {
     if (step === 2) {
@@ -41,7 +59,7 @@ const useEventRegister = () => {
 
   onResult(result => {
     Object.assign(questionData, result.data.event.questionGroups[0].questions);
-    console.log(user);
+    answerData.eventId = result.data.event.questionGroups[0].eventId;
   });
 
   return {
@@ -49,6 +67,7 @@ const useEventRegister = () => {
     step,
     increaseStep,
     decreaseStep,
+    sendAnswer,
     checkStep2,
     checkStep3,
     handleUserAnswer,

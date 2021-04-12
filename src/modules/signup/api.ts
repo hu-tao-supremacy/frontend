@@ -6,7 +6,7 @@ export const useUpdateUserInfo = () => {
   const {
     mutate: updateUser,
     onDone: onUpdateUserDone,
-    onError: onUpdateUserErrror
+    onError: onUpdateUserError
   } = useMutation<UpdateUserMutation, MutationUpdateUserArgs>(gql`
     mutation updateUser($input: UpdateUserInput!) {
       updateUser(input: $input) {
@@ -15,5 +15,5 @@ export const useUpdateUserInfo = () => {
     }
   `);
 
-  return { updateUser, onUpdateUserDone, onUpdateUserErrror };
+  return { updateUser, onUpdateUserDone, onUpdateUserError };
 };

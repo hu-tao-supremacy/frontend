@@ -9,7 +9,7 @@
         <base-button @click="decreaseStep" class="w-18 h-4 color"
           >Back</base-button
         >
-        <base-button @click="increaseStep" class="w-18 h-4">Sumbit</base-button>
+        <base-button @click="sendAnswer" class="w-18 h-4">Sumbit</base-button>
       </div>
     </div>
     <div
@@ -80,6 +80,7 @@ export default defineComponent({
       step,
       increaseStep,
       decreaseStep,
+      sendAnswer,
       checkStep2,
       checkStep3,
       getQuestion,
@@ -94,6 +95,7 @@ export default defineComponent({
       step,
       increaseStep,
       decreaseStep,
+      sendAnswer,
       checkStep2,
       checkStep3,
       getQuestion,

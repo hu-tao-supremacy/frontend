@@ -37,6 +37,7 @@
         class="mt-4"
         v-for="detail in questionData"
         :key="detail.id"
+        :questionId="detail.id"
         :question="getQuestion(detail.seq, detail.title)"
         @user-input="handleUserAnswer(detail.id, $event)"
         :answer="detail.answer"

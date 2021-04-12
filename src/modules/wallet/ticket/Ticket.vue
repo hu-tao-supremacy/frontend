@@ -57,24 +57,15 @@
         <p class="text-primary">{{ ticketID }}</p>
       </div>
       <div class="text-sm mb-1">
-        <div class="flex items-center mb-1">
-          <base-icon width="14px" height="14px" class="mr-1.5 text-primary"
-            ><CalendarIcon
-          /></base-icon>
-          {{ event.date }}
-        </div>
-        <div class="flex items-center mb-1">
-          <base-icon width="14px" height="14px" class="mr-1.5 text-primary"
-            ><ClockIcon
-          /></base-icon>
-          {{ event.time }}
-        </div>
-        <div class="flex items-center">
-          <base-icon width="14px" height="14px" class="mr-1.5 text-primary"
-            ><PinIcon
-          /></base-icon>
-          {{ event.location }}
-        </div>
+        <base-icon-and-detail class="mb-1" :detail="event.date"
+          ><CalendarIcon
+        /></base-icon-and-detail>
+        <base-icon-and-detail class="mb-1" :detail="event.time"
+          ><ClockIcon
+        /></base-icon-and-detail>
+        <base-icon-and-detail :detail="event.location"
+          ><PinIcon
+        /></base-icon-and-detail>
       </div>
       <base-button
         class="check-in-btn self-center mt-auto py-0.25 w-full"
@@ -89,6 +80,7 @@
 import { defineComponent } from "vue";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import BaseTag from "@/commons/UI/BaseTag.vue";
+import BaseIconAndDetail from "@/commons/UI/BaseIconAndDetail.vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import PinIcon from "@/assets/MapPin.vue";
 import ClockIcon from "@/assets/Clock.vue";
@@ -102,6 +94,7 @@ export default defineComponent({
     LazyImage,
     BaseTag,
     BaseButton,
+    BaseIconAndDetail,
     PinIcon,
     ClockIcon,
     CalendarIcon

@@ -2,11 +2,11 @@
   <div
     class="w-full shadow-sm rounded-lg overflow-hidden bg-white py-4 px-10 flex flex-col justify-center"
   >
-    <label for="question" class="w-max font-heading text-xl mb-0.25">{{
+    <label for="questionId" class="w-max font-heading text-xl mb-0.25">{{
       question
     }}</label>
     <BaseTextInput
-      id="question"
+      :id="questionId"
       v-model="userAnswer"
       @input="userChange"
       class="input-max-width h-4"
@@ -38,6 +38,10 @@ export default defineComponent({
     placeholderText: {
       type: String,
       default: ""
+    },
+    questionId: {
+      type: Number,
+      required: true
     }
   },
   emits: [USER_INPUT],

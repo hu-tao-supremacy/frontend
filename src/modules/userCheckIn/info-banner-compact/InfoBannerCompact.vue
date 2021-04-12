@@ -13,24 +13,15 @@
         >
       </div>
       <section>
-        <div class="flex items-center mb-1">
-          <base-icon width="14px" height="14px" class="mr-1.5 text-primary"
-            ><CalendarIcon
-          /></base-icon>
-          {{ eventBanner.date }}
-        </div>
-        <div class="flex items-center mb-1">
-          <base-icon width="14px" height="14px" class="mr-1.5 text-primary"
-            ><ClockIcon
-          /></base-icon>
-          {{ eventBanner.time }}
-        </div>
-        <div class="flex items-center">
-          <base-icon width="14px" height="14px" class="mr-1.5 text-primary"
-            ><PinIcon
-          /></base-icon>
-          {{ eventBanner.location }}
-        </div>
+        <base-icon-and-detail class="mb-1" :detail="eventBanner.date"
+          ><CalendarIcon
+        /></base-icon-and-detail>
+        <base-icon-and-detail class="mb-1" :detail="eventBanner.time"
+          ><ClockIcon
+        /></base-icon-and-detail>
+        <base-icon-and-detail :detail="eventBanner.location"
+          ><PinIcon
+        /></base-icon-and-detail>
       </section>
     </section>
     <div
@@ -51,6 +42,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import BaseTag from "@/commons/UI/BaseTag.vue";
+import BaseIconAndDetail from "@/commons/UI/BaseIconAndDetail.vue";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import PinIcon from "@/assets/MapPin.vue";
 import ClockIcon from "@/assets/Clock.vue";
@@ -60,6 +52,7 @@ export default defineComponent({
   name: "InfoBannerNoBg",
   components: {
     BaseTag,
+    BaseIconAndDetail,
     LazyImage,
     PinIcon,
     ClockIcon,

@@ -18,4 +18,8 @@
   .content-max-width {
     max-width: 960px;
   }
+
+  .content-min-height {
+    min-height: 890px;
+  }
 }

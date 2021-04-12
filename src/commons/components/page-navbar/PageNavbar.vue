@@ -12,17 +12,7 @@
           ><OnePassLogo
         /></base-icon>
       </router-link>
-      <div class="flex items-center mr-6">
-        <input
-          type="text"
-          placeholder="input search text"
-          class="search-input w-28 h-4 rounded-r-none rounded-l-lg px-1.5 border-t border-b border-l focus:border-r border-gray-3 focus:border-primary focus:outline-none"
-        />
-        <base-button
-          class="rounded-l-none h-4 w-6 shadow-sm flex justify-center items-center"
-          ><base-icon width="12.5px" height="12.5px"><SearchIcon /></base-icon
-        ></base-button>
-      </div>
+      <BaseSearch class="mr-6 h-4" :placeholder="'Search...'" />
       <router-link
         to="/"
         class="font-heading text-primary hover:text-primary-7 text-lg mr-6 cursor-pointer"
@@ -52,8 +42,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
+import BaseSearch from "@/commons/UI/BaseSearch.vue";
 import UserProfile from "@/commons/UI/user-profile/UserProfile.vue";
-import SearchIcon from "@/assets/Search.vue";
 import OnePassLogo from "@/assets/OnePassLogoColor.vue";
 import usePageNavbar from "./usePageNavbar";
 
@@ -61,7 +51,7 @@ export default defineComponent({
   name: "PageNavbar",
   components: {
     BaseButton,
-    SearchIcon,
+    BaseSearch,
     OnePassLogo,
     UserProfile
   },
@@ -74,13 +64,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.search-input {
-  -webkit-appearance: none;
-}
-.search-input:focus {
-  box-shadow: 0px 0px 0px 2px rgba(255, 133, 95, 0.2);
-}
-
 .sign-in-btn {
   height: 30px;
 }

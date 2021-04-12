@@ -48,26 +48,6 @@ const router = createRouter({
       ]
     },
     {
-      path: "/test",
-      component: Test
-    },
-    {
-      path: "/event",
-      component: EventInfo
-    },
-    {
-      path: "/wallet",
-      component: Wallet
-    },
-    {
-      path: "/user-checkin",
-      component: UserCheckIn
-    },
-    {
-      path: "/event-register",
-      component: EventRegister
-    },
-    {
       path: "/login",
       component: Login
     },

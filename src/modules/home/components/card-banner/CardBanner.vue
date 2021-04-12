@@ -27,31 +27,19 @@
           {{ event.description }}
         </div>
         <div class="flex items-center mb-1">
-          <base-icon
-            width="12px"
-            height="12px"
-            iconColor="#FF855F"
-            class="mr-1.5"
+          <base-icon width="12px" height="12px" class="mr-1.5 text-primary"
             ><CalendarIcon
           /></base-icon>
           {{ event.date }}
         </div>
         <div class="flex items-center mb-1">
-          <base-icon
-            width="12px"
-            height="12px"
-            iconColor="#FF855F"
-            class="mr-1.5"
+          <base-icon width="12px" height="12px" class="mr-1.5 text-primary"
             ><ClockIcon
           /></base-icon>
           {{ event.time }}
         </div>
         <div class="flex items-center mb-1">
-          <base-icon
-            width="12px"
-            height="12px"
-            iconColor="#FF855F"
-            class="mr-1.5"
+          <base-icon width="12px" height="12px" class="mr-1.5 text-primary"
             ><PinIcon
           /></base-icon>
           {{ event.faculty }}

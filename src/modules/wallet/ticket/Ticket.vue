@@ -58,31 +58,19 @@
       </div>
       <div class="text-sm mb-1">
         <div class="flex items-center mb-1">
-          <base-icon
-            width="14px"
-            height="14px"
-            iconColor="#FF855F"
-            class="mr-1.5"
+          <base-icon width="14px" height="14px" class="mr-1.5 text-primary"
             ><CalendarIcon
           /></base-icon>
           {{ event.date }}
         </div>
         <div class="flex items-center mb-1">
-          <base-icon
-            width="14px"
-            height="14px"
-            iconColor="#FF855F"
-            class="mr-1.5"
+          <base-icon width="14px" height="14px" class="mr-1.5 text-primary"
             ><ClockIcon
           /></base-icon>
           {{ event.time }}
         </div>
         <div class="flex items-center">
-          <base-icon
-            width="14px"
-            height="14px"
-            iconColor="#FF855F"
-            class="mr-1.5"
+          <base-icon width="14px" height="14px" class="mr-1.5 text-primary"
             ><PinIcon
           /></base-icon>
           {{ event.location }}

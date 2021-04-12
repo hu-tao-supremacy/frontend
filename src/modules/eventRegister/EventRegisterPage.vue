@@ -9,7 +9,7 @@
         <base-button @click="decreaseStep" class="w-18 h-4 color"
           >Back</base-button
         >
-        <base-button @click="sendAnswer" class="w-18 h-4">Sumbit</base-button>
+        <base-button @click="sendAnswer" class="w-18 h-4">Submit</base-button>
       </div>
     </div>
     <div
@@ -40,6 +40,7 @@
         :question="getQuestion(detail.seq, detail.title)"
         @user-input="handleUserAnswer(detail.id, $event)"
         :answer="detail.answer"
+        :placeholderText="placeholder"
       />
       <div class="flex mt-10 self-end">
         <base-button @click="increaseStep" class="w-18 h-4"
@@ -55,7 +56,7 @@ import { defineComponent, reactive } from "vue";
 import RegistrationStatus from "./registration-status/RegistrationStatus.vue";
 import PersonalInfo from "./personal-info/PersonalInfo.vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
-import InfoBanner from "./info-banner/InfoBanner.vue";
+import InfoBanner from "@/commons/components/info-banner/InfoBanner.vue";
 import PersonalInfoDes from "./personal-info-des/PersonalInfoDes.vue";
 import QuestionText from "@/modules/question/question-text/QuestionText.vue";
 import EventAnswer from "./event-answer/EventAnswer.vue";
@@ -75,6 +76,7 @@ export default defineComponent({
   },
   setup() {
     const test = reactive(testData);
+    const placeholder = "Write your answer here!";
     const {
       user,
       step,
@@ -91,6 +93,7 @@ export default defineComponent({
 
     return {
       test,
+      placeholder,
       user,
       step,
       increaseStep,
@@ -110,9 +113,6 @@ export default defineComponent({
 <style scoped>
 .container {
   max-width: 792px;
-}
-.event-banner {
-  max-width: 960px;
 }
 .color {
   background: #cbd5e0;

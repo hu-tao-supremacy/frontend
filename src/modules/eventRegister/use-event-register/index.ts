@@ -13,13 +13,16 @@ const useEventRegister = () => {
   const step = ref(1);
   const questionData = reactive([] as QuestionWithAnswer[]);
   const answerData = reactive({} as CreateJoinRequestInput);
-  const { mutate } = updateAnswer();
+  const { addAnswer } = updateAnswer();
+
   const increaseStep = () => {
     step.value++;
   };
+
   const decreaseStep = () => {
     step.value--;
   };
+
   const sendAnswer = () => {
     step.value++;
     const output = questionData.map(question => {
@@ -29,30 +32,29 @@ const useEventRegister = () => {
       } as CreateJoinRequestAnswerInput;
     });
     answerData.answers = output;
-    mutate({ input: answerData });
+    addAnswer({ input: answerData });
   };
+
   const checkStep2 = (step: number) => {
-    if (step === 2) {
-      return true;
-    }
-    return false;
+    return step === 2;
   };
+
   const checkStep3 = (step: number) => {
-    if (step === 3) {
-      return true;
-    }
-    return false;
+    return step === 3;
   };
+
   const getQuestion = (seq: number, eventQuestion: string) => {
     const question = seq + ". " + eventQuestion;
     return question;
   };
+
   const handleUserAnswer = (id: number, answer: string) => {
     const question = questionData.find(
       value => value.id === id
     ) as QuestionWithAnswer;
     question.answer = answer;
   };
+
   const { result: questions, onResult } = useQuestions();
 
   onResult(result => {

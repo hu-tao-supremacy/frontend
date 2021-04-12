@@ -26,31 +26,19 @@
       </div>
       <section>
         <div class="flex items-center mb-1">
-          <base-icon
-            width="14px"
-            height="14px"
-            iconColor="#FF855F"
-            class="mr-1.5"
+          <base-icon width="14px" height="14px" class="mr-1.5 text-primary"
             ><CalendarIcon
           /></base-icon>
           {{ eventBanner.date }}
         </div>
         <div class="flex items-center mb-1">
-          <base-icon
-            width="14px"
-            height="14px"
-            iconColor="#FF855F"
-            class="mr-1.5"
+          <base-icon width="14px" height="14px" class="mr-1.5 text-primary"
             ><ClockIcon
           /></base-icon>
           {{ eventBanner.time }}
         </div>
         <div class="flex items-center">
-          <base-icon
-            width="14px"
-            height="14px"
-            iconColor="#FF855F"
-            class="mr-1.5"
+          <base-icon width="14px" height="14px" class="mr-1.5 text-primary"
             ><PinIcon
           /></base-icon>
           {{ eventBanner.location }}
@@ -69,7 +57,7 @@
         class="object-cover w-full h-full"
       />
     </div>
-    <base-button class="absolute bottom-3 right-3 w-15 h-4.5"
+    <base-button v-if="hasButton" class="absolute bottom-3 right-3 w-15 h-4.5"
       >Register</base-button
     >
   </div>
@@ -108,6 +96,10 @@ export default defineComponent({
         location: string;
       },
       required: true
+    },
+    hasButton: {
+      type: Boolean,
+      defualt: false
     }
   }
 });

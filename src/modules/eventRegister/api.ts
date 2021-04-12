@@ -1,13 +1,13 @@
 import {
   CreateJoinRequestInput,
-  MutationCreateJoinRequestArgs,
-  Query
+  GetQuestionsByEventIdQuery,
+  MutationCreateJoinRequestArgs
 } from "@/apollo/types";
 import { useMutation, useQuery } from "@vue/apollo-composable";
 import gql from "graphql-tag";
 
 export const useQuestions = () =>
-  useQuery<Query>(gql`
+  useQuery<GetQuestionsByEventIdQuery>(gql`
     query getQuestionsByEventId {
       event(id: 1) {
         questionGroups(type: PRE_EVENT) {
@@ -23,7 +23,7 @@ export const useQuestions = () =>
   `);
 
 export const updateAnswer = () => {
-  const { mutate, onDone, onError } = useMutation<
+  const { mutate: addAnswer } = useMutation<
     CreateJoinRequestInput,
     MutationCreateJoinRequestArgs
   >(gql`
@@ -31,5 +31,5 @@ export const updateAnswer = () => {
       createJoinRequest(input: $input)
     }
   `);
-  return { mutate, onDone, onError };
+  return { addAnswer };
 };

@@ -9,7 +9,8 @@
       id="question"
       v-model="userAnswer"
       @input="userChange"
-      class="input-max-width"
+      class="input-max-width h-4"
+      :placeholder="placeholderText"
     />
   </div>
 </template>
@@ -31,6 +32,10 @@ export default defineComponent({
       required: true
     },
     answer: {
+      type: String,
+      default: ""
+    },
+    placeholderText: {
       type: String,
       default: ""
     }

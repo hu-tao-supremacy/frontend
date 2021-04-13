@@ -2,14 +2,14 @@
   <div
     class="w-full shadow-sm rounded-lg overflow-hidden bg-white py-4 px-10 flex flex-col justify-center"
   >
-    <label for="questionId" class="w-max font-heading text-xl mb-0.25">{{
+    <label :for="questionId" class="w-max font-heading text-xl mb-0.25">{{
       question
     }}</label>
-    <BaseTextInput
+    <BaseExpandableTextArea
       :id="questionId"
       v-model="userAnswer"
       @input="userChange"
-      class="input-max-width h-4"
+      class="input-container flex max-w-max"
       :placeholder="placeholderText"
     />
   </div>
@@ -17,14 +17,14 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import BaseTextInput from "@/commons/UI/BaseTextInput.vue";
+import BaseExpandableTextArea from "@/commons/UI/BaseExpandableTextArea.vue";
 import { USER_INPUT } from "@/commons/constant";
 import useQuestionText from "./useQuestionText";
 
 export default defineComponent({
   name: "QuestionText",
   components: {
-    BaseTextInput
+    BaseExpandableTextArea
   },
   props: {
     question: {
@@ -40,20 +40,21 @@ export default defineComponent({
       default: ""
     },
     questionId: {
-      type: Number,
+      type: [Number, String],
       required: true
     }
   },
   emits: [USER_INPUT],
   setup(props, context) {
-    const { userAnswer, userChange } = useQuestionText(context, props.answer);
+    const { userAnswer, userChange } = useQuestionText(props.answer, context);
     return { userAnswer, userChange };
   }
 });
 </script>
 
 <style scoped>
-.input-max-width {
-  max-width: 300px;
+.input-container {
+  min-width: 300px;
+  min-height: 30px;
 }
 </style>

@@ -1,9 +1,9 @@
 <template>
   <div class="bg-gray-1 p-2">
-    <QuestionText
+    <QuestionRadio
       class="mb-4"
+      :style="{ width: '794px' }"
       :question="question.text"
-      :questionId="'question'"
     />
     <InfoBanner
       :style="{ maxWidth: '960px' }"
@@ -28,7 +28,7 @@ import InfoBanner from "@/commons/components/info-banner/InfoBanner.vue";
 import EventDetail from "@/modules/eventInfo/event-detail/EventDetail.vue";
 import EventOrganizer from "@/modules/eventInfo/event-organizer/EventOrganizer.vue";
 import { testData, questionData } from "./testData";
-import QuestionText from "@/modules/question/question-text/QuestionText.vue";
+import QuestionRadio from "@/modules/question/question-radio/QuestionRadio.vue";
 
 export default defineComponent({
   name: "TestPage",
@@ -36,7 +36,7 @@ export default defineComponent({
     InfoBanner,
     EventDetail,
     EventOrganizer,
-    QuestionText
+    QuestionRadio
   },
   setup() {
     const test = testData;

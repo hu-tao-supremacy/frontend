@@ -8,7 +8,8 @@
       <div
         v-for="value in values"
         :key="value"
-        class="flex flex-col items-center mr-8"
+        class="flex flex-col items-center"
+        :class="{ 'mr-8': value !== 5, 'mr-4': value === 5 }"
         @click="changeCurrentValue(value)"
       >
         <label :for="value" name="choice" class="mb-0.75">{{ value }}</label>

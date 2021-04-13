@@ -10,7 +10,10 @@ const EventRegister = () =>
   import("@/modules/eventRegister/EventRegisterPage.vue");
 const OrgHome = () => import("@/modules/organization/home/OrgHomePage.vue");
 const Login = () => import("@/modules/login/Login.vue");
-const PageSkeleton = () => import("@/commons/components/PageSkeleton.vue");
+const PageSkeleton = () =>
+  import("@/commons/components/page-skeleton/PageSkeleton.vue");
+const PageSkeletonOrgTeam = () =>
+  import("@/commons/components/page-skeleton/PageSkeletonOrgTeam.vue");
 
 const router = createRouter({
   history: createWebHistory(),
@@ -52,7 +55,7 @@ const router = createRouter({
     },
     {
       path: "/org",
-      component: PageSkeleton, //Will later change to page skeleton of org page
+      component: PageSkeletonOrgTeam,
       children: [{ path: "", component: OrgHome }]
     },
     { path: "/login", component: Login }

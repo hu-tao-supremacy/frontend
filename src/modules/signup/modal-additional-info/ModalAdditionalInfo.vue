@@ -123,11 +123,7 @@
             name="address"
             :rows="3"
             class="w-full resize-none"
-            :isError="!isValidAddress"
           />
-          <p v-if="!isValidAddress" class="text-sm text-red-5 mt-0.25 ml-1.5">
-            Please input address
-          </p>
         </section>
         <base-button
           class="button-height w-20 self-center"
@@ -151,6 +147,7 @@ import BaseSelect from "@/commons/UI/select/SingleNameSelect.vue";
 import ImageGalleryIcon from "@/assets/ImageGallery.vue";
 import useModalAdditionalInfo from "./useModalAdditionalInfo";
 import { CLOSE_MODAL } from "@/commons/constant";
+import { SUBMIT_MODAL } from "../constant";
 
 export default defineComponent({
   name: "ModalAdditionalInfo",
@@ -162,7 +159,7 @@ export default defineComponent({
     BaseSelect,
     ImageGalleryIcon
   },
-  emits: [CLOSE_MODAL],
+  emits: [CLOSE_MODAL, SUBMIT_MODAL],
   setup(_, context) {
     const {
       uploadedImg,
@@ -181,7 +178,6 @@ export default defineComponent({
       isValidEmail,
       isValidPhone,
       isValidLocation,
-      isValidAddress,
       isValidForm,
       submitForm
     } = useModalAdditionalInfo(context);
@@ -203,7 +199,6 @@ export default defineComponent({
       isValidEmail,
       isValidPhone,
       isValidLocation,
-      isValidAddress,
       isValidForm,
       submitForm
     };

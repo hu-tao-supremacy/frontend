@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-full bg-gray-1 page-min-height flex flex-col py-8 px-22 items-center"
+    class="w-full h-full bg-gray-1 content-min-height flex flex-col py-8 px-22 items-center"
   >
     <div class="relative flex flex-col xl:w-128 xl-content-height">
       <section class="flex flex-col w-60">
@@ -42,10 +42,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.page-min-height {
-  min-height: 890px;
-}
-
 @media (min-width: 1280px) {
   .xl-content-height {
     height: 666px;

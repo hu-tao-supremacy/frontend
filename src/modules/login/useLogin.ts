@@ -7,13 +7,17 @@ const useLogin = () => {
   const route = useRoute();
   const router = useRouter();
   const { setToken } = useUser();
-  const { authenticate, onDone, onError } = useAuthentication();
+  const {
+    authenticate,
+    onDone: onAuthDone,
+    onError: onAuthError
+  } = useAuthentication();
 
   onMounted(() => {
     if (route.query.ticket && route.query.target) {
       authenticate({
         input: {
-          providerAccessToken: route.query.ticket
+          providerAccessToken: route.query.ticket as string
         }
       });
     } else {
@@ -21,19 +25,13 @@ const useLogin = () => {
     }
   });
 
-  onDone(result => {
-    const token = result.data.authenticate.accessToken;
-    setToken(token);
-    // wait to connect to backend status
-    const isFirstTimeLogin = true;
-    if (isFirstTimeLogin) {
-      router.push("/?signup=1");
-    } else {
-      router.push(route.query.target as string);
-    }
+  onAuthDone(result => {
+    const token = result.data?.authenticate.accessToken;
+    setToken(token as string);
+    router.push(route.query.target as string);
   });
 
-  onError(error => {
+  onAuthError(error => {
     console.log(error);
   });
 

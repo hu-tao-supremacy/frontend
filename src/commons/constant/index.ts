@@ -7,3 +7,5 @@ export const USER_INPUT = "user-input";
 export const SELECT_NAVBAR_OPTION = "select-navbar-option";
 
 export const LOGOUT = "logout";
+
+export const SEARCH = "search";

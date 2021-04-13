@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex justify-between h-8 w-full px-8 py-2 items-center sticky top-0 bg-white z-50"
+    class="flex justify-between h-8 w-full px-8 py-2 items-center sticky top-0 bg-white z-40"
   >
     <section class="flex items-center">
       <router-link to="/">
@@ -12,17 +12,7 @@
           ><OnePassLogo
         /></base-icon>
       </router-link>
-      <div class="flex items-center mr-6">
-        <input
-          type="text"
-          placeholder="input search text"
-          class="search-input w-28 h-4 rounded-r-none rounded-l-lg px-1.5 border-t border-b border-l focus:border-r border-gray-3 focus:border-primary focus:outline-none"
-        />
-        <base-button
-          class="rounded-l-none h-4 w-6 shadow-sm flex justify-center items-center"
-          ><base-icon width="12.5px" height="12.5px"><SearchIcon /></base-icon
-        ></base-button>
-      </div>
+      <BaseSearch class="mr-6 h-4" :placeholder="'Search...'" />
       <router-link
         to="/"
         class="font-heading text-primary hover:text-primary-7 text-lg mr-6 cursor-pointer"
@@ -44,18 +34,7 @@
       class="flex items-center relative"
       v-click-outside="hideDropDown"
     >
-      <div
-        class="mr-3 h-5 w-5 border-2 border-primary rounded-full overflow-hidden flex-shrink-0"
-      >
-        <LazyImage
-          :width="50"
-          :height="50"
-          alt="will change to api"
-          :url="imgUrl"
-          :placeholder="imgHash"
-          class="object-cover w-full h-full"
-        />
-      </div>
+      <UserProfile :user="user" />
       <div @click="toggleDropDown" class="flex items-center cursor-pointer">
         <div class="text-lg font-heading max-w-20 truncate mr-1.5">
           {{ nameShown }}
@@ -80,9 +59,9 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
-import SearchIcon from "@/assets/Search.vue";
+import BaseSearch from "@/commons/UI/BaseSearch.vue";
+import UserProfile from "@/commons/UI/user-profile/UserProfile.vue";
 import OnePassLogo from "@/assets/OnePassLogoColor.vue";
-import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import ChevronDownIcon from "@/assets/ChevronDown.vue";
 import ChevronUpIcon from "@/assets/ChevronUp.vue";
 import NavbarDropDownOptions from "./NavbarDropDownOptions.vue";
@@ -92,8 +71,8 @@ export default defineComponent({
   name: "PageNavbar",
   components: {
     BaseButton,
-    SearchIcon,
-    LazyImage,
+    BaseSearch,
+    UserProfile,
     OnePassLogo,
     ChevronDownIcon,
     ChevronUpIcon,
@@ -103,7 +82,6 @@ export default defineComponent({
     const {
       isLogIn,
       imgUrl,
-      imgHash,
       nameShown,
       isDropDownShown,
       login,
@@ -115,7 +93,6 @@ export default defineComponent({
     return {
       isLogIn,
       imgUrl,
-      imgHash,
       nameShown,
       isDropDownShown,
       login,
@@ -128,13 +105,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.search-input {
-  -webkit-appearance: none;
-}
-.search-input:focus {
-  box-shadow: 0px 0px 0px 2px rgba(255, 133, 95, 0.2);
-}
-
 .sign-in-btn {
   height: 30px;
 }

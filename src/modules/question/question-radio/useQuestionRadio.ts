@@ -16,5 +16,15 @@ export default function useQuestionRadio(
     return currentValue.value === value;
   }
 
-  return { values, currentValue, changeCurrentValue, isCurrentValue };
+  function changeClass(index: number) {
+    return index === 4 ? "" : "mr-8";
+  }
+
+  return {
+    values,
+    currentValue,
+    changeCurrentValue,
+    isCurrentValue,
+    changeClass
+  };
 }

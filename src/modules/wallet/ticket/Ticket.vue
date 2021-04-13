@@ -119,8 +119,7 @@ export default defineComponent({
       required: true
     },
     ticketID: {
-      type: String,
-      default: "000000"
+      type: String
     },
     parentBgColor: {
       type: String,

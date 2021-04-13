@@ -1,5 +1,7 @@
 <template>
-  <div class="flex w-full bg-gray-1 justify-center items-center pt-4 pb-8 px-4">
+  <div
+    class="content-min-height flex w-full bg-gray-1 justify-center items-center pt-4 pb-8 px-4"
+  >
     <Wallet
       class="content-max-width"
       :profile="test.profile"

@@ -65,7 +65,7 @@ import OnePassLogo from "@/assets/OnePassLogoColor.vue";
 import ChevronDownIcon from "@/assets/ChevronDown.vue";
 import ChevronUpIcon from "@/assets/ChevronUp.vue";
 import NavbarDropDownOptions from "./NavbarDropDownOptions.vue";
-import usePageNavbar from "./usePageNavbarTEMP";
+import usePageNavbar from "./usePageNavbar";
 
 export default defineComponent({
   name: "PageNavbar",
@@ -84,6 +84,7 @@ export default defineComponent({
       imgUrl,
       nameShown,
       isDropDownShown,
+      user,
       login,
       toggleDropDown,
       hideDropDown,
@@ -95,6 +96,7 @@ export default defineComponent({
       imgUrl,
       nameShown,
       isDropDownShown,
+      user,
       login,
       toggleDropDown,
       hideDropDown,

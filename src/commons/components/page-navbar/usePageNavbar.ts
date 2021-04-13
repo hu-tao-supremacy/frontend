@@ -35,6 +35,7 @@ export default function usePageNavbar() {
     imgUrl,
     nameShown,
     isDropDownShown,
+    user,
     login,
     toggleDropDown,
     hideDropDown,

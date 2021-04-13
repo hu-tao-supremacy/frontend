@@ -2,7 +2,8 @@
   <div
     class="flex flex-col w-25 bg-white rounded-b-lg pt-0.5 pb-1 font-heading text-lg"
   >
-    <section
+    <router-link
+      to="/org"
       @click="selectOption"
       class="group flex items-center rounded-sm px-3 mb-0.5 cursor-pointer hover:text-white hover:bg-primary"
     >
@@ -13,9 +14,10 @@
         ><UsersIcon
       /></base-icon>
       <h3>Organization</h3>
-    </section>
+    </router-link>
     <span class="mx-2 border-t border-gray-3 mb-0.5"></span>
-    <section
+    <router-link
+      to="/wallet"
       @click="selectOption"
       class="group flex items-center rounded-sm px-3 mb-1 cursor-pointer hover:text-white hover:bg-primary"
     >
@@ -26,8 +28,9 @@
         ><UserIcon
       /></base-icon>
       <h3>User Profile</h3>
-    </section>
-    <section
+    </router-link>
+    <router-link
+      to="/wallet"
       @click="selectOption"
       class="group flex items-center rounded-sm px-3 mb-0.5 cursor-pointer hover:text-white hover:bg-primary"
     >
@@ -38,9 +41,10 @@
         ><CreditCardIcon
       /></base-icon>
       <h3>One Wallet</h3>
-    </section>
+    </router-link>
     <span class="mx-2 border-t border-gray-3 mb-0.5"></span>
-    <section
+    <router-link
+      to="/wallet"
       @click="selectOption"
       class="group flex items-center rounded-sm px-3 mb-1 cursor-pointer hover:text-white hover:bg-primary"
     >
@@ -51,7 +55,7 @@
         ><SettingsIcon
       /></base-icon>
       <h3>Setting</h3>
-    </section>
+    </router-link>
     <section
       @click="logout"
       class="group flex items-center rounded-sm px-3 cursor-pointer hover:text-white hover:bg-primary"

@@ -20,6 +20,7 @@ const authLink = setContext((_, { headers }) => {
 const cache = new InMemoryCache();
 
 const apolloClient = new ApolloClient({
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   link: authLink.concat(uploadLink as any),
   cache
 });

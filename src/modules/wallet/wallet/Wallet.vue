@@ -43,32 +43,47 @@
     </section>
     <section class="flex font-heading text-xl relative mb-3">
       <div
-        @click="showOngoingTicket"
+        @click="changeTicketStatusView(TicketStatus.ONGOING)"
         class="mr-3.5 cursor-pointer flex flex-col z-10"
       >
-        <h2 class="mb-1" :class="{ 'text-primary': isOngoingTicket }">
+        <h2 class="mb-1" :class="{ 'text-primary': isOngoingTicketView }">
           Ongoing
         </h2>
         <div
           class="w-full h-0.5 rounded-full"
           :class="{
-            'bg-primary': isOngoingTicket,
-            'bg-gray-2': !isOngoingTicket
+            'bg-primary': isOngoingTicketView,
+            'bg-gray-2': !isOngoingTicketView
           }"
         ></div>
       </div>
       <div
-        @click="showHistoryTicket"
+        @click="changeTicketStatusView(TicketStatus.PENDING)"
         class="mr-3.5 cursor-pointer flex flex-col z-10"
       >
-        <h2 class="mb-1" :class="{ 'text-primary': !isOngoingTicket }">
+        <h2 class="mb-1" :class="{ 'text-primary': isPendingTicketView }">
+          Pending
+        </h2>
+        <div
+          class="w-full h-0.5 rounded-full"
+          :class="{
+            'bg-primary': isPendingTicketView,
+            'bg-gray-2': !isPendingTicketView
+          }"
+        ></div>
+      </div>
+      <div
+        @click="changeTicketStatusView(TicketStatus.HISTORY)"
+        class="cursor-pointer flex flex-col z-10"
+      >
+        <h2 class="mb-1" :class="{ 'text-primary': isHistoryTicketView }">
           History
         </h2>
         <div
           class="w-full h-0.5 rounded-full"
           :class="{
-            'bg-primary': !isOngoingTicket,
-            'bg-gray-2': isOngoingTicket
+            'bg-primary': isHistoryTicketView,
+            'bg-gray-2': !isHistoryTicketView
           }"
         ></div>
       </div>
@@ -76,9 +91,10 @@
     </section>
     <section class="flex flex-col">
       <TicketComponent
-        v-show="isOngoingTicket"
+        v-show="isOngoingTicketView"
         v-for="(ticket, index) in ongoingTickets"
-        :key="ticket"
+        :key="index"
+        :ticketStatus="TicketStatus.ONGOING"
         :event="ticket.event"
         :organization="ticket.organization"
         :ticketID="ticket.ticketID"
@@ -86,9 +102,20 @@
         :class="{ 'mb-2': index != ongoingTickets.length - 1 }"
       />
       <TicketComponent
-        v-show="!isOngoingTicket"
+        v-show="isPendingTicketView"
+        v-for="(ticket, index) in pendingTickets"
+        :key="index"
+        :ticketStatus="TicketStatus.PENDING"
+        :event="ticket.event"
+        :organization="ticket.organization"
+        :parentBgColor="'bg-white'"
+        :class="{ 'mb-2': index != pendingTickets.length - 1 }"
+      />
+      <TicketComponent
+        v-show="isHistoryTicketView"
         v-for="(ticket, index) in historyTickets"
-        :key="ticket"
+        :key="index"
+        :ticketStatus="TicketStatus.HISTORY"
         :event="ticket.event"
         :organization="ticket.organization"
         :ticketID="ticket.ticketID"
@@ -106,6 +133,7 @@ import EditIcon from "@/assets/Edit.vue";
 import TicketComponent from "@/modules/wallet/ticket/Ticket.vue";
 import { Profile, Ticket } from "@/commons/Interfaces";
 import useWallet from "./useWallet";
+import { TicketStatus } from "@/commons/constant";
 
 export default defineComponent({
   name: "Wallet",
@@ -123,6 +151,10 @@ export default defineComponent({
       type: Array as PropType<Array<Ticket>>,
       required: true
     },
+    pendingTickets: {
+      type: Array as PropType<Array<Ticket>>,
+      required: true
+    },
     historyTickets: {
       type: Array as PropType<Array<Ticket>>,
       required: true
@@ -130,17 +162,22 @@ export default defineComponent({
   },
   setup() {
     const {
-      isOngoingTicket,
-      showOngoingTicket,
-      showHistoryTicket,
-      editInfo
+      ticketStatusView,
+      changeTicketStatusView,
+      editInfo,
+      isOngoingTicketView,
+      isPendingTicketView,
+      isHistoryTicketView
     } = useWallet();
 
     return {
-      isOngoingTicket,
-      showOngoingTicket,
-      showHistoryTicket,
-      editInfo
+      ticketStatusView,
+      changeTicketStatusView,
+      editInfo,
+      isOngoingTicketView,
+      isPendingTicketView,
+      isHistoryTicketView,
+      TicketStatus
     };
   }
 });

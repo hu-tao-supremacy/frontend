@@ -27,6 +27,10 @@ export default function useBaseSelect(
     if (props.displayedOption !== "") userInput.value = props.displayedOption;
   }
 
+  function toggleShowOption() {
+    isOptionShown.value = !isOptionShown.value;
+  }
+
   function userChangeSearch(event: Event) {
     const target = event.target as HTMLInputElement;
     context.emit("update:searchTextModel", target.value);
@@ -47,6 +51,7 @@ export default function useBaseSelect(
     buttonDisplay,
     showOption,
     hideOption,
+    toggleShowOption,
     userChangeSearch
   };
 }

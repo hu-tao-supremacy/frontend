@@ -39,14 +39,6 @@ export default defineComponent({
       type: String,
       default: "none"
     }
-  },
-  setup(props) {
-    const theme = () => {
-      if (props.iconColor === "primary") {
-        return "#FF855F";
-      }
-      return;
-    };
   }
 });
 </script>

@@ -47,6 +47,7 @@ export type Attendance = {
   rating?: Maybe<Scalars["Int"]>;
   ticket?: Maybe<Scalars["String"]>;
   status: UserEventStatus;
+  answers: Array<Answer>;
 };
 
 export type AttendanceInput = {
@@ -78,7 +79,6 @@ export type CreateEventInput = {
   contact?: Maybe<Scalars["String"]>;
   coverImage?: Maybe<Scalars["Upload"]>;
   posterImage?: Maybe<Scalars["Upload"]>;
-  profileImage?: Maybe<Scalars["Upload"]>;
   tags?: Maybe<Array<SetEventTagsTagInput>>;
 };
 
@@ -126,16 +126,14 @@ export type Event = {
   coverImageHash?: Maybe<Scalars["String"]>;
   posterImageUrl?: Maybe<Scalars["String"]>;
   posterImageHash?: Maybe<Scalars["String"]>;
-  profileImageUrl?: Maybe<Scalars["String"]>;
-  profileImageHash?: Maybe<Scalars["String"]>;
   attendeeLimit: Scalars["Int"];
   contact?: Maybe<Scalars["String"]>;
   questionGroups: Array<QuestionGroup>;
   durations: Array<EventDuration>;
   tags: Array<Tag>;
   attendance?: Maybe<Attendance>;
-  attendees: Array<User>;
   attendeeCount: Scalars["Int"];
+  attendees: Array<Attendance>;
 };
 
 export type EventQuestionGroupsArgs = {
@@ -148,7 +146,6 @@ export type EventDuration = {
   eventId: Scalars["Int"];
   start: Scalars["String"];
   finish: Scalars["String"];
-  event: Event;
 };
 
 export type EventDurationInput = {
@@ -156,7 +153,6 @@ export type EventDurationInput = {
   eventId: Scalars["Int"];
   start: Scalars["String"];
   finish: Scalars["String"];
-  event: EventInput;
 };
 
 export type EventInput = {
@@ -171,16 +167,11 @@ export type EventInput = {
   coverImageHash?: Maybe<Scalars["String"]>;
   posterImageUrl?: Maybe<Scalars["String"]>;
   posterImageHash?: Maybe<Scalars["String"]>;
-  profileImageUrl?: Maybe<Scalars["String"]>;
-  profileImageHash?: Maybe<Scalars["String"]>;
   attendeeLimit: Scalars["Int"];
   contact?: Maybe<Scalars["String"]>;
   questionGroups: Array<QuestionGroupInput>;
   durations: Array<EventDurationInput>;
   tags: Array<TagInput>;
-  attendance?: Maybe<AttendanceInput>;
-  attendees: Array<UserInput>;
-  attendeeCount: Scalars["Int"];
 };
 
 export type Facility = {
@@ -593,6 +584,26 @@ export type GetCurrentUserQuery = { __typename?: "Query" } & {
   >;
 };
 
+export type GetQuestionGroupsQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetQuestionGroupsQuery = { __typename?: "Query" } & {
+  event: { __typename?: "Event" } & Pick<Event, "name"> & {
+      questionGroups: Array<
+        { __typename?: "QuestionGroup" } & Pick<
+          QuestionGroup,
+          "id" | "seq" | "title"
+        > & {
+            questions: Array<
+              { __typename?: "Question" } & Pick<
+                Question,
+                "id" | "seq" | "title" | "isOptional" | "answerType"
+              >
+            >;
+          }
+      >;
+    };
+};
+
 export type GetQuestionsByEventIdQueryVariables = Exact<{
   [key: string]: never;
 }>;
@@ -602,10 +613,7 @@ export type GetQuestionsByEventIdQuery = { __typename?: "Query" } & {
     questionGroups: Array<
       { __typename?: "QuestionGroup" } & Pick<QuestionGroup, "eventId"> & {
           questions: Array<
-            { __typename?: "Question" } & Pick<
-              Question,
-              "id" | "seq" | "title" | "isOptional"
-            >
+            { __typename?: "Question" } & Pick<Question, "id" | "seq" | "title">
           >;
         }
     >;
@@ -625,10 +633,7 @@ export type GetUpcomingEventsQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetUpcomingEventsQuery = { __typename?: "Query" } & {
   upcomingEvents: Array<
-    { __typename?: "Event" } & Pick<
-      Event,
-      "description" | "name" | "profileImageUrl" | "profileImageHash"
-    > & {
+    { __typename?: "Event" } & Pick<Event, "description" | "name"> & {
         location?: Maybe<{ __typename?: "Location" } & Pick<Location, "name">>;
         tags: Array<{ __typename?: "Tag" } & Pick<Tag, "name">>;
       }

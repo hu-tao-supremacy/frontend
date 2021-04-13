@@ -8,6 +8,8 @@ const Wallet = () => import("@/modules/wallet/WalletPage.vue");
 const UserCheckIn = () => import("@/modules/userCheckIn/UserCheckInPage.vue");
 const EventRegister = () =>
   import("@/modules/eventRegister/EventRegisterPage.vue");
+const EventFeedback = () =>
+  import("@/modules/eventFeedback/EventFeedbackPage.vue");
 const OrgHome = () => import("@/modules/organization/home/OrgHomePage.vue");
 const Login = () => import("@/modules/login/Login.vue");
 const PageSkeleton = () => import("@/commons/components/PageSkeleton.vue");
@@ -43,6 +45,10 @@ const router = createRouter({
         {
           path: "/event-register",
           component: EventRegister
+        },
+        {
+          path: "/event-feedback",
+          component: EventFeedback
         }
       ]
     },

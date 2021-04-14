@@ -43,5 +43,6 @@ const ticket = {
 export default {
   profile: profile,
   ongoingTickets: [ticket, ticket, ticket],
-  historyTickets: [ticket, ticket]
+  historyTickets: [ticket, ticket],
+  pendingTickets: [ticket, ticket, ticket, ticket]
 };

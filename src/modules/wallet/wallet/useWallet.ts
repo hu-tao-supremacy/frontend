@@ -1,14 +1,11 @@
-import { ref } from "vue";
+import { computed, ref } from "vue";
+import { TicketStatus } from "@/commons/constant";
 
 export default function useWallet() {
-  const isOngoingTicket = ref(true);
+  const ticketStatusView = ref(TicketStatus.ONGOING);
 
-  function showOngoingTicket() {
-    isOngoingTicket.value = true;
-  }
-
-  function showHistoryTicket() {
-    isOngoingTicket.value = false;
+  function changeTicketStatusView(ticketStatus: TicketStatus) {
+    ticketStatusView.value = ticketStatus;
   }
 
   function editInfo() {
@@ -16,10 +13,24 @@ export default function useWallet() {
     console.log("Edit info");
   }
 
+  const isOngoingTicketView = computed(() => {
+    return ticketStatusView.value === TicketStatus.ONGOING;
+  });
+
+  const isPendingTicketView = computed(() => {
+    return ticketStatusView.value === TicketStatus.PENDING;
+  });
+
+  const isHistoryTicketView = computed(() => {
+    return ticketStatusView.value === TicketStatus.HISTORY;
+  });
+
   return {
-    isOngoingTicket,
-    showOngoingTicket,
-    showHistoryTicket,
-    editInfo
+    ticketStatusView,
+    changeTicketStatusView,
+    editInfo,
+    isOngoingTicketView,
+    isPendingTicketView,
+    isHistoryTicketView
   };
 }

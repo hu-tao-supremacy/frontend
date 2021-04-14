@@ -17,7 +17,7 @@ const useSignup = () => {
   const {
     updateUser,
     onUpdateUserDone,
-    onUpdateUserErrror
+    onUpdateUserError
   } = useUpdateUserInfo();
 
   function toggleModal(modal: string) {
@@ -51,7 +51,7 @@ const useSignup = () => {
     toggleModal("interest");
   });
 
-  onUpdateUserErrror(cancelSignup);
+  onUpdateUserError(cancelSignup);
 
   return {
     toggleModal,

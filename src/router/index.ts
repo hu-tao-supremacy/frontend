@@ -10,6 +10,7 @@ const EventRegister = () =>
   import("@/modules/eventRegister/EventRegisterPage.vue");
 const OrgHome = () => import("@/modules/organization/home/OrgHomePage.vue");
 const Login = () => import("@/modules/login/Login.vue");
+const NotFound = () => import("@/modules/not-found/NotFound.vue");
 const PageSkeleton = () => import("@/commons/components/PageSkeleton.vue");
 
 const router = createRouter({
@@ -43,7 +44,9 @@ const router = createRouter({
         {
           path: "/event-register",
           component: EventRegister
-        }
+        },
+
+        { path: "/404", component: NotFound }
       ]
     },
     {
@@ -55,7 +58,11 @@ const router = createRouter({
       component: PageSkeleton, //Will later change to page skeleton of org page
       children: [{ path: "", component: OrgHome }]
     },
-    { path: "/login", component: Login }
+    { path: "/login", component: Login },
+    {
+      path: "/:catchAll(.*)",
+      redirect: "/404"
+    }
   ]
 });
 

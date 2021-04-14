@@ -68,5 +68,8 @@
   "lint-staged": {
     "src/**/*.{js,ts,vue}": "eslint --cache --fix",
     "src/**/*": "prettier --write"
+  },
+  "resolutions": {
+    "acorn": "8.0.1"
   }
 }

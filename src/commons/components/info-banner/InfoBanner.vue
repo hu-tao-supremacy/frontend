@@ -87,11 +87,18 @@ export default defineComponent({
     hasButton: {
       type: Boolean,
       defualt: false
+    },
+    isSignIn: {
+      type: Boolean,
+      default: false
     }
   },
   setup(props) {
-    const { eventBanner } = toRefs(props);
-    const { date, time, register, location } = useInfoBanner(eventBanner);
+    const { eventBanner, isSignIn } = toRefs(props);
+    const { date, time, register, location } = useInfoBanner(
+      isSignIn,
+      eventBanner
+    );
     return { date, time, register, location };
   }
 });

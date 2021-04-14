@@ -2,10 +2,11 @@ import { EventDuration, GetEventByIdQuery } from "@/apollo/types";
 import { computed, Ref } from "vue";
 import { getDisplayDate, getMainTimetable } from "@/commons/utils/date";
 import { login } from "@/commons/utils/auth";
-import useUser from "@/modules/authentication";
 
-const useInfoBanner = (event?: Ref<GetEventByIdQuery["event"] | undefined>) => {
-  const { isSignIn } = useUser();
+const useInfoBanner = (
+  isSignIn: Ref<boolean>,
+  event?: Ref<GetEventByIdQuery["event"] | undefined>
+) => {
   const date = computed(() => {
     return getDisplayDate(event?.value?.durations as EventDuration[]);
   });

@@ -1,7 +1,7 @@
 <template>
   <div class="bg-gray-1 flex flex-col p-4 justify-center items-center w-full">
     <div class="content-max-width w-full">
-      <InfoBanner :eventBanner="event" :hasButton="true" />
+      <InfoBanner :eventBanner="event" :hasButton="true" :isSignIn="isSignIn" />
       <div class="text-4xl font-heading mt-7">Event Information</div>
       <div class="event w-full mt-3 grid gap-4">
         <div class="flex flex-col">
@@ -11,6 +11,7 @@
           />
           <div class="text-lg font-heading">Organized by</div>
           <EventOrganizer
+            :isSignIn="isSignIn"
             class="event-inner mt-1"
             :eventOrg="event?.organization"
           />
@@ -53,8 +54,8 @@ export default defineComponent({
     EventSchedule
   },
   setup() {
-    const { event } = useEventInfo();
-    return { event };
+    const { event, isSignIn } = useEventInfo();
+    return { event, isSignIn };
   }
 });
 </script>

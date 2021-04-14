@@ -1,11 +1,9 @@
 import { login } from "@/commons/utils/auth";
-import useUser from "@/modules/authentication";
 
-const useEventOrganizer = () => {
-  const { isSignIn } = useUser();
+const useEventOrganizer = (isSignIn: boolean) => {
   const follow = () => {
     console.log("follow");
-    if (!isSignIn.value) {
+    if (!isSignIn) {
       login();
     } else {
       console.log("Follow with api");

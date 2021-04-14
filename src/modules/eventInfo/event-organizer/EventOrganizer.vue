@@ -91,10 +91,14 @@ export default defineComponent({
   props: {
     eventOrg: {
       type: Object as () => Organization
+    },
+    isSignin: {
+      type: Boolean,
+      default: false
     }
   },
-  setup() {
-    const { follow } = useEventOrganizer();
+  setup(props) {
+    const { follow } = useEventOrganizer(props.isSignin);
     return { follow };
   }
 });

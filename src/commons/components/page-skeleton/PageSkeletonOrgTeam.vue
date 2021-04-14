@@ -1,6 +1,6 @@
 <template>
   <div class="flex">
-    <section class="min-h-full bg-blue-11"><OrgNavbarTeam /></section>
+    <section class="min-h-full bg-blue-11 relative"><OrgNavbarTeam /></section>
     <section class="flex flex-col w-full h-full">
       <PageNavbar />
       <router-view></router-view>
@@ -13,7 +13,7 @@
 import { defineComponent } from "vue";
 import PageFooter from "@/commons/UI/PageFooter.vue";
 import PageNavbar from "@/commons/components/page-navbar/PageNavbar.vue";
-import OrgNavbarTeam from "@/commons/components/org-navbar-team/OrgNavbarTeam.vue";
+import OrgNavbarTeam from "@/commons/components/org-navbar/org-navbar-team/OrgNavbarTeam.vue";
 
 export default defineComponent({
   name: "PageSkeletonOrgTeam",

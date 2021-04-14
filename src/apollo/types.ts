@@ -37,29 +37,6 @@ export enum AnswerType {
   Text = "TEXT"
 }
 
-export type Attendance = {
-  __typename?: "Attendance";
-  id: Scalars["Int"];
-  userId: Scalars["Int"];
-  user: User;
-  eventId: Scalars["Int"];
-  event: Event;
-  rating?: Maybe<Scalars["Int"]>;
-  ticket?: Maybe<Scalars["String"]>;
-  status: UserEventStatus;
-};
-
-export type AttendanceInput = {
-  id: Scalars["Int"];
-  userId: Scalars["Int"];
-  user: UserInput;
-  eventId: Scalars["Int"];
-  event: EventInput;
-  rating?: Maybe<Scalars["Int"]>;
-  ticket?: Maybe<Scalars["String"]>;
-  status: UserEventStatus;
-};
-
 export type AuthenticateInput = {
   providerAccessToken: Scalars["String"];
 };
@@ -70,7 +47,6 @@ export type AuthenticateOutput = {
 };
 
 export type CreateEventInput = {
-  id: Scalars["Int"];
   organizationId: Scalars["Int"];
   description: Scalars["String"];
   name: Scalars["String"];
@@ -78,7 +54,6 @@ export type CreateEventInput = {
   contact?: Maybe<Scalars["String"]>;
   coverImage?: Maybe<Scalars["Upload"]>;
   posterImage?: Maybe<Scalars["Upload"]>;
-  profileImage?: Maybe<Scalars["Upload"]>;
   tags?: Maybe<Array<SetEventTagsTagInput>>;
 };
 
@@ -126,16 +101,14 @@ export type Event = {
   coverImageHash?: Maybe<Scalars["String"]>;
   posterImageUrl?: Maybe<Scalars["String"]>;
   posterImageHash?: Maybe<Scalars["String"]>;
-  profileImageUrl?: Maybe<Scalars["String"]>;
-  profileImageHash?: Maybe<Scalars["String"]>;
   attendeeLimit: Scalars["Int"];
   contact?: Maybe<Scalars["String"]>;
   questionGroups: Array<QuestionGroup>;
   durations: Array<EventDuration>;
   tags: Array<Tag>;
-  attendance?: Maybe<Attendance>;
-  attendees: Array<User>;
+  attendance?: Maybe<UserEvent>;
   attendeeCount: Scalars["Int"];
+  attendees: Array<UserEvent>;
 };
 
 export type EventQuestionGroupsArgs = {
@@ -148,7 +121,6 @@ export type EventDuration = {
   eventId: Scalars["Int"];
   start: Scalars["String"];
   finish: Scalars["String"];
-  event: Event;
 };
 
 export type EventDurationInput = {
@@ -156,7 +128,6 @@ export type EventDurationInput = {
   eventId: Scalars["Int"];
   start: Scalars["String"];
   finish: Scalars["String"];
-  event: EventInput;
 };
 
 export type EventInput = {
@@ -171,16 +142,11 @@ export type EventInput = {
   coverImageHash?: Maybe<Scalars["String"]>;
   posterImageUrl?: Maybe<Scalars["String"]>;
   posterImageHash?: Maybe<Scalars["String"]>;
-  profileImageUrl?: Maybe<Scalars["String"]>;
-  profileImageHash?: Maybe<Scalars["String"]>;
   attendeeLimit: Scalars["Int"];
   contact?: Maybe<Scalars["String"]>;
   questionGroups: Array<QuestionGroupInput>;
   durations: Array<EventDurationInput>;
   tags: Array<TagInput>;
-  attendance?: Maybe<AttendanceInput>;
-  attendees: Array<UserInput>;
-  attendeeCount: Scalars["Int"];
 };
 
 export type Facility = {
@@ -239,6 +205,7 @@ export type Mutation = {
   __typename?: "Mutation";
   setEventQuestions: Scalars["Boolean"];
   createEvent: Event;
+  updateEvent: Event;
   authenticate: AuthenticateOutput;
   upload: Scalars["Boolean"];
   createOrganization: Organization;
@@ -246,7 +213,8 @@ export type Mutation = {
   addMembersToOrganization: Organization;
   removeMembersFromOrganization: Organization;
   updateUser: User;
-  setUserInterests: Scalars["Boolean"];
+  setInterestedTags: Scalars["Boolean"];
+  setInterestedEvents: Scalars["Boolean"];
   createJoinRequest: Scalars["Boolean"];
   deleteJoinRequest: Scalars["Boolean"];
 };
@@ -257,6 +225,10 @@ export type MutationSetEventQuestionsArgs = {
 
 export type MutationCreateEventArgs = {
   input: CreateEventInput;
+};
+
+export type MutationUpdateEventArgs = {
+  input: UpdateEventInput;
 };
 
 export type MutationAuthenticateArgs = {
@@ -287,8 +259,12 @@ export type MutationUpdateUserArgs = {
   input: UpdateUserInput;
 };
 
-export type MutationSetUserInterestsArgs = {
-  input: SetUserInterestsInput;
+export type MutationSetInterestedTagsArgs = {
+  tags: Array<Scalars["Int"]>;
+};
+
+export type MutationSetInterestedEventsArgs = {
+  events: Array<Scalars["Int"]>;
 };
 
 export type MutationCreateJoinRequestArgs = {
@@ -443,14 +419,6 @@ export type SetEventTagsTagInput = {
   id: Scalars["Int"];
 };
 
-export type SetUserInterestsInput = {
-  tags: Array<SetUserInterestsTagInput>;
-};
-
-export type SetUserInterestsTagInput = {
-  id: Scalars["Int"];
-};
-
 export type Tag = {
   __typename?: "Tag";
   id: Scalars["Int"];
@@ -462,6 +430,18 @@ export type TagInput = {
   id: Scalars["Int"];
   name: Scalars["String"];
   events: Array<EventInput>;
+};
+
+export type UpdateEventInput = {
+  organizationId?: Maybe<Scalars["Int"]>;
+  description?: Maybe<Scalars["String"]>;
+  name?: Maybe<Scalars["String"]>;
+  attendeeLimit?: Maybe<Scalars["Int"]>;
+  contact?: Maybe<Scalars["String"]>;
+  coverImage?: Maybe<Scalars["Upload"]>;
+  posterImage?: Maybe<Scalars["Upload"]>;
+  tags?: Maybe<Array<SetEventTagsTagInput>>;
+  id: Scalars["Int"];
 };
 
 export type UpdateMembersInOrganizationInput = {
@@ -499,7 +479,7 @@ export type UpdateUserInput = {
   zipCode?: Maybe<Scalars["String"]>;
   gender?: Maybe<Gender>;
   academicYear?: Maybe<Scalars["Int"]>;
-  organizations?: Maybe<Array<OrganizationInput>>;
+  organizations?: Maybe<Array<UserOrganizationInput>>;
   events?: Maybe<Array<EventInput>>;
   profilePicture?: Maybe<Scalars["Upload"]>;
 };
@@ -522,9 +502,33 @@ export type User = {
   didSetup: Scalars["Boolean"];
   gender: Gender;
   academicYear?: Maybe<Scalars["Int"]>;
-  organizations: Array<Organization>;
+  organizations: Array<UserOrganization>;
   events: Array<Event>;
   interests: Array<Tag>;
+};
+
+export type UserEvent = {
+  __typename?: "UserEvent";
+  id: Scalars["Int"];
+  userId: Scalars["Int"];
+  user: User;
+  eventId: Scalars["Int"];
+  event: Event;
+  rating?: Maybe<Scalars["Int"]>;
+  ticket?: Maybe<Scalars["String"]>;
+  status: UserEventStatus;
+  answers: Array<Answer>;
+};
+
+export type UserEventInput = {
+  id: Scalars["Int"];
+  userId: Scalars["Int"];
+  user: UserInput;
+  eventId: Scalars["Int"];
+  event: EventInput;
+  rating?: Maybe<Scalars["Int"]>;
+  ticket?: Maybe<Scalars["String"]>;
+  status: UserEventStatus;
 };
 
 export enum UserEventStatus {
@@ -550,7 +554,7 @@ export type UserInput = {
   didSetup: Scalars["Boolean"];
   gender: Gender;
   academicYear?: Maybe<Scalars["Int"]>;
-  organizations: Array<OrganizationInput>;
+  organizations: Array<UserOrganizationInput>;
   events: Array<EventInput>;
   interests: Array<TagInput>;
 };
@@ -602,10 +606,7 @@ export type GetQuestionsByEventIdQuery = { __typename?: "Query" } & {
     questionGroups: Array<
       { __typename?: "QuestionGroup" } & Pick<QuestionGroup, "eventId"> & {
           questions: Array<
-            { __typename?: "Question" } & Pick<
-              Question,
-              "id" | "seq" | "title" | "isOptional"
-            >
+            { __typename?: "Question" } & Pick<Question, "id" | "seq" | "title">
           >;
         }
     >;
@@ -625,10 +626,7 @@ export type GetUpcomingEventsQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetUpcomingEventsQuery = { __typename?: "Query" } & {
   upcomingEvents: Array<
-    { __typename?: "Event" } & Pick<
-      Event,
-      "description" | "name" | "profileImageUrl" | "profileImageHash"
-    > & {
+    { __typename?: "Event" } & Pick<Event, "description" | "name"> & {
         location?: Maybe<{ __typename?: "Location" } & Pick<Location, "name">>;
         tags: Array<{ __typename?: "Tag" } & Pick<Tag, "name">>;
       }

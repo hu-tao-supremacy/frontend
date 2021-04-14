@@ -3,22 +3,22 @@
     <section class="flex w-full mb-2">
       <div class="h-10 w-10 rounded-full overflow-hidden mr-2 flex-shrink-0">
         <LazyImage
-          v-if="eventOrg.profilePictureUrl"
+          v-if="eventOrg?.profilePictureUrl"
           :width="100"
           :height="100"
           alt="will change to api"
-          :url="eventOrg.profilePictureUrl"
-          :placeholder="eventOrg.profilePictureHash"
+          :url="eventOrg?.profilePictureUrl"
+          :placeholder="eventOrg?.profilePictureHash"
           class="object-cover w-full h-full"
         />
         <div v-else class="bg-gray-2 w-full h-full"></div>
       </div>
       <div class="flex flex-col">
         <h1 class="font-heading text-3xl text-blue-10">
-          {{ eventOrg.abbreviation }}
+          {{ eventOrg?.abbreviation }}
         </h1>
-        <p class="text-sm">{{ eventOrg.name }}</p>
-        <div class="mt-1">{{ eventOrg.description }}</div>
+        <p class="text-sm">{{ eventOrg?.name }}</p>
+        <div class="mt-1">{{ eventOrg?.description }}</div>
       </div>
     </section>
     <section class="flex justify-between items-center">
@@ -28,8 +28,8 @@
           target="_blank"
           rel="noopener noreferrer"
           class="mr-1"
-          v-if="eventOrg.facebookPage"
-          :href="eventOrg.facebookPage"
+          v-if="eventOrg?.facebookPage"
+          :href="eventOrg?.facebookPage"
         >
           <FacebookIconCircle />
         </a>
@@ -37,8 +37,8 @@
           target="_blank"
           rel="noopener noreferrer"
           class="mr-1"
-          v-if="eventOrg.email"
-          :href="eventOrg.email"
+          v-if="eventOrg?.email"
+          :href="eventOrg?.email"
         >
           <base-circle-button class="p-1 text-black"
             ><base-icon width="16" height="16"><MailIcon /></base-icon
@@ -48,8 +48,8 @@
           target="_blank"
           rel="noopener noreferrer"
           class="mr-1"
-          v-if="eventOrg.lineOfficialAccount"
-          :href="eventOrg.lineOfficialAccount"
+          v-if="eventOrg?.lineOfficialAccount"
+          :href="eventOrg?.lineOfficialAccount"
         >
           <base-circle-button class="p-1"
             ><base-icon width="16" height="16"><MailIcon /></base-icon
@@ -59,8 +59,8 @@
           target="_blank"
           rel="noopener noreferrer"
           class="mr-1"
-          v-if="eventOrg.instagram"
-          :href="eventOrg.instagram"
+          v-if="eventOrg?.instagram"
+          :href="eventOrg?.instagram"
         >
           <base-circle-button class="p-1"
             ><base-icon width="16" height="16"><MailIcon /></base-icon
@@ -91,8 +91,7 @@ export default defineComponent({
   },
   props: {
     eventOrg: {
-      type: Object as () => Organization,
-      required: true
+      type: Object as () => Organization
     }
   }
 });

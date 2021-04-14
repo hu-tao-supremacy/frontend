@@ -4,7 +4,7 @@
   >
     <div class="min-w-full h-30">
       <LazyImage
-        v-if="eventBanner.coverImageUrl"
+        v-if="eventBanner?.coverImageUrl"
         :width="1000"
         :height="1000"
         alt="will change to api"
@@ -16,11 +16,11 @@
     </div>
     <section class="pl-33 flex flex-col pr-6 pt-2 pb-4.5">
       <h1 class="text-3xl text-blue-10 font-heading mb-1">
-        {{ eventBanner.name }}
+        {{ eventBanner?.name }}
       </h1>
       <div class="flex flex-wrap mb-2">
         <base-tag
-          v-for="tag in eventBanner.tags"
+          v-for="tag in eventBanner?.tags"
           :key="tag.id"
           class="mr-1 mb-1 h-2"
           >{{ tag.name }}</base-tag
@@ -33,7 +33,7 @@
         <base-icon-and-detail class="mb-1" :detail="time"
           ><ClockIcon
         /></base-icon-and-detail>
-        <base-icon-and-detail :detail="eventBanner.location?.name || '-'"
+        <base-icon-and-detail :detail="eventBanner?.location?.name || '-'"
           ><PinIcon
         /></base-icon-and-detail>
       </section>
@@ -42,7 +42,7 @@
       class="absolute top-24 left-6 rounded-lg overflow-hidden w-20 h-30 border-4 border-white"
     >
       <LazyImage
-        v-if="eventBanner.posterImageUrl"
+        v-if="eventBanner?.posterImageUrl"
         :width="300"
         :height="300"
         alt="will change to api"
@@ -83,8 +83,7 @@ export default defineComponent({
   },
   props: {
     eventBanner: {
-      type: Object as () => GetEventByIdQuery["event"],
-      required: true
+      type: Object as () => GetEventByIdQuery["event"]
     },
     hasButton: {
       type: Boolean,

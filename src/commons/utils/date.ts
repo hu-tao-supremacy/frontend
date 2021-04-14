@@ -1,7 +1,10 @@
 import { EventDuration } from "@/apollo/types";
 import { format } from "date-fns";
 
-export const getDisplayDate = (durations: EventDuration[]) => {
+export const getDisplayDate = (durations?: EventDuration[]) => {
+  if (!durations) {
+    return "-";
+  }
   const startDateText = format(new Date(durations[0].start), "ccc, d MMM");
   if (durations.length !== 0) {
     const endDateText = format(
@@ -13,8 +16,8 @@ export const getDisplayDate = (durations: EventDuration[]) => {
   return startDateText;
 };
 
-export const getMainTimetable = (durations: EventDuration[]) => {
-  if (durations.length !== 0) {
+export const getMainTimetable = (durations?: EventDuration[]) => {
+  if (!durations || durations.length !== 0) {
     return "-";
   }
   const startTime = format(new Date(durations[0].start), "HH:mm");

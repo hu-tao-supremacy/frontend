@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gray-1 flex flex-col p-4 justify-center items-center w-full">
-    <div class="container">
+    <div class="content-max-width">
       <InfoBanner v-if="event" :eventBanner="event" :hasButton="true" />
       <div class="text-4xl font-heading mt-7">Event Information</div>
       <div class="event w-full mt-3 grid gap-4">
@@ -65,9 +65,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.container {
-  max-width: 960px;
-}
 .event {
   grid-template-columns: auto auto;
 }

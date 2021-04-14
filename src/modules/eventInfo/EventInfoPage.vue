@@ -37,7 +37,6 @@
       </div>
     </div>
   </div>
-  {{ event }}
 </template>
 
 <script lang="ts">

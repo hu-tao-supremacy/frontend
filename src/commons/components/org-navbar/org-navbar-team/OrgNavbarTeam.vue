@@ -46,13 +46,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
 import OrgNavbarTeamSelection from "../org-navbar-team-selection/OrgNavbarTeamSelection.vue";
 import MenuIcon from "@/assets/Menu.vue";
 import XIcon from "@/assets/X.vue";
 import PlusIcon from "@/assets/Plus.vue";
-import organizationsData from "./testData";
-import { Organization } from "@/apollo/types";
+import useOrgNavbarTeam from "./useOrgNavbarTeam";
 
 export default defineComponent({
   name: "OrgNavbarTeam",
@@ -63,34 +62,15 @@ export default defineComponent({
     PlusIcon
   },
   setup() {
-    const isExpand = ref(false);
-    const teams = organizationsData;
-    const currentSelectedTeamId = ref(-1);
-
-    function expandNavbar() {
-      isExpand.value = true;
-    }
-
-    function collapseNavbar() {
-      isExpand.value = false;
-    }
-
-    function isCurrentSelectedTeam(teamId: number) {
-      return teamId === currentSelectedTeamId.value;
-    }
-
-    function changeSelectedTeam(team: Organization) {
-      if (team.id === currentSelectedTeamId.value) return;
-      //Also perform provide/inject here
-      currentSelectedTeamId.value = team.id;
-    }
-
-    function createNewTeam() {
-      //Maybe reset provide/inject team
-      currentSelectedTeamId.value = -1;
-      //Go to create team page
-      console.log("To create organization");
-    }
+    const {
+      isExpand,
+      expandNavbar,
+      collapseNavbar,
+      teams,
+      isCurrentSelectedTeam,
+      changeSelectedTeam,
+      createNewTeam
+    } = useOrgNavbarTeam();
 
     return {
       isExpand,

@@ -8,7 +8,7 @@
       <div
         v-for="(value, index) in values"
         :key="value"
-        :class="changeClass(index)"
+        :class="getRadioMargin(index)"
         class="flex flex-col items-center"
         @click="changeCurrentValue(value)"
       >
@@ -48,7 +48,7 @@ export default defineComponent({
       currentValue,
       changeCurrentValue,
       isCurrentValue,
-      changeClass
+      getRadioMargin
     } = useQuestionRadio(context);
 
     return {
@@ -56,7 +56,7 @@ export default defineComponent({
       currentValue,
       changeCurrentValue,
       isCurrentValue,
-      changeClass
+      getRadioMargin
     };
   }
 });

@@ -16,7 +16,7 @@ export default function useQuestionRadio(
     return currentValue.value === value;
   }
 
-  function changeClass(index: number) {
+  function getRadioMargin(index: number) {
     return index === 4 ? "" : "mr-8";
   }
 
@@ -25,6 +25,6 @@ export default function useQuestionRadio(
     currentValue,
     changeCurrentValue,
     isCurrentValue,
-    changeClass
+    getRadioMargin
   };
 }

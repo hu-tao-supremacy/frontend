@@ -1,7 +1,7 @@
 <template>
   <div class="bg-gray-1 flex flex-col p-4 justify-center items-center w-full">
     <div class="container">
-      <InfoBanner :eventBanner="test.eventBanner" />
+      <InfoBanner v-if="event" :eventBanner="event" />
       <div class="text-4xl font-heading mt-7">Event Information</div>
       <div class="event w-full mt-3 grid gap-4">
         <div class="flex flex-col">
@@ -33,6 +33,7 @@
       </div>
     </div>
   </div>
+  {{ event }}
 </template>
 
 <script lang="ts">
@@ -42,6 +43,7 @@ import EventDetail from "@/modules/eventInfo/event-detail/EventDetail.vue";
 import EventOrganizer from "@/modules/eventInfo/event-organizer/EventOrganizer.vue";
 import EventSchedule from "@/modules/eventInfo/event-schedule/EventSchedule.vue";
 import testData from "@/modules/eventInfo/use-event-info/testData";
+import useEventInfo from "./use-event-info";
 
 export default defineComponent({
   name: "EventInfoPage",
@@ -53,8 +55,11 @@ export default defineComponent({
   },
   setup() {
     const test = testData;
+    const { event } = useEventInfo();
+
     return {
-      test
+      test,
+      event
     };
   }
 });

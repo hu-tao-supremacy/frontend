@@ -7,7 +7,7 @@
         <div class="flex flex-col">
           <EventDetail
             class="event-inner mb-3"
-            :eventDetail="test.eventDetail"
+            :eventDetail="event.description"
           />
           <div class="text-lg font-heading">Organized by</div>
           <EventOrganizer

@@ -58,11 +58,11 @@ const router = createRouter({
       component: PageSkeleton, //Will later change to page skeleton of org page
       children: [{ path: "", component: OrgHome }]
     },
-    { path: "/login", component: Login },
-    {
-      path: "/:catchAll(.*)",
-      redirect: "/404"
-    }
+    { path: "/login", component: Login }
+    // {
+    //   path: "/:catchAll(.*)",
+    //   redirect: "/404"
+    // }
   ]
 });
 

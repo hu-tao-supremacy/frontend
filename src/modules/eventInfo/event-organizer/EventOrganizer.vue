@@ -22,7 +22,7 @@
       </div>
     </section>
     <section class="flex justify-between items-center">
-      <base-button class="px-2 py-0.5">Follow</base-button>
+      <base-button @click="follow" class="px-2 py-0.5">Follow</base-button>
       <div class="flex items-center">
         <a
           target="_blank"
@@ -79,6 +79,7 @@ import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import FacebookIconCircle from "@/commons/UI/FacebookIconCircle.vue";
 import MailIcon from "@/assets/Mail.vue";
 import { Organization } from "@/apollo/types";
+import useEventOrganizer from "./useEventOrganizer";
 
 export default defineComponent({
   name: "EventOrganizer",
@@ -93,6 +94,10 @@ export default defineComponent({
     eventOrg: {
       type: Object as () => Organization
     }
+  },
+  setup() {
+    const { follow } = useEventOrganizer();
+    return { follow };
   }
 });
 </script>

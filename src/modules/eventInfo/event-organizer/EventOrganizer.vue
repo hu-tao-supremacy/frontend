@@ -3,7 +3,6 @@
     <section class="flex w-full mb-2">
       <div class="h-10 w-10 rounded-full overflow-hidden mr-2 flex-shrink-0">
         <LazyImage
-          v-if="eventOrg?.profilePictureUrl"
           :width="100"
           :height="100"
           alt="will change to api"
@@ -11,7 +10,6 @@
           :placeholder="eventOrg?.profilePictureHash"
           class="object-cover w-full h-full"
         />
-        <div v-else class="bg-gray-2 w-full h-full"></div>
       </div>
       <div class="flex flex-col">
         <h1 class="font-heading text-3xl text-blue-10">

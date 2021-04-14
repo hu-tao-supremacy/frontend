@@ -617,7 +617,7 @@ export type GetEventByIdQuery = { __typename?: "Query" } & {
           "id" | "start" | "finish"
         >
       >;
-      tags: Array<{ __typename?: "Tag" } & Pick<Tag, "name">>;
+      tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
     };
 };
 

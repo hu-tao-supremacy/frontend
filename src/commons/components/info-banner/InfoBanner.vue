@@ -21,7 +21,7 @@
       <div class="flex flex-wrap mb-2">
         <base-tag
           v-for="tag in eventBanner.tags"
-          :key="tag"
+          :key="tag.id"
           class="mr-1 mb-1 h-2"
           >{{ tag.name }}</base-tag
         >

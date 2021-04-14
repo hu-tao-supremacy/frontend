@@ -33,6 +33,7 @@ export const useEventById = (variables: GetEventByIdQueryVariables) =>
             finish
           }
           tags {
+            id
             name
           }
         }

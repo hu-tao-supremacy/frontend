@@ -61,13 +61,6 @@ export interface Profile {
   following: number;
 }
 
-export interface Schedule {
-  faculty: string;
-  day: number;
-  month: string;
-  time: string;
-}
-
 export interface Interest {
   id: number;
   name: string;

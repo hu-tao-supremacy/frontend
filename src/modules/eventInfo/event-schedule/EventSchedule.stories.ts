@@ -1,7 +1,7 @@
 import EventSchedule from "./EventSchedule.vue";
 import "@/index.css";
 import { Story } from "@storybook/vue3";
-import { Schedule } from "@/commons/Interfaces/index";
+import { EventDuration, Location } from "@/apollo/types";
 
 export default {
   title: "Event/EventSchedule",
@@ -9,7 +9,8 @@ export default {
 };
 
 interface PropTypes {
-  eventsSchedule: Schedule;
+  eventsSchedule: EventDuration;
+  location: Location;
 }
 
 const Template: Story<PropTypes> = args => ({
@@ -22,10 +23,9 @@ const Template: Story<PropTypes> = args => ({
 
 export const Primary = Template.bind({});
 Primary.args = {
+  location: { name: "TGR Faculty, Chula" } as Location,
   eventsSchedule: {
-    faculty: "TGR Faculty, Chula",
-    day: 14,
-    month: "Feb",
-    time: "10:00-18:00"
-  }
+    start: new Date().toString(),
+    finish: new Date().toString()
+  } as EventDuration
 };

@@ -28,6 +28,7 @@ export const useEventById = (variables: GetEventByIdQueryVariables) =>
             instagram
           }
           durations {
+            id
             start
             finish
           }

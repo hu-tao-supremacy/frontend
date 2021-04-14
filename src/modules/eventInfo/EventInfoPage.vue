@@ -23,9 +23,10 @@
             >
               <EventSchedule
                 class="mb-1"
-                v-for="schedule in test.eventsSchedule"
-                :key="schedule.id"
-                :eventsSchedule="schedule"
+                v-for="duration in event.durations"
+                :key="duration.id"
+                :eventsSchedule="duration"
+                :location="event.location"
               />
             </div>
           </div>
@@ -56,7 +57,6 @@ export default defineComponent({
   setup() {
     const test = testData;
     const { event } = useEventInfo();
-
     return {
       test,
       event

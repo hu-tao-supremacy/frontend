@@ -24,10 +24,48 @@
     <section class="flex justify-between items-center">
       <base-button class="px-2 py-0.5">Follow</base-button>
       <div class="flex items-center">
-        <FacebookIconCircle />
-        <base-circle-button class="p-1 text-black"
-          ><base-icon width="16" height="16"><MailIcon /></base-icon
-        ></base-circle-button>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mr-1"
+          v-if="eventOrg.facebookPage"
+          :href="eventOrg.facebookPage"
+        >
+          <FacebookIconCircle />
+        </a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mr-1"
+          v-if="eventOrg.email"
+          :href="eventOrg.email"
+        >
+          <base-circle-button class="p-1 text-black"
+            ><base-icon width="16" height="16"><MailIcon /></base-icon
+          ></base-circle-button>
+        </a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mr-1"
+          v-if="eventOrg.lineOfficialAccount"
+          :href="eventOrg.lineOfficialAccount"
+        >
+          <base-circle-button class="p-1"
+            ><base-icon width="16" height="16"><MailIcon /></base-icon
+          ></base-circle-button>
+        </a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mr-1"
+          v-if="eventOrg.instagram"
+          :href="eventOrg.instagram"
+        >
+          <base-circle-button class="p-1"
+            ><base-icon width="16" height="16"><MailIcon /></base-icon
+          ></base-circle-button>
+        </a>
       </div>
     </section>
   </div>

@@ -1,5 +1,5 @@
 <template>
-  <base-circle-button class="mr-1 facebook-icon"
+  <base-circle-button class="facebook-icon"
     ><base-icon
       width="32"
       height="32"

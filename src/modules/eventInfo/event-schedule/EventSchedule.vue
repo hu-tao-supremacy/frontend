@@ -28,8 +28,7 @@ export default defineComponent({
       required: true
     },
     location: {
-      type: Object as () => Location,
-      required: true
+      type: Object as () => Location
     }
   },
   setup(props) {

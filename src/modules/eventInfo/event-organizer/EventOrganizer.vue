@@ -3,33 +3,28 @@
     <section class="flex w-full mb-2">
       <div class="h-10 w-10 rounded-full overflow-hidden mr-2 flex-shrink-0">
         <LazyImage
+          v-if="eventOrg.profilePictureUrl"
           :width="100"
           :height="100"
           alt="will change to api"
-          :url="eventOrg.img"
-          :placeholder="eventOrg.imgHash"
+          :url="eventOrg.profilePictureUrl"
+          :placeholder="eventOrg.profilePictureHash"
           class="object-cover w-full h-full"
         />
+        <div v-else class="bg-gray-2 w-full h-full"></div>
       </div>
       <div class="flex flex-col">
         <h1 class="font-heading text-3xl text-blue-10">
-          {{ eventOrg.shortName }}
+          {{ eventOrg.abbreviation }}
         </h1>
-        <p class="text-sm">{{ eventOrg.fullName }}</p>
+        <p class="text-sm">{{ eventOrg.name }}</p>
         <div class="mt-1">{{ eventOrg.description }}</div>
       </div>
     </section>
     <section class="flex justify-between items-center">
       <base-button class="px-2 py-0.5">Follow</base-button>
       <div class="flex items-center">
-        <base-circle-button class="mr-1"
-          ><base-icon
-            width="32"
-            height="32"
-            viewBox="0 0 112.196 112.196"
-            iconColor="none"
-            ><FacebookIcon /></base-icon
-        ></base-circle-button>
+        <FacebookIconCircle />
         <base-circle-button class="p-1 text-black"
           ><base-icon width="16" height="16"><MailIcon /></base-icon
         ></base-circle-button>
@@ -43,9 +38,9 @@ import { defineComponent } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import BaseCircleButton from "@/commons/UI/BaseCircleButton.vue";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
-import FacebookIcon from "@/assets/Facebook.vue";
+import FacebookIconCircle from "@/commons/UI/FacebookIconCircle.vue";
 import MailIcon from "@/assets/Mail.vue";
-import { Org } from "@/commons/Interfaces";
+import { Organization } from "@/apollo/types";
 
 export default defineComponent({
   name: "EventOrganizer",
@@ -53,12 +48,12 @@ export default defineComponent({
     BaseButton,
     BaseCircleButton,
     LazyImage,
-    FacebookIcon,
+    FacebookIconCircle,
     MailIcon
   },
   props: {
     eventOrg: {
-      type: Object as () => Org,
+      type: Object as () => Organization,
       required: true
     }
   }

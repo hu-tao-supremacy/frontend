@@ -333,9 +333,11 @@ export type OrganizationInput = {
 export type Query = {
   __typename?: "Query";
   upcomingEvents: Array<Event>;
+  featuredEvents: Array<Event>;
   recommendedEvents: Array<Event>;
   event: Event;
   organizations: Array<Organization>;
+  featuredOrganizations: Array<Organization>;
   organization: Organization;
   currentUser: User;
   user: User;
@@ -685,7 +687,7 @@ export type GetQuestionsByEventIdQuery = { __typename?: "Query" } & {
             questions: Array<
               { __typename?: "Question" } & Pick<
                 Question,
-                "id" | "seq" | "title"
+                "id" | "isOptional" | "seq" | "title"
               >
             >;
           }
@@ -711,6 +713,23 @@ export type GetUpcomingEventsQuery = { __typename?: "Query" } & {
         location?: Maybe<{ __typename?: "Location" } & Pick<Location, "name">>;
         tags: Array<{ __typename?: "Tag" } & Pick<Tag, "name">>;
       }
+  >;
+};
+
+export type GetFeaturedOrganizationsHomeQueryVariables = Exact<{
+  [key: string]: never;
+}>;
+
+export type GetFeaturedOrganizationsHomeQuery = { __typename?: "Query" } & {
+  featuredOrganizations: Array<
+    { __typename?: "Organization" } & Pick<
+      Organization,
+      | "id"
+      | "abbreviation"
+      | "name"
+      | "profilePictureUrl"
+      | "profilePictureHash"
+    >
   >;
 };
 

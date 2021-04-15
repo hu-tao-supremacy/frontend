@@ -14,7 +14,7 @@ import { defineComponent, onMounted, ref } from "vue";
 import { UPDATE_MODEL_VALUE } from "@/commons/constant";
 
 export default defineComponent({
-  name: "BaseExpandableTextAreaTemp",
+  name: "BaseExpandableTextArea",
   props: {
     modelValue: {
       type: String,

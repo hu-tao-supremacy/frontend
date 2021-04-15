@@ -5,7 +5,7 @@ import { useFeaturedEvents, useFeaturedOrganizations } from "../api";
 
 const useHome = () => {
   const showModal = ref(false);
-  const { result: upcomingEvents } = useFeaturedEvents();
+  const { result: upcomingEvents, onError } = useFeaturedEvents();
   const { result: featuredOrganizationsResult } = useFeaturedOrganizations();
   const events = useResult(upcomingEvents, null, data => data.featuredEvents);
 

@@ -1,13 +1,33 @@
-import { testData } from "./testData";
-import { reactive, ref } from "vue";
-import { useUpcomingEvents, useFeaturedOrganizations } from "../api";
+import { computed, ref } from "vue";
 import { useResult } from "@vue/apollo-composable";
+import { generateDummyArray } from "./utils";
+import { useFeaturedEvents, useFeaturedOrganizations } from "../api";
 
 const useHome = () => {
-  const state = reactive(testData);
   const showModal = ref(false);
-  const { result: upcomingEvents } = useUpcomingEvents();
+  const { result: upcomingEvents } = useFeaturedEvents();
   const { result: featuredOrganizationsResult } = useFeaturedOrganizations();
+  const events = useResult(upcomingEvents, null, data => data.featuredEvents);
+
+  const featureEvents = computed(() => {
+    return events.value ? events.value?.slice(0, 4) : generateDummyArray(4);
+  });
+
+  const recommendedEvents = computed(() => {
+    return events.value ? events.value?.slice(4, 7) : generateDummyArray(3);
+  });
+
+  const upcommingEvents = computed(() => {
+    return events.value ? events.value?.slice(7, 11) : generateDummyArray(4);
+  });
+
+  const onlineEvents = computed(() => {
+    return events.value ? events.value?.slice(12, 16) : generateDummyArray(4);
+  });
+
+  const nearbyEvents = computed(() => {
+    return events.value ? events.value?.slice(16, 20) : generateDummyArray(4);
+  });
 
   const featuredOrganizations = useResult(
     featuredOrganizationsResult,
@@ -24,10 +44,13 @@ const useHome = () => {
   }
 
   return {
-    state,
     showModal,
     toggleModal,
-    upcomingEvents,
+    featureEvents,
+    recommendedEvents,
+    upcommingEvents,
+    onlineEvents,
+    nearbyEvents,
     featuredOrganizations
   };
 };

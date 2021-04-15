@@ -3,6 +3,8 @@
     v-model:searchTextModel="searchText"
     :displayedOption="displayedOption"
     :isSearchable="isSearchable"
+    :isError="isError"
+    :placeholder="placeholder"
   >
     <p
       v-for="(option, index) in filteredOptions"
@@ -39,6 +41,14 @@ export default defineComponent({
     optionValues: {
       type: Array,
       required: true
+    },
+    isError: {
+      type: Boolean,
+      default: false
+    },
+    placeholder: {
+      type: String,
+      default: "Select Option"
     }
   },
   emits: [UPDATE_MODEL_VALUE],
@@ -49,7 +59,7 @@ export default defineComponent({
       isLastOption,
       displayedOption,
       filteredOptions
-    } = useSingleNameSelect(props, context);
+    } = useSingleNameSelect(props.optionNames, props.optionValues, context);
 
     return {
       searchText,

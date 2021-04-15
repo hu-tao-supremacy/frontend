@@ -34,12 +34,10 @@ export default defineComponent({
   setup() {
     const test = testData;
     const question = questionData;
-    const input = ref("");
 
     return {
       test,
-      question,
-      input
+      question
     };
   }
 });

@@ -6,33 +6,42 @@
           :width="100"
           :height="100"
           alt="will change to api"
-          :url="eventOrg.img"
-          :placeholder="eventOrg.imgHash"
+          :url="eventOrg && eventOrg.profilePictureUrl"
+          :placeholder="eventOrg && eventOrg.profilePictureHash"
           class="object-cover w-full h-full"
         />
       </div>
       <div class="flex flex-col">
         <h1 class="font-heading text-3xl text-blue-10">
-          {{ eventOrg.shortName }}
+          {{ eventOrg && eventOrg.abbreviation }}
         </h1>
-        <p class="text-sm">{{ eventOrg.fullName }}</p>
-        <div class="mt-1">{{ eventOrg.description }}</div>
+        <p class="text-sm">{{ eventOrg && eventOrg.name }}</p>
+        <div class="mt-1">{{ eventOrg && eventOrg.description }}</div>
       </div>
     </section>
     <section class="flex justify-between items-center">
-      <base-button class="px-2 py-0.5">Follow</base-button>
+      <base-button @click="follow" class="px-2 py-0.5">Follow</base-button>
       <div class="flex items-center">
-        <base-circle-button class="mr-1"
-          ><base-icon
-            width="32"
-            height="32"
-            viewBox="0 0 112.196 112.196"
-            iconColor="none"
-            ><FacebookIcon /></base-icon
-        ></base-circle-button>
-        <base-circle-button class="p-1 text-black"
-          ><base-icon width="16" height="16"><MailIcon /></base-icon
-        ></base-circle-button>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mr-1"
+          v-if="eventOrg && eventOrg.facebookPage"
+          :href="eventOrg && eventOrg.facebookPage"
+        >
+          <FacebookIconCircle />
+        </a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mr-1"
+          v-if="eventOrg && eventOrg.email"
+          :href="eventOrg && eventOrg.email"
+        >
+          <base-circle-button class="p-1 text-black"
+            ><base-icon width="16" height="16"><MailIcon /></base-icon
+          ></base-circle-button>
+        </a>
       </div>
     </section>
   </div>
@@ -43,9 +52,10 @@ import { defineComponent } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import BaseCircleButton from "@/commons/UI/BaseCircleButton.vue";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
-import FacebookIcon from "@/assets/Facebook.vue";
+import FacebookIconCircle from "@/commons/UI/FacebookIconCircle.vue";
 import MailIcon from "@/assets/Mail.vue";
-import { Org } from "@/commons/Interfaces";
+import { Organization } from "@/apollo/types";
+import useEventOrganizer from "./useEventOrganizer";
 
 export default defineComponent({
   name: "EventOrganizer",
@@ -53,14 +63,21 @@ export default defineComponent({
     BaseButton,
     BaseCircleButton,
     LazyImage,
-    FacebookIcon,
+    FacebookIconCircle,
     MailIcon
   },
   props: {
     eventOrg: {
-      type: Object as () => Org,
-      required: true
+      type: Object as () => Organization
+    },
+    isSignin: {
+      type: Boolean,
+      default: false
     }
+  },
+  setup(props) {
+    const { follow } = useEventOrganizer(props.isSignin);
+    return { follow };
   }
 });
 </script>

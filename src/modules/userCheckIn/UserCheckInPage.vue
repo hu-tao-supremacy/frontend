@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-1 flex flex-col p-4 justify-center items-center w-full">
+  <div class="flex flex-col p-4 justify-center items-center w-full">
     <div class="container">
       <InfoBannerCompact :eventBanner="test.eventBanner" />
       <TicketQR class="mt-3" :ticket="test.ticket" />

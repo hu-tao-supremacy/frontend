@@ -14,7 +14,13 @@ const EventFeedback = () =>
 const OrgHome = () => import("@/modules/organization/home/OrgHomePage.vue");
 const QuestionGroup = () => import("@/modules/questionGroup/QuestionGroup.vue");
 const Login = () => import("@/modules/login/Login.vue");
-const PageSkeleton = () => import("@/commons/components/PageSkeleton.vue");
+const NotFound = () => import("@/modules/not-found/NotFound.vue");
+const PageSkeleton = () =>
+  import("@/commons/components/page-skeleton/PageSkeleton.vue");
+const PageSkeletonOrgTeam = () =>
+  import(
+    "@/commons/components/page-skeleton/organization/PageSkeletonOrgTeam.vue"
+  );
 
 const router = createRouter({
   history: createWebHistory(),
@@ -32,7 +38,7 @@ const router = createRouter({
           component: Test
         },
         {
-          path: "event",
+          path: "event/:id",
           component: EventInfo
         },
         {
@@ -55,7 +61,9 @@ const router = createRouter({
         {
           path: "/question-group",
           component: QuestionGroup
-        }
+        },
+
+        { path: "/404", component: NotFound }
       ]
     },
     {
@@ -64,10 +72,14 @@ const router = createRouter({
     },
     {
       path: "/org",
-      component: PageSkeleton, //Will later change to page skeleton of org page
+      component: PageSkeletonOrgTeam,
       children: [{ path: "", component: OrgHome }]
     },
-    { path: "/login", component: Login }
+    { path: "/login", component: Login },
+    {
+      path: "/:catchAll(.*)",
+      redirect: "/404"
+    }
   ]
 });
 

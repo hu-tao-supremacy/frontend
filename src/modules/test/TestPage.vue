@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-1 p-2">
+  <div class="p-2">
     <InfoBanner
       :style="{ maxWidth: '960px' }"
       :eventBanner="test.eventBanner"

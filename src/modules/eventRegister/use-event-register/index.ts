@@ -27,6 +27,7 @@ const useEventRegister = () => {
   });
 
   onResult(result => {
+    console.log("result.data.event", result.data.event);
     if (result.data.event.attendance) {
       router.push("/");
     }

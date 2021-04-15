@@ -125,9 +125,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.container {
-  max-width: 792px;
-}
 .color {
   background: #cbd5e0;
 }

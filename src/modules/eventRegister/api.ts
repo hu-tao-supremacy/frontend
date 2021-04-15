@@ -28,6 +28,7 @@ export const useEventRegisterApi = (
             finish
           }
           location {
+            id
             name
           }
           posterImageUrl

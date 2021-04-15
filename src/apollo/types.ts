@@ -616,6 +616,7 @@ export type GetCurrentUserQueryVariables = Exact<{ [key: string]: never }>;
 export type GetCurrentUserQuery = { __typename?: "Query" } & {
   currentUser: { __typename?: "User" } & Pick<
     User,
+    | "id"
     | "firstName"
     | "lastName"
     | "phoneNumber"
@@ -629,7 +630,59 @@ export type GetCurrentUserQuery = { __typename?: "Query" } & {
     | "profilePictureUrl"
     | "didSetup"
     | "gender"
-  >;
+  > & {
+      events: Array<
+        { __typename?: "Event" } & Pick<
+          Event,
+          "id" | "name" | "posterImageUrl" | "posterImageHash"
+        > & {
+            durations: Array<
+              { __typename?: "EventDuration" } & Pick<
+                EventDuration,
+                "id" | "start" | "finish"
+              >
+            >;
+            organization: { __typename?: "Organization" } & Pick<
+              Organization,
+              | "id"
+              | "name"
+              | "abbreviation"
+              | "profilePictureUrl"
+              | "profilePictureHash"
+            >;
+            location?: Maybe<
+              { __typename?: "Location" } & Pick<Location, "id" | "name">
+            >;
+            tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
+            attendance?: Maybe<
+              { __typename?: "UserEvent" } & Pick<
+                UserEvent,
+                "id" | "ticket" | "status"
+              >
+            >;
+          }
+      >;
+    };
+};
+
+export type GetQuestionGroupsQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetQuestionGroupsQuery = { __typename?: "Query" } & {
+  event: { __typename?: "Event" } & Pick<Event, "name"> & {
+      questionGroups: Array<
+        { __typename?: "QuestionGroup" } & Pick<
+          QuestionGroup,
+          "id" | "seq" | "title"
+        > & {
+            questions: Array<
+              { __typename?: "Question" } & Pick<
+                Question,
+                "id" | "seq" | "title" | "isOptional" | "answerType"
+              >
+            >;
+          }
+      >;
+    };
 };
 
 export type GetEventByIdQueryVariables = Exact<{
@@ -775,4 +828,41 @@ export type UpdateUserMutationVariables = Exact<{
 
 export type UpdateUserMutation = { __typename?: "Mutation" } & {
   updateUser: { __typename?: "User" } & Pick<User, "id">;
+};
+
+export type GetEventUserCheckinQueryVariables = Exact<{
+  id: Scalars["Int"];
+}>;
+
+export type GetEventUserCheckinQuery = { __typename?: "Query" } & {
+  event: { __typename?: "Event" } & Pick<
+    Event,
+    "id" | "name" | "posterImageUrl" | "posterImageHash"
+  > & {
+      tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
+      location?: Maybe<
+        { __typename?: "Location" } & Pick<Location, "id" | "name">
+      >;
+      durations: Array<
+        { __typename?: "EventDuration" } & Pick<
+          EventDuration,
+          "id" | "start" | "finish"
+        >
+      >;
+      attendance?: Maybe<
+        { __typename?: "UserEvent" } & Pick<
+          UserEvent,
+          "id" | "userId" | "ticket"
+        > & {
+            user: { __typename?: "User" } & Pick<
+              User,
+              | "firstName"
+              | "lastName"
+              | "email"
+              | "phoneNumber"
+              | "profilePictureUrl"
+            >;
+          }
+      >;
+    };
 };

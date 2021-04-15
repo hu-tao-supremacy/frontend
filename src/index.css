@@ -15,6 +15,10 @@
     max-width: 570px;
   }
 
+  .content-max-width-s {
+    max-width: 794px;
+  }
+
   .content-max-width {
     max-width: 960px;
   }

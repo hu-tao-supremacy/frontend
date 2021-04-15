@@ -1,3 +1,4 @@
+import { QuestionGroup } from "./../apollo/types";
 import { createRouter, createWebHistory } from "vue-router";
 import authGuard from "./authGuard";
 
@@ -8,7 +9,10 @@ const Wallet = () => import("@/modules/wallet/WalletPage.vue");
 const UserCheckIn = () => import("@/modules/userCheckIn/UserCheckInPage.vue");
 const EventRegister = () =>
   import("@/modules/eventRegister/EventRegisterPage.vue");
+const EventFeedback = () =>
+  import("@/modules/eventFeedback/EventFeedbackPage.vue");
 const OrgHome = () => import("@/modules/organization/home/OrgHomePage.vue");
+const QuestionGroup = () => import("@/modules/questionGroup/QuestionGroup.vue");
 const Login = () => import("@/modules/login/Login.vue");
 const NotFound = () => import("@/modules/not-found/NotFound.vue");
 const PageSkeleton = () =>
@@ -42,7 +46,7 @@ const router = createRouter({
           component: Wallet
         },
         {
-          path: "user-checkin",
+          path: "user-checkin/:id",
           component: UserCheckIn,
           beforeEnter: authGuard
         },
@@ -50,6 +54,14 @@ const router = createRouter({
           path: "/event-register/:id",
           component: EventRegister,
           beforeEnter: authGuard
+        },
+        {
+          path: "/event-feedback",
+          component: EventFeedback
+        },
+        {
+          path: "/question-group",
+          component: QuestionGroup
         },
 
         { path: "/404", component: NotFound }

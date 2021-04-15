@@ -1,21 +1,38 @@
-import { TicketStatus } from "@/commons/constant";
-import { computed } from "vue";
+import { computed, Ref, ToRefs } from "vue";
+import { Event, EventDuration, UserEventStatus } from "@/apollo/types";
+import { getDisplayDate, getMainTimetable } from "@/commons/utils/date";
+import { useRouter } from "vue-router";
 
-export default function useTicket(ticketStatus: TicketStatus) {
+export default function useTicket(
+  ticketStatus: UserEventStatus,
+  event: Ref<Event>
+) {
+  const router = useRouter();
   const isPending = computed(() => {
-    return ticketStatus === TicketStatus.PENDING;
+    return ticketStatus === UserEventStatus.Pending;
   });
 
   const isOngoing = computed(() => {
-    return ticketStatus === TicketStatus.ONGOING;
+    return ticketStatus === UserEventStatus.Approved;
   });
 
   const isHistory = computed(() => {
-    return ticketStatus === TicketStatus.HISTORY;
+    return ticketStatus === UserEventStatus.Pending;
+  });
+  const date = computed(() => {
+    return getDisplayDate(event?.value.durations as EventDuration[]);
   });
 
+  const time = computed(() =>
+    getMainTimetable(event?.value.durations as EventDuration[])
+  );
+
+  const routerLinkId = computed(() => `/user-checkin/${event?.value.id}`);
+
   function checkIn() {
-    if (!isOngoing.value) return;
+    if (!isOngoing.value) {
+      return;
+    }
     //Do something when check in
     console.log("Do checkin");
   }
@@ -30,6 +47,9 @@ export default function useTicket(ticketStatus: TicketStatus) {
     isOngoing,
     isHistory,
     checkIn,
-    giveFeedback
+    giveFeedback,
+    date,
+    time,
+    routerLinkId
   };
 }

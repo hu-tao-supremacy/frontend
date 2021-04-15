@@ -1,19 +1,13 @@
 <template>
   <div class="flex w-full justify-center items-center pt-4 pb-8 px-4">
-    <Wallet
-      class="content-max-width"
-      :profile="test.profile"
-      :ongoingTickets="test.ongoingTickets"
-      :historyTickets="test.historyTickets"
-      :pendingTickets="test.pendingTickets"
-    />
+    <Wallet class="content-max-width" :profile="user" />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import useUser from "../authentication";
 import Wallet from "./wallet/Wallet.vue";
-import testData from "./walletPageData";
 
 export default defineComponent({
   name: "WalletPage",
@@ -21,9 +15,8 @@ export default defineComponent({
     Wallet
   },
   setup() {
-    const test = testData;
-
-    return { test };
+    const { user } = useUser();
+    return { user };
   }
 });
 </script>

@@ -1,11 +1,7 @@
 <template>
   <div class="flex flex-col px-4 justify-center items-center w-full">
     <div class="container">
-      <EventCarousel
-        v-if="state.eventsList"
-        :eventsList="state.eventsList"
-        class="my-4 w-full"
-      />
+      <EventCarousel :eventsList="featureEvents" class="my-4 w-full" />
       <div class="flex h-6 w-full mb-3 justify-between items-center">
         <div class="text-4xl font-heading">Recommended For You</div>
         <base-transparent-button
@@ -129,7 +125,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, watch } from "vue";
+import { defineComponent } from "vue";
 import CardEvent from "./components/card-event/CardEvent.vue";
 import CardRecommended from "./components/card-recommended/CardRecommended.vue";
 import CardOrganization from "./components/card-organization/CardOrganization.vue";
@@ -149,14 +145,27 @@ export default defineComponent({
   },
 
   setup() {
-    const { state, showModal, toggleModal, upcomingEvents } = useHome();
+    const {
+      state,
+      showModal,
+      toggleModal,
+      featureEvents,
+      recommendedEvents,
+      upcommingEvents,
+      onlineEvents,
+      nearbyEvents
+    } = useHome();
 
-    // for demo only
-    watch(upcomingEvents, () => {
-      console.log(upcomingEvents.value, "value");
-    });
-
-    return { state, showModal, toggleModal };
+    return {
+      state,
+      showModal,
+      toggleModal,
+      featureEvents,
+      recommendedEvents,
+      upcommingEvents,
+      onlineEvents,
+      nearbyEvents
+    };
   }
 });
 </script>

@@ -337,6 +337,7 @@ export type Query = {
   recommendedEvents: Array<Event>;
   event: Event;
   organizations: Array<Organization>;
+  featuredOrganizations: Array<Organization>;
   organization: Organization;
   currentUser: User;
   user: User;
@@ -713,13 +714,28 @@ export type CreateJoinRequestMutation = { __typename?: "Mutation" } & Pick<
   "createJoinRequest"
 >;
 
-export type GetUpcomingEventsQueryVariables = Exact<{ [key: string]: never }>;
+export type GetFeaturedEventsQueryVariables = Exact<{ [key: string]: never }>;
 
-export type GetUpcomingEventsQuery = { __typename?: "Query" } & {
-  upcomingEvents: Array<
-    { __typename?: "Event" } & Pick<Event, "description" | "name"> & {
+export type GetFeaturedEventsQuery = { __typename?: "Query" } & {
+  featuredEvents: Array<
+    { __typename?: "Event" } & Pick<
+      Event,
+      | "id"
+      | "description"
+      | "name"
+      | "coverImageUrl"
+      | "coverImageHash"
+      | "posterImageUrl"
+      | "posterImageHash"
+    > & {
+        durations: Array<
+          { __typename?: "EventDuration" } & Pick<
+            EventDuration,
+            "id" | "start" | "finish"
+          >
+        >;
         location?: Maybe<{ __typename?: "Location" } & Pick<Location, "name">>;
-        tags: Array<{ __typename?: "Tag" } & Pick<Tag, "name">>;
+        tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
       }
   >;
 };

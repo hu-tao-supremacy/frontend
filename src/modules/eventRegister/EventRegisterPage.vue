@@ -1,8 +1,8 @@
 <template>
-  <div class="bg-gray-1 flex flex-col p-4 justify-center items-center w-full">
-    <div class="content-max-width-s">
+  <div class="flex flex-col p-4 items-center w-full">
+    <div class="flex flex-col items-center content-max-width w-full">
       <RegistrationStatus :step="step" />
-      <div v-if="checkStep2(step)" class="flex flex-col">
+      <div v-if="checkStep2(step)" class="container flex flex-col">
         <div class="mt-4 font-heading text-4xl">Summary</div>
         <PersonalInfoDes class="mt-3" :user="user" />
         <EventAnswer class="mt-3" :question="questionData" />
@@ -15,19 +15,23 @@
       </div>
       <div
         v-else-if="checkStep3(step)"
-        class="event-banner flex flex-col items-center justify-center"
+        class="event-banner flex flex-col items-center justify-center w-full"
       >
         <div class="mt-4 font-heading text-4xl">Congratulations!</div>
         <div class="mt-1 text-gray-5">
           You have successfully registered for...
         </div>
-        <InfoBanner :eventBanner="test.eventBanner" class="mt-3" />
+        <InfoBanner :eventBanner="event" class="mt-3 w-full" />
         <div class="mt-4 text-gray-5">
           An e-ticket has been sent to your inbox!
         </div>
         <div class="flex mt-6 self-end">
-          <base-button class="w-20 h-4 mr-2">Go to event library</base-button>
-          <base-button class="w-20 h-4">Browse more event</base-button>
+          <router-link to="/wallet">
+            <base-button class="w-20 h-4 mr-2">Go to event library</base-button>
+          </router-link>
+          <router-link to="/">
+            <base-button class="w-20 h-4">Browse more event</base-button>
+          </router-link>
         </div>
       </div>
       <div v-else class="container flex flex-col">
@@ -39,13 +43,17 @@
           v-for="detail in questionData"
           :key="detail.id"
           :questionId="detail.id"
+          :optional="detail.isOptional"
           :question="getQuestion(detail.seq, detail.title)"
           @user-input="handleUserAnswer(detail.id, $event)"
-          :answer="detail.answer"
+          :answer="detail.answer && detail.answer.value"
           :placeholderText="placeholder"
         />
         <div class="flex mt-10 self-end">
-          <base-button @click="increaseStep" class="w-18 h-4"
+          <base-button
+            @click="increaseStep"
+            :disabled="!isValidated"
+            class="w-18 h-4"
             >Continue</base-button
           >
         </div>
@@ -91,7 +99,8 @@ export default defineComponent({
       getQuestion,
       handleUserAnswer,
       questionData,
-      questions
+      event,
+      isValidated
     } = useEventRegister();
 
     return {
@@ -107,7 +116,8 @@ export default defineComponent({
       getQuestion,
       handleUserAnswer,
       questionData,
-      questions
+      event,
+      isValidated
     };
   }
 });

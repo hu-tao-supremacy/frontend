@@ -2,10 +2,11 @@
   <div
     class="w-full shadow-sm rounded-lg overflow-hidden bg-white py-4 px-10 flex flex-col justify-center"
   >
-    <label :for="questionId" class="w-max font-heading text-xl mb-0.25">{{
-      question
-    }}</label>
-    <BaseExpandableTextArea
+    <label :for="questionId" class="w-max font-heading text-xl mb-0.25"
+      >{{ question }}
+      <span v-if="!optional" class="text-red-5">*</span>
+    </label>
+    <BaseTextInput
       :id="questionId"
       v-model="userAnswer"
       @input="userChange"
@@ -17,14 +18,14 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import BaseExpandableTextArea from "@/commons/UI/BaseExpandableTextArea.vue";
+import BaseTextInput from "@/commons/UI/BaseTextInput.vue";
 import { USER_INPUT } from "@/commons/constant";
 import useQuestionText from "./useQuestionText";
 
 export default defineComponent({
   name: "QuestionText",
   components: {
-    BaseExpandableTextArea
+    BaseTextInput
   },
   props: {
     question: {
@@ -42,6 +43,10 @@ export default defineComponent({
     questionId: {
       type: [Number, String],
       required: true
+    },
+    optional: {
+      type: Boolean,
+      default: true
     }
   },
   emits: [USER_INPUT],

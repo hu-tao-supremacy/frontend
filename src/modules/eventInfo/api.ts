@@ -7,6 +7,7 @@ export const useEventById = (variables: GetEventByIdQueryVariables) =>
     gql`
       query getEventByID($id: Int!) {
         event(id: $id) {
+          id
           name
           description
           posterImageUrl
@@ -35,6 +36,9 @@ export const useEventById = (variables: GetEventByIdQueryVariables) =>
           tags {
             id
             name
+          }
+          attendance {
+            id
           }
         }
       }

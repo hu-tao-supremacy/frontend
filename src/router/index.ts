@@ -13,7 +13,9 @@ const Login = () => import("@/modules/login/Login.vue");
 const PageSkeleton = () =>
   import("@/commons/components/page-skeleton/PageSkeleton.vue");
 const PageSkeletonOrgTeam = () =>
-  import("@/commons/components/page-skeleton/PageSkeletonOrgTeam.vue");
+  import(
+    "@/commons/components/page-skeleton/organization/PageSkeletonOrgTeam.vue"
+  );
 
 const router = createRouter({
   history: createWebHistory(),

@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import InfoBanner from "@/commons/components/info-banner/InfoBanner.vue";
 import EventDetail from "@/modules/eventInfo/event-detail/EventDetail.vue";
 import EventOrganizer from "@/modules/eventInfo/event-organizer/EventOrganizer.vue";
@@ -34,10 +34,12 @@ export default defineComponent({
   setup() {
     const test = testData;
     const question = questionData;
+    const input = ref("");
 
     return {
       test,
-      question
+      question,
+      input
     };
   }
 });

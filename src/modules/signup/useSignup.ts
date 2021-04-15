@@ -7,6 +7,7 @@ import { UpdateUserInput } from "@/apollo/types";
 
 const ADDITIONAL_INFO = "additionInfo";
 const INTEREST = "interest";
+const INTERESTED_EVENTS = "interested_events";
 
 const useSignup = () => {
   const test = testData;
@@ -32,6 +33,14 @@ const useSignup = () => {
     return currentModal.value === INTEREST;
   });
 
+  const showInterestedEventsModal = computed(() => {
+    return currentModal.value === INTERESTED_EVENTS;
+  });
+
+  const toInterestedEventsModal = () => {
+    toggleModal(INTERESTED_EVENTS);
+  };
+
   const finishModal = () => {
     toggleModal("");
     router.push(route.path as string);
@@ -56,6 +65,8 @@ const useSignup = () => {
   return {
     toggleModal,
     showAdditionalInfoModal,
+    showInterestedEventsModal,
+    toInterestedEventsModal,
     test,
     showInterestModal,
     finishModal,

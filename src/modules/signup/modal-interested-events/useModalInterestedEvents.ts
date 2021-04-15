@@ -2,7 +2,7 @@ import { CLOSE_MODAL } from "@/commons/constant";
 import { SUBMIT_MODAL } from "../constant";
 import { Ref, ref, SetupContext } from "vue";
 
-export default function useModalInterests(
+export default function useModalInterestedEvents(
   context: SetupContext<("close-modal" | "submit-modal")[]>
 ) {
   const selectedInterestIDs: Ref<number[]> = ref([]);

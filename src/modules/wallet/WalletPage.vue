@@ -16,7 +16,6 @@ export default defineComponent({
   },
   setup() {
     const { user } = useUser();
-    console.log(user.value);
     return { user };
   }
 });

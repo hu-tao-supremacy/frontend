@@ -31,7 +31,7 @@
         <p class="text-gray-6 mb-1">{{ profile.email }}</p>
         <div class="flex items-center">
           <div class="w-1 h-1 rounded-full bg-primary mr-1"></div>
-          <p class="mr-1">{{ profile.events.length }}</p>
+          <p class="mr-1">{{ profile.events && profile.events.length }}</p>
           <h3 class="mr-1">Events attended</h3>
         </div>
       </div>
@@ -152,7 +152,7 @@ export default defineComponent({
     } = useWallet();
 
     const findApprovedEvents = computed(() =>
-      props.profile.events.filter(
+      props.profile.events?.filter(
         value => value.attendance?.status === UserEventStatus.Approved
       )
     );

@@ -97,7 +97,6 @@ import PinIcon from "@/assets/MapPin.vue";
 import ClockIcon from "@/assets/Clock.vue";
 import CalendarIcon from "@/assets/Calendar.vue";
 import useTicket from "./useTicket";
-import { TicketStatus } from "@/commons/constant";
 import { Event, UserEventStatus } from "@/apollo/types";
 
 export default defineComponent({

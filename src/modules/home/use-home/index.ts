@@ -1,11 +1,9 @@
-import { testData } from "./testData";
 import { computed, reactive, ref } from "vue";
 import { useResult } from "@vue/apollo-composable";
 import { generateDummyArray } from "./utils";
 import { useFeaturedEvents, useFeaturedOrganizations } from "../api";
 
 const useHome = () => {
-  const state = reactive(testData);
   const showModal = ref(false);
   const { result: upcomingEvents } = useFeaturedEvents();
   const { result: featuredOrganizationsResult } = useFeaturedOrganizations();
@@ -46,7 +44,6 @@ const useHome = () => {
   }
 
   return {
-    state,
     showModal,
     toggleModal,
     featureEvents,

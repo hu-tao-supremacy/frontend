@@ -137,7 +137,6 @@ export default defineComponent({
 
   setup() {
     const {
-      state,
       showModal,
       toggleModal,
       featureEvents,
@@ -149,7 +148,6 @@ export default defineComponent({
     } = useHome();
 
     return {
-      state,
       showModal,
       toggleModal,
       featureEvents,

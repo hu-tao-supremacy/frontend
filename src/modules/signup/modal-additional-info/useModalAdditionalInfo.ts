@@ -36,6 +36,7 @@ export default function useModalAdditionalInfo(
   const userDistrict = ref("");
   const userProvince = ref("");
   const userAddress = ref("");
+  const userYear = ref(null);
 
   const districtOptionNames = districts.map(
     district => district.DISTRICT_ENG_NAME
@@ -57,20 +58,6 @@ export default function useModalAdditionalInfo(
       uploadedImg.value = uploadedFile;
     }
   });
-
-  function submitForm() {
-    // toadd phone and complete address
-    const userInfo = {
-      address: userAddress.value,
-      email: userEmail.value,
-      profilePicture: uploadedImgFile.value,
-      district: userDistrict.value,
-      province: userProvince.value,
-      zipCode: userZipCode.value,
-      phoneNumber: userPhone.value
-    } as UpdateUserInput;
-    context.emit(SUBMIT_MODAL, userInfo);
-  }
 
   function closeModal() {
     context.emit(CLOSE_MODAL);
@@ -107,9 +94,27 @@ export default function useModalAdditionalInfo(
       userProvince.value !== "" &&
       userZipCode.value !== "" &&
       userAddress.value !== "" &&
+      userYear.value &&
       fileLoaded.value
     );
   });
+
+  function submitForm() {
+    // toadd phone and complete address
+    if (isValidForm.value) {
+      const userInfo = {
+        address: userAddress.value,
+        email: userEmail.value,
+        profilePicture: uploadedImgFile.value,
+        district: userDistrict.value,
+        province: userProvince.value,
+        zipCode: userZipCode.value,
+        phoneNumber: userPhone.value,
+        academicYear: Number(userYear.value)
+      } as UpdateUserInput;
+      context.emit(SUBMIT_MODAL, userInfo);
+    }
+  }
 
   watch(userLocation, () => {
     userDistrict.value = userLocation.value.DISTRICT_ENG_NAME;
@@ -137,6 +142,7 @@ export default function useModalAdditionalInfo(
     isValidPhone,
     isValidLocation,
     isValidForm,
-    submitForm
+    submitForm,
+    userYear
   };
 }

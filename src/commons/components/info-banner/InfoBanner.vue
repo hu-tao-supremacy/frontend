@@ -49,7 +49,7 @@
       />
     </div>
     <base-button
-      :disabled="hasAttended"
+      :disabled="attendance"
       @click="register"
       v-if="canRegister"
       class="absolute bottom-3 right-3 w-15 h-4.5"
@@ -92,19 +92,20 @@ export default defineComponent({
     isSignIn: {
       type: Boolean,
       default: false
+    },
+    attendance: {
+      type: Boolean,
+      default: false
     }
   },
   setup(props) {
-    const { eventBanner, isSignIn } = toRefs(props);
-    const {
-      date,
-      time,
-      register,
-      location,
-      hasAttended,
-      registerMessage
-    } = useInfoBanner(isSignIn, eventBanner);
-    return { date, time, register, location, hasAttended, registerMessage };
+    const { eventBanner, isSignIn, attendance } = toRefs(props);
+    const { date, time, register, location, registerMessage } = useInfoBanner(
+      isSignIn,
+      attendance,
+      eventBanner
+    );
+    return { date, time, register, location, registerMessage };
   }
 });
 </script>

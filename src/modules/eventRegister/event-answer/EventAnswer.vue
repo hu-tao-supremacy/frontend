@@ -10,7 +10,7 @@
         <div>{{ detail.seq + ". " + detail.title }}</div>
         <BaseExpandableTextArea
           class="w-37.5 h-4 disabled:bg-white text-primary-6"
-          :value="detail.answer"
+          :value="detail.answer && detail.answer.value"
           disabled
         />
       </div>
@@ -21,13 +21,13 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import BaseExpandableTextArea from "@/commons/UI/BaseExpandableTextArea.vue";
-import { QuestionWithAnswer } from "../use-event-register/type";
+import { Question } from "@/apollo/types";
 
 export default defineComponent({
   name: "EventAnswer",
   props: {
     question: {
-      type: Object as () => QuestionWithAnswer[],
+      type: Object as () => Question[],
       required: true
     }
   },

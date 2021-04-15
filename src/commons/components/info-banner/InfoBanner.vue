@@ -49,10 +49,11 @@
       />
     </div>
     <base-button
+      :disabled="hasAttended"
       @click="register"
       v-if="canRegister"
       class="absolute bottom-3 right-3 w-15 h-4.5"
-      >Register</base-button
+      >{{ registerMessage }}</base-button
     >
   </div>
 </template>
@@ -66,8 +67,8 @@ import BaseIconAndDetail from "@/commons/UI/BaseIconAndDetail.vue";
 import PinIcon from "@/assets/MapPin.vue";
 import ClockIcon from "@/assets/Clock.vue";
 import CalendarIcon from "@/assets/Calendar.vue";
-import { GetEventByIdQuery } from "@/apollo/types";
 import useInfoBanner from "./useInfoBanner";
+import { EventBanner } from "./types";
 
 export default defineComponent({
   name: "InfoBanner",
@@ -82,7 +83,7 @@ export default defineComponent({
   },
   props: {
     eventBanner: {
-      type: Object as () => GetEventByIdQuery["event"]
+      type: Object as () => EventBanner
     },
     canRegister: {
       type: Boolean,
@@ -95,11 +96,15 @@ export default defineComponent({
   },
   setup(props) {
     const { eventBanner, isSignIn } = toRefs(props);
-    const { date, time, register, location } = useInfoBanner(
-      isSignIn,
-      eventBanner
-    );
-    return { date, time, register, location };
+    const {
+      date,
+      time,
+      register,
+      location,
+      hasAttended,
+      registerMessage
+    } = useInfoBanner(isSignIn, eventBanner);
+    return { date, time, register, location, hasAttended, registerMessage };
   }
 });
 </script>

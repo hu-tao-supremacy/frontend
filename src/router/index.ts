@@ -47,8 +47,9 @@ const router = createRouter({
           beforeEnter: authGuard
         },
         {
-          path: "/event-register",
-          component: EventRegister
+          path: "/event-register/:id",
+          component: EventRegister,
+          beforeEnter: authGuard
         },
 
         { path: "/404", component: NotFound }

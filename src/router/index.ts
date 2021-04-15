@@ -10,6 +10,7 @@ const EventRegister = () =>
   import("@/modules/eventRegister/EventRegisterPage.vue");
 const OrgHome = () => import("@/modules/organization/home/OrgHomePage.vue");
 const Login = () => import("@/modules/login/Login.vue");
+const NotFound = () => import("@/modules/not-found/NotFound.vue");
 const PageSkeleton = () =>
   import("@/commons/components/page-skeleton/PageSkeleton.vue");
 const PageSkeletonOrgTeam = () =>
@@ -33,7 +34,7 @@ const router = createRouter({
           component: Test
         },
         {
-          path: "event",
+          path: "event/:id",
           component: EventInfo
         },
         {
@@ -48,7 +49,9 @@ const router = createRouter({
         {
           path: "/event-register",
           component: EventRegister
-        }
+        },
+
+        { path: "/404", component: NotFound }
       ]
     },
     {
@@ -60,7 +63,11 @@ const router = createRouter({
       component: PageSkeletonOrgTeam,
       children: [{ path: "", component: OrgHome }]
     },
-    { path: "/login", component: Login }
+    { path: "/login", component: Login },
+    {
+      path: "/:catchAll(.*)",
+      redirect: "/404"
+    }
   ]
 });
 

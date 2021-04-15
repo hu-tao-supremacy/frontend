@@ -15,13 +15,6 @@ export default function usePageNavbar() {
   });
   const isDropDownShown = ref(false);
 
-  function login() {
-    const redirectPage = `${window.location.origin}/login?target=${window.location}`;
-    window.location.replace(
-      `https://account.it.chula.ac.th/html/login.html?service=${redirectPage}`
-    );
-  }
-
   function toggleDropDown() {
     isDropDownShown.value = !isDropDownShown.value;
   }
@@ -36,7 +29,6 @@ export default function usePageNavbar() {
     nameShown,
     isDropDownShown,
     user,
-    login,
     toggleDropDown,
     hideDropDown,
     logout

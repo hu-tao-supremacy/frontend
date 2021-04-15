@@ -2,16 +2,12 @@
   <rect
     width="112.196"
     height="112.196"
-    rx="20"
-    ry="20"
     fill="#3b5998"
     shape="rounded"
     transform="matrix(1,0,0,1,0,0)"
   /><g transform="matrix(1,0,0,1,2.842170943040401e-14,2.842170943040401e-14)">
     <circle
       style=""
-      cx="56.098"
-      cy="56.098"
       r="56.098"
       fill="#3b5998"
       data-original="#3b5998"

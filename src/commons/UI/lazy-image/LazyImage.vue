@@ -1,5 +1,6 @@
 <template>
   <img
+    v-if="url"
     v-show="isloaded"
     :class="className"
     @load="onLoadComplete"
@@ -8,7 +9,9 @@
     :width="width"
     :height="height"
   />
+  <div v-else class="w-full h-full bg-gray-2"></div>
   <canvas
+    v-if="placeholder"
     class="w-full h-full focus:outline-none"
     :class="canvasClass"
     v-show="!isloaded"
@@ -27,12 +30,10 @@ export default defineComponent({
   name: "LazyImage",
   props: {
     url: {
-      type: String,
-      required: true
+      type: String
     },
     placeholder: {
-      type: String,
-      required: true
+      type: String
     },
     width: {
       type: Number,

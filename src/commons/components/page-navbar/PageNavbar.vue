@@ -66,6 +66,7 @@ import ChevronDownIcon from "@/assets/ChevronDown.vue";
 import ChevronUpIcon from "@/assets/ChevronUp.vue";
 import NavbarDropDownOptions from "./NavbarDropDownOptions.vue";
 import usePageNavbar from "./usePageNavbar";
+import { login } from "@/commons/utils/auth";
 
 export default defineComponent({
   name: "PageNavbar",
@@ -85,7 +86,6 @@ export default defineComponent({
       nameShown,
       isDropDownShown,
       user,
-      login,
       toggleDropDown,
       hideDropDown,
       logout

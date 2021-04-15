@@ -597,6 +597,43 @@ export type GetCurrentUserQuery = { __typename?: "Query" } & {
   >;
 };
 
+export type GetEventByIdQueryVariables = Exact<{
+  id: Scalars["Int"];
+}>;
+
+export type GetEventByIdQuery = { __typename?: "Query" } & {
+  event: { __typename?: "Event" } & Pick<
+    Event,
+    | "name"
+    | "description"
+    | "posterImageUrl"
+    | "posterImageHash"
+    | "coverImageUrl"
+    | "coverImageHash"
+  > & {
+      location?: Maybe<{ __typename?: "Location" } & Pick<Location, "name">>;
+      organization: { __typename?: "Organization" } & Pick<
+        Organization,
+        | "name"
+        | "abbreviation"
+        | "description"
+        | "email"
+        | "facebookPage"
+        | "profilePictureUrl"
+        | "profilePictureHash"
+        | "lineOfficialAccount"
+        | "instagram"
+      >;
+      durations: Array<
+        { __typename?: "EventDuration" } & Pick<
+          EventDuration,
+          "id" | "start" | "finish"
+        >
+      >;
+      tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
+    };
+};
+
 export type GetQuestionsByEventIdQueryVariables = Exact<{
   [key: string]: never;
 }>;

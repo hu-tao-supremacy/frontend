@@ -1,6 +1,8 @@
 <template>
   <PageNavbar />
-  <router-view></router-view>
+  <div class="content-min-height bg-gray-1">
+    <router-view></router-view>
+  </div>
   <PageFooter />
 </template>
 
@@ -17,3 +19,9 @@ export default defineComponent({
   }
 });
 </script>
+
+<style scoped>
+.content-min-height {
+  min-height: calc(100vh - 224px);
+}
+</style>

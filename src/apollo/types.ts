@@ -48,6 +48,7 @@ export type AuthenticateOutput = {
 
 export type CreateEventInput = {
   organizationId: Scalars["Int"];
+  location?: Maybe<CreateEventLocationInput>;
   description: Scalars["String"];
   name: Scalars["String"];
   attendeeLimit: Scalars["Int"];
@@ -55,6 +56,12 @@ export type CreateEventInput = {
   coverImage?: Maybe<Scalars["Upload"]>;
   posterImage?: Maybe<Scalars["Upload"]>;
   tags?: Maybe<Array<SetEventTagsTagInput>>;
+};
+
+export type CreateEventLocationInput = {
+  name: Scalars["String"];
+  googleMapUrl: Scalars["String"];
+  description?: Maybe<Scalars["String"]>;
 };
 
 export type CreateJoinRequestAnswerInput = {
@@ -206,6 +213,7 @@ export type Mutation = {
   setEventQuestions: Scalars["Boolean"];
   createEvent: Event;
   updateEvent: Event;
+  reviewJoinRequest: Scalars["Boolean"];
   authenticate: AuthenticateOutput;
   upload: Scalars["Boolean"];
   createOrganization: Organization;
@@ -229,6 +237,10 @@ export type MutationCreateEventArgs = {
 
 export type MutationUpdateEventArgs = {
   input: UpdateEventInput;
+};
+
+export type MutationReviewJoinRequestArgs = {
+  input: ReviewJoinRequestInput;
 };
 
 export type MutationAuthenticateArgs = {
@@ -321,6 +333,7 @@ export type OrganizationInput = {
 export type Query = {
   __typename?: "Query";
   upcomingEvents: Array<Event>;
+  recommendedEvents: Array<Event>;
   event: Event;
   organizations: Array<Organization>;
   organization: Organization;
@@ -395,6 +408,14 @@ export type QuestionInput = {
   answer: AnswerInput;
 };
 
+export type ReviewJoinRequestInput = {
+  userId: Scalars["Int"];
+  user: UserInput;
+  eventId: Scalars["Int"];
+  rating?: Maybe<Scalars["Int"]>;
+  status: UserEventStatus;
+};
+
 export type SetEventQuestionsInput = {
   eventId: Scalars["Int"];
   questionGroups: Array<SetEventQuestionsQuestionGroupInput>;
@@ -434,6 +455,7 @@ export type TagInput = {
 
 export type UpdateEventInput = {
   organizationId?: Maybe<Scalars["Int"]>;
+  location?: Maybe<LocationInput>;
   description?: Maybe<Scalars["String"]>;
   name?: Maybe<Scalars["String"]>;
   attendeeLimit?: Maybe<Scalars["Int"]>;
@@ -604,6 +626,7 @@ export type GetEventByIdQueryVariables = Exact<{
 export type GetEventByIdQuery = { __typename?: "Query" } & {
   event: { __typename?: "Event" } & Pick<
     Event,
+    | "id"
     | "name"
     | "description"
     | "posterImageUrl"
@@ -631,23 +654,44 @@ export type GetEventByIdQuery = { __typename?: "Query" } & {
         >
       >;
       tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
+      attendance?: Maybe<{ __typename?: "UserEvent" } & Pick<UserEvent, "id">>;
     };
 };
 
 export type GetQuestionsByEventIdQueryVariables = Exact<{
-  [key: string]: never;
+  id: Scalars["Int"];
 }>;
 
 export type GetQuestionsByEventIdQuery = { __typename?: "Query" } & {
-  event: { __typename?: "Event" } & {
-    questionGroups: Array<
-      { __typename?: "QuestionGroup" } & Pick<QuestionGroup, "eventId"> & {
-          questions: Array<
-            { __typename?: "Question" } & Pick<Question, "id" | "seq" | "title">
-          >;
-        }
-    >;
-  };
+  event: { __typename?: "Event" } & Pick<
+    Event,
+    | "id"
+    | "coverImageUrl"
+    | "coverImageHash"
+    | "name"
+    | "posterImageUrl"
+    | "posterImageHash"
+  > & {
+      tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
+      durations: Array<
+        { __typename?: "EventDuration" } & Pick<
+          EventDuration,
+          "id" | "start" | "finish"
+        >
+      >;
+      location?: Maybe<{ __typename?: "Location" } & Pick<Location, "name">>;
+      questionGroups: Array<
+        { __typename?: "QuestionGroup" } & Pick<QuestionGroup, "eventId"> & {
+            questions: Array<
+              { __typename?: "Question" } & Pick<
+                Question,
+                "id" | "seq" | "title"
+              >
+            >;
+          }
+      >;
+      attendance?: Maybe<{ __typename?: "UserEvent" } & Pick<UserEvent, "id">>;
+    };
 };
 
 export type CreateJoinRequestMutationVariables = Exact<{

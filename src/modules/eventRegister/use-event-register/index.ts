@@ -1,19 +1,41 @@
 import {
+  Answer,
   CreateJoinRequestAnswerInput,
-  CreateJoinRequestInput
-} from "./../../../apollo/types";
+  CreateJoinRequestInput,
+  Question
+} from "@/apollo/types";
 import useUser from "@/modules/authentication";
-import { reactive, ref } from "vue";
-import { useQuestions } from "../api";
-import { QuestionWithAnswer } from "./type";
+import { computed, reactive, ref } from "vue";
+import { useEventRegisterApi } from "../api";
 import { updateAnswer } from "../api";
+import { useRoute, useRouter } from "vue-router";
+import { useResult } from "@vue/apollo-composable";
 
 const useEventRegister = () => {
   const { user } = useUser();
   const step = ref(1);
-  const questionData = reactive([] as QuestionWithAnswer[]);
-  const answerData = reactive({} as CreateJoinRequestInput);
+  const questionData = reactive([] as Question[]);
   const { addAnswer } = updateAnswer();
+  const route = useRoute();
+  const router = useRouter();
+  const eventID = Number(route.params.id);
+  const { onResult, onError, result } = useEventRegisterApi({ id: eventID });
+  const event = useResult(result, null, data => data.event);
+
+  onError(() => {
+    router.push("/404");
+  });
+
+  onResult(result => {
+    console.log("result.data.event", result.data.event);
+    if (result.data.event.attendance) {
+      router.push("/");
+    }
+    const questions = result.data.event.questionGroups[0].questions.sort(
+      question => question.seq
+    );
+    Object.assign(questionData, questions);
+  });
 
   const increaseStep = () => {
     step.value++;
@@ -24,15 +46,20 @@ const useEventRegister = () => {
   };
 
   const sendAnswer = () => {
-    step.value++;
-    const output = questionData.map(question => {
-      return {
-        questionId: question.id,
-        value: question.answer
-      } as CreateJoinRequestAnswerInput;
-    });
-    answerData.answers = output;
+    const output: CreateJoinRequestAnswerInput[] = questionData.map(
+      question => {
+        return {
+          questionId: question.id,
+          value: question.answer?.value
+        };
+      }
+    );
+    const answerData = {
+      answers: output,
+      eventId: event.value?.id
+    } as CreateJoinRequestInput;
     addAnswer({ input: answerData });
+    increaseStep();
   };
 
   const checkStep2 = (step: number) => {
@@ -49,18 +76,16 @@ const useEventRegister = () => {
   };
 
   const handleUserAnswer = (id: number, answer: string) => {
-    const question = questionData.find(
-      value => value.id === id
-    ) as QuestionWithAnswer;
-    question.answer = answer;
+    const question = questionData.find(value => value.id === id) as Question;
+    question.answer = { value: answer } as Answer;
   };
 
-  const { result: questions, onResult } = useQuestions();
-
-  onResult(result => {
-    Object.assign(questionData, result.data.event.questionGroups[0].questions);
-    answerData.eventId = result.data.event.questionGroups[0].eventId;
-  });
+  const isValidated = computed(
+    () =>
+      !questionData.find(
+        question => !question.isOptional && !question.answer?.value
+      )
+  );
 
   return {
     user,
@@ -73,7 +98,8 @@ const useEventRegister = () => {
     handleUserAnswer,
     getQuestion,
     questionData,
-    questions
+    event,
+    isValidated
   };
 };
 

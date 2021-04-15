@@ -338,6 +338,7 @@ export type Query = {
   recommendedEvents: Array<Event>;
   event: Event;
   organizations: Array<Organization>;
+  featuredOrganizations: Array<Organization>;
   organization: Organization;
   currentUser: User;
   user: User;
@@ -722,6 +723,23 @@ export type GetUpcomingEventsQuery = { __typename?: "Query" } & {
         location?: Maybe<{ __typename?: "Location" } & Pick<Location, "name">>;
         tags: Array<{ __typename?: "Tag" } & Pick<Tag, "name">>;
       }
+  >;
+};
+
+export type GetFeaturedOrganizationsHomeQueryVariables = Exact<{
+  [key: string]: never;
+}>;
+
+export type GetFeaturedOrganizationsHomeQuery = { __typename?: "Query" } & {
+  featuredOrganizations: Array<
+    { __typename?: "Organization" } & Pick<
+      Organization,
+      | "id"
+      | "abbreviation"
+      | "name"
+      | "profilePictureUrl"
+      | "profilePictureHash"
+    >
   >;
 };
 

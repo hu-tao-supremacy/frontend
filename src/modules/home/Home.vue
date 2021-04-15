@@ -64,11 +64,12 @@
       <div class="flex h-6 w-full mb-3 justify-between items-center">
         <div class="text-4xl font-heading">Organization</div>
       </div>
-      <div
-        class="card grid gap-4 mb-4 w-full justify-center md:justify-start"
-        v-if="state.orgs"
-      >
-        <CardOrganization v-for="org in state.orgs" :key="org.id" :orgs="org" />
+      <div class="card grid gap-4 mb-4 w-full justify-center md:justify-start">
+        <CardOrganization
+          v-for="org in featuredOrganizations"
+          :key="org.id"
+          :orgs="org"
+        />
       </div>
       <div class="flex h-6 w-full mb-3 justify-between items-center">
         <div class="text-4xl font-heading">Online Events</div>
@@ -149,14 +150,20 @@ export default defineComponent({
   },
 
   setup() {
-    const { state, showModal, toggleModal, upcomingEvents } = useHome();
+    const {
+      state,
+      showModal,
+      toggleModal,
+      upcomingEvents,
+      featuredOrganizations
+    } = useHome();
 
     // for demo only
     watch(upcomingEvents, () => {
       console.log(upcomingEvents.value, "value");
     });
 
-    return { state, showModal, toggleModal };
+    return { state, showModal, toggleModal, featuredOrganizations };
   }
 });
 </script>

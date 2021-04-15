@@ -9,7 +9,7 @@
       :id="questionId"
       v-model="userAnswer"
       @input="userChange"
-      class="input-container flex max-w-max"
+      class="input-container w-37.5"
       :placeholder="placeholderText"
     />
   </div>
@@ -51,10 +51,3 @@ export default defineComponent({
   }
 });
 </script>
-
-<style scoped>
-.input-container {
-  min-width: 300px;
-  min-height: 30px;
-}
-</style>

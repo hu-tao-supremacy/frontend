@@ -4,7 +4,7 @@
     :value="modelValue"
     @input="userChange"
     :placeholder="placeholder"
-    class="text-input border rounded-lg px-1.5 focus:border-primary focus:outline-none overflow-hidden resize-none"
+    class="text-input border rounded-lg px-1.5 py-0.5 focus:border-primary focus:outline-none overflow-hidden resize-none"
     :class="{ 'border-gray-4': !isError, 'error-shadow border-red-5': isError }"
   ></textarea>
 </template>

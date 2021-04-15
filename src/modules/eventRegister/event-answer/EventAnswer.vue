@@ -8,8 +8,8 @@
         class="mt-3 flex flex-col"
       >
         <div>{{ detail.seq + ". " + detail.title }}</div>
-        <BaseTextInput
-          class="w-27 h-4 disabled:bg-white text-primary-6"
+        <BaseExpandableTextArea
+          class="w-37.5 h-4 disabled:bg-white text-primary-6"
           :value="detail.answer"
           disabled
         />
@@ -20,7 +20,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import BaseTextInput from "@/commons/UI/BaseTextInput.vue";
+import BaseExpandableTextArea from "@/commons/UI/BaseExpandableTextArea.vue";
 import { QuestionWithAnswer } from "../use-event-register/type";
 
 export default defineComponent({
@@ -32,7 +32,7 @@ export default defineComponent({
     }
   },
   components: {
-    BaseTextInput
+    BaseExpandableTextArea
   }
 });
 </script>

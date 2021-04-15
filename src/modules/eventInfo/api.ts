@@ -37,9 +37,6 @@ export const useEventById = (variables: GetEventByIdQueryVariables) =>
             id
             name
           }
-          attendance {
-            id
-          }
         }
       }
     `,

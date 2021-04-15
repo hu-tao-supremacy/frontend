@@ -3,6 +3,7 @@
     <div class="content-max-width w-full">
       <InfoBanner
         :eventBanner="event"
+        :attendance="!!attendance"
         :canRegister="true"
         :isSignIn="isSignIn"
       />
@@ -58,8 +59,8 @@ export default defineComponent({
     EventSchedule
   },
   setup() {
-    const { event, isSignIn } = useEventInfo();
-    return { event, isSignIn };
+    const { event, isSignIn, attendance } = useEventInfo();
+    return { event, isSignIn, attendance };
   }
 });
 </script>

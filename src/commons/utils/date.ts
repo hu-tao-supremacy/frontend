@@ -17,6 +17,9 @@ export const getDisplayDate = (durations?: EventDuration[]) => {
 };
 
 export const getStartEndTime = (duration: EventDuration) => {
+  if (!duration) {
+    return;
+  }
   const startTime = format(new Date(duration.start), "HH:mm");
   const endTime = format(new Date(duration.finish), "HH:mm");
   return `${startTime} - ${endTime}`;

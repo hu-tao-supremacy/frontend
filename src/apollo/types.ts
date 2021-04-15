@@ -14,6 +14,7 @@ export type Scalars = {
   Int: number;
   Float: number;
   /** The `Upload` scalar type represents a file upload. */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Upload: any;
 };
 
@@ -600,6 +601,16 @@ export type UserOrganizationInput = {
   organization: OrganizationInput;
 };
 
+export type GetEventAttendanceQueryVariables = Exact<{
+  id: Scalars["Int"];
+}>;
+
+export type GetEventAttendanceQuery = { __typename?: "Query" } & {
+  event: { __typename?: "Event" } & Pick<Event, "id"> & {
+      attendance?: Maybe<{ __typename?: "UserEvent" } & Pick<UserEvent, "id">>;
+    };
+};
+
 export type GetCurrentUserQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetCurrentUserQuery = { __typename?: "Query" } & {
@@ -709,7 +720,6 @@ export type GetEventByIdQuery = { __typename?: "Query" } & {
         >
       >;
       tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
-      attendance?: Maybe<{ __typename?: "UserEvent" } & Pick<UserEvent, "id">>;
     };
 };
 
@@ -758,14 +768,46 @@ export type CreateJoinRequestMutation = { __typename?: "Mutation" } & Pick<
   "createJoinRequest"
 >;
 
-export type GetUpcomingEventsQueryVariables = Exact<{ [key: string]: never }>;
+export type GetFeaturedEventsQueryVariables = Exact<{ [key: string]: never }>;
 
-export type GetUpcomingEventsQuery = { __typename?: "Query" } & {
-  upcomingEvents: Array<
-    { __typename?: "Event" } & Pick<Event, "description" | "name"> & {
+export type GetFeaturedEventsQuery = { __typename?: "Query" } & {
+  featuredEvents: Array<
+    { __typename?: "Event" } & Pick<
+      Event,
+      | "id"
+      | "description"
+      | "name"
+      | "coverImageUrl"
+      | "coverImageHash"
+      | "posterImageUrl"
+      | "posterImageHash"
+    > & {
+        durations: Array<
+          { __typename?: "EventDuration" } & Pick<
+            EventDuration,
+            "id" | "start" | "finish"
+          >
+        >;
         location?: Maybe<{ __typename?: "Location" } & Pick<Location, "name">>;
-        tags: Array<{ __typename?: "Tag" } & Pick<Tag, "name">>;
+        tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
       }
+  >;
+};
+
+export type GetFeaturedOrganizationsHomeQueryVariables = Exact<{
+  [key: string]: never;
+}>;
+
+export type GetFeaturedOrganizationsHomeQuery = { __typename?: "Query" } & {
+  featuredOrganizations: Array<
+    { __typename?: "Organization" } & Pick<
+      Organization,
+      | "id"
+      | "abbreviation"
+      | "name"
+      | "profilePictureUrl"
+      | "profilePictureHash"
+    >
   >;
 };
 

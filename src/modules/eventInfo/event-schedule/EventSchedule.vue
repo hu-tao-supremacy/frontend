@@ -20,7 +20,7 @@
 <script lang="ts">
 import { defineComponent } from "@vue/runtime-core";
 import { EventDuration, Location } from "@/apollo/types";
-import useEventSchedule from "./useEventSchedule";
+import useEventSchedule from "@/commons/hooks/useEventSchedule";
 
 export default defineComponent({
   name: "EventSchdule",

@@ -1,3 +1,5 @@
+import { Gender } from "@/apollo/types";
+
 export const CLOSE_MODAL = "close-modal";
 
 export const UPDATE_MODEL_VALUE = "update:modelValue";
@@ -15,3 +17,9 @@ export enum TicketStatus {
   PENDING = "pending",
   HISTORY = "history"
 }
+
+export const GENDER = {
+  Male: Gender.M,
+  Female: Gender.F,
+  "Not Specified": Gender.Ns
+};

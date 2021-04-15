@@ -37,18 +37,20 @@
       <div v-else class="container flex flex-col">
         <div class="mt-4 font-heading text-4xl">Personal Information</div>
         <PersonalInfo class="mt-3" :user="user" />
-        <div class="font-heading text-4xl mt-4">Additional Question</div>
-        <QuestionText
-          class="mt-4"
-          v-for="detail in questionData"
-          :key="detail.id"
-          :questionId="detail.id"
-          :optional="detail.isOptional"
-          :question="getQuestion(detail.seq, detail.title)"
-          @user-input="handleUserAnswer(detail.id, $event)"
-          :answer="detail.answer && detail.answer.value"
-          :placeholderText="placeholder"
-        />
+        <div v-if="hasQuestions">
+          <div class="font-heading text-4xl mt-4">Additional Question</div>
+          <QuestionText
+            class="mt-4"
+            v-for="detail in questionData"
+            :key="detail.id"
+            :questionId="detail.id"
+            :optional="detail.isOptional"
+            :question="getQuestion(detail.seq, detail.title)"
+            @user-input="handleUserAnswer(detail.id, $event)"
+            :answer="detail.answer && detail.answer.value"
+            :placeholderText="placeholder"
+          />
+        </div>
         <div class="flex mt-10 self-end">
           <base-button
             @click="increaseStep"
@@ -63,7 +65,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from "vue";
+import { defineComponent } from "vue";
 import RegistrationStatus from "./registration-status/RegistrationStatus.vue";
 import PersonalInfo from "./personal-info/PersonalInfo.vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
@@ -72,7 +74,6 @@ import PersonalInfoDes from "./personal-info-des/PersonalInfoDes.vue";
 import QuestionText from "@/modules/question/question-text/QuestionText.vue";
 import EventAnswer from "./event-answer/EventAnswer.vue";
 import useEventRegister from "./use-event-register";
-import testData from "./use-event-register/testData";
 
 export default defineComponent({
   name: "EventRegisterPage",
@@ -86,7 +87,6 @@ export default defineComponent({
     EventAnswer
   },
   setup() {
-    const test = reactive(testData);
     const placeholder = "Write your answer here!";
     const {
       user,
@@ -100,11 +100,11 @@ export default defineComponent({
       handleUserAnswer,
       questionData,
       event,
-      isValidated
+      isValidated,
+      hasQuestions
     } = useEventRegister();
 
     return {
-      test,
       placeholder,
       user,
       step,
@@ -117,7 +117,8 @@ export default defineComponent({
       handleUserAnswer,
       questionData,
       event,
-      isValidated
+      isValidated,
+      hasQuestions
     };
   }
 });

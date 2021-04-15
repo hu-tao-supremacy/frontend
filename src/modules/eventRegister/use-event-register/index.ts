@@ -27,11 +27,10 @@ const useEventRegister = () => {
   });
 
   onResult(result => {
-    console.log("result.data.event", result.data.event);
     if (result.data.event.attendance) {
       router.push("/");
     }
-    const questions = result.data.event.questionGroups[0].questions.sort(
+    const questions = result.data.event.questionGroups[0]?.questions.sort(
       question => question.seq
     );
     Object.assign(questionData, questions);
@@ -87,6 +86,10 @@ const useEventRegister = () => {
       )
   );
 
+  const hasQuestions = computed(() => {
+    return questionData.length !== 0;
+  });
+
   return {
     user,
     step,
@@ -99,7 +102,8 @@ const useEventRegister = () => {
     getQuestion,
     questionData,
     event,
-    isValidated
+    isValidated,
+    hasQuestions
   };
 };
 

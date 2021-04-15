@@ -49,7 +49,7 @@ export default defineComponent({
   props: {
     eventsList: {
       type: Array as () => GetFeaturedEventsQuery["featuredEvents"],
-      default: [{}]
+      required: true
     }
   },
   setup(props) {

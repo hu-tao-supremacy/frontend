@@ -22,10 +22,9 @@
 
       <div
         class="recommended grid gap-4 mb-4 w-full justify-center md:justify-start"
-        v-if="state.recommendedEvents"
       >
         <CardRecommended
-          v-for="detail in state.recommendedEvents"
+          v-for="detail in recommendedEvents"
           :key="detail.id"
           :recommended="detail"
         />
@@ -47,12 +46,9 @@
           </span>
         </base-transparent-button>
       </div>
-      <div
-        class="card grid gap-4 mb-4 w-full justify-center md:justify-start"
-        v-if="state.events"
-      >
+      <div class="card grid gap-4 mb-4 w-full justify-center md:justify-start">
         <CardEvent
-          v-for="event in state.events"
+          v-for="event in upcommingEvents"
           :key="event.id"
           :events="event"
         />
@@ -83,12 +79,9 @@
           </span>
         </base-transparent-button>
       </div>
-      <div
-        class="card grid gap-4 mb-4 w-full justify-center md:justify-start"
-        v-if="state.events"
-      >
+      <div class="card grid gap-4 mb-4 w-full justify-center md:justify-start">
         <CardEvent
-          v-for="event in state.events"
+          v-for="event in onlineEvents"
           :key="event.id"
           :events="event"
         />
@@ -110,12 +103,9 @@
           </span>
         </base-transparent-button>
       </div>
-      <div
-        class="card grid gap-4 mb-20 w-full justify-center md:justify-start"
-        v-if="state.events"
-      >
+      <div class="card grid gap-4 mb-20 w-full justify-center md:justify-start">
         <CardEvent
-          v-for="event in state.events"
+          v-for="event in nearbyEvents"
           :key="event.id"
           :events="event"
         />

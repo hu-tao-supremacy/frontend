@@ -48,7 +48,7 @@
         <section class="mb-2">
           <div class="flex space-between">
             <div class="flex flex-col mr-2 w-full">
-              <label for="year" class="mb-0.25">Gender</label>
+              <label for="gender" class="mb-0.25">Gender</label>
               <BaseSelect
                 :optionNames="optionNames"
                 :optionValues="optionValues"

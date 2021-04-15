@@ -2,6 +2,7 @@ import { computed, Ref } from "vue";
 import { getDisplayDate, getMainTimetable } from "@/commons/utils/date";
 import { EventDuration } from "@/apollo/types";
 import { Event } from "@/apollo/types";
+import useEventLink from "@/commons/hooks/useEventLink";
 
 const useCardBanner = (event?: Ref<Event | undefined>) => {
   const date = computed(() => {
@@ -19,9 +20,7 @@ const useCardBanner = (event?: Ref<Event | undefined>) => {
       ? ""
       : "mr-1";
   }
-
-  const eventInfoUrl = computed(() => `/event/${event?.value?.id}`);
-  const isLinkReady = computed(() => !!event?.value?.id);
+  const { eventInfoUrl, isLinkReady } = useEventLink(event);
 
   return { date, time, location, changeClass, eventInfoUrl, isLinkReady };
 };

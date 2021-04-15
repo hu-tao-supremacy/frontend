@@ -223,6 +223,104 @@ export const testData = {
       img: "https://picsum.photos/213",
       imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
     }
+  ],
+  interestedEvents: [
+    {
+      id: 15,
+      name: "Event #1",
+      img: "https://picsum.photos/214",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    },
+    {
+      id: 16,
+      name: "Event #2",
+      img: "https://picsum.photos/215",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    },
+    {
+      id: 17,
+      name: "Event #3",
+      img: "https://picsum.photos/216",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    },
+    {
+      id: 18,
+      name: "Event #4",
+      img: "https://picsum.photos/217",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    },
+    {
+      id: 19,
+      name: "Event #5",
+      img: "https://picsum.photos/218",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    },
+    {
+      id: 20,
+      name: "Event #6",
+      img: "https://picsum.photos/219",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    },
+    {
+      id: 21,
+      name: "Event #7",
+      img: "https://picsum.photos/220",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    },
+    {
+      id: 22,
+      name: "Event #8",
+      img: "https://picsum.photos/221",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    },
+    {
+      id: 23,
+      name: "Event #9",
+      img: "https://picsum.photos/222",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    },
+    {
+      id: 24,
+      name: "Event #10",
+      img: "https://picsum.photos/223",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    },
+    {
+      id: 25,
+      name: "Event #11",
+      img: "https://picsum.photos/224",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    },
+    {
+      id: 26,
+      name: "Event #12",
+      img: "https://picsum.photos/225",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    },
+    {
+      id: 27,
+      name: "Event #13",
+      img: "https://picsum.photos/226",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    },
+    {
+      id: 28,
+      name: "Event #14",
+      img: "https://picsum.photos/227",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    },
+    {
+      id: 29,
+      name: "Event #15",
+      img: "https://picsum.photos/228",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    },
+    {
+      id: 30,
+      name: "Event #16",
+      img: "https://picsum.photos/229",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    }
   ]
 };
 

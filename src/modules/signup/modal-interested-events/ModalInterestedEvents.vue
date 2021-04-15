@@ -1,9 +1,10 @@
 <template>
   <base-modal maxModalWidth="712px" @close="closeModal">
     <div class="flex flex-col">
-      <h1 class="text-3xl text-blue-11 font-heading">Interests</h1>
+      <h1 class="text-3xl text-blue-11 font-heading">Interested Events</h1>
       <p class="font-medium text-gray-5">
-        Which type of events would you like to join? (Select one or more)
+        Pick events that you have joined or would like to join. (Select one or
+        more)
       </p>
       <section class="grid grid-cols-4 auto-rows-auto gap-3 mt-2 mb-1.5">
         <CardInterest
@@ -24,7 +25,7 @@
           Not now
         </button>
         <base-button class="px-2 h-4.5 flex-shrink-0" @click="submitInterest"
-          >Next</base-button
+          >Finish</base-button
         >
       </section>
     </div>
@@ -37,12 +38,12 @@ import BaseModal from "@/commons/UI/BaseModal.vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import { CLOSE_MODAL } from "@/commons/constant";
 import { Interest } from "@/commons/Interfaces";
-import useModalInterests from "./useModalInterests";
-import CardInterest from "./card-interest/CardInterest.vue";
+import useModalInterests from "./useModalInterestedEvents";
+import CardInterest from "../modal-interests/card-interest/CardInterest.vue";
 import { SUBMIT_MODAL } from "../constant";
 
 export default defineComponent({
-  name: "ModalInterests",
+  name: "ModalInterestedEvents",
   components: {
     BaseModal,
     CardInterest,

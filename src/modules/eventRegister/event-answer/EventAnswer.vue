@@ -9,7 +9,7 @@
       >
         <div>{{ detail.seq + ". " + detail.title }}</div>
         <BaseExpandableTextArea
-          class="w-37.5 h-4 disabled:bg-white text-primary-6"
+          class="w-40 h-4 disabled:bg-white text-primary-6"
           :value="detail.answer && detail.answer.value"
           disabled
         />

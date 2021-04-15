@@ -10,7 +10,7 @@
       :id="questionId"
       v-model="userAnswer"
       @input="userChange"
-      class="input-container w-37.5"
+      class="input-container w-40"
       :placeholder="placeholderText"
     />
   </div>

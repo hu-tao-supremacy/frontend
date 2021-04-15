@@ -1,12 +1,13 @@
 import { ref, computed, SetupContext, watch, Ref } from "vue";
 import { parseImageFile } from "@/commons/utils/parseImage";
-import { CLOSE_MODAL } from "@/commons/constant";
+import { CLOSE_MODAL, GENDER } from "@/commons/constant";
 import {
   validateEmail,
   validatePhone,
   validateZipCode,
   validateDistrict,
-  validateProvince
+  validateProvince,
+  validateYear
 } from "@/commons/utils/validForm";
 import districts from "@/commons/constant/thailand-address/district";
 import provinces from "@/commons/constant/thailand-address/province";
@@ -37,6 +38,10 @@ export default function useModalAdditionalInfo(
   const userProvince = ref("");
   const userAddress = ref("");
   const userYear = ref(null);
+  const userGender = ref(null);
+
+  const optionNames = Object.keys(GENDER);
+  const optionValues = Object.values(GENDER);
 
   const districtOptionNames = districts.map(
     district => district.DISTRICT_ENG_NAME
@@ -67,6 +72,10 @@ export default function useModalAdditionalInfo(
     return validateEmail(userEmail.value);
   });
 
+  const isValidYear = computed(() => {
+    return validateYear(userYear.value);
+  });
+
   const isValidPhone = computed(() => {
     return validatePhone(userPhone.value);
   });
@@ -94,8 +103,9 @@ export default function useModalAdditionalInfo(
       userProvince.value !== "" &&
       userZipCode.value !== "" &&
       userAddress.value !== "" &&
+      isValidYear.value &&
       userYear.value &&
-      fileLoaded.value
+      userGender.value
     );
   });
 
@@ -143,6 +153,10 @@ export default function useModalAdditionalInfo(
     isValidLocation,
     isValidForm,
     submitForm,
-    userYear
+    isValidYear,
+    userYear,
+    optionNames,
+    optionValues,
+    userGender
   };
 }

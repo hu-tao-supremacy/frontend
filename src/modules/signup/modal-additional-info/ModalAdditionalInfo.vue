@@ -47,17 +47,18 @@
         </section>
         <section class="mb-2">
           <div class="flex space-between">
-            <div class="flex flex-col mr-2">
+            <div class="flex flex-col mr-2 w-full">
               <label for="year" class="mb-0.25">Gender</label>
-              <BaseTextInput
-                v-model.trim="userYear"
-                id="year"
-                name="year"
-                type="number"
+              <BaseSelect
+                :optionNames="optionNames"
+                :optionValues="optionValues"
+                v-model="userGender"
+                id="gender"
                 class="h-3.5"
+                name="gender"
               />
             </div>
-            <div class="flex flex-col">
+            <div class="flex flex-col w-full">
               <label for="year" class="mb-0.25">Year</label>
               <BaseTextInput
                 v-model.trim="userYear"
@@ -65,11 +66,12 @@
                 name="year"
                 type="number"
                 class="h-3.5"
+                :isError="!isValidYear"
               />
             </div>
           </div>
-          <p v-if="!isValidEmail" class="text-sm text-red-5 mt-0.25 ml-1.5">
-            Please input valid email
+          <p v-if="!isValidYear" class="text-sm text-red-5 mt-0.25 ml-1.5">
+            Year must be positive number
           </p>
         </section>
         <section class="mb-2">
@@ -207,7 +209,11 @@ export default defineComponent({
       isValidPhone,
       isValidLocation,
       isValidForm,
-      submitForm
+      submitForm,
+      isValidYear,
+      optionNames,
+      optionValues,
+      userGender
     } = useModalAdditionalInfo(context);
 
     return {
@@ -229,7 +235,11 @@ export default defineComponent({
       isValidPhone,
       isValidLocation,
       isValidForm,
-      submitForm
+      submitForm,
+      isValidYear,
+      optionNames,
+      optionValues,
+      userGender
     };
   }
 });

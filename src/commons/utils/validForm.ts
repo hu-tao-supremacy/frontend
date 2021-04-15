@@ -42,3 +42,10 @@ export function validateProvince(province: string) {
   const expression = /[^0-9]/;
   return expression.test(province);
 }
+
+export function validateYear(year: number | null) {
+  if (!year) {
+    return true;
+  }
+  return year > 0;
+}

@@ -2,24 +2,24 @@
   <div class="flex flex-col rounded-2xl relative bg-white mt-6 shadow-sm">
     <section class="pl-33 flex flex-col pr-6 pt-2 pb-4.5">
       <h1 class="text-3xl text-blue-10 font-heading mb-1">
-        {{ eventBanner.title }}
+        {{ eventBanner && eventBanner.name }}
       </h1>
       <div class="flex flex-wrap mb-2">
         <base-tag
-          v-for="tag in eventBanner.tags"
+          v-for="tag in eventBanner && eventBanner.tags"
           :key="tag"
           class="mr-1 mb-1 h-2"
           >{{ tag }}</base-tag
         >
       </div>
       <section>
-        <base-icon-and-detail class="mb-1" :detail="eventBanner.date"
+        <base-icon-and-detail class="mb-1" :detail="date"
           ><CalendarIcon
         /></base-icon-and-detail>
-        <base-icon-and-detail class="mb-1" :detail="eventBanner.time"
+        <base-icon-and-detail class="mb-1" :detail="time"
           ><ClockIcon
         /></base-icon-and-detail>
-        <base-icon-and-detail :detail="eventBanner.location"
+        <base-icon-and-detail :detail="location"
           ><PinIcon
         /></base-icon-and-detail>
       </section>
@@ -31,8 +31,8 @@
         :width="300"
         :height="300"
         alt="will change to api"
-        :url="eventBanner.profileImg"
-        :placeholder="eventBanner.profileImgHash"
+        :url="eventBanner && eventBanner.posterImageUrl"
+        :placeholder="eventBanner && eventBanner.posterImageHash"
         class="object-cover w-full h-full"
       />
     </div>
@@ -40,13 +40,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref, toRefs } from "vue";
 import BaseTag from "@/commons/UI/BaseTag.vue";
 import BaseIconAndDetail from "@/commons/UI/BaseIconAndDetail.vue";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import PinIcon from "@/assets/MapPin.vue";
 import ClockIcon from "@/assets/Clock.vue";
 import CalendarIcon from "@/assets/Calendar.vue";
+import { EventBanner } from "@/commons/components/info-banner/types";
+import useInfoBanner from "@/commons/components/info-banner/useInfoBanner";
 
 export default defineComponent({
   name: "InfoBannerNoBg",
@@ -60,17 +62,21 @@ export default defineComponent({
   },
   props: {
     eventBanner: {
-      type: Object as () => {
-        profileImg: string;
-        profileImgHash: string;
-        title: string;
-        tags: string[];
-        date: string;
-        time: string;
-        location: string;
-      },
-      required: true
+      type: Object as () => EventBanner
     }
+  },
+  setup(props) {
+    const { eventBanner } = toRefs(props);
+    const isSignin = ref(false);
+    const {
+      date,
+      time,
+      register,
+      location,
+      hasAttended,
+      registerMessage
+    } = useInfoBanner(isSignin, eventBanner);
+    return { date, time, register, location, hasAttended, registerMessage };
   }
 });
 </script>

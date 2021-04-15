@@ -337,6 +337,7 @@ export type Query = {
   recommendedEvents: Array<Event>;
   event: Event;
   organizations: Array<Organization>;
+  featuredOrganizations: Array<Organization>;
   organization: Organization;
   currentUser: User;
   user: User;
@@ -785,4 +786,41 @@ export type UpdateUserMutationVariables = Exact<{
 
 export type UpdateUserMutation = { __typename?: "Mutation" } & {
   updateUser: { __typename?: "User" } & Pick<User, "id">;
+};
+
+export type GetEventUserCheckinQueryVariables = Exact<{
+  id: Scalars["Int"];
+}>;
+
+export type GetEventUserCheckinQuery = { __typename?: "Query" } & {
+  event: { __typename?: "Event" } & Pick<
+    Event,
+    "id" | "name" | "posterImageUrl" | "posterImageHash"
+  > & {
+      tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
+      location?: Maybe<
+        { __typename?: "Location" } & Pick<Location, "id" | "name">
+      >;
+      durations: Array<
+        { __typename?: "EventDuration" } & Pick<
+          EventDuration,
+          "id" | "start" | "finish"
+        >
+      >;
+      attendance?: Maybe<
+        { __typename?: "UserEvent" } & Pick<
+          UserEvent,
+          "id" | "userId" | "ticket"
+        > & {
+            user: { __typename?: "User" } & Pick<
+              User,
+              | "firstName"
+              | "lastName"
+              | "email"
+              | "phoneNumber"
+              | "profilePictureUrl"
+            >;
+          }
+      >;
+    };
 };

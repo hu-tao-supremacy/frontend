@@ -70,25 +70,27 @@
           ><PinIcon
         /></base-icon-and-detail>
       </div>
-      <base-button
-        v-if="!isHistory"
-        @click="checkIn(event.id)"
-        :disabled="isPending"
-        class="check-in-btn self-center mt-auto h-3.5 w-full"
-        >Check in</base-button
-      >
-      <base-button
-        v-else
-        class="check-in-btn self-center mt-auto h-3.5 w-full"
-        @click="giveFeedback"
-        >Feedback</base-button
-      >
+      <router-link :to="routerLinkId">
+        <base-button
+          v-if="!isHistory"
+          @click="checkIn"
+          :disabled="isPending"
+          class="check-in-btn self-center mt-auto h-3.5 w-full"
+          >Check in</base-button
+        >
+        <base-button
+          v-else
+          class="check-in-btn self-center mt-auto h-3.5 w-full"
+          @click="giveFeedback"
+          >Feedback</base-button
+        >
+      </router-link>
     </section>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, toRefs } from "vue";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import BaseTag from "@/commons/UI/BaseTag.vue";
 import BaseIconAndDetail from "@/commons/UI/BaseIconAndDetail.vue";
@@ -128,6 +130,7 @@ export default defineComponent({
     }
   },
   setup(props) {
+    const { event } = toRefs(props);
     const {
       isPending,
       isOngoing,
@@ -135,9 +138,10 @@ export default defineComponent({
       checkIn,
       giveFeedback,
       date,
-      time
-    } = useTicket(props.ticketStatus, props.event);
-
+      time,
+      routerLinkId
+    } = useTicket(props.ticketStatus, event);
+    console.log(routerLinkId.value);
     return {
       isPending,
       isOngoing,
@@ -145,7 +149,8 @@ export default defineComponent({
       checkIn,
       giveFeedback,
       date,
-      time
+      time,
+      routerLinkId
     };
   }
 });

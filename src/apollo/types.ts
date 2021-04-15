@@ -600,6 +600,16 @@ export type UserOrganizationInput = {
   organization: OrganizationInput;
 };
 
+export type GetEventAttendanceQueryVariables = Exact<{
+  id: Scalars["Int"];
+}>;
+
+export type GetEventAttendanceQuery = { __typename?: "Query" } & {
+  event: { __typename?: "Event" } & Pick<Event, "id"> & {
+      attendance?: Maybe<{ __typename?: "UserEvent" } & Pick<UserEvent, "id">>;
+    };
+};
+
 export type GetCurrentUserQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetCurrentUserQuery = { __typename?: "Query" } & {
@@ -656,7 +666,6 @@ export type GetEventByIdQuery = { __typename?: "Query" } & {
         >
       >;
       tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
-      attendance?: Maybe<{ __typename?: "UserEvent" } & Pick<UserEvent, "id">>;
     };
 };
 

@@ -40,6 +40,9 @@ export const useEventResgister = (
               title
             }
           }
+          attendance {
+            id
+          }
         }
       }
     `,

@@ -690,6 +690,7 @@ export type GetQuestionsByEventIdQuery = { __typename?: "Query" } & {
             >;
           }
       >;
+      attendance?: Maybe<{ __typename?: "UserEvent" } & Pick<UserEvent, "id">>;
     };
 };
 

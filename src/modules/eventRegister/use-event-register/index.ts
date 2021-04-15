@@ -27,6 +27,9 @@ const useEventRegister = () => {
   });
 
   onResult(result => {
+    if (result.data.event.attendance) {
+      router.push("/");
+    }
     Object.assign(questionData, result.data.event.questionGroups[0].questions);
   });
 

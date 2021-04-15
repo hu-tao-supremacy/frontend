@@ -68,15 +68,13 @@ export default defineComponent({
   setup(props) {
     const { eventBanner } = toRefs(props);
     const isSignin = ref(false);
-    const {
-      date,
-      time,
-      register,
-      location,
-      hasAttended,
-      registerMessage
-    } = useInfoBanner(isSignin, eventBanner);
-    return { date, time, register, location, hasAttended, registerMessage };
+    const attendance = ref(true);
+    const { date, time, register, location, registerMessage } = useInfoBanner(
+      isSignin,
+      attendance,
+      eventBanner
+    );
+    return { date, time, register, location, registerMessage };
   }
 });
 </script>

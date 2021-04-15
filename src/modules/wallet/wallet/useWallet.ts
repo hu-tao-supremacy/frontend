@@ -1,5 +1,4 @@
 import { computed, ref } from "vue";
-import { TicketStatus } from "@/commons/constant";
 import { UserEventStatus } from "@/apollo/types";
 
 export default function useWallet() {

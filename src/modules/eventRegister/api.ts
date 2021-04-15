@@ -36,6 +36,7 @@ export const useEventResgister = (
             eventId
             questions {
               id
+              isOptional
               seq
               title
             }

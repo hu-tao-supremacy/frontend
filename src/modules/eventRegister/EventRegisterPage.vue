@@ -43,13 +43,17 @@
           v-for="detail in questionData"
           :key="detail.id"
           :questionId="detail.id"
+          :optional="detail.isOptional"
           :question="getQuestion(detail.seq, detail.title)"
           @user-input="handleUserAnswer(detail.id, $event)"
           :answer="detail.answer && detail.answer.value"
           :placeholderText="placeholder"
         />
         <div class="flex mt-10 self-end">
-          <base-button @click="increaseStep" class="w-18 h-4"
+          <base-button
+            @click="increaseStep"
+            :disabled="!isValidated"
+            class="w-18 h-4"
             >Continue</base-button
           >
         </div>
@@ -95,7 +99,8 @@ export default defineComponent({
       getQuestion,
       handleUserAnswer,
       questionData,
-      event
+      event,
+      isValidated
     } = useEventRegister();
 
     return {
@@ -111,7 +116,8 @@ export default defineComponent({
       getQuestion,
       handleUserAnswer,
       questionData,
-      event
+      event,
+      isValidated
     };
   }
 });

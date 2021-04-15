@@ -2,9 +2,10 @@
   <div
     class="w-full shadow-sm rounded-lg overflow-hidden bg-white py-4 px-10 flex flex-col justify-center"
   >
-    <label :for="questionId" class="w-max font-heading text-xl mb-0.25">{{
-      question
-    }}</label>
+    <label :for="questionId" class="w-max font-heading text-xl mb-0.25"
+      >{{ question }}
+      <span v-if="!optional" class="text-red-5">*</span>
+    </label>
     <BaseTextInput
       :id="questionId"
       v-model="userAnswer"
@@ -42,6 +43,10 @@ export default defineComponent({
     questionId: {
       type: [Number, String],
       required: true
+    },
+    optional: {
+      type: Boolean,
+      default: true
     }
   },
   emits: [USER_INPUT],

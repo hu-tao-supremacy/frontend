@@ -5,7 +5,7 @@ import {
   Question
 } from "@/apollo/types";
 import useUser from "@/modules/authentication";
-import { reactive, ref, watch } from "vue";
+import { computed, reactive, ref, watch } from "vue";
 import { useEventResgister } from "../api";
 import { updateAnswer } from "../api";
 import { useRoute, useRouter } from "vue-router";
@@ -30,7 +30,10 @@ const useEventRegister = () => {
     if (result.data.event.attendance) {
       router.push("/");
     }
-    Object.assign(questionData, result.data.event.questionGroups[0].questions);
+    const questions = result.data.event.questionGroups[0].questions.sort(
+      question => question.seq
+    );
+    Object.assign(questionData, questions);
   });
 
   const increaseStep = () => {
@@ -76,6 +79,13 @@ const useEventRegister = () => {
     question.answer = { value: answer } as Answer;
   };
 
+  const isValidated = computed(
+    () =>
+      !questionData.find(
+        question => !question.isOptional && !question.answer?.value
+      )
+  );
+
   return {
     user,
     step,
@@ -87,7 +97,8 @@ const useEventRegister = () => {
     handleUserAnswer,
     getQuestion,
     questionData,
-    event
+    event,
+    isValidated
   };
 };
 

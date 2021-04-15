@@ -6,7 +6,7 @@ export const getDisplayDate = (durations?: EventDuration[]) => {
     return "-";
   }
   const startDateText = format(new Date(durations[0].start), "ccc, d MMM");
-  if (durations.length !== 0) {
+  if (durations.length !== 1) {
     const endDateText = format(
       new Date(durations[durations.length - 1].start),
       "d MMM"
@@ -16,11 +16,15 @@ export const getDisplayDate = (durations?: EventDuration[]) => {
   return startDateText;
 };
 
+export const getStartEndTime = (duration: EventDuration) => {
+  const startTime = format(new Date(duration.start), "HH:mm");
+  const endTime = format(new Date(duration.finish), "HH:mm");
+  return `${startTime} - ${endTime}`;
+};
+
 export const getMainTimetable = (durations?: EventDuration[]) => {
   if (!durations || durations.length !== 0) {
     return "-";
   }
-  const startTime = format(new Date(durations[0].start), "HH:mm");
-  const endTime = format(new Date(durations[0].finish), "HH:mm");
-  return `${startTime} - ${endTime}`;
+  return getStartEndTime(durations[0]);
 };

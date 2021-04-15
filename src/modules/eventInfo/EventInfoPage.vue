@@ -1,7 +1,11 @@
 <template>
-  <div class="bg-gray-1 flex flex-col p-4 justify-center items-center w-full">
+  <div class="flex flex-col p-4 justify-center items-center w-full">
     <div class="content-max-width w-full">
-      <InfoBanner :eventBanner="event" :hasButton="true" :isSignIn="isSignIn" />
+      <InfoBanner
+        :eventBanner="event"
+        :canRegister="true"
+        :isSignIn="isSignIn"
+      />
       <div class="text-4xl font-heading mt-7">Event Information</div>
       <div class="event w-full mt-3 grid gap-4">
         <div class="flex flex-col">

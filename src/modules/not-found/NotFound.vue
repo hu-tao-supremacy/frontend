@@ -1,5 +1,7 @@
 <template>
-  <div class="h-full text-center text-gray-5 py-30">
+  <div
+    class=" text-center text-gray-5 flex flex-col justify-center not-found-height"
+  >
     <div>
       <span class="text-4xl">
         404
@@ -26,3 +28,9 @@ export default defineComponent({
   name: "NotFound"
 });
 </script>
+
+<style scoped>
+.not-found-height {
+  height: calc(100vh - 224px);
+}
+</style>

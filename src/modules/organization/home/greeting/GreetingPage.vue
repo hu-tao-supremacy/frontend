@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="w-full h-full bg-gray-1 content-min-height flex flex-col py-8 px-22 items-center"
-  >
+  <div class="w-full h-full flex flex-col py-8 px-22 items-center">
     <div class="relative flex flex-col xl:w-128 xl-content-height">
       <section class="flex flex-col w-60">
         <h1 class="font-heading text-4xl text-blue-10">All - in - one</h1>

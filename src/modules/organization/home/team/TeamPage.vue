@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="w-full h-full bg-gray-1 flex flex-col py-4 items-center content-min-height"
-  >
+  <div class="w-full h-full flex flex-col py-4 items-center">
     <div class="flex flex-col content-max-width">
       <OrgBanner :org="test.eventOrganizer" class="mb-3" />
       <section class="flex justify-between mb-3">

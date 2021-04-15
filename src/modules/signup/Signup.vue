@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-1 p-2">
+  <div class="p-2">
     <ModalAdditionalInfo
       v-if="showAdditionalInfoModal"
       @close-modal="cancelSignup"

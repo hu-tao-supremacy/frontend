@@ -50,7 +50,7 @@
     </div>
     <base-button
       @click="register"
-      v-if="hasButton"
+      v-if="canRegister"
       class="absolute bottom-3 right-3 w-15 h-4.5"
       >Register</base-button
     >
@@ -84,9 +84,9 @@ export default defineComponent({
     eventBanner: {
       type: Object as () => GetEventByIdQuery["event"]
     },
-    hasButton: {
+    canRegister: {
       type: Boolean,
-      defualt: false
+      default: false
     },
     isSignIn: {
       type: Boolean,

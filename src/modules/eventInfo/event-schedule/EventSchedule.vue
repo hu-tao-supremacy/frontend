@@ -11,7 +11,7 @@
         {{ time }}
       </div>
       <div class="text-sm mt-0.5">
-        {{ (location && location.name) || "Location: TBA" }}
+        {{ locationText }}
       </div>
     </div>
   </div>
@@ -34,9 +34,12 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const { day, month, time } = useEventSchedule(props.eventsSchedule);
+    const { day, month, time, locationText } = useEventSchedule(
+      props.eventsSchedule,
+      props.location
+    );
 
-    return { day, month, time };
+    return { day, month, time, locationText };
   }
 });
 </script>

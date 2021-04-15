@@ -42,28 +42,6 @@
             ><base-icon width="16" height="16"><MailIcon /></base-icon
           ></base-circle-button>
         </a>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          class="mr-1"
-          v-if="eventOrg && eventOrg.lineOfficialAccount"
-          :href="eventOrg && eventOrg.lineOfficialAccount"
-        >
-          <base-circle-button class="p-1"
-            ><base-icon width="16" height="16"><MailIcon /></base-icon
-          ></base-circle-button>
-        </a>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          class="mr-1"
-          v-if="eventOrg && eventOrg.instagram"
-          :href="eventOrg && eventOrg.instagram"
-        >
-          <base-circle-button class="p-1"
-            ><base-icon width="16" height="16"><MailIcon /></base-icon
-          ></base-circle-button>
-        </a>
       </div>
     </section>
   </div>

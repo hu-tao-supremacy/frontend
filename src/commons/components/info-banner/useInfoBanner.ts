@@ -7,6 +7,7 @@ import { useRouter } from "vue-router";
 
 const useInfoBanner = (
   isSignIn: Ref<boolean>,
+  attendance: Ref<boolean>,
   event?: Ref<EventBanner | undefined>
 ) => {
   const router = useRouter();
@@ -19,9 +20,8 @@ const useInfoBanner = (
   );
 
   const location = computed(() => event?.value?.location?.name || "-");
-  const hasAttended = computed(() => !!event?.value?.attendance);
   const registerMessage = computed(() =>
-    hasAttended.value ? "Registered" : "Register"
+    attendance.value ? "Registered" : "Register"
   );
 
   const register = () => {
@@ -31,7 +31,7 @@ const useInfoBanner = (
       router.push(`/event-register/${event?.value?.id}`);
     }
   };
-  return { date, time, location, register, hasAttended, registerMessage };
+  return { date, time, location, register, registerMessage };
 };
 
 export default useInfoBanner;

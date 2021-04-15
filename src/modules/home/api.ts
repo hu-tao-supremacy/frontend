@@ -11,8 +11,6 @@ export const useUpcomingEvents = () =>
         location {
           name
         }
-        profileImageUrl
-        profileImageHash
         tags {
           name
         }

@@ -20,13 +20,17 @@
       <div class="mt-1 text-gray-5">
         You have successfully registered for...
       </div>
-      <InfoBanner :eventBanner="test.eventBanner" class="mt-3" />
+      <InfoBanner :eventBanner="event" class="mt-3" />
       <div class="mt-4 text-gray-5">
         An e-ticket has been sent to your inbox!
       </div>
       <div class="flex mt-6 self-end">
-        <base-button class="w-20 h-4 mr-2">Go to event library</base-button>
-        <base-button class="w-20 h-4">Browse more event</base-button>
+        <router-link to="/wallet">
+          <base-button class="w-20 h-4 mr-2">Go to event library</base-button>
+        </router-link>
+        <router-link to="/">
+          <base-button class="w-20 h-4">Browse more event</base-button>
+        </router-link>
       </div>
     </div>
     <div v-else class="container flex flex-col">
@@ -40,7 +44,7 @@
         :questionId="detail.id"
         :question="getQuestion(detail.seq, detail.title)"
         @user-input="handleUserAnswer(detail.id, $event)"
-        :answer="detail.answer"
+        :answer="detail.answer && detail.answer.value"
         :placeholderText="placeholder"
       />
       <div class="flex mt-10 self-end">
@@ -88,7 +92,8 @@ export default defineComponent({
       checkStep3,
       getQuestion,
       handleUserAnswer,
-      questionData
+      questionData,
+      event
     } = useEventRegister();
 
     return {
@@ -103,7 +108,8 @@ export default defineComponent({
       checkStep3,
       getQuestion,
       handleUserAnswer,
-      questionData
+      questionData,
+      event
     };
   }
 });

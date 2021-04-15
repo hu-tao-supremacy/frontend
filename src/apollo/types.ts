@@ -48,12 +48,12 @@ export type AuthenticateOutput = {
 
 export type CreateEventInput = {
   organizationId: Scalars["Int"];
+  location?: Maybe<CreateEventLocationInput>;
   description: Scalars["String"];
   name: Scalars["String"];
   attendeeLimit: Scalars["Int"];
   contact?: Maybe<Scalars["String"]>;
   coverImage?: Maybe<Scalars["Upload"]>;
-  location?: Maybe<CreateEventLocationInput>;
   posterImage?: Maybe<Scalars["Upload"]>;
   tags?: Maybe<Array<SetEventTagsTagInput>>;
 };
@@ -455,12 +455,12 @@ export type TagInput = {
 
 export type UpdateEventInput = {
   organizationId?: Maybe<Scalars["Int"]>;
+  location?: Maybe<LocationInput>;
   description?: Maybe<Scalars["String"]>;
   name?: Maybe<Scalars["String"]>;
   attendeeLimit?: Maybe<Scalars["Int"]>;
   contact?: Maybe<Scalars["String"]>;
   coverImage?: Maybe<Scalars["Upload"]>;
-  location?: Maybe<CreateEventLocationInput>;
   posterImage?: Maybe<Scalars["Upload"]>;
   tags?: Maybe<Array<SetEventTagsTagInput>>;
   id: Scalars["Int"];
@@ -626,6 +626,7 @@ export type GetEventByIdQueryVariables = Exact<{
 export type GetEventByIdQuery = { __typename?: "Query" } & {
   event: { __typename?: "Event" } & Pick<
     Event,
+    | "id"
     | "name"
     | "description"
     | "posterImageUrl"
@@ -653,6 +654,7 @@ export type GetEventByIdQuery = { __typename?: "Query" } & {
         >
       >;
       tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
+      attendance?: Maybe<{ __typename?: "UserEvent" } & Pick<UserEvent, "id">>;
     };
 };
 
@@ -661,15 +663,34 @@ export type GetQuestionsByEventIdQueryVariables = Exact<{
 }>;
 
 export type GetQuestionsByEventIdQuery = { __typename?: "Query" } & {
-  event: { __typename?: "Event" } & {
-    questionGroups: Array<
-      { __typename?: "QuestionGroup" } & Pick<QuestionGroup, "eventId"> & {
-          questions: Array<
-            { __typename?: "Question" } & Pick<Question, "id" | "seq" | "title">
-          >;
-        }
-    >;
-  };
+  event: { __typename?: "Event" } & Pick<
+    Event,
+    | "id"
+    | "coverImageUrl"
+    | "coverImageHash"
+    | "name"
+    | "posterImageUrl"
+    | "posterImageHash"
+  > & {
+      tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
+      durations: Array<
+        { __typename?: "EventDuration" } & Pick<
+          EventDuration,
+          "id" | "start" | "finish"
+        >
+      >;
+      location?: Maybe<{ __typename?: "Location" } & Pick<Location, "name">>;
+      questionGroups: Array<
+        { __typename?: "QuestionGroup" } & Pick<QuestionGroup, "eventId"> & {
+            questions: Array<
+              { __typename?: "Question" } & Pick<
+                Question,
+                "id" | "seq" | "title"
+              >
+            >;
+          }
+      >;
+    };
 };
 
 export type CreateJoinRequestMutationVariables = Exact<{

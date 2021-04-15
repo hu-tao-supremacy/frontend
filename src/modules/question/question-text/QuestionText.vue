@@ -5,7 +5,7 @@
     <label :for="questionId" class="w-max font-heading text-xl mb-0.25">{{
       question
     }}</label>
-    <BaseExpandableTextArea
+    <BaseTextInput
       :id="questionId"
       v-model="userAnswer"
       @input="userChange"
@@ -17,14 +17,14 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import BaseExpandableTextArea from "@/commons/UI/BaseExpandableTextArea.vue";
+import BaseTextInput from "@/commons/UI/BaseTextInput.vue";
 import { USER_INPUT } from "@/commons/constant";
 import useQuestionText from "./useQuestionText";
 
 export default defineComponent({
   name: "QuestionText",
   components: {
-    BaseExpandableTextArea
+    BaseTextInput
   },
   props: {
     question: {

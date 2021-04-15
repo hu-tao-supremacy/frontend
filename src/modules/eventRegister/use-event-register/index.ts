@@ -1,26 +1,29 @@
 import {
+  Answer,
   CreateJoinRequestAnswerInput,
-  CreateJoinRequestInput
-} from "./../../../apollo/types";
+  CreateJoinRequestInput,
+  Question
+} from "@/apollo/types";
 import useUser from "@/modules/authentication";
-import { reactive, ref } from "vue";
-import { useQuestions } from "../api";
-import { QuestionWithAnswer } from "./type";
+import { reactive, ref, watch } from "vue";
+import { useEventResgister } from "../api";
 import { updateAnswer } from "../api";
 import { useRoute, useRouter } from "vue-router";
+import { useResult } from "@vue/apollo-composable";
 
 const useEventRegister = () => {
   const { user } = useUser();
   const step = ref(1);
-  const questionData = reactive([] as QuestionWithAnswer[]);
+  const questionData = reactive([] as Question[]);
   const answerData = reactive({} as CreateJoinRequestInput);
   const { addAnswer } = updateAnswer();
   const route = useRoute();
   const router = useRouter();
   const eventID = Number(route.params.id);
-  const { onResult, onError } = useQuestions({ id: eventID });
+  const { onResult, onError, result } = useEventResgister({ id: eventID });
+  const event = useResult(result, null, data => data.event);
 
-  onError(err => {
+  onError(() => {
     router.push("/404");
   });
 
@@ -39,12 +42,14 @@ const useEventRegister = () => {
 
   const sendAnswer = () => {
     step.value++;
-    const output = questionData.map(question => {
-      return {
-        questionId: question.id,
-        value: question.answer
-      } as CreateJoinRequestAnswerInput;
-    });
+    const output: CreateJoinRequestAnswerInput[] = questionData.map(
+      question => {
+        return {
+          questionId: question.id,
+          value: question.answer?.value
+        };
+      }
+    );
     answerData.answers = output;
     addAnswer({ input: answerData });
   };
@@ -63,10 +68,8 @@ const useEventRegister = () => {
   };
 
   const handleUserAnswer = (id: number, answer: string) => {
-    const question = questionData.find(
-      value => value.id === id
-    ) as QuestionWithAnswer;
-    question.answer = answer;
+    const question = questionData.find(value => value.id === id) as Question;
+    question.answer = { value: answer } as Answer;
   };
 
   return {
@@ -79,7 +82,8 @@ const useEventRegister = () => {
     checkStep3,
     handleUserAnswer,
     getQuestion,
-    questionData
+    questionData,
+    event
   };
 };
 

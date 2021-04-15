@@ -39,7 +39,7 @@ import BaseButton from "@/commons/UI/BaseButton.vue";
 import { CLOSE_MODAL } from "@/commons/constant";
 import { Interest } from "@/commons/Interfaces";
 import useModalInterests from "./useModalInterestedEvents";
-import CardInterest from "../modal-interests/card-interest/CardInterest.vue";
+import CardInterest from "../card-interest/CardInterest.vue";
 import { SUBMIT_MODAL } from "../constant";
 
 export default defineComponent({

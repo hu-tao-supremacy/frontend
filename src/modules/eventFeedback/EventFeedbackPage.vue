@@ -18,7 +18,7 @@
           class="mt-3"
         >
           <QuestionRadio
-            v-if="question.answerType === 'SCALE'"
+            v-if="checkQuestionTypeScale(question.answerType)"
             :question="question.title"
             :questionId="question.id"
           />
@@ -38,28 +38,26 @@
 </template>
 
 <script lang="ts">
-import { QuestionGroup } from "@/apollo/types";
-import { defineComponent, reactive, ref } from "vue";
-import { useEvents } from "./api";
+import { defineComponent } from "vue";
 import QuestionStar from "@/modules/question/question-star/QuestionStar.vue";
 import QuestionText from "@/modules/question/question-text/QuestionText.vue";
 import QuestionRadio from "@/modules/question/question-radio/QuestionRadio.vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
+import useEventFeedback from "./use-event-feedback";
 
 export default defineComponent({
   name: "EventFeedback",
   components: { QuestionStar, QuestionText, QuestionRadio, BaseButton },
   setup() {
-    const questionGroupData = reactive([] as QuestionGroup[]);
-    const eventName = ref("");
-    const { onResult } = useEvents();
-    const placeholder = "Write your answer here!";
+    const {
+      checkQuestionTypeScale,
+      questionGroupData,
+      eventName,
+      placeholder
+    } = useEventFeedback();
 
-    onResult(result => {
-      Object.assign(questionGroupData, result.data.event.questionGroups);
-      eventName.value = result.data.event.name;
-    });
     return {
+      checkQuestionTypeScale,
       questionGroupData,
       eventName,
       placeholder

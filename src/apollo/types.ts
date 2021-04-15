@@ -740,6 +740,23 @@ export type GetFeaturedEventsQuery = { __typename?: "Query" } & {
   >;
 };
 
+export type GetFeaturedOrganizationsHomeQueryVariables = Exact<{
+  [key: string]: never;
+}>;
+
+export type GetFeaturedOrganizationsHomeQuery = { __typename?: "Query" } & {
+  featuredOrganizations: Array<
+    { __typename?: "Organization" } & Pick<
+      Organization,
+      | "id"
+      | "abbreviation"
+      | "name"
+      | "profilePictureUrl"
+      | "profilePictureHash"
+    >
+  >;
+};
+
 export type AuthenticateMutationVariables = Exact<{
   input: AuthenticateInput;
 }>;

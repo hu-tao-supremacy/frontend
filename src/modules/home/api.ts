@@ -1,6 +1,9 @@
 import { useQuery } from "@vue/apollo-composable";
 import gql from "graphql-tag";
-import { GetFeaturedEventsQuery } from "@/apollo/types";
+import {
+  GetFeaturedEventsQuery,
+  GetFeaturedOrganizationsHomeQuery
+} from "@/apollo/types";
 
 export const useFeaturedEvents = () =>
   useQuery<GetFeaturedEventsQuery>(gql`
@@ -25,6 +28,19 @@ export const useFeaturedEvents = () =>
           id
           name
         }
+      }
+    }
+  `);
+
+export const useFeaturedOrganizations = () =>
+  useQuery<GetFeaturedOrganizationsHomeQuery>(gql`
+    query getFeaturedOrganizationsHome {
+      featuredOrganizations {
+        id
+        abbreviation
+        name
+        profilePictureUrl
+        profilePictureHash
       }
     }
   `);

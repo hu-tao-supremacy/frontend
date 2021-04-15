@@ -1,13 +1,14 @@
 import { testData } from "./testData";
 import { computed, reactive, ref } from "vue";
-import { useFeaturedEvents } from "../api";
 import { useResult } from "@vue/apollo-composable";
 import { generateDummyArray } from "./utils";
+import { useFeaturedEvents, useFeaturedOrganizations } from "../api";
 
 const useHome = () => {
   const state = reactive(testData);
   const showModal = ref(false);
   const { result: upcomingEvents } = useFeaturedEvents();
+  const { result: featuredOrganizationsResult } = useFeaturedOrganizations();
   const events = useResult(upcomingEvents, null, data => data.featuredEvents);
 
   const featureEvents = computed(() => {
@@ -30,6 +31,16 @@ const useHome = () => {
     return events.value ? events.value?.slice(16, 20) : generateDummyArray(4);
   });
 
+  const featuredOrganizations = useResult(
+    featuredOrganizationsResult,
+    null,
+    data => {
+      if (data.featuredOrganizations.length <= 4)
+        return data.featuredOrganizations;
+      return data.featuredOrganizations.slice(0, 4);
+    }
+  );
+
   function toggleModal() {
     showModal.value = !showModal.value;
   }
@@ -42,7 +53,8 @@ const useHome = () => {
     recommendedEvents,
     upcommingEvents,
     onlineEvents,
-    nearbyEvents
+    nearbyEvents,
+    featuredOrganizations
   };
 };
 

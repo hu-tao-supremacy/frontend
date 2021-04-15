@@ -6,17 +6,17 @@
           :width="100"
           :height="100"
           alt="will change to api"
-          :url="eventOrg?.profilePictureUrl"
-          :placeholder="eventOrg?.profilePictureHash"
+          :url="eventOrg && eventOrg.profilePictureUrl"
+          :placeholder="eventOrg && eventOrg.profilePictureHash"
           class="object-cover w-full h-full"
         />
       </div>
       <div class="flex flex-col">
         <h1 class="font-heading text-3xl text-blue-10">
-          {{ eventOrg?.abbreviation }}
+          {{ eventOrg && eventOrg.abbreviation }}
         </h1>
-        <p class="text-sm">{{ eventOrg?.name }}</p>
-        <div class="mt-1">{{ eventOrg?.description }}</div>
+        <p class="text-sm">{{ eventOrg && eventOrg.name }}</p>
+        <div class="mt-1">{{ eventOrg && eventOrg.description }}</div>
       </div>
     </section>
     <section class="flex justify-between items-center">
@@ -26,8 +26,8 @@
           target="_blank"
           rel="noopener noreferrer"
           class="mr-1"
-          v-if="eventOrg?.facebookPage"
-          :href="eventOrg?.facebookPage"
+          v-if="eventOrg && eventOrg.facebookPage"
+          :href="eventOrg && eventOrg.facebookPage"
         >
           <FacebookIconCircle />
         </a>
@@ -35,8 +35,8 @@
           target="_blank"
           rel="noopener noreferrer"
           class="mr-1"
-          v-if="eventOrg?.email"
-          :href="eventOrg?.email"
+          v-if="eventOrg && eventOrg.email"
+          :href="eventOrg && eventOrg.email"
         >
           <base-circle-button class="p-1 text-black"
             ><base-icon width="16" height="16"><MailIcon /></base-icon
@@ -46,8 +46,8 @@
           target="_blank"
           rel="noopener noreferrer"
           class="mr-1"
-          v-if="eventOrg?.lineOfficialAccount"
-          :href="eventOrg?.lineOfficialAccount"
+          v-if="eventOrg && eventOrg.lineOfficialAccount"
+          :href="eventOrg && eventOrg.lineOfficialAccount"
         >
           <base-circle-button class="p-1"
             ><base-icon width="16" height="16"><MailIcon /></base-icon
@@ -57,8 +57,8 @@
           target="_blank"
           rel="noopener noreferrer"
           class="mr-1"
-          v-if="eventOrg?.instagram"
-          :href="eventOrg?.instagram"
+          v-if="eventOrg && eventOrg.instagram"
+          :href="eventOrg && eventOrg.instagram"
         >
           <base-circle-button class="p-1"
             ><base-icon width="16" height="16"><MailIcon /></base-icon

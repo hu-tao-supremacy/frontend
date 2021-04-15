@@ -10,7 +10,9 @@
       <div class="text-xl font-heading text-primary-6">
         {{ time }}
       </div>
-      <div class="text-sm mt-0.5">{{ location?.name || "Location: TBA" }}</div>
+      <div class="text-sm mt-0.5">
+        {{ (location && location.name) || "Location: TBA" }}
+      </div>
     </div>
   </div>
 </template>

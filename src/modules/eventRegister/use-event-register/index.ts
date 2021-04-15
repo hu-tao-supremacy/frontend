@@ -7,6 +7,7 @@ import { reactive, ref } from "vue";
 import { useQuestions } from "../api";
 import { QuestionWithAnswer } from "./type";
 import { updateAnswer } from "../api";
+import { useRoute, useRouter } from "vue-router";
 
 const useEventRegister = () => {
   const { user } = useUser();
@@ -14,6 +15,19 @@ const useEventRegister = () => {
   const questionData = reactive([] as QuestionWithAnswer[]);
   const answerData = reactive({} as CreateJoinRequestInput);
   const { addAnswer } = updateAnswer();
+  const route = useRoute();
+  const router = useRouter();
+  const eventID = Number(route.params.id);
+  const { onResult, onError } = useQuestions({ id: eventID });
+
+  onError(err => {
+    router.push("/404");
+  });
+
+  onResult(result => {
+    Object.assign(questionData, result.data.event.questionGroups[0].questions);
+    answerData.eventId = result.data.event.questionGroups[0].eventId;
+  });
 
   const increaseStep = () => {
     step.value++;
@@ -55,13 +69,6 @@ const useEventRegister = () => {
     question.answer = answer;
   };
 
-  const { result: questions, onResult } = useQuestions();
-
-  onResult(result => {
-    Object.assign(questionData, result.data.event.questionGroups[0].questions);
-    answerData.eventId = result.data.event.questionGroups[0].eventId;
-  });
-
   return {
     user,
     step,
@@ -72,8 +79,7 @@ const useEventRegister = () => {
     checkStep3,
     handleUserAnswer,
     getQuestion,
-    questionData,
-    questions
+    questionData
   };
 };
 

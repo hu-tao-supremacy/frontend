@@ -53,8 +53,15 @@ export type CreateEventInput = {
   attendeeLimit: Scalars["Int"];
   contact?: Maybe<Scalars["String"]>;
   coverImage?: Maybe<Scalars["Upload"]>;
+  location?: Maybe<CreateEventLocationInput>;
   posterImage?: Maybe<Scalars["Upload"]>;
   tags?: Maybe<Array<SetEventTagsTagInput>>;
+};
+
+export type CreateEventLocationInput = {
+  name: Scalars["String"];
+  googleMapUrl: Scalars["String"];
+  description?: Maybe<Scalars["String"]>;
 };
 
 export type CreateJoinRequestAnswerInput = {
@@ -206,6 +213,7 @@ export type Mutation = {
   setEventQuestions: Scalars["Boolean"];
   createEvent: Event;
   updateEvent: Event;
+  reviewJoinRequest: Scalars["Boolean"];
   authenticate: AuthenticateOutput;
   upload: Scalars["Boolean"];
   createOrganization: Organization;
@@ -229,6 +237,10 @@ export type MutationCreateEventArgs = {
 
 export type MutationUpdateEventArgs = {
   input: UpdateEventInput;
+};
+
+export type MutationReviewJoinRequestArgs = {
+  input: ReviewJoinRequestInput;
 };
 
 export type MutationAuthenticateArgs = {
@@ -321,6 +333,7 @@ export type OrganizationInput = {
 export type Query = {
   __typename?: "Query";
   upcomingEvents: Array<Event>;
+  recommendedEvents: Array<Event>;
   event: Event;
   organizations: Array<Organization>;
   organization: Organization;
@@ -395,6 +408,14 @@ export type QuestionInput = {
   answer: AnswerInput;
 };
 
+export type ReviewJoinRequestInput = {
+  userId: Scalars["Int"];
+  user: UserInput;
+  eventId: Scalars["Int"];
+  rating?: Maybe<Scalars["Int"]>;
+  status: UserEventStatus;
+};
+
 export type SetEventQuestionsInput = {
   eventId: Scalars["Int"];
   questionGroups: Array<SetEventQuestionsQuestionGroupInput>;
@@ -439,6 +460,7 @@ export type UpdateEventInput = {
   attendeeLimit?: Maybe<Scalars["Int"]>;
   contact?: Maybe<Scalars["String"]>;
   coverImage?: Maybe<Scalars["Upload"]>;
+  location?: Maybe<CreateEventLocationInput>;
   posterImage?: Maybe<Scalars["Upload"]>;
   tags?: Maybe<Array<SetEventTagsTagInput>>;
   id: Scalars["Int"];
@@ -635,7 +657,7 @@ export type GetEventByIdQuery = { __typename?: "Query" } & {
 };
 
 export type GetQuestionsByEventIdQueryVariables = Exact<{
-  [key: string]: never;
+  id: Scalars["Int"];
 }>;
 
 export type GetQuestionsByEventIdQuery = { __typename?: "Query" } & {

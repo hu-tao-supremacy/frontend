@@ -88,8 +88,7 @@ export default defineComponent({
       checkStep3,
       getQuestion,
       handleUserAnswer,
-      questionData,
-      questions
+      questionData
     } = useEventRegister();
 
     return {
@@ -104,8 +103,7 @@ export default defineComponent({
       checkStep3,
       getQuestion,
       handleUserAnswer,
-      questionData,
-      questions
+      questionData
     };
   }
 });

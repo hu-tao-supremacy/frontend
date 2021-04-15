@@ -7,7 +7,7 @@ import {
 import { useMutation, useQuery } from "@vue/apollo-composable";
 import gql from "graphql-tag";
 
-export const useEventRegister = (
+export const useEventRegisterApi = (
   variables: GetQuestionsByEventIdQueryVariables
 ) =>
   useQuery<GetQuestionsByEventIdQuery>(

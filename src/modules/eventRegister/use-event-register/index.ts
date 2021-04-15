@@ -5,8 +5,8 @@ import {
   Question
 } from "@/apollo/types";
 import useUser from "@/modules/authentication";
-import { computed, reactive, ref, watch } from "vue";
-import { useEventResgister } from "../api";
+import { computed, reactive, ref } from "vue";
+import { useEventRegister } from "../api";
 import { updateAnswer } from "../api";
 import { useRoute, useRouter } from "vue-router";
 import { useResult } from "@vue/apollo-composable";
@@ -19,7 +19,7 @@ const useEventRegister = () => {
   const route = useRoute();
   const router = useRouter();
   const eventID = Number(route.params.id);
-  const { onResult, onError, result } = useEventResgister({ id: eventID });
+  const { onResult, onError, result } = useEventRegister({ id: eventID });
   const event = useResult(result, null, data => data.event);
 
   onError(() => {

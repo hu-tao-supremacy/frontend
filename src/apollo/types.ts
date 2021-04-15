@@ -47,7 +47,6 @@ export type AuthenticateOutput = {
 };
 
 export type CreateEventInput = {
-  id: Scalars["Int"];
   organizationId: Scalars["Int"];
   description: Scalars["String"];
   name: Scalars["String"];
@@ -206,6 +205,7 @@ export type Mutation = {
   __typename?: "Mutation";
   setEventQuestions: Scalars["Boolean"];
   createEvent: Event;
+  updateEvent: Event;
   authenticate: AuthenticateOutput;
   upload: Scalars["Boolean"];
   createOrganization: Organization;
@@ -213,7 +213,8 @@ export type Mutation = {
   addMembersToOrganization: Organization;
   removeMembersFromOrganization: Organization;
   updateUser: User;
-  setUserInterests: Scalars["Boolean"];
+  setInterestedTags: Scalars["Boolean"];
+  setInterestedEvents: Scalars["Boolean"];
   createJoinRequest: Scalars["Boolean"];
   deleteJoinRequest: Scalars["Boolean"];
 };
@@ -224,6 +225,10 @@ export type MutationSetEventQuestionsArgs = {
 
 export type MutationCreateEventArgs = {
   input: CreateEventInput;
+};
+
+export type MutationUpdateEventArgs = {
+  input: UpdateEventInput;
 };
 
 export type MutationAuthenticateArgs = {
@@ -254,8 +259,12 @@ export type MutationUpdateUserArgs = {
   input: UpdateUserInput;
 };
 
-export type MutationSetUserInterestsArgs = {
-  input: SetUserInterestsInput;
+export type MutationSetInterestedTagsArgs = {
+  tags: Array<Scalars["Int"]>;
+};
+
+export type MutationSetInterestedEventsArgs = {
+  events: Array<Scalars["Int"]>;
 };
 
 export type MutationCreateJoinRequestArgs = {
@@ -410,14 +419,6 @@ export type SetEventTagsTagInput = {
   id: Scalars["Int"];
 };
 
-export type SetUserInterestsInput = {
-  tags: Array<SetUserInterestsTagInput>;
-};
-
-export type SetUserInterestsTagInput = {
-  id: Scalars["Int"];
-};
-
 export type Tag = {
   __typename?: "Tag";
   id: Scalars["Int"];
@@ -429,6 +430,18 @@ export type TagInput = {
   id: Scalars["Int"];
   name: Scalars["String"];
   events: Array<EventInput>;
+};
+
+export type UpdateEventInput = {
+  organizationId?: Maybe<Scalars["Int"]>;
+  description?: Maybe<Scalars["String"]>;
+  name?: Maybe<Scalars["String"]>;
+  attendeeLimit?: Maybe<Scalars["Int"]>;
+  contact?: Maybe<Scalars["String"]>;
+  coverImage?: Maybe<Scalars["Upload"]>;
+  posterImage?: Maybe<Scalars["Upload"]>;
+  tags?: Maybe<Array<SetEventTagsTagInput>>;
+  id: Scalars["Int"];
 };
 
 export type UpdateMembersInOrganizationInput = {

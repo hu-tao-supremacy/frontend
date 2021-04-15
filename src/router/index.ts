@@ -11,7 +11,8 @@ const EventRegister = () =>
 const OrgHome = () => import("@/modules/organization/home/OrgHomePage.vue");
 const Login = () => import("@/modules/login/Login.vue");
 const NotFound = () => import("@/modules/not-found/NotFound.vue");
-const PageSkeleton = () => import("@/commons/components/PageSkeleton.vue");
+const PageSkeleton = () =>
+  import("@/commons/components/page-skeleton/PageSkeleton.vue");
 const PageSkeletonOrgTeam = () =>
   import(
     "@/commons/components/page-skeleton/organization/PageSkeletonOrgTeam.vue"

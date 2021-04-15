@@ -23,11 +23,11 @@ const useHome = () => {
   });
 
   const onlineEvents = computed(() => {
-    return events.value ? events.value?.slice(11, 15) : generateDummyArray(4);
+    return events.value ? events.value?.slice(12, 16) : generateDummyArray(4);
   });
 
   const nearbyEvents = computed(() => {
-    return events.value ? events.value?.slice(15, 19) : generateDummyArray(4);
+    return events.value ? events.value?.slice(16, 20) : generateDummyArray(4);
   });
 
   function toggleModal() {

@@ -1,4 +1,4 @@
-import { computed, reactive, ref } from "vue";
+import { computed, ref } from "vue";
 import { useResult } from "@vue/apollo-composable";
 import { generateDummyArray } from "./utils";
 import { useFeaturedEvents, useFeaturedOrganizations } from "../api";

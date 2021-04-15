@@ -3,18 +3,18 @@ import { getStartEndTime } from "@/commons/utils/date";
 import { format } from "date-fns";
 import { computed } from "vue";
 
-const useEventSchedule = (durations?: EventDuration, location?: Location) => {
+const useEventSchedule = (duration?: EventDuration, location?: Location) => {
   const locationText = computed(() => {
     return location?.name || "Location: TBA";
   });
 
-  if (!durations) {
+  if (!duration) {
     return { day: null, month: null, time: "Time: TBA", locationText };
   }
 
-  const day = computed(() => format(new Date(durations.start), "dd"));
-  const month = computed(() => format(new Date(durations.start), "MMM"));
-  const time = computed(() => getStartEndTime(durations));
+  const day = computed(() => format(new Date(duration.start), "dd"));
+  const month = computed(() => format(new Date(duration.start), "MMM"));
+  const time = computed(() => getStartEndTime(duration));
 
   return { day, month, time, locationText };
 };

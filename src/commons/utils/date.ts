@@ -16,7 +16,7 @@ export const getDisplayDate = (durations?: EventDuration[]) => {
   return startDateText;
 };
 
-export const getStartEndTime = (duration?: EventDuration) => {
+export const getStartEndTime = (duration: EventDuration) => {
   if (!duration) {
     return;
   }

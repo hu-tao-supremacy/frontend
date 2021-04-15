@@ -1,10 +1,11 @@
 import { computed, ref } from "vue";
 import { TicketStatus } from "@/commons/constant";
+import { UserEventStatus } from "@/apollo/types";
 
 export default function useWallet() {
-  const ticketStatusView = ref(TicketStatus.ONGOING);
+  const ticketStatusView = ref(UserEventStatus.Approved);
 
-  function changeTicketStatusView(ticketStatus: TicketStatus) {
+  function changeTicketStatusView(ticketStatus: UserEventStatus) {
     ticketStatusView.value = ticketStatus;
   }
 
@@ -14,15 +15,15 @@ export default function useWallet() {
   }
 
   const isOngoingTicketView = computed(() => {
-    return ticketStatusView.value === TicketStatus.ONGOING;
+    return ticketStatusView.value === UserEventStatus.Approved;
   });
 
   const isPendingTicketView = computed(() => {
-    return ticketStatusView.value === TicketStatus.PENDING;
+    return ticketStatusView.value === UserEventStatus.Pending;
   });
 
   const isHistoryTicketView = computed(() => {
-    return ticketStatusView.value === TicketStatus.HISTORY;
+    return ticketStatusView.value === UserEventStatus.Rejected;
   });
 
   return {

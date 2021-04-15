@@ -10,8 +10,8 @@
           :width="200"
           :height="200"
           alt="will change to api"
-          :url="profile.img"
-          :placeholder="profile.imgHash"
+          :url="profile.profilePictureUrl"
+          :placeholder="profile.profilePictureHash"
           class="object-cover w-full h-full"
         />
       </div>
@@ -30,20 +30,15 @@
         </div>
         <p class="text-gray-6 mb-1">{{ profile.email }}</p>
         <div class="flex items-center">
-          <p class="mr-1">{{ profile.like }}</p>
-          <h3 class="mr-1">Like</h3>
           <div class="w-1 h-1 rounded-full bg-primary mr-1"></div>
-          <p class="mr-1">{{ profile.ticket }}</p>
-          <h3 class="mr-1">Tickets</h3>
-          <div class="w-1 h-1 rounded-full bg-primary mr-1"></div>
-          <p class="mr-1">{{ profile.following }}</p>
-          <h3>Following</h3>
+          <p class="mr-1">{{ profile.events.length }}</p>
+          <h3 class="mr-1">Events attended</h3>
         </div>
       </div>
     </section>
     <section class="flex font-heading text-xl relative mb-3">
       <div
-        @click="changeTicketStatusView(TicketStatus.ONGOING)"
+        @click="changeTicketStatusView(UserEventStatus.Approved)"
         class="mr-3.5 cursor-pointer flex flex-col z-10"
       >
         <h2 class="mb-1" :class="{ 'text-primary': isOngoingTicketView }">
@@ -58,7 +53,7 @@
         ></div>
       </div>
       <div
-        @click="changeTicketStatusView(TicketStatus.PENDING)"
+        @click="changeTicketStatusView(UserEventStatus.Pending)"
         class="mr-3.5 cursor-pointer flex flex-col z-10"
       >
         <h2 class="mb-1" :class="{ 'text-primary': isPendingTicketView }">
@@ -73,7 +68,7 @@
         ></div>
       </div>
       <div
-        @click="changeTicketStatusView(TicketStatus.HISTORY)"
+        @click="changeTicketStatusView(UserEventStatus.Rejected)"
         class="cursor-pointer flex flex-col z-10"
       >
         <h2 class="mb-1" :class="{ 'text-primary': isHistoryTicketView }">
@@ -92,20 +87,19 @@
     <section class="flex flex-col">
       <TicketComponent
         v-show="isOngoingTicketView"
-        v-for="(ticket, index) in ongoingTickets"
+        v-for="(ticket, index) in findApprovedEvents"
         :key="index"
-        :ticketStatus="TicketStatus.ONGOING"
-        :event="ticket.event"
-        :organization="ticket.organization"
-        :ticketID="ticket.ticketID"
+        :ticketStatus="UserEventStatus.Approved"
+        :event="ticket"
+        :ticketID="ticket.attendance.ticket"
         :parentBgColor="'bg-white'"
-        :class="{ 'mb-2': index != ongoingTickets.length - 1 }"
+        :class="{ 'mb-2': index != findApprovedEvents.length - 1 }"
       />
-      <TicketComponent
+      <!-- <TicketComponent
         v-show="isPendingTicketView"
         v-for="(ticket, index) in pendingTickets"
         :key="index"
-        :ticketStatus="TicketStatus.PENDING"
+        :ticketStatus="UserEventStatus.Pending"
         :event="ticket.event"
         :organization="ticket.organization"
         :parentBgColor="'bg-white'"
@@ -115,25 +109,24 @@
         v-show="isHistoryTicketView"
         v-for="(ticket, index) in historyTickets"
         :key="index"
-        :ticketStatus="TicketStatus.HISTORY"
+        :ticketStatus="UserEventStatus.Rejected"
         :event="ticket.event"
         :organization="ticket.organization"
         :ticketID="ticket.ticketID"
         :bgColor="'bg-white'"
         :class="{ 'mb-2': index != historyTickets.length - 1 }"
-      />
+      /> -->
     </section>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
+import { computed, defineComponent, PropType } from "vue";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import EditIcon from "@/assets/Edit.vue";
 import TicketComponent from "@/modules/wallet/ticket/Ticket.vue";
-import { Profile, Ticket } from "@/commons/Interfaces";
 import useWallet from "./useWallet";
-import { TicketStatus } from "@/commons/constant";
+import { User, UserEventStatus } from "@/apollo/types";
 
 export default defineComponent({
   name: "Wallet",
@@ -144,23 +137,11 @@ export default defineComponent({
   },
   props: {
     profile: {
-      type: Object as () => Profile,
-      required: true
-    },
-    ongoingTickets: {
-      type: Array as PropType<Array<Ticket>>,
-      required: true
-    },
-    pendingTickets: {
-      type: Array as PropType<Array<Ticket>>,
-      required: true
-    },
-    historyTickets: {
-      type: Array as PropType<Array<Ticket>>,
+      type: Object as () => User,
       required: true
     }
   },
-  setup() {
+  setup(props) {
     const {
       ticketStatusView,
       changeTicketStatusView,
@@ -170,6 +151,13 @@ export default defineComponent({
       isHistoryTicketView
     } = useWallet();
 
+    const findApprovedEvents = computed(() =>
+      props.profile.events.filter(
+        value => value.attendance?.status === UserEventStatus.Approved
+      )
+    );
+    console.log(findApprovedEvents);
+
     return {
       ticketStatusView,
       changeTicketStatusView,
@@ -177,7 +165,8 @@ export default defineComponent({
       isOngoingTicketView,
       isPendingTicketView,
       isHistoryTicketView,
-      TicketStatus
+      UserEventStatus,
+      findApprovedEvents
     };
   }
 });

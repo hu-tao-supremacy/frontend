@@ -1,18 +1,26 @@
-import { TicketStatus } from "@/commons/constant";
 import { computed } from "vue";
+import { Event, EventDuration, UserEventStatus } from "@/apollo/types";
+import { getDisplayDate, getMainTimetable } from "@/commons/utils/date";
 
-export default function useTicket(ticketStatus: TicketStatus) {
+export default function useTicket(ticketStatus: UserEventStatus, event: Event) {
   const isPending = computed(() => {
-    return ticketStatus === TicketStatus.PENDING;
+    return ticketStatus === UserEventStatus.Pending;
   });
 
   const isOngoing = computed(() => {
-    return ticketStatus === TicketStatus.ONGOING;
+    return ticketStatus === UserEventStatus.Approved;
   });
 
   const isHistory = computed(() => {
-    return ticketStatus === TicketStatus.HISTORY;
+    return ticketStatus === UserEventStatus.Pending;
   });
+  const date = computed(() => {
+    return getDisplayDate(event?.durations as EventDuration[]);
+  });
+
+  const time = computed(() =>
+    getMainTimetable(event?.durations as EventDuration[])
+  );
 
   function checkIn() {
     if (!isOngoing.value) return;
@@ -30,6 +38,8 @@ export default function useTicket(ticketStatus: TicketStatus) {
     isOngoing,
     isHistory,
     checkIn,
-    giveFeedback
+    giveFeedback,
+    date,
+    time
   };
 }

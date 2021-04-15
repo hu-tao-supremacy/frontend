@@ -333,6 +333,7 @@ export type OrganizationInput = {
 export type Query = {
   __typename?: "Query";
   upcomingEvents: Array<Event>;
+  featuredEvents: Array<Event>;
   recommendedEvents: Array<Event>;
   event: Event;
   organizations: Array<Organization>;
@@ -603,6 +604,7 @@ export type GetCurrentUserQueryVariables = Exact<{ [key: string]: never }>;
 export type GetCurrentUserQuery = { __typename?: "Query" } & {
   currentUser: { __typename?: "User" } & Pick<
     User,
+    | "id"
     | "firstName"
     | "lastName"
     | "phoneNumber"
@@ -616,7 +618,39 @@ export type GetCurrentUserQuery = { __typename?: "Query" } & {
     | "profilePictureUrl"
     | "didSetup"
     | "gender"
-  >;
+  > & {
+      events: Array<
+        { __typename?: "Event" } & Pick<
+          Event,
+          "id" | "name" | "posterImageUrl" | "posterImageHash"
+        > & {
+            durations: Array<
+              { __typename?: "EventDuration" } & Pick<
+                EventDuration,
+                "id" | "start" | "finish"
+              >
+            >;
+            organization: { __typename?: "Organization" } & Pick<
+              Organization,
+              | "id"
+              | "name"
+              | "abbreviation"
+              | "profilePictureUrl"
+              | "profilePictureHash"
+            >;
+            location?: Maybe<
+              { __typename?: "Location" } & Pick<Location, "id" | "name">
+            >;
+            tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
+            attendance?: Maybe<
+              { __typename?: "UserEvent" } & Pick<
+                UserEvent,
+                "id" | "ticket" | "status"
+              >
+            >;
+          }
+      >;
+    };
 };
 
 export type GetQuestionGroupsQueryVariables = Exact<{ [key: string]: never }>;
@@ -705,7 +739,7 @@ export type GetQuestionsByEventIdQuery = { __typename?: "Query" } & {
             questions: Array<
               { __typename?: "Question" } & Pick<
                 Question,
-                "id" | "seq" | "title"
+                "id" | "isOptional" | "seq" | "title"
               >
             >;
           }

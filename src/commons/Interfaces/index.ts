@@ -67,3 +67,8 @@ export interface Interest {
   img: string;
   imgHash: string;
 }
+
+export interface TextAreaRef {
+  style: { height: string };
+  scrollHeight: number;
+}

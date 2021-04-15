@@ -296,30 +296,6 @@ export const testData = {
       name: "Event #12",
       img: "https://picsum.photos/225",
       imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
-    },
-    {
-      id: 27,
-      name: "Event #13",
-      img: "https://picsum.photos/226",
-      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
-    },
-    {
-      id: 28,
-      name: "Event #14",
-      img: "https://picsum.photos/227",
-      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
-    },
-    {
-      id: 29,
-      name: "Event #15",
-      img: "https://picsum.photos/228",
-      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
-    },
-    {
-      id: 30,
-      name: "Event #16",
-      img: "https://picsum.photos/229",
-      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
     }
   ]
 };

@@ -10,8 +10,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref } from "vue";
+import { defineComponent, onMounted, Ref, ref } from "vue";
 import { UPDATE_MODEL_VALUE } from "@/commons/constant";
+import { TextAreaRef } from "@/commons/Interfaces";
 
 export default defineComponent({
   name: "BaseExpandableTextArea",
@@ -34,10 +35,7 @@ export default defineComponent({
   },
   emits: [UPDATE_MODEL_VALUE],
   setup(props, context) {
-    const textAreaRef = ref<null | {
-      style: { height: string };
-      scrollHeight: number;
-    }>(null);
+    const textAreaRef: Ref<TextAreaRef | null> = ref(null);
 
     function adjustHeight() {
       if (textAreaRef.value) {

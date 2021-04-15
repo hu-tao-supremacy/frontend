@@ -21,7 +21,7 @@ const useInfoBanner = (
   const location = computed(() => event?.value?.location?.name || "-");
   const hasAttended = computed(() => !!event?.value?.attendance);
   const registerMessage = computed(() =>
-    hasAttended.value ? "Register" : "Registered"
+    hasAttended.value ? "Registered" : "Register"
   );
 
   const register = () => {

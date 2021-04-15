@@ -72,7 +72,7 @@
       </div>
       <base-button
         v-if="!isHistory"
-        @click="checkIn"
+        @click="checkIn(event.id)"
         :disabled="isPending"
         class="check-in-btn self-center mt-auto h-3.5 w-full"
         >Check in</base-button
@@ -137,7 +137,7 @@ export default defineComponent({
       date,
       time
     } = useTicket(props.ticketStatus, props.event);
-    console.log(props.event);
+
     return {
       isPending,
       isOngoing,

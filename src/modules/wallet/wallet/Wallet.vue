@@ -156,7 +156,6 @@ export default defineComponent({
         value => value.attendance?.status === UserEventStatus.Approved
       )
     );
-    console.log(findApprovedEvents);
 
     return {
       ticketStatusView,

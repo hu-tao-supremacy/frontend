@@ -46,7 +46,7 @@ const router = createRouter({
           component: Wallet
         },
         {
-          path: "user-checkin",
+          path: "user-checkin/:id",
           component: UserCheckIn,
           beforeEnter: authGuard
         },

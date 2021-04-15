@@ -33,7 +33,7 @@
       />
       <div
         @click="createNewTeam"
-        class="flex items-center h-6 px-1.5 border-2 border-blue-4 rounded-lg overflow-hidden text-white cursor-pointer"
+        class="group flex items-center h-6 px-1.5 border-2 border-blue-4 rounded-lg overflow-hidden text-white cursor-pointer hover:bg-white  hover:border-transparent hover:text-blue-11"
         :class="{ 'w-6': !isExpand, 'w-28': isExpand }"
       >
         <base-icon :width="24" :height="24" class="flex-shrink-0"

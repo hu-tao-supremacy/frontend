@@ -19,6 +19,7 @@ export const useEventById = (variables: GetEventByIdQueryVariables) =>
             name
           }
           organization {
+            id
             name
             abbreviation
             description

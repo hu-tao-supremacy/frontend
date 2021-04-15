@@ -1,10 +1,10 @@
 <template>
   <div
+    @click="selectOption"
     class="flex flex-col w-25 bg-white rounded-b-lg pt-0.5 pb-1 font-heading text-lg"
   >
     <router-link
       to="/org"
-      @click="selectOption"
       class="group flex items-center rounded-sm px-3 mb-0.5 cursor-pointer hover:text-white hover:bg-primary"
     >
       <base-icon
@@ -18,7 +18,6 @@
     <span class="mx-2 border-t border-gray-3 mb-0.5"></span>
     <router-link
       to="/wallet"
-      @click="selectOption"
       class="group flex items-center rounded-sm px-3 mb-1 cursor-pointer hover:text-white hover:bg-primary"
     >
       <base-icon
@@ -31,7 +30,6 @@
     </router-link>
     <router-link
       to="/wallet"
-      @click="selectOption"
       class="group flex items-center rounded-sm px-3 mb-0.5 cursor-pointer hover:text-white hover:bg-primary"
     >
       <base-icon
@@ -45,7 +43,6 @@
     <span class="mx-2 border-t border-gray-3 mb-0.5"></span>
     <router-link
       to="/wallet"
-      @click="selectOption"
       class="group flex items-center rounded-sm px-3 mb-1 cursor-pointer hover:text-white hover:bg-primary"
     >
       <base-icon

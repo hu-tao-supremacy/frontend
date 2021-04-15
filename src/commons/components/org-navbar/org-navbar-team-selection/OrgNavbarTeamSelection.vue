@@ -113,8 +113,7 @@ export default defineComponent({
   props: {
     isExpand: {
       type: Boolean,
-      required: true,
-      default: false
+      required: true
     },
     organization: {
       type: Object as () => Organization,
@@ -122,8 +121,7 @@ export default defineComponent({
     },
     isSelected: {
       type: Boolean,
-      required: true,
-      default: false
+      required: true
     }
   },
   setup(props) {

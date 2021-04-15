@@ -15,7 +15,6 @@ const useEventRegister = () => {
   const { user } = useUser();
   const step = ref(1);
   const questionData = reactive([] as Question[]);
-  const answerData = reactive({} as CreateJoinRequestInput);
   const { addAnswer } = updateAnswer();
   const route = useRoute();
   const router = useRouter();
@@ -29,7 +28,6 @@ const useEventRegister = () => {
 
   onResult(result => {
     Object.assign(questionData, result.data.event.questionGroups[0].questions);
-    answerData.eventId = result.data.event.questionGroups[0].eventId;
   });
 
   const increaseStep = () => {
@@ -41,7 +39,6 @@ const useEventRegister = () => {
   };
 
   const sendAnswer = () => {
-    step.value++;
     const output: CreateJoinRequestAnswerInput[] = questionData.map(
       question => {
         return {
@@ -50,8 +47,12 @@ const useEventRegister = () => {
         };
       }
     );
-    answerData.answers = output;
+    const answerData = {
+      answers: output,
+      eventId: event.value?.id
+    } as CreateJoinRequestInput;
     addAnswer({ input: answerData });
+    increaseStep();
   };
 
   const checkStep2 = (step: number) => {

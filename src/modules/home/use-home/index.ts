@@ -12,7 +12,11 @@ const useHome = () => {
   const featuredOrganizations = useResult(
     featuredOrganizationsResult,
     null,
-    data => data.featuredOrganizations
+    data => {
+      if (data.featuredOrganizations.length <= 4)
+        return data.featuredOrganizations;
+      return data.featuredOrganizations.slice(0, 4);
+    }
   );
 
   function toggleModal() {

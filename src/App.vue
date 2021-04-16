@@ -1,31 +1,37 @@
 <template>
-    <div id="nav">
-        <a-button type="primary"> Primary </a-button>
-        <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+  <AuthProvider>
+    <Signup v-if="isSignup" />
+    <router-view></router-view>
+  </AuthProvider>
 </template>
 
-<style>
-#app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-}
+<script lang="ts">
+import { computed, defineAsyncComponent, defineComponent, provide } from "vue";
+import apolloClient from "./apollo/client";
+import { DefaultApolloClient } from "@vue/apollo-composable";
+import AuthProvider from "@/modules/authentication/components/AuthProvider.vue";
+import { useRoute } from "vue-router";
 
-#nav {
-    padding: 30px;
-}
+const Signup = defineAsyncComponent(() =>
+  import("@/modules/signup/Signup.vue")
+);
 
-#nav a {
-    font-weight: bold;
-    color: #2c3e50;
-}
+export default defineComponent({
+  name: "App",
+  components: {
+    AuthProvider,
+    Signup
+  },
+  setup() {
+    provide(DefaultApolloClient, apolloClient);
 
-#nav a.router-link-exact-active {
-    color: #42b983;
-}
-</style>
+    const route = useRoute();
+    const isSignup = computed(() => {
+      const signup = route.query.signup;
+      return signup === "1";
+    });
+
+    return { isSignup };
+  }
+});
+</script>

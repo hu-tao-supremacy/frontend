@@ -1,11 +1,16 @@
-import { createApp } from 'vue';
-import { Button } from 'ant-design-vue';
-// import 'ant-design-vue/dist/antd.css';
-import App from './App.vue';
-import router from './router';
+import { createApp } from "vue";
+import App from "./App.vue";
+import "./index.css";
+import router from "./router";
+import BaseIcon from "./commons/UI/BaseIcon.vue";
+import VClickOutside from "@/commons/utils/VClickOutside";
 
 const app = createApp(App);
 
-app.use(Button);
+app.use(router);
 
-app.use(router).mount('#app');
+app.component("base-icon", BaseIcon);
+
+app.directive("clickOutside", VClickOutside);
+
+app.mount("#app");

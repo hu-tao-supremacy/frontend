@@ -1,0 +1,113 @@
+<template>
+  <div
+    class="flex justify-between h-8 w-full px-8 py-2 items-center sticky top-0 bg-white z-40"
+  >
+    <section class="flex items-center">
+      <router-link to="/">
+        <base-icon
+          width="160"
+          height="40"
+          viewBox="0 0 161 40"
+          class="mr-6 text-transparent"
+          ><OnePassLogo
+        /></base-icon>
+      </router-link>
+      <BaseSearch class="mr-6 h-4" :placeholder="'Search...'" />
+      <router-link
+        to="/"
+        class="font-heading text-primary hover:text-primary-7 text-lg mr-6 cursor-pointer"
+      >
+        Events
+      </router-link>
+      <router-link
+        to="/test"
+        class="font-heading text-primary hover:text-primary-7 text-lg cursor-pointer"
+      >
+        About One Pass
+      </router-link>
+    </section>
+    <base-button class="sign-in-btn w-20" @click="login" v-if="!isLogIn"
+      >Login in with CU SSO</base-button
+    >
+    <section
+      v-else
+      class="flex items-center relative"
+      v-click-outside="hideDropDown"
+    >
+      <UserProfile :user="user" />
+      <div @click="toggleDropDown" class="flex items-center cursor-pointer">
+        <div class="text-lg font-heading max-w-20 truncate mr-1.5">
+          {{ nameShown }}
+        </div>
+        <base-icon v-show="!isDropDownShown" :height="14" :width="14">
+          <ChevronDownIcon />
+        </base-icon>
+        <base-icon v-show="isDropDownShown" :height="14" :width="14">
+          <ChevronUpIcon />
+        </base-icon>
+      </div>
+      <NavbarDropDownOptions
+        v-show="isDropDownShown"
+        @select-navbar-option="hideDropDown"
+        @logout="logout"
+        class="w-25 absolute top-full right-0 mt-1.5"
+      />
+    </section>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+import BaseButton from "@/commons/UI/BaseButton.vue";
+import BaseSearch from "@/commons/UI/BaseSearch.vue";
+import UserProfile from "@/commons/UI/user-profile/UserProfile.vue";
+import OnePassLogo from "@/assets/OnePassLogoColor.vue";
+import ChevronDownIcon from "@/assets/ChevronDown.vue";
+import ChevronUpIcon from "@/assets/ChevronUp.vue";
+import NavbarDropDownOptions from "./NavbarDropDownOptions.vue";
+import usePageNavbar from "./usePageNavbar";
+import { login } from "@/commons/utils/auth";
+
+export default defineComponent({
+  name: "PageNavbar",
+  components: {
+    BaseButton,
+    BaseSearch,
+    UserProfile,
+    OnePassLogo,
+    ChevronDownIcon,
+    ChevronUpIcon,
+    NavbarDropDownOptions
+  },
+  setup() {
+    const {
+      isLogIn,
+      imgUrl,
+      nameShown,
+      isDropDownShown,
+      user,
+      toggleDropDown,
+      hideDropDown,
+      logout
+    } = usePageNavbar();
+
+    return {
+      isLogIn,
+      imgUrl,
+      nameShown,
+      isDropDownShown,
+      user,
+      login,
+      toggleDropDown,
+      hideDropDown,
+      logout
+    };
+  }
+});
+</script>
+
+<style scoped>
+.sign-in-btn {
+  height: 30px;
+}
+</style>

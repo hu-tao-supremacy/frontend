@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-body text-base text-blue-11;
+  }
+
+  input {
+    -webkit-appearance: none;
+  }
+
+  .default-modal-width {
+    max-width: 570px;
+  }
+
+  .content-max-width-s {
+    max-width: 794px;
+  }
+
+  .content-max-width {
+    max-width: 960px;
+  }
+}

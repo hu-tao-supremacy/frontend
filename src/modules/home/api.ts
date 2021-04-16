@@ -22,6 +22,7 @@ export const useFeaturedEvents = () =>
           finish
         }
         location {
+          id
           name
         }
         tags {

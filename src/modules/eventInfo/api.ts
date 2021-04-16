@@ -15,9 +15,11 @@ export const useEventById = (variables: GetEventByIdQueryVariables) =>
           coverImageUrl
           coverImageHash
           location {
+            id
             name
           }
           organization {
+            id
             name
             abbreviation
             description

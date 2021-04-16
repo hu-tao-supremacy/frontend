@@ -21,7 +21,7 @@
       <div class="flex flex-col w-1/3">
         <div>Gender</div>
         <BaseTextInput
-          :value="gender"
+          :value="user.gender"
           class="w-full h-4 disabled: bg-white text-primary-6"
           disabled
         />
@@ -39,7 +39,7 @@
       <div class="flex flex-col w-1/3 mr-4">
         <div>Faculty</div>
         <BaseTextInput
-          :value="faculty"
+          :value="user.chulaId"
           class="w-full h-4 disabled: bg-white text-primary-6"
           disabled
         />
@@ -47,7 +47,7 @@
       <div class="flex flex-col w-1/3">
         <div>Year</div>
         <BaseTextInput
-          :value="user.academicYear"
+          :value="user.chulaId"
           class="w-full h-4 disabled: bg-white text-primary-6"
           disabled
         />
@@ -126,11 +126,6 @@ export default defineComponent({
   components: {
     BaseTextInput,
     BaseTextArea
-  },
-  setup() {
-    const faculty = "Engineering";
-    const gender = "M";
-    return { faculty, gender };
   }
 });
 </script>

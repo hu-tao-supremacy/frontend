@@ -150,7 +150,7 @@ export default defineComponent({
     } = useWallet();
 
     const findApprovedEvents = computed(() =>
-      props.profile.events?.filter(
+      props.profile.history?.filter(
         value => value.attendance?.status === UserEventStatus.Approved
       )
     );

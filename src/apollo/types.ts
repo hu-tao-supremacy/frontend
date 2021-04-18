@@ -341,6 +341,7 @@ export type Query = {
   featuredOrganizations: Array<Organization>;
   organization: Organization;
   currentUser: User;
+  searchUser: Array<User>;
   user: User;
   tags: Array<Tag>;
   tag: Tag;
@@ -352,6 +353,10 @@ export type QueryEventArgs = {
 
 export type QueryOrganizationArgs = {
   id: Scalars["Int"];
+};
+
+export type QuerySearchUserArgs = {
+  keyword: Scalars["String"];
 };
 
 export type QueryUserArgs = {
@@ -505,7 +510,7 @@ export type UpdateUserInput = {
   gender?: Maybe<Gender>;
   academicYear?: Maybe<Scalars["Int"]>;
   organizations?: Maybe<Array<UserOrganizationInput>>;
-  events?: Maybe<Array<EventInput>>;
+  history?: Maybe<Array<EventInput>>;
   profilePicture?: Maybe<Scalars["Upload"]>;
 };
 
@@ -528,7 +533,7 @@ export type User = {
   gender: Gender;
   academicYear?: Maybe<Scalars["Int"]>;
   organizations: Array<UserOrganization>;
-  events: Array<Event>;
+  history: Array<Event>;
   interests: Array<Tag>;
 };
 
@@ -580,7 +585,7 @@ export type UserInput = {
   gender: Gender;
   academicYear?: Maybe<Scalars["Int"]>;
   organizations: Array<UserOrganizationInput>;
-  events: Array<EventInput>;
+  history: Array<EventInput>;
   interests: Array<TagInput>;
 };
 
@@ -631,7 +636,7 @@ export type GetCurrentUserQuery = { __typename?: "Query" } & {
     | "didSetup"
     | "gender"
   > & {
-      events: Array<
+      history: Array<
         { __typename?: "Event" } & Pick<
           Event,
           "id" | "name" | "posterImageUrl" | "posterImageHash"
@@ -700,9 +705,12 @@ export type GetEventByIdQuery = { __typename?: "Query" } & {
     | "coverImageUrl"
     | "coverImageHash"
   > & {
-      location?: Maybe<{ __typename?: "Location" } & Pick<Location, "name">>;
+      location?: Maybe<
+        { __typename?: "Location" } & Pick<Location, "id" | "name">
+      >;
       organization: { __typename?: "Organization" } & Pick<
         Organization,
+        | "id"
         | "name"
         | "abbreviation"
         | "description"
@@ -744,7 +752,9 @@ export type GetQuestionsByEventIdQuery = { __typename?: "Query" } & {
           "id" | "start" | "finish"
         >
       >;
-      location?: Maybe<{ __typename?: "Location" } & Pick<Location, "name">>;
+      location?: Maybe<
+        { __typename?: "Location" } & Pick<Location, "id" | "name">
+      >;
       questionGroups: Array<
         { __typename?: "QuestionGroup" } & Pick<QuestionGroup, "eventId"> & {
             questions: Array<
@@ -788,7 +798,9 @@ export type GetFeaturedEventsQuery = { __typename?: "Query" } & {
             "id" | "start" | "finish"
           >
         >;
-        location?: Maybe<{ __typename?: "Location" } & Pick<Location, "name">>;
+        location?: Maybe<
+          { __typename?: "Location" } & Pick<Location, "id" | "name">
+        >;
         tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
       }
   >;
@@ -850,19 +862,7 @@ export type GetEventUserCheckinQuery = { __typename?: "Query" } & {
         >
       >;
       attendance?: Maybe<
-        { __typename?: "UserEvent" } & Pick<
-          UserEvent,
-          "id" | "userId" | "ticket"
-        > & {
-            user: { __typename?: "User" } & Pick<
-              User,
-              | "firstName"
-              | "lastName"
-              | "email"
-              | "phoneNumber"
-              | "profilePictureUrl"
-            >;
-          }
+        { __typename?: "UserEvent" } & Pick<UserEvent, "id" | "ticket">
       >;
     };
 };

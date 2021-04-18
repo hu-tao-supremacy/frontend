@@ -20,13 +20,9 @@
           <h1 class="font-heading text-4xl mr-3">
             {{ profile.firstName }} {{ profile.lastName }}
           </h1>
-          <base-icon
-            @click="editInfo"
-            width="20px"
-            height="20px"
-            class="cursor-pointer"
-            ><EditIcon
-          /></base-icon>
+          <base-transparent-button @click="editInfo"
+            ><base-icon width="20px" height="20px"><EditIcon /></base-icon
+          ></base-transparent-button>
         </div>
         <p class="text-gray-6 mb-1">{{ profile.email }}</p>
         <div class="flex items-center">
@@ -121,8 +117,9 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, PropType } from "vue";
+import { computed, defineComponent } from "vue";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
+import BaseTransparentButton from "@/commons/UI/BaseTransparentButton.vue";
 import EditIcon from "@/assets/Edit.vue";
 import TicketComponent from "@/modules/wallet/ticket/Ticket.vue";
 import useWallet from "./useWallet";
@@ -132,6 +129,7 @@ export default defineComponent({
   name: "Wallet",
   components: {
     LazyImage,
+    BaseTransparentButton,
     EditIcon,
     TicketComponent
   },

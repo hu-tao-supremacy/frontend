@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import { User } from "@/apollo/types";
-import { defineComponent } from "vue";
+import { defineComponent, toRefs } from "vue";
 import useUserProfile from "./useUserProfile";
 
 export default defineComponent({
@@ -33,7 +33,8 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const { initial } = useUserProfile(props.user);
+    const { user } = toRefs(props);
+    const { initial } = useUserProfile(user);
     return { initial };
   }
 });

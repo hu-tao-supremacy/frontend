@@ -5,13 +5,13 @@
         :width="120"
         :height="160"
         alt="will change to api"
-        :url="event.img"
-        :placeholder="event.imgHash"
+        :url="event.posterImageUrl"
+        :placeholder="event.posterImageHash"
         class="object-cover w-full h-full"
       />
     </section>
     <section class="flex flex-col pt-2 px-2 pb-1 shadow-sm z-10">
-      <h1 class="text-blue-10 font-heading text-xl mb-1">{{ event.title }}</h1>
+      <h1 class="text-blue-10 font-heading text-xl mb-1">{{ event.name }}</h1>
       <div class="flex flex-wrap mb-1">
         <base-tag
           v-for="tag in event.tags"
@@ -29,13 +29,15 @@
             :width="100"
             :height="100"
             alt="will change to api"
-            :url="organization.img"
-            :placeholder="organization.imgHash"
+            :url="event.organization.profilePictureUrl"
+            :placeholder="event.organization.profilePictureHash"
             class="object-cover w-full h-full"
           />
         </div>
-        <h2 class="font-heading text-xl mr-1">{{ organization.shortName }}</h2>
-        <p class="text-sm">{{ organization.longName }}</p>
+        <h2 class="font-heading text-xl mr-1">
+          {{ event.organization.abbreviation }}
+        </h2>
+        <p class="text-sm">{{ event.organization.name }}</p>
       </div>
     </section>
     <section
@@ -54,30 +56,41 @@
     <section class="rounded-r-2xl flex flex-col pt-2 pb-1 px-2 shadow-sm">
       <div class="flex font-heading text-lg items-center mb-1">
         <h2 class="mr-1">Ticket ID:</h2>
-        <p class="text-primary">{{ ticketID }}</p>
+        <p v-if="isPending" class="text-primary">Pending</p>
+        <p v-else class="text-primary">{{ ticketID }}</p>
       </div>
       <div class="text-sm mb-1">
-        <base-icon-and-detail class="mb-1" :detail="event.date"
+        <base-icon-and-detail class="mb-1" :detail="date"
           ><CalendarIcon
         /></base-icon-and-detail>
-        <base-icon-and-detail class="mb-1" :detail="event.time"
+        <base-icon-and-detail class="mb-1" :detail="time"
           ><ClockIcon
         /></base-icon-and-detail>
-        <base-icon-and-detail :detail="event.location"
+        <base-icon-and-detail :detail="event.location.name"
           ><PinIcon
         /></base-icon-and-detail>
       </div>
-      <base-button
-        class="check-in-btn self-center mt-auto py-0.25 w-full"
-        @click="checkIn"
-        >Check in</base-button
-      >
+      <router-link :to="routerLinkId">
+        <base-button
+          v-if="!isHistory"
+          @click="checkIn"
+          :disabled="isPending"
+          class="check-in-btn self-center mt-auto h-3.5 w-full"
+          >Check in</base-button
+        >
+        <base-button
+          v-else
+          class="check-in-btn self-center mt-auto h-3.5 w-full"
+          @click="giveFeedback"
+          >Feedback</base-button
+        >
+      </router-link>
     </section>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, toRefs } from "vue";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import BaseTag from "@/commons/UI/BaseTag.vue";
 import BaseIconAndDetail from "@/commons/UI/BaseIconAndDetail.vue";
@@ -85,8 +98,8 @@ import BaseButton from "@/commons/UI/BaseButton.vue";
 import PinIcon from "@/assets/MapPin.vue";
 import ClockIcon from "@/assets/Clock.vue";
 import CalendarIcon from "@/assets/Calendar.vue";
-import { Event, Org } from "@/commons/Interfaces";
 import useTicket from "./useTicket";
+import { Event, UserEventStatus } from "@/apollo/types";
 
 export default defineComponent({
   name: "Ticket",
@@ -104,25 +117,40 @@ export default defineComponent({
       type: Object as () => Event,
       required: true
     },
-    organization: {
-      type: Object as () => Org,
-      required: true
-    },
     ticketID: {
-      type: String,
-      required: true,
-      default: "000000"
+      type: String
     },
     parentBgColor: {
       type: String,
       default: "bg-white"
+    },
+    ticketStatus: {
+      type: String as () => UserEventStatus,
+      required: true
     }
   },
-  setup() {
-    const { checkIn } = useTicket();
-
+  setup(props) {
+    const { event } = toRefs(props);
+    const {
+      isPending,
+      isOngoing,
+      isHistory,
+      checkIn,
+      giveFeedback,
+      date,
+      time,
+      routerLinkId
+    } = useTicket(props.ticketStatus, event);
+    console.log(routerLinkId.value);
     return {
-      checkIn
+      isPending,
+      isOngoing,
+      isHistory,
+      checkIn,
+      giveFeedback,
+      date,
+      time,
+      routerLinkId
     };
   }
 });

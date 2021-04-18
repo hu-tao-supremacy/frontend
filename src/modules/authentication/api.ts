@@ -8,14 +8,51 @@ export const useCurrentUser = (enabled: Ref<boolean>) =>
     gql`
       query getCurrentUser {
         currentUser {
+          id
           firstName
           lastName
+          phoneNumber
           email
           chulaId
+          academicYear
+          district
+          province
+          zipCode
           address
           profilePictureUrl
           didSetup
           gender
+          events {
+            id
+            name
+            durations {
+              id
+              start
+              finish
+            }
+            posterImageUrl
+            posterImageHash
+            organization {
+              id
+              name
+              abbreviation
+              profilePictureUrl
+              profilePictureHash
+            }
+            location {
+              id
+              name
+            }
+            tags {
+              id
+              name
+            }
+            attendance {
+              id
+              ticket
+              status
+            }
+          }
         }
       }
     `,

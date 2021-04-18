@@ -10,7 +10,7 @@
       <CardBanner class="w-full" :event="event" />
     </event-carousel-slide>
     <section class="carousel-misc absolute z-10 h-full flex items-center">
-      <div>
+      <div v-if="eventsList">
         <div
           v-for="(_, index) in eventsList"
           :key="index"
@@ -38,7 +38,7 @@ import { defineComponent } from "vue";
 import CardBanner from "../card-banner/CardBanner.vue";
 import EventCarouselSlide from "./EventCarouselSlide.vue";
 import useEventCarousel from "./useEventCarousel";
-import { Event } from "@/commons/Interfaces/index";
+import { GetFeaturedEventsQuery } from "@/apollo/types";
 
 export default defineComponent({
   name: "EventCarousel",
@@ -48,7 +48,7 @@ export default defineComponent({
   },
   props: {
     eventsList: {
-      type: Array as () => Event[],
+      type: Array as () => GetFeaturedEventsQuery["featuredEvents"],
       required: true
     }
   },

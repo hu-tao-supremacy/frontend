@@ -10,8 +10,8 @@
           :width="200"
           :height="200"
           alt="will change to api"
-          :url="profile.img"
-          :placeholder="profile.imgHash"
+          :url="profile.profilePictureUrl"
+          :placeholder="profile.profilePictureHash"
           class="object-cover w-full h-full"
         />
       </div>
@@ -30,45 +30,55 @@
         </div>
         <p class="text-gray-6 mb-1">{{ profile.email }}</p>
         <div class="flex items-center">
-          <p class="mr-1">{{ profile.like }}</p>
-          <h3 class="mr-1">Like</h3>
           <div class="w-1 h-1 rounded-full bg-primary mr-1"></div>
-          <p class="mr-1">{{ profile.ticket }}</p>
-          <h3 class="mr-1">Tickets</h3>
-          <div class="w-1 h-1 rounded-full bg-primary mr-1"></div>
-          <p class="mr-1">{{ profile.following }}</p>
-          <h3>Following</h3>
+          <p class="mr-1">{{ profile.events && profile.events.length }}</p>
+          <h3 class="mr-1">Events attended</h3>
         </div>
       </div>
     </section>
     <section class="flex font-heading text-xl relative mb-3">
       <div
-        @click="showOngoingTicket"
+        @click="changeTicketStatusView(UserEventStatus.Approved)"
         class="mr-3.5 cursor-pointer flex flex-col z-10"
       >
-        <h2 class="mb-1" :class="{ 'text-primary': isOngoingTicket }">
+        <h2 class="mb-1" :class="{ 'text-primary': isOngoingTicketView }">
           Ongoing
         </h2>
         <div
           class="w-full h-0.5 rounded-full"
           :class="{
-            'bg-primary': isOngoingTicket,
-            'bg-gray-2': !isOngoingTicket
+            'bg-primary': isOngoingTicketView,
+            'bg-gray-2': !isOngoingTicketView
           }"
         ></div>
       </div>
       <div
-        @click="showHistoryTicket"
+        @click="changeTicketStatusView(UserEventStatus.Pending)"
         class="mr-3.5 cursor-pointer flex flex-col z-10"
       >
-        <h2 class="mb-1" :class="{ 'text-primary': !isOngoingTicket }">
+        <h2 class="mb-1" :class="{ 'text-primary': isPendingTicketView }">
+          Pending
+        </h2>
+        <div
+          class="w-full h-0.5 rounded-full"
+          :class="{
+            'bg-primary': isPendingTicketView,
+            'bg-gray-2': !isPendingTicketView
+          }"
+        ></div>
+      </div>
+      <div
+        @click="changeTicketStatusView(UserEventStatus.Rejected)"
+        class="cursor-pointer flex flex-col z-10"
+      >
+        <h2 class="mb-1" :class="{ 'text-primary': isHistoryTicketView }">
           History
         </h2>
         <div
           class="w-full h-0.5 rounded-full"
           :class="{
-            'bg-primary': !isOngoingTicket,
-            'bg-gray-2': isOngoingTicket
+            'bg-primary': isHistoryTicketView,
+            'bg-gray-2': !isHistoryTicketView
           }"
         ></div>
       </div>
@@ -76,36 +86,47 @@
     </section>
     <section class="flex flex-col">
       <TicketComponent
-        v-show="isOngoingTicket"
-        v-for="(ticket, index) in ongoingTickets"
-        :key="ticket"
+        v-show="isOngoingTicketView"
+        v-for="(ticket, index) in findApprovedEvents"
+        :key="index"
+        :ticketStatus="UserEventStatus.Approved"
+        :event="ticket"
+        :ticketID="ticket.attendance.ticket"
+        :parentBgColor="'bg-white'"
+        :class="{ 'mb-2': index != findApprovedEvents.length - 1 }"
+      />
+      <!-- <TicketComponent
+        v-show="isPendingTicketView"
+        v-for="(ticket, index) in pendingTickets"
+        :key="index"
+        :ticketStatus="UserEventStatus.Pending"
         :event="ticket.event"
         :organization="ticket.organization"
-        :ticketID="ticket.ticketID"
         :parentBgColor="'bg-white'"
-        :class="{ 'mb-2': index != ongoingTickets.length - 1 }"
+        :class="{ 'mb-2': index != pendingTickets.length - 1 }"
       />
       <TicketComponent
-        v-show="!isOngoingTicket"
+        v-show="isHistoryTicketView"
         v-for="(ticket, index) in historyTickets"
-        :key="ticket"
+        :key="index"
+        :ticketStatus="UserEventStatus.Rejected"
         :event="ticket.event"
         :organization="ticket.organization"
         :ticketID="ticket.ticketID"
         :bgColor="'bg-white'"
         :class="{ 'mb-2': index != historyTickets.length - 1 }"
-      />
+      /> -->
     </section>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
+import { computed, defineComponent } from "vue";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import EditIcon from "@/assets/Edit.vue";
 import TicketComponent from "@/modules/wallet/ticket/Ticket.vue";
-import { Profile, Ticket } from "@/commons/Interfaces";
 import useWallet from "./useWallet";
+import { User, UserEventStatus } from "@/apollo/types";
 
 export default defineComponent({
   name: "Wallet",
@@ -116,31 +137,35 @@ export default defineComponent({
   },
   props: {
     profile: {
-      type: Object as () => Profile,
-      required: true
-    },
-    ongoingTickets: {
-      type: Array as PropType<Array<Ticket>>,
-      required: true
-    },
-    historyTickets: {
-      type: Array as PropType<Array<Ticket>>,
+      type: Object as () => User,
       required: true
     }
   },
-  setup() {
+  setup(props) {
     const {
-      isOngoingTicket,
-      showOngoingTicket,
-      showHistoryTicket,
-      editInfo
+      ticketStatusView,
+      changeTicketStatusView,
+      editInfo,
+      isOngoingTicketView,
+      isPendingTicketView,
+      isHistoryTicketView
     } = useWallet();
 
+    const findApprovedEvents = computed(() =>
+      props.profile.events?.filter(
+        value => value.attendance?.status === UserEventStatus.Approved
+      )
+    );
+
     return {
-      isOngoingTicket,
-      showOngoingTicket,
-      showHistoryTicket,
-      editInfo
+      ticketStatusView,
+      changeTicketStatusView,
+      editInfo,
+      isOngoingTicketView,
+      isPendingTicketView,
+      isHistoryTicketView,
+      UserEventStatus,
+      findApprovedEvents
     };
   }
 });

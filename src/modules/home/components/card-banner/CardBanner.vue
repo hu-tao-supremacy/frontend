@@ -5,15 +5,15 @@
         :width="1000"
         :height="1000"
         alt="will change to api"
-        :url="event.img"
-        :placeholder="event.imgHash"
+        :url="event.coverImageUrl"
+        :placeholder="event.coverImageHash"
         class="object-cover w-full h-full"
       />
     </div>
     <div class="col-span-1 flex flex-col justify-between items-center p-2">
       <section>
         <h3 class="text-2xl font-heading text-blue-10 mb-1">
-          {{ event.title }}
+          {{ event.name }}
         </h3>
         <div class="flex mb-2 items-center">
           <base-tag
@@ -26,23 +26,27 @@
         <div class="text-sm mb-1 w-full event-description">
           {{ event.description }}
         </div>
-        <base-icon-and-detail class="mb-1" :detail="event.date"
+        <base-icon-and-detail class="mb-1" :detail="date"
           ><CalendarIcon
         /></base-icon-and-detail>
-        <base-icon-and-detail class="mb-1" :detail="event.time"
+        <base-icon-and-detail class="mb-1" :detail="time"
           ><ClockIcon
         /></base-icon-and-detail>
-        <base-icon-and-detail class="mb-1" :detail="event.faculty"
+        <base-icon-and-detail class="mb-1" :detail="location"
           ><PinIcon
         /></base-icon-and-detail>
       </section>
-      <base-button class="w-4/5 h-5">Get Tickets</base-button>
+      <router-link :disabled="!isLinkReady" :to="eventInfoUrl" class="w-4/5">
+        <base-button :disabled="!isLinkReady" class="h-5 w-full"
+          >Get Tickets</base-button
+        >
+      </router-link>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, toRefs } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import BaseTag from "@/commons/UI/BaseTag.vue";
 import BaseIconAndDetail from "@/commons/UI/BaseIconAndDetail.vue";
@@ -50,7 +54,8 @@ import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import PinIcon from "@/assets/MapPin.vue";
 import ClockIcon from "@/assets/Clock.vue";
 import CalendarIcon from "@/assets/Calendar.vue";
-import { Event } from "@/commons/Interfaces/index";
+import { Event } from "@/apollo/types";
+import useCardBanner from "./useCardBanner";
 
 export default defineComponent({
   name: "CardBanner",
@@ -65,16 +70,26 @@ export default defineComponent({
   },
   props: {
     event: {
-      type: Object as () => Event,
-      required: true
+      type: Object as () => Event
     }
   },
   setup(props) {
-    function changeClass(index: number) {
-      return index === props.event.tags.length - 1 ? "" : "mr-1";
-    }
+    const { event } = toRefs(props);
+    const {
+      date,
+      time,
+      location,
+      changeClass,
+      eventInfoUrl,
+      isLinkReady
+    } = useCardBanner(event);
     return {
-      changeClass
+      date,
+      time,
+      location,
+      changeClass,
+      eventInfoUrl,
+      isLinkReady
     };
   }
 });

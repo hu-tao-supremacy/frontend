@@ -7,6 +7,7 @@ import { UpdateUserInput } from "@/apollo/types";
 
 const ADDITIONAL_INFO = "additionInfo";
 const INTEREST = "interest";
+const INTERESTED_EVENTS = "interested_events";
 
 const useSignup = () => {
   const test = testData;
@@ -17,7 +18,7 @@ const useSignup = () => {
   const {
     updateUser,
     onUpdateUserDone,
-    onUpdateUserErrror
+    onUpdateUserError
   } = useUpdateUserInfo();
 
   function toggleModal(modal: string) {
@@ -31,6 +32,14 @@ const useSignup = () => {
   const showInterestModal = computed(() => {
     return currentModal.value === INTEREST;
   });
+
+  const showInterestedEventsModal = computed(() => {
+    return currentModal.value === INTERESTED_EVENTS;
+  });
+
+  const toInterestedEventsModal = () => {
+    toggleModal(INTERESTED_EVENTS);
+  };
 
   const finishModal = () => {
     toggleModal("");
@@ -51,11 +60,13 @@ const useSignup = () => {
     toggleModal("interest");
   });
 
-  onUpdateUserErrror(cancelSignup);
+  onUpdateUserError(cancelSignup);
 
   return {
     toggleModal,
     showAdditionalInfoModal,
+    showInterestedEventsModal,
+    toInterestedEventsModal,
     test,
     showInterestModal,
     finishModal,

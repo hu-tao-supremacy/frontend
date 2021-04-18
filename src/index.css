@@ -15,11 +15,11 @@
     max-width: 570px;
   }
 
-  .content-max-width {
-    max-width: 960px;
+  .content-max-width-s {
+    max-width: 794px;
   }
 
-  .content-min-height {
-    min-height: 890px;
+  .content-max-width {
+    max-width: 960px;
   }
 }

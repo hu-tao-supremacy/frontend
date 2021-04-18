@@ -26,15 +26,32 @@
         About One Pass
       </router-link>
     </section>
-    <base-button class="sign-in-btn w-16" @click="logout" v-if="isLogIn"
-      >Logout</base-button
+    <base-button class="sign-in-btn w-20" @click="login" v-if="!isLogIn"
+      >Login in with CU SSO</base-button
     >
-    <base-button class="sign-in-btn w-16" @click="login" v-if="!isLogIn"
-      >Login / Signup</base-button
+    <section
+      v-else
+      class="flex items-center relative"
+      v-click-outside="hideDropDown"
     >
-    <section v-else class="flex items-center">
       <UserProfile :user="user" />
-      <div class="text-lg font-heading max-w-20 truncate">{{ nameShown }}</div>
+      <div @click="toggleDropDown" class="flex items-center cursor-pointer">
+        <div class="text-lg font-heading max-w-20 truncate mr-1.5">
+          {{ nameShown }}
+        </div>
+        <base-icon v-show="!isDropDownShown" :height="14" :width="14">
+          <ChevronDownIcon />
+        </base-icon>
+        <base-icon v-show="isDropDownShown" :height="14" :width="14">
+          <ChevronUpIcon />
+        </base-icon>
+      </div>
+      <NavbarDropDownOptions
+        v-show="isDropDownShown"
+        @select-navbar-option="hideDropDown"
+        @logout="logout"
+        class="w-25 absolute top-full right-0 mt-1.5"
+      />
     </section>
   </div>
 </template>
@@ -45,20 +62,46 @@ import BaseButton from "@/commons/UI/BaseButton.vue";
 import BaseSearch from "@/commons/UI/BaseSearch.vue";
 import UserProfile from "@/commons/UI/user-profile/UserProfile.vue";
 import OnePassLogo from "@/assets/OnePassLogoColor.vue";
+import ChevronDownIcon from "@/assets/ChevronDown.vue";
+import ChevronUpIcon from "@/assets/ChevronUp.vue";
+import NavbarDropDownOptions from "./NavbarDropDownOptions.vue";
 import usePageNavbar from "./usePageNavbar";
+import { login } from "@/commons/utils/auth";
 
 export default defineComponent({
   name: "PageNavbar",
   components: {
     BaseButton,
     BaseSearch,
+    UserProfile,
     OnePassLogo,
-    UserProfile
+    ChevronDownIcon,
+    ChevronUpIcon,
+    NavbarDropDownOptions
   },
   setup() {
-    const { isLogIn, imgUrl, nameShown, login, logout, user } = usePageNavbar();
+    const {
+      isLogIn,
+      imgUrl,
+      nameShown,
+      isDropDownShown,
+      user,
+      toggleDropDown,
+      hideDropDown,
+      logout
+    } = usePageNavbar();
 
-    return { isLogIn, imgUrl, nameShown, login, logout, user };
+    return {
+      isLogIn,
+      imgUrl,
+      nameShown,
+      isDropDownShown,
+      user,
+      login,
+      toggleDropDown,
+      hideDropDown,
+      logout
+    };
   }
 });
 </script>

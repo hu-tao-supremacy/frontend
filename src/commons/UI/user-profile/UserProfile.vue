@@ -1,7 +1,10 @@
 <template>
   <div
-    class="mr-3 h-5 w-5 bg-primary-3 rounded-full text-center flex flex-col  align-center justify-center"
-    :class="{ 'border-primary border-2': hasBorder && user.profilePictureUrl }"
+    class="bg-primary-3 rounded-full text-center flex flex-col  align-center justify-center"
+    :class="[
+      widthHeight,
+      { 'border-primary border-2': hasBorder && user.profilePictureUrl }
+    ]"
   >
     <img
       v-if="user.profilePictureUrl"
@@ -9,7 +12,11 @@
       alt="profileImage"
       class="h-full object-cover w-full rounded-full"
     />
-    <div class="text-lg font-bold font-heading text-primary " v-else>
+    <div
+      class="font-bold font-heading text-primary"
+      :class="nameInitialFontSize"
+      v-else
+    >
       {{ initial }}
     </div>
   </div>
@@ -30,6 +37,14 @@ export default defineComponent({
     hasBorder: {
       type: Boolean,
       default: true
+    },
+    widthHeight: {
+      type: String,
+      default: "h-5 w-5"
+    },
+    nameInitialFontSize: {
+      type: String,
+      default: "text-lg"
     }
   },
   setup(props) {

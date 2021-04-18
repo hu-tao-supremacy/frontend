@@ -42,15 +42,12 @@ export const testData = {
     description: `<ORG - BIO>   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque pulvinar ornare orci amet. Quis arcu rhoncus velit amet nulla eleifend tristique quis? `
   },
   ticketID: "175FD57",
-  profile: {
+  user: {
+    id: 1,
     firstName: "Elon",
     lastName: "Musk",
-    img: "https://picsum.photos/200",
-    imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
-    email: "613XXXX21@student.chula.ac.th",
-    like: 16,
-    ticket: 24,
-    following: 48
+    profilePictureUrl: "https://picsum.photos/200",
+    email: "613XXXX21@student.chula.ac.th"
   },
   eventsSchedule: [
     {

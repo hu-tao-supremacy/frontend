@@ -12,7 +12,9 @@
     </div>
     <div class="col-span-1 flex flex-col justify-between items-center p-2">
       <section>
-        <h3 class="text-2xl font-heading text-blue-10 mb-1 event-name">
+        <h3
+          class="text-2xl font-heading text-blue-10 mb-1 text-truncate text-truncate-2"
+        >
           {{ event.name }}
         </h3>
         <div class="flex mb-2 items-center">
@@ -23,7 +25,7 @@
             >{{ tag }}</base-tag
           >
         </div>
-        <div class="text-sm mb-1 w-full event-description">
+        <div class="text-sm mb-1 w-full text-truncate text-truncate-4">
           {{ event.description }}
         </div>
         <base-icon-and-detail class="mb-1" :detail="date"
@@ -95,18 +97,4 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-.event-description {
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.event-name {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-</style>
+<style scoped></style>

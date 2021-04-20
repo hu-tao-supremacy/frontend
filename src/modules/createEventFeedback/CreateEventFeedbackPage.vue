@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col p-4 items-center w-full">
-    <div
-      class="flex flex-col justify-center items-center w-full content-max-width-s"
-    >
+    <div class="flex flex-col justify-center w-full content-max-width-s">
+      <div class="text-4xl font-heading mb-3">Event Feedback</div>
+      <QuestionStarPreview class="mb-6" />
       <div
         v-for="(group, gIndex) in questionGroups"
         :key="group.seq"
@@ -70,6 +70,7 @@ import BaseButton from "@/commons/UI/BaseButton.vue";
 import CategoryInput from "./category-input/CategoryInput.vue";
 import QuestionTextPreview from "./question-text-preview/QuestionTextPreview.vue";
 import QuestionRadioPreview from "./question-radio-preview/QuestionRadioPreview.vue";
+import QuestionStarPreview from "./question-star-preview/QuestionStarPreview.vue";
 
 export default defineComponent({
   name: "CreateFeedback",
@@ -77,7 +78,8 @@ export default defineComponent({
     BaseButton,
     CategoryInput,
     QuestionTextPreview,
-    QuestionRadioPreview
+    QuestionRadioPreview,
+    QuestionStarPreview
   },
   setup() {
     const hello = "hello";

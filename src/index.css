@@ -15,6 +15,10 @@
     max-width: 570px;
   }
 
+  .content-min-height {
+    min-height: calc(100vh - 224px);
+  }
+
   .content-max-width-s {
     max-width: 794px;
   }

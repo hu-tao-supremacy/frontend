@@ -22,7 +22,7 @@ export const useCurrentUser = (enabled: Ref<boolean>) =>
           profilePictureUrl
           didSetup
           gender
-          events {
+          history {
             id
             name
             durations {

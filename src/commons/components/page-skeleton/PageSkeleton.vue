@@ -19,9 +19,3 @@ export default defineComponent({
   }
 });
 </script>
-
-<style scoped>
-.content-min-height {
-  min-height: calc(100vh - 224px);
-}
-</style>

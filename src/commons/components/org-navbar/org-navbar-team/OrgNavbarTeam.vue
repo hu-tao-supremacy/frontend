@@ -4,20 +4,18 @@
     class="py-4 px-1 flex flex-col items-center h-screen bg-blue-11 sticky left-0 top-0 bottom-0 z-40"
     :class="{ 'w-8': !isExpand, 'w-30': isExpand }"
   >
-    <span
+    <base-transparent-button
       v-if="!isExpand"
       @click="expandNavbar"
-      class="flex items-center justify-center cursor-pointer w-full h-5 -mt-1"
-      ><base-icon :width="24" :height="24" class="text-white"
-        ><MenuIcon /></base-icon
-    ></span>
-    <span
+      class="w-full h-5 -mt-1 text-white"
+      ><base-icon :width="24" :height="24"><MenuIcon /></base-icon
+    ></base-transparent-button>
+    <base-transparent-button
       v-else
       @click="collapseNavbar"
-      class="absolute right-0 top-1 flex justify-center items-center w-5 h-5 cursor-pointer"
-      ><base-icon :width="24" :height="24" class="text-white"
-        ><XIcon /></base-icon
-    ></span>
+      class="absolute right-0 top-1 w-5 h-5 text-white"
+      ><base-icon :width="24" :height="24"><XIcon /></base-icon
+    ></base-transparent-button>
     <section
       class="items-center"
       :class="{ 'mt-3': !isExpand, 'mt-7': isExpand }"
@@ -48,6 +46,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import OrgNavbarTeamSelection from "../org-navbar-team-selection/OrgNavbarTeamSelection.vue";
+import BaseTransparentButton from "@/commons/UI/BaseTransparentButton.vue";
 import MenuIcon from "@/assets/Menu.vue";
 import XIcon from "@/assets/X.vue";
 import PlusIcon from "@/assets/Plus.vue";
@@ -57,6 +56,7 @@ export default defineComponent({
   name: "OrgNavbarTeam",
   components: {
     OrgNavbarTeamSelection,
+    BaseTransparentButton,
     MenuIcon,
     XIcon,
     PlusIcon

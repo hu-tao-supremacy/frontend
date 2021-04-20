@@ -53,6 +53,7 @@ export type CreateEventInput = {
   name: Scalars["String"];
   attendeeLimit: Scalars["Int"];
   contact?: Maybe<Scalars["String"]>;
+  registrationDueDate?: Maybe<Scalars["String"]>;
   coverImage?: Maybe<Scalars["Upload"]>;
   posterImage?: Maybe<Scalars["Upload"]>;
   tags?: Maybe<Array<SetEventTagsTagInput>>;
@@ -63,6 +64,7 @@ export type CreateEventLocationInput = {
   name: Scalars["String"];
   googleMapUrl: Scalars["String"];
   description?: Maybe<Scalars["String"]>;
+  isOnline: Scalars["Boolean"];
 };
 
 export type CreateJoinRequestAnswerInput = {
@@ -114,6 +116,7 @@ export type Event = {
   questionGroups: Array<QuestionGroup>;
   durations: Array<EventDuration>;
   tags: Array<Tag>;
+  registrationDueDate?: Maybe<Scalars["String"]>;
   attendance?: Maybe<UserEvent>;
   attendeeCount: Scalars["Int"];
   attendees: Array<UserEvent>;
@@ -155,6 +158,7 @@ export type EventInput = {
   questionGroups: Array<QuestionGroupInput>;
   durations: Array<EventDurationInput>;
   tags: Array<TagInput>;
+  registrationDueDate?: Maybe<Scalars["String"]>;
 };
 
 export type Facility = {
@@ -198,6 +202,7 @@ export type Location = {
   description?: Maybe<Scalars["String"]>;
   travelInformationImageUrl?: Maybe<Scalars["String"]>;
   travelInformationImageHash?: Maybe<Scalars["String"]>;
+  isOnline: Scalars["Boolean"];
 };
 
 export type LocationInput = {
@@ -207,6 +212,7 @@ export type LocationInput = {
   description?: Maybe<Scalars["String"]>;
   travelInformationImageUrl?: Maybe<Scalars["String"]>;
   travelInformationImageHash?: Maybe<Scalars["String"]>;
+  isOnline: Scalars["Boolean"];
 };
 
 export type Mutation = {
@@ -357,6 +363,10 @@ export type QueryEventArgs = {
   id: Scalars["Int"];
 };
 
+export type QueryFeaturedOrganizationsArgs = {
+  n: Scalars["Int"];
+};
+
 export type QueryOrganizationArgs = {
   id: Scalars["Int"];
 };
@@ -484,6 +494,7 @@ export type UpdateEventInput = {
   name?: Maybe<Scalars["String"]>;
   attendeeLimit?: Maybe<Scalars["Int"]>;
   contact?: Maybe<Scalars["String"]>;
+  registrationDueDate?: Maybe<Scalars["String"]>;
   coverImage?: Maybe<Scalars["Upload"]>;
   posterImage?: Maybe<Scalars["Upload"]>;
   tags?: Maybe<Array<SetEventTagsTagInput>>;
@@ -581,7 +592,8 @@ export type UserEventInput = {
 export enum UserEventStatus {
   Approved = "APPROVED",
   Rejected = "REJECTED",
-  Pending = "PENDING"
+  Pending = "PENDING",
+  Attended = "ATTENDED"
 }
 
 export type UserInput = {
@@ -652,39 +664,7 @@ export type GetCurrentUserQuery = { __typename?: "Query" } & {
     | "profilePictureUrl"
     | "didSetup"
     | "gender"
-  > & {
-      history: Array<
-        { __typename?: "Event" } & Pick<
-          Event,
-          "id" | "name" | "posterImageUrl" | "posterImageHash"
-        > & {
-            durations: Array<
-              { __typename?: "EventDuration" } & Pick<
-                EventDuration,
-                "id" | "start" | "finish"
-              >
-            >;
-            organization: { __typename?: "Organization" } & Pick<
-              Organization,
-              | "id"
-              | "name"
-              | "abbreviation"
-              | "profilePictureUrl"
-              | "profilePictureHash"
-            >;
-            location?: Maybe<
-              { __typename?: "Location" } & Pick<Location, "id" | "name">
-            >;
-            tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
-            attendance?: Maybe<
-              { __typename?: "UserEvent" } & Pick<
-                UserEvent,
-                "id" | "ticket" | "status"
-              >
-            >;
-          }
-      >;
-    };
+  >;
 };
 
 export type GetQuestionGroupsQueryVariables = Exact<{ [key: string]: never }>;
@@ -786,6 +766,7 @@ export type GetEventRegisterQuery = { __typename?: "Query" } & {
     };
   currentUser: { __typename?: "User" } & Pick<
     User,
+    | "id"
     | "firstName"
     | "lastName"
     | "gender"
@@ -926,6 +907,47 @@ export type GetEventUserCheckinQuery = { __typename?: "Query" } & {
       >;
       attendance?: Maybe<
         { __typename?: "UserEvent" } & Pick<UserEvent, "id" | "ticket">
+      >;
+    };
+};
+
+export type GetUserWalletQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetUserWalletQuery = { __typename?: "Query" } & {
+  currentUser: { __typename?: "User" } & Pick<
+    User,
+    "profilePictureUrl" | "firstName" | "lastName" | "email"
+  > & {
+      history: Array<
+        { __typename?: "Event" } & Pick<
+          Event,
+          "id" | "name" | "posterImageUrl" | "posterImageHash"
+        > & {
+            durations: Array<
+              { __typename?: "EventDuration" } & Pick<
+                EventDuration,
+                "id" | "start" | "finish"
+              >
+            >;
+            organization: { __typename?: "Organization" } & Pick<
+              Organization,
+              | "id"
+              | "name"
+              | "abbreviation"
+              | "profilePictureUrl"
+              | "profilePictureHash"
+            >;
+            location?: Maybe<
+              { __typename?: "Location" } & Pick<Location, "id" | "name">
+            >;
+            tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
+            attendance?: Maybe<
+              { __typename?: "UserEvent" } & Pick<
+                UserEvent,
+                "id" | "ticket" | "status"
+              >
+            >;
+          }
       >;
     };
 };

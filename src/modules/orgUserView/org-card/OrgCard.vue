@@ -15,9 +15,9 @@
       </div>
       <div class="flex flex-col">
         <div class="flex items-center // space-x-1 // font-heading text-4xl">
-          <h1>{{ name }}</h1>
-          <base-icon>
-            <CheckCircleIcon v-if="isVerified" />
+          <h1>{{ organization?.name }}</h1>
+          <base-icon class="flex-shrink-0">
+            <CheckCircleIcon v-if="organization?.isVerified" />
           </base-icon>
         </div>
         <div>
@@ -27,13 +27,13 @@
       </div>
     </div>
     <div class="flex space-x-3">
-      <div class="flex flex-col // w-3/5 // space-y-1">
+      <div class="flex flex-col flex-shrink-0 // w-3/5 // space-y-1">
         <h3 class="text-2xl font-heading">Description</h3>
         <p>
-          {{ description }}
+          {{ organization?.description }}
         </p>
       </div>
-      <div class="flex flex-col // w-2/5 // space-y-1">
+      <div class="flex flex-col // space-y-1">
         <h3 class="text-2xl font-heading">Contact</h3>
         <ul class="space-y-0.25">
           <li>Facebook : {{ contact.facebook }}</li>
@@ -67,9 +67,6 @@ export default defineComponent({
     organization: Object as PropType<Organization>
   },
   setup(props) {
-    const name = computed(() => props.organization?.name);
-    const description = computed(() => props.organization?.description);
-    const isVerified = computed(() => props.organization?.isVerified);
     const contact = computed(() => {
       return {
         facebook: props.organization?.facebookPage,
@@ -89,7 +86,7 @@ export default defineComponent({
       };
     });
 
-    return { name, image, description, isVerified, contact, relatedEvents };
+    return { image, contact, relatedEvents };
   }
 });
 </script>

@@ -43,6 +43,7 @@ export const testData = {
     instagram: "SGCU.instagram",
     lineOfficialAccount: "SGCU.line",
     email: "SCGU@chula.ac.th",
+    isVerified: true,
     events: [{ name: "asd" }, { name: "rew" }]
   },
   ticketID: "175FD57",

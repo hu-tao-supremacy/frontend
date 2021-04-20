@@ -650,20 +650,7 @@ export type GetCurrentUserQueryVariables = Exact<{ [key: string]: never }>;
 export type GetCurrentUserQuery = { __typename?: "Query" } & {
   currentUser: { __typename?: "User" } & Pick<
     User,
-    | "id"
-    | "firstName"
-    | "lastName"
-    | "phoneNumber"
-    | "email"
-    | "chulaId"
-    | "academicYear"
-    | "district"
-    | "province"
-    | "zipCode"
-    | "address"
-    | "profilePictureUrl"
-    | "didSetup"
-    | "gender"
+    "id" | "firstName" | "lastName" | "profilePictureUrl" | "didSetup"
   >;
 };
 
@@ -916,7 +903,7 @@ export type GetUserWalletQueryVariables = Exact<{ [key: string]: never }>;
 export type GetUserWalletQuery = { __typename?: "Query" } & {
   currentUser: { __typename?: "User" } & Pick<
     User,
-    "profilePictureUrl" | "firstName" | "lastName" | "email"
+    "id" | "profilePictureUrl" | "firstName" | "lastName" | "email"
   > & {
       history: Array<
         { __typename?: "Event" } & Pick<

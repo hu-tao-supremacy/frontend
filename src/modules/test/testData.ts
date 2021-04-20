@@ -41,6 +41,19 @@ export const testData = {
     fullName: "องค์การบริหารสโมสรนิสิตจุฬาลงกรณ์มหาวิทยาลัย (อบจ.)",
     description: `<ORG - BIO>   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque pulvinar ornare orci amet. Quis arcu rhoncus velit amet nulla eleifend tristique quis? `
   },
+  orgBanner: {
+    name: "SGCU",
+    img: "https://picsum.photos/100",
+    isVerified: true,
+    description: "Lorem Ipsum blah blah blah",
+    numOfRelatedEvents: 20,
+    social: {
+      facebook: "SCGU.facebook",
+      instagram: "SCGU",
+      line: "Line SGCU",
+      email: "SGCU@chula.ac.th"
+    }
+  },
   ticketID: "175FD57",
   profile: {
     firstName: "Elon",

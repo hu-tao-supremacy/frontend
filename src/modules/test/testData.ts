@@ -44,6 +44,7 @@ export const testData = {
   orgBanner: {
     name: "SGCU",
     img: "https://picsum.photos/100",
+    imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
     isVerified: true,
     description: "Lorem Ipsum blah blah blah",
     numOfRelatedEvents: 20,

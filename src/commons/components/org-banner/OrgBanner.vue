@@ -3,7 +3,16 @@
     class="flex flex-col // w-120 px-8 py-5 m-1 space-y-3 // text-blue-11 bg-white shadow-sm rounded-lg"
   >
     <div class="flex items-center space-x-3">
-      <img :src="organization.img" class="w-20 h-20 // rounded-full" />
+      <div class="w-20 h-20 rounded-full overflow-hidden">
+        <LazyImage
+          :height="1000"
+          :width="1000"
+          alt="will change to api"
+          :url="organization.img"
+          :placeholder="organization.imgHash"
+          class="object-cover w-full h-full"
+        />
+      </div>
       <div class="flex flex-col">
         <h1
           class="flex items-center // space-x-1 // font-bold font-heading text-4xl"
@@ -45,12 +54,14 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import TickIcon from "@/assets/Tick.vue";
+import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import { OrgBannerProps } from "./types";
 
 export default defineComponent({
   name: "OrgBanner",
   components: {
-    TickIcon
+    TickIcon,
+    LazyImage
   },
   props: {
     organization: {

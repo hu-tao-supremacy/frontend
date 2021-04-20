@@ -75,7 +75,7 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
-    disalbed: {
+    disabled: {
       type: Boolean,
       default: false
     },

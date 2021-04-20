@@ -63,7 +63,7 @@ export default defineComponent({
   emits: [SELECT_MEMBER],
   setup(props, context) {
     function selectMember() {
-      context.emit(SELECT_MEMBER, props.user?.email);
+      context.emit(SELECT_MEMBER);
     }
 
     return { selectMember };

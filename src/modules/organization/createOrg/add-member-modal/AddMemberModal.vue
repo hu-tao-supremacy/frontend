@@ -17,7 +17,8 @@
         placeholder="Search member"
       />
       <p class="text-sm flex-shrink-0 ml-4">
-        <span class="text-primary">{{ selectedMembersCount }}</span> Member
+        <span class="text-primary">{{ selectedMembersCount }}</span>
+        {{ memberOrMembers }}
         selected
       </p>
     </section>
@@ -25,9 +26,9 @@
       <AddMemberSelection
         v-for="(user, index) in searchedUsers"
         :key="index"
-        @select-member="selectMember(user.email)"
+        @select-member="selectMember(user)"
         :user="user"
-        :isSelected="isInSelectedMembers(user.email)"
+        :isSelected="isInSelectedMembers(user.id)"
       />
     </section>
   </div>
@@ -52,7 +53,7 @@ export default defineComponent({
   },
   props: {
     selectedMemberEmails: {
-      type: Array as PropType<Array<string>>,
+      type: Array as PropType<Array<User>>,
       required: true
     },
     searchedUsers: {
@@ -67,8 +68,13 @@ export default defineComponent({
       return selectedMemberEmails.value.length;
     });
 
-    function isInSelectedMembers(userEmail: string) {
-      return selectedMemberEmails.value.some(email => email === userEmail);
+    const memberOrMembers = computed(() => {
+      if (selectedMemberEmails.value.length > 1) return "Members";
+      return "Member";
+    });
+
+    function isInSelectedMembers(userId: number) {
+      return selectedMemberEmails.value.some(user => user.id === userId);
     }
 
     function closeModal() {
@@ -79,13 +85,14 @@ export default defineComponent({
       context.emit(SEARCH, value);
     }
 
-    function selectMember(userEmail: string) {
-      const isSelected = isInSelectedMembers(userEmail);
-      context.emit(SELECT_MEMBER, userEmail, isSelected);
+    function selectMember(user: User) {
+      const isSelected = isInSelectedMembers(user.id);
+      context.emit(SELECT_MEMBER, user, isSelected);
     }
 
     return {
       selectedMembersCount,
+      memberOrMembers,
       isInSelectedMembers,
       closeModal,
       search,

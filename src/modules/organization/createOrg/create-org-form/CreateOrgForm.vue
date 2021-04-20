@@ -42,51 +42,36 @@
       </div>
     </section>
     <section class="flex mb-3">
-      <div class="flex flex-col flex-shrink-0 mr-3">
-        <label for="shortName" class="mb-0.25"
-          >Organization abbreviations</label
-        >
-        <BaseTextInput
-          v-model.trim="shortName"
-          id="shortName"
-          name="shortName"
-          class="max-w-full h-4"
-          :isError="!isValidShortName"
-        />
-        <p v-show="!isValidShortName" class="text-sm text-red-5 mt-0.25 ml-1.5">
-          Please input organization abbreviations
-        </p>
-      </div>
-      <div class="w-full">
-        <label for="fullName" class="mb-0.25">Organization full name</label>
-        <BaseTextInput
-          v-model.trim="fullName"
-          id="fullName"
-          name="fullName"
-          class="w-full h-4"
-          :isError="!isValidFullName"
-        />
-        <p v-show="!isValidFullName" class="text-sm text-red-5 mt-0.25 ml-1.5">
-          Please input organization full name
-        </p>
-      </div>
+      <BaseLabelAndTextInput
+        v-model="shortName"
+        inputName="shortName"
+        label="Organization Abbreviations"
+        :isRequired="true"
+        :isError="!isValidShortName"
+        class="w-24 flex-shrink-0 mr-3"
+      />
+      <BaseLabelAndTextInput
+        v-model="fullName"
+        inputName="fullName"
+        label="Organization full name"
+        :isRequired="true"
+        :isError="!isValidFullName"
+        class="w-full"
+      />
     </section>
     <section class="flex mb-3">
-      <div class="flex flex-col w-40 flex-shrink-0 mr-3">
-        <label for="advisor" class="mb-0.25">Organization advisor</label>
-        <BaseTextInput
-          v-model.trim="advisor"
-          id="advisor"
-          name="advisor"
-          class="max-w-full h-4"
-          :isError="!isValidAdvisor"
-        />
-        <p v-show="!isValidAdvisor" class="text-sm text-red-5 mt-0.25 ml-1.5">
-          Please input organization advisor
-        </p>
-      </div>
+      <BaseLabelAndTextInput
+        v-model="advisor"
+        inputName="advisor"
+        label="Organization advisor"
+        :isRequired="true"
+        :isError="!isValidAdvisor"
+        class="w-40 flex-shrink-0 mr-3"
+      />
       <div class="w-full">
-        <label for="faculty" class="mb-0.25">Associated faculty</label>
+        <label for="faculty" class="mb-0.25"
+          >Associated faculty <span class="text-red-5">*</span></label
+        >
         <SingleNameSelect
           id="faculty"
           name="faculty"
@@ -94,50 +79,35 @@
           :isSearchable="false"
           :optionNames="facultyList"
           :optionValues="facultyList"
-          :placeholder="'--- Select faculty ---'"
+          :placeholder="'——— Select faculty ———'"
           :isError="!isValidFaculty"
           class="w-full h-4"
         />
-        <p v-show="!isValidFaculty" class="text-sm text-red-5 mt-0.25 ml-1.5">
-          Please input associated faculty
-        </p>
       </div>
     </section>
-    <section class="w-full mb-3">
-      <label for="description" class="mb-0.25">Organization description</label>
-      <BaseExpandableTextArea
-        v-model.trim="description"
-        id="description"
-        name="description"
-        class="w-full min-text-input-height"
-        :isError="!isValidDescription"
+    <section class="w-full mb-4">
+      <BaseLabelAndTextInput
+        v-model="description"
+        inputName="description"
+        label="Organization description"
+        :isExpandableTextInput="true"
+        :expandableTextInputMinHeight="'32px'"
+        class="w-full"
       />
-      <p v-show="!isValidDescription" class="text-sm text-red-5 mt-0.25 ml-1.5">
-        Please input organization description
-      </p>
     </section>
-    <section class="flex mb-3">
+    <section class="flex mb-4">
       <div class="w-20 mr-6 flex-shrink-0">
         <h1 class="font-heading text-xl mb-2">Member</h1>
         <p>Organization member</p>
         <div class="flex -space-x-1 overflow-hidden">
-          <span
+          <UserProfile
             v-for="member in members"
             :key="member.id"
-            class="flex justify-center items-center w-6 h-6 rounded-full overflow-hidden ring-2 ring-white bg-primary-3"
-            ><LazyImage
-              v-if="member.img"
-              :width="50"
-              :height="50"
-              alt="will change to api"
-              :url="member.img"
-              placeholder="LEHV6nWB2yk8pyo0adR*.7kCMdnj"
-              class="object-cover w-full h-full"
-            />
-            <p v-else class="font-heading text-lg text-primary">
-              {{ showMemberName(member.firstName, member.lastName) }}
-            </p>
-          </span>
+            :user="member"
+            :hasBorder="false"
+            widthHeight="w-6 h-6"
+            class="ring-2 ring-white"
+          />
           <span
             @click="addMember"
             class="flex justify-center items-center w-6 h-6 rounded-full overflow-hidden ring-2 ring-white bg-primary-3 cursor-pointer"
@@ -149,109 +119,72 @@
       <div class="w-full">
         <h1 class="font-heading text-xl mb-2">Contact Person</h1>
         <section class="flex mb-1">
-          <div class="w-30 mr-1 flex-shrink-0">
-            <label for="contactName" class="mb-0.25">Full name</label>
-            <BaseTextInput
-              v-model.trim="contactName"
-              id="contactName"
-              name="contactName"
-              class="w-full h-4"
-              :isError="!isValidContactName"
-            />
-            <p
-              v-show="!isValidContactName"
-              class="text-sm text-red-5 mt-0.25 ml-1.5"
-            >
-              Please input contact person full name
-            </p>
-          </div>
-          <div class="w-full">
-            <label for="contactEmail" class="mb-0.25">Email</label>
-            <BaseTextInput
-              v-model.trim="contactEmail"
-              id="contactEmail"
-              name="contactEmail"
-              class="w-full h-4"
-              :isError="!isValidContactEmail"
-            />
-            <p
-              v-show="!isValidContactEmail"
-              class="text-sm text-red-5 mt-0.25 ml-1.5"
-            >
-              Please input contact email
-            </p>
-          </div>
+          <BaseLabelAndTextInput
+            v-model="contactName"
+            inputName="contactName"
+            label="Full name"
+            :isRequired="true"
+            :isError="!isValidContactName"
+            class="w-30 mr-1 flex-shrink-0"
+          />
+          <BaseLabelAndTextInput
+            v-model="contactEmail"
+            inputName="contactEmail"
+            label="Email"
+            :isRequired="true"
+            :isError="!isValidContactEmail"
+            errorText="Please input valid email with @"
+            class="w-full"
+          />
         </section>
         <section class="flex">
-          <div class="w-30 mr-1 flex-shrink-0">
-            <label for="contactPhone" class="mb-0.25">Phone number</label>
-            <BaseTextInput
-              v-model.trim="contactPhone"
-              id="contactPhone"
-              name="contactPhone"
-              class="w-full h-4"
-              :isError="!isValidContactPhone"
-            />
-            <p
-              v-show="!isValidContactPhone"
-              class="text-sm text-red-5 mt-0.25 ml-1.5"
-            >
-              Please input contact phone number
-            </p>
-          </div>
-          <div class="w-full">
-            <label for="contactEmail" class="mb-0.25">Line</label>
-            <BaseTextInput
-              v-model.trim="contactLINE"
-              id="contactLINE"
-              name="contactLINE"
-              class="w-full h-4"
-            />
-          </div>
+          <BaseLabelAndTextInput
+            v-model="contactPhone"
+            inputName="contactPhone"
+            label="Phone number"
+            :isRequired="true"
+            :isError="!isValidContactPhone"
+            errorText="Please input phone number without '-'"
+            class="w-30 mr-1 flex-shrink-0"
+          />
+          <BaseLabelAndTextInput
+            v-model="contactLINE"
+            inputName="contactLINE"
+            label="Line ID"
+            class="w-full"
+          />
         </section>
       </div>
     </section>
     <section class="mb-6">
       <h1 class="font-heading text-xl mb-2">Social Media</h1>
       <div class="flex mb-1">
-        <div class="w-30 flex-shrink-0 mr-4">
-          <label for="facebook" class="mb-0.25">Facebook page</label>
-          <BaseTextInput
-            v-model.trim="facebook"
-            id="facebook"
-            name="facebook"
-            class="w-full h-4"
-          />
-        </div>
-        <div class="w-30 flex-shrink-0">
-          <label for="instagram" class="mb-0.25">Instagram</label>
-          <BaseTextInput
-            v-model.trim="instagram"
-            id="instagram"
-            name="instagram"
-            class="w-full h-4"
-          />
-        </div>
+        <BaseLabelAndTextInput
+          v-model="facebook"
+          inputName="facebook"
+          label="Facebook Page"
+          class="w-30 flex-shrink-0 mr-4"
+        />
+        <BaseLabelAndTextInput
+          v-model="instagram"
+          inputName="instagram"
+          label="Instagram"
+          class="w-30 flex-shrink-0"
+        />
       </div>
       <div class="flex">
-        <div class="w-30 flex-shrink-0 mr-4">
-          <label for="line" class="mb-0.25">Line official account</label>
-          <BaseTextInput
-            v-model.trim="line"
-            id="line"
-            name="line"
-            class="w-full h-4"
-          />
-        </div>
-        <div class="w-30 flex-shrink-0">
-          <label for="email" class="mb-0.25">Organization email</label>
-          <BaseTextInput
-            v-model.trim="email"
-            id="email"
-            name="email"
-            class="w-full h-4"
-          />
-        </div>
+        <BaseLabelAndTextInput
+          v-model="line"
+          inputName="line"
+          label="Line Official Account"
+          class="w-30 flex-shrink-0 mr-4"
+        />
+        <BaseLabelAndTextInput
+          v-model="email"
+          inputName="email"
+          label="Organization email"
+          class="w-30 flex-shrink-0"
+        />
       </div>
     </section>
     <base-button
@@ -267,10 +200,9 @@
 import { computed, defineComponent, ref, watch } from "vue";
 import ImageGalleryIcon from "@/assets/ImageGallery.vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
-import BaseTextInput from "@/commons/UI/BaseTextInput.vue";
-import BaseExpandableTextArea from "@/commons/UI/BaseExpandableTextArea.vue";
 import SingleNameSelect from "@/commons/UI/select/SingleNameSelect.vue";
-import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
+import BaseLabelAndTextInput from "@/commons/UI/BaseLabelAndTextInput.vue";
+import UserProfile from "@/commons/UI/user-profile/UserProfile.vue";
 import PlusIcon from "@/assets/Plus.vue";
 import { parseImageFile } from "@/commons/utils/parseImage";
 import FacultyData from "@/commons/constant/faculty";
@@ -280,10 +212,9 @@ export default defineComponent({
   components: {
     ImageGalleryIcon,
     BaseButton,
-    BaseTextInput,
-    BaseExpandableTextArea,
     SingleNameSelect,
-    LazyImage,
+    BaseLabelAndTextInput,
+    UserProfile,
     PlusIcon
   },
   setup() {
@@ -306,13 +237,13 @@ export default defineComponent({
         id: 1,
         firstName: "Adam",
         lastName: "Smith",
-        img: "https://picsum.photos/101"
+        profilePictureUrl: "https://picsum.photos/101"
       },
       {
         id: 2,
         firstName: "Ben",
         lastName: "Foss",
-        img: "https://picsum.photos/102"
+        profilePictureUrl: "https://picsum.photos/102"
       },
       { id: 3, firstName: "Kark", lastName: "Titanium", img: null }
     ];
@@ -405,9 +336,3 @@ export default defineComponent({
   }
 });
 </script>
-
-<style scoped>
-.min-text-input-height {
-  min-height: 32px;
-}
-</style>

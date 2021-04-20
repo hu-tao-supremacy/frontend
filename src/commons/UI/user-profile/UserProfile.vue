@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-primary-3 rounded-full text-center flex flex-col  align-center justify-center"
+    class="bg-primary-3 rounded-full text-center flex flex-col align-center justify-center overflow-hidden"
     :class="[
       widthHeight,
       { 'border-primary border-2': hasBorder && user.profilePictureUrl }
@@ -10,7 +10,7 @@
       v-if="user.profilePictureUrl"
       :src="user.profilePictureUrl"
       alt="profileImage"
-      class="h-full object-cover w-full rounded-full"
+      class="h-full object-cover min-w-full"
     />
     <div
       class="font-bold font-heading text-primary"

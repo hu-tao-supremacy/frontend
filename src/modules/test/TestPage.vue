@@ -14,7 +14,7 @@
       :style="{ maxWidth: '300px' }"
       :eventOrg="test.eventOrganizer"
     />
-    <OrgBanner :organization="test.orgBanner" />
+    <OrgCard :organization="test.organization" />
   </div>
 </template>
 
@@ -24,7 +24,7 @@ import InfoBanner from "@/commons/components/info-banner/InfoBanner.vue";
 import EventDetail from "@/modules/eventInfo/event-detail/EventDetail.vue";
 import EventOrganizer from "@/modules/eventInfo/event-organizer/EventOrganizer.vue";
 import { testData, questionData } from "./testData";
-import OrgBanner from "@/commons/components/org-banner/OrgBanner.vue";
+import OrgCard from "@/commons/components/org-card/OrgCard.vue";
 
 export default defineComponent({
   name: "TestPage",
@@ -32,7 +32,7 @@ export default defineComponent({
     InfoBanner,
     EventDetail,
     EventOrganizer,
-    OrgBanner
+    OrgCard
   },
   setup() {
     const test = testData;

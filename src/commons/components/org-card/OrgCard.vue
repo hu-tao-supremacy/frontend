@@ -3,7 +3,7 @@
     class="flex flex-col // px-8 py-3 space-y-3 // bg-white shadow-sm rounded-lg"
   >
     <div class="flex items-center space-x-3">
-      <div class="w-20 h-20 // rounded-full overflow-hidden">
+      <div class="flex-shrink-0 w-20 h-20 // rounded-full overflow-hidden">
         <LazyImage
           :height="1000"
           :width="1000"

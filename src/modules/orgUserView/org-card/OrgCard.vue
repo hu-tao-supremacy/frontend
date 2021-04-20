@@ -35,7 +35,7 @@
       </div>
       <div class="flex flex-col // w-2/5 // space-y-1">
         <h3 class="text-2xl font-heading">Contact</h3>
-        <ul>
+        <ul class="space-y-0.25">
           <li>Facebook : {{ contact.facebook }}</li>
           <li>Instagram : {{ contact.instagram }}</li>
           <li>

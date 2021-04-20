@@ -125,7 +125,7 @@ import BaseTransparentButton from "@/commons/UI/BaseTransparentButton.vue";
 import EditIcon from "@/assets/Edit.vue";
 import TicketComponent from "@/modules/wallet/ticket/Ticket.vue";
 import useWallet from "./useWallet";
-import { User, UserEventStatus } from "@/apollo/types";
+import { GetUserWalletQuery, UserEventStatus } from "@/apollo/types";
 
 export default defineComponent({
   name: "Wallet",
@@ -137,7 +137,7 @@ export default defineComponent({
   },
   props: {
     profile: {
-      type: Object as () => User
+      type: Object as () => GetUserWalletQuery["currentUser"]
     }
   },
   setup(props) {

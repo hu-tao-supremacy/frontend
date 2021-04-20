@@ -112,13 +112,13 @@
 import { ComputedRef, defineComponent } from "vue";
 import BaseTextInput from "@/commons/UI/BaseTextInput.vue";
 import BaseTextArea from "@/commons/UI/BaseTextArea.vue";
-import { User } from "@/apollo/types";
+import { GetEventRegisterQuery } from "@/apollo/types";
 
 export default defineComponent({
   name: "PersonalInfo",
   props: {
     user: {
-      type: Object as () => ComputedRef<User>
+      type: Object as () => ComputedRef<GetEventRegisterQuery["currentUser"]>
     }
   },
   components: {

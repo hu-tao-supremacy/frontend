@@ -14,7 +14,7 @@
       :style="{ maxWidth: '300px' }"
       :eventOrg="test.eventOrganizer"
     />
-    <OrgCard :organization="test.organization" />
+    <OrgCard class="mt-2 w-120" :organization="test.organization" />
   </div>
 </template>
 

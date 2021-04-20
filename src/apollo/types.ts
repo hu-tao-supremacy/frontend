@@ -14,7 +14,6 @@ export type Scalars = {
   Int: number;
   Float: number;
   /** The `Upload` scalar type represents a file upload. */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Upload: any;
 };
 
@@ -57,6 +56,7 @@ export type CreateEventInput = {
   coverImage?: Maybe<Scalars["Upload"]>;
   posterImage?: Maybe<Scalars["Upload"]>;
   tags?: Maybe<Array<SetEventTagsTagInput>>;
+  durations?: Maybe<Array<SetEventDurationsDurationInput>>;
 };
 
 export type CreateEventLocationInput = {
@@ -212,6 +212,7 @@ export type LocationInput = {
 export type Mutation = {
   __typename?: "Mutation";
   setEventQuestions: Scalars["Boolean"];
+  setEventDurations: Scalars["Boolean"];
   createEvent: Event;
   updateEvent: Event;
   reviewJoinRequest: Scalars["Boolean"];
@@ -230,6 +231,10 @@ export type Mutation = {
 
 export type MutationSetEventQuestionsArgs = {
   input: SetEventQuestionsInput;
+};
+
+export type MutationSetEventDurationsArgs = {
+  input: SetEventDurationsInput;
 };
 
 export type MutationCreateEventArgs = {
@@ -336,6 +341,7 @@ export type Query = {
   upcomingEvents: Array<Event>;
   featuredEvents: Array<Event>;
   recommendedEvents: Array<Event>;
+  onlineEvents: Array<Event>;
   event: Event;
   organizations: Array<Organization>;
   featuredOrganizations: Array<Organization>;
@@ -424,6 +430,16 @@ export type ReviewJoinRequestInput = {
   status: UserEventStatus;
 };
 
+export type SetEventDurationsDurationInput = {
+  start: Scalars["String"];
+  finish: Scalars["String"];
+};
+
+export type SetEventDurationsInput = {
+  eventId: Scalars["Int"];
+  durations: Array<SetEventDurationsDurationInput>;
+};
+
 export type SetEventQuestionsInput = {
   eventId: Scalars["Int"];
   questionGroups: Array<SetEventQuestionsQuestionGroupInput>;
@@ -471,6 +487,7 @@ export type UpdateEventInput = {
   coverImage?: Maybe<Scalars["Upload"]>;
   posterImage?: Maybe<Scalars["Upload"]>;
   tags?: Maybe<Array<SetEventTagsTagInput>>;
+  durations?: Maybe<Array<SetEventDurationsDurationInput>>;
   id: Scalars["Int"];
 };
 
@@ -731,11 +748,11 @@ export type GetEventByIdQuery = { __typename?: "Query" } & {
     };
 };
 
-export type GetQuestionsByEventIdQueryVariables = Exact<{
+export type GetEventRegisterQueryVariables = Exact<{
   id: Scalars["Int"];
 }>;
 
-export type GetQuestionsByEventIdQuery = { __typename?: "Query" } & {
+export type GetEventRegisterQuery = { __typename?: "Query" } & {
   event: { __typename?: "Event" } & Pick<
     Event,
     | "id"
@@ -767,6 +784,20 @@ export type GetQuestionsByEventIdQuery = { __typename?: "Query" } & {
       >;
       attendance?: Maybe<{ __typename?: "UserEvent" } & Pick<UserEvent, "id">>;
     };
+  currentUser: { __typename?: "User" } & Pick<
+    User,
+    | "firstName"
+    | "lastName"
+    | "gender"
+    | "chulaId"
+    | "academicYear"
+    | "phoneNumber"
+    | "email"
+    | "district"
+    | "province"
+    | "zipCode"
+    | "address"
+  >;
 };
 
 export type CreateJoinRequestMutationVariables = Exact<{
@@ -778,9 +809,9 @@ export type CreateJoinRequestMutation = { __typename?: "Mutation" } & Pick<
   "createJoinRequest"
 >;
 
-export type GetFeaturedEventsQueryVariables = Exact<{ [key: string]: never }>;
+export type GetHomeItemQueryVariables = Exact<{ [key: string]: never }>;
 
-export type GetFeaturedEventsQuery = { __typename?: "Query" } & {
+export type GetHomeItemQuery = { __typename?: "Query" } & {
   featuredEvents: Array<
     { __typename?: "Event" } & Pick<
       Event,
@@ -804,13 +835,22 @@ export type GetFeaturedEventsQuery = { __typename?: "Query" } & {
         tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
       }
   >;
-};
-
-export type GetFeaturedOrganizationsHomeQueryVariables = Exact<{
-  [key: string]: never;
-}>;
-
-export type GetFeaturedOrganizationsHomeQuery = { __typename?: "Query" } & {
+  upcomingEvents: Array<
+    { __typename?: "Event" } & Pick<
+      Event,
+      "id" | "description" | "name" | "posterImageUrl" | "posterImageHash"
+    > & {
+        durations: Array<
+          { __typename?: "EventDuration" } & Pick<
+            EventDuration,
+            "id" | "start" | "finish"
+          >
+        >;
+        location?: Maybe<
+          { __typename?: "Location" } & Pick<Location, "id" | "name">
+        >;
+      }
+  >;
   featuredOrganizations: Array<
     { __typename?: "Organization" } & Pick<
       Organization,
@@ -820,6 +860,29 @@ export type GetFeaturedOrganizationsHomeQuery = { __typename?: "Query" } & {
       | "profilePictureUrl"
       | "profilePictureHash"
     >
+  >;
+};
+
+export type GetRecommendedEventsQueryVariables = Exact<{
+  [key: string]: never;
+}>;
+
+export type GetRecommendedEventsQuery = { __typename?: "Query" } & {
+  recommendedEvents: Array<
+    { __typename?: "Event" } & Pick<
+      Event,
+      "id" | "description" | "name" | "posterImageUrl" | "posterImageHash"
+    > & {
+        durations: Array<
+          { __typename?: "EventDuration" } & Pick<
+            EventDuration,
+            "id" | "start" | "finish"
+          >
+        >;
+        location?: Maybe<
+          { __typename?: "Location" } & Pick<Location, "id" | "name">
+        >;
+      }
   >;
 };
 

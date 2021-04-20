@@ -4,7 +4,6 @@ import {
   CreateJoinRequestInput,
   Question
 } from "@/apollo/types";
-import useUser from "@/modules/authentication";
 import { computed, reactive, ref } from "vue";
 import { useEventRegisterApi } from "../api";
 import { updateAnswer } from "../api";
@@ -12,7 +11,6 @@ import { useRoute, useRouter } from "vue-router";
 import { useResult } from "@vue/apollo-composable";
 
 const useEventRegister = () => {
-  const { user } = useUser();
   const step = ref(1);
   const questionData = reactive([] as Question[]);
   const { addAnswer } = updateAnswer();
@@ -21,12 +19,14 @@ const useEventRegister = () => {
   const eventID = Number(route.params.id);
   const { onResult, onError, result } = useEventRegisterApi({ id: eventID });
   const event = useResult(result, null, data => data.event);
+  const user = useResult(result, null, data => data.currentUser);
 
   onError(() => {
     router.push("/404");
   });
 
   onResult(result => {
+    console.log(result, "result");
     if (result.data.event.attendance) {
       router.push("/");
     }

@@ -1,4 +1,4 @@
-import { computed, Ref, ToRefs } from "vue";
+import { computed, Ref } from "vue";
 import { Event, EventDuration, UserEventStatus } from "@/apollo/types";
 import { getDisplayDate, getMainTimetable } from "@/commons/utils/date";
 import { useRouter } from "vue-router";

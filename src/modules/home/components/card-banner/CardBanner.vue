@@ -12,7 +12,7 @@
     </div>
     <div class="col-span-1 flex flex-col justify-between items-center p-2">
       <section>
-        <h3 class="text-2xl font-heading text-blue-10 mb-1">
+        <h3 class="text-2xl font-heading text-blue-10 mb-1 event-name">
           {{ event.name }}
         </h3>
         <div class="flex mb-2 items-center">
@@ -99,6 +99,13 @@ export default defineComponent({
 .event-description {
   display: -webkit-box;
   -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.event-name {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }

@@ -4,10 +4,15 @@
   >
     <div class="font-heading text-3xl">
       Ticket ID:<span class="text-primary ml-2">
-        {{ ticket }}
+        {{ ticketID }}
       </span>
     </div>
-    <qrcode-vue class="mt-4" :value="ticket || ''" :size="300" renderAs="svg" />
+    <qrcode-vue
+      class="mt-4"
+      :value="ticketID || ''"
+      :size="300"
+      renderAs="svg"
+    />
     <div class="flex flex-col self-start mt-11">
       <div class="font-heading text-xl">Owner's Information</div>
       <div class="flex mt-2">
@@ -68,10 +73,9 @@ export default defineComponent({
   },
   setup() {
     const hash = "LEHV6nWB2yk8pyo0adR*.7kCMdnj";
-    const ticket = "A12345";
+
     return {
-      hash,
-      ticket
+      hash
     };
   }
 });

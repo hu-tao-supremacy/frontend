@@ -12,7 +12,8 @@ const EventRegister = () =>
 const EventFeedback = () =>
   import("@/modules/eventFeedback/EventFeedbackPage.vue");
 const OrgHome = () => import("@/modules/organization/home/OrgHomePage.vue");
-const QuestionGroup = () => import("@/modules/questionGroup/QuestionGroup.vue");
+const CreateFeedback = () =>
+  import("@/modules/createEventFeedback/CreateEventFeedbackPage.vue");
 const Login = () => import("@/modules/login/Login.vue");
 const NotFound = () => import("@/modules/not-found/NotFound.vue");
 const PageSkeleton = () =>
@@ -60,8 +61,8 @@ const router = createRouter({
           component: EventFeedback
         },
         {
-          path: "/question-group",
-          component: QuestionGroup
+          path: "/create-event-feedback/:id",
+          component: CreateFeedback
         },
 
         { path: "/404", component: NotFound }

@@ -12,6 +12,7 @@
       <p class="text-xs">{{ user.email }}</p>
     </section>
     <button
+      v-if="!isOrgOwner"
       class="flex items-center justify-center w-3 h-3 text-green-6 shadow-xs rounded-full overflow-hidden border ml-auto mr-1 focus:outline-none"
       :class="{
         'border-gray-4 hover:border-green-6 focus:border-green-6 focus:bg-green-2': !isSelected,
@@ -56,6 +57,10 @@ export default defineComponent({
       type: Object as () => User
     },
     isSelected: {
+      type: Boolean,
+      required: true
+    },
+    isOrgOwner: {
       type: Boolean,
       required: true
     }

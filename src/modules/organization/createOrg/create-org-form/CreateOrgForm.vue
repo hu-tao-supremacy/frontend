@@ -1,5 +1,8 @@
 <template>
-  <div class="flex flex-col pt-6 pb-3 px-8 w-full rounded-2xl bg-white">
+  <form
+    @submit.prevent="submitForm"
+    class="flex flex-col pt-6 pb-3 px-8 w-full rounded-2xl bg-white"
+  >
     <h1 class="font-heading text-xl mb-3">General Information</h1>
     <section class="flex mb-3">
       <div
@@ -41,11 +44,10 @@
     </section>
     <section class="flex mb-3">
       <BaseLabelAndTextInput
-        v-model="shortName"
-        inputName="shortName"
+        v-model="abbreviation"
+        inputName="abbreviation"
         label="Organization abbreviations"
         :isRequired="true"
-        :isError="!isValidShortName"
         class="w-24 flex-shrink-0 mr-3"
       />
       <BaseLabelAndTextInput
@@ -53,7 +55,6 @@
         inputName="fullName"
         label="Organization full name"
         :isRequired="true"
-        :isError="!isValidFullName"
         class="w-full"
       />
     </section>
@@ -63,7 +64,6 @@
         inputName="advisor"
         label="Organization advisor"
         :isRequired="true"
-        :isError="!isValidAdvisor"
         class="w-40 flex-shrink-0 mr-3"
       />
       <div class="w-full">
@@ -78,7 +78,6 @@
           :optionNames="facultyList"
           :optionValues="facultyList"
           :placeholder="'——— Select faculty ———'"
-          :isError="!isValidFaculty"
           class="w-full h-4"
         />
       </div>
@@ -99,7 +98,7 @@
         <p>Organization member</p>
         <div class="flex -space-x-1 overflow-hidden">
           <UserProfile
-            v-for="member in members"
+            v-for="member in memberProfilesShown"
             :key="member.id"
             :user="member"
             :hasBorder="false"
@@ -122,6 +121,7 @@
         @select-member="modifySelectedMember"
         :searchedUsers="searchedUsers"
         :selectedMembers="selectedMembers"
+        :orgOwner="orgOwner"
         class="absolute left-0 top-15 z-10"
       />
       <div class="w-full">
@@ -129,10 +129,11 @@
           <h1 class="font-heading text-xl mr-4">Contact Person</h1>
           <button
             @click="toggleUserAsContactPerson"
+            type="button"
             class="flex items-center justify-center w-2 h-2 rounded-sm overflow-hidden focus:outline-none mr-1"
             :class="{
               'bg-gray-3 hover:bg-green-1': !userIsContactPerson,
-              'bg-green-1 text-green-6 hover:bg-yellow-1 hover:text-yellow-6': userIsContactPerson
+              'bg-green-1 text-green-6': userIsContactPerson
             }"
           >
             <base-icon v-show="userIsContactPerson" :width="16" :height="16"
@@ -147,7 +148,6 @@
             inputName="contactName"
             label="Full name"
             :isRequired="true"
-            :isError="!isValidContactName"
             :disabled="userIsContactPerson"
             class="w-30 mr-1 flex-shrink-0"
           />
@@ -176,7 +176,7 @@
           <BaseLabelAndTextInput
             v-model="contactLINE"
             inputName="contactLINE"
-            label="Line ID"
+            label="line ID"
             :disabled="userIsContactPerson"
             class="w-full"
           />
@@ -209,24 +209,26 @@
         <BaseLabelAndTextInput
           v-model="line"
           inputName="line"
-          label="Line Official Account"
+          label="line Official Account"
           class="w-30 flex-shrink-0 mr-4"
         />
         <BaseLabelAndTextInput
           v-model="email"
           inputName="email"
           label="Organization email"
+          :isError="!isValidEmail"
+          errorText="Please input valid email with @"
           class="w-30 flex-shrink-0"
         />
       </div>
     </section>
     <base-button
+      type="submit"
       :disabled="!isValidForm"
-      @click="createOrg"
       class="px-2 py-0.5 self-end"
       >Create Organization</base-button
     >
-  </div>
+  </form>
 </template>
 
 <script lang="ts">
@@ -243,7 +245,7 @@ import InfoIcon from "@/assets/Info.vue";
 import { parseImageFile } from "@/commons/utils/parseImage";
 import { validateEmail, validatePhone } from "@/commons/utils/validForm";
 import FacultyData from "@/commons/constant/faculty";
-import { User } from "@/apollo/types";
+import { User, Gender } from "@/apollo/types";
 import testData from "@/modules/test/testData";
 
 export default defineComponent({
@@ -263,50 +265,96 @@ export default defineComponent({
     const uploadedImgFile = ref<Blob | null>(null);
     const uploadedImg = ref<string | null>(null);
     const reader = new FileReader();
-    const shortName = ref("");
-    const isValidShortName = false;
+
+    const abbreviation = ref("");
     const fullName = ref("");
-    const isValidFullName = false;
     const advisor = ref("");
-    const isValidAdvisor = false;
     const faculty = ref("");
-    const facultyList = FacultyData.map(fac => fac.name);
-    const isValidFaculty = false;
+    const facultyList = FacultyData.map(faculty => faculty.name);
     const description = ref("");
-    const isValidDescription = false;
-    const members = [
-      {
-        id: 1,
-        firstName: "Adam",
-        lastName: "Smith",
-        profilePictureUrl: "https://picsum.photos/101"
-      },
-      {
-        id: 2,
-        firstName: "Ben",
-        lastName: "Foss",
-        profilePictureUrl: "https://picsum.photos/102"
-      },
-      { id: 3, firstName: "Kark", lastName: "Titanium", img: null }
-    ];
+
+    //Get from API
+    const orgOwner: User = {
+      id: 101,
+      firstName: "Pattarapon",
+      lastName: "Kittisrisawai",
+      email: "6131837921@student.chula.ac.th",
+      isChulaStudent: true,
+      didSetup: true,
+      gender: Gender.M,
+      organizations: [],
+      events: [],
+      interests: []
+    };
+    //Initiate with org owner as single member
+    const selectedMembers: Ref<User[]> = ref([orgOwner]);
+    const isAddMemberModalShown = ref(false);
+    //Trick variable to bypass hiding modal from v-click-outside of AddMemberModal component
+    const isAddMemberModalJustShown = ref(false);
+    const searchedUsers: Ref<User[]> = ref([]);
+
     const contactName = ref("");
-    const isValidContactName = false;
     const contactEmail = ref("");
-    const isValidContactEmail = false;
     const contactPhone = ref("");
-    const isValidContactPhone = false;
     const contactLINE = ref("");
+    const userIsContactPerson = ref(false);
+
     const facebook = ref("");
     const instagram = ref("");
     const line = ref("");
     const email = ref("");
-    const userIsContactPerson = ref(false);
-    const selectedMembers: Ref<User[]> = ref([]);
-    const isAddMemberModalShown = ref(false);
-    const isAddMemberModalJustShown = ref(false); //Trick to bypass hiding modal from v-click-outside of AddMemberModal component
+
+    const memberProfilesShown = computed(() => {
+      if (selectedMembers.value.length <= 3) return selectedMembers.value;
+      return selectedMembers.value.slice(0, 3);
+    });
+
+    const isValidOrgDetail = computed(() => {
+      return (
+        abbreviation.value !== "" &&
+        fullName.value !== "" &&
+        advisor.value !== "" &&
+        faculty.value !== ""
+      );
+    });
+
+    const isValidContactEmail = computed(() => {
+      return validateEmail(contactEmail.value);
+    });
+
+    const isValidContactPhone = computed(() => {
+      return validatePhone(contactPhone.value);
+    });
+
+    const isValidContactPerson = computed(() => {
+      return (
+        contactName.value !== "" &&
+        contactEmail.value !== "" &&
+        contactPhone.value !== "" &&
+        isValidContactEmail.value &&
+        isValidContactPhone.value
+      );
+    });
+
+    const isValidEmail = computed(() => {
+      return validateEmail(email.value);
+    });
+
+    const hasSocialMedia = computed(() => {
+      return (
+        facebook.value !== "" ||
+        instagram.value !== "" ||
+        line.value !== "" ||
+        (email.value !== "" && isValidEmail)
+      );
+    });
 
     const isValidForm = computed(() => {
-      return isValidFullName;
+      return (
+        isValidOrgDetail.value &&
+        isValidContactPerson.value &&
+        hasSocialMedia.value
+      );
     });
 
     async function previewFile(event: Event) {
@@ -331,21 +379,6 @@ export default defineComponent({
         uploadedImg.value = uploadedFile;
       }
     });
-
-    function showMemberName(firstName: string, lastName: string) {
-      return firstName.charAt(0) + lastName.charAt(0);
-    }
-
-    function addMember() {
-      //Do something to add member
-      console.log("Add member");
-    }
-
-    function createOrg() {
-      if (!isValidForm.value) return;
-      //Send information to API to create org
-      console.log("Create org");
-    }
 
     function fillUserAsContactPerson() {
       //Change to use API to fill user's info instead
@@ -385,45 +418,62 @@ export default defineComponent({
       isAddMemberModalShown.value = false;
     }
 
-    const testUser = testData.user;
-    const searchedUsers = ref([
-      testUser,
-      testUser,
-      testUser,
-      testUser,
-      testUser
-    ]);
-
     function searchUsers(value: string) {
       //Search users with API and change searchedUsers list
       console.log(value);
+      //Dummy data
+      const testUser = testData.user;
       searchedUsers.value = [testUser, testUser];
     }
 
+    function addMember(user: User) {
+      selectedMembers.value.push(user);
+    }
+
+    function removeMember(index: number) {
+      selectedMembers.value.splice(index, 1);
+    }
+
     function modifySelectedMember(user: User) {
-      const listIndex = selectedMembers.value.findIndex(
+      const memberIndex = selectedMembers.value.findIndex(
         member => member.id === user.id
       );
-      if (listIndex === -1) selectedMembers.value.push(user);
-      else selectedMembers.value.splice(listIndex, 1);
+      if (memberIndex === -1) addMember(user);
+      else removeMember(memberIndex);
+    }
+
+    function submitForm() {
+      const org = {
+        name: fullName.value,
+        abbreviation: abbreviation.value,
+        advisor: advisor.value,
+        associatedFaculty: faculty.value,
+        description: description.value,
+        facebookPage: facebook.value,
+        instagram: instagram.value,
+        lineOfficialAccount: line.value,
+        email: email.value,
+        contactFullName: contactName.value,
+        contactEmail: contactEmail.value,
+        contactPhoneNumber: contactPhone.value,
+        contactLineId: contactLINE.value,
+        profilePicture: uploadedImg.value
+      };
+      console.log("submit org", org);
+      const memberEmails = selectedMembers.value.map(member => member.email);
+      console.log("submit members", memberEmails);
     }
 
     return {
       fileLoaded,
       uploadedImg,
-      shortName,
-      isValidShortName,
+      abbreviation,
       fullName,
-      isValidFullName,
       advisor,
-      isValidAdvisor,
       faculty,
-      isValidFaculty,
       description,
-      isValidDescription,
-      members,
+      memberProfilesShown,
       contactName,
-      isValidContactName,
       contactEmail,
       isValidContactEmail,
       contactPhone,
@@ -433,9 +483,6 @@ export default defineComponent({
       instagram,
       line,
       email,
-      showMemberName,
-      addMember,
-      createOrg,
       isValidForm,
       previewFile,
       facultyList,
@@ -447,7 +494,10 @@ export default defineComponent({
       showAddMemberModal,
       hideAddMemberModal,
       searchUsers,
-      modifySelectedMember
+      modifySelectedMember,
+      orgOwner,
+      isValidEmail,
+      submitForm
     };
   }
 });

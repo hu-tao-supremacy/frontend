@@ -29,6 +29,7 @@
         @select-member="selectMember(user)"
         :user="user"
         :isSelected="isInSelectedMembers(user.id)"
+        :isOrgOwner="isOrgOwner(user.id)"
       />
     </section>
   </div>
@@ -58,6 +59,10 @@ export default defineComponent({
     },
     searchedUsers: {
       type: Array as PropType<Array<User>>
+    },
+    orgOwner: {
+      type: Object as () => User,
+      required: true
     }
   },
   emits: [CLOSE_MODAL, SEARCH, SELECT_MEMBER],
@@ -65,7 +70,7 @@ export default defineComponent({
     const { selectedMembers } = toRefs(props);
 
     const selectedMembersCount = computed(() => {
-      return selectedMembers.value.length;
+      return selectedMembers.value.length - 1;
     });
 
     const memberOrMembers = computed(() => {
@@ -75,6 +80,10 @@ export default defineComponent({
 
     function isInSelectedMembers(userId: number) {
       return selectedMembers.value.some(user => user.id === userId);
+    }
+
+    function isOrgOwner(userId: number) {
+      return userId === props.orgOwner.id;
     }
 
     function closeModal() {
@@ -93,6 +102,7 @@ export default defineComponent({
       selectedMembersCount,
       memberOrMembers,
       isInSelectedMembers,
+      isOrgOwner,
       closeModal,
       search,
       selectMember

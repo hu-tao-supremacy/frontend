@@ -128,15 +128,15 @@
         <section class="flex mb-2 items-center">
           <h1 class="font-heading text-xl mr-4">Contact Person</h1>
           <button
-            @click="toggleUserAsContactPerson"
+            @click="toggleOwnerAsContactPerson"
             type="button"
             class="flex items-center justify-center w-2 h-2 rounded-sm overflow-hidden focus:outline-none mr-1"
             :class="{
-              'bg-gray-3 hover:bg-green-1': !userIsContactPerson,
-              'bg-green-1 text-green-6': userIsContactPerson
+              'bg-gray-3 hover:bg-green-1': !ownerIsContactPerson,
+              'bg-green-1 text-green-6': ownerIsContactPerson
             }"
           >
-            <base-icon v-show="userIsContactPerson" :width="16" :height="16"
+            <base-icon v-show="ownerIsContactPerson" :width="16" :height="16"
               ><CheckIcon
             /></base-icon>
           </button>
@@ -148,7 +148,7 @@
             inputName="contactName"
             label="Full name"
             :isRequired="true"
-            :disabled="userIsContactPerson"
+            :disabled="ownerIsContactPerson"
             class="w-30 mr-1 flex-shrink-0"
           />
           <BaseLabelAndTextInput
@@ -157,7 +157,7 @@
             label="Email"
             :isRequired="true"
             :isError="!isValidContactEmail"
-            :disabled="userIsContactPerson"
+            :disabled="ownerIsContactPerson"
             errorText="Please input valid email with @"
             class="w-full"
           />
@@ -169,7 +169,7 @@
             label="Phone number"
             :isRequired="true"
             :isError="!isValidContactPhone"
-            :disabled="userIsContactPerson"
+            :disabled="ownerIsContactPerson && ownerHasPhoneNumber"
             errorText="Please input phone number without '-'"
             class="w-30 mr-1 flex-shrink-0"
           />
@@ -177,7 +177,6 @@
             v-model="contactLINE"
             inputName="contactLINE"
             label="line ID"
-            :disabled="userIsContactPerson"
             class="w-full"
           />
         </section>
@@ -274,18 +273,7 @@ export default defineComponent({
     const description = ref("");
 
     //Get from API
-    const orgOwner: User = {
-      id: 101,
-      firstName: "Pattarapon",
-      lastName: "Kittisrisawai",
-      email: "6131837921@student.chula.ac.th",
-      isChulaStudent: true,
-      didSetup: true,
-      gender: Gender.M,
-      organizations: [],
-      events: [],
-      interests: []
-    };
+    const orgOwner: User = testData.userPoom;
     //Initiate with org owner as single member
     const selectedMembers: Ref<User[]> = ref([orgOwner]);
     const isAddMemberModalShown = ref(false);
@@ -297,7 +285,7 @@ export default defineComponent({
     const contactEmail = ref("");
     const contactPhone = ref("");
     const contactLINE = ref("");
-    const userIsContactPerson = ref(false);
+    const ownerIsContactPerson = ref(false);
 
     const facebook = ref("");
     const instagram = ref("");
@@ -307,6 +295,11 @@ export default defineComponent({
     const memberProfilesShown = computed(() => {
       if (selectedMembers.value.length <= 3) return selectedMembers.value;
       return selectedMembers.value.slice(0, 3);
+    });
+
+    //Check with API
+    const ownerHasPhoneNumber = computed(() => {
+      return !!orgOwner.phoneNumber;
     });
 
     const isValidOrgDetail = computed(() => {
@@ -380,11 +373,11 @@ export default defineComponent({
       }
     });
 
-    function fillUserAsContactPerson() {
+    function fillOwnerAsContactPerson() {
       //Change to use API to fill user's info instead
-      contactName.value = "Pattarapon Kittisrisawai";
-      contactEmail.value = "6131837921@student.chula.ac.th";
-      contactPhone.value = "0812345678";
+      contactName.value = `${orgOwner.firstName} ${orgOwner.lastName}`;
+      contactEmail.value = orgOwner.email;
+      contactPhone.value = orgOwner.phoneNumber ? orgOwner.phoneNumber : "";
       contactLINE.value = "KittyKun";
     }
 
@@ -395,13 +388,13 @@ export default defineComponent({
       contactLINE.value = "";
     }
 
-    function toggleUserAsContactPerson() {
-      if (userIsContactPerson.value) {
-        userIsContactPerson.value = false;
+    function toggleOwnerAsContactPerson() {
+      if (ownerIsContactPerson.value) {
+        ownerIsContactPerson.value = false;
         clearContactPerson();
       } else {
-        userIsContactPerson.value = true;
-        fillUserAsContactPerson();
+        ownerIsContactPerson.value = true;
+        fillOwnerAsContactPerson();
       }
     }
 
@@ -443,6 +436,7 @@ export default defineComponent({
     }
 
     function submitForm() {
+      //Connect with API
       const org = {
         name: fullName.value,
         abbreviation: abbreviation.value,
@@ -486,8 +480,8 @@ export default defineComponent({
       isValidForm,
       previewFile,
       facultyList,
-      userIsContactPerson,
-      toggleUserAsContactPerson,
+      ownerIsContactPerson,
+      toggleOwnerAsContactPerson,
       selectedMembers,
       searchedUsers,
       isAddMemberModalShown,
@@ -497,7 +491,8 @@ export default defineComponent({
       modifySelectedMember,
       orgOwner,
       isValidEmail,
-      submitForm
+      submitForm,
+      ownerHasPhoneNumber
     };
   }
 });

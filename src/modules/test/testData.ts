@@ -37,11 +37,16 @@ export const testData = {
     currentAttendee: 100
   },
   organization: {
-    img: "https://picsum.photos/100",
-    imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
-    shortName: "SGCU",
-    fullName: "องค์การบริหารสโมสรนิสิตจุฬาลงกรณ์มหาวิทยาลัย (อบจ.)",
-    description: `<ORG - BIO>   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque pulvinar ornare orci amet. Quis arcu rhoncus velit amet nulla eleifend tristique quis? `
+    profilePictureUrl: "https://picsum.photos/100",
+    profilePictureHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
+    name: "องค์การบริหารสโมสรนิสิตจุฬาลงกรณ์มหาวิทยาลัย (อบจ.)",
+    description: `<ORG - BIO>   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque pulvinar ornare orci amet. Quis arcu rhoncus velit amet nulla eleifend tristique quis? `,
+    facebookPage: "SGCU.facebook",
+    instagram: "SGCU.instagram",
+    lineOfficialAccount: "SGCU.line",
+    email: "SCGU@chula.ac.th",
+    isVerified: true,
+    events: [{ name: "asd" }, { name: "rew" }]
   },
   ticketID: "175FD57",
   user: {
@@ -57,6 +62,19 @@ export const testData = {
     history: [],
     interests: [],
     events: []
+  },
+  userPoom: {
+    id: 101,
+    firstName: "Pattarapon",
+    lastName: "Kittisrisawai",
+    email: "6131837921@student.chula.ac.th",
+    // phoneNumber: '0812345678',
+    isChulaStudent: true,
+    didSetup: true,
+    gender: Gender.M,
+    organizations: [],
+    history: [],
+    interests: []
   },
   eventsSchedule: [
     {

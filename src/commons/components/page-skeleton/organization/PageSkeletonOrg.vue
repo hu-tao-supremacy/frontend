@@ -2,7 +2,9 @@
   <section class="flex flex-col w-full h-full">
     <!-- Need to change to org navbar -->
     <PageNavbar />
-    <router-view></router-view>
+    <div class="content-min-height bg-gray-1">
+      <router-view></router-view>
+    </div>
     <PageFooter />
   </section>
 </template>

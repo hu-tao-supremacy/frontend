@@ -117,6 +117,9 @@
       <AddMemberModal
         v-show="isAddMemberModalShown"
         v-click-outside="hideAddMemberModal"
+        @close-modal="hideAddMemberModal"
+        @search="searchUsers"
+        @select-member="modifySelectedMember"
         :searchedUsers="searchedUsers"
         :selectedMembers="selectedMembers"
         class="absolute left-0 top-15 z-10"
@@ -240,6 +243,7 @@ import InfoIcon from "@/assets/Info.vue";
 import { parseImageFile } from "@/commons/utils/parseImage";
 import { validateEmail, validatePhone } from "@/commons/utils/validForm";
 import FacultyData from "@/commons/constant/faculty";
+import { User } from "@/apollo/types";
 import testData from "@/modules/test/testData";
 
 export default defineComponent({
@@ -297,9 +301,9 @@ export default defineComponent({
     const line = ref("");
     const email = ref("");
     const userIsContactPerson = ref(false);
-    const selectedMembers: Ref<string[]> = ref([]);
+    const selectedMembers: Ref<User[]> = ref([]);
     const isAddMemberModalShown = ref(false);
-    const isAddMemberModalJustShown = ref(false);
+    const isAddMemberModalJustShown = ref(false); //Trick to bypass hiding modal from v-click-outside of AddMemberModal component
 
     const isValidForm = computed(() => {
       return isValidFullName;
@@ -382,7 +386,27 @@ export default defineComponent({
     }
 
     const testUser = testData.user;
-    const searchedUsers = [testUser, testUser, testUser, testUser, testUser];
+    const searchedUsers = ref([
+      testUser,
+      testUser,
+      testUser,
+      testUser,
+      testUser
+    ]);
+
+    function searchUsers(value: string) {
+      //Search users with API and change searchedUsers list
+      console.log(value);
+      searchedUsers.value = [testUser, testUser];
+    }
+
+    function modifySelectedMember(user: User) {
+      const listIndex = selectedMembers.value.findIndex(
+        member => member.id === user.id
+      );
+      if (listIndex === -1) selectedMembers.value.push(user);
+      else selectedMembers.value.splice(listIndex, 1);
+    }
 
     return {
       fileLoaded,
@@ -421,7 +445,9 @@ export default defineComponent({
       searchedUsers,
       isAddMemberModalShown,
       showAddMemberModal,
-      hideAddMemberModal
+      hideAddMemberModal,
+      searchUsers,
+      modifySelectedMember
     };
   }
 });

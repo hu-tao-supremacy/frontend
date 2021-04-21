@@ -15,7 +15,7 @@
       class="flex items-center justify-center w-3 h-3 text-green-6 shadow-xs rounded-full overflow-hidden border ml-auto mr-1 focus:outline-none"
       :class="{
         'border-gray-4 hover:border-green-6 focus:border-green-6 focus:bg-green-2': !isSelected,
-        'border-green-6 bg-green-1 hover:border-yellow-6 hover:bg-yellow-1 hover:text-yellow-6 focus:border-red-5 focus:bg-red-1 focus:text-red-5': isSelected
+        'border-green-6 bg-green-1 hover:border-yellow-6 hover:bg-yellow-1 hover:text-yellow-6': isSelected
       }"
     >
       <base-icon

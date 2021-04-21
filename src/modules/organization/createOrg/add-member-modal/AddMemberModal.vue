@@ -86,8 +86,7 @@ export default defineComponent({
     }
 
     function selectMember(user: User) {
-      const isSelected = isInSelectedMembers(user.id);
-      context.emit(SELECT_MEMBER, user, isSelected);
+      context.emit(SELECT_MEMBER, user);
     }
 
     return {

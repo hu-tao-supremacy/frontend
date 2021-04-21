@@ -55,7 +55,7 @@ const userPoom = {
 
 export const Primary = Template.bind({});
 Primary.args = {
-  selectedMembers: [],
+  selectedMembers: [userPoom],
   searchedUsers: [user, user, user],
   orgOwner: userPoom
 };

@@ -36,13 +36,14 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, PropType, toRefs } from "vue";
+import { defineComponent, PropType, toRefs } from "vue";
 import BaseSearch from "@/commons/UI/BaseSearch.vue";
 import BaseTransparentButton from "@/commons/UI/BaseTransparentButton.vue";
 import AddMemberSelection from "../add-member-selection/AddMemberSelection.vue";
 import XIcon from "@/assets/X.vue";
 import { CLOSE_MODAL, SEARCH, SELECT_MEMBER } from "@/commons/constant";
 import { User } from "@/apollo/types";
+import useAddMemberModal from "./useAddMemberModal";
 
 export default defineComponent({
   name: "AddMemberModal",
@@ -66,36 +67,17 @@ export default defineComponent({
   },
   emits: [CLOSE_MODAL, SEARCH, SELECT_MEMBER],
   setup(props, context) {
-    const { selectedMembers } = toRefs(props);
+    const { selectedMembers, orgOwner } = toRefs(props);
 
-    const selectedMembersCount = computed(() => {
-      return selectedMembers.value.length - 1;
-    });
-
-    const memberOrMembers = computed(() => {
-      if (selectedMembers.value.length > 1) return "Members";
-      return "Member";
-    });
-
-    function isInSelectedMembers(userId: number) {
-      return selectedMembers.value.some(user => user.id === userId);
-    }
-
-    function isOrgOwner(userId: number) {
-      return userId === props.orgOwner?.id;
-    }
-
-    function closeModal() {
-      context.emit(CLOSE_MODAL);
-    }
-
-    function search(value: string) {
-      context.emit(SEARCH, value);
-    }
-
-    function selectMember(user: User) {
-      context.emit(SELECT_MEMBER, user);
-    }
+    const {
+      selectedMembersCount,
+      memberOrMembers,
+      isInSelectedMembers,
+      isOrgOwner,
+      closeModal,
+      search,
+      selectMember
+    } = useAddMemberModal(context, selectedMembers, orgOwner);
 
     return {
       selectedMembersCount,

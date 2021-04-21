@@ -14,6 +14,8 @@ export const LOGOUT = "logout";
 
 export const SEARCH = "search";
 
+export const SUBMIT_FORM = "submit-form";
+
 export enum TicketStatus {
   ONGOING = "ongoing",
   PENDING = "pending",

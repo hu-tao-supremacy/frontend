@@ -344,6 +344,74 @@ export const eventsListData = [
       currentAttendee: 999
     },
     status: "Closed"
+  },
+  {
+    event: {
+      title: "Running, running!",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac libero pellentesque, hendrerit eros vitae, malesuada nisi. Nam tempus dolor vitae mauris luctus aliquet. Sed et finibus erat.",
+      date: "Sun, 12 Mar - 14 April",
+      time: "8:00 - 9:00",
+      location: "CU Sport Complex",
+      faculty: "ISE",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
+      img: "https://picsum.photos/201",
+      tags: ["Engineering", "Food", "Education"],
+      attendeeLimit: 999,
+      currentAttendee: 999
+    },
+    status: "Closed"
+  },
+  {
+    event: {
+      title: "Running, running!",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac libero pellentesque, hendrerit eros vitae, malesuada nisi. Nam tempus dolor vitae mauris luctus aliquet. Sed et finibus erat.",
+      date: "Sun, 12 Mar - 14 April",
+      time: "8:00 - 9:00",
+      location: "CU Sport Complex",
+      faculty: "ISE",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
+      img: "https://picsum.photos/201",
+      tags: ["Engineering", "Food", "Education"],
+      attendeeLimit: 999,
+      currentAttendee: 999
+    },
+    status: "Closed"
+  },
+  {
+    event: {
+      title: "Running, running!",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac libero pellentesque, hendrerit eros vitae, malesuada nisi. Nam tempus dolor vitae mauris luctus aliquet. Sed et finibus erat.",
+      date: "Sun, 12 Mar - 14 April",
+      time: "8:00 - 9:00",
+      location: "CU Sport Complex",
+      faculty: "ISE",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
+      img: "https://picsum.photos/201",
+      tags: ["Engineering", "Food", "Education"],
+      attendeeLimit: 999,
+      currentAttendee: 999
+    },
+    status: "Closed"
+  },
+  {
+    event: {
+      title: "Running, running!",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac libero pellentesque, hendrerit eros vitae, malesuada nisi. Nam tempus dolor vitae mauris luctus aliquet. Sed et finibus erat.",
+      date: "Sun, 12 Mar - 14 April",
+      time: "8:00 - 9:00",
+      location: "CU Sport Complex",
+      faculty: "ISE",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
+      img: "https://picsum.photos/201",
+      tags: ["Engineering", "Food", "Education"],
+      attendeeLimit: 999,
+      currentAttendee: 999
+    },
+    status: "Closed"
   }
 ];
 

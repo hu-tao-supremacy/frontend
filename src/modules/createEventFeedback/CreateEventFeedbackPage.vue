@@ -6,7 +6,7 @@
       <div
         v-for="(group, gIndex) in questionGroups"
         :key="group.seq"
-        class="w-full mb-6"
+        class="mb-6"
       >
         <CategoryInput
           :question="'Category' + ' ' + (gIndex + 1)"
@@ -14,7 +14,7 @@
           @user-input="handleUserInput(gIndex, $event)"
           @remove="popCategory(gIndex)"
         />
-        <div class="w-full">
+        <div>
           <div
             v-for="(question, index) in group.questions"
             :key="question.seq"
@@ -38,19 +38,29 @@
           <div
             class="shadow-sm rounded-lg overflow-hidden bg-white py-4 px-10 flex justify-center"
           >
-            <base-button class="mr-4" @click="addTextQuestion(gIndex)"
+            <base-button class="mr-4 w-27 h-4" @click="addTextQuestion(gIndex)"
               >Add a Text Answer Question</base-button
             >
-            <base-button @click="addScaleQuestion(gIndex)"
+            <base-button class="w-27 h-4" @click="addScaleQuestion(gIndex)"
               >Add a Scale Answer Question</base-button
             >
           </div>
         </div>
       </div>
       <div
-        class="shadow-sm rounded-lg overflow-hidden bg-white py-4 px-10 flex justify-center w-full"
+        class="shadow-sm rounded-lg overflow-hidden bg-white py-4 px-10 flex justify-center w-full mb-4"
       >
-        <base-button @click="addCategory"> Add a Category Header </base-button>
+        <base-button @click="addCategory" class="w-22 h-4">
+          Add a Category Header
+        </base-button>
+      </div>
+      <div class="flex justify-end">
+        <div
+          class="text-primary-6 self-end inline-block align-text-bottom mr-3"
+        >
+          ** Once published, cannot be edited
+        </div>
+        <base-button class="w-16 h-4">Publish</base-button>
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-full h-full py-4 justify-center">
+  <div class="flex w-full h-full py-4 px-4 justify-center">
     <section class="flex flex-col content-max-width-s w-full">
       <h1 class="font-heading text-4xl mb-3">Create Organization</h1>
       <CreateOrgForm @submit-form="showSuccessModal" />

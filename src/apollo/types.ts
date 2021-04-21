@@ -359,6 +359,10 @@ export type Query = {
   tag: Tag;
 };
 
+export type QueryOnlineEventsArgs = {
+  n: Scalars["Int"];
+};
+
 export type QueryEventArgs = {
   id: Scalars["Int"];
 };
@@ -863,6 +867,33 @@ export type AuthenticateMutation = { __typename?: "Mutation" } & {
     AuthenticateOutput,
     "accessToken"
   >;
+};
+
+export type GetOrganizationQueryVariables = Exact<{
+  id: Scalars["Int"];
+}>;
+
+export type GetOrganizationQuery = { __typename?: "Query" } & {
+  organization: { __typename?: "Organization" } & Pick<
+    Organization,
+    | "id"
+    | "name"
+    | "isVerified"
+    | "abbreviation"
+    | "advisor"
+    | "associatedFaculty"
+    | "description"
+    | "facebookPage"
+    | "instagram"
+    | "lineOfficialAccount"
+    | "email"
+    | "contactFullName"
+    | "contactEmail"
+    | "contactPhoneNumber"
+    | "contactLineId"
+    | "profilePictureUrl"
+    | "profilePictureHash"
+  > & { events: Array<{ __typename?: "Event" } & Pick<Event, "id">> };
 };
 
 export type UpdateUserMutationVariables = Exact<{

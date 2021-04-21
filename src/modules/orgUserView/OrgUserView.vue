@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col justify-center items-center // px-4 w-full">
     <div class="container">
-      <OrgCard :organization="testData.organization" class="my-4" />
+      <OrgCard :organization="organization" class="my-4" />
       <h1 class="font-heading text-4xl">
         Related events
       </h1>
@@ -24,7 +24,9 @@ import { defineComponent } from "vue";
 import OrgCard from "./org-card/OrgCard.vue";
 import CardEvent from "././../home/components/card-event/CardEvent.vue";
 import { eventsListData, testData } from "./../test/testData";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
+import { useOrganizationApi } from "./api";
+import { useResult } from "@vue/apollo-composable";
 
 export default defineComponent({
   name: "OrgUserView",
@@ -34,11 +36,18 @@ export default defineComponent({
   },
   setup() {
     const route = useRoute();
+    const router = useRouter();
     const organizationId = Number(route.params.id);
+    const { result, onError } = useOrganizationApi({
+      id: organizationId
+    });
+    onError(() => {
+      router.push("/404");
+    });
 
-    //query from database
+    const organization = useResult(result, null, data => data.organization);
 
-    return { testData, eventsListData };
+    return { testData, eventsListData, organization };
   }
 });
 </script>

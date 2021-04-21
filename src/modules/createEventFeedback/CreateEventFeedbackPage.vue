@@ -61,7 +61,9 @@
         >
           ** Once published, cannot be edited
         </div>
-        <base-button class="w-16 h-4">Publish</base-button>
+        <base-button class="w-16 h-4" @click="mapIndex" :disabled="!isValidated"
+          >Publish</base-button
+        >
       </div>
     </div>
   </div>
@@ -96,7 +98,9 @@ export default defineComponent({
       addTextQuestion,
       addScaleQuestion,
       popQuestion,
-      handleQuestionInput
+      handleQuestionInput,
+      mapIndex,
+      isValidated
     } = useCreateEventFeedback();
 
     return {
@@ -109,7 +113,9 @@ export default defineComponent({
       addTextQuestion,
       addScaleQuestion,
       popQuestion,
-      handleQuestionInput
+      handleQuestionInput,
+      mapIndex,
+      isValidated
     };
   }
 });

@@ -1,4 +1,4 @@
-import { reactive } from "vue";
+import { computed, reactive } from "vue";
 import { useRoute } from "vue-router";
 import {
   AnswerType,
@@ -79,6 +79,27 @@ const useCreateEventFeedback = () => {
     questionGroups[gIndex].questions[index].title = answer;
     console.log(questionGroups);
   };
+
+  const mapIndex = () => {
+    questionGroups.map((category, index) => {
+      category.seq = index + 1;
+      category.questions.map((question, index) => {
+        question.seq = index + 1;
+      });
+    });
+    console.log(questionInput);
+  };
+
+  const isValidated = computed(
+    () =>
+      !questionGroups.find(
+        group =>
+          !group.title ||
+          group.questions.length === 0 ||
+          group.questions.find(question => !question.title)
+      )
+  );
+
   return {
     eventID,
     addCategory,
@@ -89,7 +110,9 @@ const useCreateEventFeedback = () => {
     addTextQuestion,
     addScaleQuestion,
     popQuestion,
-    handleQuestionInput
+    handleQuestionInput,
+    mapIndex,
+    isValidated
   };
 };
 

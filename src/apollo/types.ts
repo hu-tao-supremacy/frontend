@@ -359,6 +359,10 @@ export type Query = {
   tag: Tag;
 };
 
+export type QueryOnlineEventsArgs = {
+  n: Scalars["Int"];
+};
+
 export type QueryEventArgs = {
   id: Scalars["Int"];
 };
@@ -653,6 +657,15 @@ export type GetCurrentUserQuery = { __typename?: "Query" } & {
     "id" | "firstName" | "lastName" | "profilePictureUrl" | "didSetup"
   >;
 };
+
+export type SetEventQuestionsMutationVariables = Exact<{
+  input: SetEventQuestionsInput;
+}>;
+
+export type SetEventQuestionsMutation = { __typename?: "Mutation" } & Pick<
+  Mutation,
+  "setEventQuestions"
+>;
 
 export type GetQuestionGroupsQueryVariables = Exact<{ [key: string]: never }>;
 

@@ -1,3 +1,4 @@
+import { createQuestion } from "./../api";
 import { computed, reactive } from "vue";
 import { useRoute } from "vue-router";
 import {
@@ -16,6 +17,7 @@ const useCreateEventFeedback = () => {
   const questionInput = reactive({} as SetEventQuestionsInput);
   const questionGroups = reactive([] as SetEventQuestionsQuestionGroupInput[]);
   const questions = reactive([] as SetEventQuestionsQuestionInput[]);
+  const { addQuestions } = createQuestion();
   questionInput.eventId = eventID;
   questionInput.questionGroups = questionGroups;
 
@@ -88,6 +90,7 @@ const useCreateEventFeedback = () => {
       });
     });
     console.log(questionInput);
+    addQuestions({ input: questionInput });
   };
 
   const isValidated = computed(

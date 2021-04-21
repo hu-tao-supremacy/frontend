@@ -1,0 +1,18 @@
+import {
+  MutationSetEventQuestionsArgs,
+  SetEventQuestionsInput
+} from "@/apollo/types";
+import { useMutation } from "@vue/apollo-composable";
+import gql from "graphql-tag";
+
+export const createQuestion = () => {
+  const { mutate: addQuestions } = useMutation<
+    SetEventQuestionsInput,
+    MutationSetEventQuestionsArgs
+  >(gql`
+    mutation setEventQuestions($input: SetEventQuestionsInput!) {
+      setEventQuestions(input: $input)
+    }
+  `);
+  return { addQuestions };
+};

@@ -45,7 +45,7 @@
       <BaseLabelAndTextInput
         v-model="shortName"
         inputName="shortName"
-        label="Organization Abbreviations"
+        label="Organization abbreviations"
         :isRequired="true"
         :isError="!isValidShortName"
         class="w-24 flex-shrink-0 mr-3"
@@ -91,7 +91,7 @@
         inputName="description"
         label="Organization description"
         :isExpandableTextInput="true"
-        :expandableTextInputMinHeight="'32px'"
+        :expandableTextInputMinHeight="'30px'"
         class="w-full"
       />
     </section>
@@ -117,7 +117,22 @@
         </div>
       </div>
       <div class="w-full">
-        <h1 class="font-heading text-xl mb-2">Contact Person</h1>
+        <section class="flex mb-2 items-center">
+          <h1 class="font-heading text-xl mr-4">Contact Person</h1>
+          <button
+            @click="toggleUserAsContactPerson"
+            class="flex items-center justify-center w-2 h-2 rounded-sm overflow-hidden focus:outline-none mr-1"
+            :class="{
+              'bg-gray-3 hover:bg-green-1': !userIsContactPerson,
+              'bg-green-1 text-green-6 hover:bg-yellow-1 hover:text-yellow-6': userIsContactPerson
+            }"
+          >
+            <base-icon v-show="userIsContactPerson" :width="16" :height="16"
+              ><CheckIcon
+            /></base-icon>
+          </button>
+          <p class="text-sm">I am the contact person</p>
+        </section>
         <section class="flex mb-1">
           <BaseLabelAndTextInput
             v-model="contactName"
@@ -125,6 +140,7 @@
             label="Full name"
             :isRequired="true"
             :isError="!isValidContactName"
+            :disabled="userIsContactPerson"
             class="w-30 mr-1 flex-shrink-0"
           />
           <BaseLabelAndTextInput
@@ -133,6 +149,7 @@
             label="Email"
             :isRequired="true"
             :isError="!isValidContactEmail"
+            :disabled="userIsContactPerson"
             errorText="Please input valid email with @"
             class="w-full"
           />
@@ -144,6 +161,7 @@
             label="Phone number"
             :isRequired="true"
             :isError="!isValidContactPhone"
+            :disabled="userIsContactPerson"
             errorText="Please input phone number without '-'"
             class="w-30 mr-1 flex-shrink-0"
           />
@@ -151,13 +169,20 @@
             v-model="contactLINE"
             inputName="contactLINE"
             label="Line ID"
+            :disabled="userIsContactPerson"
             class="w-full"
           />
         </section>
       </div>
     </section>
     <section class="mb-6">
-      <h1 class="font-heading text-xl mb-2">Social Media</h1>
+      <div class="flex items-center mb-2">
+        <h1 class="font-heading text-xl mr-2">Social Media</h1>
+        <base-icon :width="16" :height="16" class="mr-1"
+          ><InfoIcon
+        /></base-icon>
+        <p class="text-xs">Please fill in at least one</p>
+      </div>
       <div class="flex mb-1">
         <BaseLabelAndTextInput
           v-model="facebook"
@@ -204,6 +229,8 @@ import SingleNameSelect from "@/commons/UI/select/SingleNameSelect.vue";
 import BaseLabelAndTextInput from "@/commons/UI/BaseLabelAndTextInput.vue";
 import UserProfile from "@/commons/UI/user-profile/UserProfile.vue";
 import PlusIcon from "@/assets/Plus.vue";
+import CheckIcon from "@/assets/Check.vue";
+import InfoIcon from "@/assets/Info.vue";
 import { parseImageFile } from "@/commons/utils/parseImage";
 import FacultyData from "@/commons/constant/faculty";
 
@@ -215,7 +242,9 @@ export default defineComponent({
     SingleNameSelect,
     BaseLabelAndTextInput,
     UserProfile,
-    PlusIcon
+    PlusIcon,
+    CheckIcon,
+    InfoIcon
   },
   setup() {
     const uploadedImgFile = ref<Blob | null>(null);
@@ -258,6 +287,7 @@ export default defineComponent({
     const instagram = ref("");
     const line = ref("");
     const email = ref("");
+    const userIsContactPerson = ref(false);
 
     const isValidForm = computed(() => {
       return isValidFullName;
@@ -301,6 +331,31 @@ export default defineComponent({
       console.log("Create org");
     }
 
+    function fillUserAsContactPerson() {
+      //Change to use API to fill user's info instead
+      contactName.value = "Pattarapon Kittisrisawai";
+      contactEmail.value = "6131837921@student.chula.ac.th";
+      contactPhone.value = "0812345678";
+      contactLINE.value = "KittyKun";
+    }
+
+    function clearContactPerson() {
+      contactName.value = "";
+      contactEmail.value = "";
+      contactPhone.value = "";
+      contactLINE.value = "";
+    }
+
+    function toggleUserAsContactPerson() {
+      if (userIsContactPerson.value) {
+        userIsContactPerson.value = false;
+        clearContactPerson();
+      } else {
+        userIsContactPerson.value = true;
+        fillUserAsContactPerson();
+      }
+    }
+
     return {
       fileLoaded,
       uploadedImg,
@@ -331,7 +386,9 @@ export default defineComponent({
       createOrg,
       isValidForm,
       previewFile,
-      facultyList
+      facultyList,
+      userIsContactPerson,
+      toggleUserAsContactPerson
     };
   }
 });

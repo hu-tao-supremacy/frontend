@@ -10,7 +10,7 @@
       v-for="(option, index) in filteredOptions"
       :key="option.value"
       @click="changeOption(option)"
-      class="p-1 border-gray-2"
+      class="p-1 border-gray-2 cursor-pointer"
       :class="{ 'border-b': !isLastOption(index) }"
     >
       {{ option.name }}

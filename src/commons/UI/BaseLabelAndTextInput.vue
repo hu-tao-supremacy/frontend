@@ -5,7 +5,8 @@
     >
     <BaseTextInput
       v-if="!isExpandableTextInput"
-      v-model.trim="input"
+      @update:modelValue="userInput"
+      :modelValue="modelValue"
       :id="inputName"
       :name="inputName"
       :isError="isError"
@@ -15,7 +16,8 @@
     />
     <BaseExpandableTextArea
       v-else
-      v-model.trim="input"
+      @update:modelValue="userInput"
+      :modelValue="modelValue"
       :id="inputName"
       :name="inputName"
       :isError="isError"
@@ -36,7 +38,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref, watch } from "vue";
+import { computed, defineComponent, ref, toRef, watch } from "vue";
 import BaseTextInput from "@/commons/UI/BaseTextInput.vue";
 import BaseExpandableTextArea from "@/commons/UI/BaseExpandableTextArea.vue";
 import { UPDATE_MODEL_VALUE } from "@/commons/constant";
@@ -92,7 +94,7 @@ export default defineComponent({
     },
     textInputClass: {
       type: String,
-      default: "max-w-full h-4"
+      default: "max-w-full input-height"
     },
     errorTextClass: {
       type: String,
@@ -101,29 +103,31 @@ export default defineComponent({
   },
   emits: [UPDATE_MODEL_VALUE],
   setup(props, context) {
-    const input = ref(props.modelValue);
-
     const hasErrorText = computed(() => {
       return !!props.errorText && props.errorText !== "";
     });
 
     const expandableTextInputClass = computed(() => {
-      if (props.textInputClass === "max-w-full h-4") return "max-w-full";
+      if (props.textInputClass === "max-w-full input-height")
+        return "max-w-full";
       return props.textInputClass;
     });
 
-    watch(
-      () => input.value,
-      () => {
-        context.emit(UPDATE_MODEL_VALUE, input.value);
-      }
-    );
+    function userInput(value: string) {
+      context.emit(UPDATE_MODEL_VALUE, value);
+    }
 
     return {
-      input,
       hasErrorText,
-      expandableTextInputClass
+      expandableTextInputClass,
+      userInput
     };
   }
 });
 </script>
+
+<style scoped>
+.input-height {
+  height: 30px;
+}
+</style>

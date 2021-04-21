@@ -61,7 +61,7 @@ export default defineComponent({
     }
   },
   emits: [SELECT_MEMBER],
-  setup(props, context) {
+  setup(_, context) {
     function selectMember() {
       context.emit(SELECT_MEMBER);
     }

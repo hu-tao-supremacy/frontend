@@ -1,4 +1,4 @@
-import { ref, SetupContext, watch } from "vue";
+import { computed, ref, SetupContext, watch } from "vue";
 
 export default function useBaseSelect(
   //Required whole props to be able to watch displayedOption prop
@@ -36,6 +36,10 @@ export default function useBaseSelect(
     context.emit("update:searchTextModel", target.value);
   }
 
+  const hasNotSelected = computed(() => {
+    return props.displayedOption === "";
+  });
+
   watch(
     () => props.displayedOption,
     () => {
@@ -49,6 +53,7 @@ export default function useBaseSelect(
     isOptionShown,
     userInput,
     buttonDisplay,
+    hasNotSelected,
     showOption,
     hideOption,
     toggleShowOption,

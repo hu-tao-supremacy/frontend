@@ -10,7 +10,7 @@
       v-if="user.profilePictureUrl"
       :src="user.profilePictureUrl"
       alt="profileImage"
-      class="h-full object-cover min-w-full"
+      class="h-full object-cover w-full"
     />
     <div
       class="font-bold font-heading text-primary"

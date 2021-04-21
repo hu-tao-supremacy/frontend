@@ -9,7 +9,7 @@
         class="mb-6"
       >
         <CategoryInput
-          :question="'Category' + ' ' + (gIndex + 1)"
+          :question="getCategory(gIndex)"
           :questionId="group.seq"
           class="mb-1"
           @user-input="handleUserInput(gIndex, $event)"
@@ -23,14 +23,14 @@
           >
             <QuestionRadioPreview
               v-if="checkQuestionTypeScale(question.answerType)"
-              :question="'Question' + ' ' + (index + 1)"
+              :question="getQuestion(index)"
               :questionId="question.seq"
               @user-input="handleQuestionInput(gIndex, index, $event)"
               @delete="popQuestion(gIndex, index)"
             />
             <QuestionTextPreview
               v-else
-              :question="'Question' + ' ' + (index + 1)"
+              :question="getQuestion(index)"
               :questionId="question.seq"
               @user-input="handleQuestionInput(gIndex, index, $event)"
               @delete="popQuestion(gIndex, index)"
@@ -100,7 +100,9 @@ export default defineComponent({
       popQuestion,
       handleQuestionInput,
       mapIndex,
-      isValidated
+      isValidated,
+      getCategory,
+      getQuestion
     } = useCreateEventFeedback();
 
     return {
@@ -115,7 +117,9 @@ export default defineComponent({
       popQuestion,
       handleQuestionInput,
       mapIndex,
-      isValidated
+      isValidated,
+      getCategory,
+      getQuestion
     };
   }
 });

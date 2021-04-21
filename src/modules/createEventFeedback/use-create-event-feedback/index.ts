@@ -103,6 +103,14 @@ const useCreateEventFeedback = () => {
       )
   );
 
+  const getCategory = (index: number) => {
+    return "Category" + " " + (index + 1);
+  };
+
+  const getQuestion = (index: number) => {
+    return "Question" + " " + (index + 1);
+  };
+
   return {
     eventID,
     addCategory,
@@ -115,7 +123,9 @@ const useCreateEventFeedback = () => {
     popQuestion,
     handleQuestionInput,
     mapIndex,
-    isValidated
+    isValidated,
+    getCategory,
+    getQuestion
   };
 };
 

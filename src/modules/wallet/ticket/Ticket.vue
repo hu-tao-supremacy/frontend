@@ -68,7 +68,7 @@
         <base-icon-and-detail class="mb-1" :detail="time"
           ><ClockIcon
         /></base-icon-and-detail>
-        <base-icon-and-detail v-if="event" :detail="event.location.name"
+        <base-icon-and-detail :detail="event.location.name"
           ><PinIcon
         /></base-icon-and-detail>
       </div>

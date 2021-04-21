@@ -1,6 +1,6 @@
 <template>
   <div
-    class="modal-max-width flex flex-col py-2 px-3 rounded-2xl shadow bg-white overflow-hidden z-10"
+    class="modal-max-width flex flex-col py-2 px-3 rounded-2xl shadow bg-white overflow-hidden"
   >
     <section class="flex justify-between mb-1">
       <h1 class="font-heading text-lg">Select Member</h1>
@@ -52,7 +52,7 @@ export default defineComponent({
     XIcon
   },
   props: {
-    selectedMemberEmails: {
+    selectedMembers: {
       type: Array as PropType<Array<User>>,
       required: true
     },
@@ -62,19 +62,19 @@ export default defineComponent({
   },
   emits: [CLOSE_MODAL, SEARCH, SELECT_MEMBER],
   setup(props, context) {
-    const { selectedMemberEmails } = toRefs(props);
+    const { selectedMembers } = toRefs(props);
 
     const selectedMembersCount = computed(() => {
-      return selectedMemberEmails.value.length;
+      return selectedMembers.value.length;
     });
 
     const memberOrMembers = computed(() => {
-      if (selectedMemberEmails.value.length > 1) return "Members";
+      if (selectedMembers.value.length > 1) return "Members";
       return "Member";
     });
 
     function isInSelectedMembers(userId: number) {
-      return selectedMemberEmails.value.some(user => user.id === userId);
+      return selectedMembers.value.some(user => user.id === userId);
     }
 
     function closeModal() {

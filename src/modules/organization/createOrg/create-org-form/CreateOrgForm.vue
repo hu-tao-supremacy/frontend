@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="flex flex-col pt-6 pb-3 px-8 w-full rounded-2xl overflow-hidden bg-white"
-  >
+  <div class="flex flex-col pt-6 pb-3 px-8 w-full rounded-2xl bg-white">
     <h1 class="font-heading text-xl mb-3">General Information</h1>
     <section class="flex mb-3">
       <div
@@ -95,7 +93,7 @@
         class="w-full"
       />
     </section>
-    <section class="flex mb-4">
+    <section class="flex mb-4 relative">
       <div class="w-20 mr-6 flex-shrink-0">
         <h1 class="font-heading text-xl mb-2">Member</h1>
         <p>Organization member</p>
@@ -109,13 +107,20 @@
             class="ring-2 ring-white"
           />
           <span
-            @click="addMember"
+            @click="showAddMemberModal"
             class="flex justify-center items-center w-6 h-6 rounded-full overflow-hidden ring-2 ring-white bg-primary-3 cursor-pointer"
             ><base-icon :width="24" :height="24" class="text-primary"
               ><PlusIcon /></base-icon
           ></span>
         </div>
       </div>
+      <AddMemberModal
+        v-show="isAddMemberModalShown"
+        v-click-outside="hideAddMemberModal"
+        :searchedUsers="searchedUsers"
+        :selectedMembers="selectedMembers"
+        class="absolute left-0 top-15 z-10"
+      />
       <div class="w-full">
         <section class="flex mb-2 items-center">
           <h1 class="font-heading text-xl mr-4">Contact Person</h1>
@@ -222,17 +227,20 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref, watch } from "vue";
+import { computed, defineComponent, Ref, ref, watch } from "vue";
 import ImageGalleryIcon from "@/assets/ImageGallery.vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import SingleNameSelect from "@/commons/UI/select/SingleNameSelect.vue";
 import BaseLabelAndTextInput from "@/commons/UI/BaseLabelAndTextInput.vue";
 import UserProfile from "@/commons/UI/user-profile/UserProfile.vue";
+import AddMemberModal from "../add-member-modal/AddMemberModal.vue";
 import PlusIcon from "@/assets/Plus.vue";
 import CheckIcon from "@/assets/Check.vue";
 import InfoIcon from "@/assets/Info.vue";
 import { parseImageFile } from "@/commons/utils/parseImage";
+import { validateEmail, validatePhone } from "@/commons/utils/validForm";
 import FacultyData from "@/commons/constant/faculty";
+import testData from "@/modules/test/testData";
 
 export default defineComponent({
   name: "CreateOrgForm",
@@ -242,6 +250,7 @@ export default defineComponent({
     SingleNameSelect,
     BaseLabelAndTextInput,
     UserProfile,
+    AddMemberModal,
     PlusIcon,
     CheckIcon,
     InfoIcon
@@ -288,6 +297,9 @@ export default defineComponent({
     const line = ref("");
     const email = ref("");
     const userIsContactPerson = ref(false);
+    const selectedMembers: Ref<string[]> = ref([]);
+    const isAddMemberModalShown = ref(false);
+    const isAddMemberModalJustShown = ref(false);
 
     const isValidForm = computed(() => {
       return isValidFullName;
@@ -356,6 +368,22 @@ export default defineComponent({
       }
     }
 
+    function showAddMemberModal() {
+      isAddMemberModalShown.value = true;
+      isAddMemberModalJustShown.value = true;
+    }
+
+    function hideAddMemberModal() {
+      if (isAddMemberModalJustShown.value) {
+        isAddMemberModalJustShown.value = false;
+        return;
+      }
+      isAddMemberModalShown.value = false;
+    }
+
+    const testUser = testData.user;
+    const searchedUsers = [testUser, testUser, testUser, testUser, testUser];
+
     return {
       fileLoaded,
       uploadedImg,
@@ -388,7 +416,12 @@ export default defineComponent({
       previewFile,
       facultyList,
       userIsContactPerson,
-      toggleUserAsContactPerson
+      toggleUserAsContactPerson,
+      selectedMembers,
+      searchedUsers,
+      isAddMemberModalShown,
+      showAddMemberModal,
+      hideAddMemberModal
     };
   }
 });

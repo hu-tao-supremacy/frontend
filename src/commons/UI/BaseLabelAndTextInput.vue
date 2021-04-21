@@ -38,7 +38,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref, toRef, watch } from "vue";
+import { computed, defineComponent } from "vue";
 import BaseTextInput from "@/commons/UI/BaseTextInput.vue";
 import BaseExpandableTextArea from "@/commons/UI/BaseExpandableTextArea.vue";
 import { UPDATE_MODEL_VALUE } from "@/commons/constant";

@@ -1,8 +1,8 @@
 import { onMounted, ref } from "vue";
-import { GetFeaturedEventsQuery } from "@/apollo/types";
+import { GetHomeItemQuery } from "@/apollo/types";
 
 export default function useEventCarousel(
-  events: GetFeaturedEventsQuery["featuredEvents"]
+  events: GetHomeItemQuery["featuredEvents"]
 ) {
   const currentIndex = ref(0);
   const transitionAnimation = ref("");

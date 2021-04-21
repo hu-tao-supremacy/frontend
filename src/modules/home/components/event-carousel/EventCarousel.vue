@@ -38,7 +38,7 @@ import { defineComponent } from "vue";
 import CardBanner from "../card-banner/CardBanner.vue";
 import EventCarouselSlide from "./EventCarouselSlide.vue";
 import useEventCarousel from "./useEventCarousel";
-import { GetFeaturedEventsQuery } from "@/apollo/types";
+import { GetHomeItemQuery } from "@/apollo/types";
 
 export default defineComponent({
   name: "EventCarousel",
@@ -48,7 +48,7 @@ export default defineComponent({
   },
   props: {
     eventsList: {
-      type: Array as () => GetFeaturedEventsQuery["featuredEvents"],
+      type: Array as () => GetHomeItemQuery["featuredEvents"],
       required: true
     }
   },

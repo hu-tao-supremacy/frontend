@@ -39,5 +39,7 @@ Primary.args = {
     organizations: [],
     history: [],
     interests: []
-  }
+  },
+  isSelected: false,
+  isOrgOwner: false
 };

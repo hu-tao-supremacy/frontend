@@ -61,8 +61,7 @@ export default defineComponent({
       type: Array as PropType<Array<User>>
     },
     orgOwner: {
-      type: Object as () => User,
-      required: true
+      type: Object as () => User
     }
   },
   emits: [CLOSE_MODAL, SEARCH, SELECT_MEMBER],
@@ -83,7 +82,7 @@ export default defineComponent({
     }
 
     function isOrgOwner(userId: number) {
-      return userId === props.orgOwner.id;
+      return userId === props.orgOwner?.id;
     }
 
     function closeModal() {

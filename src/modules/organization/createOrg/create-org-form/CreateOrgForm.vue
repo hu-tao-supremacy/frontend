@@ -244,7 +244,7 @@ import InfoIcon from "@/assets/Info.vue";
 import { parseImageFile } from "@/commons/utils/parseImage";
 import { validateEmail, validatePhone } from "@/commons/utils/validForm";
 import FacultyData from "@/commons/constant/faculty";
-import { User, Gender } from "@/apollo/types";
+import { User } from "@/apollo/types";
 import testData from "@/modules/test/testData";
 
 export default defineComponent({
@@ -378,7 +378,6 @@ export default defineComponent({
       contactName.value = `${orgOwner.firstName} ${orgOwner.lastName}`;
       contactEmail.value = orgOwner.email;
       contactPhone.value = orgOwner.phoneNumber ? orgOwner.phoneNumber : "";
-      contactLINE.value = "KittyKun";
     }
 
     function clearContactPerson() {

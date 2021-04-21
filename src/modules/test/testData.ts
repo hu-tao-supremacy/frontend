@@ -68,7 +68,7 @@ export const testData = {
     firstName: "Pattarapon",
     lastName: "Kittisrisawai",
     email: "6131837921@student.chula.ac.th",
-    // phoneNumber: '0812345678',
+    phoneNumber: "0812345678",
     isChulaStudent: true,
     didSetup: true,
     gender: Gender.M,

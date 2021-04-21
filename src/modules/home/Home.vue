@@ -2,7 +2,10 @@
   <div class="flex flex-col px-4 justify-center items-center w-full">
     <div class="container">
       <EventCarousel :eventsList="featureEvents" class="my-4 w-full" />
-      <div class="flex h-6 w-full mb-3 justify-between items-center">
+      <div
+        v-if="recommendedEvents"
+        class="flex h-6 w-full mb-3 justify-between items-center"
+      >
         <div class="text-4xl font-heading">Recommended For You</div>
         <base-transparent-button
           class="group w-16 h-4 flex justify-center items-center "
@@ -19,8 +22,8 @@
           </span>
         </base-transparent-button>
       </div>
-
       <div
+        v-if="recommendedEvents"
         class="recommended grid gap-4 mb-4 w-full justify-center md:justify-start"
       >
         <CardRecommended
@@ -137,8 +140,6 @@ export default defineComponent({
 
   setup() {
     const {
-      showModal,
-      toggleModal,
       featureEvents,
       recommendedEvents,
       upcommingEvents,
@@ -148,8 +149,6 @@ export default defineComponent({
     } = useHome();
 
     return {
-      showModal,
-      toggleModal,
       featureEvents,
       recommendedEvents,
       upcommingEvents,

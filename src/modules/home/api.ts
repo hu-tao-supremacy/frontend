@@ -1,13 +1,11 @@
 import { useQuery } from "@vue/apollo-composable";
 import gql from "graphql-tag";
-import {
-  GetFeaturedEventsQuery,
-  GetFeaturedOrganizationsHomeQuery
-} from "@/apollo/types";
+import { GetHomeItemQuery, GetRecommendedEventsQuery } from "@/apollo/types";
+import { Ref } from "vue";
 
-export const useFeaturedEvents = () =>
-  useQuery<GetFeaturedEventsQuery>(gql`
-    query getFeaturedEvents {
+export const useHomeApi = () =>
+  useQuery<GetHomeItemQuery>(gql`
+    query getHomeItem {
       featuredEvents {
         id
         description
@@ -30,13 +28,23 @@ export const useFeaturedEvents = () =>
           name
         }
       }
-    }
-  `);
-
-export const useFeaturedOrganizations = () =>
-  useQuery<GetFeaturedOrganizationsHomeQuery>(gql`
-    query getFeaturedOrganizationsHome {
-      featuredOrganizations {
+      upcomingEvents {
+        id
+        description
+        name
+        posterImageUrl
+        posterImageHash
+        durations {
+          id
+          start
+          finish
+        }
+        location {
+          id
+          name
+        }
+      }
+      featuredOrganizations(n: 4) {
         id
         abbreviation
         name
@@ -45,3 +53,31 @@ export const useFeaturedOrganizations = () =>
       }
     }
   `);
+
+export const useRecommendationEvent = (enabled: Ref<boolean>) =>
+  useQuery<GetRecommendedEventsQuery>(
+    gql`
+      query getRecommendedEvents {
+        recommendedEvents {
+          id
+          description
+          name
+          posterImageUrl
+          posterImageHash
+          durations {
+            id
+            start
+            finish
+          }
+          location {
+            id
+            name
+          }
+        }
+      }
+    `,
+    null,
+    () => ({
+      enabled: enabled.value
+    })
+  );

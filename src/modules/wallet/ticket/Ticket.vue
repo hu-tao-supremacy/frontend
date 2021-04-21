@@ -5,13 +5,15 @@
         :width="120"
         :height="160"
         alt="will change to api"
-        :url="event.posterImageUrl"
-        :placeholder="event.posterImageHash"
+        :url="event && event.posterImageUrl"
+        :placeholder="event && event.posterImageHash"
         class="object-cover w-full h-full"
       />
     </section>
     <section class="flex flex-col pt-2 px-2 pb-1 shadow-sm z-10">
-      <h1 class="text-blue-10 font-heading text-xl mb-1">{{ event.name }}</h1>
+      <h1 class="text-blue-10 font-heading text-xl mb-1">
+        {{ event && event.name }}
+      </h1>
       <div class="flex flex-wrap mb-1">
         <base-tag
           v-for="tag in event.tags"
@@ -29,15 +31,15 @@
             :width="100"
             :height="100"
             alt="will change to api"
-            :url="event.organization.profilePictureUrl"
-            :placeholder="event.organization.profilePictureHash"
+            :url="event && event.organization.profilePictureUrl"
+            :placeholder="event && event.organization.profilePictureHash"
             class="object-cover w-full h-full"
           />
         </div>
         <h2 class="font-heading text-xl mr-1">
-          {{ event.organization.abbreviation }}
+          {{ event && event.organization.abbreviation }}
         </h2>
-        <p class="text-sm">{{ event.organization.name }}</p>
+        <p class="text-sm">{{ event && event.organization.name }}</p>
       </div>
     </section>
     <section

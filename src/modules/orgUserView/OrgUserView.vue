@@ -9,9 +9,9 @@
         class="card grid gap-4 justify-center md:justify-start // my-4 w-full"
       >
         <CardEvent
-          v-for="event in eventsListData"
-          :events="event.event"
-          :key="event.title"
+          v-for="event in events"
+          :events="event"
+          :key="event.id"
           class="flex"
         />
       </div>
@@ -23,7 +23,6 @@
 import { defineComponent } from "vue";
 import OrgCard from "./org-card/OrgCard.vue";
 import CardEvent from "././../home/components/card-event/CardEvent.vue";
-import { eventsListData, testData } from "./../test/testData";
 import { useRoute, useRouter } from "vue-router";
 import { useOrganizationApi } from "./api";
 import { useResult } from "@vue/apollo-composable";
@@ -46,8 +45,9 @@ export default defineComponent({
     });
 
     const organization = useResult(result, null, data => data.organization);
+    const events = useResult(result, null, data => data.organization.events);
 
-    return { testData, eventsListData, organization };
+    return { organization, events };
   }
 });
 </script>

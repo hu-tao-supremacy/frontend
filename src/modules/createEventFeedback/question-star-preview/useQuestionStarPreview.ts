@@ -7,9 +7,15 @@ export default function useQuestionStarPreview(
 ) {
   const rating = ref(-1);
 
+  const ratings = [1, 2, 3, 4, 5];
+
+  function isLastStar(index: number) {
+    return index === ratings.length - 1;
+  }
+
   function changeRating() {
     context.emit(USER_INPUT, rating.value);
   }
 
-  return { rating, changeRating };
+  return { rating, changeRating, ratings, isLastStar };
 }

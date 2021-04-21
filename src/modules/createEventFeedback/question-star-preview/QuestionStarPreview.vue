@@ -53,13 +53,10 @@ export default defineComponent({
   },
   emits: [USER_INPUT],
   setup(_, context) {
-    const { rating, changeRating } = useQuestionRating(_, context);
-
-    const ratings = [1, 2, 3, 4, 5];
-
-    function isLastStar(index: number) {
-      return index === ratings.length - 1;
-    }
+    const { rating, changeRating, ratings, isLastStar } = useQuestionRating(
+      _,
+      context
+    );
 
     return { rating, changeRating, ratings, isLastStar };
   }

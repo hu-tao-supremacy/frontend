@@ -1,6 +1,5 @@
 <template>
   <div class="p-2">
-    <div class="w-100 mb-4"><CreateOrgForm /></div>
     <InfoBanner
       :style="{ maxWidth: '960px' }"
       :eventBanner="test.eventBanner"
@@ -25,7 +24,6 @@ import InfoBanner from "@/commons/components/info-banner/InfoBanner.vue";
 import EventDetail from "@/modules/eventInfo/event-detail/EventDetail.vue";
 import EventOrganizer from "@/modules/eventInfo/event-organizer/EventOrganizer.vue";
 import { testData, questionData } from "./testData";
-import CreateOrgForm from "@/modules/organization/createOrg/create-org-form/CreateOrgForm.vue";
 import OrgCard from "@/modules/orgUserView/org-card/OrgCard.vue";
 
 export default defineComponent({
@@ -34,7 +32,6 @@ export default defineComponent({
     InfoBanner,
     EventDetail,
     EventOrganizer,
-    CreateOrgForm,
     OrgCard
   },
   setup() {

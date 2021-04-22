@@ -9,22 +9,28 @@ export const useOrganizationApi = (variables: { id: number }) =>
           id
           name
           isVerified
-          abbreviation
-          advisor
-          associatedFaculty
           description
           facebookPage
           instagram
           lineOfficialAccount
           email
-          contactFullName
-          contactEmail
-          contactPhoneNumber
-          contactLineId
           profilePictureUrl
           profilePictureHash
           events {
             id
+            description
+            name
+            posterImageUrl
+            posterImageHash
+            durations {
+              id
+              start
+              finish
+            }
+            location {
+              id
+              name
+            }
           }
         }
       }

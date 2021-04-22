@@ -879,21 +879,31 @@ export type GetOrganizationQuery = { __typename?: "Query" } & {
     | "id"
     | "name"
     | "isVerified"
-    | "abbreviation"
-    | "advisor"
-    | "associatedFaculty"
     | "description"
     | "facebookPage"
     | "instagram"
     | "lineOfficialAccount"
     | "email"
-    | "contactFullName"
-    | "contactEmail"
-    | "contactPhoneNumber"
-    | "contactLineId"
     | "profilePictureUrl"
     | "profilePictureHash"
-  > & { events: Array<{ __typename?: "Event" } & Pick<Event, "id">> };
+  > & {
+      events: Array<
+        { __typename?: "Event" } & Pick<
+          Event,
+          "id" | "description" | "name" | "posterImageUrl" | "posterImageHash"
+        > & {
+            durations: Array<
+              { __typename?: "EventDuration" } & Pick<
+                EventDuration,
+                "id" | "start" | "finish"
+              >
+            >;
+            location?: Maybe<
+              { __typename?: "Location" } & Pick<Location, "id" | "name">
+            >;
+          }
+      >;
+    };
 };
 
 export type UpdateUserMutationVariables = Exact<{

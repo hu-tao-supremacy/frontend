@@ -1,5 +1,5 @@
 import { createQuestion } from "./../api";
-import { computed, reactive } from "vue";
+import { computed, reactive, ref } from "vue";
 import { useRoute } from "vue-router";
 import {
   AnswerType,
@@ -10,22 +10,18 @@ import {
 } from "@/apollo/types";
 
 const useCreateEventFeedback = () => {
-  let sq = 0;
-  let sqq = 0;
+  const sq = ref(0);
+  const sqq = ref(0);
   const route = useRoute();
   const eventID = Number(route.params.id);
-  const questionInput = reactive({} as SetEventQuestionsInput);
   const questionGroups = reactive([] as SetEventQuestionsQuestionGroupInput[]);
-  const questions = reactive([] as SetEventQuestionsQuestionInput[]);
-  const { addQuestions } = createQuestion();
-  questionInput.eventId = eventID;
-  questionInput.questionGroups = questionGroups;
+  const { sendQuestions } = createQuestion();
 
   const addCategory = () => {
-    sq++;
+    const seq = sq.value++;
     questionGroups.push({
       type: QuestionGroupType.PostEvent,
-      seq: sq,
+      seq: seq,
       title: "",
       questions: [] as SetEventQuestionsQuestionInput[]
     });
@@ -37,8 +33,8 @@ const useCreateEventFeedback = () => {
     console.log(questionGroups, "remove");
   };
 
-  const handleUserInput = (index: number, answer: string) => {
-    questionGroups[index].title = answer;
+  const handleUserInput = (index: number, groupTitle: string) => {
+    questionGroups[index].title = groupTitle;
     console.log(questionGroups);
   };
 
@@ -46,9 +42,9 @@ const useCreateEventFeedback = () => {
     return type === AnswerType.Scale;
   };
   const addTextQuestion = (index: number) => {
-    sqq++;
+    const seq = sqq.value++;
     questionGroups[index].questions.push({
-      seq: sqq,
+      seq: seq,
       answerType: AnswerType.Text,
       isOptional: true,
       title: "",
@@ -57,9 +53,9 @@ const useCreateEventFeedback = () => {
     console.log(questionGroups);
   };
   const addScaleQuestion = (index: number) => {
-    sqq++;
+    const seq = sqq.value++;
     questionGroups[index].questions.push({
-      seq: sqq,
+      seq: seq,
       answerType: AnswerType.Scale,
       isOptional: true,
       title: "",
@@ -68,29 +64,42 @@ const useCreateEventFeedback = () => {
     console.log(questionGroups);
   };
 
-  const popQuestion = (gIndex: number, index: number) => {
-    questionGroups[gIndex].questions.splice(index, 1);
-    console.log(questions, "delete");
+  const popQuestion = (groupIndex: number, index: number) => {
+    questionGroups[groupIndex].questions.splice(index, 1);
+    console.log(questionGroups[groupIndex].questions, "delete");
   };
 
   const handleQuestionInput = (
-    gIndex: number,
+    groupIndex: number,
     index: number,
-    answer: string
+    questionTitle: string
   ) => {
-    questionGroups[gIndex].questions[index].title = answer;
+    questionGroups[groupIndex].questions[index].title = questionTitle;
     console.log(questionGroups);
   };
 
-  const mapIndex = () => {
-    questionGroups.map((category, index) => {
-      category.seq = index + 1;
-      category.questions.map((question, index) => {
-        question.seq = index + 1;
+  const resetSequence = (
+    questionGroups: SetEventQuestionsQuestionGroupInput[]
+  ) => {
+    const input = questionGroups.map((category, index) => {
+      const newCategory = { ...category };
+      newCategory.seq = index + 1;
+      newCategory.questions = newCategory.questions.map((question, index) => {
+        const newQuestion = { ...question };
+        newQuestion.seq = index + 1;
+        return newQuestion;
       });
+      return newCategory;
     });
-    console.log(questionInput);
-    addQuestions({ input: questionInput });
+    return input;
+  };
+  const submitQuestions = () => {
+    const input = {
+      eventId: eventID,
+      questionGroups: resetSequence(questionGroups)
+    } as SetEventQuestionsInput;
+    console.log(input, "input");
+    sendQuestions({ input: input });
   };
 
   const isValidated = computed(
@@ -122,7 +131,7 @@ const useCreateEventFeedback = () => {
     addScaleQuestion,
     popQuestion,
     handleQuestionInput,
-    mapIndex,
+    submitQuestions,
     isValidated,
     getCategory,
     getQuestion

@@ -23,7 +23,12 @@
         <label :for="value" name="choice" class="mb-1 text-gray-4">{{
           value
         }}</label>
-        <BaseRadio :id="value" class="w-2 h-2 text-gray-4" disabled />
+        <BaseRadio
+          :id="value"
+          :isDisabled="true"
+          class="w-2 h-2 text-gray-4"
+          disabled
+        />
       </div>
       <h2 class="ml-4 mt-3 text-gray-4">Strongly Agree</h2>
     </section>

@@ -4,45 +4,50 @@
       <div class="text-4xl font-heading mb-3">Event Feedback</div>
       <QuestionStarPreview class="mb-6" />
       <div
-        v-for="(group, gIndex) in questionGroups"
-        :key="group.seq"
+        v-for="(group, groupIndex) in questionGroups"
+        :key="'group' + group.seq"
         class="mb-6"
       >
         <CategoryInput
-          :question="getCategory(gIndex)"
+          :question="getCategory(groupIndex)"
           :questionId="group.seq"
           class="mb-1"
-          @user-input="handleUserInput(gIndex, $event)"
-          @remove="popCategory(gIndex)"
+          @user-input="handleUserInput(groupIndex, $event)"
+          @remove="popCategory(groupIndex)"
+          :placeholderText="'Name your category here!'"
         />
         <div>
           <div
             v-for="(question, index) in group.questions"
-            :key="question.seq"
+            :key="'question' + question.seq"
             class="mb-1"
           >
             <QuestionRadioPreview
               v-if="checkQuestionTypeScale(question.answerType)"
               :question="getQuestion(index)"
               :questionId="question.seq"
-              @user-input="handleQuestionInput(gIndex, index, $event)"
-              @delete="popQuestion(gIndex, index)"
+              @user-input="handleQuestionInput(groupIndex, index, $event)"
+              @delete="popQuestion(groupIndex, index)"
+              :placeholderText="'Enter your question here!'"
             />
             <QuestionTextPreview
               v-else
               :question="getQuestion(index)"
               :questionId="question.seq"
-              @user-input="handleQuestionInput(gIndex, index, $event)"
-              @delete="popQuestion(gIndex, index)"
+              @user-input="handleQuestionInput(groupIndex, index, $event)"
+              @delete="popQuestion(groupIndex, index)"
+              :placeholderText="'Enter your question here!'"
             />
           </div>
           <div
             class="shadow-sm rounded-lg overflow-hidden bg-white py-4 px-10 flex justify-center"
           >
-            <base-button class="mr-4 w-27 h-4" @click="addTextQuestion(gIndex)"
+            <base-button
+              class="mr-4 w-27 h-4"
+              @click="addTextQuestion(groupIndex)"
               >Add a Text Answer Question</base-button
             >
-            <base-button class="w-27 h-4" @click="addScaleQuestion(gIndex)"
+            <base-button class="w-27 h-4" @click="addScaleQuestion(groupIndex)"
               >Add a Scale Answer Question</base-button
             >
           </div>
@@ -61,7 +66,10 @@
         >
           ** Once published, cannot be edited
         </div>
-        <base-button class="w-16 h-4" @click="mapIndex" :disabled="!isValidated"
+        <base-button
+          class="w-16 h-4"
+          @click="submitQuestions"
+          :disabled="!isValidated"
           >Publish</base-button
         >
       </div>
@@ -99,7 +107,7 @@ export default defineComponent({
       addScaleQuestion,
       popQuestion,
       handleQuestionInput,
-      mapIndex,
+      submitQuestions,
       isValidated,
       getCategory,
       getQuestion
@@ -116,7 +124,7 @@ export default defineComponent({
       addScaleQuestion,
       popQuestion,
       handleQuestionInput,
-      mapIndex,
+      submitQuestions,
       isValidated,
       getCategory,
       getQuestion

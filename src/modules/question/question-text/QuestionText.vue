@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full shadow-sm rounded-lg overflow-hidden bg-white py-4 px-10 flex flex-col justify-center relative"
+    class="w-full shadow-sm rounded-lg overflow-hidden bg-white py-4 px-10 flex flex-col justify-center"
   >
     <label :for="questionId" class="w-max font-heading text-xl mb-0.25"
       >{{ question }}
@@ -13,9 +13,6 @@
       class="input-container w-40"
       :placeholder="placeholderText"
     />
-    <base-transparent-button class="cross-btn absolute" v-if="haveClose"
-      ><base-icon width="24px" height="24px"><XIcon /></base-icon
-    ></base-transparent-button>
   </div>
 </template>
 
@@ -24,15 +21,11 @@ import { defineComponent } from "vue";
 import BaseExpandableTextArea from "@/commons/UI/BaseExpandableTextArea.vue";
 import { USER_INPUT } from "@/commons/constant";
 import useQuestionText from "./useQuestionText";
-import BaseTransparentButton from "@/commons/UI/BaseTransparentButton.vue";
-import XIcon from "@/assets/X.vue";
 
 export default defineComponent({
   name: "QuestionText",
   components: {
-    BaseExpandableTextArea,
-    BaseTransparentButton,
-    XIcon
+    BaseExpandableTextArea
   },
   props: {
     question: {
@@ -54,10 +47,6 @@ export default defineComponent({
     optional: {
       type: Boolean,
       default: true
-    },
-    haveClose: {
-      type: Boolean,
-      default: false
     }
   },
   emits: [USER_INPUT],
@@ -68,9 +57,4 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-.cross-btn {
-  top: 22px;
-  right: 22px;
-}
-</style>
+<style scoped></style>

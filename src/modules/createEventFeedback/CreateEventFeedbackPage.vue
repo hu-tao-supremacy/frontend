@@ -81,9 +81,9 @@
 import { defineComponent } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import CategoryInput from "./category-input/CategoryInput.vue";
-import QuestionTextPreview from "./question-text-preview/QuestionTextPreview.vue";
-import QuestionRadioPreview from "./question-radio-preview/QuestionRadioPreview.vue";
-import QuestionStarPreview from "./question-star-preview/QuestionStarPreview.vue";
+import QuestionTextPreview from "@/modules/question/question-text-preview/QuestionTextPreview.vue";
+import QuestionRadioPreview from "@/modules/question/question-radio-preview/QuestionRadioPreview.vue";
+import QuestionStarPreview from "@/modules/question/question-star-preview/QuestionStarPreview.vue";
 import useCreateEventFeedback from "./use-create-event-feedback";
 
 export default defineComponent({

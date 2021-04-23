@@ -8,17 +8,12 @@ export default function useAddMemberModal(
   orgOwner?: Ref<User | undefined>
 ) {
   const selectedMembersCount = computed(() => {
-    if (selectedMembers && selectedMembers.value)
-      return selectedMembers.value.length - 1;
+    if (selectedMembers?.value) return selectedMembers.value.length - 1;
     return 0;
   });
 
-  const memberOrMembers = computed(() => {
-    if (
-      selectedMembers &&
-      selectedMembers.value &&
-      selectedMembers.value.length > 1
-    )
+  const memberOrMembersText = computed(() => {
+    if (selectedMembers?.value && selectedMembers.value.length > 1)
       return "Members";
     return "Member";
   });
@@ -45,7 +40,7 @@ export default function useAddMemberModal(
 
   return {
     selectedMembersCount,
-    memberOrMembers,
+    memberOrMembersText,
     isInSelectedMembers,
     isOrgOwner,
     closeModal,

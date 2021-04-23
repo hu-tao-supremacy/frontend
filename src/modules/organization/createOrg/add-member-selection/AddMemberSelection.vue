@@ -55,7 +55,8 @@ export default defineComponent({
   },
   props: {
     user: {
-      type: Object as () => User
+      type: Object as () => User,
+      required: true
     },
     isSelected: {
       type: Boolean,

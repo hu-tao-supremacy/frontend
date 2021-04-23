@@ -157,7 +157,7 @@ export default function useCreateOrgForm(
 
   function searchUsers(value: string) {
     //Search users with API and change searchedUsers list
-    console.log(value);
+    console.log("search value:", value);
     //Dummy data
     const testUser = testData.user;
     searchedUsers.value = [testUser, testUser];

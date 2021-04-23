@@ -70,7 +70,7 @@
               />
             </div>
           </div>
-          <p v-if="!isValidYear" class="text-sm text-red-5 mt-0.25 ml-1.5">
+          <p v-show="!isValidYear" class="text-sm text-red-5 mt-0.25 ml-1.5">
             Year must be positive number
           </p>
         </section>

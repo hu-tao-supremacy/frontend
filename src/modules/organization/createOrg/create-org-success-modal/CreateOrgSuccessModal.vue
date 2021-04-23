@@ -1,5 +1,5 @@
 <template>
-  <base-modal :maxModalWidth="'570px'" :isClosable="false"
+  <base-modal :isClosable="false"
     ><div class="flex flex-col items-center">
       <base-icon :width="85" :height="85" class="text-green-5 mb-4"
         ><CheckCircleIcon
@@ -10,8 +10,11 @@
       <p class="text-gray-5 text-center mb-7 leading-relaxed">
         Your organization has been created.<br />
         To be a verified organization, verification is needed.<br />
-        Please contact <span class="text-primary">admin@onepass.com</span> for
-        verification.
+        Please contact
+        <a href="mailto:admin@onepass.com" class="text-primary"
+          >admin@onepass.com</a
+        >
+        for verification.
       </p>
       <base-button @click="closeModal" class="w-16 py-px">Close</base-button>
     </div></base-modal

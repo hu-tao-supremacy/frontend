@@ -1,13 +1,11 @@
 import { computed, Ref } from "vue";
 import { Event, EventDuration, UserEventStatus } from "@/apollo/types";
 import { getDisplayDate, getMainTimetable } from "@/commons/utils/date";
-// import { useRouter } from "vue-router";
 
 export default function useTicket(
   ticketStatus: UserEventStatus,
   event: Ref<Event>
 ) {
-  // const router = useRouter();
   const isPending = computed(() => {
     return ticketStatus === UserEventStatus.Pending;
   });

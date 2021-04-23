@@ -18,7 +18,7 @@
       />
       <p class="text-sm flex-shrink-0 ml-4">
         <span class="text-primary">{{ selectedMembersCount }}</span>
-        {{ memberOrMembers }}
+        {{ memberOrMembersText }}
         selected
       </p>
     </section>
@@ -71,7 +71,7 @@ export default defineComponent({
 
     const {
       selectedMembersCount,
-      memberOrMembers,
+      memberOrMembersText,
       isInSelectedMembers,
       isOrgOwner,
       closeModal,
@@ -81,7 +81,7 @@ export default defineComponent({
 
     return {
       selectedMembersCount,
-      memberOrMembers,
+      memberOrMembersText,
       isInSelectedMembers,
       isOrgOwner,
       closeModal,

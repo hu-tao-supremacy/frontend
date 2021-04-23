@@ -22,6 +22,7 @@ const PageSkeletonOrgTeam = () =>
   import(
     "@/commons/components/page-skeleton/organization/PageSkeletonOrgTeam.vue"
   );
+const OrgUserView = () => import("@/modules/orgUserView/OrgUserView.vue");
 
 const router = createRouter({
   history: createWebHistory(),
@@ -64,7 +65,10 @@ const router = createRouter({
           path: "/create-event-feedback/:id",
           component: CreateFeedback
         },
-
+        {
+          path: "/org-user-view/:id",
+          component: OrgUserView
+        },
         { path: "/404", component: NotFound }
       ]
     },
@@ -77,6 +81,7 @@ const router = createRouter({
       component: PageSkeletonOrgTeam,
       children: [{ path: "", component: OrgHome }]
     },
+
     { path: "/login", component: Login },
     {
       path: "/:catchAll(.*)",

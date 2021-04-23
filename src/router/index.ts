@@ -23,6 +23,7 @@ const PageSkeletonOrgTeam = () =>
   import(
     "@/commons/components/page-skeleton/organization/PageSkeletonOrgTeam.vue"
   );
+const OrgUserView = () => import("@/modules/orgUserView/OrgUserView.vue");
 
 const router = createRouter({
   history: createWebHistory(),
@@ -65,7 +66,10 @@ const router = createRouter({
           path: "/question-group",
           component: QuestionGroup
         },
-
+        {
+          path: "/org-user-view/:id",
+          component: OrgUserView
+        },
         { path: "/404", component: NotFound }
       ]
     },
@@ -81,6 +85,7 @@ const router = createRouter({
         { path: "create-org", component: CreateOrg }
       ]
     },
+
     { path: "/login", component: Login },
     {
       path: "/:catchAll(.*)",

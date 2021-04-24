@@ -12,6 +12,7 @@ import {
 const useCreateEventFeedback = () => {
   const sq = ref(0);
   const sqq = ref(0);
+  const hasForm = ref(false);
   const route = useRoute();
   const eventID = Number(route.params.id);
   const questionGroups = reactive([] as SetEventQuestionsQuestionGroupInput[]);
@@ -25,17 +26,14 @@ const useCreateEventFeedback = () => {
       title: "",
       questions: [] as SetEventQuestionsQuestionInput[]
     });
-    console.log(questionGroups);
   };
 
   const popCategory = (index: number) => {
     questionGroups.splice(index, 1);
-    console.log(questionGroups, "remove");
   };
 
   const handleUserInput = (index: number, groupTitle: string) => {
     questionGroups[index].title = groupTitle;
-    console.log(questionGroups);
   };
 
   const checkQuestionTypeScale = (type: string) => {
@@ -50,7 +48,6 @@ const useCreateEventFeedback = () => {
       title: "",
       subtitle: ""
     });
-    console.log(questionGroups);
   };
   const addScaleQuestion = (index: number) => {
     const seq = sqq.value++;
@@ -61,12 +58,10 @@ const useCreateEventFeedback = () => {
       title: "",
       subtitle: ""
     });
-    console.log(questionGroups);
   };
 
   const popQuestion = (groupIndex: number, index: number) => {
     questionGroups[groupIndex].questions.splice(index, 1);
-    console.log(questionGroups[groupIndex].questions, "delete");
   };
 
   const handleQuestionInput = (
@@ -75,7 +70,6 @@ const useCreateEventFeedback = () => {
     questionTitle: string
   ) => {
     questionGroups[groupIndex].questions[index].title = questionTitle;
-    console.log(questionGroups);
   };
 
   const resetSequence = (
@@ -98,7 +92,6 @@ const useCreateEventFeedback = () => {
       eventId: eventID,
       questionGroups: resetSequence(questionGroups)
     } as SetEventQuestionsInput;
-    console.log(input, "input");
     sendQuestions({ input: input });
   };
 
@@ -120,6 +113,10 @@ const useCreateEventFeedback = () => {
     return "Question" + " " + (index + 1);
   };
 
+  const toggleForm = () => {
+    hasForm.value = !hasForm.value;
+  };
+
   return {
     eventID,
     addCategory,
@@ -134,7 +131,9 @@ const useCreateEventFeedback = () => {
     submitQuestions,
     isValidated,
     getCategory,
-    getQuestion
+    getQuestion,
+    hasForm,
+    toggleForm
   };
 };
 

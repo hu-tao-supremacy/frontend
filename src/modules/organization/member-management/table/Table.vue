@@ -55,7 +55,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, PropType, ref } from "vue";
+import { defineComponent, computed, PropType, ref, toRefs } from "vue";
 import BaseSearch from "@/commons/UI/BaseSearch.vue";
 import BaseTransparentButton from "@/commons/UI/BaseTransparentButton.vue";
 import SingleNameSelect from "@/commons/UI/select/SingleNameSelect.vue";
@@ -64,6 +64,8 @@ import UserProfile from "@/commons/UI/user-profile/UserProfile.vue";
 import MoreVerticalIcon from "@/assets/MoreVertical.vue";
 import BaseIcon from "@/commons/UI/BaseIcon.vue";
 import { User } from "@/apollo/types";
+import useTable from "./use-table";
+import { useResult } from "@vue/apollo-composable";
 
 export default defineComponent({
   name: "Table",
@@ -81,56 +83,16 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const searchValue = ref("");
-    const sortOption = ref("descending");
-    const handleSearch = (value: string) => {
-      searchValue.value = value;
-    };
-
-    const header: Record<string, string> = {
-      name: "Name",
-      email: "Email",
-      phoneNumber: "Phone"
-    };
-
-    const headerKeys = computed(() => {
-      return Object.keys(header);
-    });
-
-    const filteredData = computed(() => {
-      const temp = props.data?.filter(row => {
-        let searchRow = "";
-        if (searchValue.value.includes("@")) {
-          searchRow = `${row?.email}`;
-        } else {
-          searchRow = `${row?.firstName} ${row?.lastName}`;
-        }
-        return searchRow
-          .toLowerCase()
-          .includes(searchValue.value.toLowerCase());
-      });
-
-      if (temp) {
-        switch (sortOption.value) {
-          case "descend":
-            temp.sort();
-            break;
-          case "ascend":
-            temp.sort().reverse();
-            break;
-          case "pending":
-            break;
-          case "approved":
-            break;
-        }
-        return temp;
-      } else {
-        return [];
-      }
-    });
-
-    const sortBy = ["Descending alphabets", "Ascending alphabets"];
-    const sortByVal = ["descend", "ascend"];
+    const { data } = toRefs(props);
+    const {
+      sortOption,
+      handleSearch,
+      header,
+      filteredData,
+      sortBy,
+      sortByVal,
+      headerKeys
+    } = useTable(data);
 
     return {
       headerKeys,

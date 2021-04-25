@@ -1,12 +1,11 @@
 <template>
   <div
     v-click-outside="collapseDropDown"
-    class="flex flex-col rounded-lg overflow-hidden max-h-full select-none"
+    class="flex flex-col rounded-lg overflow-hidden max-h-full select-none cursor-pointer"
     :class="{
       'w-6': !isExpand,
       'w-28': isExpand,
-      'bg-white': isSelected,
-      'cursor-pointer': !isSelected
+      'bg-white': isSelected
     }"
   >
     <section
@@ -24,7 +23,10 @@
         v-show="isExpand"
         class="flex w-full justify-between cursor-pointer ml-1"
       >
-        <h2 class="w-full truncate" :class="{ 'text-white': !isSelected }">
+        <h2
+          class="w-full truncate font-semibold"
+          :class="{ 'text-white': !isSelected }"
+        >
           {{ organization.name }}
         </h2>
         <base-icon

@@ -11,6 +11,6 @@ export const testEvent = {
   name: "Running, running!",
   description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac libero pellentesque, hendrerit eros vitae, malesuada nisi. Nam tempus dolor vitae mauris luctus aliquet. Sed et finibus erat.",
-  coverImgUrl: "https://picsum.photos/100",
-  coverImgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+  posterImgUrl: "https://picsum.photos/100",
+  posterImgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
 };

@@ -23,3 +23,11 @@ export const GENDER = {
   Female: Gender.F,
   "Not Specified": Gender.Ns
 };
+
+export enum OrgEventNavbarSelection {
+  DASHBOARD = "dashboard",
+  EVENT_INFO = "eventInfo",
+  MANAGE_ATTENDEE = "manageAttendee",
+  MANAGE_FEEDBACK = "manageFeedback",
+  NONE = ""
+}

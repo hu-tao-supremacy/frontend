@@ -39,23 +39,32 @@
           >Add a Text Answer Question</base-button
         >
       </div>
-      <div class="flex justify-end" @click="submitQuestions">
-        <base-button class="w-16 h-4">Create Event</base-button>
+      <div class="flex justify-end">
+        <base-button
+          class="w-16 h-4"
+          @click="submitQuestions"
+          :disabled="!isValidated"
+          >Create Event</base-button
+        >
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref } from "vue";
+import { computed, defineComponent, reactive, ref } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import AlertIcon from "@/assets/Alert.vue";
 import QuestionTextPreview from "@/modules/question/question-text-preview/QuestionTextPreview.vue";
 import {
   AnswerType,
+  QuestionGroupType,
+  SetEventQuestionsInput,
   SetEventQuestionsQuestionGroupInput,
   SetEventQuestionsQuestionInput
 } from "@/apollo/types";
+import { createQuestion } from "./api";
+import { useRoute } from "vue-router";
 
 export default defineComponent({
   name: "CreateForm",
@@ -67,6 +76,9 @@ export default defineComponent({
   setup() {
     const sqq = ref(0);
     const questions = reactive([] as SetEventQuestionsQuestionInput[]);
+    const { sendQuestions } = createQuestion();
+    const route = useRoute();
+    const eventID = Number(route.params.id);
 
     const getQuestion = (index: number) => {
       return "Question" + " " + (index + 1);
@@ -89,14 +101,46 @@ export default defineComponent({
         title: "",
         subtitle: ""
       });
+      console.log(questions);
     };
+
+    const resetSequence = (questions: SetEventQuestionsQuestionInput[]) => {
+      const input = questions.map((question, index) => {
+        const newQuestion = { ...question };
+        newQuestion.seq = index + 1;
+        return newQuestion;
+      });
+      return input;
+    };
+
+    const submitQuestions = () => {
+      const input = {
+        eventId: eventID,
+        questionGroups: [
+          {
+            type: QuestionGroupType.PreEvent,
+            seq: 1,
+            title: "",
+            questions: resetSequence(questions)
+          }
+        ] as SetEventQuestionsQuestionGroupInput[]
+      } as SetEventQuestionsInput;
+      sendQuestions({ input: input });
+    };
+
+    const isValidated = computed(
+      () =>
+        questions.length !== 0 && !questions.find(question => !question.title)
+    );
 
     return {
       getQuestion,
       popQuestion,
       handleQuestionInput,
       addTextQuestion,
-      questions
+      questions,
+      submitQuestions,
+      isValidated
     };
   }
 });

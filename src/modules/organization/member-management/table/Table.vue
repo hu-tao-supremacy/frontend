@@ -55,7 +55,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, PropType, ref, toRefs } from "vue";
+import { defineComponent, PropType, toRefs } from "vue";
 import BaseSearch from "@/commons/UI/BaseSearch.vue";
 import BaseTransparentButton from "@/commons/UI/BaseTransparentButton.vue";
 import SingleNameSelect from "@/commons/UI/select/SingleNameSelect.vue";
@@ -65,7 +65,6 @@ import MoreVerticalIcon from "@/assets/MoreVertical.vue";
 import BaseIcon from "@/commons/UI/BaseIcon.vue";
 import { User } from "@/apollo/types";
 import useTable from "./use-table";
-import { useResult } from "@vue/apollo-composable";
 
 export default defineComponent({
   name: "Table",

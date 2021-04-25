@@ -1,12 +1,10 @@
 <template>
-  <h1 class="font-heading text-4xl">{{ title }}</h1>
-  <div class="flex justify-between py-2">
+  <div class="flex justify-between my-2">
     <BaseSearch class="h-4" :placeholder="'Search'" @search="handleSearch" />
     <SingleNameSelect
       :optionNames="sortBy"
       :optionValues="sortByVal"
-      placeholder="Descending alphabets"
-      @update:modelValue="handleSelectSort"
+      v-model="sortOption"
     />
   </div>
   <div className="p-3 bg-white // rounded-2xl w-full // font-medium">
@@ -20,10 +18,7 @@
           >
             {{ header[headerKey] }}
           </th>
-          <th
-            v-if="editCol"
-            className="pb-1 // border-b-2 border-blue-11 // text-right"
-          >
+          <th className="pb-1 // border-b-2 border-blue-11 // text-right">
             Action
           </th>
         </tr>
@@ -36,18 +31,18 @@
             :key="index"
           >
             <div v-if="header === 'name'" class="flex items-center space-x-4">
-              <div class="w-6 h-6 // bg-gray-3 rounded-full overflow-hidden ">
-                <img :src="data.profilePictureUrl ?? '//:0'" alt="" />
-              </div>
+              <UserProfile :user="data" class="select-none" />
               <div>{{ `${data.firstName} ${data.lastName}` }}</div>
             </div>
             <div v-else>{{ data[header] }}</div>
           </td>
-          <td v-if="editCol" className="h-8 border-b border-gray-4">
+          <td className="h-8 border-b border-gray-4">
             <div className="flex justify-end">
-              <base-icon class="cursor-pointer">
-                <MoreVerticalIcon />
-              </base-icon>
+              <base-transparent-button>
+                <base-icon class="cursor-pointer">
+                  <MoreVerticalIcon />
+                </base-icon>
+              </base-transparent-button>
             </div>
           </td>
         </tr>
@@ -60,12 +55,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, PropType, ref, reactive } from "vue";
+import { defineComponent, computed, PropType, ref } from "vue";
 import BaseSearch from "@/commons/UI/BaseSearch.vue";
+import BaseTransparentButton from "@/commons/UI/BaseTransparentButton.vue";
 import SingleNameSelect from "@/commons/UI/select/SingleNameSelect.vue";
 import "@/index.css";
+import UserProfile from "@/commons/UI/user-profile/UserProfile.vue";
 import MoreVerticalIcon from "@/assets/MoreVertical.vue";
 import BaseIcon from "@/commons/UI/BaseIcon.vue";
+import { User } from "@/apollo/types";
 
 export default defineComponent({
   name: "Table",
@@ -73,52 +71,39 @@ export default defineComponent({
     BaseSearch,
     SingleNameSelect,
     MoreVerticalIcon,
-    BaseIcon
+    BaseIcon,
+    UserProfile,
+    BaseTransparentButton
   },
   props: {
-    editCol: {
-      type: Boolean,
-      default: false
-    },
     data: {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      type: Object as PropType<Record<string, any>[]>
-    },
-    title: {
-      type: String
-    },
-    header: {
-      type: Object as PropType<Record<string, string | null>>,
-      default: []
+      type: Object as PropType<User[]>
     }
   },
   setup(props) {
-    console.log(props.data);
     const searchValue = ref("");
-    const headerRef = reactive(props.header);
     const sortOption = ref("descending");
     const handleSearch = (value: string) => {
       searchValue.value = value;
     };
 
-    const handleSelectSort = (value: string) => {
-      sortOption.value = value;
+    const header: Record<string, string> = {
+      name: "Name",
+      email: "Email",
+      phoneNumber: "Phone"
     };
 
-    const headerKeys = Object.keys(headerRef).filter(val => {
-      if (headerRef[val] === null) {
-        return false;
-      }
-      return true;
+    const headerKeys = computed(() => {
+      return Object.keys(header);
     });
 
     const filteredData = computed(() => {
       const temp = props.data?.filter(row => {
         let searchRow = "";
         if (searchValue.value.includes("@")) {
-          searchRow = `${row.email}`;
+          searchRow = `${row?.email}`;
         } else {
-          searchRow = `${row.firstName} ${row.lastName}`;
+          searchRow = `${row?.firstName} ${row?.lastName}`;
         }
         return searchRow
           .toLowerCase()
@@ -127,15 +112,15 @@ export default defineComponent({
 
       if (temp) {
         switch (sortOption.value) {
+          case "descend":
+            temp.sort();
+            break;
           case "ascend":
             temp.sort().reverse();
             break;
           case "pending":
             break;
           case "approved":
-            break;
-          default:
-            temp.sort();
             break;
         }
         return temp;
@@ -144,13 +129,8 @@ export default defineComponent({
       }
     });
 
-    const sortBy = [
-      "Descending alphabets",
-      "Ascending alphabets",
-      "Status: Pending",
-      "Status: Approved"
-    ];
-    const sortByVal = ["descend", "ascend", "pending", "approved"];
+    const sortBy = ["Descending alphabets", "Ascending alphabets"];
+    const sortByVal = ["descend", "ascend"];
 
     return {
       headerKeys,
@@ -158,7 +138,8 @@ export default defineComponent({
       handleSearch,
       sortBy,
       sortByVal,
-      handleSelectSort
+      header,
+      sortOption
     };
   }
 });

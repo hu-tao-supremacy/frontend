@@ -1,12 +1,8 @@
 <template>
   <div class="flex justify-center">
     <div class="content-max-width w-full mt-4 mb-10">
-      <Table
-        :editCol="true"
-        :data="members"
-        title="Member Management"
-        :header="header"
-      />
+      <h1 class="font-heading text-4xl">Member Management</h1>
+      <Table :data="members" />
     </div>
   </div>
 </template>
@@ -25,17 +21,7 @@ export default defineComponent({
   setup() {
     const { members } = useMemberManagement();
 
-    const header: Record<string, string | null> = {
-      profilePictureUrl: null,
-      firstName: null,
-      lastName: null,
-      name: "Name",
-      email: "Email",
-      phoneNumber: "Phone",
-      role: "Role"
-    };
-
-    return { header, members };
+    return { members };
   }
 });
 </script>

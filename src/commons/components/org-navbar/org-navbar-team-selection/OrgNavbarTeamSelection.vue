@@ -10,36 +10,18 @@
     }"
   >
     <section
+      @click="toggleDropDown()"
       class="flex items-center w-full rounded-lg shadow-sm h-6 overflow-hidden"
+      :class="{ 'cursor-pointer': isExpand }"
     >
-      <div
-        v-if="organization.profilePictureUrl"
-        class="w-6 h-full rounded-lg overflow-hidden flex-shrink-0"
-        :class="{ 'border-2 border-white': isSelected }"
-      >
-        <LazyImage
-          :width="50"
-          :height="50"
-          alt="will change to api"
-          :url="organization.profilePictureUrl"
-          :placeholder="organization.profilePictureHash"
-          class="object-cover w-full h-full"
-        />
-      </div>
-      <div
-        v-else
-        class="flex justify-center items-center w-6 h-full rounded-lg bg-primary-3 flex-shrink-0 mr-1"
-        :class="{ 'border-2 border-white': isSelected }"
-      >
-        <h1
-          class="text-lg max-w-full font-heading font-bold text-primary truncate"
-        >
-          {{ orgInitial }}
-        </h1>
-      </div>
+      <OrgProfile
+        :name="organization.name"
+        :profileImg="organization.profilePictureUrl"
+        :profileImgHash="organization.profilePictureHash"
+        :isSelected="isSelected"
+      />
       <div
         v-show="isExpand"
-        @click="toggleDropDown(isSelected)"
         class="flex w-full justify-between cursor-pointer ml-1"
       >
         <h2 class="w-full truncate" :class="{ 'text-white': !isSelected }">
@@ -66,6 +48,7 @@
       class="flex flex-col h-11 pt-2 pb-1"
     >
       <base-icon-and-detail
+        @click="toMemberPage"
         :detail="'Member'"
         :iconWidth="16"
         :iconHeight="16"
@@ -76,6 +59,7 @@
         ><UsersIcon
       /></base-icon-and-detail>
       <base-icon-and-detail
+        @click="toOrgSetting"
         :detail="'Organization setting'"
         :iconWidth="16"
         :iconHeight="16"
@@ -90,9 +74,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, toRefs } from "vue";
 import BaseIconAndDetail from "@/commons/UI/BaseIconAndDetail.vue";
-import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
+import OrgProfile from "../org-profile/OrgProfile.vue";
 import ChevronDownIcon from "@/assets/ChevronDown.vue";
 import ChevronUpIcon from "@/assets/ChevronUp.vue";
 import UsersIcon from "@/assets/Users.vue";
@@ -104,7 +88,7 @@ export default defineComponent({
   name: "OrgNavbarTeamSelection",
   components: {
     BaseIconAndDetail,
-    LazyImage,
+    OrgProfile,
     ChevronDownIcon,
     ChevronUpIcon,
     UsersIcon,
@@ -125,22 +109,22 @@ export default defineComponent({
     }
   },
   setup(props) {
+    const { isExpand, isSelected } = toRefs(props);
+
     const {
       isDropdown,
       collapseDropDown,
       toggleDropDown,
       toMemberPage,
-      toOrgSetting,
-      orgInitial
-    } = useOrgNavbarTeamSelection(props.organization.name);
+      toOrgSetting
+    } = useOrgNavbarTeamSelection(isExpand, isSelected);
 
     return {
       isDropdown,
       collapseDropDown,
       toggleDropDown,
       toMemberPage,
-      toOrgSetting,
-      orgInitial
+      toOrgSetting
     };
   }
 });

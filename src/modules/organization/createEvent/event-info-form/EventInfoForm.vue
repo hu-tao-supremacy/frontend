@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="w-full py-4 px-10 space-y-3 rounded-2xl shadow-sm bg-white overflow-hidden"
-  >
+  <div class="w-full py-4 px-10 space-y-3 rounded-2xl shadow-sm bg-white">
     <h1 class="font-heading text-3xl mb-3">Event Information</h1>
     <BaseLabelAndTextInput
       v-model.trim="name"
@@ -24,8 +22,8 @@
         v-model="tagSearch"
         :isSearchable="true"
         :doesResetAfterSelect="true"
-        :optionNames="optionNames"
-        :optionValues="optionValues"
+        :optionNames="tagOptionNames"
+        :optionValues="tagOptionValues"
         :hasSearchIcon="true"
         placeholder="Search..."
         class="h-3.75 w-36 mb-0.5"
@@ -65,15 +63,22 @@
         <BaseDatePicker
           name="registrationDueDate"
           id="registrationDueDate"
+          v-model="registrationDueDate"
           class="h-3.75 w-25"
         />
       </div>
-      <BaseLabelAndTextInput
-        v-model.trim="registrationDueTime"
-        inputName="dueTime"
-        label="Due time"
-        class="w-9"
-      />
+      <div class="flex flex-col">
+        <label for="registrationDueTime" class="mb-0.25">Due time</label>
+        <SingleNameSelect
+          v-model="registrationDueTime"
+          id="registrationDueTime"
+          :optionNames="hourNames"
+          :optionValues="hourValues"
+          :hasDropDownIcon="false"
+          placeholder=""
+          class="h-3.75 w-12"
+        />
+      </div>
     </section>
   </div>
 </template>
@@ -86,6 +91,8 @@ import RemovableTag from "../removable-tag/RemovableTag.vue";
 import BaseDatePicker from "@/commons/UI/BaseDatePicker.vue";
 import { validatePhone, isNumber } from "@/commons/utils/validForm";
 import { Tag } from "@/apollo/types";
+import { hourNames, hourValues } from "@/commons/constant/hour";
+import moment from "moment";
 import { testTags } from "../testData";
 
 export default defineComponent({
@@ -104,11 +111,11 @@ export default defineComponent({
     const description = ref("");
     const attendeeLimit = ref("");
     const registrationDueDate = ref(new Date());
-    const registrationDueTime = ref("");
+    const registrationDueTime = ref(0);
 
     //Get from API
-    const optionValues: Tag[] = testTags;
-    const optionNames: string[] = optionValues.map(tag => tag.name);
+    const tagOptionValues: Tag[] = testTags;
+    const tagOptionNames: string[] = tagOptionValues.map(tag => tag.name);
 
     const isValidContact = computed(() => {
       return validatePhone(contact.value);
@@ -116,6 +123,13 @@ export default defineComponent({
 
     const isValidAttendeeLimit = computed(() => {
       return isNumber(attendeeLimit.value);
+    });
+
+    const registrationDueDateTime = computed(() => {
+      const dateTime = moment(registrationDueDate.value)
+        .hour(registrationDueTime.value)
+        .format();
+      return dateTime;
     });
 
     function addTag(tag: Tag) {
@@ -146,11 +160,14 @@ export default defineComponent({
       attendeeLimit,
       registrationDueDate,
       registrationDueTime,
-      optionNames,
-      optionValues,
+      tagOptionNames,
+      tagOptionValues,
       isValidContact,
       isValidAttendeeLimit,
-      removeTag
+      removeTag,
+      hourNames,
+      hourValues,
+      registrationDueDateTime
     };
   }
 });

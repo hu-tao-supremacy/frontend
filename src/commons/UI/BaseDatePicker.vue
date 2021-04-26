@@ -1,6 +1,6 @@
 <template>
   <v-date-picker v-model="date" :min-date="minDate" color="orange"
-    ><template v-slot="{ inputValue, togglePopover }">
+    ><template v-slot="{ togglePopover }">
       <div class="relative w-full h-full">
         <button
           type="button"
@@ -12,7 +12,7 @@
             'error-shadow border-red-5': isError
           }"
         >
-          {{ inputValue }}
+          {{ dateDisplayed }}
           <base-icon
             :width="14"
             :height="14"
@@ -26,9 +26,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch } from "vue";
+import { computed, defineComponent, ref, watch } from "vue";
 import CalendarIcon from "@/assets/Calendar.vue";
 import { UPDATE_MODEL_VALUE } from "@/commons/constant";
+import moment from "moment";
 
 export default defineComponent({
   components: { CalendarIcon },
@@ -55,12 +56,20 @@ export default defineComponent({
   setup(props, context) {
     const date = ref(props.modelValue);
 
-    watch(date, () => {
-      console.log(date.value);
-      context.emit(UPDATE_MODEL_VALUE, date.value);
+    const dateDisplayed = computed(() => {
+      return moment(date.value).format("D MMMM YYYY");
     });
 
-    return { date };
+    watch(date, () => {
+      const onlyDate = moment(date.value)
+        .hour(23)
+        .minute(0)
+        .second(0)
+        .toDate();
+      context.emit(UPDATE_MODEL_VALUE, onlyDate);
+    });
+
+    return { date, dateDisplayed };
   }
 });
 </script>

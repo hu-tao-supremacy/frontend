@@ -33,7 +33,8 @@ export default function useSingleNameSelect(
   }
 
   const displayedOption = computed(() => {
-    if (!selectedOption.value.value) return "";
+    if (!selectedOption.value.value && selectedOption.value.value !== 0)
+      return "";
     return selectedOption.value.name;
   });
 

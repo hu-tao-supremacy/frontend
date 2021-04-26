@@ -7,12 +7,13 @@
     :placeholder="placeholder"
     :hasSearchIcon="hasSearchIcon"
     :doesResetAfterSelect="doesResetAfterSelect"
+    :hasDropDownIcon="hasDropDownIcon"
   >
     <p
       v-for="(option, index) in filteredOptions"
       :key="option.value"
       @click="changeOption(option)"
-      class="p-1 border-gray-2 cursor-pointer"
+      class="p-1 border-gray-2 cursor-pointer select-none"
       :class="{ 'border-b': !isLastOption(index) }"
     >
       {{ option.name }}
@@ -59,6 +60,10 @@ export default defineComponent({
     doesResetAfterSelect: {
       type: Boolean,
       default: false
+    },
+    hasDropDownIcon: {
+      type: Boolean,
+      default: true
     }
   },
   emits: [UPDATE_MODEL_VALUE],

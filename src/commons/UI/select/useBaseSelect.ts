@@ -32,7 +32,7 @@ export default function useBaseSelect(
   }
 
   watch(
-    () => displayedOption,
+    () => displayedOption.value,
     () => {
       isOptionShown.value = false;
       userInput.value = displayedOption.value;

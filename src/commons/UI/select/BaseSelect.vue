@@ -25,7 +25,7 @@
     <section
       v-else
       @click="toggleShowOption"
-      class="flex rounded-lg overflow-hidden border focus:outline-none w-full h-full"
+      class="flex rounded-lg overflow-hidden border focus:outline-none w-full h-full cursor-pointer"
       :class="{
         'select-shadow border-primary': isOptionShown,
         'border-gray-4': !isError && !isOptionShown,
@@ -38,6 +38,7 @@
         {{ buttonDisplay }}
       </div>
       <div
+        v-if="hasDropDownIcon"
         class="flex items-center justify-center w-5 h-full flex-shrink-0 bg-gray-3"
       >
         <base-icon :width="24" :height="24"><ChevronDownIcon /></base-icon>
@@ -90,6 +91,9 @@ export default defineComponent({
       type: Boolean
     },
     doesResetAfterSelect: {
+      type: Boolean
+    },
+    hasDropDownIcon: {
       type: Boolean
     }
   },

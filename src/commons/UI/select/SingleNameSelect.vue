@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, toRefs } from "vue";
+import { defineComponent, PropType } from "vue";
 import BaseSelect from "./BaseSelect.vue";
 import { UPDATE_MODEL_VALUE } from "@/commons/constant";
 import useSingleNameSelect from "./useSingleNameSelect";

@@ -58,12 +58,16 @@
         :isRequired="false"
         class="w-14"
       />
-      <BaseLabelAndTextInput
-        v-model.trim="registrationDueDate"
-        inputName="dueDate"
-        label="Registration due date"
-        class="w-25"
-      />
+      <div class="flex flex-col">
+        <label for="registrationDueDate" class="mb-0.25"
+          >Registration due date</label
+        >
+        <BaseDatePicker
+          name="registrationDueDate"
+          id="registrationDueDate"
+          class="h-3.75 w-25"
+        />
+      </div>
       <BaseLabelAndTextInput
         v-model.trim="registrationDueTime"
         inputName="dueTime"
@@ -79,6 +83,7 @@ import { computed, defineComponent, Ref, ref, watch } from "vue";
 import BaseLabelAndTextInput from "@/commons/UI/BaseLabelAndTextInput.vue";
 import SingleNameSelect from "@/commons/UI/select/SingleNameSelect.vue";
 import RemovableTag from "../removable-tag/RemovableTag.vue";
+import BaseDatePicker from "@/commons/UI/BaseDatePicker.vue";
 import { validatePhone, isNumber } from "@/commons/utils/validForm";
 import { Tag } from "@/apollo/types";
 import { testTags } from "../testData";
@@ -88,7 +93,8 @@ export default defineComponent({
   components: {
     BaseLabelAndTextInput,
     SingleNameSelect,
-    RemovableTag
+    RemovableTag,
+    BaseDatePicker
   },
   setup() {
     const name = ref("");
@@ -97,7 +103,7 @@ export default defineComponent({
     const tagSearch: Ref<Tag> = ref({ id: -1, name: "", events: [] });
     const description = ref("");
     const attendeeLimit = ref("");
-    const registrationDueDate = ref("");
+    const registrationDueDate = ref(new Date());
     const registrationDueTime = ref("");
 
     //Get from API

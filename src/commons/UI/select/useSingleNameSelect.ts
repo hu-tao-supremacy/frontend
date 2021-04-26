@@ -5,6 +5,7 @@ import Fuse from "fuse.js";
 export default function useSingleNameSelect(
   optionNames: string[],
   optionValues: unknown[],
+  doesResetAfterSelect: boolean,
   context: SetupContext<"update:modelValue"[]>
 ) {
   const searchText = ref("");
@@ -18,9 +19,17 @@ export default function useSingleNameSelect(
     options.push(option);
   });
 
+  function resetSelectedOption() {
+    selectedOption.value = {
+      name: "",
+      value: null
+    };
+  }
+
   function changeOption(option: { name: string; value: unknown }) {
     selectedOption.value = option;
     context.emit(UPDATE_MODEL_VALUE, selectedOption.value.value);
+    if (doesResetAfterSelect) resetSelectedOption();
   }
 
   const displayedOption = computed(() => {

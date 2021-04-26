@@ -1,18 +1,27 @@
 <template>
   <div v-click-outside="hideOption" class="relative">
-    <input
-      v-if="isSearchable"
-      class="displayed-area border rounded-lg px-1.5 focus:border-primary focus:outline-none w-full h-full"
-      :class="{
-        'border-gray-4': !isError,
-        'error-shadow border-red-5': isError
-      }"
-      v-model="userInput"
-      @focus="showOption"
-      @input="userChangeSearch"
-      :placeholder="placeholder"
-      type="text"
-    />
+    <section v-if="isSearchable" class="flex w-full h-full">
+      <input
+        class="displayed-area  w-full h-full px-1.5 focus:border-primary focus:outline-none"
+        :class="{
+          'border rounded-lg': !hasSearchIcon,
+          'rounded-l-lg border-t border-b border-l focus:border-r': hasSearchIcon,
+          'border-gray-4': !isError,
+          'error-shadow border-red-5': isError
+        }"
+        v-model="userInput"
+        @focus="showOption"
+        @input="userChangeSearch"
+        :placeholder="placeholder"
+        type="text"
+      />
+      <base-button
+        v-if="hasSearchIcon"
+        class="rounded-l-none h-full w-6 flex justify-center items-center"
+        ><base-icon width="12.5px" height="12.5px" class="text-white"
+          ><SearchIcon /></base-icon
+      ></base-button>
+    </section>
     <section
       v-else
       @click="toggleShowOption"
@@ -36,6 +45,7 @@
     </section>
     <section
       v-show="isOptionShown"
+      v-on="{ click: doesResetAfterSelect ? hideOption : null }"
       class="absolute left-0 top-full flex flex-col break-words bg-white z-10 w-full mt-0.5 rounded-lg text-sm shadow-sm max-h-20 overflow-y-auto"
     >
       <slot></slot>
@@ -45,13 +55,17 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import BaseButton from "@/commons/UI/BaseButton.vue";
 import useBaseSelect from "./useBaseSelect";
 import ChevronDownIcon from "@/assets/ChevronDown.vue";
+import SearchIcon from "@/assets/Search.vue";
 
 export default defineComponent({
   name: "BaseSelect",
   components: {
-    ChevronDownIcon
+    BaseButton,
+    ChevronDownIcon,
+    SearchIcon
   },
   props: {
     searchTextModel: {
@@ -63,16 +77,20 @@ export default defineComponent({
       default: ""
     },
     isSearchable: {
-      type: Boolean,
-      default: false
+      type: Boolean
     },
     isError: {
-      type: Boolean,
-      default: false
+      type: Boolean
     },
     placeholder: {
       type: String,
-      default: "Select Option"
+      required: true
+    },
+    hasSearchIcon: {
+      type: Boolean
+    },
+    doesResetAfterSelect: {
+      type: Boolean
     }
   },
   emits: ["update:searchTextModel"],

@@ -155,7 +155,7 @@
           />
         </section>
         <base-button
-          class="button-height w-20 self-center"
+          class="w-20 h-3.75 self-center"
           type="submit"
           value="submit"
           :disabled="!isValidForm"
@@ -244,9 +244,3 @@ export default defineComponent({
   }
 });
 </script>
-
-<style scoped>
-.button-height {
-  height: 30px;
-}
-</style>

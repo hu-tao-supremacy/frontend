@@ -13,7 +13,7 @@
       :placeholder="placeholderText"
     />
     <BaseTextInput
-      class="input-disable-container"
+      class="input-disable-container h-3.75"
       placeholder="Participants’ answer goes here!"
       disabled
     />
@@ -70,7 +70,6 @@ export default defineComponent({
 <style scoped>
 .input-disable-container {
   width: 300px;
-  height: 30px;
 }
 .cross-btn {
   top: 22px;

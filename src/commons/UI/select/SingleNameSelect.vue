@@ -5,12 +5,14 @@
     :isSearchable="isSearchable"
     :isError="isError"
     :placeholder="placeholder"
+    :hasSearchIcon="hasSearchIcon"
+    :doesResetAfterSelect="doesResetAfterSelect"
   >
     <p
       v-for="(option, index) in filteredOptions"
       :key="option.value"
       @click="changeOption(option)"
-      class="p-1 border-gray-2"
+      class="p-1 border-gray-2 cursor-pointer"
       :class="{ 'border-b': !isLastOption(index) }"
     >
       {{ option.name }}
@@ -19,7 +21,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
+import { defineComponent, PropType, toRefs } from "vue";
 import BaseSelect from "./BaseSelect.vue";
 import { UPDATE_MODEL_VALUE } from "@/commons/constant";
 import useSingleNameSelect from "./useSingleNameSelect";
@@ -49,6 +51,14 @@ export default defineComponent({
     placeholder: {
       type: String,
       default: "Select Option"
+    },
+    hasSearchIcon: {
+      type: Boolean,
+      default: false
+    },
+    doesResetAfterSelect: {
+      type: Boolean,
+      default: false
     }
   },
   emits: [UPDATE_MODEL_VALUE],
@@ -59,7 +69,12 @@ export default defineComponent({
       isLastOption,
       displayedOption,
       filteredOptions
-    } = useSingleNameSelect(props.optionNames, props.optionValues, context);
+    } = useSingleNameSelect(
+      props.optionNames,
+      props.optionValues,
+      props.doesResetAfterSelect,
+      context
+    );
 
     return {
       searchText,

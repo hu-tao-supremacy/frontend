@@ -6,6 +6,7 @@ const useTable = (data?: Ref<User[] | undefined>) => {
   const searchValue = ref("");
   const sortOption = ref("descending");
   const handleSearch = (value: string) => {
+    sortOption.value = "default";
     searchValue.value = value;
   };
   const sortBy = ["Descending alphabets", "Ascending alphabets"];
@@ -35,7 +36,7 @@ const useTable = (data?: Ref<User[] | undefined>) => {
         case "ascend":
           return temp.sort((a, b) => a.firstName.localeCompare(b.firstName));
         default:
-          return temp.sort((a, b) => b.id - a.id);
+          return temp;
       }
     }
     return [];

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="py-4 px-10 space-y-3 rounded-2xl shadow-sm bg-white overflow-hidden"
+    class="w-full py-4 px-10 space-y-3 rounded-2xl shadow-sm bg-white overflow-hidden"
   >
     <h1 class="font-heading text-3xl mb-3">Event Information</h1>
     <BaseLabelAndTextInput
@@ -28,8 +28,17 @@
         :optionValues="optionValues"
         :hasSearchIcon="true"
         placeholder="Search..."
-        class="h-3.75 w-36"
+        class="h-3.75 w-36 mb-0.5"
       />
+      <div class="flex flex-wrap w-full space-x-1">
+        <RemovableTag
+          v-for="(tag, index) in tags"
+          :key="tag.id"
+          @click="removeTag(index)"
+          :tagName="tag.name"
+          class="flex-shrink-0"
+        />
+      </div>
     </section>
     <BaseLabelAndTextInput
       v-model.trim="description"
@@ -69,6 +78,7 @@
 import { computed, defineComponent, Ref, ref, watch } from "vue";
 import BaseLabelAndTextInput from "@/commons/UI/BaseLabelAndTextInput.vue";
 import SingleNameSelect from "@/commons/UI/select/SingleNameSelect.vue";
+import RemovableTag from "../removable-tag/RemovableTag.vue";
 import { validatePhone, isNumber } from "@/commons/utils/validForm";
 import { Tag } from "@/apollo/types";
 import { testTags } from "../testData";
@@ -77,12 +87,13 @@ export default defineComponent({
   name: "EventInfoForm",
   components: {
     BaseLabelAndTextInput,
-    SingleNameSelect
+    SingleNameSelect,
+    RemovableTag
   },
   setup() {
     const name = ref("");
     const contact = ref("");
-    const tags: Ref<string[]> = ref([]);
+    const tags: Ref<Tag[]> = ref([]);
     const tagSearch: Ref<Tag> = ref({ id: -1, name: "", events: [] });
     const description = ref("");
     const attendeeLimit = ref("");
@@ -93,18 +104,31 @@ export default defineComponent({
     const optionValues: Tag[] = testTags;
     const optionNames: string[] = optionValues.map(tag => tag.name);
 
-    watch(tagSearch, () => {
-      if (tagSearch.value.id === -1) return;
-      console.log(tagSearch.value);
-      tagSearch.value = { id: -1, name: "", events: [] };
-    });
-
     const isValidContact = computed(() => {
       return validatePhone(contact.value);
     });
 
     const isValidAttendeeLimit = computed(() => {
       return isNumber(attendeeLimit.value);
+    });
+
+    function addTag(tag: Tag) {
+      const tagId = tag.id;
+      const isInTagsList = tags.value.some(
+        selectedTag => selectedTag.id === tagId
+      );
+      if (isInTagsList) return;
+      tags.value.push(tagSearch.value);
+    }
+
+    function removeTag(index: number) {
+      tags.value.splice(index, 1);
+    }
+
+    watch(tagSearch, () => {
+      if (tagSearch.value.id === -1) return;
+      addTag(tagSearch.value);
+      tagSearch.value = { id: -1, name: "", events: [] };
     });
 
     return {
@@ -119,7 +143,8 @@ export default defineComponent({
       optionNames,
       optionValues,
       isValidContact,
-      isValidAttendeeLimit
+      isValidAttendeeLimit,
+      removeTag
     };
   }
 });

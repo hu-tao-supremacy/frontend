@@ -54,7 +54,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, toRefs } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import useBaseSelect from "./useBaseSelect";
 import ChevronDownIcon from "@/assets/ChevronDown.vue";
@@ -74,7 +74,7 @@ export default defineComponent({
     },
     displayedOption: {
       type: String,
-      default: ""
+      required: true
     },
     isSearchable: {
       type: Boolean
@@ -95,6 +95,8 @@ export default defineComponent({
   },
   emits: ["update:searchTextModel"],
   setup(props, context) {
+    const { displayedOption } = toRefs(props);
+
     const {
       isOptionShown,
       userInput,
@@ -103,7 +105,12 @@ export default defineComponent({
       hideOption,
       toggleShowOption,
       userChangeSearch
-    } = useBaseSelect(props, context);
+    } = useBaseSelect(
+      displayedOption,
+      props.placeholder,
+      props.doesResetAfterSelect,
+      context
+    );
 
     return {
       isOptionShown,

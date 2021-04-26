@@ -7,7 +7,7 @@
       v-model="sortOption"
     />
   </div>
-  <div className="p-3 bg-white // rounded-2xl w-full // font-medium">
+  <div className="p-3 bg-white // rounded-2xl // w-full">
     <table className="table-auto // w-full">
       <thead>
         <tr>
@@ -39,7 +39,7 @@
           <td className="h-8 border-b border-gray-4">
             <div className="flex justify-end">
               <base-transparent-button>
-                <base-icon class="cursor-pointer">
+                <base-icon>
                   <MoreVerticalIcon />
                 </base-icon>
               </base-transparent-button>

@@ -56,7 +56,7 @@
             </div>
           </td>
           <td class="h-8 border-b border-gray-4">
-            <div class="flex justify-end space-x-3">
+            <div class="flex justify-end space-x-3 pl-1">
               <div v-if="data.status === 'PENDING'" class="flex space-x-2">
                 <GrayButton
                   class="flex justify-center items-center flex-shrink-0 // h-4 px-1 space-x-1 // bg-gray-3 text-gray-6"

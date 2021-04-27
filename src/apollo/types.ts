@@ -91,7 +91,6 @@ export type CreateOrganizationInput = {
   contactEmail?: Maybe<Scalars["String"]>;
   contactPhoneNumber?: Maybe<Scalars["String"]>;
   contactLineId?: Maybe<Scalars["String"]>;
-  userOrganizations: Array<UserOrganizationInput>;
   profilePicture?: Maybe<Scalars["Upload"]>;
 };
 
@@ -224,11 +223,12 @@ export type Mutation = {
   updateEvent: Event;
   reviewJoinRequest: Scalars["Boolean"];
   authenticate: AuthenticateOutput;
+  generateAccessToken: AuthenticateOutput;
   upload: Scalars["Boolean"];
   createOrganization: Organization;
   updateOrganization: Organization;
-  addMembersToOrganization: Organization;
-  removeMembersFromOrganization: Organization;
+  addMembersToOrganization: Scalars["Boolean"];
+  removeMembersFromOrganization: Scalars["Boolean"];
   updateUser: User;
   setInterestedTags: Scalars["Boolean"];
   setInterestedEvents: Scalars["Boolean"];
@@ -258,6 +258,10 @@ export type MutationReviewJoinRequestArgs = {
 
 export type MutationAuthenticateArgs = {
   input: AuthenticateInput;
+};
+
+export type MutationGenerateAccessTokenArgs = {
+  userId: Scalars["Float"];
 };
 
 export type MutationUploadArgs = {
@@ -445,6 +449,7 @@ export type ReviewJoinRequestInput = {
   eventId: Scalars["Int"];
   rating?: Maybe<Scalars["Int"]>;
   status: UserEventStatus;
+  answers: Array<AnswerInput>;
 };
 
 export type SetEventDurationsDurationInput = {
@@ -528,7 +533,6 @@ export type UpdateOrganizationInput = {
   contactEmail?: Maybe<Scalars["String"]>;
   contactPhoneNumber?: Maybe<Scalars["String"]>;
   contactLineId?: Maybe<Scalars["String"]>;
-  userOrganizations?: Maybe<Array<UserOrganizationInput>>;
   profilePicture?: Maybe<Scalars["Upload"]>;
   id: Scalars["Int"];
 };
@@ -595,6 +599,7 @@ export type UserEventInput = {
   rating?: Maybe<Scalars["Int"]>;
   ticket?: Maybe<Scalars["String"]>;
   status: UserEventStatus;
+  answers: Array<AnswerInput>;
 };
 
 export enum UserEventStatus {
@@ -904,6 +909,31 @@ export type GetOrganizationQuery = { __typename?: "Query" } & {
             >;
             location?: Maybe<
               { __typename?: "Location" } & Pick<Location, "id" | "name">
+            >;
+          }
+      >;
+    };
+};
+
+export type GetEventAttendeeQueryVariables = Exact<{
+  id: Scalars["Int"];
+}>;
+
+export type GetEventAttendeeQuery = { __typename?: "Query" } & {
+  event: { __typename?: "Event" } & Pick<
+    Event,
+    "coverImageUrl" | "coverImageHash"
+  > & {
+      attendees: Array<
+        { __typename?: "UserEvent" } & Pick<UserEvent, "status"> & {
+            user: { __typename?: "User" } & Pick<
+              User,
+              | "id"
+              | "firstName"
+              | "lastName"
+              | "profilePictureUrl"
+              | "email"
+              | "phoneNumber"
             >;
           }
       >;

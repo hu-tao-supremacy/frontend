@@ -41,7 +41,7 @@
             class="h-8 // border-b border-gray-4 "
             :key="index"
           >
-            <div class="px-1">
+            <div class="pr-1">
               <div v-if="header === 'name'" class="flex items-center space-x-4">
                 <UserProfile
                   :user="data.user"

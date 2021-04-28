@@ -46,6 +46,11 @@ export type AuthenticateOutput = {
   accessToken: Scalars["String"];
 };
 
+export type CheckInInput = {
+  userId: Scalars["Int"];
+  eventId: Scalars["Int"];
+};
+
 export type CreateEventInput = {
   organizationId: Scalars["Int"];
   location?: Maybe<CreateEventLocationInput>;
@@ -221,7 +226,8 @@ export type Mutation = {
   setEventDurations: Scalars["Boolean"];
   createEvent: Event;
   updateEvent: Event;
-  reviewJoinRequest: Scalars["Boolean"];
+  reviewJoinRequest: UserEvent;
+  checkIn: UserEvent;
   authenticate: AuthenticateOutput;
   generateAccessToken: AuthenticateOutput;
   upload: Scalars["Boolean"];
@@ -254,6 +260,10 @@ export type MutationUpdateEventArgs = {
 
 export type MutationReviewJoinRequestArgs = {
   input: ReviewJoinRequestInput;
+};
+
+export type MutationCheckInArgs = {
+  input: CheckInInput;
 };
 
 export type MutationAuthenticateArgs = {
@@ -445,11 +455,8 @@ export type QuestionInput = {
 
 export type ReviewJoinRequestInput = {
   userId: Scalars["Int"];
-  user: UserInput;
   eventId: Scalars["Int"];
-  rating?: Maybe<Scalars["Int"]>;
   status: UserEventStatus;
-  answers: Array<AnswerInput>;
 };
 
 export type SetEventDurationsDurationInput = {

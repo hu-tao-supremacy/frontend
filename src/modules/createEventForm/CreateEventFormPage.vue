@@ -62,7 +62,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, reactive, ref } from "vue";
+import { defineComponent } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import AlertIcon from "@/assets/Alert.vue";
 import QuestionTextPreview from "@/modules/question/question-text-preview/QuestionTextPreview.vue";

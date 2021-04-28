@@ -1,5 +1,9 @@
 <template>
   <div class="flex flex-col p-4 items-center w-full">
+    <CreateEventSuccessModal
+      v-if="isSuccessModalShown"
+      @close-modal="closeSuccessModal"
+    />
     <div class="flex flex-col justify-center w-full content-max-width-s">
       <div class="text-4xl font-heading mb-3">Event Form</div>
       <div
@@ -39,7 +43,13 @@
           >Add a Text Answer Question</base-button
         >
       </div>
-      <div class="flex justify-end">
+      <div class="flex justify-end items-center">
+        <div
+          class="underline-offset text-gray-5 mr-3 underline hover:text-gray-7 cursor-pointer"
+          @click="showSuccessModal"
+        >
+          Not now
+        </div>
         <base-button
           class="w-16 h-4"
           @click="submitQuestions"
@@ -56,82 +66,30 @@ import { computed, defineComponent, reactive, ref } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import AlertIcon from "@/assets/Alert.vue";
 import QuestionTextPreview from "@/modules/question/question-text-preview/QuestionTextPreview.vue";
-import {
-  AnswerType,
-  QuestionGroupType,
-  SetEventQuestionsInput,
-  SetEventQuestionsQuestionGroupInput,
-  SetEventQuestionsQuestionInput
-} from "@/apollo/types";
-import { createQuestion } from "./api";
-import { useRoute } from "vue-router";
+import CreateEventSuccessModal from "./create-event-success-modal/CreateEventSuccessModal.vue";
+import useCreateEventForm from "./use-create-event-form";
 
 export default defineComponent({
   name: "CreateForm",
   components: {
     BaseButton,
     AlertIcon,
-    QuestionTextPreview
+    QuestionTextPreview,
+    CreateEventSuccessModal
   },
   setup() {
-    const sqq = ref(0);
-    const questions = reactive([] as SetEventQuestionsQuestionInput[]);
-    const { sendQuestions } = createQuestion();
-    const route = useRoute();
-    const eventID = Number(route.params.id);
-
-    const getQuestion = (index: number) => {
-      return "Question" + " " + (index + 1);
-    };
-
-    const popQuestion = (index: number) => {
-      questions.splice(index, 1);
-    };
-
-    const handleQuestionInput = (index: number, questionTitle: string) => {
-      questions[index].title = questionTitle;
-    };
-
-    const addTextQuestion = () => {
-      const seq = sqq.value++;
-      questions.push({
-        seq: seq,
-        answerType: AnswerType.Text,
-        isOptional: true,
-        title: "",
-        subtitle: ""
-      });
-      console.log(questions);
-    };
-
-    const resetSequence = (questions: SetEventQuestionsQuestionInput[]) => {
-      const input = questions.map((question, index) => {
-        const newQuestion = { ...question };
-        newQuestion.seq = index + 1;
-        return newQuestion;
-      });
-      return input;
-    };
-
-    const submitQuestions = () => {
-      const input = {
-        eventId: eventID,
-        questionGroups: [
-          {
-            type: QuestionGroupType.PreEvent,
-            seq: 1,
-            title: "",
-            questions: resetSequence(questions)
-          }
-        ] as SetEventQuestionsQuestionGroupInput[]
-      } as SetEventQuestionsInput;
-      sendQuestions({ input: input });
-    };
-
-    const isValidated = computed(
-      () =>
-        questions.length !== 0 && !questions.find(question => !question.title)
-    );
+    const {
+      getQuestion,
+      popQuestion,
+      handleQuestionInput,
+      addTextQuestion,
+      questions,
+      submitQuestions,
+      isValidated,
+      isSuccessModalShown,
+      showSuccessModal,
+      closeSuccessModal
+    } = useCreateEventForm();
 
     return {
       getQuestion,
@@ -140,10 +98,17 @@ export default defineComponent({
       addTextQuestion,
       questions,
       submitQuestions,
-      isValidated
+      isValidated,
+      isSuccessModalShown,
+      showSuccessModal,
+      closeSuccessModal
     };
   }
 });
 </script>
 
-<style></style>
+<style scoped>
+.underline-offset {
+  text-underline-offset: 2px;
+}
+</style>

@@ -91,6 +91,7 @@ export type CreateOrganizationInput = {
   contactEmail?: Maybe<Scalars["String"]>;
   contactPhoneNumber?: Maybe<Scalars["String"]>;
   contactLineId?: Maybe<Scalars["String"]>;
+  userOrganizations: Array<UserOrganizationInput>;
   profilePicture?: Maybe<Scalars["Upload"]>;
 };
 
@@ -319,6 +320,7 @@ export type Organization = {
   profilePictureUrl?: Maybe<Scalars["String"]>;
   profilePictureHash?: Maybe<Scalars["String"]>;
   events: Array<Event>;
+  userOrganizations: Array<UserOrganization>;
 };
 
 export type OrganizationInput = {
@@ -340,6 +342,7 @@ export type OrganizationInput = {
   profilePictureUrl?: Maybe<Scalars["String"]>;
   profilePictureHash?: Maybe<Scalars["String"]>;
   events: Array<EventInput>;
+  userOrganizations: Array<UserOrganizationInput>;
 };
 
 export type Query = {
@@ -525,6 +528,7 @@ export type UpdateOrganizationInput = {
   contactEmail?: Maybe<Scalars["String"]>;
   contactPhoneNumber?: Maybe<Scalars["String"]>;
   contactLineId?: Maybe<Scalars["String"]>;
+  userOrganizations?: Maybe<Array<UserOrganizationInput>>;
   profilePicture?: Maybe<Scalars["Upload"]>;
   id: Scalars["Int"];
 };
@@ -913,6 +917,28 @@ export type GetOrganizationQuery = { __typename?: "Query" } & {
           }
       >;
     };
+};
+
+export type GetOrganizationMemberQueryVariables = Exact<{
+  id: Scalars["Int"];
+}>;
+
+export type GetOrganizationMemberQuery = { __typename?: "Query" } & {
+  organization: { __typename?: "Organization" } & {
+    userOrganizations: Array<
+      { __typename?: "UserOrganization" } & {
+        user: { __typename?: "User" } & Pick<
+          User,
+          | "id"
+          | "firstName"
+          | "lastName"
+          | "email"
+          | "phoneNumber"
+          | "profilePictureUrl"
+        >;
+      }
+    >;
+  };
 };
 
 export type UpdateUserMutationVariables = Exact<{

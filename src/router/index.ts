@@ -15,6 +15,8 @@ const CreateFeedback = () =>
   import("@/modules/createEventFeedback/CreateEventFeedbackPage.vue");
 const CreateForm = () =>
   import("@/modules/createEventForm/CreateEventFormPage.vue");
+const MemberManagementPage = () =>
+  import("@/modules/organization/member-management/MemberManagementPage.vue");
 const Login = () => import("@/modules/login/Login.vue");
 const NotFound = () => import("@/modules/not-found/NotFound.vue");
 const PageSkeleton = () =>
@@ -84,7 +86,10 @@ const router = createRouter({
     {
       path: "/org",
       component: PageSkeletonOrgTeam,
-      children: [{ path: "", component: OrgHome }]
+      children: [
+        { path: "", component: OrgHome },
+        { path: "/org/member-management/:id", component: MemberManagementPage }
+      ]
     },
 
     { path: "/login", component: Login },

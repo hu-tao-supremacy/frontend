@@ -13,7 +13,8 @@ module.exports = {
         "https://127.0.0.1:8000/user-checkin/",
         "https://127.0.0.1:8000/org/",
         "https://127.0.0.1:8000/event/11",
-        "https://127.0.0.1:8000/org-user-view/1"
+        "https://127.0.0.1:8000/org-user-view/1",
+        "https://127.0.0.1:8000/org/member-management/2"
       ]
     },
     upload: {

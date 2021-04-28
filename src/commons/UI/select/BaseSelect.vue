@@ -1,5 +1,5 @@
 <template>
-  <div v-click-outside="hideOption" class="relative">
+  <div v-click-outside="hideOption" class="relative select-none">
     <input
       v-if="isSearchable"
       class="displayed-area border rounded-lg px-1.5 focus:border-primary focus:outline-none w-full h-full"
@@ -16,7 +16,7 @@
     <section
       v-else
       @click="toggleShowOption"
-      class="flex rounded-lg overflow-hidden border focus:outline-none w-full h-full"
+      class="flex rounded-lg overflow-hidden border focus:outline-none w-full h-full cursor-pointer"
       :class="{
         'select-shadow border-primary': isOptionShown,
         'border-gray-4': !isError && !isOptionShown,
@@ -36,7 +36,7 @@
     </section>
     <section
       v-show="isOptionShown"
-      class="absolute left-0 top-full flex flex-col break-words bg-white z-10 w-full mt-0.5 rounded-lg text-sm shadow-sm max-h-20 overflow-y-auto"
+      class="absolute left-0 top-full flex flex-col break-words bg-white z-10 w-full mt-0.5 rounded-lg text-sm shadow-sm max-h-20 overflow-y-auto cursor-pointer"
     >
       <slot></slot>
     </section>

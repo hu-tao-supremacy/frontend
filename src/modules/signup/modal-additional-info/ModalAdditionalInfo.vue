@@ -29,7 +29,11 @@
               />
             </div>
             <div>
-              <BaseUploadImgButton v-model="uploadedImg" class="mb-0.25" />
+              <BaseUploadImgButton
+                v-model="uploadedImg"
+                class="mb-0.25 h-3.5"
+                name="previewImg"
+              />
               <p class="text-gray-5 text-xs">(e.g. JPEG, .PNG or .GIF)</p>
             </div>
           </div>

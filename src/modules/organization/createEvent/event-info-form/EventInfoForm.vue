@@ -53,7 +53,7 @@
         label="Limit people"
         errorText="Input a number"
         :isError="!isValidAttendeeLimit"
-        :isRequired="false"
+        :isRequired="true"
         class="w-14"
       />
       <div class="flex flex-col">
@@ -80,18 +80,42 @@
         />
       </div>
     </section>
+    <section>
+      <label class="mb-1">Event poster image</label>
+      <div class="flex items-center">
+        <BaseUploadImgButton
+          v-model="posterImg"
+          name="posterImg"
+          class="h-3.75 mr-1"
+        />
+        <p class="text-gray-5">(e.g. .JPEG, .PNG, .GIF) size: 160x240</p>
+      </div>
+    </section>
+    <section>
+      <label class="mb-1">Event background image</label>
+      <div class="flex items-center">
+        <BaseUploadImgButton
+          v-model="coverImg"
+          name="coverImg"
+          class="h-3.75 mr-1"
+        />
+        <p class="text-gray-5">(e.g. .JPEG, .PNG, .GIF) size: 960x240</p>
+      </div>
+    </section>
   </div>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, Ref, ref, watch } from "vue";
+import { computed, defineComponent, reactive, Ref, ref, watch } from "vue";
 import BaseLabelAndTextInput from "@/commons/UI/BaseLabelAndTextInput.vue";
 import SingleNameSelect from "@/commons/UI/select/SingleNameSelect.vue";
 import RemovableTag from "../removable-tag/RemovableTag.vue";
 import BaseDatePicker from "@/commons/UI/BaseDatePicker.vue";
+import BaseUploadImgButton from "@/commons/UI/BaseUploadImgButton.vue";
 import { validatePhone, isNumber } from "@/commons/utils/validForm";
 import { Tag } from "@/apollo/types";
 import { hourNames, hourValues } from "@/commons/constant/hour";
+import { EventInfo } from "../interfaces";
 import moment from "moment";
 import { testTags } from "../testData";
 
@@ -101,7 +125,8 @@ export default defineComponent({
     BaseLabelAndTextInput,
     SingleNameSelect,
     RemovableTag,
-    BaseDatePicker
+    BaseDatePicker,
+    BaseUploadImgButton
   },
   setup() {
     const name = ref("");
@@ -112,6 +137,8 @@ export default defineComponent({
     const attendeeLimit = ref("");
     const registrationDueDate = ref(new Date());
     const registrationDueTime = ref(0);
+    const posterImg = ref("");
+    const coverImg = ref("");
 
     //Get from API
     const tagOptionValues: Tag[] = testTags;
@@ -125,10 +152,15 @@ export default defineComponent({
       return isNumber(attendeeLimit.value);
     });
 
+    const attendeeLimitNumber = computed(() => {
+      if (isValidAttendeeLimit.value) return parseInt(attendeeLimit.value);
+      return 0;
+    });
+
     const registrationDueDateTime = computed(() => {
       const dateTime = moment(registrationDueDate.value)
         .hour(registrationDueTime.value)
-        .format();
+        .toDate();
       return dateTime;
     });
 
@@ -151,6 +183,17 @@ export default defineComponent({
       tagSearch.value = { id: -1, name: "", events: [] };
     });
 
+    const eventInfo: EventInfo = reactive({
+      name: name,
+      contact: contact,
+      tags: tags,
+      description: description,
+      attendeeLimit: attendeeLimitNumber,
+      registrationDueDate: registrationDueDateTime,
+      posterImgUrl: posterImg,
+      coverImgUrl: coverImg
+    });
+
     return {
       name,
       contact,
@@ -167,7 +210,10 @@ export default defineComponent({
       removeTag,
       hourNames,
       hourValues,
-      registrationDueDateTime
+      registrationDueDateTime,
+      posterImg,
+      coverImg,
+      eventInfo
     };
   }
 });

@@ -1,11 +1,11 @@
 <template>
   <div>
-    <base-button class="h-3.75"
-      ><label class="p-1" for="fileLoader">Upload</label></base-button
+    <base-button class="h-full z-10"
+      ><label class="p-1 cursor-pointer" :for="name">Upload</label></base-button
     >
     <input
-      id="fileLoader"
-      name="profileImg"
+      :id="name"
+      :name="name"
       type="file"
       class="hidden"
       accept="image/*"
@@ -29,6 +29,10 @@ export default defineComponent({
     modelValue: {
       type: String,
       default: ""
+    },
+    name: {
+      type: String,
+      default: "imgFileLoader"
     }
   },
   emits: [UPDATE_MODEL_VALUE],

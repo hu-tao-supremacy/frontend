@@ -60,6 +60,7 @@
               <div v-if="data.status === 'PENDING'" class="flex space-x-2">
                 <GrayButton
                   class="flex justify-center items-center flex-shrink-0 // h-4 px-1 space-x-1 // bg-gray-3 text-gray-6"
+                  @click="rejectRequest(data.user.id)"
                 >
                   <base-icon class="w-3 h-3">
                     <check-circle-icon />
@@ -68,6 +69,7 @@
                 </GrayButton>
                 <BaseButton
                   class="flex justify-center items-center // h-4 px-1 space-x-1 flex-shrink-0"
+                  @click="approveRequest(data.user.id)"
                 >
                   <base-icon class="w-3 h-3">
                     <CheckIcon />
@@ -138,7 +140,9 @@ export default defineComponent({
       filteredData,
       sortBy,
       sortByVal,
-      headerKeys
+      headerKeys,
+      approveRequest,
+      rejectRequest
     } = useTable(data);
 
     return {
@@ -148,7 +152,9 @@ export default defineComponent({
       sortBy,
       sortByVal,
       header,
-      sortOption
+      sortOption,
+      approveRequest,
+      rejectRequest
     };
   }
 });

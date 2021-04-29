@@ -15,7 +15,7 @@ const useAttendeeManagement = () => {
   });
 
   const event = useResult(result, null, data => data.event);
-  return { event };
+  return { event, eventId };
 };
 
 export default useAttendeeManagement;

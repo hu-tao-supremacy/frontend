@@ -947,6 +947,14 @@ export type GetEventAttendeeQuery = { __typename?: "Query" } & {
     };
 };
 
+export type ReviewJoinRequestMutationVariables = Exact<{
+  input: ReviewJoinRequestInput;
+}>;
+
+export type ReviewJoinRequestMutation = { __typename?: "Mutation" } & {
+  reviewJoinRequest: { __typename?: "UserEvent" } & Pick<UserEvent, "userId">;
+};
+
 export type GetOrganizationMemberQueryVariables = Exact<{
   id: Scalars["Int"];
 }>;

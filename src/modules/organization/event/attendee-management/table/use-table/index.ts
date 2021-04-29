@@ -1,6 +1,12 @@
+import {
+  ReviewJoinRequestInput,
+  UserEventStatus
+} from "./../../../../../../apollo/types";
+import { useReviewRequest } from "./../../api";
 import { DataProps } from "./../types";
 import { ref, computed, Ref } from "vue";
 import Fuse from "fuse.js";
+import { useRoute } from "vue-router";
 
 const useTable = (data?: Ref<DataProps[] | undefined>) => {
   const searchValue = ref("");
@@ -47,6 +53,28 @@ const useTable = (data?: Ref<DataProps[] | undefined>) => {
     return [];
   });
 
+  const { reviewRequest } = useReviewRequest();
+  const route = useRoute();
+  const eventId = Number(route.params.id);
+
+  const approveRequest = (userId: number) => {
+    const input: ReviewJoinRequestInput = {
+      userId,
+      eventId,
+      status: UserEventStatus.Approved
+    };
+    reviewRequest({ input });
+  };
+
+  const rejectRequest = (userId: number) => {
+    const input: ReviewJoinRequestInput = {
+      userId,
+      eventId,
+      status: UserEventStatus.Rejected
+    };
+    reviewRequest({ input });
+  };
+
   return {
     sortOption,
     handleSearch,
@@ -54,7 +82,9 @@ const useTable = (data?: Ref<DataProps[] | undefined>) => {
     filteredData,
     sortBy,
     sortByVal,
-    headerKeys
+    headerKeys,
+    approveRequest,
+    rejectRequest
   };
 };
 

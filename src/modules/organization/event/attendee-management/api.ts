@@ -1,4 +1,8 @@
-import { useQuery } from "@vue/apollo-composable";
+import {
+  ReviewJoinRequestMutation,
+  MutationReviewJoinRequestArgs
+} from "./../../../../apollo/types";
+import { useMutation, useQuery } from "@vue/apollo-composable";
 import gql from "graphql-tag";
 import {
   GetEventAttendeeQuery,
@@ -30,3 +34,17 @@ export const useAttendeeManagementApi = (
     `,
     variables
   );
+
+export const useReviewRequest = () => {
+  const { mutate: reviewRequest } = useMutation<
+    ReviewJoinRequestMutation,
+    MutationReviewJoinRequestArgs
+  >(gql`
+    mutation reviewJoinRequest($input: ReviewJoinRequestInput!) {
+      reviewJoinRequest(input: $input) {
+        userId
+      }
+    }
+  `);
+  return { reviewRequest };
+};

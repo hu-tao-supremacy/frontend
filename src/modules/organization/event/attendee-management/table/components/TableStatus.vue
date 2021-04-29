@@ -21,6 +21,17 @@
       {{ status }}
     </div>
   </div>
+  <div
+    v-else-if="data === 'REJECTED'"
+    class="flex items-center // space-x-1 // text-red-6"
+  >
+    <base-icon class="w-2 h-2">
+      <x-icon />
+    </base-icon>
+    <div>
+      {{ status }}
+    </div>
+  </div>
   <div v-else>
     {{ status }}
   </div>
@@ -30,12 +41,14 @@
 import { defineComponent, ref } from "vue";
 import CheckIcon from "@/assets/Check.vue";
 import ClockIcon from "@/assets/Clock.vue";
+import XIcon from "@/assets/X.vue";
 
 export default defineComponent({
   name: "TableStatus",
   components: {
     CheckIcon,
-    ClockIcon
+    ClockIcon,
+    XIcon
   },
   props: {
     data: {

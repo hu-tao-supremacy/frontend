@@ -51,9 +51,13 @@ export default defineComponent({
       isValid: isValidLocation
     });
 
-    watch(eventLocation, () => {
-      context.emit(UPDATE_MODEL_VALUE, eventLocation);
-    });
+    watch(
+      () => eventLocation,
+      () => {
+        context.emit(UPDATE_MODEL_VALUE, eventLocation);
+      },
+      { deep: true }
+    );
 
     return { name, description };
   }

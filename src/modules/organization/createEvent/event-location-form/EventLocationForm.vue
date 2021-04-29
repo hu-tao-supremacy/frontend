@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, reactive, Ref, ref, watch } from "vue";
+import { computed, defineComponent, Ref, ref, watch, reactive } from "vue";
 import FormOptionButton from "../form-option-button/FormOptionButton.vue";
 import FormSpecifyLocation from "../form-specify-location/FormSpecifyLocation.vue";
 import { EventLocationFormOption } from "@/commons/constant";
@@ -47,13 +47,10 @@ export default defineComponent({
       isValid: false
     });
 
-    const eventLocation: EventLocationForm = reactive({
-      name: specifyEventLocation.value.name,
-      description: specifyEventLocation.value.description,
-      googleMapUrl: specifyEventLocation.value.googleMapUrl,
-      isOnline: specifyEventLocation.value.isOnline,
-      isValid: specifyEventLocation.value.isValid
-    });
+    //Will not actually change when specifyEventLocation changes
+    const eventLocation: EventLocationForm = reactive(
+      specifyEventLocation.value
+    );
 
     const isSpecifyOption = computed(() => {
       return currentOption.value === EventLocationFormOption.SPECIFY;
@@ -67,6 +64,7 @@ export default defineComponent({
       return currentOption.value === EventLocationFormOption.ONLINE;
     });
 
+    //Will not actually change when specifyEventLocation changes
     function copySpecifyLocationToEventLocation() {
       eventLocation.name = specifyEventLocation.value.name;
       eventLocation.description = specifyEventLocation.value.description;
@@ -106,13 +104,21 @@ export default defineComponent({
       changeEventLocationToOnline();
     }
 
-    watch(specifyEventLocation, () => {
-      console.log(specifyEventLocation);
-    });
+    watch(
+      () => specifyEventLocation,
+      () => {
+        console.log(specifyEventLocation.value);
+      },
+      { deep: true }
+    );
 
-    watch(eventLocation, () => {
-      console.log(eventLocation);
-    });
+    watch(
+      () => eventLocation,
+      () => {
+        console.log(eventLocation);
+      },
+      { deep: true }
+    );
 
     return {
       EventLocationFormOption,

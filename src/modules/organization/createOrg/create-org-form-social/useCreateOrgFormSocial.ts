@@ -33,9 +33,13 @@ export default function useCreateOrgFormSocial(
     isValid: hasSocialMedia
   });
 
-  watch(orgSocial, () => {
-    context.emit(UPDATE_MODEL_VALUE, orgSocial);
-  });
+  watch(
+    () => orgSocial,
+    () => {
+      context.emit(UPDATE_MODEL_VALUE, orgSocial);
+    },
+    { deep: true }
+  );
 
   return { facebook, instagram, line, email, isValidEmail };
 }

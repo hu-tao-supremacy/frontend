@@ -55,9 +55,13 @@ export default function useCreateOrgFormMember(
     else removeMember(memberIndex);
   }
 
-  watch(selectedMembers.value, () => {
-    context.emit(UPDATE_MODEL_VALUE, selectedMembers.value);
-  });
+  watch(
+    () => selectedMembers,
+    () => {
+      context.emit(UPDATE_MODEL_VALUE, selectedMembers.value);
+    },
+    { deep: true }
+  );
 
   return {
     selectedMembers,

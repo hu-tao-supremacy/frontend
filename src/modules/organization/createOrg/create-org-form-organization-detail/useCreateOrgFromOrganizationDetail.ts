@@ -32,9 +32,13 @@ export default function useCreateOrgFormOrganizationDetail(
     isValid: isValidOrgDetail
   });
 
-  watch(orgDetail, () => {
-    context.emit(UPDATE_MODEL_VALUE, orgDetail);
-  });
+  watch(
+    () => orgDetail,
+    () => {
+      context.emit(UPDATE_MODEL_VALUE, orgDetail);
+    },
+    { deep: true }
+  );
 
   return {
     abbreviation,

@@ -72,9 +72,13 @@ export default function useCreateOrgFormContactPerson(
     isValid: isValidContactPerson
   });
 
-  watch(orgContactPerson, () => {
-    context.emit(UPDATE_MODEL_VALUE, orgContactPerson);
-  });
+  watch(
+    () => orgContactPerson,
+    () => {
+      context.emit(UPDATE_MODEL_VALUE, orgContactPerson);
+    },
+    { deep: true }
+  );
 
   return {
     contactName,

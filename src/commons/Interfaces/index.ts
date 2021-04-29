@@ -1,3 +1,5 @@
+import { Tag } from "@/apollo/types";
+
 export interface Event {
   description: string;
   day: number;
@@ -71,4 +73,24 @@ export interface Interest {
 export interface TextAreaRef {
   style: { height: string };
   scrollHeight: number;
+}
+
+export interface EventInfoForm {
+  name: string;
+  contact: string;
+  tags: Tag[];
+  description: string;
+  attendeeLimit: number;
+  registrationDueDate: Date;
+  posterImgUrl: string;
+  coverImgUrl: string;
+  isValid: boolean;
+}
+
+export interface EventLocationForm {
+  name: string;
+  googleMapUrl: string;
+  description: string;
+  isOnline: boolean;
+  isValid: boolean;
 }

@@ -1,5 +1,6 @@
 <template>
   <div class="p-2">
+    <EventLoca class="mb-4" />
     <EventInfo class="mb-4" />
     <InfoBanner
       :style="{ maxWidth: '960px' }"
@@ -27,6 +28,7 @@ import EventOrganizer from "@/modules/eventInfo/event-organizer/EventOrganizer.v
 import { testData, questionData } from "./testData";
 import OrgCard from "@/modules/orgUserView/org-card/OrgCard.vue";
 import EventInfo from "@/modules/organization/createEvent/event-info-form/EventInfoForm.vue";
+import EventLoca from "@/modules/organization/createEvent/event-location-form/EventLocationForm.vue";
 
 export default defineComponent({
   name: "TestPage",
@@ -35,7 +37,8 @@ export default defineComponent({
     EventDetail,
     EventOrganizer,
     OrgCard,
-    EventInfo
+    EventInfo,
+    EventLoca
   },
   setup() {
     const test = testData;

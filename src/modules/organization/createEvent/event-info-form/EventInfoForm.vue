@@ -75,7 +75,6 @@
           :optionNames="hourNames"
           :optionValues="hourValues"
           :hasDropDownIcon="false"
-          placeholder=""
           class="h-3.75 w-12"
         />
       </div>
@@ -115,7 +114,7 @@ import BaseUploadImgButton from "@/commons/UI/BaseUploadImgButton.vue";
 import { validatePhone, isNumber } from "@/commons/utils/validForm";
 import { Tag } from "@/apollo/types";
 import { hourNames, hourValues } from "@/commons/constant/hour";
-import { EventInfo } from "../interfaces";
+import { EventInfoForm } from "@/commons/Interfaces";
 import moment from "moment";
 import { testTags } from "../testData";
 
@@ -164,6 +163,16 @@ export default defineComponent({
       return dateTime;
     });
 
+    const isValidEventInfo = computed(() => {
+      if (
+        name.value === "" ||
+        description.value === "" ||
+        attendeeLimitNumber.value === 0
+      )
+        return false;
+      return true;
+    });
+
     function addTag(tag: Tag) {
       const tagId = tag.id;
       const isInTagsList = tags.value.some(
@@ -183,7 +192,7 @@ export default defineComponent({
       tagSearch.value = { id: -1, name: "", events: [] };
     });
 
-    const eventInfo: EventInfo = reactive({
+    const eventInfo: EventInfoForm = reactive({
       name: name,
       contact: contact,
       tags: tags,
@@ -191,7 +200,8 @@ export default defineComponent({
       attendeeLimit: attendeeLimitNumber,
       registrationDueDate: registrationDueDateTime,
       posterImgUrl: posterImg,
-      coverImgUrl: coverImg
+      coverImgUrl: coverImg,
+      isValid: isValidEventInfo
     });
 
     return {

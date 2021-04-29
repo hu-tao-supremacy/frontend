@@ -39,7 +39,7 @@ export default defineComponent({
       EventLocationFormOption.SPECIFY
     );
 
-    const specifyEventLocation: EventLocationForm = reactive({
+    const specifyEventLocation: Ref<EventLocationForm> = ref({
       name: "",
       description: "",
       googleMapUrl: "https://www.onepass.app/",
@@ -48,11 +48,11 @@ export default defineComponent({
     });
 
     const eventLocation: EventLocationForm = reactive({
-      name: specifyEventLocation.name,
-      description: specifyEventLocation.description,
-      googleMapUrl: specifyEventLocation.googleMapUrl,
-      isOnline: specifyEventLocation.isOnline,
-      isValid: specifyEventLocation.isValid
+      name: specifyEventLocation.value.name,
+      description: specifyEventLocation.value.description,
+      googleMapUrl: specifyEventLocation.value.googleMapUrl,
+      isOnline: specifyEventLocation.value.isOnline,
+      isValid: specifyEventLocation.value.isValid
     });
 
     const isSpecifyOption = computed(() => {
@@ -68,11 +68,11 @@ export default defineComponent({
     });
 
     function copySpecifyLocationToEventLocation() {
-      eventLocation.name = specifyEventLocation.name;
-      eventLocation.description = specifyEventLocation.description;
-      eventLocation.googleMapUrl = specifyEventLocation.googleMapUrl;
-      eventLocation.isOnline = specifyEventLocation.isOnline;
-      eventLocation.isValid = specifyEventLocation.isValid;
+      eventLocation.name = specifyEventLocation.value.name;
+      eventLocation.description = specifyEventLocation.value.description;
+      eventLocation.googleMapUrl = specifyEventLocation.value.googleMapUrl;
+      eventLocation.isOnline = specifyEventLocation.value.isOnline;
+      eventLocation.isValid = specifyEventLocation.value.isValid;
     }
 
     function changeEventLocationToLater() {

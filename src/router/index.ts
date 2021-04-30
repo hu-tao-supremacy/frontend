@@ -12,6 +12,8 @@ const EventRegister = () =>
 const EventFeedback = () =>
   import("@/modules/eventFeedback/EventFeedbackPage.vue");
 const OrgHome = () => import("@/modules/organization/home/OrgHomePage.vue");
+const MemberManagementPage = () =>
+  import("@/modules/organization/member-management/MemberManagementPage.vue");
 const QuestionGroup = () => import("@/modules/questionGroup/QuestionGroup.vue");
 const Login = () => import("@/modules/login/Login.vue");
 const NotFound = () => import("@/modules/not-found/NotFound.vue");
@@ -21,6 +23,7 @@ const PageSkeletonOrgTeam = () =>
   import(
     "@/commons/components/page-skeleton/organization/PageSkeletonOrgTeam.vue"
   );
+const OrgUserView = () => import("@/modules/orgUserView/OrgUserView.vue");
 
 const router = createRouter({
   history: createWebHistory(),
@@ -63,7 +66,10 @@ const router = createRouter({
           path: "/question-group",
           component: QuestionGroup
         },
-
+        {
+          path: "/org-user-view/:id",
+          component: OrgUserView
+        },
         { path: "/404", component: NotFound }
       ]
     },
@@ -74,8 +80,12 @@ const router = createRouter({
     {
       path: "/org",
       component: PageSkeletonOrgTeam,
-      children: [{ path: "", component: OrgHome }]
+      children: [
+        { path: "", component: OrgHome },
+        { path: "/org/member-management/:id", component: MemberManagementPage }
+      ]
     },
+
     { path: "/login", component: Login },
     {
       path: "/:catchAll(.*)",

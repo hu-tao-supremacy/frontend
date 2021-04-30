@@ -39,12 +39,14 @@
         <div class="text-lg font-heading max-w-20 truncate mr-1.5">
           {{ nameShown }}
         </div>
-        <base-icon v-show="!isDropDownShown" :height="14" :width="14">
-          <ChevronDownIcon />
-        </base-icon>
-        <base-icon v-show="isDropDownShown" :height="14" :width="14">
-          <ChevronUpIcon />
-        </base-icon>
+        <base-transparent-button
+          ><base-icon v-show="!isDropDownShown" :height="14" :width="14">
+            <ChevronDownIcon /> </base-icon
+        ></base-transparent-button>
+        <base-transparent-button
+          ><base-icon v-show="isDropDownShown" :height="14" :width="14">
+            <ChevronUpIcon /> </base-icon
+        ></base-transparent-button>
       </div>
       <NavbarDropDownOptions
         v-show="isDropDownShown"
@@ -61,6 +63,7 @@ import { defineComponent } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import BaseSearch from "@/commons/UI/BaseSearch.vue";
 import UserProfile from "@/commons/UI/user-profile/UserProfile.vue";
+import BaseTransparentButton from "@/commons/UI/BaseTransparentButton.vue";
 import OnePassLogo from "@/assets/OnePassLogoColor.vue";
 import ChevronDownIcon from "@/assets/ChevronDown.vue";
 import ChevronUpIcon from "@/assets/ChevronUp.vue";
@@ -74,6 +77,7 @@ export default defineComponent({
     BaseButton,
     BaseSearch,
     UserProfile,
+    BaseTransparentButton,
     OnePassLogo,
     ChevronDownIcon,
     ChevronUpIcon,

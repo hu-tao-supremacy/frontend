@@ -10,28 +10,26 @@
           :width="200"
           :height="200"
           alt="will change to api"
-          :url="profile.profilePictureUrl"
-          :placeholder="profile.profilePictureHash"
+          :url="profile && profile.profilePictureUrl"
+          :placeholder="profile && profile.profilePictureHash"
           class="object-cover w-full h-full"
         />
       </div>
       <div class="flex flex-col">
         <div class="flex items-center mb-1">
           <h1 class="font-heading text-4xl mr-3">
-            {{ profile.firstName }} {{ profile.lastName }}
+            {{ profile && profile.firstName }} {{ profile && profile.lastName }}
           </h1>
-          <base-icon
-            @click="editInfo"
-            width="20px"
-            height="20px"
-            class="cursor-pointer"
-            ><EditIcon
-          /></base-icon>
+          <base-transparent-button @click="editInfo"
+            ><base-icon width="20px" height="20px"><EditIcon /></base-icon
+          ></base-transparent-button>
         </div>
-        <p class="text-gray-6 mb-1">{{ profile.email }}</p>
+        <p class="text-gray-6 mb-1">{{ profile && profile.email }}</p>
         <div class="flex items-center">
           <div class="w-1 h-1 rounded-full bg-primary mr-1"></div>
-          <p class="mr-1">{{ profile.events && profile.events.length }}</p>
+          <p class="mr-1">
+            {{ profile && profile.history && profile.history.length }}
+          </p>
           <h3 class="mr-1">Events attended</h3>
         </div>
       </div>
@@ -121,24 +119,25 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, PropType } from "vue";
+import { computed, defineComponent } from "vue";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
+import BaseTransparentButton from "@/commons/UI/BaseTransparentButton.vue";
 import EditIcon from "@/assets/Edit.vue";
 import TicketComponent from "@/modules/wallet/ticket/Ticket.vue";
 import useWallet from "./useWallet";
-import { User, UserEventStatus } from "@/apollo/types";
+import { GetUserWalletQuery, UserEventStatus } from "@/apollo/types";
 
 export default defineComponent({
   name: "Wallet",
   components: {
     LazyImage,
+    BaseTransparentButton,
     EditIcon,
     TicketComponent
   },
   props: {
     profile: {
-      type: Object as () => User,
-      required: true
+      type: Object as () => GetUserWalletQuery["currentUser"]
     }
   },
   setup(props) {
@@ -152,7 +151,7 @@ export default defineComponent({
     } = useWallet();
 
     const findApprovedEvents = computed(() =>
-      props.profile.events?.filter(
+      props.profile?.history?.filter(
         value => value.attendance?.status === UserEventStatus.Approved
       )
     );

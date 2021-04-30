@@ -1,18 +1,18 @@
 import {
   CreateJoinRequestInput,
-  GetQuestionsByEventIdQuery,
-  GetQuestionsByEventIdQueryVariables,
+  GetEventRegisterQuery,
+  GetEventRegisterQueryVariables,
   MutationCreateJoinRequestArgs
 } from "@/apollo/types";
 import { useMutation, useQuery } from "@vue/apollo-composable";
 import gql from "graphql-tag";
 
 export const useEventRegisterApi = (
-  variables: GetQuestionsByEventIdQueryVariables
+  variables: GetEventRegisterQueryVariables
 ) =>
-  useQuery<GetQuestionsByEventIdQuery>(
+  useQuery<GetEventRegisterQuery>(
     gql`
-      query getQuestionsByEventId($id: Int!) {
+      query getEventRegister($id: Int!) {
         event(id: $id) {
           id
           coverImageUrl
@@ -45,6 +45,20 @@ export const useEventRegisterApi = (
           attendance {
             id
           }
+        }
+        currentUser {
+          id
+          firstName
+          lastName
+          gender
+          chulaId
+          academicYear
+          phoneNumber
+          email
+          district
+          province
+          zipCode
+          address
         }
       }
     `,

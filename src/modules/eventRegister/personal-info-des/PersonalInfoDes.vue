@@ -5,7 +5,7 @@
       <div class="flex flex-col w-1/3 mr-4">
         <div>First Name</div>
         <BaseTextInput
-          :value="user.firstName"
+          :modelValue="user && user.firstName"
           class="w-full h-4 disabled: bg-white text-primary-6"
           disabled
         />
@@ -13,7 +13,7 @@
       <div class="flex flex-col w-1/3 mr-4">
         <div>Last Name</div>
         <BaseTextInput
-          :value="user.lastName"
+          :modelValue="user && user.lastName"
           class="w-full h-4 disabled: bg-white text-primary-6"
           disabled
         />
@@ -21,7 +21,7 @@
       <div class="flex flex-col w-1/3">
         <div>Gender</div>
         <BaseTextInput
-          :value="user.gender"
+          :modelValue="user && user.gender"
           class="w-full h-4 disabled: bg-white text-primary-6"
           disabled
         />
@@ -31,7 +31,7 @@
       <div class="flex flex-col w-1/3 mr-4">
         <div>Student ID</div>
         <BaseTextInput
-          :value="user.chulaId"
+          :modelValue="user && user.chulaId"
           class="w-full h-4 disabled: bg-white text-primary-6"
           disabled
         />
@@ -39,7 +39,7 @@
       <div class="flex flex-col w-1/3 mr-4">
         <div>Faculty</div>
         <BaseTextInput
-          :value="user.chulaId"
+          :modelValue="user && faculty"
           class="w-full h-4 disabled: bg-white text-primary-6"
           disabled
         />
@@ -47,7 +47,7 @@
       <div class="flex flex-col w-1/3">
         <div>Year</div>
         <BaseTextInput
-          :value="user.chulaId"
+          :modelValue="user && user.academicYear"
           class="w-full h-4 disabled: bg-white text-primary-6"
           disabled
         />
@@ -57,7 +57,7 @@
       <div class="flex flex-col w-1/2 mr-4">
         <div>Phone</div>
         <BaseTextInput
-          :value="user.phoneNumber"
+          :modelValue="user && user.phoneNumber"
           class="w-full h-4 disabled: bg-white text-primary-6"
           disabled
         />
@@ -65,7 +65,7 @@
       <div class="flex flex-col w-1/2 ">
         <div>Email</div>
         <BaseTextInput
-          :value="user.email"
+          :modelValue="user && user.email"
           class="w-full h-4 disabled: bg-white text-primary-6"
           disabled
         />
@@ -75,7 +75,7 @@
       <div class="flex flex-col w-1/3 mr-4">
         <div>District</div>
         <BaseTextInput
-          :value="user.district"
+          :modelValue="user && user.district"
           class="w-full h-4 disabled: bg-white text-primary-6"
           disabled
         />
@@ -83,7 +83,7 @@
       <div class="flex flex-col w-1/3 mr-4">
         <div>Province</div>
         <BaseTextInput
-          :value="user.province"
+          :modelValue="user && user.province"
           class="w-full h-4 disabled: bg-white text-primary-6"
           disabled
         />
@@ -91,7 +91,7 @@
       <div class="flex flex-col w-1/3">
         <div>Zip code</div>
         <BaseTextInput
-          :value="user.zipCode"
+          :modelValue="user && user.zipCode"
           class="w-full h-4 disabled: bg-white text-primary-6"
           disabled
         />
@@ -100,7 +100,7 @@
     <div class="flex flex-col mt-4">
       <div>Address</div>
       <BaseTextArea
-        :value="user.address"
+        :modelValue="user && user.address"
         class="w-full resize-none disabled: bg-white text-primary-6"
         disabled
         :rows="2"
@@ -113,19 +113,22 @@
 import { ComputedRef, defineComponent } from "vue";
 import BaseTextInput from "@/commons/UI/BaseTextInput.vue";
 import BaseTextArea from "@/commons/UI/BaseTextArea.vue";
-import { User } from "@/apollo/types";
+import { GetEventRegisterQuery } from "@/apollo/types";
 
 export default defineComponent({
   name: "PersonalInfoDes",
   props: {
     user: {
-      type: Object as () => ComputedRef<User>,
-      required: true
+      type: Object as () => ComputedRef<GetEventRegisterQuery["currentUser"]>
     }
   },
   components: {
     BaseTextInput,
     BaseTextArea
+  },
+  setup() {
+    const faculty = "Engineering";
+    return { faculty };
   }
 });
 </script>

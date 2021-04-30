@@ -6,9 +6,12 @@ export interface Event {
   time: string;
   title: string;
   faculty: string;
+  location: string;
   imgHash: string;
   img: string;
   tags: Array<string>;
+  attendeeLimit: number;
+  currentAttendee: number;
 }
 
 export interface Banner {
@@ -58,16 +61,14 @@ export interface Profile {
   following: number;
 }
 
-export interface Schedule {
-  faculty: string;
-  day: number;
-  month: string;
-  time: string;
-}
-
 export interface Interest {
   id: number;
   name: string;
   img: string;
   imgHash: string;
+}
+
+export interface TextAreaRef {
+  style: { height: string };
+  scrollHeight: number;
 }

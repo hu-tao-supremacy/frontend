@@ -1,12 +1,13 @@
 import { ref, computed, SetupContext, watch, Ref } from "vue";
 import { parseImageFile } from "@/commons/utils/parseImage";
-import { CLOSE_MODAL } from "@/commons/constant";
+import { CLOSE_MODAL, GENDER } from "@/commons/constant";
 import {
   validateEmail,
   validatePhone,
   validateZipCode,
   validateDistrict,
-  validateProvince
+  validateProvince,
+  validateYear
 } from "@/commons/utils/validForm";
 import districts from "@/commons/constant/thailand-address/district";
 import provinces from "@/commons/constant/thailand-address/province";
@@ -36,6 +37,11 @@ export default function useModalAdditionalInfo(
   const userDistrict = ref("");
   const userProvince = ref("");
   const userAddress = ref("");
+  const userYear = ref(null);
+  const userGender = ref(null);
+
+  const optionNames = Object.keys(GENDER);
+  const optionValues = Object.values(GENDER);
 
   const districtOptionNames = districts.map(
     district => district.DISTRICT_ENG_NAME
@@ -58,22 +64,16 @@ export default function useModalAdditionalInfo(
     }
   });
 
-  function submitForm() {
-    // toadd phone and complete address
-    const userInfo = {
-      address: userAddress.value,
-      email: userEmail.value,
-      profilePicture: uploadedImgFile.value
-    } as UpdateUserInput;
-    context.emit(SUBMIT_MODAL, userInfo);
-  }
-
   function closeModal() {
     context.emit(CLOSE_MODAL);
   }
 
   const isValidEmail = computed(() => {
     return validateEmail(userEmail.value);
+  });
+
+  const isValidYear = computed(() => {
+    return validateYear(userYear.value);
   });
 
   const isValidPhone = computed(() => {
@@ -103,9 +103,28 @@ export default function useModalAdditionalInfo(
       userProvince.value !== "" &&
       userZipCode.value !== "" &&
       userAddress.value !== "" &&
-      fileLoaded.value
+      isValidYear.value &&
+      userYear.value &&
+      userGender.value
     );
   });
+
+  function submitForm() {
+    // toadd phone and complete address
+    if (isValidForm.value) {
+      const userInfo = {
+        address: userAddress.value,
+        email: userEmail.value,
+        profilePicture: uploadedImgFile.value,
+        district: userDistrict.value,
+        province: userProvince.value,
+        zipCode: userZipCode.value,
+        phoneNumber: userPhone.value,
+        academicYear: Number(userYear.value)
+      } as UpdateUserInput;
+      context.emit(SUBMIT_MODAL, userInfo);
+    }
+  }
 
   watch(userLocation, () => {
     userDistrict.value = userLocation.value.DISTRICT_ENG_NAME;
@@ -133,6 +152,11 @@ export default function useModalAdditionalInfo(
     isValidPhone,
     isValidLocation,
     isValidForm,
-    submitForm
+    submitForm,
+    isValidYear,
+    userYear,
+    optionNames,
+    optionValues,
+    userGender
   };
 }

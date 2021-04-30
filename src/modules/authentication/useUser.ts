@@ -21,7 +21,7 @@ const useUserHooks = () => {
     return token.value.length !== 0;
   });
 
-  const { result, refetch } = useCurrentUser(hasToken);
+  const { result, refetch, onError } = useCurrentUser(hasToken);
   const userResult = useResult(result, EMPTY_USER, data => data.currentUser);
   const user = computed(() => {
     return hasToken.value ? userResult.value : EMPTY_USER;
@@ -50,6 +50,10 @@ const useUserHooks = () => {
       token.value = "";
     }
   };
+
+  onError(() => {
+    logout();
+  });
 
   onMounted(() => {
     if (token.value.length === 0) {

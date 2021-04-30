@@ -1,8 +1,9 @@
 import { CLOSE_MODAL } from "@/commons/constant";
+import { SUBMIT_MODAL } from "../constant";
 import { Ref, ref, SetupContext } from "vue";
 
 export default function useModalInterests(
-  context: SetupContext<"close-modal"[]>
+  context: SetupContext<("close-modal" | "submit-modal")[]>
 ) {
   const selectedInterestIDs: Ref<number[]> = ref([]);
 
@@ -25,7 +26,7 @@ export default function useModalInterests(
   function submitInterest() {
     //something to do with API.
     console.log(selectedInterestIDs.value);
-    closeModal();
+    context.emit(SUBMIT_MODAL);
   }
 
   return { toggleInterest, isSelected, submitInterest, closeModal };

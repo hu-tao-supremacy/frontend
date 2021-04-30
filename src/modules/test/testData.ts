@@ -3,11 +3,11 @@ export const testData = {
 
     Vivamus pretium ac mi quis hendrerit. Pellentesque quis enim lectus. Sed facilisis et felis vitae porta. Suspendisse egestas, eros vel scelerisque dictum, nibh est venenatis erat, at egestas dolor ipsum vel diam. Praesent in vestibulum mauris. Cras porta tincidunt ante, vel euismod urna blandit feugiat. Phasellus auctor sollicitudin leo, et dictum libero rutrum a. Nulla est neque, malesuada quis mattis vel, commodo sit amet justo. Donec a sapien elit. Curabitur et lacinia diam. Ut gravida faucibus magna. Ut ac odio diam.`,
   eventOrganizer: {
-    imgUrl: "https://picsum.photos/100",
+    img: "https://picsum.photos/100",
     imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
     shortName: "SGCU",
     fullName: "องค์การบริหารสโมสรนิสิตจุฬาลงกรณ์มหาวิทยาลัย (อบจ.)",
-    detail: `<ORG - BIO>   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque pulvinar ornare orci amet. Quis arcu rhoncus velit amet nulla eleifend tristique quis? `
+    description: `<ORG - BIO>   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque pulvinar ornare orci amet. Quis arcu rhoncus velit amet nulla eleifend tristique quis? `
   },
   eventBanner: {
     bannerImg: "https://picsum.photos/1000",
@@ -30,14 +30,21 @@ export const testData = {
     faculty: "ISE",
     imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
     img: "https://picsum.photos/400",
-    tags: ["Engineering", "Food", "Education"]
+    tags: ["Engineering", "Food", "Education"],
+    attendeeLimit: 180,
+    currentAttendee: 100
   },
   organization: {
-    img: "https://picsum.photos/100",
-    imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
-    shortName: "SGCU",
-    fullName: "องค์การบริหารสโมสรนิสิตจุฬาลงกรณ์มหาวิทยาลัย (อบจ.)",
-    description: `<ORG - BIO>   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque pulvinar ornare orci amet. Quis arcu rhoncus velit amet nulla eleifend tristique quis? `
+    profilePictureUrl: "https://picsum.photos/100",
+    profilePictureHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
+    name: "องค์การบริหารสโมสรนิสิตจุฬาลงกรณ์มหาวิทยาลัย (อบจ.)",
+    description: `<ORG - BIO>   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque pulvinar ornare orci amet. Quis arcu rhoncus velit amet nulla eleifend tristique quis? `,
+    facebookPage: "SGCU.facebook",
+    instagram: "SGCU.instagram",
+    lineOfficialAccount: "SGCU.line",
+    email: "SCGU@chula.ac.th",
+    isVerified: true,
+    events: [{ name: "asd" }, { name: "rew" }]
   },
   ticketID: "175FD57",
   profile: {
@@ -221,6 +228,80 @@ export const testData = {
       img: "https://picsum.photos/213",
       imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
     }
+  ],
+  interestedEvents: [
+    {
+      id: 15,
+      name: "Event #1",
+      img: "https://picsum.photos/214",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    },
+    {
+      id: 16,
+      name: "Event #2",
+      img: "https://picsum.photos/215",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    },
+    {
+      id: 17,
+      name: "Event #3",
+      img: "https://picsum.photos/216",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    },
+    {
+      id: 18,
+      name: "Event #4",
+      img: "https://picsum.photos/217",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    },
+    {
+      id: 19,
+      name: "Event #5",
+      img: "https://picsum.photos/218",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    },
+    {
+      id: 20,
+      name: "Event #6",
+      img: "https://picsum.photos/219",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    },
+    {
+      id: 21,
+      name: "Event #7",
+      img: "https://picsum.photos/220",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    },
+    {
+      id: 22,
+      name: "Event #8",
+      img: "https://picsum.photos/221",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    },
+    {
+      id: 23,
+      name: "Event #9",
+      img: "https://picsum.photos/222",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    },
+    {
+      id: 24,
+      name: "Event #10",
+      img: "https://picsum.photos/223",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    },
+    {
+      id: 25,
+      name: "Event #11",
+      img: "https://picsum.photos/224",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    },
+    {
+      id: 26,
+      name: "Event #12",
+      img: "https://picsum.photos/225",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+    }
   ]
 };
 
@@ -228,5 +309,42 @@ export const questionData = {
   text: "What you like in these activities?",
   radio: "I learned useful knowledge from these activities."
 };
+
+export const eventsListData = [
+  {
+    event: {
+      title: "Information and Communication Event (ICE)",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac libero pellentesque, hendrerit eros vitae, malesuada nisi. Nam tempus dolor vitae mauris luctus aliquet. Sed et finibus erat.",
+      date: "Sun, 14 Feb - 16 April",
+      time: "10:00 - 18:00",
+      location: "Engineering Faculty, Chula",
+      faculty: "ISE",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
+      img: "https://picsum.photos/200",
+      tags: ["Engineering", "Food", "Education"],
+      attendeeLimit: 180,
+      currentAttendee: 100
+    },
+    status: "Open"
+  },
+  {
+    event: {
+      title: "Running, running!",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac libero pellentesque, hendrerit eros vitae, malesuada nisi. Nam tempus dolor vitae mauris luctus aliquet. Sed et finibus erat.",
+      date: "Sun, 12 Mar - 14 April",
+      time: "8:00 - 9:00",
+      location: "CU Sport Complex",
+      faculty: "ISE",
+      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
+      img: "https://picsum.photos/201",
+      tags: ["Engineering", "Food", "Education"],
+      attendeeLimit: 999,
+      currentAttendee: 999
+    },
+    status: "Closed"
+  }
+];
 
 export default testData;

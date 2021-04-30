@@ -15,7 +15,29 @@
     max-width: 570px;
   }
 
+  .content-min-height {
+    min-height: calc(100vh - 224px);
+  }
+
+  .content-max-width-s {
+    max-width: 794px;
+  }
+
   .content-max-width {
     max-width: 960px;
+  }
+
+  .text-truncate {
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    display: -webkit-box;
+  }
+
+  .text-truncate-2 {
+    -webkit-line-clamp: 2;
+  }
+
+  .text-truncate-4 {
+    -webkit-line-clamp: 4;
   }
 }

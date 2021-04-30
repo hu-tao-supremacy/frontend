@@ -27,8 +27,7 @@ export default defineComponent({
   },
   props: {
     eventDetail: {
-      type: String,
-      required: true
+      type: String
     }
   }
 });

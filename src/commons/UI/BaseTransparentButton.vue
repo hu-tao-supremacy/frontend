@@ -1,6 +1,6 @@
 <template>
   <button
-    class="bg-transparent hover:text-gray-5 focus:text-primary focus:outline-none"
+    class="flex items-center justify-center bg-transparent hover:text-gray-5 focus:text-primary focus:outline-none"
   >
     <slot></slot>
   </button>

@@ -7,25 +7,27 @@
         :width="216"
         :height="96"
         alt="will change to api"
-        :url="orgs.img"
-        :placeholder="orgs.imgHash"
+        :url="orgs.profilePictureUrl"
+        :placeholder="orgs.profilePictureHash"
         class="w-full h-full object-cover rounded-l-lg"
       />
     </div>
     <div class="col-span-5 flex flex-col px-1 py-0.5">
       <div class="font-heading mb-0.25" :class="orgShortNameTextSize">
-        {{ orgs.shortName }}
+        {{ orgs.abbreviation }}
       </div>
-      <div class="text-xs w-full org-description">{{ orgs.fullName }}</div>
+      <div class="text-xs w-full text-truncate text-truncate-4">
+        {{ orgs.name }}
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, toRefs } from "vue";
 import useCardOrganization from "./useCardOrganization";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
-import { Org } from "@/commons/Interfaces/index";
+import { Organization } from "@/apollo/types";
 export default defineComponent({
   components: {
     LazyImage
@@ -33,12 +35,14 @@ export default defineComponent({
   name: "CardOrganization",
   props: {
     orgs: {
-      required: true,
-      type: Object as () => Org
+      type: Object as () => Organization
     }
   },
   setup(props) {
-    const { orgShortNameTextSize } = useCardOrganization(props.orgs.shortName);
+    const { orgs: organization } = toRefs(props);
+
+    const { orgShortNameTextSize } = useCardOrganization(organization);
+
     return {
       orgShortNameTextSize
     };
@@ -49,11 +53,5 @@ export default defineComponent({
 <style scoped>
 .card-org {
   width: 216px;
-}
-.org-description {
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 </style>

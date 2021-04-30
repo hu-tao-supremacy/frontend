@@ -6,9 +6,10 @@
     <section class="flex">
       <h2 class="mt-3 mr-4">Strongly Disagree</h2>
       <div
-        v-for="value in values"
+        v-for="(value, index) in values"
         :key="value"
-        class="flex flex-col items-center mr-8"
+        :class="getRadioMargin(index)"
+        class="flex flex-col items-center"
         @click="changeCurrentValue(value)"
       >
         <label :for="value" name="choice" class="mb-0.75">{{ value }}</label>
@@ -18,7 +19,7 @@
           class="w-2 h-2"
         />
       </div>
-      <h2 class="mt-3">Strongly Agree</h2>
+      <h2 class="ml-4 mt-3">Strongly Agree</h2>
     </section>
   </div>
 </template>
@@ -46,10 +47,17 @@ export default defineComponent({
       values,
       currentValue,
       changeCurrentValue,
-      isCurrentValue
+      isCurrentValue,
+      getRadioMargin
     } = useQuestionRadio(context);
 
-    return { values, currentValue, changeCurrentValue, isCurrentValue };
+    return {
+      values,
+      currentValue,
+      changeCurrentValue,
+      isCurrentValue,
+      getRadioMargin
+    };
   }
 });
 </script>

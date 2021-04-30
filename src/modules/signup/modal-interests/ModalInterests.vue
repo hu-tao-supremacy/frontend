@@ -24,7 +24,7 @@
           Not now
         </button>
         <base-button class="px-2 h-4.5 flex-shrink-0" @click="submitInterest"
-          >Finish</base-button
+          >Next</base-button
         >
       </section>
     </div>
@@ -38,7 +38,8 @@ import BaseButton from "@/commons/UI/BaseButton.vue";
 import { CLOSE_MODAL } from "@/commons/constant";
 import { Interest } from "@/commons/Interfaces";
 import useModalInterests from "./useModalInterests";
-import CardInterest from "./card-interest/CardInterest.vue";
+import CardInterest from "../card-interest/CardInterest.vue";
+import { SUBMIT_MODAL } from "../constant";
 
 export default defineComponent({
   name: "ModalInterests",
@@ -53,7 +54,7 @@ export default defineComponent({
       required: true
     }
   },
-  emits: [CLOSE_MODAL],
+  emits: [CLOSE_MODAL, SUBMIT_MODAL],
   setup(_, context) {
     const {
       toggleInterest,

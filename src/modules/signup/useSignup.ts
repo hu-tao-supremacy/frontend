@@ -1,12 +1,13 @@
-import { computed, onMounted, ref, watch } from "vue";
+import { computed, ref } from "vue";
 import { testData } from "@/modules/test/testData";
 import { useRoute, useRouter } from "vue-router";
 import useUser from "@/modules/authentication";
 import { useUpdateUserInfo } from "./api";
-import { User } from "@/apollo/types";
+import { UpdateUserInput } from "@/apollo/types";
 
 const ADDITIONAL_INFO = "additionInfo";
 const INTEREST = "interest";
+const INTERESTED_EVENTS = "interested_events";
 
 const useSignup = () => {
   const test = testData;
@@ -17,7 +18,7 @@ const useSignup = () => {
   const {
     updateUser,
     onUpdateUserDone,
-    onUpdateUserErrror
+    onUpdateUserError
   } = useUpdateUserInfo();
 
   function toggleModal(modal: string) {
@@ -32,6 +33,14 @@ const useSignup = () => {
     return currentModal.value === INTEREST;
   });
 
+  const showInterestedEventsModal = computed(() => {
+    return currentModal.value === INTERESTED_EVENTS;
+  });
+
+  const toInterestedEventsModal = () => {
+    toggleModal(INTERESTED_EVENTS);
+  };
+
   const finishModal = () => {
     toggleModal("");
     router.push(route.path as string);
@@ -42,7 +51,7 @@ const useSignup = () => {
     finishModal();
   };
 
-  const updateInfo = (data: User) => {
+  const updateInfo = (data: UpdateUserInput) => {
     updateUser({ input: data });
   };
 
@@ -51,11 +60,13 @@ const useSignup = () => {
     toggleModal("interest");
   });
 
-  onUpdateUserErrror(cancelSignup);
+  onUpdateUserError(cancelSignup);
 
   return {
     toggleModal,
     showAdditionalInfoModal,
+    showInterestedEventsModal,
+    toInterestedEventsModal,
     test,
     showInterestModal,
     finishModal,

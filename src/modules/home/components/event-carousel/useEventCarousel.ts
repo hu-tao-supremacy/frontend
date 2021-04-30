@@ -1,7 +1,9 @@
-import { ref } from "vue";
-import { Event } from "@/commons/Interfaces/index";
+import { onMounted, ref } from "vue";
+import { GetHomeItemQuery } from "@/apollo/types";
 
-export default function useEventCarousel(events: Event[]) {
+export default function useEventCarousel(
+  events: GetHomeItemQuery["featuredEvents"]
+) {
   const currentIndex = ref(0);
   const transitionAnimation = ref("");
   let slideTimer: number | undefined;
@@ -28,6 +30,10 @@ export default function useEventCarousel(events: Event[]) {
     currentIndex.value = slideIndex;
     resetTimer();
   }
+
+  onMounted(() => {
+    startTimer();
+  });
 
   return {
     currentIndex,

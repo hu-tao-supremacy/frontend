@@ -24,6 +24,7 @@ export const hourNames = [
   "22:00",
   "23:00"
 ];
+
 export const hourValues = [
   0,
   1,
@@ -50,3 +51,10 @@ export const hourValues = [
   22,
   23
 ];
+
+export const hourNamesAndValues = hourNames.map((name, index) => {
+  return {
+    name: name,
+    value: hourValues[index]
+  };
+});

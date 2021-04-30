@@ -75,6 +75,7 @@
           :optionNames="hourNames"
           :optionValues="hourValues"
           :hasDropDownIcon="false"
+          placeholder=""
           class="h-3.75 w-12"
         />
       </div>
@@ -115,7 +116,8 @@ import { validatePhone, isNumber } from "@/commons/utils/validForm";
 import { Tag } from "@/apollo/types";
 import { hourNames, hourValues } from "@/commons/constant/hour";
 import { EventInfoForm } from "@/commons/Interfaces";
-import moment from "moment";
+import { set } from "date-fns";
+import { setTimeToZero } from "@/commons/utils/date";
 import { testTags } from "../testData";
 
 export default defineComponent({
@@ -134,7 +136,7 @@ export default defineComponent({
     const tagSearch: Ref<Tag> = ref({ id: -1, name: "", events: [] });
     const description = ref("");
     const attendeeLimit = ref("");
-    const registrationDueDate = ref(new Date());
+    const registrationDueDate = ref(setTimeToZero(new Date()).toString());
     const registrationDueTime = ref(0);
     const posterImg = ref("");
     const coverImg = ref("");
@@ -157,10 +159,10 @@ export default defineComponent({
     });
 
     const registrationDueDateTime = computed(() => {
-      const dateTime = moment(registrationDueDate.value)
-        .hour(registrationDueTime.value)
-        .toDate();
-      return dateTime;
+      const dateTime = set(new Date(registrationDueDate.value), {
+        hours: registrationDueTime.value
+      });
+      return dateTime.toString();
     });
 
     const isValidEventInfo = computed(() => {

@@ -29,15 +29,15 @@
 import { computed, defineComponent, ref, watch } from "vue";
 import CalendarIcon from "@/assets/Calendar.vue";
 import { UPDATE_MODEL_VALUE } from "@/commons/constant";
-import moment from "moment";
+import { format } from "date-fns";
 
 export default defineComponent({
   components: { CalendarIcon },
   name: "BaseDatePicker",
   props: {
     modelValue: {
-      type: Date,
-      default: new Date()
+      type: String,
+      default: new Date().toString()
     },
     isError: {
       type: Boolean,
@@ -54,19 +54,17 @@ export default defineComponent({
   },
   emits: [UPDATE_MODEL_VALUE],
   setup(props, context) {
-    const date = ref(props.modelValue);
+    const date = ref(new Date(props.modelValue));
 
     const dateDisplayed = computed(() => {
-      return moment(date.value).format("D MMMM YYYY");
+      return format(date.value, "d MMMM yyyy");
     });
 
     watch(date, () => {
-      const onlyDate = moment(date.value)
-        .hour(23)
-        .minute(0)
-        .second(0)
-        .toDate();
-      context.emit(UPDATE_MODEL_VALUE, onlyDate);
+      const thaiOnlyDateTime = new Date(
+        format(date.value, "yyyy-MM-dd'T'00:00:00.000+07:00")
+      ).toString();
+      context.emit(UPDATE_MODEL_VALUE, thaiOnlyDateTime);
     });
 
     return { date, dateDisplayed };

@@ -12,6 +12,8 @@ export const LOGOUT = "logout";
 
 export const SEARCH = "search";
 
+export const REMOVE = "remove";
+
 export enum TicketStatus {
   ONGOING = "ongoing",
   PENDING = "pending",
@@ -26,7 +28,7 @@ export const GENDER = {
 
 export enum EventDateTimeFormOption {
   SPECIFY = "specify date and time",
-  START_END = "start-end duration",
+  START_END = "start and end duration",
   LATER = "announce later"
 }
 

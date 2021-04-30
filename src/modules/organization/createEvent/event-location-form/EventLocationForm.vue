@@ -74,7 +74,7 @@ export default defineComponent({
     }
 
     function changeEventLocationToLater() {
-      eventLocation.name = "Specify Later";
+      eventLocation.name = "Announce later";
       eventLocation.description = "";
       eventLocation.googleMapUrl = "https://www.onepass.app/";
       eventLocation.isOnline = false;
@@ -82,7 +82,7 @@ export default defineComponent({
     }
 
     function changeEventLocationToOnline() {
-      eventLocation.name = "Online Event";
+      eventLocation.name = "Online";
       eventLocation.description = "";
       eventLocation.googleMapUrl = "https://www.onepass.app/";
       eventLocation.isOnline = true;
@@ -121,8 +121,6 @@ export default defineComponent({
     );
 
     return {
-      EventLocationFormOption,
-      currentOption,
       specifyEventLocation,
       isSpecifyOption,
       isLaterOption,

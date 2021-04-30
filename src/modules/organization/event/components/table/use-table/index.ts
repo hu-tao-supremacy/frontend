@@ -66,6 +66,25 @@ const useTable = (data?: Ref<DataProps[] | undefined>) => {
     reviewRequest({ input });
   };
 
+  const approveAllRequest = () => {
+    if (!data) return;
+
+    const pendingAttendees = computed(() => {
+      return data.value?.filter(attendee =>
+        attendee.status === UserEventStatus.Pending ? true : false
+      );
+    });
+
+    pendingAttendees.value?.forEach(attendee => {
+      const input: ReviewJoinRequestInput = {
+        userId: attendee.user.id,
+        eventId,
+        status: UserEventStatus.Approved
+      };
+      reviewRequest({ input });
+    });
+  };
+
   const rejectRequest = (userId: number) => {
     const input: ReviewJoinRequestInput = {
       userId,
@@ -84,7 +103,8 @@ const useTable = (data?: Ref<DataProps[] | undefined>) => {
     sortByVal,
     headerKeys,
     approveRequest,
-    rejectRequest
+    rejectRequest,
+    approveAllRequest
   };
 };
 

@@ -4,6 +4,7 @@
       <BaseSearch class="h-4" :placeholder="'Search'" @search="handleSearch" />
       <BaseButton
         class="flex justify-center items-center // h-4 px-2 space-x-1 flex-shrink-0"
+        @click="approveAllRequest"
       >
         <div>Approved all</div>
         <base-icon class="w-3 h-3">
@@ -142,7 +143,8 @@ export default defineComponent({
       sortByVal,
       headerKeys,
       approveRequest,
-      rejectRequest
+      rejectRequest,
+      approveAllRequest
     } = useTable(data);
 
     return {
@@ -154,7 +156,8 @@ export default defineComponent({
       header,
       sortOption,
       approveRequest,
-      rejectRequest
+      rejectRequest,
+      approveAllRequest
     };
   }
 });

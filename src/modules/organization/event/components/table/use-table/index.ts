@@ -1,9 +1,9 @@
 import {
   ReviewJoinRequestInput,
   UserEventStatus
-} from "./../../../../../../apollo/types";
-import { useReviewRequest } from "./../../api";
-import { DataProps } from "./../types";
+} from "../../../../../../apollo/types";
+import { useReviewRequest } from "../../../use-org-event/api";
+import { DataProps } from "../types";
 import { ref, computed, Ref } from "vue";
 import Fuse from "fuse.js";
 import { useRoute } from "vue-router";

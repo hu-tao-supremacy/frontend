@@ -942,6 +942,7 @@ export type GetEventAttendeeQuery = { __typename?: "Query" } & {
               | "email"
               | "phoneNumber"
             >;
+            answers: Array<{ __typename?: "Answer" } & Pick<Answer, "id">>;
           }
       >;
     };

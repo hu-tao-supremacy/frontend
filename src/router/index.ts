@@ -18,6 +18,8 @@ const AttendeeManagementPage = () =>
   import(
     "@/modules/organization/event/attendee-management/AttendeeManagementPage.vue"
   );
+const OrgEventDashboardPage = () =>
+  import("@/modules/organization/event/dashboard/Dashboard.vue");
 const QuestionGroup = () => import("@/modules/questionGroup/QuestionGroup.vue");
 const Login = () => import("@/modules/login/Login.vue");
 const NotFound = () => import("@/modules/not-found/NotFound.vue");
@@ -90,6 +92,10 @@ const router = createRouter({
         {
           path: "/org/event/attendee-management/:id",
           component: AttendeeManagementPage
+        },
+        {
+          path: "/org/event/dashboard/:id",
+          component: OrgEventDashboardPage
         }
       ]
     },

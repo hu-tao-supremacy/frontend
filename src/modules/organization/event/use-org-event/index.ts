@@ -1,12 +1,12 @@
 import { useRoute, useRouter } from "vue-router";
-import { useAttendeeManagementApi } from "../api";
+import { useOrgEventApi } from "./api";
 import { useResult } from "@vue/apollo-composable";
 
-const useAttendeeManagement = () => {
+const useOrgEvent = () => {
   const route = useRoute();
   const router = useRouter();
   const eventId = Number(route.params.id);
-  const { result, onError } = useAttendeeManagementApi({
+  const { result, onError } = useOrgEventApi({
     id: eventId
   });
 
@@ -18,4 +18,4 @@ const useAttendeeManagement = () => {
   return { event, eventId };
 };
 
-export default useAttendeeManagement;
+export default useOrgEvent;

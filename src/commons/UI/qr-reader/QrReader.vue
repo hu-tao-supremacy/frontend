@@ -1,10 +1,20 @@
 <template>
-  <base-modal :isClosable="false" maxModalWidth="712px"
+  <base-modal :isClosable="false"
     ><div class="flex flex-col items-center">
-      <qr-stream @decode="onDecode" class="qr">
-        <div style="color: red;" class="frame"></div>
-      </qr-stream>
-      <div class="my-3 text-2xl">{{ code }}</div>
+      <div class="w-48 h-48 relative">
+        <div class="w-1 h-4 bg-blue-11 absolute -left-2 -top-2 "></div>
+        <div class="w-4 h-1 bg-blue-11 absolute -left-2 -top-2"></div>
+        <div class="w-1 h-4 bg-blue-11 absolute -right-2 -top-2 "></div>
+        <div class="w-4 h-1 bg-blue-11 absolute -right-2 -top-2"></div>
+        <div class="w-1 h-4 bg-blue-11 absolute -left-2 -bottom-2 "></div>
+        <div class="w-4 h-1 bg-blue-11 absolute -left-2 -bottom-2"></div>
+        <div class="w-1 h-4 bg-blue-11 absolute -right-2 -bottom-2 "></div>
+        <div class="w-4 h-1 bg-blue-11 absolute -right-2 -bottom-2"></div>
+        <qr-stream @decode="onDecode">
+          <div style="color: red;" class="frame"></div>
+        </qr-stream>
+      </div>
+      <div class="mt-5 mb-3 text-2xl">{{ code }}</div>
       <base-button @click="closeModal" class="w-16 py-px">Close</base-button>
     </div></base-modal
   >
@@ -36,8 +46,4 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-.qr video {
-  border-radius: 12px !important;
-}
-</style>
+<style scoped></style>

@@ -1,10 +1,10 @@
 <template>
-  <base-modal :isClosable="true"
+  <base-modal :isClosable="false" maxModalWidth="712px"
     ><div class="flex flex-col items-center">
-      <qr-stream @decode="onDecode">
+      <qr-stream @decode="onDecode" class="qr">
         <div style="color: red;" class="frame"></div>
       </qr-stream>
-      <div>Result: {{ code }}</div>
+      <div class="my-3 text-2xl">{{ code }}</div>
       <base-button @click="closeModal" class="w-16 py-px">Close</base-button>
     </div></base-modal
   >
@@ -36,4 +36,8 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.qr video {
+  border-radius: 12px !important;
+}
+</style>

@@ -102,6 +102,7 @@
         <p class="text-gray-5">(e.g. .JPEG, .PNG, .GIF) size: 960x240</p>
       </div>
     </section>
+    <FormPreviewCards :coverImg="coverImg" :posterImg="posterImg" />
   </div>
 </template>
 
@@ -112,6 +113,7 @@ import SingleNameSelect from "@/commons/UI/select/SingleNameSelect.vue";
 import RemovableTag from "../removable-tag/RemovableTag.vue";
 import BaseDatePicker from "@/commons/UI/BaseDatePicker.vue";
 import BaseUploadImgButton from "@/commons/UI/BaseUploadImgButton.vue";
+import FormPreviewCards from "../form-preview-cards/FormPreviewCards.vue";
 import { validatePhone, isNumber } from "@/commons/utils/validForm";
 import { Tag } from "@/apollo/types";
 import { hourNames, hourValues } from "@/commons/constant/hour";
@@ -127,7 +129,8 @@ export default defineComponent({
     SingleNameSelect,
     RemovableTag,
     BaseDatePicker,
-    BaseUploadImgButton
+    BaseUploadImgButton,
+    FormPreviewCards
   },
   setup() {
     const name = ref("");

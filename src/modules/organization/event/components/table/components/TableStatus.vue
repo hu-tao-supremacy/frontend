@@ -38,7 +38,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, computed } from "vue";
 import CheckIcon from "@/assets/Check.vue";
 import ClockIcon from "@/assets/Clock.vue";
 import XIcon from "@/assets/X.vue";
@@ -56,12 +56,12 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const status = ref(props.data);
-    if (status.value) {
-      status.value =
-        status.value?.charAt(0).toUpperCase() +
-        status.value?.slice(1).toLowerCase();
-    }
+    const status = computed(() =>
+      props.data
+        ? props.data.charAt(0).toUpperCase() + props.data.slice(1).toLowerCase()
+        : ""
+    );
+
     return {
       status
     };

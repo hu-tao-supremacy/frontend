@@ -29,8 +29,8 @@
 
 <script lang="ts">
 import { defineComponent, computed } from "vue";
-import useAttendeeManagement from "./use-attendee-management";
-import Table from "./table/Table.vue";
+import useOrgEvent from "../use-org-event";
+import Table from "../components/table/Table.vue";
 import "@/index.css";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
@@ -41,7 +41,7 @@ export default defineComponent({
   name: "AttendeeManagement",
   components: { LazyImage, Table, DownloadIcon, BaseIcon, BaseButton },
   setup() {
-    const { event } = useAttendeeManagement();
+    const { event } = useOrgEvent();
 
     const image = computed(() => {
       return {

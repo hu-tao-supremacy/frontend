@@ -1,17 +1,13 @@
 import {
   ReviewJoinRequestMutation,
-  MutationReviewJoinRequestArgs
-} from "./../../../../apollo/types";
-import { useMutation, useQuery } from "@vue/apollo-composable";
-import gql from "graphql-tag";
-import {
+  MutationReviewJoinRequestArgs,
   GetEventAttendeeQuery,
   GetEventAttendeeQueryVariables
 } from "@/apollo/types";
+import { useMutation, useQuery } from "@vue/apollo-composable";
+import gql from "graphql-tag";
 
-export const useAttendeeManagementApi = (
-  variables: GetEventAttendeeQueryVariables
-) =>
+export const useOrgEventApi = (variables: GetEventAttendeeQueryVariables) =>
   useQuery<GetEventAttendeeQuery>(
     gql`
       query getEventAttendee($id: Int!) {
@@ -26,6 +22,9 @@ export const useAttendeeManagementApi = (
               phoneNumber
             }
             status
+            answers {
+              id
+            }
           }
           coverImageUrl
           coverImageHash

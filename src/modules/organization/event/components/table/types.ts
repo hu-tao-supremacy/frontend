@@ -11,3 +11,9 @@ export type DataProps = Pick<UserEvent, "status"> & {
     | "phoneNumber"
   >;
 };
+
+export enum SortOption {
+  Default,
+  Descending = "Descending alphabets",
+  Ascending = "Ascending alphabets"
+}

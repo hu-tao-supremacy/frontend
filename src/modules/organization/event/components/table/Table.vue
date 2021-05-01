@@ -14,9 +14,9 @@
     </div>
 
     <SingleNameSelect
-      :optionNames="sortBy"
-      :optionValues="sortByVal"
-      v-model="sortOption"
+      :optionNames="sortingName"
+      :optionValues="sortingVal"
+      v-model="sortingOption"
     />
   </div>
   <div class="p-3 bg-white // rounded-2xl // w-full">
@@ -24,11 +24,11 @@
       <thead>
         <tr>
           <th
-            v-for="headerKey in headerKeys"
-            :key="headerKey"
+            v-for="[, value] in Object.entries(header)"
+            :key="value"
             class="pb-1 // border-b-2 border-blue-11 // text-left"
           >
-            {{ header[headerKey] }}
+            {{ value }}
           </th>
           <th class="pb-1 // border-b-2 border-blue-11 // text-right">
             Action
@@ -38,22 +38,22 @@
       <tbody>
         <tr v-for="(data, index) in filteredData" :key="index">
           <td
-            v-for="(header, index) in headerKeys"
+            v-for="[key] in Object.entries(header)"
             class="h-8 // border-b border-gray-4 "
-            :key="index"
+            :key="key"
           >
             <div class="pr-1">
-              <div v-if="header === 'name'" class="flex items-center space-x-4">
+              <div v-if="key === 'name'" class="flex items-center space-x-4">
                 <UserProfile
                   :user="data.user"
                   class="select-none flex-shrink-0"
                 />
                 <div>{{ `${data.user.firstName} ${data.user.lastName}` }}</div>
               </div>
-              <div v-if="header === 'status'">
+              <div v-if="key === 'status'">
                 <Status :data="data.status" />
               </div>
-              <div v-else>{{ data.user[header] }}</div>
+              <div v-else>{{ data.user[key] }}</div>
             </div>
           </td>
           <td class="h-8 border-b border-gray-4">
@@ -129,32 +129,30 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Object as PropType<DataProps[]>
+      type: Array as PropType<DataProps[]>
     }
   },
   setup(props) {
     const { data } = toRefs(props);
     const {
-      sortOption,
       handleSearch,
       header,
       filteredData,
-      sortBy,
-      sortByVal,
-      headerKeys,
+      sortingOption,
+      sortingName,
+      sortingVal,
       approveRequest,
       rejectRequest,
       approveAllRequest
     } = useTable(data);
 
     return {
-      headerKeys,
       filteredData,
       handleSearch,
-      sortBy,
-      sortByVal,
+      sortingOption,
+      sortingName,
+      sortingVal,
       header,
-      sortOption,
       approveRequest,
       rejectRequest,
       approveAllRequest

@@ -11,7 +11,7 @@
       <base-button
         type="submit"
         :disabled="!isValidForm"
-        class="w-16.5 py-1 self-end"
+        class="w-16.5 h-4.5 self-end"
         >Submit</base-button
       >
     </form>
@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref, Ref, watch } from "vue";
+import { computed, defineComponent, ref, Ref } from "vue";
 import EventInfo from "./event-info-form/EventInfoForm.vue";
 import EventDateTime from "./event-date-time-form/EventDateTimeForm.vue";
 import EventLocation from "./event-location-form/EventLocationForm.vue";

@@ -100,22 +100,20 @@ const router = createRouter({
       component: PageSkeletonOrgTeam,
       children: [
         { path: "", component: OrgHome },
-        { path: "create-event", component: CreateEventPage },
-        { path: "/org/member-management/:id", component: MemberManagementPage },
-        {
-          path: "/org/event/attendee-management/:id",
-          component: AttendeeManagementPage
-        },
-        {
-          path: "/org/event/dashboard/:id",
-          component: OrgEventDashboardPage
-        }
+        { path: "create-event", component: CreateEventPage }
       ]
     },
     {
       path: "/org/event",
       component: PageSkeletonOrgEvent,
-      children: [{ path: "", component: OrgHome }]
+      children: [
+        { path: "", component: OrgHome },
+        { path: "dashboard/:id", component: OrgEventDashboardPage },
+        {
+          path: "/attendee-management/:id",
+          component: AttendeeManagementPage
+        }
+      ]
     },
     { path: "/login", component: Login },
     {

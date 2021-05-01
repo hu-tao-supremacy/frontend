@@ -6,6 +6,7 @@
     :placeholder="placeholder"
     class="text-input border rounded-lg px-1.5 py-0.5 focus:border-primary focus:outline-none overflow-hidden resize-none"
     :class="{ 'border-gray-4': !isError, 'error-shadow border-red-5': isError }"
+    :disabled="disabled"
   ></textarea>
 </template>
 
@@ -31,6 +32,10 @@ export default defineComponent({
     },
     placeholder: {
       type: String
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   emits: [UPDATE_MODEL_VALUE],

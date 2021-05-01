@@ -29,17 +29,10 @@
               />
             </div>
             <div>
-              <base-button class="button-height mb-0.25"
-                ><label class="p-1" for="fileLoader">Upload</label></base-button
-              >
-              <input
-                id="fileLoader"
-                name="profileImg"
-                type="file"
-                class="hidden"
-                accept="image/*"
-                ref="fileInput"
-                :onchange="previewFile"
+              <BaseUploadImgButton
+                v-model="uploadedImg"
+                class="mb-0.25 h-3.5"
+                name="previewImg"
               />
               <p class="text-gray-5 text-xs">(e.g. JPEG, .PNG or .GIF)</p>
             </div>
@@ -155,7 +148,7 @@
           />
         </section>
         <base-button
-          class="button-height w-20 self-center"
+          class="w-20 h-3.75 self-center"
           type="submit"
           value="submit"
           :disabled="!isValidForm"
@@ -173,6 +166,7 @@ import BaseButton from "@/commons/UI/BaseButton.vue";
 import BaseTextInput from "@/commons/UI/BaseTextInput.vue";
 import BaseTextArea from "@/commons/UI/BaseTextArea.vue";
 import BaseSelect from "@/commons/UI/select/SingleNameSelect.vue";
+import BaseUploadImgButton from "@/commons/UI/BaseUploadImgButton.vue";
 import ImageGalleryIcon from "@/assets/ImageGallery.vue";
 import useModalAdditionalInfo from "./useModalAdditionalInfo";
 import { CLOSE_MODAL } from "@/commons/constant";
@@ -186,13 +180,13 @@ export default defineComponent({
     BaseTextInput,
     BaseTextArea,
     BaseSelect,
+    BaseUploadImgButton,
     ImageGalleryIcon
   },
   emits: [CLOSE_MODAL, SUBMIT_MODAL],
   setup(_, context) {
     const {
       uploadedImg,
-      previewFile,
       fileLoaded,
       closeModal,
       userEmail,
@@ -218,7 +212,6 @@ export default defineComponent({
 
     return {
       uploadedImg,
-      previewFile,
       fileLoaded,
       closeModal,
       userEmail,
@@ -244,9 +237,3 @@ export default defineComponent({
   }
 });
 </script>
-
-<style scoped>
-.button-height {
-  height: 30px;
-}
-</style>

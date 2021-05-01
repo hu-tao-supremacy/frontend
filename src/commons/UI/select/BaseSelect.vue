@@ -1,5 +1,5 @@
 <template>
-  <div v-click-outside="hideOption" class="relative">
+  <div v-click-outside="hideOption" class="relative select-none">
     <section v-if="isSearchable" class="flex w-full h-full">
       <input
         class="displayed-area  w-full h-full px-1.5 focus:border-primary focus:outline-none"

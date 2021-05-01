@@ -12,6 +12,12 @@ const EventRegister = () =>
 const EventFeedback = () =>
   import("@/modules/eventFeedback/EventFeedbackPage.vue");
 const OrgHome = () => import("@/modules/organization/home/OrgHomePage.vue");
+const MemberManagementPage = () =>
+  import("@/modules/organization/member-management/MemberManagementPage.vue");
+const AttendeeManagementPage = () =>
+  import(
+    "@/modules/organization/event/attendee-management/AttendeeManagementPage.vue"
+  );
 const QuestionGroup = () => import("@/modules/questionGroup/QuestionGroup.vue");
 const Login = () => import("@/modules/login/Login.vue");
 const NotFound = () => import("@/modules/not-found/NotFound.vue");
@@ -82,7 +88,12 @@ const router = createRouter({
       component: PageSkeletonOrgTeam,
       children: [
         { path: "", component: OrgHome },
-        { path: "create-event", component: CreateEventPage }
+        { path: "create-event", component: CreateEventPage },
+        { path: "/org/member-management/:id", component: MemberManagementPage },
+        {
+          path: "/org/event/attendee-management/:id",
+          component: AttendeeManagementPage
+        }
       ]
     },
 

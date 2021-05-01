@@ -923,6 +923,61 @@ export type GetOrganizationQuery = { __typename?: "Query" } & {
     };
 };
 
+export type GetEventAttendeeQueryVariables = Exact<{
+  id: Scalars["Int"];
+}>;
+
+export type GetEventAttendeeQuery = { __typename?: "Query" } & {
+  event: { __typename?: "Event" } & Pick<
+    Event,
+    "coverImageUrl" | "coverImageHash"
+  > & {
+      attendees: Array<
+        { __typename?: "UserEvent" } & Pick<UserEvent, "status"> & {
+            user: { __typename?: "User" } & Pick<
+              User,
+              | "id"
+              | "firstName"
+              | "lastName"
+              | "profilePictureUrl"
+              | "email"
+              | "phoneNumber"
+            >;
+          }
+      >;
+    };
+};
+
+export type ReviewJoinRequestMutationVariables = Exact<{
+  input: ReviewJoinRequestInput;
+}>;
+
+export type ReviewJoinRequestMutation = { __typename?: "Mutation" } & {
+  reviewJoinRequest: { __typename?: "UserEvent" } & Pick<UserEvent, "userId">;
+};
+
+export type GetOrganizationMemberQueryVariables = Exact<{
+  id: Scalars["Int"];
+}>;
+
+export type GetOrganizationMemberQuery = { __typename?: "Query" } & {
+  organization: { __typename?: "Organization" } & {
+    userOrganizations: Array<
+      { __typename?: "UserOrganization" } & {
+        user: { __typename?: "User" } & Pick<
+          User,
+          | "id"
+          | "firstName"
+          | "lastName"
+          | "email"
+          | "phoneNumber"
+          | "profilePictureUrl"
+        >;
+      }
+    >;
+  };
+};
+
 export type UpdateUserMutationVariables = Exact<{
   input: UpdateUserInput;
 }>;

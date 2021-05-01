@@ -14,6 +14,7 @@ export type Scalars = {
   Int: number;
   Float: number;
   /** The `Upload` scalar type represents a file upload. */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Upload: any;
 };
 
@@ -44,6 +45,11 @@ export type AuthenticateInput = {
 export type AuthenticateOutput = {
   __typename?: "AuthenticateOutput";
   accessToken: Scalars["String"];
+};
+
+export type CheckInInput = {
+  userId: Scalars["Int"];
+  eventId: Scalars["Int"];
 };
 
 export type CreateEventInput = {
@@ -221,13 +227,15 @@ export type Mutation = {
   setEventDurations: Scalars["Boolean"];
   createEvent: Event;
   updateEvent: Event;
-  reviewJoinRequest: Scalars["Boolean"];
+  reviewJoinRequest: UserEvent;
+  checkIn: UserEvent;
   authenticate: AuthenticateOutput;
+  generateAccessToken: AuthenticateOutput;
   upload: Scalars["Boolean"];
   createOrganization: Organization;
   updateOrganization: Organization;
-  addMembersToOrganization: Organization;
-  removeMembersFromOrganization: Organization;
+  addMembersToOrganization: Scalars["Boolean"];
+  removeMembersFromOrganization: Scalars["Boolean"];
   updateUser: User;
   setInterestedTags: Scalars["Boolean"];
   setInterestedEvents: Scalars["Boolean"];
@@ -255,8 +263,16 @@ export type MutationReviewJoinRequestArgs = {
   input: ReviewJoinRequestInput;
 };
 
+export type MutationCheckInArgs = {
+  input: CheckInInput;
+};
+
 export type MutationAuthenticateArgs = {
   input: AuthenticateInput;
+};
+
+export type MutationGenerateAccessTokenArgs = {
+  userId: Scalars["Float"];
 };
 
 export type MutationUploadArgs = {
@@ -319,6 +335,7 @@ export type Organization = {
   profilePictureUrl?: Maybe<Scalars["String"]>;
   profilePictureHash?: Maybe<Scalars["String"]>;
   events: Array<Event>;
+  userOrganizations: Array<UserOrganization>;
 };
 
 export type OrganizationInput = {
@@ -340,6 +357,7 @@ export type OrganizationInput = {
   profilePictureUrl?: Maybe<Scalars["String"]>;
   profilePictureHash?: Maybe<Scalars["String"]>;
   events: Array<EventInput>;
+  userOrganizations: Array<UserOrganizationInput>;
 };
 
 export type Query = {
@@ -438,9 +456,7 @@ export type QuestionInput = {
 
 export type ReviewJoinRequestInput = {
   userId: Scalars["Int"];
-  user: UserInput;
   eventId: Scalars["Int"];
-  rating?: Maybe<Scalars["Int"]>;
   status: UserEventStatus;
 };
 
@@ -591,6 +607,7 @@ export type UserEventInput = {
   rating?: Maybe<Scalars["Int"]>;
   ticket?: Maybe<Scalars["String"]>;
   status: UserEventStatus;
+  answers: Array<AnswerInput>;
 };
 
 export enum UserEventStatus {
@@ -657,6 +674,15 @@ export type GetCurrentUserQuery = { __typename?: "Query" } & {
     "id" | "firstName" | "lastName" | "profilePictureUrl" | "didSetup"
   >;
 };
+
+export type SetEventQuestionsMutationVariables = Exact<{
+  input: SetEventQuestionsInput;
+}>;
+
+export type SetEventQuestionsMutation = { __typename?: "Mutation" } & Pick<
+  Mutation,
+  "setEventQuestions"
+>;
 
 export type GetQuestionGroupsQueryVariables = Exact<{ [key: string]: never }>;
 
@@ -904,6 +930,62 @@ export type GetOrganizationQuery = { __typename?: "Query" } & {
           }
       >;
     };
+};
+
+export type GetEventAttendeeQueryVariables = Exact<{
+  id: Scalars["Int"];
+}>;
+
+export type GetEventAttendeeQuery = { __typename?: "Query" } & {
+  event: { __typename?: "Event" } & Pick<
+    Event,
+    "coverImageUrl" | "coverImageHash"
+  > & {
+      attendees: Array<
+        { __typename?: "UserEvent" } & Pick<UserEvent, "status"> & {
+            user: { __typename?: "User" } & Pick<
+              User,
+              | "id"
+              | "firstName"
+              | "lastName"
+              | "profilePictureUrl"
+              | "email"
+              | "phoneNumber"
+            >;
+            answers: Array<{ __typename?: "Answer" } & Pick<Answer, "id">>;
+          }
+      >;
+    };
+};
+
+export type ReviewJoinRequestMutationVariables = Exact<{
+  input: ReviewJoinRequestInput;
+}>;
+
+export type ReviewJoinRequestMutation = { __typename?: "Mutation" } & {
+  reviewJoinRequest: { __typename?: "UserEvent" } & Pick<UserEvent, "userId">;
+};
+
+export type GetOrganizationMemberQueryVariables = Exact<{
+  id: Scalars["Int"];
+}>;
+
+export type GetOrganizationMemberQuery = { __typename?: "Query" } & {
+  organization: { __typename?: "Organization" } & {
+    userOrganizations: Array<
+      { __typename?: "UserOrganization" } & {
+        user: { __typename?: "User" } & Pick<
+          User,
+          | "id"
+          | "firstName"
+          | "lastName"
+          | "email"
+          | "phoneNumber"
+          | "profilePictureUrl"
+        >;
+      }
+    >;
+  };
 };
 
 export type UpdateUserMutationVariables = Exact<{

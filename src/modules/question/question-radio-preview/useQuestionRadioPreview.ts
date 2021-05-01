@@ -3,7 +3,7 @@ import { ref, SetupContext } from "vue";
 
 export default function useQuestionRadio(
   initailAnswer: string,
-  context: SetupContext<"user-input"[]>
+  context: SetupContext<("user-input" | "delete")[]>
 ) {
   const userAnswer = ref(initailAnswer);
   const values = [1, 2, 3, 4, 5];
@@ -11,9 +11,14 @@ export default function useQuestionRadio(
   function getRadioMargin(index: number) {
     return index === 4 ? "" : "mr-8";
   }
+
   function userChange() {
     context.emit(USER_INPUT, userAnswer.value);
   }
 
-  return { userAnswer, userChange, values, getRadioMargin };
+  function deleteQuestion() {
+    context.emit("delete");
+  }
+
+  return { userAnswer, userChange, values, getRadioMargin, deleteQuestion };
 }

@@ -94,7 +94,7 @@ export default defineComponent({
     },
     textInputClass: {
       type: String,
-      default: "max-w-full input-height"
+      default: "max-w-full h-3.75"
     },
     errorTextClass: {
       type: String,
@@ -108,8 +108,7 @@ export default defineComponent({
     });
 
     const expandableTextInputClass = computed(() => {
-      if (props.textInputClass === "max-w-full input-height")
-        return "max-w-full";
+      if (props.textInputClass === "max-w-full h-3.75") return "max-w-full";
       return props.textInputClass;
     });
 
@@ -125,9 +124,3 @@ export default defineComponent({
   }
 });
 </script>
-
-<style scoped>
-.input-height {
-  height: 30px;
-}
-</style>

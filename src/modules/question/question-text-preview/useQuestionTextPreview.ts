@@ -3,7 +3,7 @@ import { ref, SetupContext } from "vue";
 
 export default function useQuestionText(
   initailAnswer: string,
-  context: SetupContext<"user-input"[]>
+  context: SetupContext<("user-input" | "delete")[]>
 ) {
   const userAnswer = ref(initailAnswer);
 
@@ -11,5 +11,9 @@ export default function useQuestionText(
     context.emit(USER_INPUT, userAnswer.value);
   }
 
-  return { userAnswer, userChange };
+  function deleteQuestion() {
+    context.emit("delete");
+  }
+
+  return { userAnswer, userChange, deleteQuestion };
 }

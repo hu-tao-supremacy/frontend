@@ -3,10 +3,11 @@
     :type="type"
     :value="modelValue"
     @input="userChange"
+    :placeholder="placeholder"
     class="text-input border rounded-lg px-1.5 focus:border-primary focus:outline-none"
     :class="{ 'border-gray-4': !isError, 'error-shadow border-red-5': isError }"
     :disabled="disabled"
-    :placeholder="placeholder"
+    :readonly="readonly"
   />
 </template>
 
@@ -35,6 +36,10 @@ export default defineComponent({
     },
     placeholder: {
       type: String
+    },
+    readonly: {
+      type: Boolean,
+      default: false
     }
   },
   emits: [UPDATE_MODEL_VALUE],

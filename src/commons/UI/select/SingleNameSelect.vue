@@ -5,12 +5,15 @@
     :isSearchable="isSearchable"
     :isError="isError"
     :placeholder="placeholder"
+    :hasSearchIcon="hasSearchIcon"
+    :doesResetAfterSelect="doesResetAfterSelect"
+    :hasDropDownIcon="hasDropDownIcon"
   >
     <p
       v-for="(option, index) in filteredOptions"
       :key="option.value"
       @click="changeOption(option)"
-      class="p-1 border-gray-2 cursor-pointer"
+      class="p-1 border-gray-2 cursor-pointer select-none"
       :class="{ 'border-b': !isLastOption(index) }"
     >
       {{ option.name }}
@@ -49,6 +52,18 @@ export default defineComponent({
     placeholder: {
       type: String,
       default: "Select Option"
+    },
+    hasSearchIcon: {
+      type: Boolean,
+      default: false
+    },
+    doesResetAfterSelect: {
+      type: Boolean,
+      default: false
+    },
+    hasDropDownIcon: {
+      type: Boolean,
+      default: true
     }
   },
   emits: [UPDATE_MODEL_VALUE],
@@ -59,7 +74,12 @@ export default defineComponent({
       isLastOption,
       displayedOption,
       filteredOptions
-    } = useSingleNameSelect(props.optionNames, props.optionValues, context);
+    } = useSingleNameSelect(
+      props.optionNames,
+      props.optionValues,
+      props.doesResetAfterSelect,
+      context
+    );
 
     return {
       searchText,

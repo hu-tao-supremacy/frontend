@@ -124,11 +124,6 @@ export default defineComponent({
   components: {
     BaseTextInput,
     BaseTextArea
-  },
-  setup() {
-    const faculty = "Engineering";
-    const gender = "M";
-    return { faculty, gender };
   }
 });
 </script>

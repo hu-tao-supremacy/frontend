@@ -18,10 +18,11 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, reactive, ref, watch } from "vue";
+import { defineComponent, toRefs } from "vue";
 import BaseLabelAndTextInput from "@/commons/UI/BaseLabelAndTextInput.vue";
 import { EventLocationForm } from "@/commons/Interfaces";
 import { UPDATE_MODEL_VALUE } from "@/commons/constant";
+import useFormSpecifyLocation from "./useFormSpecifyLocation";
 
 export default defineComponent({
   name: "FormSpecifyLocation",
@@ -36,28 +37,9 @@ export default defineComponent({
   },
   emits: [UPDATE_MODEL_VALUE],
   setup(props, context) {
-    const name = ref(props.modelValue.name);
-    const description = ref(props.modelValue.description);
+    const { modelValue } = toRefs(props);
 
-    const isValidLocation = computed(() => {
-      return name.value !== "";
-    });
-
-    const eventLocation: EventLocationForm = reactive({
-      name: name,
-      description: description,
-      googleMapUrl: props.modelValue.googleMapUrl,
-      isOnline: false,
-      isValid: isValidLocation
-    });
-
-    watch(
-      () => eventLocation,
-      () => {
-        context.emit(UPDATE_MODEL_VALUE, eventLocation);
-      },
-      { deep: true }
-    );
+    const { name, description } = useFormSpecifyLocation(modelValue, context);
 
     return { name, description };
   }

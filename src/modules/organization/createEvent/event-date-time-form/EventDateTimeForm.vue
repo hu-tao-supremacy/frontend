@@ -36,7 +36,10 @@ import { computed, defineComponent, Ref, ref, watch } from "vue";
 import FormOptionButton from "../form-option-button/FormOptionButton.vue";
 import FormSpecifyDateTime from "../form-specify-date-time/FormSpecifyDateTime.vue";
 import FormStartEndDateTime from "../form-start-end-date-time/FormStartEndDateTime.vue";
-import { EventDateTimeFormOption } from "@/commons/constant";
+import {
+  EventDateTimeFormOption,
+  UPDATE_MODEL_VALUE
+} from "@/commons/constant";
 import { EventDurationsForm } from "@/commons/Interfaces";
 
 export default defineComponent({
@@ -46,14 +49,21 @@ export default defineComponent({
     FormSpecifyDateTime,
     FormStartEndDateTime
   },
-  setup() {
+  props: {
+    modelValue: {
+      type: Object as () => EventDurationsForm,
+      required: true
+    }
+  },
+  emits: [UPDATE_MODEL_VALUE],
+  setup(props, context) {
     const currentOption: Ref<EventDateTimeFormOption> = ref(
       EventDateTimeFormOption.SPECIFY
     );
 
     const specifyEventDurations: Ref<EventDurationsForm> = ref({
-      durations: [],
-      isValid: false
+      durations: props.modelValue.durations,
+      isValid: props.modelValue.isValid
     });
 
     const startEndEventDurations: Ref<EventDurationsForm> = ref({
@@ -85,7 +95,8 @@ export default defineComponent({
     watch(
       () => specifyEventDurations,
       () => {
-        console.log(specifyEventDurations.value);
+        if (isSpecifyOption.value)
+          context.emit(UPDATE_MODEL_VALUE, specifyEventDurations.value);
       },
       { deep: true }
     );
@@ -93,17 +104,18 @@ export default defineComponent({
     watch(
       () => startEndEventDurations,
       () => {
-        console.log(startEndEventDurations.value);
+        if (isStartEndOption.value)
+          context.emit(UPDATE_MODEL_VALUE, startEndEventDurations.value);
       },
       { deep: true }
     );
 
     watch(currentOption, () => {
       if (currentOption.value === EventDateTimeFormOption.SPECIFY)
-        console.log(specifyEventDurations.value);
+        context.emit(UPDATE_MODEL_VALUE, specifyEventDurations.value);
       else if (currentOption.value === EventDateTimeFormOption.START_END)
-        console.log(startEndEventDurations.value);
-      else console.log(announceLaterEventDuration);
+        context.emit(UPDATE_MODEL_VALUE, startEndEventDurations.value);
+      else context.emit(UPDATE_MODEL_VALUE, announceLaterEventDuration);
     });
 
     return {

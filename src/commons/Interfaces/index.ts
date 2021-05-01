@@ -82,8 +82,8 @@ export interface EventInfoForm {
   description: string;
   attendeeLimit: number;
   registrationDueDate: string;
-  posterImgUrl: string;
-  coverImgUrl: string;
+  posterImg: string;
+  coverImg: string;
   isValid: boolean;
 }
 

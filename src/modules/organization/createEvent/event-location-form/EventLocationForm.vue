@@ -25,7 +25,10 @@
 import { computed, defineComponent, Ref, ref, watch, reactive } from "vue";
 import FormOptionButton from "../form-option-button/FormOptionButton.vue";
 import FormSpecifyLocation from "../form-specify-location/FormSpecifyLocation.vue";
-import { EventLocationFormOption } from "@/commons/constant";
+import {
+  EventLocationFormOption,
+  UPDATE_MODEL_VALUE
+} from "@/commons/constant";
 import { EventLocationForm } from "@/commons/Interfaces";
 
 export default defineComponent({
@@ -34,23 +37,41 @@ export default defineComponent({
     FormOptionButton,
     FormSpecifyLocation
   },
-  setup() {
+  props: {
+    modelValue: {
+      type: Object as () => EventLocationForm,
+      required: true
+    }
+  },
+  emits: [UPDATE_MODEL_VALUE],
+  setup(props, context) {
     const currentOption: Ref<EventLocationFormOption> = ref(
       EventLocationFormOption.SPECIFY
     );
 
     const specifyEventLocation: Ref<EventLocationForm> = ref({
-      name: "",
+      name: props.modelValue.name,
+      description: props.modelValue.description,
+      googleMapUrl: props.modelValue.googleMapUrl,
+      isOnline: props.modelValue.isOnline,
+      isValid: props.modelValue.isValid
+    });
+
+    const laterEventLocation: EventLocationForm = {
+      name: "Announce later",
       description: "",
       googleMapUrl: "https://www.onepass.app/",
       isOnline: false,
-      isValid: false
-    });
+      isValid: true
+    };
 
-    //Will not actually change when specifyEventLocation changes
-    const eventLocation: EventLocationForm = reactive(
-      specifyEventLocation.value
-    );
+    const onlineEventLocation: EventLocationForm = {
+      name: "Online",
+      description: "",
+      googleMapUrl: "https://www.onepass.app/",
+      isOnline: true,
+      isValid: true
+    };
 
     const isSpecifyOption = computed(() => {
       return currentOption.value === EventLocationFormOption.SPECIFY;
@@ -64,61 +85,31 @@ export default defineComponent({
       return currentOption.value === EventLocationFormOption.ONLINE;
     });
 
-    //Will not actually change when specifyEventLocation changes
-    function copySpecifyLocationToEventLocation() {
-      eventLocation.name = specifyEventLocation.value.name;
-      eventLocation.description = specifyEventLocation.value.description;
-      eventLocation.googleMapUrl = specifyEventLocation.value.googleMapUrl;
-      eventLocation.isOnline = specifyEventLocation.value.isOnline;
-      eventLocation.isValid = specifyEventLocation.value.isValid;
-    }
-
-    function changeEventLocationToLater() {
-      eventLocation.name = "Announce later";
-      eventLocation.description = "";
-      eventLocation.googleMapUrl = "https://www.onepass.app/";
-      eventLocation.isOnline = false;
-      eventLocation.isValid = true;
-    }
-
-    function changeEventLocationToOnline() {
-      eventLocation.name = "Online";
-      eventLocation.description = "";
-      eventLocation.googleMapUrl = "https://www.onepass.app/";
-      eventLocation.isOnline = true;
-      eventLocation.isValid = true;
-    }
-
     function toSpecifyOption() {
       currentOption.value = EventLocationFormOption.SPECIFY;
-      copySpecifyLocationToEventLocation();
     }
 
     function toLaterOption() {
       currentOption.value = EventLocationFormOption.LATER;
-      changeEventLocationToLater();
     }
 
     function toOnlineOption() {
       currentOption.value = EventLocationFormOption.ONLINE;
-      changeEventLocationToOnline();
     }
 
     watch(
       () => specifyEventLocation,
-      () => {
-        console.log(specifyEventLocation.value);
-      },
+      () => context.emit(UPDATE_MODEL_VALUE, specifyEventLocation.value),
       { deep: true }
     );
 
-    watch(
-      () => eventLocation,
-      () => {
-        console.log(eventLocation);
-      },
-      { deep: true }
-    );
+    watch(currentOption, () => {
+      if (currentOption.value === EventLocationFormOption.SPECIFY)
+        context.emit(UPDATE_MODEL_VALUE, specifyEventLocation.value);
+      else if (currentOption.value === EventLocationFormOption.LATER)
+        context.emit(UPDATE_MODEL_VALUE, laterEventLocation);
+      else context.emit(UPDATE_MODEL_VALUE, onlineEventLocation);
+    });
 
     return {
       specifyEventLocation,

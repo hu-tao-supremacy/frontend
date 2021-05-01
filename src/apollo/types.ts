@@ -47,6 +47,11 @@ export type AuthenticateOutput = {
   accessToken: Scalars["String"];
 };
 
+export type CheckInInput = {
+  userId: Scalars["Int"];
+  eventId: Scalars["Int"];
+};
+
 export type CreateEventInput = {
   organizationId: Scalars["Int"];
   location?: Maybe<CreateEventLocationInput>;
@@ -222,13 +227,15 @@ export type Mutation = {
   setEventDurations: Scalars["Boolean"];
   createEvent: Event;
   updateEvent: Event;
-  reviewJoinRequest: Scalars["Boolean"];
+  reviewJoinRequest: UserEvent;
+  checkIn: UserEvent;
   authenticate: AuthenticateOutput;
+  generateAccessToken: AuthenticateOutput;
   upload: Scalars["Boolean"];
   createOrganization: Organization;
   updateOrganization: Organization;
-  addMembersToOrganization: Organization;
-  removeMembersFromOrganization: Organization;
+  addMembersToOrganization: Scalars["Boolean"];
+  removeMembersFromOrganization: Scalars["Boolean"];
   updateUser: User;
   setInterestedTags: Scalars["Boolean"];
   setInterestedEvents: Scalars["Boolean"];
@@ -256,8 +263,16 @@ export type MutationReviewJoinRequestArgs = {
   input: ReviewJoinRequestInput;
 };
 
+export type MutationCheckInArgs = {
+  input: CheckInInput;
+};
+
 export type MutationAuthenticateArgs = {
   input: AuthenticateInput;
+};
+
+export type MutationGenerateAccessTokenArgs = {
+  userId: Scalars["Float"];
 };
 
 export type MutationUploadArgs = {
@@ -320,6 +335,7 @@ export type Organization = {
   profilePictureUrl?: Maybe<Scalars["String"]>;
   profilePictureHash?: Maybe<Scalars["String"]>;
   events: Array<Event>;
+  userOrganizations: Array<UserOrganization>;
 };
 
 export type OrganizationInput = {
@@ -341,6 +357,7 @@ export type OrganizationInput = {
   profilePictureUrl?: Maybe<Scalars["String"]>;
   profilePictureHash?: Maybe<Scalars["String"]>;
   events: Array<EventInput>;
+  userOrganizations: Array<UserOrganizationInput>;
 };
 
 export type Query = {
@@ -439,9 +456,7 @@ export type QuestionInput = {
 
 export type ReviewJoinRequestInput = {
   userId: Scalars["Int"];
-  user: UserInput;
   eventId: Scalars["Int"];
-  rating?: Maybe<Scalars["Int"]>;
   status: UserEventStatus;
 };
 
@@ -592,6 +607,7 @@ export type UserEventInput = {
   rating?: Maybe<Scalars["Int"]>;
   ticket?: Maybe<Scalars["String"]>;
   status: UserEventStatus;
+  answers: Array<AnswerInput>;
 };
 
 export enum UserEventStatus {

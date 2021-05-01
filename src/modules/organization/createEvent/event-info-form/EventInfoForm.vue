@@ -4,7 +4,7 @@
     <BaseLabelAndTextInput
       v-model.trim="name"
       inputName="name"
-      label="Event Name"
+      label="Event name"
       :isRequired="true"
       class="w-30"
     />
@@ -107,7 +107,15 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, reactive, Ref, ref, watch } from "vue";
+import {
+  computed,
+  defineComponent,
+  reactive,
+  Ref,
+  ref,
+  watch,
+  toRefs
+} from "vue";
 import BaseLabelAndTextInput from "@/commons/UI/BaseLabelAndTextInput.vue";
 import SingleNameSelect from "@/commons/UI/select/SingleNameSelect.vue";
 import RemovableTag from "../removable-tag/RemovableTag.vue";
@@ -115,11 +123,11 @@ import BaseDatePicker from "@/commons/UI/BaseDatePicker.vue";
 import BaseUploadImgButton from "@/commons/UI/BaseUploadImgButton.vue";
 import FormPreviewCards from "../form-preview-cards/FormPreviewCards.vue";
 import { validatePhone, isNumber } from "@/commons/utils/validForm";
-import { Tag } from "@/apollo/types";
-import { hourNames, hourValues } from "@/commons/constant/hour";
-import { EventInfoForm } from "@/commons/Interfaces";
 import { set } from "date-fns";
-import { setTimeToZero } from "@/commons/utils/date";
+import { hourNames, hourValues } from "@/commons/constant/hour";
+import { UPDATE_MODEL_VALUE } from "@/commons/constant";
+import { Tag } from "@/apollo/types";
+import { EventInfoForm } from "@/commons/Interfaces";
 import { testTags } from "../testData";
 
 export default defineComponent({
@@ -132,17 +140,26 @@ export default defineComponent({
     BaseUploadImgButton,
     FormPreviewCards
   },
-  setup() {
-    const name = ref("");
-    const contact = ref("");
-    const tags: Ref<Tag[]> = ref([]);
+  props: {
+    modelValue: {
+      type: Object as () => EventInfoForm,
+      required: true
+    }
+  },
+  emits: [UPDATE_MODEL_VALUE],
+  setup(props, context) {
+    const { modelValue } = toRefs(props);
+
+    const name = ref(modelValue.value.name);
+    const contact = ref(modelValue.value.contact);
+    const tags: Ref<Tag[]> = ref(modelValue.value.tags);
     const tagSearch: Ref<Tag> = ref({ id: -1, name: "", events: [] });
-    const description = ref("");
-    const attendeeLimit = ref("");
-    const registrationDueDate = ref(setTimeToZero(new Date()).toString());
+    const description = ref(modelValue.value.description);
+    const attendeeLimit = ref(modelValue.value.attendeeLimit.toString());
+    const registrationDueDate = ref(modelValue.value.registrationDueDate);
     const registrationDueTime = ref(0);
-    const posterImg = ref("");
-    const coverImg = ref("");
+    const posterImg = ref(modelValue.value.posterImg);
+    const coverImg = ref(modelValue.value.coverImg);
 
     //Get from API
     const tagOptionValues: Tag[] = testTags;
@@ -157,8 +174,8 @@ export default defineComponent({
     });
 
     const attendeeLimitNumber = computed(() => {
-      if (isValidAttendeeLimit.value) return parseInt(attendeeLimit.value);
-      return 0;
+      if (!isValidAttendeeLimit.value || attendeeLimit.value === "") return 0;
+      return parseInt(attendeeLimit.value);
     });
 
     const registrationDueDateTime = computed(() => {
@@ -204,10 +221,16 @@ export default defineComponent({
       description: description,
       attendeeLimit: attendeeLimitNumber,
       registrationDueDate: registrationDueDateTime,
-      posterImgUrl: posterImg,
-      coverImgUrl: coverImg,
+      posterImg: posterImg,
+      coverImg: coverImg,
       isValid: isValidEventInfo
     });
+
+    watch(
+      () => eventInfo,
+      () => context.emit(UPDATE_MODEL_VALUE, eventInfo),
+      { deep: true }
+    );
 
     return {
       name,

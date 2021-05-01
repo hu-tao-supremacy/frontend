@@ -22,6 +22,8 @@ const PageSkeletonOrgTeam = () =>
     "@/commons/components/page-skeleton/organization/PageSkeletonOrgTeam.vue"
   );
 const OrgUserView = () => import("@/modules/orgUserView/OrgUserView.vue");
+const CreateEventPage = () =>
+  import("@/modules/organization/createEvent/CreateEventPage.vue");
 
 const router = createRouter({
   history: createWebHistory(),
@@ -78,7 +80,10 @@ const router = createRouter({
     {
       path: "/org",
       component: PageSkeletonOrgTeam,
-      children: [{ path: "", component: OrgHome }]
+      children: [
+        { path: "", component: OrgHome },
+        { path: "create-event", component: CreateEventPage }
+      ]
     },
 
     { path: "/login", component: Login },

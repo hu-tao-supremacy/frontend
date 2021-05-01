@@ -14,6 +14,7 @@ export type Scalars = {
   Int: number;
   Float: number;
   /** The `Upload` scalar type represents a file upload. */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Upload: any;
 };
 
@@ -44,6 +45,11 @@ export type AuthenticateInput = {
 export type AuthenticateOutput = {
   __typename?: "AuthenticateOutput";
   accessToken: Scalars["String"];
+};
+
+export type CheckInInput = {
+  userId: Scalars["Int"];
+  eventId: Scalars["Int"];
 };
 
 export type CreateEventInput = {
@@ -91,7 +97,6 @@ export type CreateOrganizationInput = {
   contactEmail?: Maybe<Scalars["String"]>;
   contactPhoneNumber?: Maybe<Scalars["String"]>;
   contactLineId?: Maybe<Scalars["String"]>;
-  userOrganizations: Array<UserOrganizationInput>;
   profilePicture?: Maybe<Scalars["Upload"]>;
 };
 
@@ -222,13 +227,15 @@ export type Mutation = {
   setEventDurations: Scalars["Boolean"];
   createEvent: Event;
   updateEvent: Event;
-  reviewJoinRequest: Scalars["Boolean"];
+  reviewJoinRequest: UserEvent;
+  checkIn: UserEvent;
   authenticate: AuthenticateOutput;
+  generateAccessToken: AuthenticateOutput;
   upload: Scalars["Boolean"];
   createOrganization: Organization;
   updateOrganization: Organization;
-  addMembersToOrganization: Organization;
-  removeMembersFromOrganization: Organization;
+  addMembersToOrganization: Scalars["Boolean"];
+  removeMembersFromOrganization: Scalars["Boolean"];
   updateUser: User;
   setInterestedTags: Scalars["Boolean"];
   setInterestedEvents: Scalars["Boolean"];
@@ -256,8 +263,16 @@ export type MutationReviewJoinRequestArgs = {
   input: ReviewJoinRequestInput;
 };
 
+export type MutationCheckInArgs = {
+  input: CheckInInput;
+};
+
 export type MutationAuthenticateArgs = {
   input: AuthenticateInput;
+};
+
+export type MutationGenerateAccessTokenArgs = {
+  userId: Scalars["Float"];
 };
 
 export type MutationUploadArgs = {
@@ -441,9 +456,7 @@ export type QuestionInput = {
 
 export type ReviewJoinRequestInput = {
   userId: Scalars["Int"];
-  user: UserInput;
   eventId: Scalars["Int"];
-  rating?: Maybe<Scalars["Int"]>;
   status: UserEventStatus;
 };
 
@@ -528,7 +541,6 @@ export type UpdateOrganizationInput = {
   contactEmail?: Maybe<Scalars["String"]>;
   contactPhoneNumber?: Maybe<Scalars["String"]>;
   contactLineId?: Maybe<Scalars["String"]>;
-  userOrganizations?: Maybe<Array<UserOrganizationInput>>;
   profilePicture?: Maybe<Scalars["Upload"]>;
   id: Scalars["Int"];
 };
@@ -595,6 +607,7 @@ export type UserEventInput = {
   rating?: Maybe<Scalars["Int"]>;
   ticket?: Maybe<Scalars["String"]>;
   status: UserEventStatus;
+  answers: Array<AnswerInput>;
 };
 
 export enum UserEventStatus {
@@ -917,6 +930,40 @@ export type GetOrganizationQuery = { __typename?: "Query" } & {
           }
       >;
     };
+};
+
+export type GetEventAttendeeQueryVariables = Exact<{
+  id: Scalars["Int"];
+}>;
+
+export type GetEventAttendeeQuery = { __typename?: "Query" } & {
+  event: { __typename?: "Event" } & Pick<
+    Event,
+    "coverImageUrl" | "coverImageHash"
+  > & {
+      attendees: Array<
+        { __typename?: "UserEvent" } & Pick<UserEvent, "status"> & {
+            user: { __typename?: "User" } & Pick<
+              User,
+              | "id"
+              | "firstName"
+              | "lastName"
+              | "profilePictureUrl"
+              | "email"
+              | "phoneNumber"
+            >;
+            answers: Array<{ __typename?: "Answer" } & Pick<Answer, "id">>;
+          }
+      >;
+    };
+};
+
+export type ReviewJoinRequestMutationVariables = Exact<{
+  input: ReviewJoinRequestInput;
+}>;
+
+export type ReviewJoinRequestMutation = { __typename?: "Mutation" } & {
+  reviewJoinRequest: { __typename?: "UserEvent" } & Pick<UserEvent, "userId">;
 };
 
 export type GetOrganizationMemberQueryVariables = Exact<{

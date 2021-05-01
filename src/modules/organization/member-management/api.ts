@@ -2,11 +2,11 @@ import { useQuery } from "@vue/apollo-composable";
 import gql from "graphql-tag";
 import {
   GetOrganizationMemberQuery,
-  GetOrganizationQueryVariables
+  GetOrganizationMemberQueryVariables
 } from "@/apollo/types";
 
 export const useMemberManagementApi = (
-  variables: GetOrganizationQueryVariables
+  variables: GetOrganizationMemberQueryVariables
 ) =>
   useQuery<GetOrganizationMemberQuery>(
     gql`

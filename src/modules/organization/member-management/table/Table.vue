@@ -2,9 +2,9 @@
   <div class="flex justify-between my-2">
     <BaseSearch class="h-4" :placeholder="'Search'" @search="handleSearch" />
     <SingleNameSelect
-      :optionNames="sortBy"
-      :optionValues="sortByVal"
-      v-model="sortOption"
+      :optionNames="sortingName"
+      :optionValues="sortingVal"
+      v-model="sortingOption"
     />
   </div>
   <div className="p-3 bg-white // rounded-2xl // w-full">
@@ -12,13 +12,13 @@
       <thead>
         <tr>
           <th
-            v-for="headerKey in headerKeys"
-            :key="headerKey"
+            v-for="[, value] in Object.entries(header)"
+            :key="value"
             class="pb-1 // border-b-2 border-blue-11 // text-left"
           >
-            {{ header[headerKey] }}
+            {{ value }}
           </th>
-          <th className="pb-1 // border-b-2 border-blue-11 // text-right">
+          <th class="pb-1 // border-b-2 border-blue-11 // text-right">
             Action
           </th>
         </tr>
@@ -26,15 +26,17 @@
       <tbody>
         <tr v-for="(data, index) in filteredData" :key="index">
           <td
-            v-for="(header, index) in headerKeys"
+            v-for="[key] in Object.entries(header)"
             class="h-8 // border-b border-gray-4 "
-            :key="index"
+            :key="key"
           >
-            <div v-if="header === 'name'" class="flex items-center space-x-4">
-              <UserProfile :user="data" class="select-none" />
-              <div>{{ `${data.firstName} ${data.lastName}` }}</div>
+            <div class="pr-1">
+              <div v-if="key === 'name'" class="flex items-center space-x-4">
+                <UserProfile :user="data" class="select-none flex-shrink-0" />
+                <div>{{ `${data.firstName} ${data.lastName}` }}</div>
+              </div>
+              <div v-else>{{ data[key] }}</div>
             </div>
-            <div v-else>{{ data[header] }}</div>
           </td>
           <td className="h-8 border-b border-gray-4">
             <div className="flex justify-end">
@@ -78,29 +80,27 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Object as PropType<User[]>
+      type: Array as PropType<User[]>
     }
   },
   setup(props) {
     const { data } = toRefs(props);
     const {
-      sortOption,
+      sortingOption,
       handleSearch,
       header,
       filteredData,
-      sortBy,
-      sortByVal,
-      headerKeys
+      sortingName,
+      sortingVal
     } = useTable(data);
 
     return {
-      headerKeys,
       filteredData,
       handleSearch,
-      sortBy,
-      sortByVal,
+      sortingName,
+      sortingVal,
       header,
-      sortOption
+      sortingOption
     };
   }
 });

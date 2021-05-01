@@ -11,7 +11,7 @@ const useUserCheckIn = () => {
   const { onError, result } = useEventUserCheckIn({ id: eventID });
   const event = useResult(result, null, data => data.event);
 
-  onError(err => {
+  onError(() => {
     router.push("/404");
   });
 

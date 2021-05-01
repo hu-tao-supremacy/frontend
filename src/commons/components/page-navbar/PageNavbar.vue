@@ -26,7 +26,7 @@
         About One Pass
       </router-link>
     </section>
-    <base-button class="sign-in-btn w-20" @click="login" v-if="!isLogIn"
+    <base-button class="w-20 h-3.75" @click="login" v-if="!isLogIn"
       >Login in with CU SSO</base-button
     >
     <section
@@ -109,9 +109,3 @@ export default defineComponent({
   }
 });
 </script>
-
-<style scoped>
-.sign-in-btn {
-  height: 30px;
-}
-</style>

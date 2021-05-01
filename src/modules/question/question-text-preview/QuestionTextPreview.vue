@@ -70,7 +70,6 @@ export default defineComponent({
 <style scoped>
 .input-disable-container {
   width: 300px;
-  height: 30px;
 }
 .cross-btn {
   top: 22px;

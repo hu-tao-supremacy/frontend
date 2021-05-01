@@ -17,6 +17,12 @@ const CreateForm = () =>
   import("@/modules/createEventForm/CreateEventFormPage.vue");
 const MemberManagementPage = () =>
   import("@/modules/organization/member-management/MemberManagementPage.vue");
+const AttendeeManagementPage = () =>
+  import(
+    "@/modules/organization/event/attendee-management/AttendeeManagementPage.vue"
+  );
+const OrgEventDashboardPage = () =>
+  import("@/modules/organization/event/dashboard/Dashboard.vue");
 const Login = () => import("@/modules/login/Login.vue");
 const NotFound = () => import("@/modules/not-found/NotFound.vue");
 const PageSkeleton = () =>
@@ -26,6 +32,8 @@ const PageSkeletonOrgTeam = () =>
     "@/commons/components/page-skeleton/organization/PageSkeletonOrgTeam.vue"
   );
 const OrgUserView = () => import("@/modules/orgUserView/OrgUserView.vue");
+const CreateEventPage = () =>
+  import("@/modules/organization/createEvent/CreateEventPage.vue");
 
 const router = createRouter({
   history: createWebHistory(),
@@ -88,7 +96,16 @@ const router = createRouter({
       component: PageSkeletonOrgTeam,
       children: [
         { path: "", component: OrgHome },
-        { path: "/org/member-management/:id", component: MemberManagementPage }
+        { path: "create-event", component: CreateEventPage },
+        { path: "/org/member-management/:id", component: MemberManagementPage },
+        {
+          path: "/org/event/attendee-management/:id",
+          component: AttendeeManagementPage
+        },
+        {
+          path: "/org/event/dashboard/:id",
+          component: OrgEventDashboardPage
+        }
       ]
     },
 

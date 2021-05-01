@@ -17,18 +17,18 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import OrgCard from "./org-card/OrgCard.vue";
-import CardEvent from "././../home/components/card-event/CardEvent.vue";
-import useOrgUserView from "./use-org-user-view";
+import CardEvent from "@/modules/home/components/card-event/CardEvent.vue";
+import useOrgInfo from "./use-org-info";
 import "@/index.css";
 
 export default defineComponent({
-  name: "OrgUserView",
+  name: "OrgInfo",
   components: {
     OrgCard,
     CardEvent
   },
   setup() {
-    const { organization, events } = useOrgUserView();
+    const { organization, events } = useOrgInfo();
     return { organization, events };
   }
 });

@@ -2,7 +2,7 @@ import InfoBanner from "./InfoBanner.vue";
 import "@/index.css";
 import { app, Story } from "@storybook/vue3";
 import BaseIcon from "@/commons/UI/BaseIcon.vue";
-import { EventDuration, GetEventByIdQuery } from "@/apollo/types";
+import { EventDuration, GetEventByIdQuery, Event } from "@/apollo/types";
 
 app.component("base-icon", BaseIcon);
 
@@ -41,6 +41,6 @@ Primary.args = {
       { start: new Date().toString(), finish: new Date().toString() }
     ] as EventDuration[],
     location: { name: "Engineering Faculty, Chula" }
-  } as any,
+  } as Event,
   isSignin: false
 };

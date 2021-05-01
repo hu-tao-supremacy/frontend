@@ -36,15 +36,6 @@ export interface Org {
   description: string;
 }
 
-export interface District {
-  DISTRICT_ID: number;
-  DISTRICT_TH_NAME: string;
-  DISTRICT_ENG_NAME: string;
-  PROVINCE_ID: number;
-  GEO_ID: number;
-  ZIPCODE: string;
-}
-
 export interface Ticket {
   event: Event;
   organization: Org;
@@ -68,6 +59,15 @@ export interface Interest {
   name: string;
   img: string;
   imgHash: string;
+}
+
+export interface District {
+  DISTRICT_ID: number;
+  DISTRICT_TH_NAME: string;
+  DISTRICT_ENG_NAME: string;
+  PROVINCE_ID: number;
+  GEO_ID: number;
+  ZIPCODE: string;
 }
 
 export interface TextAreaRef {

@@ -34,7 +34,7 @@
       class="flex items-center relative"
       v-click-outside="hideDropDown"
     >
-      <UserProfile :user="user" />
+      <UserProfile class="mr-3" :user="user" />
       <div @click="toggleDropDown" class="flex items-center cursor-pointer">
         <div class="text-lg font-heading max-w-20 truncate mr-1.5">
           {{ nameShown }}

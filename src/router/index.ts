@@ -11,6 +11,8 @@ const EventRegister = () =>
 const EventFeedback = () =>
   import("@/modules/eventFeedback/EventFeedbackPage.vue");
 const OrgHome = () => import("@/modules/organization/home/OrgHomePage.vue");
+const CreateOrg = () =>
+  import("@/modules/organization/createOrg/CreateOrgPage.vue");
 const CreateFeedback = () =>
   import("@/modules/createEventFeedback/CreateEventFeedbackPage.vue");
 const CreateForm = () =>
@@ -96,6 +98,7 @@ const router = createRouter({
       component: PageSkeletonOrgTeam,
       children: [
         { path: "", component: OrgHome },
+        { path: "create-org", component: CreateOrg },
         { path: "create-event", component: CreateEventPage },
         { path: "/org/member-management/:id", component: MemberManagementPage },
         {

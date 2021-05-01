@@ -1,4 +1,3 @@
-import { QuestionGroup } from "./../apollo/types";
 import { createRouter, createWebHistory } from "vue-router";
 import authGuard from "./authGuard";
 
@@ -12,6 +11,10 @@ const EventRegister = () =>
 const EventFeedback = () =>
   import("@/modules/eventFeedback/EventFeedbackPage.vue");
 const OrgHome = () => import("@/modules/organization/home/OrgHomePage.vue");
+const CreateFeedback = () =>
+  import("@/modules/createEventFeedback/CreateEventFeedbackPage.vue");
+const CreateForm = () =>
+  import("@/modules/createEventForm/CreateEventFormPage.vue");
 const MemberManagementPage = () =>
   import("@/modules/organization/member-management/MemberManagementPage.vue");
 const AttendeeManagementPage = () =>
@@ -20,7 +23,6 @@ const AttendeeManagementPage = () =>
   );
 const OrgEventDashboardPage = () =>
   import("@/modules/organization/event/dashboard/Dashboard.vue");
-const QuestionGroup = () => import("@/modules/questionGroup/QuestionGroup.vue");
 const Login = () => import("@/modules/login/Login.vue");
 const NotFound = () => import("@/modules/not-found/NotFound.vue");
 const PageSkeleton = () =>
@@ -71,8 +73,12 @@ const router = createRouter({
           component: EventFeedback
         },
         {
-          path: "/question-group",
-          component: QuestionGroup
+          path: "/create-event-feedback/:id",
+          component: CreateFeedback
+        },
+        {
+          path: "/create-event-form/:id",
+          component: CreateForm
         },
         {
           path: "/org-user-view/:id",

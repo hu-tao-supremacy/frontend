@@ -675,6 +675,15 @@ export type GetCurrentUserQuery = { __typename?: "Query" } & {
   >;
 };
 
+export type SetEventQuestionsMutationVariables = Exact<{
+  input: SetEventQuestionsInput;
+}>;
+
+export type SetEventQuestionsMutation = { __typename?: "Mutation" } & Pick<
+  Mutation,
+  "setEventQuestions"
+>;
+
 export type GetQuestionGroupsQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetQuestionGroupsQuery = { __typename?: "Query" } & {

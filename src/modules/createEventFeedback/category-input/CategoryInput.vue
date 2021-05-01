@@ -2,9 +2,10 @@
   <div
     class="w-full shadow-sm rounded-lg overflow-hidden bg-white py-4 px-10 flex flex-col justify-center relative"
   >
-    <label :for="questionId" class="w-max font-heading text-xl mb-0.25">{{
-      question
-    }}</label>
+    <label :for="questionId" class="w-max font-heading text-xl mb-0.25"
+      >{{ question }}
+      <span v-if="!optional" class="text-red-5">*</span>
+    </label>
     <BaseTextInput
       :id="questionId"
       v-model="userAnswer"
@@ -12,12 +13,7 @@
       class="w-full h-4 flex"
       :placeholder="placeholderText"
     />
-    <BaseTextInput
-      class="input-disable-container h-3.75"
-      placeholder="Participants’ answer goes here!"
-      disabled
-    />
-    <base-transparent-button class="cross-btn absolute"
+    <base-transparent-button class="cross-btn absolute" @click="removeCategory"
       ><base-icon width="24px" height="24px"><XIcon /></base-icon
     ></base-transparent-button>
   </div>
@@ -26,13 +22,13 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { USER_INPUT } from "@/commons/constant";
-import useQuestionTextPreview from "./useQuestionTextPreview";
+import useCategoryInput from "./useCategoryInput";
 import BaseTextInput from "@/commons/UI/BaseTextInput.vue";
 import BaseTransparentButton from "@/commons/UI/BaseTransparentButton.vue";
 import XIcon from "@/assets/X.vue";
 
 export default defineComponent({
-  name: "QuestionTextPreview",
+  name: "CategoryInput",
   components: {
     BaseTextInput,
     BaseTransparentButton,
@@ -54,23 +50,24 @@ export default defineComponent({
     questionId: {
       type: [Number, String],
       required: true
+    },
+    optional: {
+      type: Boolean,
+      default: true
     }
   },
-  emits: [USER_INPUT],
+  emits: [USER_INPUT, "remove"],
   setup(props, context) {
-    const { userAnswer, userChange } = useQuestionTextPreview(
+    const { userAnswer, userChange, removeCategory } = useCategoryInput(
       props.answer,
       context
     );
-    return { userAnswer, userChange };
+    return { userAnswer, userChange, removeCategory };
   }
 });
 </script>
 
 <style scoped>
-.input-disable-container {
-  width: 300px;
-}
 .cross-btn {
   top: 22px;
   right: 22px;

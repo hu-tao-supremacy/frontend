@@ -8,9 +8,13 @@ export const USER_INPUT = "user-input";
 
 export const SELECT_NAVBAR_OPTION = "select-navbar-option";
 
+export const SELECT_MEMBER = "select-member";
+
 export const LOGOUT = "logout";
 
 export const SEARCH = "search";
+
+export const SUBMIT_FORM = "submit-form";
 
 export const REMOVE = "remove";
 

@@ -34,6 +34,7 @@
     >
       <div
         class="flex items-center px-1.5 w-full h-full bg-white border-r border-gray-4"
+        :class="{ 'justify-center text-gray-4': hasNotSelected }"
       >
         {{ buttonDisplay }}
       </div>
@@ -105,6 +106,7 @@ export default defineComponent({
       isOptionShown,
       userInput,
       buttonDisplay,
+      hasNotSelected,
       showOption,
       hideOption,
       toggleShowOption,
@@ -120,6 +122,7 @@ export default defineComponent({
       isOptionShown,
       userInput,
       buttonDisplay,
+      hasNotSelected,
       showOption,
       hideOption,
       toggleShowOption,

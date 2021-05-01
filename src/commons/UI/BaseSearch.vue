@@ -4,7 +4,7 @@
       v-model="searchInput"
       type="text"
       :placeholder="placeholder"
-      class="search-input h-full rounded-r-none rounded-l-lg px-1.5 border-t border-b border-l focus:border-r border-gray-3 focus:border-primary focus:outline-none"
+      class="search-input h-full rounded-r-none rounded-l-lg px-1.5 border-t border-b border-l focus:border-r border-gray-4 focus:border-primary focus:outline-none"
       :class="inputClass"
     />
     <base-button

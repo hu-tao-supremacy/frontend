@@ -15,7 +15,6 @@
 import { defineComponent } from "vue";
 import InfoBannerCompact from "@/modules/userCheckIn/info-banner-compact/InfoBannerCompact.vue";
 import TicketQR from "@/modules/userCheckIn/ticket-qr/TicketQR.vue";
-import { useRoute } from "vue-router";
 import useUserCheckIn from "./use-user-checkin/useUserCheckIn";
 
 export default defineComponent({

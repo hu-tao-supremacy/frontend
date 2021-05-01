@@ -14,6 +14,7 @@ export type Scalars = {
   Int: number;
   Float: number;
   /** The `Upload` scalar type represents a file upload. */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Upload: any;
 };
 

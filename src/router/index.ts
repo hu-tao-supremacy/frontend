@@ -11,12 +11,20 @@ const EventRegister = () =>
 const EventFeedback = () =>
   import("@/modules/eventFeedback/EventFeedbackPage.vue");
 const OrgHome = () => import("@/modules/organization/home/OrgHomePage.vue");
+const CreateOrg = () =>
+  import("@/modules/organization/createOrg/CreateOrgPage.vue");
 const CreateFeedback = () =>
   import("@/modules/createEventFeedback/CreateEventFeedbackPage.vue");
 const CreateForm = () =>
   import("@/modules/createEventForm/CreateEventFormPage.vue");
 const MemberManagementPage = () =>
   import("@/modules/organization/member-management/MemberManagementPage.vue");
+const AttendeeManagementPage = () =>
+  import(
+    "@/modules/organization/event/attendee-management/AttendeeManagementPage.vue"
+  );
+const OrgEventDashboardPage = () =>
+  import("@/modules/organization/event/dashboard/Dashboard.vue");
 const Login = () => import("@/modules/login/Login.vue");
 const NotFound = () => import("@/modules/not-found/NotFound.vue");
 const PageSkeleton = () =>
@@ -25,7 +33,13 @@ const PageSkeletonOrgTeam = () =>
   import(
     "@/commons/components/page-skeleton/organization/PageSkeletonOrgTeam.vue"
   );
+const PageSkeletonOrgEvent = () =>
+  import(
+    "@/commons/components/page-skeleton/organization/PageSkeletonOrgEvent.vue"
+  );
 const OrgUserView = () => import("@/modules/orgUserView/OrgUserView.vue");
+const CreateEventPage = () =>
+  import("@/modules/organization/createEvent/CreateEventPage.vue");
 
 const router = createRouter({
   history: createWebHistory(),
@@ -65,15 +79,7 @@ const router = createRouter({
           component: EventFeedback
         },
         {
-          path: "/create-event-feedback/:id",
-          component: CreateFeedback
-        },
-        {
-          path: "/create-event-form/:id",
-          component: CreateForm
-        },
-        {
-          path: "/org-user-view/:id",
+          path: "/org-info/:id",
           component: OrgUserView
         },
         { path: "/404", component: NotFound }
@@ -88,10 +94,30 @@ const router = createRouter({
       component: PageSkeletonOrgTeam,
       children: [
         { path: "", component: OrgHome },
-        { path: "/org/member-management/:id", component: MemberManagementPage }
+        { path: "create-event", component: CreateEventPage },
+        { path: "create-org", component: CreateOrg },
+        {
+          path: "/create-event-form/:id",
+          component: CreateForm
+        }
       ]
     },
-
+    {
+      path: "/org/event",
+      component: PageSkeletonOrgEvent,
+      children: [
+        { path: "", component: OrgHome },
+        { path: "dashboard/:id", component: OrgEventDashboardPage },
+        {
+          path: "/attendee-management/:id",
+          component: AttendeeManagementPage
+        },
+        {
+          path: "/create-event-feedback/:id",
+          component: CreateFeedback
+        }
+      ]
+    },
     { path: "/login", component: Login },
     {
       path: "/:catchAll(.*)",

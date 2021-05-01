@@ -49,3 +49,12 @@ export function validateYear(year: number | null) {
   }
   return year > 0;
 }
+
+/**
+ * Check whether input has only digits
+ */
+export function isNumber(input: string) {
+  if (input === "") return true;
+  const expression = /^\d*$/;
+  return expression.test(input);
+}

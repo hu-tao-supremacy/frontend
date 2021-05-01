@@ -26,7 +26,7 @@
         About One Pass
       </router-link>
     </section>
-    <base-button class="sign-in-btn w-20" @click="login" v-if="!isLogIn"
+    <base-button class="w-20 h-3.75" @click="login" v-if="!isLogIn"
       >Login in with CU SSO</base-button
     >
     <section
@@ -34,7 +34,7 @@
       class="flex items-center relative"
       v-click-outside="hideDropDown"
     >
-      <UserProfile :user="user" />
+      <UserProfile class="mr-3" :user="user" />
       <div @click="toggleDropDown" class="flex items-center cursor-pointer">
         <div class="text-lg font-heading max-w-20 truncate mr-1.5">
           {{ nameShown }}
@@ -109,9 +109,3 @@ export default defineComponent({
   }
 });
 </script>
-
-<style scoped>
-.sign-in-btn {
-  height: 30px;
-}
-</style>

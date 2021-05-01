@@ -30,6 +30,7 @@
   .text-truncate {
     -webkit-box-orient: vertical;
     overflow: hidden;
+    text-overflow: ellipsis;
     display: -webkit-box;
   }
 

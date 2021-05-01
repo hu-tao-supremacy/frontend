@@ -4,11 +4,12 @@
       v-model="searchInput"
       type="text"
       :placeholder="placeholder"
-      class="search-input h-full rounded-r-none rounded-l-lg px-1.5 border-t border-b border-l focus:border-r border-gray-3 focus:border-primary focus:outline-none"
+      class="search-input h-full rounded-r-none rounded-l-lg px-1.5 border-t border-b border-l focus:border-r border-gray-4 focus:border-primary focus:outline-none"
       :class="inputClass"
     />
     <base-button
-      class="rounded-l-none h-full w-6 flex justify-center items-center"
+      class="rounded-l-none h-full flex justify-center items-center"
+      :class="searchButtonClass"
       @click="search"
       ><base-icon width="12.5px" height="12.5px" class="text-white"
         ><SearchIcon /></base-icon
@@ -32,6 +33,10 @@ export default defineComponent({
     inputClass: {
       type: String,
       default: "w-28"
+    },
+    searchButtonClass: {
+      type: String,
+      default: "w-6"
     },
     placeholder: {
       type: String

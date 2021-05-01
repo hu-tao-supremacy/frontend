@@ -2,7 +2,7 @@ import { useRoute, useRouter } from "vue-router";
 import { useMemberManagementApi } from "../api";
 import { useResult } from "@vue/apollo-composable";
 
-const useOrgUserView = () => {
+const useMemberManagement = () => {
   const route = useRoute();
   const router = useRouter();
   const organizationId = Number(route.params.id);
@@ -21,4 +21,4 @@ const useOrgUserView = () => {
   return { members };
 };
 
-export default useOrgUserView;
+export default useMemberManagement;

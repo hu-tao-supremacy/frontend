@@ -8,9 +8,15 @@ export const USER_INPUT = "user-input";
 
 export const SELECT_NAVBAR_OPTION = "select-navbar-option";
 
+export const SELECT_MEMBER = "select-member";
+
 export const LOGOUT = "logout";
 
 export const SEARCH = "search";
+
+export const SUBMIT_FORM = "submit-form";
+
+export const REMOVE = "remove";
 
 export enum TicketStatus {
   ONGOING = "ongoing",
@@ -23,3 +29,23 @@ export const GENDER = {
   Female: Gender.F,
   "Not Specified": Gender.Ns
 };
+
+export enum OrgEventNavbarSelection {
+  DASHBOARD = "dashboard",
+  EVENT_INFO = "eventInfo",
+  MANAGE_ATTENDEE = "manageAttendee",
+  MANAGE_FEEDBACK = "manageFeedback",
+  NONE = ""
+}
+
+export enum EventDateTimeFormOption {
+  SPECIFY = "specify date and time",
+  START_END = "start and end duration",
+  LATER = "announce later"
+}
+
+export enum EventLocationFormOption {
+  SPECIFY = "specify location",
+  LATER = "announce later",
+  ONLINE = "online event"
+}

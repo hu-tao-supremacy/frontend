@@ -73,7 +73,6 @@ export default defineComponent({
   },
   setup() {
     const hash = "LEHV6nWB2yk8pyo0adR*.7kCMdnj";
-
     return {
       hash
     };

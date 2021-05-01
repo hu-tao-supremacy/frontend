@@ -1,5 +1,5 @@
 import { EventDuration } from "@/apollo/types";
-import { format } from "date-fns";
+import { format, set } from "date-fns";
 
 export const getDisplayDate = (durations?: EventDuration[]) => {
   if (!durations || !durations[0]) {
@@ -31,3 +31,15 @@ export const getMainTimetable = (durations?: EventDuration[]) => {
   }
   return getStartEndTime(durations[0]);
 };
+
+/*
+Keep the date but set the time to 00:00:00.000
+*/
+export function setTimeToZero(date: Date) {
+  return set(date, {
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+    milliseconds: 0
+  }).toString();
+}

@@ -12,7 +12,7 @@
       class="w-full h-4 flex"
       :placeholder="placeholderText"
     />
-    <section class="flex">
+    <section class="flex mt-1">
       <h2 class="mt-3 mr-4 text-gray-4">Strongly Disagree</h2>
       <div
         v-for="(value, index) in values"
@@ -20,14 +20,19 @@
         :class="getRadioMargin(index)"
         class="flex flex-col items-center"
       >
-        <label :for="value" name="choice" class="mb-0.75 text-gray-4">{{
+        <label :for="value" name="choice" class="mb-1 text-gray-4">{{
           value
         }}</label>
-        <BaseRadio :id="value" class="w-2 h-2 text-gray-4" disabled />
+        <BaseRadio
+          :id="value"
+          :isDisabled="true"
+          class="w-2 h-2 text-gray-4"
+          disabled
+        />
       </div>
       <h2 class="ml-4 mt-3 text-gray-4">Strongly Agree</h2>
     </section>
-    <base-transparent-button class="cross-btn absolute"
+    <base-transparent-button class="cross-btn absolute" @click="deleteQuestion"
       ><base-icon width="24px" height="24px"><XIcon /></base-icon
     ></base-transparent-button>
   </div>
@@ -68,15 +73,16 @@ export default defineComponent({
       required: true
     }
   },
-  emits: [USER_INPUT],
+  emits: [USER_INPUT, "delete"],
   setup(props, context) {
     const {
       userAnswer,
       userChange,
       values,
-      getRadioMargin
+      getRadioMargin,
+      deleteQuestion
     } = useQuestionRadioPreview(props.answer, context);
-    return { userAnswer, userChange, values, getRadioMargin };
+    return { userAnswer, userChange, values, getRadioMargin, deleteQuestion };
   }
 });
 </script>

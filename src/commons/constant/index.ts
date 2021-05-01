@@ -12,6 +12,8 @@ export const LOGOUT = "logout";
 
 export const SEARCH = "search";
 
+export const REMOVE = "remove";
+
 export enum TicketStatus {
   ONGOING = "ongoing",
   PENDING = "pending",
@@ -30,4 +32,16 @@ export enum OrgEventNavbarSelection {
   MANAGE_ATTENDEE = "manageAttendee",
   MANAGE_FEEDBACK = "manageFeedback",
   NONE = ""
+}
+
+export enum EventDateTimeFormOption {
+  SPECIFY = "specify date and time",
+  START_END = "start and end duration",
+  LATER = "announce later"
+}
+
+export enum EventLocationFormOption {
+  SPECIFY = "specify location",
+  LATER = "announce later",
+  ONLINE = "online event"
 }

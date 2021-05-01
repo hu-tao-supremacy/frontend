@@ -1,5 +1,4 @@
 import { ref, computed, SetupContext, watch, Ref } from "vue";
-import { parseImageFile } from "@/commons/utils/parseImage";
 import { CLOSE_MODAL, GENDER } from "@/commons/constant";
 import {
   validateEmail,
@@ -27,9 +26,7 @@ const USER_LOCATION = {
 export default function useModalAdditionalInfo(
   context: SetupContext<("close-modal" | "submit-modal")[]>
 ) {
-  const uploadedImgFile = ref<Blob | null>(null);
   const uploadedImg = ref<string | null>(null);
-  const reader = new FileReader();
   const userEmail = ref("");
   const userPhone = ref("");
   const userLocation: Ref<District> = ref(USER_LOCATION);
@@ -47,22 +44,6 @@ export default function useModalAdditionalInfo(
     district => district.DISTRICT_ENG_NAME
   );
   const districtOptionValues = districts;
-
-  async function previewFile(event: Event) {
-    event.preventDefault();
-    const target = event.target as HTMLInputElement;
-    const file = target.files?.[0];
-    if (file?.type.match("image.*")) {
-      uploadedImgFile.value = file;
-    }
-  }
-
-  watch(uploadedImgFile, async () => {
-    if (uploadedImgFile.value !== null) {
-      const uploadedFile = await parseImageFile(reader, uploadedImgFile.value);
-      uploadedImg.value = uploadedFile;
-    }
-  });
 
   function closeModal() {
     context.emit(CLOSE_MODAL);
@@ -115,7 +96,7 @@ export default function useModalAdditionalInfo(
       const userInfo = {
         address: userAddress.value,
         email: userEmail.value,
-        profilePicture: uploadedImgFile.value,
+        profilePicture: uploadedImg.value,
         district: userDistrict.value,
         province: userProvince.value,
         zipCode: userZipCode.value,
@@ -136,7 +117,6 @@ export default function useModalAdditionalInfo(
 
   return {
     uploadedImg,
-    previewFile,
     fileLoaded,
     closeModal,
     userEmail,

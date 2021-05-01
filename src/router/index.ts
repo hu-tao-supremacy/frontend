@@ -1,4 +1,3 @@
-import { QuestionGroup } from "./../apollo/types";
 import { createRouter, createWebHistory } from "vue-router";
 import authGuard from "./authGuard";
 
@@ -12,7 +11,18 @@ const EventRegister = () =>
 const EventFeedback = () =>
   import("@/modules/eventFeedback/EventFeedbackPage.vue");
 const OrgHome = () => import("@/modules/organization/home/OrgHomePage.vue");
-const QuestionGroup = () => import("@/modules/questionGroup/QuestionGroup.vue");
+const CreateFeedback = () =>
+  import("@/modules/createEventFeedback/CreateEventFeedbackPage.vue");
+const CreateForm = () =>
+  import("@/modules/createEventForm/CreateEventFormPage.vue");
+const MemberManagementPage = () =>
+  import("@/modules/organization/member-management/MemberManagementPage.vue");
+const AttendeeManagementPage = () =>
+  import(
+    "@/modules/organization/event/attendee-management/AttendeeManagementPage.vue"
+  );
+const OrgEventDashboardPage = () =>
+  import("@/modules/organization/event/dashboard/Dashboard.vue");
 const Login = () => import("@/modules/login/Login.vue");
 const NotFound = () => import("@/modules/not-found/NotFound.vue");
 const PageSkeleton = () =>
@@ -26,6 +36,8 @@ const PageSkeletonOrgEvent = () =>
     "@/commons/components/page-skeleton/organization/PageSkeletonOrgEvent.vue"
   );
 const OrgUserView = () => import("@/modules/orgUserView/OrgUserView.vue");
+const CreateEventPage = () =>
+  import("@/modules/organization/createEvent/CreateEventPage.vue");
 
 const router = createRouter({
   history: createWebHistory(),
@@ -65,8 +77,12 @@ const router = createRouter({
           component: EventFeedback
         },
         {
-          path: "/question-group",
-          component: QuestionGroup
+          path: "/create-event-feedback/:id",
+          component: CreateFeedback
+        },
+        {
+          path: "/create-event-form/:id",
+          component: CreateForm
         },
         {
           path: "/org-user-view/:id",
@@ -82,7 +98,19 @@ const router = createRouter({
     {
       path: "/org",
       component: PageSkeletonOrgTeam,
-      children: [{ path: "", component: OrgHome }]
+      children: [
+        { path: "", component: OrgHome },
+        { path: "create-event", component: CreateEventPage },
+        { path: "/org/member-management/:id", component: MemberManagementPage },
+        {
+          path: "/org/event/attendee-management/:id",
+          component: AttendeeManagementPage
+        },
+        {
+          path: "/org/event/dashboard/:id",
+          component: OrgEventDashboardPage
+        }
+      ]
     },
     {
       path: "/org/event",

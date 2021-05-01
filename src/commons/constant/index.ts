@@ -30,6 +30,14 @@ export const GENDER = {
   "Not Specified": Gender.Ns
 };
 
+export enum OrgEventNavbarSelection {
+  DASHBOARD = "dashboard",
+  EVENT_INFO = "eventInfo",
+  MANAGE_ATTENDEE = "manageAttendee",
+  MANAGE_FEEDBACK = "manageFeedback",
+  NONE = ""
+}
+
 export enum EventDateTimeFormOption {
   SPECIFY = "specify date and time",
   START_END = "start and end duration",

@@ -12,6 +12,8 @@
       v-model.trim="description"
       inputName="locationDescription"
       label="Additional information"
+      placeholder="Enter additional information here"
+      :isExpandableTextInput="true"
       class="w-80"
     />
   </div>

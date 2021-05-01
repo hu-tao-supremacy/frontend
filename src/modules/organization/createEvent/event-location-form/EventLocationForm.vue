@@ -4,13 +4,19 @@
   >
     <h1 class="font-heading text-3xl">Event location</h1>
     <section class="flex space-x-3">
-      <form-option-button @click="toSpecifyOption" :isSelected="isSpecifyOption"
+      <form-option-button
+        @click="changeOption(EventLocationFormOption.SPECIFY)"
+        :isSelected="isSpecifyOption"
         >Specify location</form-option-button
       >
-      <form-option-button @click="toLaterOption" :isSelected="isLaterOption"
+      <form-option-button
+        @click="changeOption(EventLocationFormOption.LATER)"
+        :isSelected="isLaterOption"
         >Announce later</form-option-button
       >
-      <form-option-button @click="toOnlineOption" :isSelected="isOnlineOption"
+      <form-option-button
+        @click="changeOption(EventLocationFormOption.ONLINE)"
+        :isSelected="isOnlineOption"
         >Online event</form-option-button
       >
     </section>
@@ -25,7 +31,10 @@
 import { defineComponent, toRefs } from "vue";
 import FormOptionButton from "../form-option-button/FormOptionButton.vue";
 import FormSpecifyLocation from "../form-specify-location/FormSpecifyLocation.vue";
-import { UPDATE_MODEL_VALUE } from "@/commons/constant";
+import {
+  EventLocationFormOption,
+  UPDATE_MODEL_VALUE
+} from "@/commons/constant";
 import { EventLocationForm } from "@/commons/Interfaces";
 import useEventLocationForm from "./useEventLocationForm";
 
@@ -50,9 +59,7 @@ export default defineComponent({
       isSpecifyOption,
       isLaterOption,
       isOnlineOption,
-      toSpecifyOption,
-      toLaterOption,
-      toOnlineOption
+      changeOption
     } = useEventLocationForm(modelValue, context);
 
     return {
@@ -60,9 +67,8 @@ export default defineComponent({
       isSpecifyOption,
       isLaterOption,
       isOnlineOption,
-      toSpecifyOption,
-      toLaterOption,
-      toOnlineOption
+      changeOption,
+      EventLocationFormOption
     };
   }
 });

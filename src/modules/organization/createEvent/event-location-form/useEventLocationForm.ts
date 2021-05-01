@@ -49,16 +49,8 @@ export default function useEventLocationForm(
     return currentOption.value === EventLocationFormOption.ONLINE;
   });
 
-  function toSpecifyOption() {
-    currentOption.value = EventLocationFormOption.SPECIFY;
-  }
-
-  function toLaterOption() {
-    currentOption.value = EventLocationFormOption.LATER;
-  }
-
-  function toOnlineOption() {
-    currentOption.value = EventLocationFormOption.ONLINE;
+  function changeOption(option: EventLocationFormOption) {
+    currentOption.value = option;
   }
 
   watch(
@@ -80,8 +72,6 @@ export default function useEventLocationForm(
     isSpecifyOption,
     isLaterOption,
     isOnlineOption,
-    toSpecifyOption,
-    toLaterOption,
-    toOnlineOption
+    changeOption
   };
 }

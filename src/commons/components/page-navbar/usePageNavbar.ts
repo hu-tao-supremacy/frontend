@@ -2,7 +2,7 @@ import { computed, ref } from "vue";
 import useUser from "@/modules/authentication";
 import isEmpty from "@/commons/utils/isEmpty";
 
-export default function usePageNavbar() {
+export default function usePageNavbar(isOrgView: boolean) {
   const { isSignIn: isLogIn, logout, user } = useUser();
   const imgUrl = computed(() => {
     return user.value.profilePictureUrl;
@@ -14,6 +14,11 @@ export default function usePageNavbar() {
     return `${user.value.firstName} ${user.value.lastName?.charAt(0)}.`;
   });
   const isDropDownShown = ref(false);
+
+  const homePage = computed(() => {
+    if (isOrgView) return "/org";
+    return "/";
+  });
 
   function toggleDropDown() {
     isDropDownShown.value = !isDropDownShown.value;
@@ -29,6 +34,7 @@ export default function usePageNavbar() {
     nameShown,
     isDropDownShown,
     user,
+    homePage,
     toggleDropDown,
     hideDropDown,
     logout

@@ -6,7 +6,7 @@ import { Ref } from "vue";
 export const useHomeApi = () =>
   useQuery<GetHomeItemQuery>(gql`
     query getHomeItem {
-      featuredEvents {
+      featuredEvents(n: 4) {
         id
         description
         name
@@ -28,7 +28,7 @@ export const useHomeApi = () =>
           name
         }
       }
-      upcomingEvents {
+      upcomingEvents(n: 4) {
         id
         description
         name
@@ -58,7 +58,7 @@ export const useRecommendationEvent = (enabled: Ref<boolean>) =>
   useQuery<GetRecommendedEventsQuery>(
     gql`
       query getRecommendedEvents {
-        recommendedEvents {
+        recommendedEvents(n: 4) {
           id
           description
           name

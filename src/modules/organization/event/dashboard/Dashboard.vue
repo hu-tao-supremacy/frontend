@@ -1,5 +1,11 @@
 <template>
   <div class="flex flex-col items-center">
+    <QrReader
+      v-if="isQrReaderShown"
+      @ticket="checkTicket"
+      @close-modal="closeQrReader"
+      :status="checkInStatus"
+    />
     <div class="content-max-width w-full mt-4 mb-10">
       <div class="flex-shrink-0 w-full h-20 // rounded-lg overflow-hidden">
         <LazyImage
@@ -17,15 +23,16 @@
           <BaseButton
             class="flex justify-center items-center // h-5 px-2 space-x-1 flex-shrink-0"
           >
-            <div class=" font">Export Data</div>
+            <div>Export Data</div>
             <base-icon class="w-3 h-3">
               <download-icon />
             </base-icon>
           </BaseButton>
           <BaseButton
             class="flex justify-center items-center // h-5 px-2 space-x-1 flex-shrink-0"
+            @click="showQrReader"
           >
-            <div class=" font">Attendee Check-in</div>
+            <div>Attendee Check-in</div>
             <base-icon class="w-3 h-3">
               <maximize-icon />
             </base-icon>
@@ -44,7 +51,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from "vue";
+import { defineComponent, computed, ref } from "vue";
 import useOrgEvent from "../use-org-event";
 import Table from "../components/table/Table.vue";
 import "@/index.css";
@@ -55,6 +62,7 @@ import MaximizeIcon from "@/assets/Maximize.vue";
 import BaseIcon from "@/commons/UI/BaseIcon.vue";
 import SimpleCard from "../components/simple-card/SimpleCard.vue";
 import { UserEventStatus } from "@/apollo/types";
+import QrReader from "@/commons/UI/qr-reader/QrReader.vue";
 
 export default defineComponent({
   name: "Dashboard",
@@ -65,10 +73,13 @@ export default defineComponent({
     BaseIcon,
     BaseButton,
     SimpleCard,
-    MaximizeIcon
+    MaximizeIcon,
+    QrReader
   },
   setup() {
     const { event } = useOrgEvent();
+    const isQrReaderShown = ref(false);
+    const checkInStatus = ref("");
 
     const image = computed(() => {
       return {
@@ -99,12 +110,39 @@ export default defineComponent({
       ).length;
     });
 
+    function checkTicket(decoded: string) {
+      const attendee = event.value?.attendees.find(
+        ticket => ticket.ticket === decoded
+      );
+      if (attendee === undefined) {
+        checkInStatus.value = "Can't Check-in";
+      } else if (attendee.status === UserEventStatus.Attended) {
+        checkInStatus.value = "Already Check-in";
+      } else {
+        checkInStatus.value = attendee.user.firstName + " : Checked In";
+      }
+      console.log(attendee);
+    }
+
+    function showQrReader() {
+      isQrReaderShown.value = true;
+    }
+
+    function closeQrReader() {
+      isQrReaderShown.value = false;
+    }
+
     return {
       image,
       attendees,
       pendingAttendeesCount,
       approvedAttendeesCount,
-      feedbackReceivedCount
+      feedbackReceivedCount,
+      showQrReader,
+      closeQrReader,
+      isQrReaderShown,
+      checkTicket,
+      checkInStatus
     };
   }
 });

@@ -22,6 +22,7 @@ export const useOrgEventApi = (variables: GetEventAttendeeQueryVariables) =>
               phoneNumber
             }
             status
+            ticket
             answers {
               id
             }

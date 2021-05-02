@@ -1,6 +1,6 @@
 <template>
-  <div class="grid grid-cols-3 h-40">
-    <div class="col-span-2 min-h-full">
+  <div class="flex h-40">
+    <div class="w-2/3 min-h-full">
       <LazyImage
         :width="1000"
         :height="1000"
@@ -10,19 +10,17 @@
         class="object-cover w-full h-full"
       />
     </div>
-    <div class="col-span-1 flex flex-col justify-between items-center p-2">
+    <div class="w-1/3 relative flex flex-col justify-between p-2">
       <section>
-        <h3
-          class="text-2xl font-heading text-blue-10 mb-1 text-truncate text-truncate-2"
-        >
+        <h3 class="text-2xl font-heading text-blue-10 truncate mb-1">
           {{ event.name }}
         </h3>
-        <div class="flex mb-2 items-center">
+        <div class="flex mb-2 items-center overflow-x-scroll">
           <base-tag
             v-for="(tag, index) in event.tags"
             :key="tag"
             :class="changeClass(index)"
-            >{{ tag }}</base-tag
+            >{{ tag.name }}</base-tag
           >
         </div>
         <div class="text-sm mb-1 w-full text-truncate text-truncate-4">
@@ -38,7 +36,11 @@
           ><PinIcon
         /></base-icon-and-detail>
       </section>
-      <router-link :disabled="!isLinkReady" :to="eventInfoUrl" class="w-4/5">
+      <router-link
+        :disabled="!isLinkReady"
+        :to="eventInfoUrl"
+        class="w-4/5 self-center"
+      >
         <base-button :disabled="!isLinkReady" class="h-5 w-full"
           >Get Tickets</base-button
         >

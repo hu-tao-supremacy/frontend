@@ -14,7 +14,6 @@ export type Scalars = {
   Int: number;
   Float: number;
   /** The `Upload` scalar type represents a file upload. */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Upload: any;
 };
 
@@ -229,6 +228,7 @@ export type Mutation = {
   updateEvent: Event;
   reviewJoinRequest: UserEvent;
   checkIn: UserEvent;
+  generateVectorRepresentation: Scalars["Boolean"];
   authenticate: AuthenticateOutput;
   generateAccessToken: AuthenticateOutput;
   upload: Scalars["Boolean"];
@@ -266,6 +266,10 @@ export type MutationReviewJoinRequestArgs = {
 
 export type MutationCheckInArgs = {
   input: CheckInInput;
+};
+
+export type MutationGenerateVectorRepresentationArgs = {
+  eventId: Scalars["Int"];
 };
 
 export type MutationAuthenticateArgs = {
@@ -954,6 +958,12 @@ export type GetOrganizationQuery = { __typename?: "Query" } & {
           }
       >;
     };
+};
+
+export type GetAllTagsQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetAllTagsQuery = { __typename?: "Query" } & {
+  tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
 };
 
 export type GetEventAttendeeQueryVariables = Exact<{

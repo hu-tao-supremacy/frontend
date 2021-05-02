@@ -3,8 +3,8 @@ import { computed, Ref, ref, SetupContext } from "vue";
 import Fuse from "fuse.js";
 
 export default function useSingleNameSelect(
-  optionNames: string[],
-  optionValues: unknown[],
+  optionNames: Ref<string[]>,
+  optionValues: Ref<unknown[]>,
   doesResetAfterSelect: boolean,
   context: SetupContext<"update:modelValue"[]>
 ) {
@@ -13,10 +13,14 @@ export default function useSingleNameSelect(
     name: "",
     value: null
   });
-  const options: { name: string; value: unknown }[] = [];
-  optionNames.forEach((name, i) => {
-    const option = { name: name, value: optionValues[i] };
-    options.push(option);
+
+  const options = computed(() => {
+    return optionNames.value.map((value, index) => {
+      return {
+        name: value,
+        value: optionValues.value[index]
+      };
+    });
   });
 
   function resetSelectedOption() {
@@ -39,9 +43,9 @@ export default function useSingleNameSelect(
   });
 
   const filteredOptions = computed(() => {
-    if (searchText.value === "") return options;
+    if (searchText.value === "") return options.value;
     const config = { keys: ["name"] };
-    const fuse = new Fuse(options, config);
+    const fuse = new Fuse(options.value, config);
     const filteredOptions = fuse.search(searchText.value);
     return filteredOptions;
   });

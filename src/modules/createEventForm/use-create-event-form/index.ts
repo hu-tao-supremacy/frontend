@@ -50,6 +50,16 @@ const useCreateEventForm = () => {
     return input;
   };
 
+  function showSuccessModal() {
+    isSuccessModalShown.value = true;
+  }
+
+  function closeSuccessModal() {
+    isSuccessModalShown.value = false;
+    //Perform redirect to some other page after create org
+    console.log("To team page");
+  }
+
   const submitQuestions = () => {
     const input = {
       eventId: eventID,
@@ -63,20 +73,13 @@ const useCreateEventForm = () => {
       ] as SetEventQuestionsQuestionGroupInput[]
     } as SetEventQuestionsInput;
     sendQuestions({ input: input });
+    showSuccessModal();
   };
 
   const isValidated = computed(
     () => questions.length !== 0 && !questions.find(question => !question.title)
   );
 
-  function showSuccessModal() {
-    isSuccessModalShown.value = true;
-  }
-  function closeSuccessModal() {
-    isSuccessModalShown.value = false;
-    //Perform redirect to some other page after create org
-    console.log("To team page");
-  }
   return {
     getQuestion,
     popQuestion,

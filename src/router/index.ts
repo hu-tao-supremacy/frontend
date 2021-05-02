@@ -74,12 +74,12 @@ const router = createRouter({
           beforeEnter: authGuard
         },
         {
-          path: "/event-register/:id",
+          path: "event-register/:id",
           component: EventRegister,
           beforeEnter: authGuard
         },
         {
-          path: "/event-feedback",
+          path: "event-feedback/:id",
           component: EventFeedback
         },
         {

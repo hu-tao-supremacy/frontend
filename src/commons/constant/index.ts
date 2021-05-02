@@ -18,6 +18,8 @@ export const SUBMIT_FORM = "submit-form";
 
 export const REMOVE = "remove";
 
+export const TICKET = "ticket";
+
 export enum TicketStatus {
   ONGOING = "ongoing",
   PENDING = "pending",

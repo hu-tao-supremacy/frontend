@@ -7,14 +7,25 @@
         :width="200"
         :height="200"
         alt="will change to api"
-        :url="org.img"
-        :placeholder="org.imgHash"
+        :url="org.profilePictureUrl"
+        :placeholder="org.profilePictureHash"
         class="object-cover w-full h-full"
       />
     </section>
     <section class="p-3 w-full relative">
-      <h1 class="text-blue-10 text-4xl font-heading">{{ org.shortName }}</h1>
-      <h3 class="font-heading text-xl mb-3">{{ org.fullName }}</h3>
+      <div class="flex">
+        <h1 class="text-blue-10 text-4xl font-heading">
+          {{ org.abbreviation }}
+        </h1>
+        <base-icon
+          v-if="org.isVerified"
+          :width="20"
+          :height="20"
+          class="text-blue-10 ml-1"
+          ><CheckCircleIcon
+        /></base-icon>
+      </div>
+      <h3 class="font-heading text-xl mb-3">{{ org.name }}</h3>
       <p>{{ org.description }}</p>
       <base-icon
         :width="20"
@@ -30,17 +41,19 @@
 import { defineComponent } from "vue";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import EditIcon from "@/assets/Edit.vue";
-import { Org } from "@/commons/Interfaces";
+import CheckCircleIcon from "@/assets/CheckCircle.vue";
+import { GetOrgTeamItemQuery } from "@/apollo/types";
 
 export default defineComponent({
   name: "OrgBanner",
   components: {
     LazyImage,
-    EditIcon
+    EditIcon,
+    CheckCircleIcon
   },
   props: {
     org: {
-      type: Object as () => Org,
+      type: Object as () => GetOrgTeamItemQuery,
       required: true
     }
   }

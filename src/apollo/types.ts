@@ -1000,6 +1000,46 @@ export type ReviewJoinRequestMutation = { __typename?: "Mutation" } & {
   reviewJoinRequest: { __typename?: "UserEvent" } & Pick<UserEvent, "userId">;
 };
 
+export type GetOrgTeamItemQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetOrgTeamItemQuery = { __typename?: "Query" } & {
+  organization: { __typename?: "Organization" } & Pick<
+    Organization,
+    | "id"
+    | "name"
+    | "abbreviation"
+    | "description"
+    | "profilePictureUrl"
+    | "profilePictureHash"
+  > & {
+      events: Array<
+        { __typename?: "Event" } & Pick<
+          Event,
+          | "id"
+          | "name"
+          | "posterImageUrl"
+          | "posterImageHash"
+          | "registrationDueDate"
+          | "attendeeCount"
+          | "attendeeLimit"
+        > & {
+            durations: Array<
+              { __typename?: "EventDuration" } & Pick<
+                EventDuration,
+                "start" | "finish"
+              >
+            >;
+            location?: Maybe<
+              { __typename?: "Location" } & Pick<Location, "name">
+            >;
+            attendees: Array<
+              { __typename?: "UserEvent" } & Pick<UserEvent, "id">
+            >;
+          }
+      >;
+    };
+};
+
 export type GetOrganizationMemberQueryVariables = Exact<{
   id: Scalars["Int"];
 }>;

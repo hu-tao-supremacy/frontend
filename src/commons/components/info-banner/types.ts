@@ -11,6 +11,7 @@ export interface EventBanner {
   posterImageHash: string;
   id: number;
   attendance: AttendanceBanner;
+  registrationDueDate: string;
 }
 
 export interface AttendanceBanner {

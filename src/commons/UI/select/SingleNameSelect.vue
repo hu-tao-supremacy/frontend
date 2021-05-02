@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
+import { defineComponent, PropType, toRefs } from "vue";
 import BaseSelect from "./BaseSelect.vue";
 import { UPDATE_MODEL_VALUE } from "@/commons/constant";
 import useSingleNameSelect from "./useSingleNameSelect";
@@ -68,6 +68,8 @@ export default defineComponent({
   },
   emits: [UPDATE_MODEL_VALUE],
   setup(props, context) {
+    const { optionNames, optionValues } = toRefs(props);
+
     const {
       searchText,
       changeOption,
@@ -75,8 +77,8 @@ export default defineComponent({
       displayedOption,
       filteredOptions
     } = useSingleNameSelect(
-      props.optionNames,
-      props.optionValues,
+      optionNames,
+      optionValues,
       props.doesResetAfterSelect,
       context
     );

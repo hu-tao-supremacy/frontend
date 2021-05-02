@@ -228,6 +228,7 @@ export type Mutation = {
   updateEvent: Event;
   reviewJoinRequest: UserEvent;
   checkIn: UserEvent;
+  generateVectorRepresentation: Scalars["Boolean"];
   authenticate: AuthenticateOutput;
   generateAccessToken: AuthenticateOutput;
   upload: Scalars["Boolean"];
@@ -265,6 +266,10 @@ export type MutationReviewJoinRequestArgs = {
 
 export type MutationCheckInArgs = {
   input: CheckInInput;
+};
+
+export type MutationGenerateVectorRepresentationArgs = {
+  eventId: Scalars["Int"];
 };
 
 export type MutationAuthenticateArgs = {
@@ -515,24 +520,18 @@ export type SetEventQuestionsQuestionInput = {
 
 export type SetEventTagsTagInput = {
   id: Scalars["Int"];
-  imageUrl: Scalars["String"];
-  imageHash: Scalars["String"];
 };
 
 export type Tag = {
   __typename?: "Tag";
   id: Scalars["Int"];
   name: Scalars["String"];
-  imageUrl: Scalars["String"];
-  imageHash: Scalars["String"];
   events: Array<Event>;
 };
 
 export type TagInput = {
   id: Scalars["Int"];
   name: Scalars["String"];
-  imageUrl: Scalars["String"];
-  imageHash: Scalars["String"];
   events: Array<EventInput>;
 };
 
@@ -959,6 +958,12 @@ export type GetOrganizationQuery = { __typename?: "Query" } & {
           }
       >;
     };
+};
+
+export type GetAllTagsQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetAllTagsQuery = { __typename?: "Query" } & {
+  tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
 };
 
 export type GetEventAttendeeQueryVariables = Exact<{

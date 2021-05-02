@@ -48,13 +48,23 @@
         class="object-cover w-full h-full"
       />
     </div>
-    <base-button
-      :disabled="attendance"
-      @click="register"
+    <section
       v-if="canRegister"
-      class="absolute bottom-3 right-3 w-15 h-4.5"
-      >{{ registerMessage }}</base-button
+      class="absolute bottom-4.5 right-3 flex flex-col bg-gray-2 rounded-lg"
     >
+      <base-button
+        :disabled="attendance"
+        @click="register"
+        class="w-15 h-4.5 mb-0.25"
+        >{{ registerMessage }}</base-button
+      >
+      <p
+        v-if="hasRegisterDueDate"
+        class="w-full  text-center font-semibold text-primary"
+      >
+        Due: {{ registerDueDate }}
+      </p>
+    </section>
   </div>
 </template>
 
@@ -100,12 +110,24 @@ export default defineComponent({
   },
   setup(props) {
     const { eventBanner, isSignIn, attendance } = toRefs(props);
-    const { date, time, register, location, registerMessage } = useInfoBanner(
-      isSignIn,
-      attendance,
-      eventBanner
-    );
-    return { date, time, register, location, registerMessage };
+    const {
+      date,
+      time,
+      register,
+      location,
+      registerMessage,
+      registerDueDate,
+      hasRegisterDueDate
+    } = useInfoBanner(isSignIn, attendance, eventBanner);
+    return {
+      date,
+      time,
+      register,
+      location,
+      registerMessage,
+      registerDueDate,
+      hasRegisterDueDate
+    };
   }
 });
 </script>

@@ -1,4 +1,7 @@
-import { Tag, SetEventDurationsDurationInput } from "@/apollo/types";
+import {
+  SetEventDurationsDurationInput,
+  SetEventTagsTagInput
+} from "@/apollo/types";
 
 export interface Event {
   description: string;
@@ -60,6 +63,11 @@ export interface Interest {
   posterImageUrl: string;
 }
 
+export interface Duration {
+  start: string;
+  finish: string;
+}
+
 export interface District {
   DISTRICT_ID: number;
   DISTRICT_TH_NAME: string;
@@ -77,7 +85,7 @@ export interface TextAreaRef {
 export interface EventInfoForm {
   name: string;
   contact: string;
-  tags: Tag[];
+  tags: SetEventTagsTagInput[];
   description: string;
   attendeeLimit: number;
   registrationDueDate: string;

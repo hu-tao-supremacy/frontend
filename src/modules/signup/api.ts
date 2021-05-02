@@ -41,7 +41,6 @@ export const useInterestedEventsCandidate = (
   tagIds: Ref<number[]>,
   enabled: Ref<boolean>
 ) => {
-  console.log(tagIds.value, "value");
   return useQuery<GetPastEventQuery>(
     gql`
       query getPastEvent($n: Int!, $tagIds: [Int!]!) {

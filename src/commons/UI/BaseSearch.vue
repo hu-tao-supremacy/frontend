@@ -18,10 +18,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, watch } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import SearchIcon from "@/assets/Search.vue";
-import { SEARCH } from "@/commons/constant";
+import { SEARCH, UPDATE_MODEL_VALUE } from "@/commons/constant";
 
 export default defineComponent({
   name: "BaseSearch",
@@ -30,6 +30,10 @@ export default defineComponent({
     SearchIcon
   },
   props: {
+    modelValue: {
+      type: String,
+      default: ""
+    },
     inputClass: {
       type: String,
       default: "w-28"
@@ -42,13 +46,17 @@ export default defineComponent({
       type: String
     }
   },
-  emits: [SEARCH],
-  setup(_, context) {
-    const searchInput = ref("");
+  emits: [SEARCH, UPDATE_MODEL_VALUE],
+  setup(props, context) {
+    const searchInput = ref(props.modelValue);
 
     function search() {
       context.emit(SEARCH, searchInput.value);
     }
+
+    watch(searchInput, () =>
+      context.emit(UPDATE_MODEL_VALUE, searchInput.value)
+    );
 
     return { searchInput, search };
   }

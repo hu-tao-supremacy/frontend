@@ -4,7 +4,7 @@
       <OrgBanner :org="organization" class="mb-3" />
       <section class="flex justify-between mb-3">
         <BaseSearch
-          @search="filterEvents"
+          v-model="searchValue"
           class="h-4"
           :inputClass="'w-31.5'"
           :placeholder="'Search'"
@@ -64,11 +64,7 @@ export default defineComponent({
       return fuse.value.search(searchValue.value);
     });
 
-    function filterEvents(search: string) {
-      searchValue.value = search;
-    }
-
-    return { organization, filteredEvents, filterEvents };
+    return { organization, filteredEvents, searchValue };
   }
 });
 </script>

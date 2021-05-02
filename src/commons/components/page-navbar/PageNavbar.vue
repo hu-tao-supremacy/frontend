@@ -2,29 +2,27 @@
   <div
     class="flex justify-between h-8 w-full px-8 py-2 items-center sticky top-0 bg-white z-40"
   >
-    <section class="flex items-center">
-      <router-link to="/">
-        <base-icon
-          width="160"
-          height="40"
-          viewBox="0 0 161 40"
-          class="mr-6 text-transparent"
-          ><OnePassLogo
-        /></base-icon>
+    <section class="flex">
+      <router-link :to="homePage">
+        <div class="flex items-center">
+          <base-icon
+            width="160"
+            height="40"
+            viewBox="0 0 161 40"
+            class="text-transparent"
+            :class="{ 'mr-1': isOrgView, 'mr-6': !isOrgView }"
+            ><OnePassLogo
+          /></base-icon>
+          <h1 v-if="isOrgView" class="mt-1 text-blue-10 font-semibold">
+            for Organizer
+          </h1>
+        </div>
       </router-link>
-      <BaseSearch class="mr-6 h-4" :placeholder="'Search...'" />
-      <router-link
-        to="/"
-        class="font-heading text-primary hover:text-primary-7 text-lg mr-6 cursor-pointer"
-      >
-        Events
-      </router-link>
-      <router-link
-        to="/test"
-        class="font-heading text-primary hover:text-primary-7 text-lg cursor-pointer"
-      >
-        About One Pass
-      </router-link>
+      <BaseSearch
+        v-if="!isOrgView"
+        class="mr-6 h-4"
+        :placeholder="'Search...'"
+      />
     </section>
     <base-button class="w-20 h-3.75" @click="login" v-if="!isLogIn"
       >Login in with CU SSO</base-button
@@ -83,17 +81,24 @@ export default defineComponent({
     ChevronUpIcon,
     NavbarDropDownOptions
   },
-  setup() {
+  props: {
+    isOrgView: {
+      type: Boolean,
+      default: false
+    }
+  },
+  setup(props) {
     const {
       isLogIn,
       imgUrl,
       nameShown,
       isDropDownShown,
       user,
+      homePage,
       toggleDropDown,
       hideDropDown,
       logout
-    } = usePageNavbar();
+    } = usePageNavbar(props.isOrgView);
 
     return {
       isLogIn,
@@ -101,6 +106,7 @@ export default defineComponent({
       nameShown,
       isDropDownShown,
       user,
+      homePage,
       login,
       toggleDropDown,
       hideDropDown,

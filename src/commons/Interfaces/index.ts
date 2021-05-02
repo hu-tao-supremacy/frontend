@@ -61,6 +61,11 @@ export interface Interest {
   imgHash: string;
 }
 
+export interface Duration {
+  start: string;
+  finish: string;
+}
+
 export interface District {
   DISTRICT_ID: number;
   DISTRICT_TH_NAME: string;

@@ -1077,6 +1077,20 @@ export type GetEventUserCheckinQuery = { __typename?: "Query" } & {
     };
 };
 
+export type GetUserTicketQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetUserTicketQuery = { __typename?: "Query" } & {
+  currentUser: { __typename?: "User" } & Pick<
+    User,
+    | "id"
+    | "profilePictureUrl"
+    | "firstName"
+    | "lastName"
+    | "email"
+    | "phoneNumber"
+  >;
+};
+
 export type GetUserWalletQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetUserWalletQuery = { __typename?: "Query" } & {

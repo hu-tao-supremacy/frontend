@@ -1,6 +1,6 @@
 <template>
   <div class="grid ticket-container bg-primary-1 rounded-2xl">
-    <section class="h-auto shadow-sm rounded-l-2xl overflow-hidden">
+    <section class="h-full shadow-sm rounded-l-2xl overflow-hidden">
       <LazyImage
         :width="120"
         :height="160"
@@ -19,7 +19,7 @@
           v-for="tag in event.tags"
           :key="tag"
           class="mr-1 mb-1 h-2 bg-primary-3"
-          >{{ tag }}</base-tag
+          >{{ tag.name }}</base-tag
         >
       </div>
       <h3 class="mb-1">Organized by</h3>

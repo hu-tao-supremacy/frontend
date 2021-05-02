@@ -37,7 +37,7 @@ const PageSkeletonOrgEvent = () =>
   import(
     "@/commons/components/page-skeleton/organization/PageSkeletonOrgEvent.vue"
   );
-const OrgUserView = () => import("@/modules/orgUserView/OrgUserView.vue");
+const OrgInfo = () => import("@/modules/orgInfo/OrgInfo.vue");
 const CreateEventPage = () =>
   import("@/modules/organization/createEvent/CreateEventPage.vue");
 
@@ -79,8 +79,8 @@ const router = createRouter({
           component: EventFeedback
         },
         {
-          path: "org-info/:id",
-          component: OrgUserView
+          path: "/org-info/:id",
+          component: OrgInfo
         },
         { path: "/404", component: NotFound }
       ]

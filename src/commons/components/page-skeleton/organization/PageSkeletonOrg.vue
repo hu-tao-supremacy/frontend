@@ -1,7 +1,6 @@
 <template>
   <section class="flex flex-col w-full h-full">
-    <!-- Need to change to org navbar -->
-    <PageNavbar />
+    <PageNavbar :isOrgView="true" />
     <div class="content-min-height bg-gray-1">
       <router-view></router-view>
     </div>

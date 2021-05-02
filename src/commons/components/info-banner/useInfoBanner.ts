@@ -4,6 +4,7 @@ import { login } from "@/commons/utils/auth";
 import { EventDuration } from "@/apollo/types";
 import { EventBanner } from "./types";
 import { useRouter } from "vue-router";
+import { format } from "date-fns";
 
 const useInfoBanner = (
   isSignIn: Ref<boolean>,
@@ -19,6 +20,16 @@ const useInfoBanner = (
     getMainTimetable(event?.value?.durations as EventDuration[])
   );
 
+  const hasRegisterDueDate = computed(() => {
+    return !!event?.value?.registrationDueDate;
+  });
+
+  const registerDueDate = computed(() => {
+    if (!hasRegisterDueDate.value) return "";
+    const date = new Date(event?.value?.registrationDueDate as string);
+    return format(date, "d MMM");
+  });
+
   const location = computed(() => event?.value?.location?.name || "-");
   const registerMessage = computed(() =>
     attendance.value ? "Registered" : "Register"
@@ -31,7 +42,15 @@ const useInfoBanner = (
       router.push(`/event-register/${event?.value?.id}`);
     }
   };
-  return { date, time, location, register, registerMessage };
+  return {
+    date,
+    time,
+    location,
+    register,
+    registerMessage,
+    registerDueDate,
+    hasRegisterDueDate
+  };
 };
 
 export default useInfoBanner;

@@ -96,6 +96,7 @@ const router = createRouter({
     {
       path: "/org",
       component: OrganizationProvider,
+      beforeEnter: authGuard,
       children: [
         {
           path: "team",

@@ -44,8 +44,16 @@
     </section>
     <OrgDetail v-model="orgDetail" />
     <section class="flex mb-4 relative">
-      <OrgMember v-model="selectedMembers" :orgOwner="orgOwner" />
-      <OrgContactPerson v-model="orgContactPerson" :orgOwner="orgOwner" />
+      <OrgMember
+        v-if="orgOwner"
+        v-model="selectedMembers"
+        :orgOwner="orgOwner"
+      />
+      <OrgContactPerson
+        v-if="orgOwner"
+        v-model="orgContactPerson"
+        :orgOwner="orgOwner"
+      />
     </section>
     <OrgSocial v-model="orgSocial" />
     <base-button

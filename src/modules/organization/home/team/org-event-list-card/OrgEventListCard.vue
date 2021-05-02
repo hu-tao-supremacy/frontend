@@ -18,21 +18,34 @@
         {{ event.name }}
       </h1>
       <div class="flex space-x-2">
-        <base-icon-and-detail :iconClass="'mr-1'" :detail="eventDate"
+        <base-icon-and-detail
+          :iconClass="'mr-1'"
+          :detail="eventDate"
+          class="flex-shrink-0"
           ><CalendarIcon
         /></base-icon-and-detail>
-        <base-icon-and-detail :iconClass="'mr-1'" :detail="eventTime"
+        <base-icon-and-detail
+          :iconClass="'mr-1'"
+          :detail="eventTime"
+          class="flex-shrink-0"
           ><ClockIcon
         /></base-icon-and-detail>
         <base-icon-and-detail
           :iconClass="'mr-1'"
-          :detail="event.location.name"
+          :detail="event.location && event.location.name"
           :detailClass="'max-width-location truncate'"
+          class="min-w-0"
           ><MapPinIcon
         /></base-icon-and-detail>
       </div>
     </section>
-    <section class="flex items-center justify-between py-2 pl-4 pr-2">
+    <section
+      class="flex items-center justify-between py-2 pl-4 pr-2 w-30 flex-shrink-0"
+      :class="{
+        'bg-green-6': isInRegistrationTime,
+        'bg-primary': !isInRegistrationTime
+      }"
+    >
       <div>
         <section class="flex items-center mb-1">
           <span
@@ -51,13 +64,13 @@
           </span>
           <h2 class="text-white font-heading text-2xl">{{ attendeeCount }}</h2>
         </section>
-        <p>{{ attendeeText }}</p>
+        <p class="text-white font-semibold">{{ attendeeText }}</p>
       </div>
       <base-icon
         @click="toEventDashboard"
         :width="32"
         :height="32"
-        class="text-white cursor-pointer hover:text-gray-5"
+        class="text-white cursor-pointer hover:text-gray-4"
         ><ArrowRight
       /></base-icon>
     </section>

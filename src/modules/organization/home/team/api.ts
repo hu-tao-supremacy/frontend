@@ -13,6 +13,7 @@ export const useOrgTeamApi = () =>
         description
         profilePictureUrl
         profilePictureHash
+        isVerified
         events {
           id
           name

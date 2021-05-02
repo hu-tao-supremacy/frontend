@@ -1,6 +1,6 @@
 <template>
   <div class="w-full h-full flex flex-col py-4 items-center">
-    <div class="flex flex-col content-max-width">
+    <div class="flex flex-col content-max-width w-full">
       <OrgBanner :org="organization" class="mb-3" />
       <section class="flex justify-between mb-3">
         <BaseSearch
@@ -53,12 +53,15 @@ export default defineComponent({
       [],
       data => data.organization.events
     );
-    const fuse = new Fuse(events.value, { keys: ["name"] });
     const searchValue = ref("");
 
+    const fuse = computed(() => {
+      return new Fuse(events.value, { keys: ["name"] });
+    });
+
     const filteredEvents = computed(() => {
-      if (searchValue.value === "") return events;
-      return fuse.search(searchValue.value);
+      if (searchValue.value === "") return events.value;
+      return fuse.value.search(searchValue.value);
     });
 
     function filterEvents(search: string) {

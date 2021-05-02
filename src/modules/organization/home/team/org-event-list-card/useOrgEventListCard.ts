@@ -14,7 +14,7 @@ export default function useOrgEventListCard(event: Ref<Event>) {
 
   const isInRegistrationTime = computed(() => {
     const registrationDateTime = new Date(event.value.registrationDueDate);
-    return isBefore(new Date(), registrationDateTime);
+    return isBefore(registrationDateTime, new Date());
   });
 
   const attendeeCount = computed(() => {

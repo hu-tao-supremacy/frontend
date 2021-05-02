@@ -1,7 +1,7 @@
-import { EventDuration } from "@/apollo/types";
+import { Duration } from "@/commons/Interfaces";
 import { format, set } from "date-fns";
 
-export const getDisplayDate = (durations?: EventDuration[]) => {
+export const getDisplayDate = (durations?: Duration[]) => {
   if (!durations || !durations[0]) {
     return "-";
   }
@@ -16,7 +16,7 @@ export const getDisplayDate = (durations?: EventDuration[]) => {
   return startDateText;
 };
 
-export const getStartEndTime = (duration: EventDuration) => {
+export const getStartEndTime = (duration: Duration) => {
   if (!duration) {
     return;
   }
@@ -25,7 +25,7 @@ export const getStartEndTime = (duration: EventDuration) => {
   return `${startTime} - ${endTime}`;
 };
 
-export const getMainTimetable = (durations?: EventDuration[]) => {
+export const getMainTimetable = (durations?: Duration[]) => {
   if (!durations || durations.length !== 0 || !durations[0]) {
     return "-";
   }

@@ -241,6 +241,7 @@ export type Mutation = {
   setInterestedEvents: Scalars["Boolean"];
   createJoinRequest: Scalars["Boolean"];
   deleteJoinRequest: Scalars["Boolean"];
+  createTag: Tag;
 };
 
 export type MutationSetEventQuestionsArgs = {
@@ -315,6 +316,11 @@ export type MutationDeleteJoinRequestArgs = {
   input: DeleteJoinRequestInput;
 };
 
+export type MutationCreateTagArgs = {
+  name: Scalars["String"];
+  organizationId: Scalars["Int"];
+};
+
 export type Organization = {
   __typename?: "Organization";
   id: Scalars["Int"];
@@ -366,6 +372,7 @@ export type Query = {
   featuredEvents: Array<Event>;
   recommendedEvents: Array<Event>;
   onlineEvents: Array<Event>;
+  pastEvents: Array<Event>;
   event: Event;
   organizations: Array<Organization>;
   featuredOrganizations: Array<Organization>;
@@ -377,8 +384,25 @@ export type Query = {
   tag: Tag;
 };
 
+export type QueryUpcomingEventsArgs = {
+  n: Scalars["Int"];
+};
+
+export type QueryFeaturedEventsArgs = {
+  n: Scalars["Int"];
+};
+
+export type QueryRecommendedEventsArgs = {
+  n: Scalars["Int"];
+};
+
 export type QueryOnlineEventsArgs = {
   n: Scalars["Int"];
+};
+
+export type QueryPastEventsArgs = {
+  n: Scalars["Int"];
+  tagIds: Array<Scalars["Int"]>;
 };
 
 export type QueryEventArgs = {

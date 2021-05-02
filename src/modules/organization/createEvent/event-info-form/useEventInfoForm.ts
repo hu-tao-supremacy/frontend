@@ -2,9 +2,10 @@ import { computed, reactive, Ref, ref, watch, SetupContext } from "vue";
 import { validatePhone, isNumber } from "@/commons/utils/validForm";
 import { set } from "date-fns";
 import { UPDATE_MODEL_VALUE } from "@/commons/constant";
-import { Tag } from "@/apollo/types";
 import { EventInfoForm } from "@/commons/Interfaces";
-import { testTags } from "../testData";
+import { SetEventTagsTagInput } from "@/apollo/types";
+import { useEventInfoFormApi } from "../api";
+import { useResult } from "@vue/apollo-composable";
 
 export default function useEventInfoForm(
   initialEventInfoValue: Ref<EventInfoForm>,
@@ -12,8 +13,10 @@ export default function useEventInfoForm(
 ) {
   const name = ref(initialEventInfoValue.value.name);
   const contact = ref(initialEventInfoValue.value.contact);
-  const tags: Ref<Tag[]> = ref(initialEventInfoValue.value.tags);
-  const tagSearch: any = ref({ id: -1, name: "", events: [] });
+  const tags: Ref<SetEventTagsTagInput[]> = ref(
+    initialEventInfoValue.value.tags
+  );
+  const tagSearch: Ref<SetEventTagsTagInput> = ref({ id: -1 });
   const description = ref(initialEventInfoValue.value.description);
   const attendeeLimit = ref(
     initialEventInfoValue.value.attendeeLimit.toString()
@@ -25,9 +28,11 @@ export default function useEventInfoForm(
   const posterImg = ref(initialEventInfoValue.value.posterImg);
   const coverImg = ref(initialEventInfoValue.value.coverImg);
 
-  //Get from API
-  const tagOptionValues: any[] = testTags;
-  const tagOptionNames: string[] = tagOptionValues.map(tag => tag.name);
+  const { result: tagsResult } = useEventInfoFormApi();
+  const tagOptionValues = useResult(tagsResult, [], data => data.tags);
+  const tagOptionNames = useResult(tagsResult, [], data =>
+    data.tags.map(tag => tag.name)
+  );
 
   const isValidContact = computed(() => {
     return validatePhone(contact.value);
@@ -59,7 +64,7 @@ export default function useEventInfoForm(
     return true;
   });
 
-  function addTag(tag: Tag) {
+  function addTag(tag: SetEventTagsTagInput) {
     const tagId = tag.id;
     const isInTagsList = tags.value.some(
       selectedTag => selectedTag.id === tagId
@@ -75,7 +80,7 @@ export default function useEventInfoForm(
   watch(tagSearch, () => {
     if (tagSearch.value.id === -1) return;
     addTag(tagSearch.value);
-    tagSearch.value = { id: -1, name: "", events: [] };
+    tagSearch.value = { id: -1 };
   });
 
   const eventInfo: EventInfoForm = reactive({

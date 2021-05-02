@@ -60,8 +60,7 @@ export interface Profile {
 export interface Interest {
   id: number;
   name: string;
-  img: string;
-  imgHash: string;
+  posterImageUrl: string;
 }
 
 export interface Duration {

@@ -24,9 +24,7 @@ export default function useModalInterestedEvents(
   }
 
   function submitInterest() {
-    //something to do with API.
-    console.log(selectedInterestIDs.value);
-    context.emit(SUBMIT_MODAL);
+    context.emit(SUBMIT_MODAL, selectedInterestIDs.value);
   }
 
   return { toggleInterest, isSelected, submitInterest, closeModal };

@@ -40,6 +40,10 @@ const PageSkeletonOrgEvent = () =>
 const OrgInfo = () => import("@/modules/orgInfo/OrgInfo.vue");
 const CreateEventPage = () =>
   import("@/modules/organization/createEvent/CreateEventPage.vue");
+const OrganizationProvider = () =>
+  import(
+    "@/modules/organization/useOrganization/components/OrganizationProvider.vue"
+  );
 
 const router = createRouter({
   history: createWebHistory(),
@@ -91,30 +95,35 @@ const router = createRouter({
     },
     {
       path: "/org",
-      component: PageSkeletonOrgTeam,
+      component: OrganizationProvider,
       children: [
-        { path: "", component: OrgHome },
-        { path: "create-event", component: CreateEventPage },
-        { path: "create-org", component: CreateOrg },
         {
-          path: "/create-event-form/:id",
-          component: CreateForm
-        }
-      ]
-    },
-    {
-      path: "/org/event",
-      component: PageSkeletonOrgEvent,
-      children: [
-        { path: "", component: OrgHome },
-        { path: "dashboard/:id", component: OrgEventDashboardPage },
-        {
-          path: "/attendee-management/:id",
-          component: AttendeeManagementPage
+          path: "team",
+          component: PageSkeletonOrgTeam,
+          children: [
+            { path: "", component: OrgHome },
+            { path: "create-event", component: CreateEventPage },
+            { path: "create-org", component: CreateOrg },
+            {
+              path: "/create-event-form/:id",
+              component: CreateForm
+            }
+          ]
         },
         {
-          path: "/create-event-feedback/:id",
-          component: CreateFeedback
+          path: "event",
+          component: PageSkeletonOrgEvent,
+          children: [
+            { path: ":id", component: OrgEventDashboardPage },
+            {
+              path: "/attendee-management/:id",
+              component: AttendeeManagementPage
+            },
+            {
+              path: "/create-event-feedback/:id",
+              component: CreateFeedback
+            }
+          ]
         }
       ]
     },

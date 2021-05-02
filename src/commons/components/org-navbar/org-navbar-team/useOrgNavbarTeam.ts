@@ -1,11 +1,16 @@
 import { ref } from "vue";
-import organizationsData from "./testData";
 import { Organization } from "@/apollo/types";
+import useOrganization from "@/modules/organization/useOrganization";
+import { useRouter } from "vue-router";
 
 export default function useOrgNavbarTeam() {
   const isExpand = ref(false);
-  const teams = organizationsData; //Need to change to get list of orgs from API
-  const currentSelectedTeamId = ref(-1);
+  const router = useRouter();
+  const {
+    organizations: teams,
+    currentOrganizationId: currentSelectedTeamId,
+    changeOrganizationId
+  } = useOrganization();
 
   function expandNavbar() {
     isExpand.value = true;
@@ -22,14 +27,12 @@ export default function useOrgNavbarTeam() {
   function changeSelectedTeam(team: Organization) {
     if (team.id === currentSelectedTeamId.value) return;
     //Also perform provide/inject here
-    currentSelectedTeamId.value = team.id;
+    changeOrganizationId(team.id);
   }
 
   function createNewTeam() {
-    //Maybe reset provide/inject team
-    currentSelectedTeamId.value = -1;
-    //Go to create team page
-    console.log("To create organization");
+    changeOrganizationId(-1);
+    router.push("/org/team/create-org");
   }
 
   return {

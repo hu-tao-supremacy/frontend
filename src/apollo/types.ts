@@ -960,6 +960,23 @@ export type GetOrganizationQuery = { __typename?: "Query" } & {
     };
 };
 
+export type CurrentUserOrganizationQueryVariables = Exact<{
+  [key: string]: never;
+}>;
+
+export type CurrentUserOrganizationQuery = { __typename?: "Query" } & {
+  currentUser: { __typename?: "User" } & {
+    organizations: Array<
+      { __typename?: "UserOrganization" } & {
+        organization: { __typename?: "Organization" } & Pick<
+          Organization,
+          "name" | "id" | "profilePictureUrl" | "profilePictureHash"
+        >;
+      }
+    >;
+  };
+};
+
 export type GetAllTagsQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetAllTagsQuery = { __typename?: "Query" } & {

@@ -12,7 +12,9 @@
           vel diam. Praesent in vestibulum mauris. Cras porta tincidunt ante,
           vel euismod urna blandit feugiat.
         </p>
-        <base-button class="w-15 h-4.5">Create Team</base-button>
+        <router-link to="/org/team/create-org">
+          <base-button class="w-15 h-4.5">Create Team</base-button>
+        </router-link>
       </section>
       <base-icon
         :width="500"

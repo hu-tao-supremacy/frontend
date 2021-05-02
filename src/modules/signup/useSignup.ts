@@ -2,8 +2,13 @@ import { computed, ref } from "vue";
 import { testData } from "@/modules/test/testData";
 import { useRoute, useRouter } from "vue-router";
 import useUser from "@/modules/authentication";
-import { useUpdateUserInfo } from "./api";
+import {
+  setUpdateInterestedEvents,
+  useInterestedEventsCandidate,
+  useUpdateUserInfo
+} from "./api";
 import { UpdateUserInput } from "@/apollo/types";
+import { useResult } from "@vue/apollo-composable";
 
 const ADDITIONAL_INFO = "additionInfo";
 const INTEREST = "interest";
@@ -20,7 +25,18 @@ const useSignup = () => {
     onUpdateUserDone,
     onUpdateUserError
   } = useUpdateUserInfo();
-
+  const { updateInterest, onUpdateInterestDone } = setUpdateInterestedEvents();
+  const interestedTags = ref<number[]>([]);
+  const hasInterestedTags = computed(() => interestedTags.value.length !== 0);
+  const { result: eventsCandidate } = useInterestedEventsCandidate(
+    interestedTags,
+    hasInterestedTags
+  );
+  const interestedEventsCandidate = useResult(
+    eventsCandidate,
+    null,
+    data => data.pastEvents
+  );
   function toggleModal(modal: string) {
     currentModal.value = modal;
   }
@@ -37,18 +53,24 @@ const useSignup = () => {
     return currentModal.value === INTERESTED_EVENTS;
   });
 
-  const toInterestedEventsModal = () => {
+  const submitInterestedTags = (tags: number[]) => {
+    interestedTags.value = tags;
     toggleModal(INTERESTED_EVENTS);
   };
 
-  const finishModal = () => {
+  const closeModal = () => {
     toggleModal("");
     router.push(route.path as string);
   };
 
+  const finishModal = (eventIds: number[]) => {
+    updateInterest({ input: eventIds });
+    closeModal();
+  };
+
   const cancelSignup = () => {
     logout();
-    finishModal();
+    closeModal();
   };
 
   const updateInfo = (data: UpdateUserInput) => {
@@ -66,12 +88,14 @@ const useSignup = () => {
     toggleModal,
     showAdditionalInfoModal,
     showInterestedEventsModal,
-    toInterestedEventsModal,
+    submitInterestedTags,
     test,
     showInterestModal,
     finishModal,
     cancelSignup,
-    updateInfo
+    updateInfo,
+    interestedEventsCandidate,
+    closeModal
   };
 };
 

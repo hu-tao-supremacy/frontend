@@ -14,7 +14,6 @@ export type Scalars = {
   Int: number;
   Float: number;
   /** The `Upload` scalar type represents a file upload. */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Upload: any;
 };
 
@@ -241,6 +240,7 @@ export type Mutation = {
   setInterestedEvents: Scalars["Boolean"];
   createJoinRequest: Scalars["Boolean"];
   deleteJoinRequest: Scalars["Boolean"];
+  createTag: Tag;
 };
 
 export type MutationSetEventQuestionsArgs = {
@@ -315,6 +315,11 @@ export type MutationDeleteJoinRequestArgs = {
   input: DeleteJoinRequestInput;
 };
 
+export type MutationCreateTagArgs = {
+  name: Scalars["String"];
+  organizationId: Scalars["Int"];
+};
+
 export type Organization = {
   __typename?: "Organization";
   id: Scalars["Int"];
@@ -366,6 +371,7 @@ export type Query = {
   featuredEvents: Array<Event>;
   recommendedEvents: Array<Event>;
   onlineEvents: Array<Event>;
+  pastEvents: Array<Event>;
   event: Event;
   organizations: Array<Organization>;
   featuredOrganizations: Array<Organization>;
@@ -377,8 +383,25 @@ export type Query = {
   tag: Tag;
 };
 
+export type QueryUpcomingEventsArgs = {
+  n: Scalars["Int"];
+};
+
+export type QueryFeaturedEventsArgs = {
+  n: Scalars["Int"];
+};
+
+export type QueryRecommendedEventsArgs = {
+  n: Scalars["Int"];
+};
+
 export type QueryOnlineEventsArgs = {
   n: Scalars["Int"];
+};
+
+export type QueryPastEventsArgs = {
+  n: Scalars["Int"];
+  tagIds: Array<Scalars["Int"]>;
 };
 
 export type QueryEventArgs = {
@@ -492,18 +515,24 @@ export type SetEventQuestionsQuestionInput = {
 
 export type SetEventTagsTagInput = {
   id: Scalars["Int"];
+  imageUrl: Scalars["String"];
+  imageHash: Scalars["String"];
 };
 
 export type Tag = {
   __typename?: "Tag";
   id: Scalars["Int"];
   name: Scalars["String"];
+  imageUrl: Scalars["String"];
+  imageHash: Scalars["String"];
   events: Array<Event>;
 };
 
 export type TagInput = {
   id: Scalars["Int"];
   name: Scalars["String"];
+  imageUrl: Scalars["String"];
+  imageHash: Scalars["String"];
   events: Array<EventInput>;
 };
 
@@ -994,6 +1023,26 @@ export type UpdateUserMutationVariables = Exact<{
 
 export type UpdateUserMutation = { __typename?: "Mutation" } & {
   updateUser: { __typename?: "User" } & Pick<User, "id">;
+};
+
+export type SetInterestedEventsMutationVariables = Exact<{
+  input: Array<Scalars["Int"]> | Scalars["Int"];
+}>;
+
+export type SetInterestedEventsMutation = { __typename?: "Mutation" } & Pick<
+  Mutation,
+  "setInterestedEvents"
+>;
+
+export type GetPastEventQueryVariables = Exact<{
+  n: Scalars["Int"];
+  tagIds: Array<Scalars["Int"]> | Scalars["Int"];
+}>;
+
+export type GetPastEventQuery = { __typename?: "Query" } & {
+  pastEvents: Array<
+    { __typename?: "Event" } & Pick<Event, "id" | "name" | "posterImageUrl">
+  >;
 };
 
 export type GetEventUserCheckinQueryVariables = Exact<{

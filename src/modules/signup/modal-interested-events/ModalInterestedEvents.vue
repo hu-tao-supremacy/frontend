@@ -11,8 +11,7 @@
           v-for="interest in interests"
           :key="interest"
           :interestName="interest.name"
-          :img="interest.img"
-          :imgHash="interest.imgHash"
+          :img="interest.posterImageUrl"
           :isSelected="isSelected(interest.id)"
           @click="toggleInterest(interest.id)"
         />

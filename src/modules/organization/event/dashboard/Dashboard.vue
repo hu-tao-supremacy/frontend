@@ -1,6 +1,11 @@
 <template>
   <div class="flex flex-col items-center">
-    <QrReader v-if="isQrReaderShown" @close-modal="closeQrReader" />
+    <QrReader
+      v-if="isQrReaderShown"
+      @ticket="checkTicket"
+      @close-modal="closeQrReader"
+      :status="checkInStatus"
+    />
     <div class="content-max-width w-full mt-4 mb-10">
       <div class="flex-shrink-0 w-full h-20 // rounded-lg overflow-hidden">
         <LazyImage
@@ -74,6 +79,7 @@ export default defineComponent({
   setup() {
     const { event } = useOrgEvent();
     const isQrReaderShown = ref(false);
+    const checkInStatus = ref("");
 
     const image = computed(() => {
       return {
@@ -103,9 +109,25 @@ export default defineComponent({
         attendee.answers.length === 0 ? false : true
       ).length;
     });
+
+    function checkTicket(decoded: string) {
+      const attendee = event.value?.attendees.find(
+        ticket => ticket.ticket === decoded
+      );
+      if (attendee === undefined) {
+        checkInStatus.value = "Can't Check-in";
+      } else if (attendee.status === UserEventStatus.Attended) {
+        checkInStatus.value = "Already Check-in";
+      } else {
+        checkInStatus.value = attendee.user.firstName + " : Checked In";
+      }
+      console.log(attendee);
+    }
+
     function showQrReader() {
       isQrReaderShown.value = true;
     }
+
     function closeQrReader() {
       isQrReaderShown.value = false;
     }
@@ -118,7 +140,9 @@ export default defineComponent({
       feedbackReceivedCount,
       showQrReader,
       closeQrReader,
-      isQrReaderShown
+      isQrReaderShown,
+      checkTicket,
+      checkInStatus
     };
   }
 });

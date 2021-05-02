@@ -14,7 +14,7 @@
           <div style="color: red;" class="frame"></div>
         </qr-stream>
       </div>
-      <div class="mt-5 mb-3 text-2xl">{{ code }}</div>
+      <div class="mt-5 mb-3 text-2xl">{{ status }}</div>
       <base-button @click="closeModal" class="w-16 py-px">Close</base-button>
     </div></base-modal
   >
@@ -25,7 +25,7 @@ import { defineComponent, ref } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import BaseModal from "@/commons/UI/BaseModal.vue";
 import { QrStream } from "vue3-qr-reader";
-import { CLOSE_MODAL } from "@/commons/constant";
+import { CLOSE_MODAL, TICKET } from "@/commons/constant";
 export default defineComponent({
   name: "QrReader",
   components: {
@@ -33,7 +33,13 @@ export default defineComponent({
     BaseModal,
     QrStream
   },
-  emits: [CLOSE_MODAL],
+  props: {
+    status: {
+      type: String,
+      Default: ""
+    }
+  },
+  emits: [CLOSE_MODAL, TICKET],
   setup(_, context) {
     function closeModal() {
       context.emit(CLOSE_MODAL);
@@ -42,6 +48,7 @@ export default defineComponent({
 
     function onDecode(ticket: string) {
       code.value = ticket;
+      context.emit(TICKET, code.value);
     }
     return { closeModal, code, onDecode };
   }

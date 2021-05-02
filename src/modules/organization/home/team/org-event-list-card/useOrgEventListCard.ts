@@ -13,6 +13,7 @@ export default function useOrgEventListCard(event: Ref<Event>) {
   });
 
   const isInRegistrationTime = computed(() => {
+    if (!event.value.registrationDueDate) return false;
     const registrationDateTime = new Date(event.value.registrationDueDate);
     return isBefore(registrationDateTime, new Date());
   });

@@ -712,7 +712,9 @@ export type SetEventQuestionsMutation = { __typename?: "Mutation" } & Pick<
   "setEventQuestions"
 >;
 
-export type GetQuestionGroupsQueryVariables = Exact<{ [key: string]: never }>;
+export type GetQuestionGroupsQueryVariables = Exact<{
+  id: Scalars["Int"];
+}>;
 
 export type GetQuestionGroupsQuery = { __typename?: "Query" } & {
   event: { __typename?: "Event" } & Pick<Event, "name"> & {
@@ -976,7 +978,7 @@ export type GetEventAttendeeQuery = { __typename?: "Query" } & {
     "coverImageUrl" | "coverImageHash"
   > & {
       attendees: Array<
-        { __typename?: "UserEvent" } & Pick<UserEvent, "status"> & {
+        { __typename?: "UserEvent" } & Pick<UserEvent, "status" | "ticket"> & {
             user: { __typename?: "User" } & Pick<
               User,
               | "id"

@@ -1,8 +1,6 @@
 <template>
-  <div
-    class="bg-gray-1 flex flex-col p-4 justify-center items-center w-full content-min-height"
-  >
-    <div class="content-max-width-s flex flex-col">
+  <div class="bg-gray-1 flex flex-col p-4 justify-center items-center w-full">
+    <div class="content-max-width-s flex flex-col w-full">
       <div class="font-heading text-4xl">Event Feedback</div>
       <div class="text-gray-5">
         {{ eventName }}

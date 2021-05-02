@@ -1030,6 +1030,26 @@ export type UpdateUserMutation = { __typename?: "Mutation" } & {
   updateUser: { __typename?: "User" } & Pick<User, "id">;
 };
 
+export type SetInterestedEventsMutationVariables = Exact<{
+  input: Array<Scalars["Int"]> | Scalars["Int"];
+}>;
+
+export type SetInterestedEventsMutation = { __typename?: "Mutation" } & Pick<
+  Mutation,
+  "setInterestedEvents"
+>;
+
+export type GetPastEventQueryVariables = Exact<{
+  n: Scalars["Int"];
+  tagIds: Array<Scalars["Int"]> | Scalars["Int"];
+}>;
+
+export type GetPastEventQuery = { __typename?: "Query" } & {
+  pastEvents: Array<
+    { __typename?: "Event" } & Pick<Event, "id" | "name" | "posterImageUrl">
+  >;
+};
+
 export type GetEventUserCheckinQueryVariables = Exact<{
   id: Scalars["Int"];
 }>;

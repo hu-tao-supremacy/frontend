@@ -7,14 +7,14 @@
     />
     <ModalInterests
       v-if="showInterestModal"
-      :interests="test.interests"
-      @close-modal="cancelSignup"
-      @submit-modal="toInterestedEventsModal"
+      :interests="tags"
+      @close-modal="closeModal"
+      @submit-modal="submitInterestedTags"
     />
     <ModalInterestedEvents
       v-if="showInterestedEventsModal"
-      :interests="test.interestedEvents"
-      @close-modal="cancelSignup"
+      :interests="interestedEventsCandidate"
+      @close-modal="closeModal"
       @submit-modal="finishModal"
     />
   </div>
@@ -26,6 +26,7 @@ import ModalInterests from "./modal-interests/ModalInterests.vue";
 import ModalAdditionalInfo from "./modal-additional-info/ModalAdditionalInfo.vue";
 import ModalInterestedEvents from "./modal-interested-events/ModalInterestedEvents.vue";
 import useSignup from "./useSignup";
+import { tags } from "./data";
 
 export default defineComponent({
   name: "Signup",
@@ -39,23 +40,26 @@ export default defineComponent({
       toggleModal,
       showAdditionalInfoModal,
       showInterestedEventsModal,
-      toInterestedEventsModal,
-      test,
+      submitInterestedTags,
       showInterestModal,
       finishModal,
       cancelSignup,
-      updateInfo
+      updateInfo,
+      interestedEventsCandidate,
+      closeModal
     } = useSignup();
     return {
       toggleModal,
       showAdditionalInfoModal,
       showInterestedEventsModal,
-      toInterestedEventsModal,
-      test,
+      submitInterestedTags,
       showInterestModal,
       finishModal,
       cancelSignup,
-      updateInfo
+      updateInfo,
+      interestedEventsCandidate,
+      closeModal,
+      tags
     };
   }
 });

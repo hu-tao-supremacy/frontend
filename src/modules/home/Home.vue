@@ -3,7 +3,7 @@
     <div class="container">
       <EventCarousel :eventsList="featureEvents" class="my-4 w-full" />
       <div
-        v-if="recommendedEvents"
+        v-if="recommendedEvents && recommendedEvents.length !== 0"
         class="flex h-6 w-full mb-3 justify-between items-center"
       >
         <div class="text-4xl font-heading">Recommended For You</div>

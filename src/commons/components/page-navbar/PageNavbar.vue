@@ -2,7 +2,7 @@
   <div
     class="flex justify-between h-8 w-full px-8 py-2 items-center sticky top-0 bg-white z-40"
   >
-    <section class="flex items-center">
+    <section class="flex">
       <router-link :to="homePage">
         <div class="flex items-center">
           <base-icon
@@ -13,7 +13,7 @@
             :class="{ 'mr-1': isOrgView, 'mr-6': !isOrgView }"
             ><OnePassLogo
           /></base-icon>
-          <h1 v-if="isOrgView" class="text-blue-10 font-semibold">
+          <h1 v-if="isOrgView" class="mt-1 text-blue-10 font-semibold">
             for Organizer
           </h1>
         </div>

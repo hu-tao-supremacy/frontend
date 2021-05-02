@@ -115,6 +115,7 @@ const router = createRouter({
           path: "event",
           component: PageSkeletonOrgEvent,
           children: [
+            { path: "", redirect: "/404" },
             { path: ":id", component: OrgEventDashboardPage },
             {
               path: "/attendee-management/:id",

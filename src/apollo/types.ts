@@ -371,6 +371,7 @@ export type Query = {
   featuredEvents: Array<Event>;
   recommendedEvents: Array<Event>;
   onlineEvents: Array<Event>;
+  pastEvents: Array<Event>;
   event: Event;
   organizations: Array<Organization>;
   featuredOrganizations: Array<Organization>;
@@ -382,12 +383,25 @@ export type Query = {
   tag: Tag;
 };
 
+export type QueryUpcomingEventsArgs = {
+  n: Scalars["Int"];
+};
+
+export type QueryFeaturedEventsArgs = {
+  n: Scalars["Int"];
+};
+
 export type QueryRecommendedEventsArgs = {
   n: Scalars["Int"];
 };
 
 export type QueryOnlineEventsArgs = {
   n: Scalars["Int"];
+};
+
+export type QueryPastEventsArgs = {
+  n: Scalars["Int"];
+  tagIds: Array<Scalars["Int"]>;
 };
 
 export type QueryEventArgs = {
@@ -501,18 +515,24 @@ export type SetEventQuestionsQuestionInput = {
 
 export type SetEventTagsTagInput = {
   id: Scalars["Int"];
+  imageUrl: Scalars["String"];
+  imageHash: Scalars["String"];
 };
 
 export type Tag = {
   __typename?: "Tag";
   id: Scalars["Int"];
   name: Scalars["String"];
+  imageUrl: Scalars["String"];
+  imageHash: Scalars["String"];
   events: Array<Event>;
 };
 
 export type TagInput = {
   id: Scalars["Int"];
   name: Scalars["String"];
+  imageUrl: Scalars["String"];
+  imageHash: Scalars["String"];
   events: Array<EventInput>;
 };
 

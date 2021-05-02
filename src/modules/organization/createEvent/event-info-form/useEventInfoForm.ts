@@ -13,7 +13,7 @@ export default function useEventInfoForm(
   const name = ref(initialEventInfoValue.value.name);
   const contact = ref(initialEventInfoValue.value.contact);
   const tags: Ref<Tag[]> = ref(initialEventInfoValue.value.tags);
-  const tagSearch: Ref<Tag> = ref({ id: -1, name: "", events: [] });
+  const tagSearch: any = ref({ id: -1, name: "", events: [] });
   const description = ref(initialEventInfoValue.value.description);
   const attendeeLimit = ref(
     initialEventInfoValue.value.attendeeLimit.toString()
@@ -26,7 +26,7 @@ export default function useEventInfoForm(
   const coverImg = ref(initialEventInfoValue.value.coverImg);
 
   //Get from API
-  const tagOptionValues: Tag[] = testTags;
+  const tagOptionValues: any[] = testTags;
   const tagOptionNames: string[] = tagOptionValues.map(tag => tag.name);
 
   const isValidContact = computed(() => {

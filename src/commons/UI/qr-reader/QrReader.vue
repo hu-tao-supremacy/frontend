@@ -25,6 +25,7 @@ import { defineComponent, ref } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import BaseModal from "@/commons/UI/BaseModal.vue";
 import { QrStream } from "vue3-qr-reader";
+import { CLOSE_MODAL } from "@/commons/constant";
 export default defineComponent({
   name: "QrReader",
   components: {
@@ -32,16 +33,17 @@ export default defineComponent({
     BaseModal,
     QrStream
   },
-  setup() {
+  emits: [CLOSE_MODAL],
+  setup(_, context) {
+    function closeModal() {
+      context.emit(CLOSE_MODAL);
+    }
     const code = ref("");
 
     function onDecode(ticket: string) {
       code.value = ticket;
     }
-    return {
-      code,
-      onDecode
-    };
+    return { closeModal, code, onDecode };
   }
 });
 </script>

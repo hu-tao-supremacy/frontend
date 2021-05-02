@@ -2,7 +2,6 @@
   <div class="flex flex-col p-4 items-center w-full">
     <div class="flex flex-col justify-center w-full content-max-width-s">
       <div class="text-4xl font-heading mb-3">Event Feedback</div>
-      <QrReader />
       <div v-if="hasForm">
         <QuestionStarPreview class="mb-6" />
         <div
@@ -103,7 +102,6 @@ import QuestionRadioPreview from "@/modules/question/question-radio-preview/Ques
 import QuestionStarPreview from "@/modules/question/question-star-preview/QuestionStarPreview.vue";
 import useCreateEventFeedback from "./use-create-event-feedback";
 import DesignTeamIcon from "@/assets/DesignTeam.vue";
-import QrReader from "@/commons/UI/qr-reader/QrReader.vue";
 
 export default defineComponent({
   name: "CreateFeedback",
@@ -113,8 +111,7 @@ export default defineComponent({
     QuestionTextPreview,
     QuestionRadioPreview,
     QuestionStarPreview,
-    DesignTeamIcon,
-    QrReader
+    DesignTeamIcon
   },
   setup() {
     const {

@@ -70,16 +70,16 @@ const router = createRouter({
           beforeEnter: authGuard
         },
         {
-          path: "/event-register/:id",
+          path: "event-register/:id",
           component: EventRegister,
           beforeEnter: authGuard
         },
         {
-          path: "/event-feedback",
+          path: "event-feedback/:id",
           component: EventFeedback
         },
         {
-          path: "/org-info/:id",
+          path: "org-info/:id",
           component: OrgUserView
         },
         { path: "/404", component: NotFound }
@@ -97,7 +97,7 @@ const router = createRouter({
         { path: "create-event", component: CreateEventPage },
         { path: "create-org", component: CreateOrg },
         {
-          path: "/create-event-form/:id",
+          path: "create-event-form/:id",
           component: CreateForm
         }
       ]
@@ -109,11 +109,11 @@ const router = createRouter({
         { path: "", component: OrgHome },
         { path: "dashboard/:id", component: OrgEventDashboardPage },
         {
-          path: "/attendee-management/:id",
+          path: "attendee-management/:id",
           component: AttendeeManagementPage
         },
         {
-          path: "/create-event-feedback/:id",
+          path: "create-event-feedback/:id",
           component: CreateFeedback
         }
       ]

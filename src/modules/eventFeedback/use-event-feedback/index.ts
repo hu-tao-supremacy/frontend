@@ -1,11 +1,16 @@
 import { AnswerType, QuestionGroup } from "@/apollo/types";
 import { reactive, ref } from "vue";
+import { useRoute } from "vue-router";
 import { useEvents } from "../api";
 
 const useEventFeedback = () => {
   const questionGroupData = reactive([] as QuestionGroup[]);
   const eventName = ref("");
-  const { onResult } = useEvents();
+  const route = useRoute();
+  const eventId = Number(route.params.id);
+  const { onResult } = useEvents({
+    id: eventId
+  });
   const placeholder = "Write your answer here!";
 
   const checkQuestionTypeScale = (type: string) => {

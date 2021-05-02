@@ -14,7 +14,6 @@ export type Scalars = {
   Int: number;
   Float: number;
   /** The `Upload` scalar type represents a file upload. */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Upload: any;
 };
 
@@ -241,6 +240,7 @@ export type Mutation = {
   setInterestedEvents: Scalars["Boolean"];
   createJoinRequest: Scalars["Boolean"];
   deleteJoinRequest: Scalars["Boolean"];
+  createTag: Tag;
 };
 
 export type MutationSetEventQuestionsArgs = {
@@ -315,6 +315,11 @@ export type MutationDeleteJoinRequestArgs = {
   input: DeleteJoinRequestInput;
 };
 
+export type MutationCreateTagArgs = {
+  name: Scalars["String"];
+  organizationId: Scalars["Int"];
+};
+
 export type Organization = {
   __typename?: "Organization";
   id: Scalars["Int"];
@@ -375,6 +380,10 @@ export type Query = {
   user: User;
   tags: Array<Tag>;
   tag: Tag;
+};
+
+export type QueryRecommendedEventsArgs = {
+  n: Scalars["Int"];
 };
 
 export type QueryOnlineEventsArgs = {
@@ -684,7 +693,9 @@ export type SetEventQuestionsMutation = { __typename?: "Mutation" } & Pick<
   "setEventQuestions"
 >;
 
-export type GetQuestionGroupsQueryVariables = Exact<{ [key: string]: never }>;
+export type GetQuestionGroupsQueryVariables = Exact<{
+  id: Scalars["Int"];
+}>;
 
 export type GetQuestionGroupsQuery = { __typename?: "Query" } & {
   event: { __typename?: "Event" } & Pick<Event, "name"> & {

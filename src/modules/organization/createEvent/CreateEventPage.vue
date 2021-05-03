@@ -30,8 +30,10 @@ import {
   EventDurationsForm,
   EventLocationForm
 } from "@/commons/Interfaces";
-import { CreateEventInput, Organization } from "@/apollo/types";
-import { organizationData } from "./testData";
+import { CreateEventInput } from "@/apollo/types";
+import { useCreateEventApi } from "./api";
+import useOrganization from "../useOrganization";
+import { useRouter } from "vue-router";
 
 export default defineComponent({
   name: "CreateEventPage",
@@ -43,7 +45,9 @@ export default defineComponent({
   },
   setup() {
     //Get from API
-    const organization: Ref<Organization> = ref(organizationData);
+    const { createEvent, onDone } = useCreateEventApi();
+    const { currentOrganizationId } = useOrganization();
+    const router = useRouter();
 
     const eventInformation: Ref<EventInfoForm> = ref({
       name: "",
@@ -86,18 +90,30 @@ export default defineComponent({
         isOnline: eventLocation.value.isOnline
       };
       const event: CreateEventInput = {
-        organizationId: organization.value.id,
+        organizationId: currentOrganizationId.value,
         location: eventLocationInput,
         description: eventInformation.value.description,
         name: eventInformation.value.name,
         attendeeLimit: eventInformation.value.attendeeLimit,
         contact: eventInformation.value.contact,
         registrationDueDate: eventInformation.value.registrationDueDate,
-        coverImage: eventInformation.value.coverImg,
-        posterImage: eventInformation.value.posterImg,
+        coverImage:
+          eventInformation.value.coverImg === ""
+            ? null
+            : eventInformation.value.coverImg,
+        posterImage:
+          eventInformation.value.posterImg === ""
+            ? null
+            : eventInformation.value.posterImg,
         tags: eventInformation.value.tags,
         durations: eventDurations.value.durations
       };
+
+      createEvent({ input: event });
+
+      onDone(() => {
+        router.push("/org/team");
+      });
 
       //Send to API and then to event form page
       console.log(event);

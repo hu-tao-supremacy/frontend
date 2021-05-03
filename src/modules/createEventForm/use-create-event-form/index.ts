@@ -7,6 +7,7 @@ import {
 } from "@/apollo/types";
 import { createQuestion } from "../api";
 import { useRoute } from "vue-router";
+import { useRouter } from "vue-router";
 import { computed, reactive, ref } from "vue";
 
 const useCreateEventForm = () => {
@@ -14,6 +15,7 @@ const useCreateEventForm = () => {
   const questions = reactive([] as SetEventQuestionsQuestionInput[]);
   const { sendQuestions } = createQuestion();
   const route = useRoute();
+  const router = useRouter();
   const eventID = Number(route.params.id);
   const isSuccessModalShown = ref(false);
 
@@ -38,7 +40,6 @@ const useCreateEventForm = () => {
       title: "",
       subtitle: ""
     });
-    console.log(questions);
   };
 
   const resetSequence = (questions: SetEventQuestionsQuestionInput[]) => {
@@ -56,8 +57,7 @@ const useCreateEventForm = () => {
 
   function closeSuccessModal() {
     isSuccessModalShown.value = false;
-    //Perform redirect to some other page after create org
-    console.log("To team page");
+    router.push("/org/team");
   }
 
   const submitQuestions = () => {

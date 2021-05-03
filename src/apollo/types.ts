@@ -47,8 +47,8 @@ export type AuthenticateOutput = {
 };
 
 export type CheckInInput = {
-  userId: Scalars["Int"];
   eventId: Scalars["Int"];
+  ticket?: Maybe<Scalars["String"]>;
 };
 
 export type CreateEventInput = {
@@ -376,6 +376,7 @@ export type Query = {
   featuredEvents: Array<Event>;
   recommendedEvents: Array<Event>;
   onlineEvents: Array<Event>;
+  searchEvent: Array<Event>;
   pastEvents: Array<Event>;
   event: Event;
   organizations: Array<Organization>;
@@ -402,6 +403,11 @@ export type QueryRecommendedEventsArgs = {
 
 export type QueryOnlineEventsArgs = {
   n: Scalars["Int"];
+};
+
+export type QuerySearchEventArgs = {
+  n?: Maybe<Scalars["Int"]>;
+  keyword: Scalars["String"];
 };
 
 export type QueryPastEventsArgs = {
@@ -985,6 +991,14 @@ export type GetAllTagsQuery = { __typename?: "Query" } & {
   tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
 };
 
+export type CreateEventMutationVariables = Exact<{
+  input: CreateEventInput;
+}>;
+
+export type CreateEventMutation = { __typename?: "Mutation" } & {
+  createEvent: { __typename?: "Event" } & Pick<Event, "id">;
+};
+
 export type GetCurrentUserInfoQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetCurrentUserInfoQuery = { __typename?: "Query" } & {
@@ -1089,11 +1103,11 @@ export type GetOrgTeamItemQuery = { __typename?: "Query" } & {
             durations: Array<
               { __typename?: "EventDuration" } & Pick<
                 EventDuration,
-                "start" | "finish"
+                "id" | "start" | "finish"
               >
             >;
             location?: Maybe<
-              { __typename?: "Location" } & Pick<Location, "name">
+              { __typename?: "Location" } & Pick<Location, "id" | "name">
             >;
             attendees: Array<
               { __typename?: "UserEvent" } & Pick<UserEvent, "id">

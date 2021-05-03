@@ -22,11 +22,13 @@ export const useOrgTeamApi = (id: Ref<number>) =>
             posterImageUrl
             posterImageHash
             durations {
+              id
               start
               finish
             }
             registrationDueDate
             location {
+              id
               name
             }
             attendeeCount
@@ -38,5 +40,6 @@ export const useOrgTeamApi = (id: Ref<number>) =>
         }
       }
     `,
-    () => ({ input: id.value })
+    () => ({ input: id.value }),
+    { fetchPolicy: "no-cache" }
   );

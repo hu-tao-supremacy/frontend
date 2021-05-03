@@ -81,9 +81,12 @@
         >
         <base-button
           v-else-if="isAttended"
+          :disabled="isSubmittedFeedback"
           class="check-in-btn self-center mt-auto h-3.5 w-full"
           @click="giveFeedback"
-          >Feedback</base-button
+          >{{
+            isSubmittedFeedback ? "Submited Feedback" : "Feedback"
+          }}</base-button
         >
       </router-link>
     </section>
@@ -141,7 +144,8 @@ export default defineComponent({
       date,
       time,
       routerLinkId,
-      isAttended
+      isAttended,
+      isSubmittedFeedback
     } = useTicket(props.ticketStatus, event);
     console.log(routerLinkId.value);
     return {
@@ -153,7 +157,8 @@ export default defineComponent({
       date,
       time,
       routerLinkId,
-      isAttended
+      isAttended,
+      isSubmittedFeedback
     };
   }
 });

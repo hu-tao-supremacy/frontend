@@ -40,6 +40,7 @@ export const useWalletApi = () =>
             id
             ticket
             status
+            rating
           }
         }
       }

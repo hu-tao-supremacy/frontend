@@ -64,7 +64,8 @@ export default function useEventInfoForm(
     if (
       name.value === "" ||
       description.value === "" ||
-      attendeeLimitNumber.value === 0
+      attendeeLimitNumber.value === 0 ||
+      tags.value.length === 0
     )
       return false;
     return true;

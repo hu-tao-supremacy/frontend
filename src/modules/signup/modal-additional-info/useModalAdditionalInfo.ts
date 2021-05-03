@@ -27,6 +27,7 @@ export default function useModalAdditionalInfo(
   context: SetupContext<("close-modal" | "submit-modal")[]>
 ) {
   const uploadedImg = ref<string | null>(null);
+  const uploadedImgFile = ref<Blob | null>(null);
   const userEmail = ref("");
   const userPhone = ref("");
   const userLocation: Ref<District> = ref(USER_LOCATION);
@@ -96,7 +97,7 @@ export default function useModalAdditionalInfo(
       const userInfo = {
         address: userAddress.value,
         email: userEmail.value,
-        profilePicture: uploadedImg.value,
+        profilePicture: uploadedImgFile.value,
         district: userDistrict.value,
         province: userProvince.value,
         zipCode: userZipCode.value,
@@ -117,6 +118,7 @@ export default function useModalAdditionalInfo(
 
   return {
     uploadedImg,
+    uploadedImgFile,
     fileLoaded,
     closeModal,
     userEmail,

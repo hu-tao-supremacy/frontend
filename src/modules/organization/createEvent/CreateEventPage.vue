@@ -56,8 +56,8 @@ export default defineComponent({
       description: "",
       attendeeLimit: 0,
       registrationDueDate: setTimeToZero(new Date()).toString(),
-      posterImg: "",
-      coverImg: "",
+      posterImg: null,
+      coverImg: null,
       isValid: false
     });
 

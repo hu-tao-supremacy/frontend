@@ -57,7 +57,7 @@ export default function useEventInfoForm(
     const dateTime = set(new Date(registrationDueDate.value), {
       hours: registrationDueTime.value
     });
-    return dateTime.toString();
+    return dateTime.toISOString();
   });
 
   const isValidEventInfo = computed(() => {

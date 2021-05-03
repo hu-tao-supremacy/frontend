@@ -19,7 +19,7 @@ export default function useEventCarousel(
 
   function resetTimer() {
     clearInterval(slideTimer);
-    startTimer();
+    // startTimer();
   }
 
   function changeSlide(slideIndex: number) {

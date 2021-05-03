@@ -7,27 +7,33 @@
     </div>
     <div class="flex mb-1">
       <BaseLabelAndTextInput
-        v-model="facebook"
+        v-model.trim="facebook"
         inputName="facebook"
-        label="Facebook Page"
+        label="Facebook Page Url"
+        :isError="!isValidFacebook"
+        errorText="Please input valid Facebook URL"
         class="w-30 flex-shrink-0 mr-4"
       />
       <BaseLabelAndTextInput
-        v-model="instagram"
+        v-model.trim="instagram"
         inputName="instagram"
         label="Instagram"
+        :isError="!isValidInstagram"
+        errorText="Please input valid Instagram URL"
         class="w-30 flex-shrink-0"
       />
     </div>
     <div class="flex">
       <BaseLabelAndTextInput
-        v-model="line"
+        v-model.trim="line"
         inputName="line"
         label="line Official Account"
+        :isError="!isValidLineOfficial"
+        errorText="Must be in form line.me/R/ti/p/yourID"
         class="w-30 flex-shrink-0 mr-4"
       />
       <BaseLabelAndTextInput
-        v-model="email"
+        v-model.trim="email"
         inputName="email"
         label="Organization email"
         :isError="!isValidEmail"
@@ -67,10 +73,22 @@ export default defineComponent({
       instagram,
       line,
       email,
-      isValidEmail
+      isValidEmail,
+      isValidFacebook,
+      isValidLineOfficial,
+      isValidInstagram
     } = useCreateOrgFormSocial(modelValue, context);
 
-    return { facebook, instagram, line, email, isValidEmail };
+    return {
+      facebook,
+      instagram,
+      line,
+      email,
+      isValidEmail,
+      isValidFacebook,
+      isValidLineOfficial,
+      isValidInstagram
+    };
   }
 });
 </script>

@@ -126,6 +126,10 @@ const router = createRouter({
               component: CreateFeedback
             }
           ]
+        },
+        {
+          path: "",
+          redirect: "/404"
         }
       ]
     },

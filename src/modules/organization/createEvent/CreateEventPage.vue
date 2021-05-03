@@ -121,8 +121,7 @@ export default defineComponent({
         tags: eventTagInput,
         durations: eventDurationInput
       };
-      console.log(event);
-      console.log(eventDurationInput);
+
       const createEventResult = createEvent({ input: event });
 
       onDone(() => {

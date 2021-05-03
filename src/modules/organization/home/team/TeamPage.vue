@@ -9,7 +9,9 @@
           :inputClass="'w-31.5'"
           :placeholder="'Search'"
         />
-        <base-button class="px-1.5">Create an Event</base-button>
+        <router-link to="/org/team/create-event">
+          <base-button class="px-1.5">Create an Event</base-button>
+        </router-link>
       </section>
       <section class="flex flex-col space-y-2">
         <OrgEventListCard
@@ -31,6 +33,7 @@ import BaseButton from "@/commons/UI/BaseButton.vue";
 import { useOrgTeamApi } from "./api";
 import { useResult } from "@vue/apollo-composable";
 import Fuse from "fuse.js";
+import useOrganization from "../../useOrganization";
 
 export default defineComponent({
   name: "TeamPage",
@@ -42,7 +45,8 @@ export default defineComponent({
   },
   setup() {
     //Must change api as it is currently static by taking from org id 5
-    const { result: orgTeamResult } = useOrgTeamApi();
+    const { currentOrganizationId } = useOrganization();
+    const { result: orgTeamResult } = useOrgTeamApi(currentOrganizationId);
     const organization = useResult(
       orgTeamResult,
       {},

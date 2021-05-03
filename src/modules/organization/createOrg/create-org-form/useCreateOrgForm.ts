@@ -4,6 +4,7 @@ import { GetCurrentUserInfoQuery, User } from "@/apollo/types";
 import { SUBMIT_FORM } from "@/commons/constant";
 import { useAddMemberToOrg, useCreateOrganization, useUserInfo } from "../api";
 import { useResult } from "@vue/apollo-composable";
+import useOrganization from "../../useOrganization";
 
 export default function useCreateOrgForm(
   context: SetupContext<"submit-form"[]>
@@ -25,6 +26,7 @@ export default function useCreateOrgForm(
     createOrganization,
     onDone: onCreateOrgDone
   } = useCreateOrganization();
+  const { refetch } = useOrganization();
   const { addMember } = useAddMemberToOrg();
   const selectedMembers = ref<GetCurrentUserInfoQuery["currentUser"][]>([]);
   const { result: userInfo } = useUserInfo();
@@ -94,19 +96,24 @@ export default function useCreateOrgForm(
       contactEmail: orgContactPerson.value.email,
       contactPhoneNumber: orgContactPerson.value.phone,
       contactLineId: orgContactPerson.value.line,
-      profilePicture: uploadedImg.value
+      profilePicture: uploadedImgFile.value
     };
     createOrganization({ input: org });
   }
 
   onCreateOrgDone(result => {
-    const memberEmails = selectedMembers.value.map(member => member.email);
-    addMember({
-      input: {
-        organizationId: result.data?.createOrganization.id as number,
-        emails: memberEmails
-      }
-    });
+    const memberEmails = selectedMembers.value
+      .filter(member => member.id !== orgOwner.value?.id)
+      .map(member => member.email);
+    if (memberEmails.length !== 0) {
+      addMember({
+        input: {
+          organizationId: result.data?.createOrganization.id as number,
+          emails: memberEmails
+        }
+      });
+    }
+    refetch();
     context.emit(SUBMIT_FORM);
   });
 

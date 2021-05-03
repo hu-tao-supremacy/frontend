@@ -1,27 +1,51 @@
 import { useResult } from "@vue/apollo-composable";
-import { ref, watch } from "vue";
+import { onMounted, ref, watch } from "vue";
 import { useUserOrganization } from "../api";
+import { CURRENT_ORG_ID } from "./constant";
 
 const useOrganizationHooks = () => {
-  const { result } = useUserOrganization();
-  const organizations = useResult(
-    result,
-    null,
-    data => data.currentUser.organizations
+  const { result, refetch } = useUserOrganization();
+  const organizations = useResult(result, null, data =>
+    data.currentUser.organizations.map(
+      organization => organization.organization
+    )
   );
+
   const currentOrganizationId = ref(-1);
 
+  onMounted(() => {
+    currentOrganizationId.value = Number(
+      window.localStorage.getItem(CURRENT_ORG_ID)
+    );
+  });
+
   watch(organizations, () => {
-    if (organizations.value) {
-      currentOrganizationId.value = organizations.value[0].organization.id;
+    if (
+      organizations.value &&
+      organizations.value.length !== 0 &&
+      currentOrganizationId.value === -1
+    ) {
+      currentOrganizationId.value = organizations.value[0].id;
     }
+  });
+
+  watch(currentOrganizationId, () => {
+    window.localStorage.setItem(
+      CURRENT_ORG_ID,
+      `${currentOrganizationId.value}`
+    );
   });
 
   const changeOrganizationId = (id: number) => {
     currentOrganizationId.value = id;
   };
 
-  return { organizations, currentOrganizationId, changeOrganizationId };
+  return {
+    organizations,
+    currentOrganizationId,
+    changeOrganizationId,
+    refetch
+  };
 };
 
 export default useOrganizationHooks;

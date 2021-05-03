@@ -26,8 +26,8 @@ export default function useOrgNavbarTeam() {
 
   function changeSelectedTeam(team: Organization) {
     if (team.id === currentSelectedTeamId.value) return;
-    //Also perform provide/inject here
     changeOrganizationId(team.id);
+    router.push("/org/team");
   }
 
   function createNewTeam() {

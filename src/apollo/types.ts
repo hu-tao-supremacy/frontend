@@ -967,16 +967,16 @@ export type CurrentUserOrganizationQueryVariables = Exact<{
 }>;
 
 export type CurrentUserOrganizationQuery = { __typename?: "Query" } & {
-  currentUser: { __typename?: "User" } & {
-    organizations: Array<
-      { __typename?: "UserOrganization" } & {
-        organization: { __typename?: "Organization" } & Pick<
-          Organization,
-          "name" | "id" | "profilePictureUrl" | "profilePictureHash"
-        >;
-      }
-    >;
-  };
+  currentUser: { __typename?: "User" } & Pick<User, "id"> & {
+      organizations: Array<
+        { __typename?: "UserOrganization" } & Pick<UserOrganization, "id"> & {
+            organization: { __typename?: "Organization" } & Pick<
+              Organization,
+              "name" | "id" | "profilePictureUrl" | "profilePictureHash"
+            >;
+          }
+      >;
+    };
 };
 
 export type GetAllTagsQueryVariables = Exact<{ [key: string]: never }>;
@@ -1060,7 +1060,9 @@ export type ReviewJoinRequestMutation = { __typename?: "Mutation" } & {
   reviewJoinRequest: { __typename?: "UserEvent" } & Pick<UserEvent, "userId">;
 };
 
-export type GetOrgTeamItemQueryVariables = Exact<{ [key: string]: never }>;
+export type GetOrgTeamItemQueryVariables = Exact<{
+  input: Scalars["Int"];
+}>;
 
 export type GetOrgTeamItemQuery = { __typename?: "Query" } & {
   organization: { __typename?: "Organization" } & Pick<
@@ -1071,6 +1073,7 @@ export type GetOrgTeamItemQuery = { __typename?: "Query" } & {
     | "description"
     | "profilePictureUrl"
     | "profilePictureHash"
+    | "isVerified"
   > & {
       events: Array<
         { __typename?: "Event" } & Pick<

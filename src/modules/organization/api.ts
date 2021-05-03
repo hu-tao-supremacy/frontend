@@ -7,7 +7,9 @@ export const useUserOrganization = () =>
     gql`
       query currentUserOrganization {
         currentUser {
+          id
           organizations {
+            id
             organization {
               name
               id

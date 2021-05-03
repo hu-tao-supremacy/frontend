@@ -1,7 +1,11 @@
-import { AnswerType, QuestionGroup } from "@/apollo/types";
+import {
+  AnswerType,
+  CreateJoinRequestAnswerInput,
+  QuestionGroup
+} from "@/apollo/types";
 import { reactive, ref } from "vue";
-import { useRoute } from "vue-router";
-import { useEvents } from "../api";
+import { useRoute, useRouter } from "vue-router";
+import { useSubmitEventFeedback, useEvents } from "../api";
 
 const useEventFeedback = () => {
   const questionGroupData = reactive([] as QuestionGroup[]);
@@ -12,9 +16,40 @@ const useEventFeedback = () => {
     id: eventId
   });
   const placeholder = "Write your answer here!";
+  const { submitFeedback, onSubmitFeedbackDone } = useSubmitEventFeedback();
+  const currentRating = ref(-1);
+  const answers = ref<CreateJoinRequestAnswerInput[]>([]);
+  const router = useRouter();
 
   const checkQuestionTypeScale = (type: string) => {
     return type === AnswerType.Scale;
+  };
+
+  const updateAnswer = (id: number, answer: string | number) => {
+    const index = answers.value.findIndex(answer => answer.questionId === id);
+    const ans = { questionId: id, value: String(answer) };
+    if (index === -1) {
+      answers.value.push(ans);
+    } else {
+      answers.value[index] = ans;
+    }
+  };
+
+  const submitEventFeedback = () => {
+    const input = {
+      eventId,
+      rating: currentRating.value,
+      answers: answers.value
+    };
+    submitFeedback({ input });
+  };
+
+  onSubmitFeedbackDone(() => {
+    router.push("/wallet");
+  });
+
+  const changeRating = (rating: number) => {
+    currentRating.value = rating;
   };
 
   onResult(result => {
@@ -25,7 +60,10 @@ const useEventFeedback = () => {
     checkQuestionTypeScale,
     questionGroupData,
     eventName,
-    placeholder
+    placeholder,
+    submitEventFeedback,
+    changeRating,
+    updateAnswer
   };
 };
 

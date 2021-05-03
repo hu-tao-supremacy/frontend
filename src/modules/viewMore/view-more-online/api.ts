@@ -5,7 +5,7 @@ import gql from "graphql-tag";
 export const useOnlineItems = () =>
   useQuery<GetOnlineItemsQuery>(gql`
     query getOnlineItems {
-      recommendedEvents(n: 20) {
+      onlineEvents(n: 20) {
         id
         description
         name

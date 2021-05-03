@@ -48,6 +48,10 @@ const MoreRecommended = () =>
   import(
     "@/modules/viewMore/view-more-recommended/ViewMoreRecommendedPage.vue"
   );
+const MoreOrganizations = () =>
+  import(
+    "@/modules/viewMore/view-more-organization/ViewMoreOrganizationsPage.vue"
+  );
 const MoreUpcoming = () =>
   import("@/modules/viewMore/view-more-upcoming/ViewMoreUpcomingPage.vue");
 const MoreOnline = () =>
@@ -99,6 +103,10 @@ const router = createRouter({
         {
           path: "/more-recommended-events",
           component: MoreRecommended
+        },
+        {
+          path: "/more-organizations",
+          component: MoreOrganizations
         },
         {
           path: "/more-upcoming-events",

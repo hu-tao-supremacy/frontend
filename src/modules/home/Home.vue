@@ -62,6 +62,22 @@
       </div>
       <div class="flex h-6 w-full mb-3 justify-between items-center">
         <div class="text-4xl font-heading">Organization</div>
+        <router-link to="/more-organizations">
+          <base-transparent-button
+            class="group w-16 h-4 flex justify-center items-center"
+          >
+            View More
+            <span class="text-primary ml-1 group-hover:text-primary-5">
+              <base-icon
+                width="24px"
+                height="24px"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><ArrowRightIcon
+              /></base-icon>
+            </span>
+          </base-transparent-button>
+        </router-link>
       </div>
       <div class="card grid gap-4 mb-4 w-full justify-center md:justify-start">
         <CardOrganization

@@ -240,6 +240,7 @@ export type Mutation = {
   setInterestedTags: Scalars["Boolean"];
   setInterestedEvents: Scalars["Boolean"];
   createJoinRequest: Scalars["Boolean"];
+  submitFeedback: UserEvent;
   deleteJoinRequest: Scalars["Boolean"];
   createTag: Tag;
 };
@@ -316,6 +317,10 @@ export type MutationCreateJoinRequestArgs = {
   input: CreateJoinRequestInput;
 };
 
+export type MutationSubmitFeedbackArgs = {
+  input: SubmitFeedbackInput;
+};
+
 export type MutationDeleteJoinRequestArgs = {
   input: DeleteJoinRequestInput;
 };
@@ -376,6 +381,7 @@ export type Query = {
   featuredEvents: Array<Event>;
   recommendedEvents: Array<Event>;
   onlineEvents: Array<Event>;
+  onSiteEvents: Array<Event>;
   searchEvent: Array<Event>;
   pastEvents: Array<Event>;
   event: Event;
@@ -402,6 +408,10 @@ export type QueryRecommendedEventsArgs = {
 };
 
 export type QueryOnlineEventsArgs = {
+  n: Scalars["Int"];
+};
+
+export type QueryOnSiteEventsArgs = {
   n: Scalars["Int"];
 };
 
@@ -526,6 +536,12 @@ export type SetEventQuestionsQuestionInput = {
 
 export type SetEventTagsTagInput = {
   id: Scalars["Int"];
+};
+
+export type SubmitFeedbackInput = {
+  eventId: Scalars["Int"];
+  answers: Array<CreateJoinRequestAnswerInput>;
+  rating: Scalars["Int"];
 };
 
 export type Tag = {
@@ -698,6 +714,36 @@ export type GetEventAttendanceQuery = { __typename?: "Query" } & {
   event: { __typename?: "Event" } & Pick<Event, "id"> & {
       attendance?: Maybe<{ __typename?: "UserEvent" } & Pick<UserEvent, "id">>;
     };
+};
+
+export type GetSearchedItemsQueryVariables = Exact<{
+  keyword: Scalars["String"];
+}>;
+
+export type GetSearchedItemsQuery = { __typename?: "Query" } & {
+  searchEvent: Array<
+    { __typename?: "Event" } & Pick<
+      Event,
+      | "id"
+      | "description"
+      | "name"
+      | "coverImageUrl"
+      | "coverImageHash"
+      | "posterImageUrl"
+      | "posterImageHash"
+    > & {
+        durations: Array<
+          { __typename?: "EventDuration" } & Pick<
+            EventDuration,
+            "id" | "start" | "finish"
+          >
+        >;
+        location?: Maybe<
+          { __typename?: "Location" } & Pick<Location, "id" | "name">
+        >;
+        tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
+      }
+  >;
 };
 
 export type GetCurrentUserQueryVariables = Exact<{ [key: string]: never }>;
@@ -929,120 +975,6 @@ export type AuthenticateMutation = { __typename?: "Mutation" } & {
   authenticate: { __typename?: "AuthenticateOutput" } & Pick<
     AuthenticateOutput,
     "accessToken"
-  >;
-};
-
-export type GetSearchedItemsQueryVariables = Exact<{
-  keyword: Scalars["String"];
-}>;
-
-export type GetSearchedItemsQuery = { __typename?: "Query" } & {
-  searchEvent: Array<
-    { __typename?: "Event" } & Pick<
-      Event,
-      | "id"
-      | "description"
-      | "name"
-      | "coverImageUrl"
-      | "coverImageHash"
-      | "posterImageUrl"
-      | "posterImageHash"
-    > & {
-        durations: Array<
-          { __typename?: "EventDuration" } & Pick<
-            EventDuration,
-            "id" | "start" | "finish"
-          >
-        >;
-        location?: Maybe<
-          { __typename?: "Location" } & Pick<Location, "id" | "name">
-        >;
-        tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
-      }
-  >;
-};
-
-export type GetRecommendedItemsQueryVariables = Exact<{ [key: string]: never }>;
-
-export type GetRecommendedItemsQuery = { __typename?: "Query" } & {
-  recommendedEvents: Array<
-    { __typename?: "Event" } & Pick<
-      Event,
-      | "id"
-      | "description"
-      | "name"
-      | "coverImageUrl"
-      | "coverImageHash"
-      | "posterImageUrl"
-      | "posterImageHash"
-    > & {
-        durations: Array<
-          { __typename?: "EventDuration" } & Pick<
-            EventDuration,
-            "id" | "start" | "finish"
-          >
-        >;
-        location?: Maybe<
-          { __typename?: "Location" } & Pick<Location, "id" | "name">
-        >;
-        tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
-      }
-  >;
-};
-
-export type GetUpcomingItemsQueryVariables = Exact<{ [key: string]: never }>;
-
-export type GetUpcomingItemsQuery = { __typename?: "Query" } & {
-  upcomingEvents: Array<
-    { __typename?: "Event" } & Pick<
-      Event,
-      | "id"
-      | "description"
-      | "name"
-      | "coverImageUrl"
-      | "coverImageHash"
-      | "posterImageUrl"
-      | "posterImageHash"
-    > & {
-        durations: Array<
-          { __typename?: "EventDuration" } & Pick<
-            EventDuration,
-            "id" | "start" | "finish"
-          >
-        >;
-        location?: Maybe<
-          { __typename?: "Location" } & Pick<Location, "id" | "name">
-        >;
-        tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
-      }
-  >;
-};
-
-export type GetOnlineItemsQueryVariables = Exact<{ [key: string]: never }>;
-
-export type GetOnlineItemsQuery = { __typename?: "Query" } & {
-  onlineEvents: Array<
-    { __typename?: "Event" } & Pick<
-      Event,
-      | "id"
-      | "description"
-      | "name"
-      | "coverImageUrl"
-      | "coverImageHash"
-      | "posterImageUrl"
-      | "posterImageHash"
-    > & {
-        durations: Array<
-          { __typename?: "EventDuration" } & Pick<
-            EventDuration,
-            "id" | "start" | "finish"
-          >
-        >;
-        location?: Maybe<
-          { __typename?: "Location" } & Pick<Location, "id" | "name">
-        >;
-        tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
-      }
   >;
 };
 
@@ -1339,6 +1271,105 @@ export type GetUserTicketQuery = { __typename?: "Query" } & {
     | "lastName"
     | "email"
     | "phoneNumber"
+  >;
+};
+
+export type GetOnlineItemsQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetOnlineItemsQuery = { __typename?: "Query" } & {
+  onlineEvents: Array<
+    { __typename?: "Event" } & Pick<
+      Event,
+      | "id"
+      | "description"
+      | "name"
+      | "coverImageUrl"
+      | "coverImageHash"
+      | "posterImageUrl"
+      | "posterImageHash"
+    > & {
+        durations: Array<
+          { __typename?: "EventDuration" } & Pick<
+            EventDuration,
+            "id" | "start" | "finish"
+          >
+        >;
+        location?: Maybe<
+          { __typename?: "Location" } & Pick<Location, "id" | "name">
+        >;
+        tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
+      }
+  >;
+};
+
+export type GetAllOrganizationQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetAllOrganizationQuery = { __typename?: "Query" } & {
+  organizations: Array<
+    { __typename?: "Organization" } & Pick<
+      Organization,
+      | "id"
+      | "profilePictureUrl"
+      | "profilePictureHash"
+      | "abbreviation"
+      | "name"
+    >
+  >;
+};
+
+export type GetRecommendedItemsQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetRecommendedItemsQuery = { __typename?: "Query" } & {
+  recommendedEvents: Array<
+    { __typename?: "Event" } & Pick<
+      Event,
+      | "id"
+      | "description"
+      | "name"
+      | "coverImageUrl"
+      | "coverImageHash"
+      | "posterImageUrl"
+      | "posterImageHash"
+    > & {
+        durations: Array<
+          { __typename?: "EventDuration" } & Pick<
+            EventDuration,
+            "id" | "start" | "finish"
+          >
+        >;
+        location?: Maybe<
+          { __typename?: "Location" } & Pick<Location, "id" | "name">
+        >;
+        tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
+      }
+  >;
+};
+
+export type GetUpcomingItemsQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetUpcomingItemsQuery = { __typename?: "Query" } & {
+  upcomingEvents: Array<
+    { __typename?: "Event" } & Pick<
+      Event,
+      | "id"
+      | "description"
+      | "name"
+      | "coverImageUrl"
+      | "coverImageHash"
+      | "posterImageUrl"
+      | "posterImageHash"
+    > & {
+        durations: Array<
+          { __typename?: "EventDuration" } & Pick<
+            EventDuration,
+            "id" | "start" | "finish"
+          >
+        >;
+        location?: Maybe<
+          { __typename?: "Location" } & Pick<Location, "id" | "name">
+        >;
+        tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
+      }
   >;
 };
 

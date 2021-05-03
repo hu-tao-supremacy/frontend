@@ -5,7 +5,7 @@ import gql from "graphql-tag";
 export const useUpcomingItems = () =>
   useQuery<GetUpcomingItemsQuery>(gql`
     query getUpcomingItems {
-      recommendedEvents(n: 20) {
+      upcomingEvents(n: 20) {
         id
         description
         name

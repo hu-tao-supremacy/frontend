@@ -761,6 +761,7 @@ export type GetEventByIdQuery = { __typename?: "Query" } & {
       organization: { __typename?: "Organization" } & Pick<
         Organization,
         | "id"
+        | "isVerified"
         | "name"
         | "abbreviation"
         | "description"

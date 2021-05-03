@@ -13,7 +13,7 @@
       />
     </section>
     <section class="p-3 w-full relative">
-      <div class="flex">
+      <div class="flex items-center">
         <h1 class="text-blue-10 text-4xl font-heading">
           {{ org.abbreviation }}
         </h1>
@@ -27,12 +27,6 @@
       </div>
       <h3 class="font-heading text-xl mb-3">{{ org.name }}</h3>
       <p>{{ org.description }}</p>
-      <base-icon
-        :width="20"
-        :height="20"
-        class="absolute top-3 right-3 cursor-pointer hover:text-primary"
-        ><EditIcon
-      /></base-icon>
     </section>
   </div>
 </template>
@@ -40,7 +34,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
-import EditIcon from "@/assets/Edit.vue";
 import CheckCircleIcon from "@/assets/CheckCircle.vue";
 import { GetOrgTeamItemQuery } from "@/apollo/types";
 
@@ -48,7 +41,6 @@ export default defineComponent({
   name: "OrgBanner",
   components: {
     LazyImage,
-    EditIcon,
     CheckCircleIcon
   },
   props: {

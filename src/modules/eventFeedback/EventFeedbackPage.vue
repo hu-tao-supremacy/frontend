@@ -31,7 +31,10 @@
         </div>
       </div>
       <div class="flex mt-3 self-end">
-        <base-button @click="submitEventFeedback" class="w-18 h-4"
+        <base-button
+          :disabled="!isValidated"
+          @click="submitEventFeedback"
+          class="w-18 h-4"
           >Submit</base-button
         >
       </div>
@@ -58,7 +61,8 @@ export default defineComponent({
       placeholder,
       submitEventFeedback,
       changeRating,
-      updateAnswer
+      updateAnswer,
+      isValidated
     } = useEventFeedback();
 
     return {
@@ -68,7 +72,8 @@ export default defineComponent({
       placeholder,
       submitEventFeedback,
       changeRating,
-      updateAnswer
+      updateAnswer,
+      isValidated
     };
   }
 });

@@ -39,7 +39,8 @@ export const useOrgEventApi = (variables: GetEventAttendeeQueryVariables) =>
         }
       }
     `,
-    variables
+    variables,
+    { fetchPolicy: "no-cache" }
   );
 
 export const useReviewRequest = () => {

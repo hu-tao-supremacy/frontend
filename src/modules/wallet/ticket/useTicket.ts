@@ -17,6 +17,11 @@ export default function useTicket(
   const isHistory = computed(() => {
     return ticketStatus === UserEventStatus.Pending;
   });
+
+  const isAttended = computed(() => {
+    return ticketStatus === UserEventStatus.Attended;
+  });
+
   const date = computed(() => {
     return getDisplayDate(event?.value.durations as EventDuration[]);
   });
@@ -44,6 +49,7 @@ export default function useTicket(
     isPending,
     isOngoing,
     isHistory,
+    isAttended,
     checkIn,
     giveFeedback,
     date,

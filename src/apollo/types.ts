@@ -1032,6 +1032,19 @@ export type AddMembersToOrganizationMutation = {
   __typename?: "Mutation";
 } & Pick<Mutation, "addMembersToOrganization">;
 
+export type CheckInMutationVariables = Exact<{
+  input: CheckInInput;
+}>;
+
+export type CheckInMutation = { __typename?: "Mutation" } & {
+  checkIn: { __typename?: "UserEvent" } & Pick<UserEvent, "id" | "status"> & {
+      user: { __typename?: "User" } & Pick<
+        User,
+        "id" | "firstName" | "lastName"
+      >;
+    };
+};
+
 export type GetEventAttendeeQueryVariables = Exact<{
   id: Scalars["Int"];
 }>;

@@ -76,9 +76,9 @@
         <base-button
           v-if="!isHistory"
           @click="checkIn"
-          :disabled="isPending"
+          :disabled="isPending || isAttended"
           class="check-in-btn self-center mt-auto h-3.5 w-full"
-          >Check in</base-button
+          >{{ isAttended ? "Attended" : "Check in" }}</base-button
         >
         <base-button
           v-else
@@ -141,7 +141,8 @@ export default defineComponent({
       giveFeedback,
       date,
       time,
-      routerLinkId
+      routerLinkId,
+      isAttended
     } = useTicket(props.ticketStatus, event);
     console.log(routerLinkId.value);
     return {
@@ -152,7 +153,8 @@ export default defineComponent({
       giveFeedback,
       date,
       time,
-      routerLinkId
+      routerLinkId,
+      isAttended
     };
   }
 });

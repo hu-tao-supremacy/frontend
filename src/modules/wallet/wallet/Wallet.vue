@@ -87,7 +87,7 @@
         v-show="isOngoingTicketView"
         v-for="(ticket, index) in findApprovedEvents"
         :key="index"
-        :ticketStatus="UserEventStatus.Approved"
+        :ticketStatus="ticket.attendance.status"
         :event="ticket"
         :ticketID="ticket.attendance.ticket"
         :parentBgColor="'bg-white'"
@@ -152,7 +152,9 @@ export default defineComponent({
 
     const findApprovedEvents = computed(() =>
       props.profile?.history?.filter(
-        value => value.attendance?.status === UserEventStatus.Approved
+        value =>
+          value.attendance?.status === UserEventStatus.Approved ||
+          value.attendance?.status === UserEventStatus.Attended
       )
     );
 

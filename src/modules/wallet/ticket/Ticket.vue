@@ -19,7 +19,7 @@
           v-for="tag in event.tags"
           :key="tag"
           class="mr-1 mb-1 h-2 bg-primary-3"
-          >{{ tag }}</base-tag
+          >{{ tag.name }}</base-tag
         >
       </div>
       <h3 class="mb-1">Organized by</h3>
@@ -68,23 +68,25 @@
         <base-icon-and-detail class="mb-1" :detail="time"
           ><ClockIcon
         /></base-icon-and-detail>
-        <base-icon-and-detail :detail="event.location.name"
+        <base-icon-and-detail :detail="event && event.location.name"
           ><PinIcon
         /></base-icon-and-detail>
       </div>
       <router-link :to="routerLinkId">
         <base-button
-          v-if="!isHistory"
+          v-if="isOngoing"
           @click="checkIn"
-          :disabled="isPending"
           class="check-in-btn self-center mt-auto h-3.5 w-full"
           >Check in</base-button
         >
         <base-button
-          v-else
+          v-else-if="isAttended"
+          :disabled="isSubmittedFeedback"
           class="check-in-btn self-center mt-auto h-3.5 w-full"
           @click="giveFeedback"
-          >Feedback</base-button
+          >{{
+            isSubmittedFeedback ? "Submited Feedback" : "Feedback"
+          }}</base-button
         >
       </router-link>
     </section>
@@ -141,7 +143,9 @@ export default defineComponent({
       giveFeedback,
       date,
       time,
-      routerLinkId
+      routerLinkId,
+      isAttended,
+      isSubmittedFeedback
     } = useTicket(props.ticketStatus, event);
     console.log(routerLinkId.value);
     return {
@@ -152,7 +156,9 @@ export default defineComponent({
       giveFeedback,
       date,
       time,
-      routerLinkId
+      routerLinkId,
+      isAttended,
+      isSubmittedFeedback
     };
   }
 });

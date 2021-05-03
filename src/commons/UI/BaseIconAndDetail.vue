@@ -35,7 +35,7 @@ export default defineComponent({
     },
     detail: {
       type: String,
-      required: true
+      default: ""
     },
     iconClass: {
       type: String,

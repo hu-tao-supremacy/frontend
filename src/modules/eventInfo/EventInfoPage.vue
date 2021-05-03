@@ -13,10 +13,10 @@
           <EventDetail
             class="event-inner mb-3"
             :eventDetail="event?.description"
+            :shareTitle="event?.name"
           />
           <div class="text-lg font-heading">Organized by</div>
           <EventOrganizer
-            :isSignIn="isSignIn"
             class="event-inner mt-1"
             :eventOrg="event?.organization"
           />

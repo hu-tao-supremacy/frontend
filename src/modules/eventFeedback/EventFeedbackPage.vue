@@ -1,13 +1,11 @@
 <template>
-  <div
-    class="bg-gray-1 flex flex-col p-4 justify-center items-center w-full content-min-height"
-  >
-    <div class="content-max-width-s flex flex-col">
+  <div class="bg-gray-1 flex flex-col p-4 justify-center items-center w-full">
+    <div class="content-max-width-s flex flex-col w-full">
       <div class="font-heading text-4xl">Event Feedback</div>
       <div class="text-gray-5">
         {{ eventName }}
       </div>
-      <QuestionStar class="mt-3" />
+      <QuestionStar @user-input="changeRating($event)" class="mt-3" />
       <div v-for="group in questionGroupData" :key="group.id" class="mt-3">
         <div class="font-heading text-2xl">
           Category {{ group.seq }}: {{ group.title }}
@@ -19,11 +17,13 @@
         >
           <QuestionRadio
             v-if="checkQuestionTypeScale(question.answerType)"
+            @user-input="updateAnswer(question.id, $event)"
             :question="question.title"
             :questionId="question.id"
           />
           <QuestionText
             v-else
+            @user-input="updateAnswer(question.id, $event)"
             :question="question.title"
             :questionId="question.id"
             :placeholderText="placeholder"
@@ -31,7 +31,12 @@
         </div>
       </div>
       <div class="flex mt-3 self-end">
-        <base-button class="w-18 h-4">Submit</base-button>
+        <base-button
+          :disabled="!isValidated"
+          @click="submitEventFeedback"
+          class="w-18 h-4"
+          >Submit</base-button
+        >
       </div>
     </div>
   </div>
@@ -53,14 +58,22 @@ export default defineComponent({
       checkQuestionTypeScale,
       questionGroupData,
       eventName,
-      placeholder
+      placeholder,
+      submitEventFeedback,
+      changeRating,
+      updateAnswer,
+      isValidated
     } = useEventFeedback();
 
     return {
       checkQuestionTypeScale,
       questionGroupData,
       eventName,
-      placeholder
+      placeholder,
+      submitEventFeedback,
+      changeRating,
+      updateAnswer,
+      isValidated
     };
   }
 });

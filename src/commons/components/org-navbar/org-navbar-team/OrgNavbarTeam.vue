@@ -37,7 +37,7 @@
         <base-icon :width="24" :height="24" class="flex-shrink-0"
           ><PlusIcon
         /></base-icon>
-        <h2 v-show="isExpand" class="ml-2.5">Create new org</h2>
+        <h2 v-show="isExpand" class="ml-2.5 font-semibold">Create new org</h2>
       </div>
     </section>
   </div>

@@ -1,3 +1,8 @@
+import {
+  SetEventDurationsDurationInput,
+  SetEventTagsTagInput
+} from "@/apollo/types";
+
 export interface Event {
   description: string;
   day: number;
@@ -34,15 +39,6 @@ export interface Org {
   description: string;
 }
 
-export interface District {
-  DISTRICT_ID: number;
-  DISTRICT_TH_NAME: string;
-  DISTRICT_ENG_NAME: string;
-  PROVINCE_ID: number;
-  GEO_ID: number;
-  ZIPCODE: string;
-}
-
 export interface Ticket {
   event: Event;
   organization: Org;
@@ -64,11 +60,56 @@ export interface Profile {
 export interface Interest {
   id: number;
   name: string;
-  img: string;
-  imgHash: string;
+  posterImageUrl: string;
+}
+
+export interface Duration {
+  start: string;
+  finish: string;
+}
+
+export interface District {
+  DISTRICT_ID: number;
+  DISTRICT_TH_NAME: string;
+  DISTRICT_ENG_NAME: string;
+  PROVINCE_ID: number;
+  GEO_ID: number;
+  ZIPCODE: string;
 }
 
 export interface TextAreaRef {
   style: { height: string };
   scrollHeight: number;
+}
+
+export interface EventInfoForm {
+  name: string;
+  contact: string;
+  tags: SetEventTagsTagInput[];
+  description: string;
+  attendeeLimit: number;
+  registrationDueDate: string;
+  posterImg: Blob | null;
+  coverImg: Blob | null;
+  isValid: boolean;
+}
+
+export interface EventLocationForm {
+  name: string;
+  googleMapUrl: string;
+  description: string;
+  isOnline: boolean;
+  isValid: boolean;
+}
+
+export interface EventDurationsForm {
+  durations: SetEventDurationsDurationInput[];
+  isValid: boolean;
+}
+
+export interface GithubMember {
+  id: number;
+  login: string;
+  avatar_url: string;
+  html_url: string;
 }

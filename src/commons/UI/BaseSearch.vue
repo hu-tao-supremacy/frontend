@@ -1,14 +1,16 @@
 <template>
   <div class="flex items-center">
     <input
-      v-model="searchInput"
+      v-model.trim="searchInput"
       type="text"
       :placeholder="placeholder"
-      class="search-input h-full rounded-r-none rounded-l-lg px-1.5 border-t border-b border-l focus:border-r border-gray-3 focus:border-primary focus:outline-none"
+      class="search-input h-full rounded-r-none rounded-l-lg px-1.5 border-t border-b border-l focus:border-r border-gray-4 focus:border-primary focus:outline-none"
       :class="inputClass"
+      @keyup.enter="search"
     />
     <base-button
-      class="rounded-l-none h-full w-6 flex justify-center items-center"
+      class="rounded-l-none h-full flex justify-center items-center"
+      :class="searchButtonClass"
       @click="search"
       ><base-icon width="12.5px" height="12.5px" class="text-white"
         ><SearchIcon /></base-icon
@@ -17,10 +19,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, watch } from "vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import SearchIcon from "@/assets/Search.vue";
-import { SEARCH } from "@/commons/constant";
+import { SEARCH, UPDATE_MODEL_VALUE } from "@/commons/constant";
 
 export default defineComponent({
   name: "BaseSearch",
@@ -29,21 +31,33 @@ export default defineComponent({
     SearchIcon
   },
   props: {
+    modelValue: {
+      type: String,
+      default: ""
+    },
     inputClass: {
       type: String,
       default: "w-28"
+    },
+    searchButtonClass: {
+      type: String,
+      default: "w-6"
     },
     placeholder: {
       type: String
     }
   },
-  emits: [SEARCH],
-  setup(_, context) {
-    const searchInput = ref("");
+  emits: [SEARCH, UPDATE_MODEL_VALUE],
+  setup(props, context) {
+    const searchInput = ref(props.modelValue);
 
     function search() {
       context.emit(SEARCH, searchInput.value);
     }
+
+    watch(searchInput, () =>
+      context.emit(UPDATE_MODEL_VALUE, searchInput.value)
+    );
 
     return { searchInput, search };
   }

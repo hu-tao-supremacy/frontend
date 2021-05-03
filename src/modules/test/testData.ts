@@ -1,3 +1,5 @@
+import { Gender } from "@/apollo/types";
+
 export const testData = {
   eventDetail: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac libero pellentesque, hendrerit eros vitae, malesuada nisi. Nam tempus dolor vitae mauris luctus aliquet. Sed et finibus erat. Fusce sit amet nisi laoreet purus suscipit luctus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent non gravida lectus, congue euismod sem. Proin vel leo quam. Integer vitae elit elit. Morbi non elit suscipit, posuere est et, hendrerit nulla. Cras ipsum massa, luctus et tellus ac, placerat pretium augue. Nunc eget tempor eros. Cras ac massa eu justo consectetur facilisis vitae eget eros. Mauris sed ultrices sem, nec commodo libero. Quisque gravida non ipsum vel egestas. Duis ultricies ullamcorper lacus vitae auctor.
 
@@ -47,15 +49,32 @@ export const testData = {
     events: [{ name: "asd" }, { name: "rew" }]
   },
   ticketID: "175FD57",
-  profile: {
+  user: {
+    id: 1,
     firstName: "Elon",
     lastName: "Musk",
-    img: "https://picsum.photos/200",
-    imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
+    profilePictureUrl: "https://picsum.photos/200",
     email: "613XXXX21@student.chula.ac.th",
-    like: 16,
-    ticket: 24,
-    following: 48
+    gender: Gender.M,
+    isChulaStudent: true,
+    didSetup: true,
+    organizations: [],
+    history: [],
+    interests: [],
+    events: []
+  },
+  userPoom: {
+    id: 101,
+    firstName: "Pattarapon",
+    lastName: "Kittisrisawai",
+    email: "6131837921@student.chula.ac.th",
+    phoneNumber: "0812345678",
+    isChulaStudent: true,
+    didSetup: true,
+    gender: Gender.M,
+    organizations: [],
+    history: [],
+    interests: []
   },
   eventsSchedule: [
     {
@@ -141,92 +160,6 @@ export const testData = {
       day: 16,
       month: "Apr",
       time: "10:00-18:00"
-    }
-  ],
-  interests: [
-    {
-      id: 1,
-      name: "Music & Festival",
-      img: "https://picsum.photos/200",
-      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
-    },
-    {
-      id: 2,
-      name: "Online Event",
-      img: "https://picsum.photos/201",
-      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
-    },
-    {
-      id: 3,
-      name: "Stories",
-      img: "https://picsum.photos/202",
-      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
-    },
-    {
-      id: 4,
-      name: "Education",
-      img: "https://picsum.photos/203",
-      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
-    },
-    {
-      id: 5,
-      name: "IT & Technology",
-      img: "https://picsum.photos/204",
-      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
-    },
-    {
-      id: 6,
-      name: "Internship",
-      img: "https://picsum.photos/205",
-      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
-    },
-    {
-      id: 7,
-      name: "Investment",
-      img: "https://picsum.photos/206",
-      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
-    },
-    {
-      id: 8,
-      name: "Art & Design",
-      img: "https://picsum.photos/207",
-      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
-    },
-    {
-      id: 9,
-      name: "Sport",
-      img: "https://picsum.photos/208",
-      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
-    },
-    {
-      id: 10,
-      name: "Seft-growth",
-      img: "https://picsum.photos/209",
-      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
-    },
-    {
-      id: 11,
-      name: "Gaming",
-      img: "https://picsum.photos/210",
-      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
-    },
-    {
-      id: 12,
-      name: "Business",
-      img: "https://picsum.photos/211",
-      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
-    },
-    {
-      id: 13,
-      name: "Entertainment",
-      img: "https://picsum.photos/212",
-      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
-    },
-    {
-      id: 14,
-      name: "Chula Event",
-      img: "https://picsum.photos/213",
-      imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
     }
   ],
   interestedEvents: [

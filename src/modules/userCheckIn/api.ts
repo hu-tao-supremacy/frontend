@@ -1,4 +1,5 @@
 import {
+  GetUserTicketQuery,
   GetEventUserCheckinQuery,
   GetEventUserCheckinQueryVariables
 } from "@/apollo/types";
@@ -38,3 +39,17 @@ export const useEventUserCheckIn = (
     variables
   );
 };
+
+export const useUserTicket = () =>
+  useQuery<GetUserTicketQuery>(gql`
+    query getUserTicket {
+      currentUser {
+        id
+        profilePictureUrl
+        firstName
+        lastName
+        email
+        phoneNumber
+      }
+    }
+  `);

@@ -1,6 +1,6 @@
 <template>
-  <div class="grid grid-cols-3 h-40">
-    <div class="col-span-2 min-h-full">
+  <div class="flex h-40">
+    <div class="w-2/3 min-h-full">
       <LazyImage
         :width="1000"
         :height="1000"
@@ -10,20 +10,15 @@
         class="object-cover w-full h-full"
       />
     </div>
-    <div class="col-span-1 flex flex-col justify-between items-center p-2">
+    <div class="w-1/3 relative flex flex-col justify-between p-2">
       <section>
-        <h3
-          class="text-2xl font-heading text-blue-10 mb-1 text-truncate text-truncate-2"
-        >
+        <h3 class="text-2xl font-heading text-blue-10 truncate mb-1">
           {{ event.name }}
         </h3>
-        <div class="flex mb-2 items-center">
-          <base-tag
-            v-for="(tag, index) in event.tags"
-            :key="tag"
-            :class="changeClass(index)"
-            >{{ tag }}</base-tag
-          >
+        <div class="flex mb-2 items-center overflow-x-auto space-x-1">
+          <base-tag v-for="tag in event.tags" :key="tag.name">{{
+            tag.name
+          }}</base-tag>
         </div>
         <div class="text-sm mb-1 w-full text-truncate text-truncate-4">
           {{ event.description }}
@@ -38,7 +33,11 @@
           ><PinIcon
         /></base-icon-and-detail>
       </section>
-      <router-link :disabled="!isLinkReady" :to="eventInfoUrl" class="w-4/5">
+      <router-link
+        :disabled="!isLinkReady"
+        :to="eventInfoUrl"
+        class="w-4/5 self-center"
+      >
         <base-button :disabled="!isLinkReady" class="h-5 w-full"
           >Get Tickets</base-button
         >
@@ -77,19 +76,13 @@ export default defineComponent({
   },
   setup(props) {
     const { event } = toRefs(props);
-    const {
-      date,
-      time,
-      location,
-      changeClass,
-      eventInfoUrl,
-      isLinkReady
-    } = useCardBanner(event);
+    const { date, time, location, eventInfoUrl, isLinkReady } = useCardBanner(
+      event
+    );
     return {
       date,
       time,
       location,
-      changeClass,
       eventInfoUrl,
       isLinkReady
     };
@@ -97,4 +90,23 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+::-webkit-scrollbar {
+  background-color: #f7fafc;
+  height: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f7fafc;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #babac0;
+  border-radius: 16px;
+  border: 4px solid #f7fafc;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+</style>

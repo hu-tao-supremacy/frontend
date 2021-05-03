@@ -15,14 +15,9 @@ const useCardBanner = (event?: Ref<Event | undefined>) => {
 
   const location = computed(() => event?.value?.location?.name || "-");
 
-  function changeClass(index: number) {
-    return event?.value?.tags && index === event?.value?.tags.length - 1
-      ? ""
-      : "mr-1";
-  }
   const { eventInfoUrl, isLinkReady } = useEventLink(event);
 
-  return { date, time, location, changeClass, eventInfoUrl, isLinkReady };
+  return { date, time, location, eventInfoUrl, isLinkReady };
 };
 
 export default useCardBanner;

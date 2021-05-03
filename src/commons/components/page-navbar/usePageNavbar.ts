@@ -1,8 +1,9 @@
 import { computed, ref } from "vue";
 import useUser from "@/modules/authentication";
 import isEmpty from "@/commons/utils/isEmpty";
+import router from "@/router";
 
-export default function usePageNavbar() {
+export default function usePageNavbar(isOrgView: boolean) {
   const { isSignIn: isLogIn, logout, user } = useUser();
   const imgUrl = computed(() => {
     return user.value.profilePictureUrl;
@@ -15,6 +16,11 @@ export default function usePageNavbar() {
   });
   const isDropDownShown = ref(false);
 
+  const homePage = computed(() => {
+    if (isOrgView) return "/org/team";
+    return "/";
+  });
+
   function toggleDropDown() {
     isDropDownShown.value = !isDropDownShown.value;
   }
@@ -23,14 +29,20 @@ export default function usePageNavbar() {
     isDropDownShown.value = false;
   }
 
+  function searchEvent(searchInput: string) {
+    router.push({ path: "search", query: { q: searchInput } });
+  }
+
   return {
     isLogIn,
     imgUrl,
     nameShown,
     isDropDownShown,
     user,
+    homePage,
     toggleDropDown,
     hideDropDown,
-    logout
+    logout,
+    searchEvent
   };
 }

@@ -7,7 +7,10 @@
       :class="{ 'default-modal-width': !hasMaxModalWidth }"
       :style="{ maxWidth: maxModalWidth }"
     >
-      <base-transparent-button class="cross-btn absolute" @click="closeModal"
+      <base-transparent-button
+        v-if="isClosable"
+        class="cross-btn absolute"
+        @click="closeModal"
         ><base-icon width="24px" height="24px"><XIcon /></base-icon
       ></base-transparent-button>
       <slot></slot>
@@ -29,6 +32,10 @@ export default defineComponent({
   props: {
     maxModalWidth: {
       type: String
+    },
+    isClosable: {
+      type: Boolean,
+      default: true
     }
   },
   emits: ["close"],

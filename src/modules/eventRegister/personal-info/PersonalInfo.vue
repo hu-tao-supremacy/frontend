@@ -20,7 +20,7 @@
       <div class="flex flex-col w-1/3">
         <div>Gender</div>
         <BaseTextInput
-          :modelValue="user && gender"
+          :modelValue="user && user.gender"
           class="w-full h-4 disabled: bg-white text-gray-5"
           disabled
         />
@@ -124,6 +124,10 @@ export default defineComponent({
   components: {
     BaseTextInput,
     BaseTextArea
+  },
+  setup() {
+    const faculty = "Engineering";
+    return { faculty };
   }
 });
 </script>

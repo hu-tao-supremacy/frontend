@@ -11,8 +11,7 @@
           v-for="interest in interests"
           :key="interest"
           :interestName="interest.name"
-          :img="interest.img"
-          :imgHash="interest.imgHash"
+          :img="interest.posterImageUrl"
           :isSelected="isSelected(interest.id)"
           @click="toggleInterest(interest.id)"
         />
@@ -21,6 +20,7 @@
         <button
           @click="closeModal"
           class="bg-transparent text-gray-5 hover:text-primary focus:text-primary focus:outline-none mr-3"
+          type="button"
         >
           Not now
         </button>

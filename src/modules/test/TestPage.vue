@@ -24,7 +24,7 @@ import InfoBanner from "@/commons/components/info-banner/InfoBanner.vue";
 import EventDetail from "@/modules/eventInfo/event-detail/EventDetail.vue";
 import EventOrganizer from "@/modules/eventInfo/event-organizer/EventOrganizer.vue";
 import { testData, questionData } from "./testData";
-import OrgCard from "@/modules/orgUserView/org-card/OrgCard.vue";
+import OrgCard from "@/modules/orgInfo/org-card/OrgCard.vue";
 
 export default defineComponent({
   name: "TestPage",

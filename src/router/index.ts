@@ -108,6 +108,10 @@ const router = createRouter({
             {
               path: "/create-event-form/:id",
               component: CreateForm
+            },
+            {
+              path: "/member-management/:id",
+              component: MemberManagementPage
             }
           ]
         },

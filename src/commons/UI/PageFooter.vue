@@ -11,10 +11,16 @@
         class="mb-1 text-transparent"
         ><OnePassLogo
       /></base-icon>
-      <div class="w-0.5 h-2 bg-white mb-1 rounded-sm"></div>
-      <p class="font-heading text-xl tracking-widest text-primary">
-        GITHUB ORGANIZATION
-      </p>
+      <div class="w-0.25 h-2 bg-white mb-1 rounded-sm"></div>
+      <div v-if="hasGithubMember" class="flex space-x-1">
+        <BaseGithubProfileCircle
+          v-for="member in githubMembers"
+          :key="member.id"
+          :imgUrl="member.avatar_url"
+          :name="member.login"
+          href="https://github.com/hu-tao-supremacy"
+        />
+      </div>
     </div>
     <div
       class="flex flex-col items-end justify-between text-right text-white pr-3 py-1"
@@ -30,17 +36,45 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref, onMounted, Ref, computed } from "vue";
 import ChevronsUpIcon from "@/assets/ChevronsUp.vue";
 import OnePassLogo from "@/assets/OnePassLogoWhite.vue";
 import BaseTransparentButton from "@/commons/UI/BaseTransparentButton.vue";
+import BaseGithubProfileCircle from "@/commons/UI/BaseGithubProfileCircle.vue";
+import { GithubMember } from "@/commons/Interfaces";
 
 export default defineComponent({
   name: "PageFooter",
   components: {
     ChevronsUpIcon,
     BaseTransparentButton,
+    BaseGithubProfileCircle,
     OnePassLogo
+  },
+  setup() {
+    const githubMembers: Ref<GithubMember[]> = ref([]);
+
+    async function getMembersData() {
+      const data = await (
+        await fetch(
+          "https://api.github.com/orgs/hu-tao-supremacy/public_members"
+        )
+      ).json();
+      data.sort((a: GithubMember, b: GithubMember) =>
+        a.login.localeCompare(b.login)
+      );
+      return data;
+    }
+
+    onMounted(async () => {
+      await getMembersData().then(data => (githubMembers.value = data));
+    });
+
+    const hasGithubMember = computed(() => {
+      return githubMembers.value.length !== 0;
+    });
+
+    return { githubMembers, hasGithubMember };
   }
 });
 </script>

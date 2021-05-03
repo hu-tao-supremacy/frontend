@@ -240,6 +240,7 @@ export type Mutation = {
   setInterestedTags: Scalars["Boolean"];
   setInterestedEvents: Scalars["Boolean"];
   createJoinRequest: Scalars["Boolean"];
+  submitFeedback: UserEvent;
   deleteJoinRequest: Scalars["Boolean"];
   createTag: Tag;
 };
@@ -316,6 +317,10 @@ export type MutationCreateJoinRequestArgs = {
   input: CreateJoinRequestInput;
 };
 
+export type MutationSubmitFeedbackArgs = {
+  input: SubmitFeedbackInput;
+};
+
 export type MutationDeleteJoinRequestArgs = {
   input: DeleteJoinRequestInput;
 };
@@ -376,6 +381,7 @@ export type Query = {
   featuredEvents: Array<Event>;
   recommendedEvents: Array<Event>;
   onlineEvents: Array<Event>;
+  onSiteEvents: Array<Event>;
   searchEvent: Array<Event>;
   pastEvents: Array<Event>;
   event: Event;
@@ -402,6 +408,10 @@ export type QueryRecommendedEventsArgs = {
 };
 
 export type QueryOnlineEventsArgs = {
+  n: Scalars["Int"];
+};
+
+export type QueryOnSiteEventsArgs = {
   n: Scalars["Int"];
 };
 
@@ -526,6 +536,12 @@ export type SetEventQuestionsQuestionInput = {
 
 export type SetEventTagsTagInput = {
   id: Scalars["Int"];
+};
+
+export type SubmitFeedbackInput = {
+  eventId: Scalars["Int"];
+  answers: Array<CreateJoinRequestAnswerInput>;
+  rating: Scalars["Int"];
 };
 
 export type Tag = {

@@ -25,16 +25,10 @@
       <div class="flex flex-col min-h-full justify-between">
         <h3>Profile picture</h3>
         <div class="flex">
-          <base-button class="mr-1"
-            ><label class="px-1" for="fileLoader">Upload</label></base-button
-          >
-          <input
-            id="fileLoader"
-            name="profileImg"
-            type="file"
-            class="hidden"
-            accept="image/*"
-            :onchange="previewFile"
+          <BaseUploadImgButton
+            v-model="uploadedImgFile"
+            v-model:uploadedImg="uploadedImg"
+            class="mr-1"
           />
           <p class="text-xs text-gray-5 self-end">
             (JPEG or .PNG, Less than 5MB)
@@ -73,6 +67,7 @@ import OrgDetail from "../create-org-form-organization-detail/CreateOrgFormOrgan
 import OrgMember from "../create-org-form-member/CreateOrgFormMember.vue";
 import OrgContactPerson from "../create-org-form-contact-person/CreateOrgFormContactPerson.vue";
 import OrgSocial from "../create-org-form-social/CreateOrgFormSocial.vue";
+import BaseUploadImgButton from "@/commons/UI/BaseUploadImgButton.vue";
 import useCreateOrgForm from "./useCreateOrgForm";
 import { SUBMIT_FORM } from "@/commons/constant";
 
@@ -84,12 +79,14 @@ export default defineComponent({
     OrgDetail,
     OrgMember,
     OrgContactPerson,
-    OrgSocial
+    OrgSocial,
+    BaseUploadImgButton
   },
   emits: [SUBMIT_FORM],
   setup(_, context) {
     const {
       uploadedImg,
+      uploadedImgFile,
       fileLoaded,
       orgDetail,
       orgOwner,
@@ -97,12 +94,12 @@ export default defineComponent({
       orgContactPerson,
       orgSocial,
       isValidForm,
-      previewFile,
       submitForm
     } = useCreateOrgForm(context);
 
     return {
       uploadedImg,
+      uploadedImgFile,
       fileLoaded,
       orgDetail,
       orgOwner,
@@ -110,7 +107,6 @@ export default defineComponent({
       orgContactPerson,
       orgSocial,
       isValidForm,
-      previewFile,
       submitForm
     };
   }

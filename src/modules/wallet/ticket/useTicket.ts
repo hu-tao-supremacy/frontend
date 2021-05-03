@@ -30,7 +30,13 @@ export default function useTicket(
     getMainTimetable(event?.value.durations as EventDuration[])
   );
 
-  const routerLinkId = computed(() => `/user-checkin/${event?.value.id}`);
+  const routerLinkId = computed(() => {
+    if (isOngoing.value) {
+      return `/user-checkin/${event?.value.id}`;
+    } else {
+      return `/event-feedback/${event?.value.id}`;
+    }
+  });
 
   function checkIn() {
     if (!isOngoing.value) {

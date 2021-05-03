@@ -74,14 +74,13 @@
       </div>
       <router-link :to="routerLinkId">
         <base-button
-          v-if="!isHistory"
+          v-if="isOngoing"
           @click="checkIn"
-          :disabled="isPending || isAttended"
           class="check-in-btn self-center mt-auto h-3.5 w-full"
-          >{{ isAttended ? "Attended" : "Check in" }}</base-button
+          >Check in</base-button
         >
         <base-button
-          v-else
+          v-else-if="isAttended"
           class="check-in-btn self-center mt-auto h-3.5 w-full"
           @click="giveFeedback"
           >Feedback</base-button

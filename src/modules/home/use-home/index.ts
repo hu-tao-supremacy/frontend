@@ -3,7 +3,6 @@ import { useResult } from "@vue/apollo-composable";
 import { generateDummyArray } from "./utils";
 import { useHomeApi, useRecommendationEvent } from "../api";
 import useUser from "@/modules/authentication";
-import router from "@/router";
 
 const useHome = () => {
   const { isSignIn, user } = useUser();

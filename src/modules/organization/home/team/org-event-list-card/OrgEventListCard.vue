@@ -7,67 +7,80 @@
         :width="150"
         :height="150"
         alt="will change to api"
-        :url="event.img"
-        :placeholder="event.imgHash"
+        :url="event.posterImgUrl"
+        :placeholder="event.posterImgHash"
         class="object-cover absolute w-full h-full"
         :canvasClass="'absolute'"
       />
     </section>
-    <section class="py-2 pl-2 pr-8 min-w-0 w-full">
+    <section class="py-2 px-2 min-w-0 w-full">
       <h1 class="truncate w-full text-blue-10 font-heading text-2xl mb-2">
-        {{ event.title }}
+        {{ event.name }}
       </h1>
-      <div class="flex flex-col lg:flex-row lg:justify-between">
-        <div class="flex items-center mb-2 lg:mb-0">
-          <base-icon-and-detail
-            class="mr-2"
-            :iconClass="'mr-1'"
-            :detail="event.date"
-            ><CalendarIcon
-          /></base-icon-and-detail>
-          <base-icon-and-detail
-            class="mr-2"
-            :iconClass="'mr-1'"
-            :detail="event.time"
-            ><ClockIcon
-          /></base-icon-and-detail>
-          <base-icon-and-detail
-            :iconClass="'mr-1'"
-            :detail="event.location"
-            :detailClass="'max-width-location'"
-            ><MapPinIcon
-          /></base-icon-and-detail>
-        </div>
-        <div class="flex">
-          <base-icon-and-detail
-            class="mr-2"
-            :detail="participantNumber"
-            :detailClass="participantTextColor"
-            :iconClass="'mr-1'"
-            :iconColor="participantIconColor"
-            ><UsersIcon
-          /></base-icon-and-detail>
-          <base-icon-and-detail
-            :detail="status"
-            :detailClass="eventStatusTextColor"
-            :iconClass="'mr-1'"
-            :iconColor="eventStatusIconColor"
-            ><MinusCircleIcon v-if="isEventClosed"/><ClipboardIcon v-else
-          /></base-icon-and-detail>
-        </div>
+      <div class="flex space-x-2">
+        <base-icon-and-detail
+          :iconClass="'mr-1'"
+          :detail="eventDate"
+          class="flex-shrink-0"
+          ><CalendarIcon
+        /></base-icon-and-detail>
+        <base-icon-and-detail
+          :iconClass="'mr-1'"
+          :detail="eventTime"
+          class="flex-shrink-0"
+          ><ClockIcon
+        /></base-icon-and-detail>
+        <base-icon-and-detail
+          :iconClass="'mr-1'"
+          :detail="event.location && event.location.name"
+          :detailClass="'max-width-location truncate'"
+          class="min-w-0"
+          ><MapPinIcon
+        /></base-icon-and-detail>
       </div>
     </section>
-    <base-icon
-      :width="32"
-      :height="32"
-      class="absolute top-1/2 right-2 -translate-y-1/2 transform text-primary cursor-pointer"
-      ><ArrowRight
-    /></base-icon>
+    <section
+      class="flex items-center justify-between py-2 pl-4 pr-2 w-30 flex-shrink-0"
+      :class="{
+        'bg-green-6': isInRegistrationTime,
+        'bg-primary': !isInRegistrationTime
+      }"
+    >
+      <div>
+        <section class="flex items-center mb-1">
+          <span
+            class="flex items-center justify-center w-5 h-5 rounded-full bg-white  shadow-sm mr-1"
+          >
+            <base-icon
+              v-if="isInRegistrationTime"
+              :width="24"
+              :height="24"
+              class="text-green-6"
+              ><ClipboardIcon
+            /></base-icon>
+            <base-icon v-else :width="24" :height="24" class="text-green-6"
+              ><UsersIcon
+            /></base-icon>
+          </span>
+          <h2 class="text-white font-heading text-2xl">{{ attendeeCount }}</h2>
+        </section>
+        <p class="text-white font-semibold">{{ attendeeText }}</p>
+      </div>
+      <router-link :to="`/org/event/${event.id}`">
+        <base-icon
+          @click="toEventDashboard"
+          :width="32"
+          :height="32"
+          class="text-white cursor-pointer hover:text-gray-4"
+          ><ArrowRight
+        /></base-icon>
+      </router-link>
+    </section>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, toRefs } from "vue";
 import LazyImage from "@/commons/UI/lazy-image/LazyImage.vue";
 import BaseIconAndDetail from "@/commons/UI/BaseIconAndDetail.vue";
 import CalendarIcon from "@/assets/Calendar.vue";
@@ -75,9 +88,8 @@ import ClockIcon from "@/assets/Clock.vue";
 import MapPinIcon from "@/assets/MapPin.vue";
 import UsersIcon from "@/assets/Users.vue";
 import ClipboardIcon from "@/assets/Clipboard.vue";
-import MinusCircleIcon from "@/assets/MinusCircle.vue";
 import ArrowRight from "@/assets/ArrowRight.vue";
-import { Event } from "@/commons/Interfaces";
+import { Event } from "../constant/interfaces";
 import useOrgEventListCard from "./useOrgEventListCard";
 
 export default defineComponent({
@@ -90,43 +102,33 @@ export default defineComponent({
     MapPinIcon,
     UsersIcon,
     ClipboardIcon,
-    MinusCircleIcon,
     ArrowRight
   },
   props: {
     event: {
       type: Object as () => Event,
       required: true
-    },
-    status: {
-      //Will later change to whether current time is in event duration
-      type: String,
-      required: true
     }
   },
   setup(props) {
+    const { event } = toRefs(props);
+
     const {
-      participantNumber,
-      isParticipantFull,
-      participantIconColor,
-      participantTextColor,
-      isEventClosed,
-      eventStatusIconColor,
-      eventStatusTextColor
-    } = useOrgEventListCard(
-      props.event.attendeeLimit,
-      props.event.currentAttendee,
-      props.status
-    );
+      eventDate,
+      eventTime,
+      isInRegistrationTime,
+      attendeeCount,
+      attendeeText,
+      toEventDashboard
+    } = useOrgEventListCard(event);
 
     return {
-      participantNumber,
-      isParticipantFull,
-      participantIconColor,
-      participantTextColor,
-      isEventClosed,
-      eventStatusIconColor,
-      eventStatusTextColor
+      eventDate,
+      eventTime,
+      isInRegistrationTime,
+      attendeeCount,
+      attendeeText,
+      toEventDashboard
     };
   }
 });
@@ -134,6 +136,6 @@ export default defineComponent({
 
 <style scoped>
 .max-width-location {
-  max-width: 220px;
+  max-width: 212px;
 }
 </style>

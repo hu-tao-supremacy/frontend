@@ -1,34 +1,39 @@
 <template>
   <div class="w-full h-full flex flex-col py-4 items-center">
-    <div class="flex flex-col content-max-width">
-      <OrgBanner :org="test.eventOrganizer" class="mb-3" />
+    <div class="flex flex-col content-max-width w-full">
+      <OrgBanner :org="organization" class="mb-3" />
       <section class="flex justify-between mb-3">
         <BaseSearch
-          @search="filterEvents"
+          v-model="searchValue"
           class="h-4"
           :inputClass="'w-31.5'"
           :placeholder="'Search'"
         />
-        <base-button class="px-1.5">Create an Event</base-button>
+        <router-link to="/org/team/create-event">
+          <base-button class="px-1.5">Create an Event</base-button>
+        </router-link>
       </section>
-      <OrgEventListCard
-        v-for="(event, index) in eventsList"
-        :key="event.event.title"
-        :event="event.event"
-        :status="event.status"
-        :class="{ 'mb-2': !isLastEvent(index) }"
-      />
+      <section class="flex flex-col space-y-2">
+        <OrgEventListCard
+          v-for="event in filteredEvents"
+          :key="event.id"
+          :event="event"
+        />
+      </section>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref, computed } from "vue";
 import OrgBanner from "./org-banner/OrgBanner.vue";
 import OrgEventListCard from "./org-event-list-card/OrgEventListCard.vue";
 import BaseSearch from "@/commons/UI/BaseSearch.vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
-import { testData, eventsListData } from "@/modules/test/testData";
+import { useOrgTeamApi } from "./api";
+import { useResult } from "@vue/apollo-composable";
+import Fuse from "fuse.js";
+import useOrganization from "../../useOrganization";
 
 export default defineComponent({
   name: "TeamPage",
@@ -39,20 +44,31 @@ export default defineComponent({
     BaseSearch
   },
   setup() {
-    //Later will get from backend using organization selected from side navbar using provide
-    const test = testData;
-    const eventsList = eventsListData;
+    //Must change api as it is currently static by taking from org id 5
+    const { currentOrganizationId } = useOrganization();
+    const { result: orgTeamResult } = useOrgTeamApi(currentOrganizationId);
+    const organization = useResult(
+      orgTeamResult,
+      {},
+      data => data.organization
+    );
+    const events = useResult(
+      orgTeamResult,
+      [],
+      data => data.organization.events
+    );
+    const searchValue = ref("");
 
-    function isLastEvent(index: number) {
-      return index === eventsList.length - 1;
-    }
+    const fuse = computed(() => {
+      return new Fuse(events.value, { keys: ["name"] });
+    });
 
-    function filterEvents(search: string) {
-      //Perform filtering of events
-      console.log(search);
-    }
+    const filteredEvents = computed(() => {
+      if (searchValue.value === "") return events.value;
+      return fuse.value.search(searchValue.value);
+    });
 
-    return { test, eventsList, isLastEvent, filterEvents };
+    return { organization, filteredEvents, searchValue };
   }
 });
 </script>

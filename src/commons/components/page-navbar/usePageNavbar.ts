@@ -16,7 +16,7 @@ export default function usePageNavbar(isOrgView: boolean) {
   const isDropDownShown = ref(false);
 
   const homePage = computed(() => {
-    if (isOrgView) return "/org";
+    if (isOrgView) return "/org/team";
     return "/";
   });
 

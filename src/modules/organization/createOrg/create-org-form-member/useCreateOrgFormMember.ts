@@ -1,7 +1,8 @@
-import { computed, ref, Ref, SetupContext, watch } from "vue";
+import { computed, reactive, ref, Ref, SetupContext, watch } from "vue";
 import { User } from "@/apollo/types";
 import { UPDATE_MODEL_VALUE } from "@/commons/constant";
-import testData from "@/modules/test/testData";
+import { useSearchUser } from "../api";
+import { useResult } from "@vue/apollo-composable";
 
 export default function useCreateOrgFormMember(
   initialSelectedMembers: Ref<User[]>,
@@ -11,7 +12,14 @@ export default function useCreateOrgFormMember(
   const isAddMemberModalShown = ref(false);
   //Trick variable to bypass hiding modal from v-click-outside of AddMemberModal component
   const isAddMemberModalJustShown = ref(false);
-  const searchedUsers: Ref<User[]> = ref([]);
+
+  const searchKeyword = reactive({ input: "" });
+  const { result: searchUserResult } = useSearchUser(searchKeyword);
+  const searchedUsers = useResult(
+    searchUserResult,
+    [],
+    data => data.searchUser
+  );
 
   const memberProfilesShown = computed(() => {
     if (selectedMembers.value.length <= 3) return selectedMembers.value;
@@ -32,11 +40,7 @@ export default function useCreateOrgFormMember(
   }
 
   function searchUsers(value: string) {
-    //Search users with API and change searchedUsers list
-    console.log("search value:", value);
-    //Dummy data
-    const testUser = testData.user;
-    searchedUsers.value = [testUser, testUser];
+    searchKeyword.input = value;
   }
 
   function addMember(user: User) {

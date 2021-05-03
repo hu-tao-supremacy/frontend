@@ -84,7 +84,8 @@
       <label class="mb-1">Event poster image</label>
       <div class="flex items-center">
         <BaseUploadImgButton
-          v-model="posterImg"
+          v-model="posterImgFile"
+          v-model:uploadedImg="posterImg"
           name="posterImg"
           class="h-3.75 mr-1"
         />
@@ -95,7 +96,8 @@
       <label class="mb-1">Event background image</label>
       <div class="flex items-center">
         <BaseUploadImgButton
-          v-model="coverImg"
+          v-model="coverImgFile"
+          v-model:uploadedImg="coverImg"
           name="coverImg"
           class="h-3.75 mr-1"
         />
@@ -154,7 +156,9 @@ export default defineComponent({
       isValidAttendeeLimit,
       removeTag,
       posterImg,
-      coverImg
+      posterImgFile,
+      coverImg,
+      coverImgFile
     } = useEventInfo(modelValue, context);
 
     return {
@@ -172,7 +176,9 @@ export default defineComponent({
       isValidAttendeeLimit,
       removeTag,
       posterImg,
+      posterImgFile,
       coverImg,
+      coverImgFile,
       hourNames,
       hourValues
     };

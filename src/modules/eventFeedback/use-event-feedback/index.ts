@@ -3,7 +3,7 @@ import {
   CreateJoinRequestAnswerInput,
   QuestionGroup
 } from "@/apollo/types";
-import { reactive, ref } from "vue";
+import { computed, reactive, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useSubmitEventFeedback, useEvents } from "../api";
 
@@ -30,6 +30,8 @@ const useEventFeedback = () => {
     const ans = { questionId: id, value: String(answer) };
     if (index === -1) {
       answers.value.push(ans);
+    } else if (String(answer) === "") {
+      answers.value.splice(index, 1);
     } else {
       answers.value[index] = ans;
     }
@@ -56,6 +58,15 @@ const useEventFeedback = () => {
     Object.assign(questionGroupData, result.data.event.questionGroups);
     eventName.value = result.data.event.name;
   });
+
+  const isValidated = computed(() => {
+    const questionLength = questionGroupData.flatMap(group => group.questions)
+      .length;
+    return (
+      currentRating.value !== -1 && answers.value.length === questionLength
+    );
+  });
+
   return {
     checkQuestionTypeScale,
     questionGroupData,
@@ -63,7 +74,8 @@ const useEventFeedback = () => {
     placeholder,
     submitEventFeedback,
     changeRating,
-    updateAnswer
+    updateAnswer,
+    isValidated
   };
 };
 

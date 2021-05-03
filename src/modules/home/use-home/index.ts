@@ -48,26 +48,13 @@ const useHome = () => {
     return generateDummyArray(4);
   });
 
-  function moreRecommend() {
-    router.push("/more-recommended-events");
-  }
-  function moreUpcoming() {
-    router.push("/more-upcoming-events");
-  }
-  function moreOnline() {
-    router.push("/more-online-events");
-  }
-
   return {
     featureEvents,
     recommendedEvents,
     upcommingEvents,
     onlineEvents,
     nearbyEvents,
-    featuredOrganizations,
-    moreRecommend,
-    moreUpcoming,
-    moreOnline
+    featuredOrganizations
   };
 };
 

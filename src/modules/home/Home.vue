@@ -7,21 +7,22 @@
         class="flex h-6 w-full mb-3 justify-between items-center"
       >
         <div class="text-4xl font-heading">Recommended For You</div>
-        <base-transparent-button
-          class="group w-16 h-4 flex justify-center items-center "
-          @click="moreRecommend"
-        >
-          View More
-          <span class="text-primary ml-1 group-hover:text-primary-5">
-            <base-icon
-              width="24px"
-              height="24px"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              ><ArrowRightIcon
-            /></base-icon>
-          </span>
-        </base-transparent-button>
+        <router-link to="/more-recommended-events">
+          <base-transparent-button
+            class="group w-16 h-4 flex justify-center items-center "
+          >
+            View More
+            <span class="text-primary ml-1 group-hover:text-primary-5">
+              <base-icon
+                width="24px"
+                height="24px"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><ArrowRightIcon
+              /></base-icon>
+            </span>
+          </base-transparent-button>
+        </router-link>
       </div>
       <div
         v-if="recommendedEvents"
@@ -35,21 +36,22 @@
       </div>
       <div class="flex h-6 w-full mb-3 justify-between items-center">
         <div class="text-4xl font-heading">Upcoming Events</div>
-        <base-transparent-button
-          class="group w-16 h-4 flex justify-center items-center"
-          @click="moreUpcoming"
-        >
-          View More
-          <span class="text-primary ml-1 group-hover:text-primary-5">
-            <base-icon
-              width="24px"
-              height="24px"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              ><ArrowRightIcon
-            /></base-icon>
-          </span>
-        </base-transparent-button>
+        <router-link to="/more-upcoming-events">
+          <base-transparent-button
+            class="group w-16 h-4 flex justify-center items-center"
+          >
+            View More
+            <span class="text-primary ml-1 group-hover:text-primary-5">
+              <base-icon
+                width="24px"
+                height="24px"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><ArrowRightIcon
+              /></base-icon>
+            </span>
+          </base-transparent-button>
+        </router-link>
       </div>
       <div class="card grid gap-4 mb-4 w-full justify-center md:justify-start">
         <CardEvent
@@ -70,21 +72,23 @@
       </div>
       <div class="flex h-6 w-full mb-3 justify-between items-center">
         <div class="text-4xl font-heading">Online Events</div>
-        <base-transparent-button
-          class="group w-16 h-4 flex justify-center items-center"
-          @click="moreOnline"
-        >
-          View More
-          <span class="text-primary ml-1 group-hover:text-primary-5">
-            <base-icon
-              width="24px"
-              height="24px"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              ><ArrowRightIcon
-            /></base-icon>
-          </span>
-        </base-transparent-button>
+        <router-link to="/more-online-events">
+          <base-transparent-button
+            class="group w-16 h-4 flex justify-center items-center"
+            @click="moreOnline"
+          >
+            View More
+            <span class="text-primary ml-1 group-hover:text-primary-5">
+              <base-icon
+                width="24px"
+                height="24px"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><ArrowRightIcon
+              /></base-icon>
+            </span>
+          </base-transparent-button>
+        </router-link>
       </div>
       <div class="card grid gap-4 mb-4 w-full justify-center md:justify-start">
         <CardEvent
@@ -148,10 +152,7 @@ export default defineComponent({
       upcommingEvents,
       onlineEvents,
       nearbyEvents,
-      featuredOrganizations,
-      moreRecommend,
-      moreUpcoming,
-      moreOnline
+      featuredOrganizations
     } = useHome();
 
     return {
@@ -160,10 +161,7 @@ export default defineComponent({
       upcommingEvents,
       onlineEvents,
       nearbyEvents,
-      featuredOrganizations,
-      moreRecommend,
-      moreUpcoming,
-      moreOnline
+      featuredOrganizations
     };
   }
 });

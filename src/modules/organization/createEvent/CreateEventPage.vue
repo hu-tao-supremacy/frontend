@@ -30,7 +30,11 @@ import {
   EventDurationsForm,
   EventLocationForm
 } from "@/commons/Interfaces";
-import { CreateEventInput } from "@/apollo/types";
+import {
+  CreateEventInput,
+  SetEventDurationsDurationInput,
+  SetEventTagsTagInput
+} from "@/apollo/types";
 import { useCreateEventApi } from "./api";
 import useOrganization from "../useOrganization";
 import { useRouter } from "vue-router";
@@ -83,12 +87,28 @@ export default defineComponent({
     });
 
     function submitForm() {
+      if (!isValidForm.value) return;
       const eventLocationInput = {
         name: eventLocation.value.name,
         description: eventLocation.value.description,
         googleMapUrl: eventLocation.value.googleMapUrl,
         isOnline: eventLocation.value.isOnline
       };
+
+      const eventTagInput: SetEventTagsTagInput[] = eventInformation.value.tags.map(
+        tag => {
+          return {
+            id: tag.id
+          };
+        }
+      );
+
+      const eventDurationInput: SetEventDurationsDurationInput[] = eventDurations.value.durations.map(
+        duration => {
+          return { start: duration.start, finish: duration.finish };
+        }
+      );
+
       const event: CreateEventInput = {
         organizationId: currentOrganizationId.value,
         location: eventLocationInput,
@@ -99,8 +119,8 @@ export default defineComponent({
         registrationDueDate: eventInformation.value.registrationDueDate,
         coverImage: eventInformation.value.coverImg,
         posterImage: eventInformation.value.posterImg,
-        tags: eventInformation.value.tags,
-        durations: eventDurations.value.durations
+        tags: eventTagInput,
+        durations: eventDurationInput
       };
 
       const createEventResult = createEvent({ input: event });

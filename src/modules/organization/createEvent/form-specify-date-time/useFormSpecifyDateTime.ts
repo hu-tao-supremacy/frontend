@@ -53,8 +53,8 @@ export default function useFormSpecifyDateTime(
     );
     if (isDurationExist) return;
     const inputDurationString = {
-      start: inputDuration.value.start.toString(),
-      finish: inputDuration.value.finish.toString()
+      start: inputDuration.value.start.toISOString(),
+      finish: inputDuration.value.finish.toISOString()
     };
     durations.push(inputDurationString);
   }

@@ -61,24 +61,8 @@ export default function useCreateOrgForm(
     );
   });
 
-  async function previewFile(event: Event) {
-    event.preventDefault();
-    const target = event.target as HTMLInputElement;
-    const file = target.files?.[0];
-    if (file?.type.match("image.*")) {
-      uploadedImgFile.value = file;
-    }
-  }
-
   const fileLoaded = computed(() => {
     return !!uploadedImg.value;
-  });
-
-  watch(uploadedImgFile, async () => {
-    if (uploadedImgFile.value !== null) {
-      const uploadedFile = await parseImageFile(reader, uploadedImgFile.value);
-      uploadedImg.value = uploadedFile;
-    }
   });
 
   function submitForm() {
@@ -119,6 +103,7 @@ export default function useCreateOrgForm(
 
   return {
     uploadedImg,
+    uploadedImgFile,
     fileLoaded,
     orgDetail,
     orgOwner,
@@ -126,7 +111,6 @@ export default function useCreateOrgForm(
     orgContactPerson,
     orgSocial,
     isValidForm,
-    previewFile,
     submitForm
   };
 }

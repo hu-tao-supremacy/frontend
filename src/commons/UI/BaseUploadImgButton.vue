@@ -27,18 +27,18 @@ export default defineComponent({
   },
   props: {
     modelValue: {
-      type: String,
-      default: ""
+      type: Object as () => Blob,
+      default: new Blob()
     },
     name: {
       type: String,
       default: "imgFileLoader"
     }
   },
-  emits: [UPDATE_MODEL_VALUE],
+  emits: [UPDATE_MODEL_VALUE, "update:uploadedImg"],
   setup(props, context) {
-    const uploadedImgFile = ref<Blob | null>(null);
-    const uploadedImg = ref<string | null>(props.modelValue);
+    const uploadedImgFile = ref<Blob | null>(props.modelValue);
+    const uploadedImg = ref<string | null>(null);
     const reader = new FileReader();
 
     async function uploadFile(event: Event) {
@@ -61,7 +61,8 @@ export default defineComponent({
     });
 
     watch(uploadedImg, () => {
-      context.emit(UPDATE_MODEL_VALUE, uploadedImg.value);
+      context.emit(UPDATE_MODEL_VALUE, uploadedImgFile.value);
+      context.emit("update:uploadedImg", uploadedImg.value);
     });
 
     return { uploadFile };

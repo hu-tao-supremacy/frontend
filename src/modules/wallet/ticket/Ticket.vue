@@ -19,7 +19,7 @@
           v-for="tag in event.tags"
           :key="tag"
           class="mr-1 mb-1 h-2 bg-primary-3"
-          >{{ tag }}</base-tag
+          >{{ tag.name }}</base-tag
         >
       </div>
       <h3 class="mb-1">Organized by</h3>
@@ -68,7 +68,7 @@
         <base-icon-and-detail class="mb-1" :detail="time"
           ><ClockIcon
         /></base-icon-and-detail>
-        <base-icon-and-detail :detail="event.location.name"
+        <base-icon-and-detail :detail="event && event.location.name"
           ><PinIcon
         /></base-icon-and-detail>
       </div>

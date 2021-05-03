@@ -30,7 +30,8 @@
             </div>
             <div>
               <BaseUploadImgButton
-                v-model="uploadedImg"
+                v-model="uploadedImgFile"
+                v-model:uploadedImg="uploadedImg"
                 class="mb-0.25 h-3.5"
                 name="previewImg"
               />
@@ -187,6 +188,7 @@ export default defineComponent({
   setup(_, context) {
     const {
       uploadedImg,
+      uploadedImgFile,
       fileLoaded,
       closeModal,
       userEmail,
@@ -212,6 +214,7 @@ export default defineComponent({
 
     return {
       uploadedImg,
+      uploadedImgFile,
       fileLoaded,
       closeModal,
       userEmail,

@@ -991,6 +991,14 @@ export type GetAllTagsQuery = { __typename?: "Query" } & {
   tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
 };
 
+export type CreateEventMutationVariables = Exact<{
+  input: CreateEventInput;
+}>;
+
+export type CreateEventMutation = { __typename?: "Mutation" } & {
+  createEvent: { __typename?: "Event" } & Pick<Event, "id">;
+};
+
 export type GetCurrentUserInfoQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetCurrentUserInfoQuery = { __typename?: "Query" } & {
@@ -1203,6 +1211,20 @@ export type GetEventUserCheckinQuery = { __typename?: "Query" } & {
         { __typename?: "UserEvent" } & Pick<UserEvent, "id" | "ticket">
       >;
     };
+};
+
+export type GetUserTicketQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetUserTicketQuery = { __typename?: "Query" } & {
+  currentUser: { __typename?: "User" } & Pick<
+    User,
+    | "id"
+    | "profilePictureUrl"
+    | "firstName"
+    | "lastName"
+    | "email"
+    | "phoneNumber"
+  >;
 };
 
 export type GetUserWalletQueryVariables = Exact<{ [key: string]: never }>;

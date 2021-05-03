@@ -1105,6 +1105,14 @@ export type GetAllTagsQuery = { __typename?: "Query" } & {
   tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
 };
 
+export type CreateEventMutationVariables = Exact<{
+  input: CreateEventInput;
+}>;
+
+export type CreateEventMutation = { __typename?: "Mutation" } & {
+  createEvent: { __typename?: "Event" } & Pick<Event, "id">;
+};
+
 export type GetCurrentUserInfoQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetCurrentUserInfoQuery = { __typename?: "Query" } & {
@@ -1209,11 +1217,11 @@ export type GetOrgTeamItemQuery = { __typename?: "Query" } & {
             durations: Array<
               { __typename?: "EventDuration" } & Pick<
                 EventDuration,
-                "start" | "finish"
+                "id" | "start" | "finish"
               >
             >;
             location?: Maybe<
-              { __typename?: "Location" } & Pick<Location, "name">
+              { __typename?: "Location" } & Pick<Location, "id" | "name">
             >;
             attendees: Array<
               { __typename?: "UserEvent" } & Pick<UserEvent, "id">

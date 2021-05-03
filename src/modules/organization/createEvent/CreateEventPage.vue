@@ -30,8 +30,14 @@ import {
   EventDurationsForm,
   EventLocationForm
 } from "@/commons/Interfaces";
-import { CreateEventInput, Organization } from "@/apollo/types";
-import { organizationData } from "./testData";
+import {
+  CreateEventInput,
+  SetEventDurationsDurationInput,
+  SetEventTagsTagInput
+} from "@/apollo/types";
+import { useCreateEventApi } from "./api";
+import useOrganization from "../useOrganization";
+import { useRouter } from "vue-router";
 
 export default defineComponent({
   name: "CreateEventPage",
@@ -43,7 +49,9 @@ export default defineComponent({
   },
   setup() {
     //Get from API
-    const organization: Ref<Organization> = ref(organizationData);
+    const { createEvent, onDone } = useCreateEventApi();
+    const { currentOrganizationId } = useOrganization();
+    const router = useRouter();
 
     const eventInformation: Ref<EventInfoForm> = ref({
       name: "",
@@ -79,14 +87,30 @@ export default defineComponent({
     });
 
     function submitForm() {
+      if (!isValidForm.value) return;
       const eventLocationInput = {
         name: eventLocation.value.name,
         description: eventLocation.value.description,
         googleMapUrl: eventLocation.value.googleMapUrl,
         isOnline: eventLocation.value.isOnline
       };
+
+      const eventTagInput: SetEventTagsTagInput[] = eventInformation.value.tags.map(
+        tag => {
+          return {
+            id: tag.id
+          };
+        }
+      );
+
+      const eventDurationInput: SetEventDurationsDurationInput[] = eventDurations.value.durations.map(
+        duration => {
+          return { start: duration.start, finish: duration.finish };
+        }
+      );
+
       const event: CreateEventInput = {
-        organizationId: organization.value.id,
+        organizationId: currentOrganizationId.value,
         location: eventLocationInput,
         description: eventInformation.value.description,
         name: eventInformation.value.name,
@@ -95,13 +119,17 @@ export default defineComponent({
         registrationDueDate: eventInformation.value.registrationDueDate,
         coverImage: eventInformation.value.coverImg,
         posterImage: eventInformation.value.posterImg,
-        tags: eventInformation.value.tags,
-        durations: eventDurations.value.durations
+        tags: eventTagInput,
+        durations: eventDurationInput
       };
 
-      //Send to API and then to event form page
-      console.log(event);
-      console.log("To event form");
+      const createEventResult = createEvent({ input: event });
+
+      onDone(() => {
+        createEventResult.then(data => {
+          router.push(`/create-event-form/${data.data?.createEvent.id}`);
+        });
+      });
     }
 
     return {

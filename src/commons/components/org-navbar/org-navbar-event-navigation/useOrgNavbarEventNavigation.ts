@@ -1,18 +1,18 @@
 import { computed, Ref, ref } from "vue";
 import { OrgEventNavbarSelection } from "@/commons/constant";
+import { useRouter } from "vue-router";
+import useOrgEvent from "@/modules/organization/event/use-org-event";
 
 export default function useOrgNavbarEventNavigation() {
   //Later will add watch and check with the current url path.
+  const router = useRouter();
+  const { eventId, event } = useOrgEvent();
   const currentSelection: Ref<OrgEventNavbarSelection> = ref(
     OrgEventNavbarSelection.NONE
   );
 
   const isDashBoardSelected = computed(() => {
     return currentSelection.value === OrgEventNavbarSelection.DASHBOARD;
-  });
-
-  const isEventInfoSelected = computed(() => {
-    return currentSelection.value === OrgEventNavbarSelection.EVENT_INFO;
   });
 
   const isManageAttendeeSelected = computed(() => {
@@ -25,33 +25,26 @@ export default function useOrgNavbarEventNavigation() {
 
   //All of below functions will later be changed to router link
   function toDashboard() {
-    console.log("To dashboard");
+    router.push(`/org/event/${eventId}`);
     currentSelection.value = OrgEventNavbarSelection.DASHBOARD;
   }
-
-  function toEventInfo() {
-    console.log("To event info");
-    currentSelection.value = OrgEventNavbarSelection.EVENT_INFO;
-  }
-
   function toManageAttendee() {
-    console.log("To manage attendee");
+    router.push(`/org/event/attendee-management/${eventId}`);
     currentSelection.value = OrgEventNavbarSelection.MANAGE_ATTENDEE;
   }
 
   function toManageFeedback() {
-    console.log("To manage feedback");
+    router.push(`/org/event/create-event-feedback/${eventId}`);
     currentSelection.value = OrgEventNavbarSelection.MANAGE_FEEDBACK;
   }
 
   return {
     isDashBoardSelected,
-    isEventInfoSelected,
     isManageAttendeeSelected,
     isManageFeedbackSelected,
     toDashboard,
-    toEventInfo,
     toManageAttendee,
-    toManageFeedback
+    toManageFeedback,
+    event
   };
 }

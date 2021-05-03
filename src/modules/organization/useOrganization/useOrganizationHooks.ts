@@ -1,5 +1,5 @@
 import { useResult } from "@vue/apollo-composable";
-import { onMounted, ref, watch } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import { useUserOrganization } from "../api";
 import { CURRENT_ORG_ID } from "./constant";
 
@@ -12,6 +12,12 @@ const useOrganizationHooks = () => {
   );
 
   const currentOrganizationId = ref(-1);
+
+  const currentOrganization = computed(() => {
+    return organizations.value?.find(
+      org => org.id === currentOrganizationId.value
+    );
+  });
 
   onMounted(() => {
     currentOrganizationId.value = Number(
@@ -44,7 +50,8 @@ const useOrganizationHooks = () => {
     organizations,
     currentOrganizationId,
     changeOrganizationId,
-    refetch
+    refetch,
+    currentOrganization
   };
 };
 

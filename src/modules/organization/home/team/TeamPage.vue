@@ -44,7 +44,6 @@ export default defineComponent({
     BaseSearch
   },
   setup() {
-    //Must change api as it is currently static by taking from org id 5
     const { currentOrganizationId } = useOrganization();
     const { result: orgTeamResult } = useOrgTeamApi(currentOrganizationId);
     const organization = useResult(

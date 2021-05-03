@@ -12,6 +12,10 @@ export const useOrgEventApi = (variables: GetEventAttendeeQueryVariables) =>
     gql`
       query getEventAttendee($id: Int!) {
         event(id: $id) {
+          id
+          name
+          posterImageUrl
+          posterImageHash
           attendees {
             user {
               id
@@ -29,6 +33,9 @@ export const useOrgEventApi = (variables: GetEventAttendeeQueryVariables) =>
           }
           coverImageUrl
           coverImageHash
+          questionGroups(type: POST_EVENT) {
+            id
+          }
         }
       }
     `,
@@ -36,7 +43,7 @@ export const useOrgEventApi = (variables: GetEventAttendeeQueryVariables) =>
   );
 
 export const useReviewRequest = () => {
-  const { mutate: reviewRequest } = useMutation<
+  const { mutate: reviewRequest, onDone: onReviewRequestDone } = useMutation<
     ReviewJoinRequestMutation,
     MutationReviewJoinRequestArgs
   >(gql`
@@ -46,5 +53,5 @@ export const useReviewRequest = () => {
       }
     }
   `);
-  return { reviewRequest };
+  return { reviewRequest, onReviewRequestDone };
 };

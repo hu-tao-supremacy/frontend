@@ -78,7 +78,7 @@
                   <div>Approve</div>
                 </BaseButton>
               </div>
-              <base-transparent-button>
+              <base-transparent-button disabled>
                 <base-icon>
                   <MoreVerticalIcon />
                 </base-icon>

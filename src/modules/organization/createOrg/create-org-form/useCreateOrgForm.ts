@@ -1,6 +1,5 @@
-import { computed, Ref, ref, SetupContext, watch } from "vue";
-import { parseImageFile } from "@/commons/utils/parseImage";
-import { GetCurrentUserInfoQuery, User } from "@/apollo/types";
+import { computed, ref, SetupContext, watch } from "vue";
+import { GetCurrentUserInfoQuery } from "@/apollo/types";
 import { SUBMIT_FORM } from "@/commons/constant";
 import { useAddMemberToOrg, useCreateOrganization, useUserInfo } from "../api";
 import { useResult } from "@vue/apollo-composable";
@@ -11,7 +10,6 @@ export default function useCreateOrgForm(
 ) {
   const uploadedImgFile = ref<Blob | null>(null);
   const uploadedImg = ref<string | null>(null);
-  const reader = new FileReader();
 
   const orgDetail = ref({
     abbreviation: "",

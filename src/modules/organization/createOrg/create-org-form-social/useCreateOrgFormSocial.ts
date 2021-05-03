@@ -1,6 +1,11 @@
 import { computed, reactive, Ref, ref, SetupContext, watch } from "vue";
 import { OrgSocial } from "../interfaces";
-import { validateEmail } from "@/commons/utils/validForm";
+import {
+  validateEmail,
+  validateFacebookUrl,
+  validateInstagramUrl,
+  validateLineOfficialUrl
+} from "@/commons/utils/validForm";
 import { UPDATE_MODEL_VALUE } from "@/commons/constant";
 
 export default function useCreateOrgFormSocial(
@@ -16,12 +21,28 @@ export default function useCreateOrgFormSocial(
     return validateEmail(email.value);
   });
 
+  const isValidFacebook = computed(() => {
+    return validateFacebookUrl(facebook.value);
+  });
+
+  const isValidLineOfficial = computed(() => {
+    return validateLineOfficialUrl(line.value);
+  });
+
+  const isValidInstagram = computed(() => {
+    return validateInstagramUrl(instagram.value);
+  });
+
   const hasSocialMedia = computed(() => {
     return (
-      facebook.value !== "" ||
-      instagram.value !== "" ||
-      line.value !== "" ||
-      (email.value !== "" && isValidEmail)
+      (facebook.value !== "" ||
+        instagram.value !== "" ||
+        line.value !== "" ||
+        email.value !== "") &&
+      isValidEmail.value &&
+      isValidFacebook.value &&
+      isValidInstagram.value &&
+      isValidLineOfficial.value
     );
   });
 
@@ -41,5 +62,14 @@ export default function useCreateOrgFormSocial(
     { deep: true }
   );
 
-  return { facebook, instagram, line, email, isValidEmail };
+  return {
+    facebook,
+    instagram,
+    line,
+    email,
+    isValidEmail,
+    isValidFacebook,
+    isValidLineOfficial,
+    isValidInstagram
+  };
 }

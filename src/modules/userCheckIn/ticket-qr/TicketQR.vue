@@ -33,11 +33,11 @@
         </div>
         <div class="flex flex-col justify-center text-lg">
           <div>
-            {{ user.firstName }}
-            {{ user.lastName }}
+            {{ user && user.firstName }}
+            {{ user && user.lastName }}
           </div>
-          <div class="mt-0.5">{{ user.email }}</div>
-          <div class="mt-0.5">{{ user.phoneNumber }}</div>
+          <div class="mt-0.5">{{ user && user.email }}</div>
+          <div class="mt-0.5">{{ user && user.phoneNumber }}</div>
         </div>
         <router-link to="/wallet">
           <base-button class="absolute bottom-6 right-12 w-15 h-4.5"

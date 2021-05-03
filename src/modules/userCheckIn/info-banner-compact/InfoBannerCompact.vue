@@ -9,7 +9,7 @@
           v-for="tag in eventBanner && eventBanner.tags"
           :key="tag"
           class="mr-1 mb-1 h-2"
-          >{{ tag }}</base-tag
+          >{{ tag.name }}</base-tag
         >
       </div>
       <section>

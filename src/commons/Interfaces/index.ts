@@ -106,3 +106,10 @@ export interface EventDurationsForm {
   durations: SetEventDurationsDurationInput[];
   isValid: boolean;
 }
+
+export interface GithubMember {
+  id: number;
+  login: string;
+  avatar_url: string;
+  html_url: string;
+}

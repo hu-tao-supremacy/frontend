@@ -1,6 +1,7 @@
 import { computed, ref } from "vue";
 import useUser from "@/modules/authentication";
 import isEmpty from "@/commons/utils/isEmpty";
+import router from "@/router";
 
 export default function usePageNavbar(isOrgView: boolean) {
   const { isSignIn: isLogIn, logout, user } = useUser();
@@ -28,6 +29,10 @@ export default function usePageNavbar(isOrgView: boolean) {
     isDropDownShown.value = false;
   }
 
+  function searchEvent(searchInput: string) {
+    router.push({ path: "search", query: { q: searchInput } });
+  }
+
   return {
     isLogIn,
     imgUrl,
@@ -37,6 +42,7 @@ export default function usePageNavbar(isOrgView: boolean) {
     homePage,
     toggleDropDown,
     hideDropDown,
-    logout
+    logout,
+    searchEvent
   };
 }

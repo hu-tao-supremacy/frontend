@@ -20,6 +20,7 @@ export const useEventById = (variables: GetEventByIdQueryVariables) =>
           }
           organization {
             id
+            isVerified
             name
             abbreviation
             description

@@ -16,7 +16,6 @@
           />
           <div class="text-lg font-heading">Organized by</div>
           <EventOrganizer
-            :isSignIn="isSignIn"
             class="event-inner mt-1"
             :eventOrg="event?.organization"
           />

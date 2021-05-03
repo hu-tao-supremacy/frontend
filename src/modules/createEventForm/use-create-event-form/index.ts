@@ -40,7 +40,6 @@ const useCreateEventForm = () => {
       title: "",
       subtitle: ""
     });
-    console.log(questions);
   };
 
   const resetSequence = (questions: SetEventQuestionsQuestionInput[]) => {
@@ -59,7 +58,6 @@ const useCreateEventForm = () => {
   function closeSuccessModal() {
     isSuccessModalShown.value = false;
     router.push("/org/team");
-    console.log("To team page");
   }
 
   const submitQuestions = () => {

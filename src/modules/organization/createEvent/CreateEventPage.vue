@@ -110,10 +110,6 @@ export default defineComponent({
           router.push(`/create-event-form/${data.data?.createEvent.id}`);
         });
       });
-
-      //Send to API and then to event form page
-      console.log(event);
-      console.log("To event form");
     }
 
     return {

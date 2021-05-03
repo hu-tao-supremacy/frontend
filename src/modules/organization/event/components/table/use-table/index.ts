@@ -6,6 +6,7 @@ import { DataProps } from "../types";
 import { ref, computed, Ref } from "vue";
 import Fuse from "fuse.js";
 import { useRoute } from "vue-router";
+import useOrgEvent from "../../../use-org-event";
 
 const useTable = (data?: Ref<DataProps[] | undefined>) => {
   const searchValue = ref("");
@@ -16,6 +17,7 @@ const useTable = (data?: Ref<DataProps[] | undefined>) => {
   };
   const sortingName = ["Descending alphabets", "Ascending alphabets"];
   const sortingVal = [SortOption.Descending, SortOption.Ascending];
+  const { refetch: refetchOrgEvent } = useOrgEvent();
 
   const header: Record<string, string> = {
     name: "Name",
@@ -59,7 +61,7 @@ const useTable = (data?: Ref<DataProps[] | undefined>) => {
     return sort(searchedData).value;
   });
 
-  const { reviewRequest } = useReviewRequest();
+  const { reviewRequest, onReviewRequestDone } = useReviewRequest();
   const route = useRoute();
   const eventId = Number(route.params.id);
 
@@ -97,6 +99,10 @@ const useTable = (data?: Ref<DataProps[] | undefined>) => {
     };
     reviewRequest({ input });
   };
+
+  onReviewRequestDone(() => {
+    refetchOrgEvent();
+  });
 
   return {
     handleSearch,

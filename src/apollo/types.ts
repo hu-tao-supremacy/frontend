@@ -47,8 +47,8 @@ export type AuthenticateOutput = {
 };
 
 export type CheckInInput = {
-  userId: Scalars["Int"];
   eventId: Scalars["Int"];
+  ticket?: Maybe<Scalars["String"]>;
 };
 
 export type CreateEventInput = {
@@ -1033,7 +1033,12 @@ export type GetEventAttendeeQueryVariables = Exact<{
 export type GetEventAttendeeQuery = { __typename?: "Query" } & {
   event: { __typename?: "Event" } & Pick<
     Event,
-    "coverImageUrl" | "coverImageHash"
+    | "id"
+    | "name"
+    | "posterImageUrl"
+    | "posterImageHash"
+    | "coverImageUrl"
+    | "coverImageHash"
   > & {
       attendees: Array<
         { __typename?: "UserEvent" } & Pick<UserEvent, "status" | "ticket"> & {
@@ -1089,11 +1094,11 @@ export type GetOrgTeamItemQuery = { __typename?: "Query" } & {
             durations: Array<
               { __typename?: "EventDuration" } & Pick<
                 EventDuration,
-                "start" | "finish"
+                "id" | "start" | "finish"
               >
             >;
             location?: Maybe<
-              { __typename?: "Location" } & Pick<Location, "name">
+              { __typename?: "Location" } & Pick<Location, "id" | "name">
             >;
             attendees: Array<
               { __typename?: "UserEvent" } & Pick<UserEvent, "id">

@@ -1,7 +1,11 @@
 <template>
   <button
     :type="type"
-    class="flex items-center justify-center bg-transparent hover:text-gray-5 focus:text-primary focus:outline-none"
+    :disabled="disabled"
+    :class="{
+      'flex items-center justify-center bg-transparent hover:text-gray-5 focus:text-primary focus:outline-none': !disabled,
+      'flex items-center justify-center text-gray-5 cursor-not-allowed bg-transparent': disabled
+    }"
   >
     <slot></slot>
   </button>
@@ -16,6 +20,10 @@ export default defineComponent({
     type: {
       type: String,
       default: "button"
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   }
 });

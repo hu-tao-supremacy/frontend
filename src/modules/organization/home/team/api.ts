@@ -22,11 +22,13 @@ export const useOrgTeamApi = (id: Ref<number>) =>
             posterImageUrl
             posterImageHash
             durations {
+              id
               start
               finish
             }
             registrationDueDate
             location {
+              id
               name
             }
             attendeeCount

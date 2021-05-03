@@ -13,6 +13,13 @@ const useHome = () => {
     generateDummyArray(4),
     data => data.upcomingEvents
   );
+
+  const onlineEvents = useResult(
+    homeResult,
+    generateDummyArray(4),
+    data => data.onlineEvents
+  );
+
   const featureEvents = useResult(
     homeResult,
     generateDummyArray(4),
@@ -37,10 +44,6 @@ const useHome = () => {
       generateDummyArray(3);
     }
     return recommendedEventsData.value;
-  });
-
-  const onlineEvents = computed(() => {
-    return generateDummyArray(4);
   });
 
   const nearbyEvents = computed(() => {

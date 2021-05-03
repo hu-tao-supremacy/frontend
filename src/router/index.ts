@@ -44,6 +44,20 @@ const OrganizationProvider = () =>
   import(
     "@/modules/organization/useOrganization/components/OrganizationProvider.vue"
   );
+const MoreRecommended = () =>
+  import(
+    "@/modules/viewMore/view-more-recommended/ViewMoreRecommendedPage.vue"
+  );
+const MoreOrganizations = () =>
+  import(
+    "@/modules/viewMore/view-more-organization/ViewMoreOrganizationsPage.vue"
+  );
+const MoreUpcoming = () =>
+  import("@/modules/viewMore/view-more-upcoming/ViewMoreUpcomingPage.vue");
+const MoreOnline = () =>
+  import("@/modules/viewMore/view-more-online/ViewMoreOnlinePage.vue");
+const SearchedEvents = () =>
+  import("@/modules/viewMore/search/SearchedPage.vue");
 
 const router = createRouter({
   history: createWebHistory(),
@@ -85,6 +99,26 @@ const router = createRouter({
         {
           path: "/org-info/:id",
           component: OrgInfo
+        },
+        {
+          path: "/more-recommended-events",
+          component: MoreRecommended
+        },
+        {
+          path: "/more-organizations",
+          component: MoreOrganizations
+        },
+        {
+          path: "/more-upcoming-events",
+          component: MoreUpcoming
+        },
+        {
+          path: "/more-online-events",
+          component: MoreOnline
+        },
+        {
+          path: "/search",
+          component: SearchedEvents
         },
         { path: "/404", component: NotFound }
       ]

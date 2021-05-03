@@ -2,7 +2,7 @@
   <div
     class="flex justify-between h-8 w-full px-8 py-2 items-center sticky top-0 bg-white z-40"
   >
-    <section class="flex">
+    <section class="flex items-center">
       <router-link :to="homePage">
         <div class="flex items-center">
           <base-icon
@@ -22,6 +22,7 @@
         v-if="!isOrgView"
         class="mr-6 h-4"
         :placeholder="'Search...'"
+        @search="searchEvent"
       />
     </section>
     <base-button class="w-20 h-3.75" @click="login" v-if="!isLogIn"
@@ -97,7 +98,8 @@ export default defineComponent({
       homePage,
       toggleDropDown,
       hideDropDown,
-      logout
+      logout,
+      searchEvent
     } = usePageNavbar(props.isOrgView);
 
     return {
@@ -110,7 +112,8 @@ export default defineComponent({
       login,
       toggleDropDown,
       hideDropDown,
-      logout
+      logout,
+      searchEvent
     };
   }
 });

@@ -910,6 +910,22 @@ export type GetHomeItemQuery = { __typename?: "Query" } & {
         >;
       }
   >;
+  onlineEvents: Array<
+    { __typename?: "Event" } & Pick<
+      Event,
+      "id" | "description" | "name" | "posterImageUrl" | "posterImageHash"
+    > & {
+        durations: Array<
+          { __typename?: "EventDuration" } & Pick<
+            EventDuration,
+            "id" | "start" | "finish"
+          >
+        >;
+        location?: Maybe<
+          { __typename?: "Location" } & Pick<Location, "id" | "name">
+        >;
+      }
+  >;
   featuredOrganizations: Array<
     { __typename?: "Organization" } & Pick<
       Organization,
@@ -1252,6 +1268,135 @@ export type GetUserTicketQuery = { __typename?: "Query" } & {
   >;
 };
 
+export type GetSearchedItemsQueryVariables = Exact<{
+  keyword: Scalars["String"];
+}>;
+
+export type GetSearchedItemsQuery = { __typename?: "Query" } & {
+  searchEvent: Array<
+    { __typename?: "Event" } & Pick<
+      Event,
+      | "id"
+      | "description"
+      | "name"
+      | "coverImageUrl"
+      | "coverImageHash"
+      | "posterImageUrl"
+      | "posterImageHash"
+    > & {
+        durations: Array<
+          { __typename?: "EventDuration" } & Pick<
+            EventDuration,
+            "id" | "start" | "finish"
+          >
+        >;
+        location?: Maybe<
+          { __typename?: "Location" } & Pick<Location, "id" | "name">
+        >;
+        tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
+      }
+  >;
+};
+
+export type GetOnlineItemsQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetOnlineItemsQuery = { __typename?: "Query" } & {
+  onlineEvents: Array<
+    { __typename?: "Event" } & Pick<
+      Event,
+      | "id"
+      | "description"
+      | "name"
+      | "coverImageUrl"
+      | "coverImageHash"
+      | "posterImageUrl"
+      | "posterImageHash"
+    > & {
+        durations: Array<
+          { __typename?: "EventDuration" } & Pick<
+            EventDuration,
+            "id" | "start" | "finish"
+          >
+        >;
+        location?: Maybe<
+          { __typename?: "Location" } & Pick<Location, "id" | "name">
+        >;
+        tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
+      }
+  >;
+};
+
+export type GetAllOrganizationQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetAllOrganizationQuery = { __typename?: "Query" } & {
+  organizations: Array<
+    { __typename?: "Organization" } & Pick<
+      Organization,
+      | "id"
+      | "profilePictureUrl"
+      | "profilePictureHash"
+      | "abbreviation"
+      | "name"
+    >
+  >;
+};
+
+export type GetRecommendedItemsQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetRecommendedItemsQuery = { __typename?: "Query" } & {
+  recommendedEvents: Array<
+    { __typename?: "Event" } & Pick<
+      Event,
+      | "id"
+      | "description"
+      | "name"
+      | "coverImageUrl"
+      | "coverImageHash"
+      | "posterImageUrl"
+      | "posterImageHash"
+    > & {
+        durations: Array<
+          { __typename?: "EventDuration" } & Pick<
+            EventDuration,
+            "id" | "start" | "finish"
+          >
+        >;
+        location?: Maybe<
+          { __typename?: "Location" } & Pick<Location, "id" | "name">
+        >;
+        tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
+      }
+  >;
+};
+
+export type GetUpcomingItemsQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetUpcomingItemsQuery = { __typename?: "Query" } & {
+  upcomingEvents: Array<
+    { __typename?: "Event" } & Pick<
+      Event,
+      | "id"
+      | "description"
+      | "name"
+      | "coverImageUrl"
+      | "coverImageHash"
+      | "posterImageUrl"
+      | "posterImageHash"
+    > & {
+        durations: Array<
+          { __typename?: "EventDuration" } & Pick<
+            EventDuration,
+            "id" | "start" | "finish"
+          >
+        >;
+        location?: Maybe<
+          { __typename?: "Location" } & Pick<Location, "id" | "name">
+        >;
+        tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
+      }
+  >;
+};
+
 export type GetUserWalletQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetUserWalletQuery = { __typename?: "Query" } & {
@@ -1285,20 +1430,8 @@ export type GetUserWalletQuery = { __typename?: "Query" } & {
             attendance?: Maybe<
               { __typename?: "UserEvent" } & Pick<
                 UserEvent,
-                "id" | "ticket" | "status"
+                "id" | "ticket" | "status" | "rating"
               >
-            >;
-            questionGroups: Array<
-              { __typename?: "QuestionGroup" } & {
-                questions: Array<
-                  { __typename?: "Question" } & Pick<Question, "id"> & {
-                      answer: { __typename?: "Answer" } & Pick<
-                        Answer,
-                        "id" | "value"
-                      >;
-                    }
-                >;
-              }
             >;
           }
       >;

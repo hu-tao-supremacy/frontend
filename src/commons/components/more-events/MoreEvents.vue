@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, PropType } from "vue";
 import CardEvent from "@/modules/home/components/card-event/CardEvent.vue";
 import { Event } from "@/apollo/types";
 export default defineComponent({
@@ -18,7 +18,7 @@ export default defineComponent({
   },
   props: {
     events: {
-      type: Object as () => Event
+      type: Array as PropType<Event[]>
     },
     heading: {
       type: String

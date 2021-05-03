@@ -7,8 +7,8 @@
         :width="150"
         :height="150"
         alt="will change to api"
-        :url="event.posterImgUrl"
-        :placeholder="event.posterImgHash"
+        :url="event.posterImageUrl"
+        :placeholder="event.posterImageHash"
         class="object-cover absolute w-full h-full"
         :canvasClass="'absolute'"
       />

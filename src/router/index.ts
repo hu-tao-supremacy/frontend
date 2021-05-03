@@ -118,14 +118,18 @@ const router = createRouter({
             { path: "", redirect: "/404" },
             { path: ":id", component: OrgEventDashboardPage },
             {
-              path: "/attendee-management/:id",
+              path: "attendee-management/:id",
               component: AttendeeManagementPage
             },
             {
-              path: "/create-event-feedback/:id",
+              path: "create-event-feedback/:id",
               component: CreateFeedback
             }
           ]
+        },
+        {
+          path: "",
+          redirect: "/404"
         }
       ]
     },

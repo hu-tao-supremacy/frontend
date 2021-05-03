@@ -17,7 +17,9 @@
       class="w-30"
     />
     <section>
-      <label for="tags" class="mb-1">Categories</label>
+      <label for="tags" class="mb-1"
+        >Categories <span class="text-red-5"> *</span></label
+      >
       <SingleNameSelect
         v-model="tagSearch"
         :isSearchable="true"

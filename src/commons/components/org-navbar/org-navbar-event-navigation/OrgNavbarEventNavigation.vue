@@ -16,21 +16,6 @@
       ><GridIcon
     /></base-icon-and-detail>
     <base-icon-and-detail
-      @click="toEventInfo"
-      :iconWidth="24"
-      :iconHeight="24"
-      :iconColor="'currentColor'"
-      :iconClass="'mr-2'"
-      :detail="'Event Information'"
-      :detailClass="'font-semibold'"
-      class="px-1 py-0.75 rounded-lg cursor-pointer"
-      :class="{
-        'text-blue-9 bg-white': isEventInfoSelected,
-        'text-white hover:bg-white hover:text-blue-11': !isEventInfoSelected
-      }"
-      ><InfoIcon
-    /></base-icon-and-detail>
-    <base-icon-and-detail
       @click="toManageAttendee"
       :iconWidth="24"
       :iconHeight="24"
@@ -67,7 +52,6 @@
 import { defineComponent } from "vue";
 import BaseIconAndDetail from "@/commons/UI/BaseIconAndDetail.vue";
 import GridIcon from "@/assets/Grid.vue";
-import InfoIcon from "@/assets/Info.vue";
 import UsersIcon from "@/assets/Users.vue";
 import MessageIcon from "@/assets/MessageCircle.vue";
 import useOrgNavbarEventNavigation from "./useOrgNavbarEventNavigation";
@@ -77,29 +61,24 @@ export default defineComponent({
   components: {
     BaseIconAndDetail,
     GridIcon,
-    InfoIcon,
     UsersIcon,
     MessageIcon
   },
   setup() {
     const {
       isDashBoardSelected,
-      isEventInfoSelected,
       isManageAttendeeSelected,
       isManageFeedbackSelected,
       toDashboard,
-      toEventInfo,
       toManageAttendee,
       toManageFeedback
     } = useOrgNavbarEventNavigation();
 
     return {
       isDashBoardSelected,
-      isEventInfoSelected,
       isManageAttendeeSelected,
       isManageFeedbackSelected,
       toDashboard,
-      toEventInfo,
       toManageAttendee,
       toManageFeedback
     };

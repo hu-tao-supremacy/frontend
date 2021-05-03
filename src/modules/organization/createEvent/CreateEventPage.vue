@@ -87,6 +87,7 @@ export default defineComponent({
     });
 
     function submitForm() {
+      if (!isValidForm.value) return;
       const eventLocationInput = {
         name: eventLocation.value.name,
         description: eventLocation.value.description,

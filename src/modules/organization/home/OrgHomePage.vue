@@ -4,7 +4,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, onMounted, watch } from "vue";
+import { computed, defineComponent } from "vue";
 import useOrganization from "../useOrganization";
 import GreetingPage from "./greeting/GreetingPage.vue";
 import TeamPage from "./team/TeamPage.vue";

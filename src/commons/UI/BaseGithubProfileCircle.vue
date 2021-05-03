@@ -1,6 +1,6 @@
 <template>
   <a target="_blank" rel="noopener noreferrer" :href="href">
-    <section class="w-6 h-6 text-center rounded-full bg-white overflow-hidden">
+    <section class="w-5 h-5 text-center rounded-full bg-white overflow-hidden">
       <img
         v-if="imgUrl"
         :src="imgUrl"

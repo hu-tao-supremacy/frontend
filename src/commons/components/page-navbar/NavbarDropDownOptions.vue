@@ -2,7 +2,7 @@
   <div
     class="flex flex-col w-25 bg-white rounded-b-lg pt-0.5 pb-1 font-heading text-lg"
   >
-    <router-link to="/org">
+    <router-link to="/org/team">
       <div
         class="group flex items-center rounded-sm px-3 mb-0.5 cursor-pointer hover:text-white hover:bg-primary"
         @click="selectOption"

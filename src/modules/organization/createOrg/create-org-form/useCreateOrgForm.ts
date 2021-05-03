@@ -1,8 +1,10 @@
 import { computed, Ref, ref, SetupContext, watch } from "vue";
 import { parseImageFile } from "@/commons/utils/parseImage";
-import { User } from "@/apollo/types";
+import { GetCurrentUserInfoQuery, User } from "@/apollo/types";
 import { SUBMIT_FORM } from "@/commons/constant";
-import testData from "@/modules/test/testData";
+import { useAddMemberToOrg, useCreateOrganization, useUserInfo } from "../api";
+import { useResult } from "@vue/apollo-composable";
+import useOrganization from "../../useOrganization";
 
 export default function useCreateOrgForm(
   context: SetupContext<"submit-form"[]>
@@ -20,10 +22,20 @@ export default function useCreateOrgForm(
     isValid: ""
   });
 
-  //Get from API
-  const orgOwner: User = testData.userPoom;
-  //Initiate with org owner as single member
-  const selectedMembers: Ref<User[]> = ref([orgOwner]);
+  const {
+    createOrganization,
+    onDone: onCreateOrgDone
+  } = useCreateOrganization();
+  const { refetch } = useOrganization();
+  const { addMember } = useAddMemberToOrg();
+  const selectedMembers = ref<GetCurrentUserInfoQuery["currentUser"][]>([]);
+  const { result: userInfo } = useUserInfo();
+  const orgOwner = useResult(userInfo, null, data => data.currentUser);
+  watch(orgOwner, () => {
+    if (orgOwner.value) {
+      selectedMembers.value.push(orgOwner.value);
+    }
+  });
 
   const orgContactPerson = ref({
     name: "",
@@ -70,8 +82,6 @@ export default function useCreateOrgForm(
   });
 
   function submitForm() {
-    context.emit(SUBMIT_FORM);
-    //Connect with API
     const org = {
       name: orgDetail.value.fullName,
       abbreviation: orgDetail.value.abbreviation,
@@ -86,12 +96,26 @@ export default function useCreateOrgForm(
       contactEmail: orgContactPerson.value.email,
       contactPhoneNumber: orgContactPerson.value.phone,
       contactLineId: orgContactPerson.value.line,
-      profilePicture: uploadedImg.value
+      profilePicture: uploadedImgFile.value
     };
-    console.log("submit org", org);
-    const memberEmails = selectedMembers.value.map(member => member.email);
-    console.log("submit members", memberEmails);
+    createOrganization({ input: org });
   }
+
+  onCreateOrgDone(result => {
+    const memberEmails = selectedMembers.value
+      .filter(member => member.id !== orgOwner.value?.id)
+      .map(member => member.email);
+    if (memberEmails.length !== 0) {
+      addMember({
+        input: {
+          organizationId: result.data?.createOrganization.id as number,
+          emails: memberEmails
+        }
+      });
+    }
+    refetch();
+    context.emit(SUBMIT_FORM);
+  });
 
   return {
     uploadedImg,

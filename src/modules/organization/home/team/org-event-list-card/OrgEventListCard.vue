@@ -66,13 +66,15 @@
         </section>
         <p class="text-white font-semibold">{{ attendeeText }}</p>
       </div>
-      <base-icon
-        @click="toEventDashboard"
-        :width="32"
-        :height="32"
-        class="text-white cursor-pointer hover:text-gray-4"
-        ><ArrowRight
-      /></base-icon>
+      <router-link :to="`/org/event/${event.id}`">
+        <base-icon
+          @click="toEventDashboard"
+          :width="32"
+          :height="32"
+          class="text-white cursor-pointer hover:text-gray-4"
+          ><ArrowRight
+        /></base-icon>
+      </router-link>
     </section>
   </div>
 </template>

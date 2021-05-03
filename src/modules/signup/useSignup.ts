@@ -15,7 +15,6 @@ const INTEREST = "interest";
 const INTERESTED_EVENTS = "interested_events";
 
 const useSignup = () => {
-  const test = testData;
   const currentModal = ref(ADDITIONAL_INFO);
   const router = useRouter();
   const route = useRoute();
@@ -25,7 +24,7 @@ const useSignup = () => {
     onUpdateUserDone,
     onUpdateUserError
   } = useUpdateUserInfo();
-  const { updateInterest, onUpdateInterestDone } = setUpdateInterestedEvents();
+  const { updateInterest } = setUpdateInterestedEvents();
   const interestedTags = ref<number[]>([]);
   const hasInterestedTags = computed(() => interestedTags.value.length !== 0);
   const { result: eventsCandidate } = useInterestedEventsCandidate(
@@ -89,7 +88,6 @@ const useSignup = () => {
     showAdditionalInfoModal,
     showInterestedEventsModal,
     submitInterestedTags,
-    test,
     showInterestModal,
     finishModal,
     cancelSignup,

@@ -756,6 +756,14 @@ export type GetQuestionGroupsQuery = { __typename?: "Query" } & {
     };
 };
 
+export type SubmitFeedbackMutationVariables = Exact<{
+  input: SubmitFeedbackInput;
+}>;
+
+export type SubmitFeedbackMutation = { __typename?: "Mutation" } & {
+  submitFeedback: { __typename?: "UserEvent" } & Pick<UserEvent, "id">;
+};
+
 export type GetEventByIdQueryVariables = Exact<{
   id: Scalars["Int"];
 }>;
@@ -1279,6 +1287,18 @@ export type GetUserWalletQuery = { __typename?: "Query" } & {
                 UserEvent,
                 "id" | "ticket" | "status"
               >
+            >;
+            questionGroups: Array<
+              { __typename?: "QuestionGroup" } & {
+                questions: Array<
+                  { __typename?: "Question" } & Pick<Question, "id"> & {
+                      answer: { __typename?: "Answer" } & Pick<
+                        Answer,
+                        "id" | "value"
+                      >;
+                    }
+                >;
+              }
             >;
           }
       >;

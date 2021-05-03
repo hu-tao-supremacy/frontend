@@ -1,8 +1,10 @@
 import {
   GetQuestionGroupsQuery,
-  GetQuestionGroupsQueryVariables
+  GetQuestionGroupsQueryVariables,
+  MutationSubmitFeedbackArgs,
+  SubmitFeedbackMutation
 } from "@/apollo/types";
-import { useQuery } from "@vue/apollo-composable";
+import { useMutation, useQuery } from "@vue/apollo-composable";
 import gql from "graphql-tag";
 
 export const useEvents = (variables: GetQuestionGroupsQueryVariables) =>
@@ -28,3 +30,17 @@ export const useEvents = (variables: GetQuestionGroupsQueryVariables) =>
     `,
     variables
   );
+
+export const useSubmitEventFeedback = () => {
+  const { mutate: submitFeedback, onDone: onSubmitFeedbackDone } = useMutation<
+    SubmitFeedbackMutation,
+    MutationSubmitFeedbackArgs
+  >(gql`
+    mutation submitFeedback($input: SubmitFeedbackInput!) {
+      submitFeedback(input: $input) {
+        id
+      }
+    }
+  `);
+  return { submitFeedback, onSubmitFeedbackDone };
+};

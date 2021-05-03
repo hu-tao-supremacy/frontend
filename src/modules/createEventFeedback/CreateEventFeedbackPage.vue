@@ -1,4 +1,5 @@
 <template>
+  <CreateEventFeebackSuccess v-if="showSucessModal" />
   <div class="flex flex-col p-4 items-center w-full">
     <div class="flex flex-col justify-center w-full content-max-width-s">
       <div class="text-4xl font-heading mb-3">Event Feedback</div>
@@ -78,9 +79,13 @@
         </div>
       </div>
       <div class="flex flex-col" v-else>
-        <base-button class="w-18 h-4" @click="toggleForm"
+        <base-button
+          v-if="!hasCreatedFeedback"
+          class="w-18 h-4"
+          @click="toggleForm"
           >Create Feedback</base-button
         >
+        <div v-else>You have published feedback</div>
         <base-icon
           :width="568"
           :height="568"
@@ -102,6 +107,7 @@ import QuestionRadioPreview from "@/modules/question/question-radio-preview/Ques
 import QuestionStarPreview from "@/modules/question/question-star-preview/QuestionStarPreview.vue";
 import useCreateEventFeedback from "./use-create-event-feedback";
 import DesignTeamIcon from "@/assets/DesignTeam.vue";
+import CreateEventFeebackSuccess from "./CreateEventFeebackSuccess.vue";
 
 export default defineComponent({
   name: "CreateFeedback",
@@ -111,7 +117,8 @@ export default defineComponent({
     QuestionTextPreview,
     QuestionRadioPreview,
     QuestionStarPreview,
-    DesignTeamIcon
+    DesignTeamIcon,
+    CreateEventFeebackSuccess
   },
   setup() {
     const {
@@ -130,7 +137,9 @@ export default defineComponent({
       getCategory,
       getQuestion,
       hasForm,
-      toggleForm
+      toggleForm,
+      showSucessModal,
+      hasCreatedFeedback
     } = useCreateEventFeedback();
 
     return {
@@ -149,7 +158,9 @@ export default defineComponent({
       getCategory,
       getQuestion,
       hasForm,
-      toggleForm
+      toggleForm,
+      showSucessModal,
+      hasCreatedFeedback
     };
   }
 });

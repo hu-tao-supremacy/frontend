@@ -376,6 +376,7 @@ export type Query = {
   featuredEvents: Array<Event>;
   recommendedEvents: Array<Event>;
   onlineEvents: Array<Event>;
+  searchEvent: Array<Event>;
   pastEvents: Array<Event>;
   event: Event;
   organizations: Array<Organization>;
@@ -402,6 +403,11 @@ export type QueryRecommendedEventsArgs = {
 
 export type QueryOnlineEventsArgs = {
   n: Scalars["Int"];
+};
+
+export type QuerySearchEventArgs = {
+  n?: Maybe<Scalars["Int"]>;
+  keyword: Scalars["String"];
 };
 
 export type QueryPastEventsArgs = {
@@ -1053,6 +1059,9 @@ export type GetEventAttendeeQuery = { __typename?: "Query" } & {
             >;
             answers: Array<{ __typename?: "Answer" } & Pick<Answer, "id">>;
           }
+      >;
+      questionGroups: Array<
+        { __typename?: "QuestionGroup" } & Pick<QuestionGroup, "id">
       >;
     };
 };

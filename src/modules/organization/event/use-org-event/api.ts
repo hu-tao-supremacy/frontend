@@ -33,6 +33,9 @@ export const useOrgEventApi = (variables: GetEventAttendeeQueryVariables) =>
           }
           coverImageUrl
           coverImageHash
+          questionGroups(type: POST_EVENT) {
+            id
+          }
         }
       }
     `,

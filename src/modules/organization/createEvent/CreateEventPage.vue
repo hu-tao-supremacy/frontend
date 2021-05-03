@@ -33,7 +33,7 @@ import {
 import { CreateEventInput } from "@/apollo/types";
 import { useCreateEventApi } from "./api";
 import useOrganization from "../useOrganization";
-import { useRouter, useRoute } from "vue-router";
+import { useRouter } from "vue-router";
 
 export default defineComponent({
   name: "CreateEventPage",
@@ -97,14 +97,8 @@ export default defineComponent({
         attendeeLimit: eventInformation.value.attendeeLimit,
         contact: eventInformation.value.contact,
         registrationDueDate: eventInformation.value.registrationDueDate,
-        coverImage:
-          eventInformation.value.coverImg === ""
-            ? null
-            : eventInformation.value.coverImg,
-        posterImage:
-          eventInformation.value.posterImg === ""
-            ? null
-            : eventInformation.value.posterImg,
+        coverImage: eventInformation.value.coverImg,
+        posterImage: eventInformation.value.posterImg,
         tags: eventInformation.value.tags,
         durations: eventDurations.value.durations
       };

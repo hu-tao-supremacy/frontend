@@ -6,7 +6,7 @@ import { useMutation } from "@vue/apollo-composable";
 import gql from "graphql-tag";
 
 export const createQuestion = () => {
-  const { mutate: sendQuestions, onDone } = useMutation<
+  const { mutate: sendQuestions } = useMutation<
     SetEventQuestionsInput,
     MutationSetEventQuestionsArgs
   >(gql`
@@ -14,5 +14,5 @@ export const createQuestion = () => {
       setEventQuestions(input: $input)
     }
   `);
-  return { sendQuestions, onDone };
+  return { sendQuestions };
 };

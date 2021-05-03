@@ -25,16 +25,13 @@ export const useUpdateUserInfo = () => {
 };
 
 export const setUpdateInterestedEvents = () => {
-  const {
-    mutate: updateInterest,
-    onDone: onUpdateInterestDone
-  } = useMutation(gql`
+  const { mutate: updateInterest } = useMutation(gql`
     mutation setInterestedEvents($input: [Int!]!) {
       setInterestedEvents(events: $input)
     }
   `);
 
-  return { updateInterest, onUpdateInterestDone };
+  return { updateInterest };
 };
 
 export const useInterestedEventsCandidate = (

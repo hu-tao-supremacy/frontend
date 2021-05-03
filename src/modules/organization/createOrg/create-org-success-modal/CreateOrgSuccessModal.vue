@@ -23,6 +23,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { useRouter } from "vue-router";
 import BaseModal from "@/commons/UI/BaseModal.vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import CheckCircleIcon from "@/assets/CheckCircle.vue";
@@ -37,8 +38,10 @@ export default defineComponent({
   },
   emits: [CLOSE_MODAL],
   setup(_, context) {
+    const router = useRouter();
     function closeModal() {
       context.emit(CLOSE_MODAL);
+      router.push("/org/team");
     }
 
     return { closeModal };

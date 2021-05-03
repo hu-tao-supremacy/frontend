@@ -25,8 +25,14 @@ export default function useEventInfoForm(
     initialEventInfoValue.value.registrationDueDate
   );
   const registrationDueTime = ref(0);
-  const posterImg = ref(initialEventInfoValue.value.posterImg);
-  const coverImg = ref(initialEventInfoValue.value.coverImg);
+  const posterImg: Ref<string | null> = ref(null);
+  const posterImgFile: Ref<Blob | null> = ref(
+    initialEventInfoValue.value.posterImg
+  );
+  const coverImg: Ref<string | null> = ref(null);
+  const coverImgFile: Ref<Blob | null> = ref(
+    initialEventInfoValue.value.coverImg
+  );
 
   const { result: tagsResult } = useEventInfoFormApi();
   const tagOptionValues = useResult(tagsResult, [], data => data.tags);
@@ -90,8 +96,8 @@ export default function useEventInfoForm(
     description: description,
     attendeeLimit: attendeeLimitNumber,
     registrationDueDate: registrationDueDateTime,
-    posterImg: posterImg,
-    coverImg: coverImg,
+    posterImg: posterImgFile,
+    coverImg: coverImgFile,
     isValid: isValidEventInfo
   });
 
@@ -116,6 +122,8 @@ export default function useEventInfoForm(
     isValidAttendeeLimit,
     removeTag,
     posterImg,
-    coverImg
+    posterImgFile,
+    coverImg,
+    coverImgFile
   };
 }

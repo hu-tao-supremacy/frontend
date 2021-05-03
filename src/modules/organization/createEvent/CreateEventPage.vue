@@ -30,8 +30,10 @@ import {
   EventDurationsForm,
   EventLocationForm
 } from "@/commons/Interfaces";
-import { CreateEventInput, Organization } from "@/apollo/types";
-import { organizationData } from "./testData";
+import { CreateEventInput } from "@/apollo/types";
+import { useCreateEventApi } from "./api";
+import useOrganization from "../useOrganization";
+import { useRouter } from "vue-router";
 
 export default defineComponent({
   name: "CreateEventPage",
@@ -43,7 +45,9 @@ export default defineComponent({
   },
   setup() {
     //Get from API
-    const organization: Ref<Organization> = ref(organizationData);
+    const { createEvent, onDone } = useCreateEventApi();
+    const { currentOrganizationId } = useOrganization();
+    const router = useRouter();
 
     const eventInformation: Ref<EventInfoForm> = ref({
       name: "",
@@ -52,8 +56,8 @@ export default defineComponent({
       description: "",
       attendeeLimit: 0,
       registrationDueDate: setTimeToZero(new Date()).toString(),
-      posterImg: "",
-      coverImg: "",
+      posterImg: null,
+      coverImg: null,
       isValid: false
     });
 
@@ -86,7 +90,7 @@ export default defineComponent({
         isOnline: eventLocation.value.isOnline
       };
       const event: CreateEventInput = {
-        organizationId: organization.value.id,
+        organizationId: currentOrganizationId.value,
         location: eventLocationInput,
         description: eventInformation.value.description,
         name: eventInformation.value.name,
@@ -99,9 +103,13 @@ export default defineComponent({
         durations: eventDurations.value.durations
       };
 
-      //Send to API and then to event form page
-      console.log(event);
-      console.log("To event form");
+      const createEventResult = createEvent({ input: event });
+
+      onDone(() => {
+        createEventResult.then(data => {
+          router.push(`/create-event-form/${data.data?.createEvent.id}`);
+        });
+      });
     }
 
     return {

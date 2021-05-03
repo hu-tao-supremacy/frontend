@@ -40,5 +40,6 @@ export const useOrgTeamApi = (id: Ref<number>) =>
         }
       }
     `,
-    () => ({ input: id.value })
+    () => ({ input: id.value }),
+    { fetchPolicy: "no-cache" }
   );

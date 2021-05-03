@@ -1,6 +1,6 @@
 <template>
   <div class="grid ticket-container bg-primary-1 rounded-2xl">
-    <section class="h-full shadow-sm rounded-l-2xl overflow-hidden">
+    <section class="h-auto shadow-sm rounded-l-2xl overflow-hidden">
       <LazyImage
         :width="120"
         :height="160"

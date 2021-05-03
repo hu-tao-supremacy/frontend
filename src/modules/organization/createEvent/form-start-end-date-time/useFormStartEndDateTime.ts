@@ -34,8 +34,8 @@ export default function useFormStartEndDateTime(
     endHour: number
   ): SetEventDurationsDurationInput {
     return {
-      start: set(day, { hours: startHour }).toString(),
-      finish: set(day, { hours: endHour }).toString()
+      start: set(day, { hours: startHour }).toISOString(),
+      finish: set(day, { hours: endHour }).toISOString()
     };
   }
 

@@ -57,14 +57,15 @@ export default function useEventInfoForm(
     const dateTime = set(new Date(registrationDueDate.value), {
       hours: registrationDueTime.value
     });
-    return dateTime.toString();
+    return dateTime.toISOString();
   });
 
   const isValidEventInfo = computed(() => {
     if (
       name.value === "" ||
       description.value === "" ||
-      attendeeLimitNumber.value === 0
+      attendeeLimitNumber.value === 0 ||
+      tags.value.length === 0
     )
       return false;
     return true;

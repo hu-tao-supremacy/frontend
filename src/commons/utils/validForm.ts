@@ -8,6 +8,33 @@ export function validateEmail(email: string) {
 }
 
 /**
+ * Check whether url is a Facebook Url, such as facebook.com/something
+ */
+export function validateFacebookUrl(url: string) {
+  if (url === "") return true;
+  const expression = /^(?:(?:http|https):\/\/)?(?:www.)?facebook.com\/(?:.)*$/;
+  return expression.test(url.toLowerCase());
+}
+
+/**
+ * Check whether url is a Facebook Url, such as instagram.com/something
+ */
+export function validateInstagramUrl(url: string) {
+  if (url === "") return true;
+  const expression = /^(?:(?:http|https):\/\/)?(?:www.)?instagram.com\/(?:.)*$/;
+  return expression.test(url.toLowerCase());
+}
+
+/**
+ * Check whether url is a Facebook Url, such as line.me/R/ti/p/something
+ */
+export function validateLineOfficialUrl(url: string) {
+  if (url === "") return true;
+  const expression = /^(?:(?:http|https):\/\/)?(?:www.)?line.me\/R\/ti\/p\/(?:.)*$/;
+  return expression.test(url.toLowerCase());
+}
+
+/**
  * Check whether phone number is made up of only digits and is 10 digits long
  */
 export function validatePhone(phone: string) {

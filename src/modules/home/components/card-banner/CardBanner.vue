@@ -15,13 +15,10 @@
         <h3 class="text-2xl font-heading text-blue-10 truncate mb-1">
           {{ event.name }}
         </h3>
-        <div class="flex mb-2 items-center overflow-x-scroll">
-          <base-tag
-            v-for="(tag, index) in event.tags"
-            :key="tag"
-            :class="changeClass(index)"
-            >{{ tag.name }}</base-tag
-          >
+        <div class="flex mb-2 items-center overflow-x-auto space-x-1">
+          <base-tag v-for="tag in event.tags" :key="tag.name">{{
+            tag.name
+          }}</base-tag>
         </div>
         <div class="text-sm mb-1 w-full text-truncate text-truncate-4">
           {{ event.description }}
@@ -79,19 +76,13 @@ export default defineComponent({
   },
   setup(props) {
     const { event } = toRefs(props);
-    const {
-      date,
-      time,
-      location,
-      changeClass,
-      eventInfoUrl,
-      isLinkReady
-    } = useCardBanner(event);
+    const { date, time, location, eventInfoUrl, isLinkReady } = useCardBanner(
+      event
+    );
     return {
       date,
       time,
       location,
-      changeClass,
       eventInfoUrl,
       isLinkReady
     };
@@ -99,4 +90,23 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+::-webkit-scrollbar {
+  background-color: #f7fafc;
+  height: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f7fafc;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #babac0;
+  border-radius: 16px;
+  border: 4px solid #f7fafc;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+</style>

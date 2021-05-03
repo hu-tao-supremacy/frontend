@@ -74,14 +74,13 @@
       </div>
       <router-link :to="routerLinkId">
         <base-button
-          v-if="!isHistory"
+          v-if="isOngoing"
           @click="checkIn"
-          :disabled="isPending"
           class="check-in-btn self-center mt-auto h-3.5 w-full"
           >Check in</base-button
         >
         <base-button
-          v-else
+          v-else-if="isAttended"
           class="check-in-btn self-center mt-auto h-3.5 w-full"
           @click="giveFeedback"
           >Feedback</base-button
@@ -141,7 +140,8 @@ export default defineComponent({
       giveFeedback,
       date,
       time,
-      routerLinkId
+      routerLinkId,
+      isAttended
     } = useTicket(props.ticketStatus, event);
     console.log(routerLinkId.value);
     return {
@@ -152,7 +152,8 @@ export default defineComponent({
       giveFeedback,
       date,
       time,
-      routerLinkId
+      routerLinkId,
+      isAttended
     };
   }
 });

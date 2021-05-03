@@ -58,7 +58,7 @@ export const useRecommendationEvent = (enabled: Ref<boolean>) =>
   useQuery<GetRecommendedEventsQuery>(
     gql`
       query getRecommendedEvents {
-        recommendedEvents(n: 4) {
+        recommendedEvents(n: 3) {
           id
           description
           name

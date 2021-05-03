@@ -8,6 +8,7 @@ import {
   SetEventQuestionsQuestionGroupInput,
   SetEventQuestionsQuestionInput
 } from "@/apollo/types";
+import useOrgEvent from "@/modules/organization/event/use-org-event";
 
 const useCreateEventFeedback = () => {
   const sq = ref(0);
@@ -16,7 +17,13 @@ const useCreateEventFeedback = () => {
   const route = useRoute();
   const eventID = Number(route.params.id);
   const questionGroups = reactive([] as SetEventQuestionsQuestionGroupInput[]);
-  const { sendQuestions } = createQuestion();
+  const { sendQuestions, onSendQuestionsDone } = createQuestion();
+  const showSucessModal = ref(false);
+  const { event } = useOrgEvent();
+
+  const hasCreatedFeedback = computed(() => {
+    return event.value?.questionGroups.length !== 0;
+  });
 
   const addCategory = () => {
     const seq = sq.value++;
@@ -95,6 +102,10 @@ const useCreateEventFeedback = () => {
     sendQuestions({ input: input });
   };
 
+  onSendQuestionsDone(() => {
+    showSucessModal.value = true;
+  });
+
   const isValidated = computed(
     () =>
       !questionGroups.find(
@@ -133,7 +144,9 @@ const useCreateEventFeedback = () => {
     getCategory,
     getQuestion,
     hasForm,
-    toggleForm
+    toggleForm,
+    showSucessModal,
+    hasCreatedFeedback
   };
 };
 

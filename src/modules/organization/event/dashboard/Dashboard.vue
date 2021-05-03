@@ -63,6 +63,7 @@ import BaseIcon from "@/commons/UI/BaseIcon.vue";
 import SimpleCard from "../components/simple-card/SimpleCard.vue";
 import { UserEventStatus } from "@/apollo/types";
 import QrReader from "@/commons/UI/qr-reader/QrReader.vue";
+import { checkInOrg } from "./api";
 
 export default defineComponent({
   name: "Dashboard",
@@ -77,9 +78,10 @@ export default defineComponent({
     QrReader
   },
   setup() {
-    const { event } = useOrgEvent();
+    const { event, eventId } = useOrgEvent();
     const isQrReaderShown = ref(false);
     const checkInStatus = ref("");
+    const { checkIn, onCheckInDone, onCheckInError } = checkInOrg();
 
     const image = computed(() => {
       return {
@@ -111,18 +113,17 @@ export default defineComponent({
     });
 
     function checkTicket(decoded: string) {
-      const attendee = event.value?.attendees.find(
-        ticket => ticket.ticket === decoded
-      );
-      if (attendee === undefined) {
-        checkInStatus.value = "Can't Check-in";
-      } else if (attendee.status === UserEventStatus.Attended) {
-        checkInStatus.value = "Already Check-in";
-      } else {
-        checkInStatus.value = attendee.user.firstName + " : Checked In";
-      }
-      console.log(attendee);
+      console.log(decoded);
+      checkIn({ input: { eventId, ticket: decoded } });
     }
+
+    onCheckInDone(attendee => {
+      checkInStatus.value = `${attendee.data?.checkIn.user.firstName} ${attendee.data?.checkIn.user.lastName}: Checked In`;
+    });
+
+    onCheckInError(() => {
+      checkInStatus.value = "Can't Check-in";
+    });
 
     function showQrReader() {
       isQrReaderShown.value = true;

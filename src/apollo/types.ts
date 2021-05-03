@@ -1154,6 +1154,19 @@ export type AddMembersToOrganizationMutation = {
   __typename?: "Mutation";
 } & Pick<Mutation, "addMembersToOrganization">;
 
+export type CheckInMutationVariables = Exact<{
+  input: CheckInInput;
+}>;
+
+export type CheckInMutation = { __typename?: "Mutation" } & {
+  checkIn: { __typename?: "UserEvent" } & Pick<UserEvent, "id" | "status"> & {
+      user: { __typename?: "User" } & Pick<
+        User,
+        "id" | "firstName" | "lastName"
+      >;
+    };
+};
+
 export type GetEventAttendeeQueryVariables = Exact<{
   id: Scalars["Int"];
 }>;
@@ -1161,7 +1174,12 @@ export type GetEventAttendeeQueryVariables = Exact<{
 export type GetEventAttendeeQuery = { __typename?: "Query" } & {
   event: { __typename?: "Event" } & Pick<
     Event,
-    "coverImageUrl" | "coverImageHash"
+    | "id"
+    | "name"
+    | "posterImageUrl"
+    | "posterImageHash"
+    | "coverImageUrl"
+    | "coverImageHash"
   > & {
       attendees: Array<
         { __typename?: "UserEvent" } & Pick<UserEvent, "status" | "ticket"> & {
@@ -1176,6 +1194,9 @@ export type GetEventAttendeeQuery = { __typename?: "Query" } & {
             >;
             answers: Array<{ __typename?: "Answer" } & Pick<Answer, "id">>;
           }
+      >;
+      questionGroups: Array<
+        { __typename?: "QuestionGroup" } & Pick<QuestionGroup, "id">
       >;
     };
 };

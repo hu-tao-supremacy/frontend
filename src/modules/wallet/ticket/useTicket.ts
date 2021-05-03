@@ -17,6 +17,11 @@ export default function useTicket(
   const isHistory = computed(() => {
     return ticketStatus === UserEventStatus.Pending;
   });
+
+  const isAttended = computed(() => {
+    return ticketStatus === UserEventStatus.Attended;
+  });
+
   const date = computed(() => {
     return getDisplayDate(event?.value.durations as EventDuration[]);
   });
@@ -25,7 +30,13 @@ export default function useTicket(
     getMainTimetable(event?.value.durations as EventDuration[])
   );
 
-  const routerLinkId = computed(() => `/user-checkin/${event?.value.id}`);
+  const routerLinkId = computed(() => {
+    if (isOngoing.value) {
+      return `/user-checkin/${event?.value.id}`;
+    } else {
+      return `/event-feedback/${event?.value.id}`;
+    }
+  });
 
   function checkIn() {
     if (!isOngoing.value) {
@@ -44,6 +55,7 @@ export default function useTicket(
     isPending,
     isOngoing,
     isHistory,
+    isAttended,
     checkIn,
     giveFeedback,
     date,

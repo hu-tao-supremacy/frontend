@@ -30,6 +30,10 @@ export default function useTicket(
     getMainTimetable(event?.value.durations as EventDuration[])
   );
 
+  const isSubmittedFeedback = computed(() => {
+    return !!event.value.attendance?.rating;
+  });
+
   const routerLinkId = computed(() => {
     if (isOngoing.value) {
       return `/user-checkin/${event?.value.id}`;
@@ -60,6 +64,7 @@ export default function useTicket(
     giveFeedback,
     date,
     time,
-    routerLinkId
+    routerLinkId,
+    isSubmittedFeedback
   };
 }

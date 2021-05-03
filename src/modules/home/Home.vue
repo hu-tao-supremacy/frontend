@@ -9,6 +9,7 @@
         <div class="text-4xl font-heading">Recommended For You</div>
         <base-transparent-button
           class="group w-16 h-4 flex justify-center items-center "
+          @click="moreRecommend"
         >
           View More
           <span class="text-primary ml-1 group-hover:text-primary-5">
@@ -35,7 +36,8 @@
       <div class="flex h-6 w-full mb-3 justify-between items-center">
         <div class="text-4xl font-heading">Upcoming Events</div>
         <base-transparent-button
-          class="group w-16 h-4 flex justify-center items-center "
+          class="group w-16 h-4 flex justify-center items-center"
+          @click="moreUpcoming"
         >
           View More
           <span class="text-primary ml-1 group-hover:text-primary-5">
@@ -69,7 +71,8 @@
       <div class="flex h-6 w-full mb-3 justify-between items-center">
         <div class="text-4xl font-heading">Online Events</div>
         <base-transparent-button
-          class="group w-16 h-4 flex justify-center items-center "
+          class="group w-16 h-4 flex justify-center items-center"
+          @click="moreOnline"
         >
           View More
           <span class="text-primary ml-1 group-hover:text-primary-5">
@@ -91,9 +94,9 @@
         />
       </div>
       <div class="flex h-6 w-full mb-3 justify-between items-center">
-        <div class="text-4xl font-heading">Nearby Events</div>
+        <div class="text-4xl font-heading">Onsite Events</div>
         <base-transparent-button
-          class="group w-16 h-4 flex justify-center items-center "
+          class="group w-16 h-4 flex justify-center items-center"
         >
           View More
           <span class="text-primary ml-1 group-hover:text-primary-5">
@@ -145,7 +148,10 @@ export default defineComponent({
       upcommingEvents,
       onlineEvents,
       nearbyEvents,
-      featuredOrganizations
+      featuredOrganizations,
+      moreRecommend,
+      moreUpcoming,
+      moreOnline
     } = useHome();
 
     return {
@@ -154,7 +160,10 @@ export default defineComponent({
       upcommingEvents,
       onlineEvents,
       nearbyEvents,
-      featuredOrganizations
+      featuredOrganizations,
+      moreRecommend,
+      moreUpcoming,
+      moreOnline
     };
   }
 });

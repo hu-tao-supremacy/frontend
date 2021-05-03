@@ -3,6 +3,7 @@ import { useResult } from "@vue/apollo-composable";
 import { generateDummyArray } from "./utils";
 import { useHomeApi, useRecommendationEvent } from "../api";
 import useUser from "@/modules/authentication";
+import router from "@/router";
 
 const useHome = () => {
   const { isSignIn, user } = useUser();
@@ -47,13 +48,26 @@ const useHome = () => {
     return generateDummyArray(4);
   });
 
+  function moreRecommend() {
+    router.push("/more-recommended-events");
+  }
+  function moreUpcoming() {
+    router.push("/more-upcoming-events");
+  }
+  function moreOnline() {
+    router.push("/more-online-events");
+  }
+
   return {
     featureEvents,
     recommendedEvents,
     upcommingEvents,
     onlineEvents,
     nearbyEvents,
-    featuredOrganizations
+    featuredOrganizations,
+    moreRecommend,
+    moreUpcoming,
+    moreOnline
   };
 };
 

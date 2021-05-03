@@ -47,8 +47,8 @@ export type AuthenticateOutput = {
 };
 
 export type CheckInInput = {
-  userId: Scalars["Int"];
   eventId: Scalars["Int"];
+  ticket?: Maybe<Scalars["String"]>;
 };
 
 export type CreateEventInput = {
@@ -376,6 +376,7 @@ export type Query = {
   featuredEvents: Array<Event>;
   recommendedEvents: Array<Event>;
   onlineEvents: Array<Event>;
+  searchEvent: Array<Event>;
   pastEvents: Array<Event>;
   event: Event;
   organizations: Array<Organization>;
@@ -402,6 +403,11 @@ export type QueryRecommendedEventsArgs = {
 
 export type QueryOnlineEventsArgs = {
   n: Scalars["Int"];
+};
+
+export type QuerySearchEventArgs = {
+  n?: Maybe<Scalars["Int"]>;
+  keyword: Scalars["String"];
 };
 
 export type QueryPastEventsArgs = {
@@ -922,6 +928,120 @@ export type AuthenticateMutation = { __typename?: "Mutation" } & {
   authenticate: { __typename?: "AuthenticateOutput" } & Pick<
     AuthenticateOutput,
     "accessToken"
+  >;
+};
+
+export type GetSearchedItemsQueryVariables = Exact<{
+  keyword: Scalars["String"];
+}>;
+
+export type GetSearchedItemsQuery = { __typename?: "Query" } & {
+  searchEvent: Array<
+    { __typename?: "Event" } & Pick<
+      Event,
+      | "id"
+      | "description"
+      | "name"
+      | "coverImageUrl"
+      | "coverImageHash"
+      | "posterImageUrl"
+      | "posterImageHash"
+    > & {
+        durations: Array<
+          { __typename?: "EventDuration" } & Pick<
+            EventDuration,
+            "id" | "start" | "finish"
+          >
+        >;
+        location?: Maybe<
+          { __typename?: "Location" } & Pick<Location, "id" | "name">
+        >;
+        tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
+      }
+  >;
+};
+
+export type GetRecommendedItemsQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetRecommendedItemsQuery = { __typename?: "Query" } & {
+  recommendedEvents: Array<
+    { __typename?: "Event" } & Pick<
+      Event,
+      | "id"
+      | "description"
+      | "name"
+      | "coverImageUrl"
+      | "coverImageHash"
+      | "posterImageUrl"
+      | "posterImageHash"
+    > & {
+        durations: Array<
+          { __typename?: "EventDuration" } & Pick<
+            EventDuration,
+            "id" | "start" | "finish"
+          >
+        >;
+        location?: Maybe<
+          { __typename?: "Location" } & Pick<Location, "id" | "name">
+        >;
+        tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
+      }
+  >;
+};
+
+export type GetUpcomingItemsQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetUpcomingItemsQuery = { __typename?: "Query" } & {
+  upcomingEvents: Array<
+    { __typename?: "Event" } & Pick<
+      Event,
+      | "id"
+      | "description"
+      | "name"
+      | "coverImageUrl"
+      | "coverImageHash"
+      | "posterImageUrl"
+      | "posterImageHash"
+    > & {
+        durations: Array<
+          { __typename?: "EventDuration" } & Pick<
+            EventDuration,
+            "id" | "start" | "finish"
+          >
+        >;
+        location?: Maybe<
+          { __typename?: "Location" } & Pick<Location, "id" | "name">
+        >;
+        tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
+      }
+  >;
+};
+
+export type GetOnlineItemsQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetOnlineItemsQuery = { __typename?: "Query" } & {
+  onlineEvents: Array<
+    { __typename?: "Event" } & Pick<
+      Event,
+      | "id"
+      | "description"
+      | "name"
+      | "coverImageUrl"
+      | "coverImageHash"
+      | "posterImageUrl"
+      | "posterImageHash"
+    > & {
+        durations: Array<
+          { __typename?: "EventDuration" } & Pick<
+            EventDuration,
+            "id" | "start" | "finish"
+          >
+        >;
+        location?: Maybe<
+          { __typename?: "Location" } & Pick<Location, "id" | "name">
+        >;
+        tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
+      }
   >;
 };
 

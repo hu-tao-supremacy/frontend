@@ -33,7 +33,7 @@ import {
 import { CreateEventInput } from "@/apollo/types";
 import { useCreateEventApi } from "./api";
 import useOrganization from "../useOrganization";
-import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 
 export default defineComponent({
   name: "CreateEventPage",
@@ -109,10 +109,12 @@ export default defineComponent({
         durations: eventDurations.value.durations
       };
 
-      createEvent({ input: event });
+      const createEventResult = createEvent({ input: event });
 
       onDone(() => {
-        router.push("/org/team");
+        createEventResult.then(data => {
+          router.push(`/create-event-form/${data.data?.createEvent.id}`);
+        });
       });
 
       //Send to API and then to event form page

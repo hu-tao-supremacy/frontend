@@ -1,6 +1,6 @@
 import { createQuestion } from "./../api";
 import { computed, reactive, ref } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import {
   AnswerType,
   QuestionGroupType,
@@ -14,9 +14,10 @@ const useCreateEventFeedback = () => {
   const sqq = ref(0);
   const hasForm = ref(false);
   const route = useRoute();
+  const router = useRouter();
   const eventID = Number(route.params.id);
   const questionGroups = reactive([] as SetEventQuestionsQuestionGroupInput[]);
-  const { sendQuestions } = createQuestion();
+  const { sendQuestions, onDone } = createQuestion();
 
   const addCategory = () => {
     const seq = sq.value++;
@@ -27,6 +28,10 @@ const useCreateEventFeedback = () => {
       questions: [] as SetEventQuestionsQuestionInput[]
     });
   };
+
+  onDone(() => {
+    router.push("");
+  });
 
   const popCategory = (index: number) => {
     questionGroups.splice(index, 1);

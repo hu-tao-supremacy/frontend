@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col px-4 items-center">
     <div class="content-max-width w-full mt-4 mb-10">
       <div class="flex-shrink-0 w-full h-20 // rounded-lg overflow-hidden">
         <LazyImage

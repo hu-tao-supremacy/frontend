@@ -26,7 +26,7 @@
       />
     </section>
     <base-button class="w-20 h-3.75" @click="login" v-if="!isLogIn"
-      >Login in with CU SSO</base-button
+      >Login with CU SSO</base-button
     >
     <section
       v-else
@@ -49,6 +49,7 @@
       </div>
       <NavbarDropDownOptions
         v-show="isDropDownShown"
+        :isOrgView="isOrgView"
         @select-navbar-option="hideDropDown"
         @logout="logout"
         class="w-25 absolute top-full right-0 mt-1.5"

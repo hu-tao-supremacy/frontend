@@ -91,7 +91,6 @@
         <router-link to="/more-online-events">
           <base-transparent-button
             class="group w-16 h-4 flex justify-center items-center"
-            @click="moreOnline"
           >
             View More
             <span class="text-primary ml-1 group-hover:text-primary-5">
@@ -114,25 +113,27 @@
         />
       </div>
       <div class="flex h-6 w-full mb-3 justify-between items-center">
-        <div class="text-4xl font-heading">Onsite Events</div>
-        <base-transparent-button
-          class="group w-16 h-4 flex justify-center items-center"
-        >
-          View More
-          <span class="text-primary ml-1 group-hover:text-primary-5">
-            <base-icon
-              width="24px"
-              height="24px"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              ><ArrowRightIcon
-            /></base-icon>
-          </span>
-        </base-transparent-button>
+        <div class="text-4xl font-heading">On-site Events</div>
+        <router-link to="/more-onsite-events">
+          <base-transparent-button
+            class="group w-16 h-4 flex justify-center items-center"
+          >
+            View More
+            <span class="text-primary ml-1 group-hover:text-primary-5">
+              <base-icon
+                width="24px"
+                height="24px"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><ArrowRightIcon
+              /></base-icon>
+            </span>
+          </base-transparent-button>
+        </router-link>
       </div>
       <div class="card grid gap-4 mb-20 w-full justify-center md:justify-start">
         <CardEvent
-          v-for="event in nearbyEvents"
+          v-for="event in onsiteEvents"
           :key="event.id"
           :events="event"
         />
@@ -167,7 +168,7 @@ export default defineComponent({
       recommendedEvents,
       upcommingEvents,
       onlineEvents,
-      nearbyEvents,
+      onsiteEvents,
       featuredOrganizations
     } = useHome();
 
@@ -176,7 +177,7 @@ export default defineComponent({
       recommendedEvents,
       upcommingEvents,
       onlineEvents,
-      nearbyEvents,
+      onsiteEvents,
       featuredOrganizations
     };
   }

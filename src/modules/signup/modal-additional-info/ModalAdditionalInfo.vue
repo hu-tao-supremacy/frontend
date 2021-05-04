@@ -29,13 +29,20 @@
               />
             </div>
             <div>
-              <BaseUploadImgButton
-                v-model="uploadedImgFile"
-                v-model:uploadedImg="uploadedImg"
-                class="mb-0.25 h-3.5"
-                name="previewImg"
-              />
-              <p class="text-gray-5 text-xs">(e.g. JPEG, .PNG or .GIF)</p>
+              <div>
+                <BaseUploadImgButton
+                  v-model="uploadedImgFile"
+                  v-model:uploadedImg="uploadedImg"
+                  class="mb-0.25 h-3.5"
+                  name="previewImg"
+                />
+                <p class="text-gray-5 text-xs">
+                  (e.g. JPEG, .PNG or .GIF Less than 5MB)
+                </p>
+              </div>
+              <p v-show="!isValidImageSize" class="text-sm text-red-5 mt-0.25">
+                Image size is too large
+              </p>
             </div>
           </div>
         </section>
@@ -64,7 +71,7 @@
               />
             </div>
           </div>
-          <p v-show="!isValidYear" class="text-sm text-red-5 mt-0.25 ml-1.5">
+          <p v-show="!isValidYear" class="text-sm text-red-5 mt-0.25">
             Year must be positive number
           </p>
         </section>
@@ -209,7 +216,8 @@ export default defineComponent({
       isValidYear,
       optionNames,
       optionValues,
-      userGender
+      userGender,
+      isValidImageSize
     } = useModalAdditionalInfo(context);
 
     return {
@@ -235,7 +243,8 @@ export default defineComponent({
       isValidYear,
       optionNames,
       optionValues,
-      userGender
+      userGender,
+      isValidImageSize
     };
   }
 });

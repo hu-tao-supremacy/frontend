@@ -559,7 +559,7 @@ export type TagInput = {
 
 export type UpdateEventInput = {
   organizationId?: Maybe<Scalars["Int"]>;
-  location?: Maybe<LocationInput>;
+  location?: Maybe<CreateEventLocationInput>;
   description?: Maybe<Scalars["String"]>;
   name?: Maybe<Scalars["String"]>;
   attendeeLimit?: Maybe<Scalars["Int"]>;
@@ -926,6 +926,22 @@ export type GetHomeItemQuery = { __typename?: "Query" } & {
         >;
       }
   >;
+  onSiteEvents: Array<
+    { __typename?: "Event" } & Pick<
+      Event,
+      "id" | "description" | "name" | "posterImageUrl" | "posterImageHash"
+    > & {
+        durations: Array<
+          { __typename?: "EventDuration" } & Pick<
+            EventDuration,
+            "id" | "start" | "finish"
+          >
+        >;
+        location?: Maybe<
+          { __typename?: "Location" } & Pick<Location, "id" | "name">
+        >;
+      }
+  >;
   featuredOrganizations: Array<
     { __typename?: "Organization" } & Pick<
       Organization,
@@ -1268,6 +1284,24 @@ export type GetUserTicketQuery = { __typename?: "Query" } & {
   >;
 };
 
+export type GetUserProfileItemQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetUserProfileItemQuery = { __typename?: "Query" } & {
+  currentUser: { __typename?: "User" } & Pick<
+    User,
+    | "id"
+    | "profilePictureUrl"
+    | "gender"
+    | "academicYear"
+    | "email"
+    | "phoneNumber"
+    | "district"
+    | "province"
+    | "zipCode"
+    | "address"
+  >;
+};
+
 export type GetSearchedItemsQueryVariables = Exact<{
   keyword: Scalars["String"];
 }>;
@@ -1302,6 +1336,34 @@ export type GetOnlineItemsQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetOnlineItemsQuery = { __typename?: "Query" } & {
   onlineEvents: Array<
+    { __typename?: "Event" } & Pick<
+      Event,
+      | "id"
+      | "description"
+      | "name"
+      | "coverImageUrl"
+      | "coverImageHash"
+      | "posterImageUrl"
+      | "posterImageHash"
+    > & {
+        durations: Array<
+          { __typename?: "EventDuration" } & Pick<
+            EventDuration,
+            "id" | "start" | "finish"
+          >
+        >;
+        location?: Maybe<
+          { __typename?: "Location" } & Pick<Location, "id" | "name">
+        >;
+        tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
+      }
+  >;
+};
+
+export type GetOnsiteItemsQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetOnsiteItemsQuery = { __typename?: "Query" } & {
+  onSiteEvents: Array<
     { __typename?: "Event" } & Pick<
       Event,
       | "id"

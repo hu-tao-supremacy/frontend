@@ -1,15 +1,26 @@
-import { computed, Ref, ref } from "vue";
+import { computed, Ref, ref, watchEffect } from "vue";
 import { OrgEventNavbarSelection } from "@/commons/constant";
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import useOrgEvent from "@/modules/organization/event/use-org-event";
 
 export default function useOrgNavbarEventNavigation() {
   //Later will add watch and check with the current url path.
   const router = useRouter();
+  const route = useRoute();
   const { eventId, event } = useOrgEvent();
   const currentSelection: Ref<OrgEventNavbarSelection> = ref(
     OrgEventNavbarSelection.NONE
   );
+
+  watchEffect(() => {
+    if (route.fullPath.includes("attendee-management")) {
+      currentSelection.value = OrgEventNavbarSelection.MANAGE_ATTENDEE;
+    } else if (route.fullPath.includes("create-event-feedback")) {
+      currentSelection.value = OrgEventNavbarSelection.MANAGE_FEEDBACK;
+    } else {
+      currentSelection.value = OrgEventNavbarSelection.DASHBOARD;
+    }
+  });
 
   const isDashBoardSelected = computed(() => {
     return currentSelection.value === OrgEventNavbarSelection.DASHBOARD;

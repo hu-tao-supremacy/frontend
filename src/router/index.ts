@@ -14,9 +14,11 @@ const OrgHome = () => import("@/modules/organization/home/OrgHomePage.vue");
 const CreateOrg = () =>
   import("@/modules/organization/createOrg/CreateOrgPage.vue");
 const CreateFeedback = () =>
-  import("@/modules/createEventFeedback/CreateEventFeedbackPage.vue");
+  import(
+    "@/modules/organization/createEventFeedback/CreateEventFeedbackPage.vue"
+  );
 const CreateForm = () =>
-  import("@/modules/createEventForm/CreateEventFormPage.vue");
+  import("@/modules/organization/createEventForm/CreateEventFormPage.vue");
 const MemberManagementPage = () =>
   import("@/modules/organization/member-management/MemberManagementPage.vue");
 const AttendeeManagementPage = () =>
@@ -44,6 +46,8 @@ const OrganizationProvider = () =>
   import(
     "@/modules/organization/useOrganization/components/OrganizationProvider.vue"
   );
+const UserProfilePage = () =>
+  import("@/modules/userProfile/UserProfilePage.vue");
 const MoreRecommended = () =>
   import(
     "@/modules/viewMore/view-more-recommended/ViewMoreRecommendedPage.vue"
@@ -56,6 +60,8 @@ const MoreUpcoming = () =>
   import("@/modules/viewMore/view-more-upcoming/ViewMoreUpcomingPage.vue");
 const MoreOnline = () =>
   import("@/modules/viewMore/view-more-online/ViewMoreOnlinePage.vue");
+const MoreOnsite = () =>
+  import("@/modules/viewMore/view-more-onsite/ViewMoreOnsitePage.vue");
 const SearchedEvents = () =>
   import("@/modules/viewMore/search/SearchedPage.vue");
 
@@ -80,7 +86,8 @@ const router = createRouter({
         },
         {
           path: "wallet",
-          component: Wallet
+          component: Wallet,
+          beforeEnter: authGuard
         },
         {
           path: "user-checkin/:id",
@@ -94,15 +101,22 @@ const router = createRouter({
         },
         {
           path: "event-feedback/:id",
-          component: EventFeedback
+          component: EventFeedback,
+          beforeEnter: authGuard
         },
         {
-          path: "/org-info/:id",
+          path: "org-info/:id",
           component: OrgInfo
         },
         {
+          path: "user-profile",
+          component: UserProfilePage,
+          beforeEnter: authGuard
+        },
+        {
           path: "/more-recommended-events",
-          component: MoreRecommended
+          component: MoreRecommended,
+          beforeEnter: authGuard
         },
         {
           path: "/more-organizations",
@@ -117,7 +131,12 @@ const router = createRouter({
           component: MoreOnline
         },
         {
+          path: "/more-onsite-events",
+          component: MoreOnsite
+        },
+        {
           path: "/search",
+          name: "Search",
           component: SearchedEvents
         },
         { path: "/404", component: NotFound }
@@ -140,7 +159,7 @@ const router = createRouter({
             { path: "create-event", component: CreateEventPage },
             { path: "create-org", component: CreateOrg },
             {
-              path: "/create-event-form/:id",
+              path: "create-event-form/:id",
               component: CreateForm
             },
             {

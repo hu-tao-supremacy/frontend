@@ -1,4 +1,4 @@
-import { createQuestion } from "./../api";
+import { createQuestion } from "../api";
 import { computed, reactive, ref } from "vue";
 import { useRoute } from "vue-router";
 import {
@@ -19,7 +19,7 @@ const useCreateEventFeedback = () => {
   const questionGroups = reactive([] as SetEventQuestionsQuestionGroupInput[]);
   const { sendQuestions, onSendQuestionsDone } = createQuestion();
   const showSucessModal = ref(false);
-  const { event } = useOrgEvent();
+  const { event, refetch } = useOrgEvent();
 
   const hasCreatedFeedback = computed(() => {
     return event.value?.questionGroups.length !== 0;
@@ -104,6 +104,7 @@ const useCreateEventFeedback = () => {
 
   onSendQuestionsDone(() => {
     showSucessModal.value = true;
+    refetch();
   });
 
   const isValidated = computed(

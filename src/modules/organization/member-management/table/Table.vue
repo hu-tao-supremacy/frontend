@@ -5,6 +5,7 @@
       :optionNames="sortingName"
       :optionValues="sortingVal"
       v-model="sortingOption"
+      class="w-28"
     />
   </div>
   <div className="p-3 bg-white // rounded-2xl // w-full">

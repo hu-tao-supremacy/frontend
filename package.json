@@ -12,6 +12,7 @@
     "format": "prettier --write \"src/**/*.*\""
   },
   "dependencies": {
+    "@aacassandra/vue3-progressbar": "^1.0.3",
     "@vue/apollo-composable": "^4.0.0-alpha.12",
     "apollo-cache-inmemory": "^1.6.6",
     "apollo-client": "^2.6.10",

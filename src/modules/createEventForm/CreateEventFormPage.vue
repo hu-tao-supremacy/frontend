@@ -18,7 +18,7 @@
           class="text-primary mr-2"
           ><AlertIcon
         /></base-icon>
-        <div class="text-lg font-bold font-heading">
+        <div class="text-lg font-heading">
           Basic information (e.g. Name, student info, contact, address) is
           already provided by our system!
         </div>

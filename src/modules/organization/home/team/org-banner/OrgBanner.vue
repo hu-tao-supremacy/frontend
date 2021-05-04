@@ -15,18 +15,20 @@
     <section class="p-3 w-full relative">
       <div class="flex items-center">
         <h1 class="text-blue-10 text-4xl font-heading">
-          {{ org.abbreviation }}
+          {{ (!loading && org.abbreviation) || "" }}
         </h1>
         <base-icon
-          v-if="org.isVerified"
+          v-if="org.isVerified && !loading"
           :width="20"
           :height="20"
           class="text-blue-10 ml-1"
           ><CheckCircleIcon
         /></base-icon>
       </div>
-      <h3 class="font-heading text-xl mb-3">{{ org.name }}</h3>
-      <p>{{ org.description }}</p>
+      <h3 class="font-heading text-xl mb-3">
+        {{ (!loading && org.name) || "" }}
+      </h3>
+      <p>{{ (!loading && org.description) || "" }}</p>
     </section>
   </div>
 </template>
@@ -47,6 +49,23 @@ export default defineComponent({
     org: {
       type: Object as () => GetOrgTeamItemQuery,
       required: true
+    },
+    loading: {
+      type: Boolean,
+      required: true
+    }
+  },
+  watch: {
+    loading: function(val: boolean) {
+      if (val) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (this as any).$Progress.start();
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (this as any).$Progress.increase(50);
+      } else {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (this as any).$Progress.finish();
+      }
     }
   }
 });

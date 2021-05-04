@@ -17,6 +17,7 @@
       :optionNames="sortingName"
       :optionValues="sortingVal"
       v-model="sortingOption"
+      class="w-28"
     />
   </div>
   <div class="p-3 bg-white // rounded-2xl // w-full">

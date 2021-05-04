@@ -18,14 +18,17 @@
           :key="member.id"
           :imgUrl="member.avatar_url"
           :name="member.login"
-          href="https://github.com/hu-tao-supremacy"
+          :href="member.html_url"
         />
       </div>
     </div>
     <div
       class="flex flex-col items-end justify-between text-right text-white pr-3 py-1"
     >
-      <base-transparent-button class="flex items-center group">
+      <base-transparent-button
+        @click="backToTop"
+        class="flex items-center group"
+      >
         Back to the top
         <span class="text-primary ml-1 group-hover:text-primary-5"
           ><base-icon width="16px" height="16px"><ChevronsUpIcon /></base-icon
@@ -60,21 +63,29 @@ export default defineComponent({
           "https://api.github.com/orgs/hu-tao-supremacy/public_members"
         )
       ).json();
-      data.sort((a: GithubMember, b: GithubMember) =>
-        a.login.localeCompare(b.login)
-      );
-      return data;
+      if (data.length) {
+        data.sort((a: GithubMember, b: GithubMember) =>
+          a.login.localeCompare(b.login)
+        );
+        return data;
+      }
+      return [];
     }
 
     onMounted(async () => {
-      await getMembersData().then(data => (githubMembers.value = data));
+      const data = await getMembersData();
+      githubMembers.value = data;
     });
 
     const hasGithubMember = computed(() => {
       return githubMembers.value.length !== 0;
     });
 
-    return { githubMembers, hasGithubMember };
+    function backToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    return { githubMembers, hasGithubMember, backToTop };
   }
 });
 </script>

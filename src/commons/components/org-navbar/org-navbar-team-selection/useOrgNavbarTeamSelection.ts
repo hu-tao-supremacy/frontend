@@ -1,6 +1,6 @@
 import useOrganization from "@/modules/organization/useOrganization";
 import { Ref, ref } from "vue";
-import { useRouter, useRoute } from "vue-router";
+import { useRouter } from "vue-router";
 
 export default function useOrgNavbarTeamSelection(
   isExpand: Ref<boolean>,

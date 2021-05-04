@@ -2,10 +2,12 @@
   <AuthProvider>
     <Signup v-if="isSignup" />
     <router-view></router-view>
+    <vue-progress-bar></vue-progress-bar>
   </AuthProvider>
 </template>
 
 <script lang="ts">
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { computed, defineAsyncComponent, defineComponent, provide } from "vue";
 import apolloClient from "./apollo/client";
 import { DefaultApolloClient } from "@vue/apollo-composable";
@@ -32,6 +34,29 @@ export default defineComponent({
     });
 
     return { isSignup };
+  },
+  created() {
+    (this as any).$Progress.start();
+    this.$router.beforeEach((to, _, next) => {
+      //  does the page we want to go to have a meta.progress object
+      if (to.meta.progress !== undefined) {
+        const meta = to.meta.progress;
+        // parse meta tags
+        (this as any).$Progress.parseMeta(meta);
+      }
+      //  start the progress bar
+      (this as any).$Progress.start();
+      //  continue to next page
+      next();
+    });
+    //  hook the progress bar to finish after we've finished moving router-view
+    this.$router.afterEach(() => {
+      //  finish the progress bar
+      (this as any).$Progress.finish();
+    });
+  },
+  mounted() {
+    (this as any).$Progress.finish();
   }
 });
 </script>

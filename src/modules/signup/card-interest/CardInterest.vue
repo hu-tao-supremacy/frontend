@@ -19,7 +19,9 @@
       :placeholder="imgHash"
       class="h-full object-cover w-full relative z-0"
     />
-    <header class="absolute bottom-1 text-white w-full font-bold z-10">
+    <header
+      class="absolute bottom-1 text-white w-full font-semibold z-10 text-truncate text-truncate-2"
+    >
       {{ interestName }}
     </header>
   </div>

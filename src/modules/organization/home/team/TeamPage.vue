@@ -1,7 +1,7 @@
 <template>
   <div class="w-full h-full flex flex-col py-4 items-center">
     <div class="flex flex-col content-max-width w-full">
-      <OrgBanner :org="organization" class="mb-3" />
+      <OrgBanner :loading="loading" :org="organization" class="mb-3" />
       <section class="flex justify-between mb-3">
         <BaseSearch
           v-model="searchValue"
@@ -13,7 +13,7 @@
           <base-button class="px-1.5">Create an Event</base-button>
         </router-link>
       </section>
-      <section class="flex flex-col space-y-2">
+      <section v-if="!loading" class="flex flex-col space-y-2">
         <OrgEventListCard
           v-for="event in filteredEvents"
           :key="event.id"
@@ -45,7 +45,9 @@ export default defineComponent({
   },
   setup() {
     const { currentOrganizationId } = useOrganization();
-    const { result: orgTeamResult } = useOrgTeamApi(currentOrganizationId);
+    const { result: orgTeamResult, loading } = useOrgTeamApi(
+      currentOrganizationId
+    );
     const organization = useResult(
       orgTeamResult,
       {},
@@ -67,7 +69,7 @@ export default defineComponent({
       return fuse.value.search(searchValue.value);
     });
 
-    return { organization, filteredEvents, searchValue };
+    return { organization, filteredEvents, searchValue, loading };
   }
 });
 </script>

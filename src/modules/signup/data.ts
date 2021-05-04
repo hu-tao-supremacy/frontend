@@ -13,7 +13,7 @@ export const tags = [
   },
   {
     id: 8,
-    name: "Dicussion",
+    name: "Discussion",
     img: require("@/assets/tags/event3.jpg"),
     imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
   },
@@ -49,13 +49,13 @@ export const tags = [
   },
   {
     id: 21,
-    name: "Sport",
+    name: "Sports",
     img: require("@/assets/tags/event9.jpg"),
     imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
   },
   {
     id: 22,
-    name: "Seft-growth",
+    name: "Self-growth",
     img: require("@/assets/tags/event10.jpg"),
     imgHash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
   },

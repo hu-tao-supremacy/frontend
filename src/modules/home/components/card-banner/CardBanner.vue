@@ -29,7 +29,10 @@
         <base-icon-and-detail class="mb-1" :detail="time"
           ><ClockIcon
         /></base-icon-and-detail>
-        <base-icon-and-detail class="mb-1" :detail="location"
+        <base-icon-and-detail
+          class="mb-1"
+          detailClass="truncate"
+          :detail="location"
           ><PinIcon
         /></base-icon-and-detail>
       </section>

@@ -8,11 +8,6 @@ export default function useWallet() {
     ticketStatusView.value = ticketStatus;
   }
 
-  function editInfo() {
-    //Send to edit info page
-    console.log("Edit info");
-  }
-
   const isOngoingTicketView = computed(() => {
     return ticketStatusView.value === UserEventStatus.Approved;
   });
@@ -28,7 +23,6 @@ export default function useWallet() {
   return {
     ticketStatusView,
     changeTicketStatusView,
-    editInfo,
     isOngoingTicketView,
     isPendingTicketView,
     isHistoryTicketView

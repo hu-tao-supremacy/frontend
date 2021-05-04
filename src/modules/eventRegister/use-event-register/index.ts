@@ -40,8 +40,8 @@ const useEventRegister = () => {
       code => code.code === result.data.currentUser?.chulaId?.slice(-2)
     )?.name;
 
-    if (faculty !== "undefined") {
-      userFaculty.value = faculty!;
+    if (faculty) {
+      userFaculty.value = faculty;
     }
   });
 

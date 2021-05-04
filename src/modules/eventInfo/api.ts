@@ -14,6 +14,7 @@ export const useEventById = (variables: GetEventByIdQueryVariables) =>
           posterImageHash
           coverImageUrl
           coverImageHash
+          registrationDueDate
           location {
             id
             name

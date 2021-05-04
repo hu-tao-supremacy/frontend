@@ -34,6 +34,9 @@
             (JPEG or .PNG, Less than 5MB)
           </p>
         </div>
+        <p v-show="!isValidImageSize" class="text-sm text-red-5 mt-0.25 ml-1.5">
+          Image size is too large
+        </p>
       </div>
     </section>
     <OrgDetail v-model="orgDetail" />
@@ -94,7 +97,8 @@ export default defineComponent({
       orgContactPerson,
       orgSocial,
       isValidForm,
-      submitForm
+      submitForm,
+      isValidImageSize
     } = useCreateOrgForm(context);
 
     return {
@@ -107,7 +111,8 @@ export default defineComponent({
       orgContactPerson,
       orgSocial,
       isValidForm,
-      submitForm
+      submitForm,
+      isValidImageSize
     };
   }
 });

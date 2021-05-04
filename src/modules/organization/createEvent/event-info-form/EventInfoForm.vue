@@ -91,8 +91,16 @@
           name="posterImg"
           class="h-3.75 mr-1"
         />
-        <p class="text-gray-5">(e.g. .JPEG, .PNG, .GIF) size: 160x240</p>
+        <p class="text-gray-5">
+          (e.g. .JPEG, .PNG, .GIF Less than 5MB) size: 160x240
+        </p>
       </div>
+      <p
+        v-show="!isValidImageSizePoster"
+        class="text-sm text-red-5 mt-0.25 ml-1.5"
+      >
+        Image size is too large
+      </p>
     </section>
     <section>
       <label class="mb-1">Event background image</label>
@@ -103,8 +111,16 @@
           name="coverImg"
           class="h-3.75 mr-1"
         />
-        <p class="text-gray-5">(e.g. .JPEG, .PNG, .GIF) size: 960x240</p>
+        <p class="text-gray-5">
+          (e.g. .JPEG, .PNG, .GIF Less than 5MB) size: 960x240
+        </p>
       </div>
+      <p
+        v-show="+isValidImageSizeCover"
+        class="text-sm text-red-5 mt-0.25 ml-1.5"
+      >
+        Image size is too large
+      </p>
     </section>
     <FormPreviewCards :coverImg="coverImg" :posterImg="posterImg" />
   </div>
@@ -160,7 +176,9 @@ export default defineComponent({
       posterImg,
       posterImgFile,
       coverImg,
-      coverImgFile
+      coverImgFile,
+      isValidImageSizePoster,
+      isValidImageSizeCover
     } = useEventInfo(modelValue, context);
 
     return {
@@ -182,7 +200,9 @@ export default defineComponent({
       coverImg,
       coverImgFile,
       hourNames,
-      hourValues
+      hourValues,
+      isValidImageSizePoster,
+      isValidImageSizeCover
     };
   }
 });

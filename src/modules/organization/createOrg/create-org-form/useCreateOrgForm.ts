@@ -51,11 +51,16 @@ export default function useCreateOrgForm(
     isValid: false
   });
 
+  const isValidImageSize = computed(() => {
+    return !uploadedImgFile.value || uploadedImgFile.value?.size < 5000000;
+  });
+
   const isValidForm = computed(() => {
     return (
       orgDetail.value.isValid &&
       orgContactPerson.value.isValid &&
-      orgSocial.value.isValid
+      orgSocial.value.isValid &&
+      isValidImageSize.value
     );
   });
 
@@ -109,6 +114,7 @@ export default function useCreateOrgForm(
     orgContactPerson,
     orgSocial,
     isValidForm,
-    submitForm
+    submitForm,
+    isValidImageSize
   };
 }

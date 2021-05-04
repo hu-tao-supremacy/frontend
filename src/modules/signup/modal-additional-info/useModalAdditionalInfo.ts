@@ -74,6 +74,10 @@ export default function useModalAdditionalInfo(
     return !!uploadedImg.value;
   });
 
+  const isValidImageSize = computed(() => {
+    return !uploadedImgFile.value || uploadedImgFile.value?.size < 5000000;
+  });
+
   const isValidForm = computed(() => {
     return (
       isValidEmail.value &&
@@ -87,7 +91,8 @@ export default function useModalAdditionalInfo(
       userAddress.value !== "" &&
       isValidYear.value &&
       userYear.value &&
-      userGender.value
+      userGender.value &&
+      isValidImageSize.value
     );
   });
 
@@ -139,6 +144,7 @@ export default function useModalAdditionalInfo(
     userYear,
     optionNames,
     optionValues,
-    userGender
+    userGender,
+    isValidImageSize
   };
 }

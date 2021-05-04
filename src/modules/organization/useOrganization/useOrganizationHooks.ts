@@ -20,9 +20,12 @@ const useOrganizationHooks = () => {
   });
 
   onMounted(() => {
-    currentOrganizationId.value = Number(
+    const orgIdFromStorage = Number(
       window.localStorage.getItem(CURRENT_ORG_ID)
     );
+    if (orgIdFromStorage > 0) {
+      currentOrganizationId.value = orgIdFromStorage;
+    }
   });
 
   watch(organizations, () => {

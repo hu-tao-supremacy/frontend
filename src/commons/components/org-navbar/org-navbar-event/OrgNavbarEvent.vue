@@ -29,8 +29,8 @@
           :width="100"
           :height="100"
           alt="will change to api"
-          :url="event && event.posterImgUrl"
-          :placeholder="event && event.posterImgHash"
+          :url="event && event.posterImageUrl"
+          :placeholder="event && event.posterImageHash"
           class="object-cover w-full h-full"
         />
       </div>

@@ -58,9 +58,12 @@ export default defineComponent({
   watch: {
     loading: function(val: boolean) {
       if (val) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (this as any).$Progress.start();
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (this as any).$Progress.increase(50);
       } else {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (this as any).$Progress.finish();
       }
     }

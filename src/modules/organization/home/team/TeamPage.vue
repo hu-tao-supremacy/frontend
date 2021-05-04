@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed, watch } from "vue";
+import { defineComponent, ref, computed } from "vue";
 import OrgBanner from "./org-banner/OrgBanner.vue";
 import OrgEventListCard from "./org-event-list-card/OrgEventListCard.vue";
 import BaseSearch from "@/commons/UI/BaseSearch.vue";

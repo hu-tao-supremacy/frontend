@@ -2,7 +2,7 @@ import {
   MutationSetEventQuestionsArgs,
   SetEventQuestionsInput
 } from "@/apollo/types";
-import { useMutation, useQuery } from "@vue/apollo-composable";
+import { useMutation } from "@vue/apollo-composable";
 import gql from "graphql-tag";
 
 export const createQuestion = () => {

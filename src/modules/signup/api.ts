@@ -1,6 +1,5 @@
 import {
   GetPastEventQuery,
-  GetPastEventQueryVariables,
   MutationUpdateUserArgs,
   UpdateUserMutation
 } from "@/apollo/types";

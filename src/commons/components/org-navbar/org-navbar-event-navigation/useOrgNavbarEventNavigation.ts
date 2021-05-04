@@ -1,4 +1,4 @@
-import { computed, onMounted, Ref, ref, watch } from "vue";
+import { computed, Ref, ref, watch } from "vue";
 import { OrgEventNavbarSelection } from "@/commons/constant";
 import { useRoute, useRouter } from "vue-router";
 import useOrgEvent from "@/modules/organization/event/use-org-event";

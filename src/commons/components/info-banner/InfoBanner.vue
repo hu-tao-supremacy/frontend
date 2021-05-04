@@ -53,7 +53,7 @@
       class="absolute bottom-4.5 right-3 flex flex-col bg-gray-2 rounded-lg"
     >
       <base-button
-        :disabled="attendance"
+        :disabled="attendance || isEventStarted"
         @click="register"
         class="w-15 h-4.5 mb-0.25"
         >{{ registerMessage }}</base-button
@@ -103,13 +103,17 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
+    isEventStarted: {
+      type: Boolean,
+      default: false
+    },
     attendance: {
       type: Boolean,
       default: false
     }
   },
   setup(props) {
-    const { eventBanner, isSignIn, attendance } = toRefs(props);
+    const { eventBanner, isSignIn, attendance, isEventStarted } = toRefs(props);
     const {
       date,
       time,
@@ -118,7 +122,7 @@ export default defineComponent({
       registerMessage,
       registerDueDate,
       hasRegisterDueDate
-    } = useInfoBanner(isSignIn, attendance, eventBanner);
+    } = useInfoBanner(isSignIn, attendance, eventBanner, isEventStarted);
     return {
       date,
       time,

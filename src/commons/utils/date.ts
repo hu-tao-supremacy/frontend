@@ -32,6 +32,23 @@ export const getMainTimetable = (durations?: Duration[]) => {
   return getStartEndTime(durations[0]);
 };
 
+export const getEventStartTime = (durations?: Duration[]) => {
+  if (!durations) {
+    return null;
+  }
+  const sortedDuration = [...durations]?.sort((durationA, durationB) => {
+    return (
+      new Date(durationB.start).getTime() - new Date(durationA.start).getTime()
+    );
+  });
+  return new Date(sortedDuration[0].start);
+};
+
+export const checkIfEventStarted = (durations?: Duration[]) => {
+  const startDate = getEventStartTime(durations);
+  return startDate ? startDate < new Date() : false;
+};
+
 /*
 Keep the date but set the time to 00:00:00.000
 */

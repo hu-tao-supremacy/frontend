@@ -6,6 +6,7 @@
         :attendance="!!attendance"
         :canRegister="true"
         :isSignIn="isSignIn"
+        :isEventStarted="isEventStarted"
       />
       <div class="text-4xl font-heading mt-7">Event Information</div>
       <div class="event w-full mt-3 grid gap-4">
@@ -59,8 +60,8 @@ export default defineComponent({
     EventSchedule
   },
   setup() {
-    const { event, isSignIn, attendance } = useEventInfo();
-    return { event, isSignIn, attendance };
+    const { event, isSignIn, attendance, isEventStarted } = useEventInfo();
+    return { event, isSignIn, attendance, isEventStarted };
   }
 });
 </script>

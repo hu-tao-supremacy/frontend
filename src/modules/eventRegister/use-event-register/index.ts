@@ -10,6 +10,7 @@ import { updateAnswer } from "../api";
 import { useRoute, useRouter } from "vue-router";
 import { useResult } from "@vue/apollo-composable";
 import FacultyData from "@/commons/constant/faculty";
+import { checkIfEventStarted } from "@/commons/utils/date";
 
 const useEventRegister = () => {
   const step = ref(1);
@@ -34,6 +35,9 @@ const useEventRegister = () => {
     const questions = result.data.event.questionGroups[0]?.questions.sort(
       question => question.seq
     );
+    if (checkIfEventStarted(event.value?.durations)) {
+      router.push("/404");
+    }
     Object.assign(questionData, questions);
 
     const faculty = FacultyData.find(

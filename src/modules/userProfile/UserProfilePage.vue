@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center pt-4 pb-6">
+  <div class="flex justify-center px-4 pt-4 pb-6">
     <UserProfile @submit-form="showSuccessModal" class="content-max-width-s" />
     <UpdateUserSuccessModal
       v-if="isSuccessModalShown"

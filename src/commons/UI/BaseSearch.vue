@@ -6,6 +6,7 @@
       :placeholder="placeholder"
       class="search-input h-full rounded-r-none rounded-l-lg px-1.5 border-t border-b border-l focus:border-r border-gray-4 focus:border-primary focus:outline-none"
       :class="inputClass"
+      @keyup.enter="search"
     />
     <base-button
       class="rounded-l-none h-full flex justify-center items-center"

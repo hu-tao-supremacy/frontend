@@ -46,6 +46,20 @@ const OrganizationProvider = () =>
   );
 const UserProfilePage = () =>
   import("@/modules/userProfile/UserProfilePage.vue");
+const MoreRecommended = () =>
+  import(
+    "@/modules/viewMore/view-more-recommended/ViewMoreRecommendedPage.vue"
+  );
+const MoreOrganizations = () =>
+  import(
+    "@/modules/viewMore/view-more-organization/ViewMoreOrganizationsPage.vue"
+  );
+const MoreUpcoming = () =>
+  import("@/modules/viewMore/view-more-upcoming/ViewMoreUpcomingPage.vue");
+const MoreOnline = () =>
+  import("@/modules/viewMore/view-more-online/ViewMoreOnlinePage.vue");
+const SearchedEvents = () =>
+  import("@/modules/viewMore/search/SearchedPage.vue");
 
 const router = createRouter({
   history: createWebHistory(),
@@ -89,7 +103,27 @@ const router = createRouter({
           component: OrgInfo
         },
         { path: "user-profile", component: UserProfilePage },
-        { path: "404", component: NotFound }
+        {
+          path: "/more-recommended-events",
+          component: MoreRecommended
+        },
+        {
+          path: "/more-organizations",
+          component: MoreOrganizations
+        },
+        {
+          path: "/more-upcoming-events",
+          component: MoreUpcoming
+        },
+        {
+          path: "/more-online-events",
+          component: MoreOnline
+        },
+        {
+          path: "/search",
+          component: SearchedEvents
+        },
+        { path: "/404", component: NotFound }
       ]
     },
     {
@@ -111,6 +145,10 @@ const router = createRouter({
             {
               path: "create-event-form/:id",
               component: CreateForm
+            },
+            {
+              path: "/member-management/:id",
+              component: MemberManagementPage
             }
           ]
         },

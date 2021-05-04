@@ -37,5 +37,6 @@ export default defineComponent({
 <style scoped>
 .card {
   grid-template-columns: repeat(auto-fit, 216px);
+  width: 961px;
 }
 </style>

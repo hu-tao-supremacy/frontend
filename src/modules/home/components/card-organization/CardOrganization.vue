@@ -1,26 +1,28 @@
 <template>
-  <div
-    class="card-org grid grid-cols-9 rounded-lg shadow-sm h-12 overflow-hidden"
-  >
-    <div class="col-span-4 min-h-full">
-      <LazyImage
-        :width="216"
-        :height="96"
-        alt="will change to api"
-        :url="orgs.profilePictureUrl"
-        :placeholder="orgs.profilePictureHash"
-        class="w-full h-full object-cover rounded-l-lg"
-      />
-    </div>
-    <div class="col-span-5 flex flex-col px-1 py-0.5">
-      <div class="font-heading mb-0.25" :class="orgShortNameTextSize">
-        {{ orgs.abbreviation }}
+  <router-link :to="`/org-info/${orgs.id}`">
+    <div
+      class="card-org grid grid-cols-9 rounded-lg shadow-sm h-12 overflow-hidden"
+    >
+      <div class="col-span-4 min-h-full">
+        <LazyImage
+          :width="216"
+          :height="96"
+          alt="will change to api"
+          :url="orgs.profilePictureUrl"
+          :placeholder="orgs.profilePictureHash"
+          class="w-full h-full object-cover rounded-l-lg"
+        />
       </div>
-      <div class="text-xs w-full text-truncate text-truncate-4">
-        {{ orgs.name }}
+      <div class="col-span-5 flex flex-col px-1 py-0.5">
+        <div class="font-heading mb-0.25" :class="orgShortNameTextSize">
+          {{ orgs.abbreviation }}
+        </div>
+        <div class="text-xs w-full text-truncate text-truncate-4">
+          {{ orgs.name }}
+        </div>
       </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script lang="ts">

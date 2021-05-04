@@ -1,11 +1,14 @@
+import useOrganization from "@/modules/organization/useOrganization";
 import { Ref, ref } from "vue";
+import { useRouter, useRoute } from "vue-router";
 
 export default function useOrgNavbarTeamSelection(
   isExpand: Ref<boolean>,
   isSelected: Ref<boolean>
 ) {
   const isDropdown = ref(false);
-
+  const router = useRouter();
+  const { currentOrganizationId: currentSelectedTeamId } = useOrganization();
   function collapseDropDown() {
     isDropdown.value = false;
   }
@@ -17,7 +20,8 @@ export default function useOrgNavbarTeamSelection(
 
   function toMemberPage() {
     //Later will put router link to go to member page
-    console.log("To member");
+    router.push(`/member-management/${currentSelectedTeamId.value}`);
+    console.log(currentSelectedTeamId.value);
   }
 
   function toOrgSetting() {

@@ -29,19 +29,21 @@
               />
             </div>
             <div>
-              <BaseUploadImgButton
-                v-model="uploadedImgFile"
-                v-model:uploadedImg="uploadedImg"
-                class="mb-0.25 h-3.5"
-                name="previewImg"
-              />
-              <p class="text-gray-5 text-xs">
-                (e.g. JPEG, .PNG or .GIF Less than 5MB)
+              <div>
+                <BaseUploadImgButton
+                  v-model="uploadedImgFile"
+                  v-model:uploadedImg="uploadedImg"
+                  class="mb-0.25 h-3.5"
+                  name="previewImg"
+                />
+                <p class="text-gray-5 text-xs">
+                  (e.g. JPEG, .PNG or .GIF Less than 5MB)
+                </p>
+              </div>
+              <p v-show="!isValidImageSize" class="text-sm text-red-5 mt-0.25">
+                Image size is too large
               </p>
             </div>
-            <p v-show="!isValidImageSize" class="text-sm text-red-5 mt-0.25">
-              Image size is too large
-            </p>
           </div>
         </section>
         <section class="mb-2">

@@ -63,14 +63,18 @@ export default defineComponent({
           "https://api.github.com/orgs/hu-tao-supremacy/public_members"
         )
       ).json();
-      data.sort((a: GithubMember, b: GithubMember) =>
-        a.login.localeCompare(b.login)
-      );
-      return data;
+      if (data.length) {
+        data.sort((a: GithubMember, b: GithubMember) =>
+          a.login.localeCompare(b.login)
+        );
+        return data;
+      }
+      return [];
     }
 
     onMounted(async () => {
-      await getMembersData().then(data => (githubMembers.value = data));
+      const data = await getMembersData();
+      githubMembers.value = data;
     });
 
     const hasGithubMember = computed(() => {

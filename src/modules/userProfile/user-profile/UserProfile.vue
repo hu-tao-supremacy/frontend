@@ -22,13 +22,18 @@
           />
         </div>
         <div class="flex flex-col space-y-1">
-          <BaseUploadImgButton
-            v-model="uploadedImgFile"
-            v-model:uploadedImg="uploadedImg"
-            buttonText="Change Image"
-            class="w-16 h-3.75"
-          />
-          <p class="text-gray-5 text-xs">(JPEG or .PNG, Less than 5MB)</p>
+          <div>
+            <BaseUploadImgButton
+              v-model="uploadedImgFile"
+              v-model:uploadedImg="uploadedImg"
+              buttonText="Change Image"
+              class="w-16 h-3.75"
+            />
+            <p class="text-gray-5 text-xs">(JPEG or .PNG, Less than 5MB)</p>
+          </div>
+          <p v-show="!isValidImageSize" class="text-sm text-red-5 mt-0.25">
+            Image size is too large
+          </p>
         </div>
       </section>
       <section class="flex flex-col space-y-2 mb-4">
@@ -163,7 +168,8 @@ export default defineComponent({
       isValidPhone,
       isValidLocation,
       isValidForm,
-      submitForm
+      submitForm,
+      isValidImageSize
     } = useUserProfile(context);
 
     return {
@@ -188,7 +194,8 @@ export default defineComponent({
       isValidPhone,
       isValidLocation,
       isValidForm,
-      submitForm
+      submitForm,
+      isValidImageSize
     };
   }
 });

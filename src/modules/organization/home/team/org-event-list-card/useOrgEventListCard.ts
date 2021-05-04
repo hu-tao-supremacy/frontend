@@ -31,17 +31,11 @@ export default function useOrgEventListCard(event: Ref<Event>) {
     return "users attending";
   });
 
-  //Later must connect with /org/event page by giving id to navbar
-  function toEventDashboard() {
-    console.log("To event dashboard /org/event for eventId:", event.value.id);
-  }
-
   return {
     eventDate,
     eventTime,
     isInRegistrationTime,
     attendeeCount,
-    attendeeText,
-    toEventDashboard
+    attendeeText
   };
 }

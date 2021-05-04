@@ -127,7 +127,9 @@ export default defineComponent({
 
       onDone(() => {
         createEventResult.then(data => {
-          router.push(`/create-event-form/${data.data?.createEvent.id}`);
+          router.push(
+            `/org/team/create-event-form/${data.data?.createEvent.id}`
+          );
         });
       });
     }

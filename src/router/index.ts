@@ -82,7 +82,8 @@ const router = createRouter({
         },
         {
           path: "wallet",
-          component: Wallet
+          component: Wallet,
+          beforeEnter: authGuard
         },
         {
           path: "user-checkin/:id",
@@ -96,16 +97,22 @@ const router = createRouter({
         },
         {
           path: "event-feedback/:id",
-          component: EventFeedback
+          component: EventFeedback,
+          beforeEnter: authGuard
         },
         {
           path: "org-info/:id",
           component: OrgInfo
         },
-        { path: "user-profile", component: UserProfilePage },
+        {
+          path: "user-profile",
+          component: UserProfilePage,
+          beforeEnter: authGuard
+        },
         {
           path: "/more-recommended-events",
-          component: MoreRecommended
+          component: MoreRecommended,
+          beforeEnter: authGuard
         },
         {
           path: "/more-organizations",

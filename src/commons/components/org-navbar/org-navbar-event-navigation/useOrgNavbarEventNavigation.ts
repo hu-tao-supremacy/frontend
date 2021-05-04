@@ -1,4 +1,4 @@
-import { computed, Ref, ref, watch } from "vue";
+import { computed, Ref, ref, watchEffect } from "vue";
 import { OrgEventNavbarSelection } from "@/commons/constant";
 import { useRoute, useRouter } from "vue-router";
 import useOrgEvent from "@/modules/organization/event/use-org-event";
@@ -12,7 +12,7 @@ export default function useOrgNavbarEventNavigation() {
     OrgEventNavbarSelection.NONE
   );
 
-  watch(route, () => {
+  watchEffect(() => {
     if (route.fullPath.includes("attendee-management")) {
       currentSelection.value = OrgEventNavbarSelection.MANAGE_ATTENDEE;
     } else if (route.fullPath.includes("create-event-feedback")) {

@@ -91,7 +91,6 @@
         <router-link to="/more-online-events">
           <base-transparent-button
             class="group w-16 h-4 flex justify-center items-center"
-            @click="moreOnline"
           >
             View More
             <span class="text-primary ml-1 group-hover:text-primary-5">

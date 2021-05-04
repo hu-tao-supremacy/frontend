@@ -33,6 +33,13 @@ export default defineComponent({
     BaseSelect
   },
   props: {
+    modelValue: {
+      default: null
+    },
+    initialDisplayedName: {
+      type: String,
+      default: ""
+    },
     isSearchable: {
       type: Boolean,
       default: false
@@ -68,7 +75,12 @@ export default defineComponent({
   },
   emits: [UPDATE_MODEL_VALUE],
   setup(props, context) {
-    const { optionNames, optionValues } = toRefs(props);
+    const {
+      optionNames,
+      optionValues,
+      modelValue,
+      initialDisplayedName
+    } = toRefs(props);
 
     const {
       searchText,
@@ -77,6 +89,8 @@ export default defineComponent({
       displayedOption,
       filteredOptions
     } = useSingleNameSelect(
+      modelValue,
+      initialDisplayedName,
       optionNames,
       optionValues,
       props.doesResetAfterSelect,

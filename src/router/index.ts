@@ -44,6 +44,8 @@ const OrganizationProvider = () =>
   import(
     "@/modules/organization/useOrganization/components/OrganizationProvider.vue"
   );
+const UserProfilePage = () =>
+  import("@/modules/userProfile/UserProfilePage.vue");
 const MoreRecommended = () =>
   import(
     "@/modules/viewMore/view-more-recommended/ViewMoreRecommendedPage.vue"
@@ -97,9 +99,10 @@ const router = createRouter({
           component: EventFeedback
         },
         {
-          path: "/org-info/:id",
+          path: "org-info/:id",
           component: OrgInfo
         },
+        { path: "user-profile", component: UserProfilePage },
         {
           path: "/more-recommended-events",
           component: MoreRecommended
@@ -140,7 +143,7 @@ const router = createRouter({
             { path: "create-event", component: CreateEventPage },
             { path: "create-org", component: CreateOrg },
             {
-              path: "/create-event-form/:id",
+              path: "create-event-form/:id",
               component: CreateForm
             },
             {

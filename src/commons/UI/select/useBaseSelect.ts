@@ -1,15 +1,18 @@
 import { Ref, ref, SetupContext, watch, computed } from "vue";
 
 export default function useBaseSelect(
-  //Required whole props to be able to watch displayedOption prop
   displayedOption: Ref<string>,
   placeholder: string,
   doesResetAfterSelect: boolean,
   context: SetupContext<"update:searchTextModel"[]>
 ) {
   const isOptionShown = ref(false);
-  const userInput = ref(""); //Is use only when able to search
-  const buttonDisplay = ref(placeholder); //Is use only when unable to search
+  const userInput = ref(displayedOption.value); //Is use only when able to search
+  //Is use only when unable to search
+  const buttonDisplay = computed(() => {
+    if (displayedOption.value === "") return placeholder;
+    return displayedOption.value;
+  });
 
   function showOption() {
     isOptionShown.value = true;
@@ -35,14 +38,10 @@ export default function useBaseSelect(
     return displayedOption.value === "";
   });
 
-  watch(
-    () => displayedOption.value,
-    () => {
-      isOptionShown.value = false;
-      userInput.value = displayedOption.value;
-      buttonDisplay.value = displayedOption.value;
-    }
-  );
+  watch(displayedOption, () => {
+    isOptionShown.value = false;
+    userInput.value = displayedOption.value;
+  });
 
   return {
     isOptionShown,

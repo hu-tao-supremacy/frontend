@@ -12,6 +12,7 @@
       :isError="isError"
       :disabled="disabled"
       :placeholder="placeholder"
+      :type="textInputType"
       :class="textInputClass"
     />
     <BaseExpandableTextArea
@@ -99,6 +100,9 @@ export default defineComponent({
     errorTextClass: {
       type: String,
       default: "text-sm  mt-0.25 ml-1.5"
+    },
+    textInputType: {
+      type: String
     }
   },
   emits: [UPDATE_MODEL_VALUE],

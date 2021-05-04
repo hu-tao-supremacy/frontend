@@ -1,7 +1,9 @@
 <template>
   <div>
     <base-button class="h-full z-10"
-      ><label class="p-1 cursor-pointer" :for="name">Upload</label></base-button
+      ><label class="p-1 cursor-pointer" :for="name">{{
+        buttonText
+      }}</label></base-button
     >
     <input
       :id="name"
@@ -33,6 +35,10 @@ export default defineComponent({
     name: {
       type: String,
       default: "imgFileLoader"
+    },
+    buttonText: {
+      type: String,
+      default: "Upload"
     }
   },
   emits: [UPDATE_MODEL_VALUE, "update:uploadedImg"],

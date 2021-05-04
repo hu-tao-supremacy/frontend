@@ -21,10 +21,11 @@
       <div class="flex flex-col w-1/3">
         <div>Gender</div>
         <BaseTextInput
-          :modelValue="user && user.gender"
+          :modelValue="gender"
           class="w-full h-4 disabled: bg-white text-primary-6"
           disabled
         />
+        {{ gender }}
       </div>
     </div>
     <div class="flex mt-4">
@@ -110,10 +111,11 @@
 </template>
 
 <script lang="ts">
-import { ComputedRef, defineComponent } from "vue";
+import { computed, ComputedRef, defineComponent, toRefs } from "vue";
 import BaseTextInput from "@/commons/UI/BaseTextInput.vue";
 import BaseTextArea from "@/commons/UI/BaseTextArea.vue";
 import { GetEventRegisterQuery } from "@/apollo/types";
+import { GENDER_MAPPER } from "@/commons/constant";
 
 export default defineComponent({
   name: "PersonalInfoDes",
@@ -128,6 +130,14 @@ export default defineComponent({
   components: {
     BaseTextInput,
     BaseTextArea
+  },
+  setup(props) {
+    const { user } = toRefs(props);
+    const gender = computed(() => {
+      return user?.value?.gender ? GENDER_MAPPER[user.value.gender] : "";
+    });
+
+    return { gender };
   }
 });
 </script>

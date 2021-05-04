@@ -2,7 +2,7 @@
   <div
     class="flex flex-col w-25 bg-white rounded-b-lg pt-0.5 pb-1 font-heading text-lg"
   >
-    <router-link to="/org/team">
+    <router-link :to="toOrgOrParticipantUrl">
       <div
         class="group flex items-center rounded-sm px-3 mb-0.5 cursor-pointer hover:text-white hover:bg-primary"
         @click="selectOption"
@@ -13,7 +13,7 @@
           class="mr-4 text-primary group-hover:text-white"
           ><UsersIcon
         /></base-icon>
-        <h3>Organization</h3>
+        <h3>{{ toOrgOrParticipantText }}</h3>
       </div>
     </router-link>
     <span class="mx-2 border-t border-gray-3 mb-0.5"></span>
@@ -62,7 +62,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, computed } from "vue";
 import UsersIcon from "@/assets/Users.vue";
 import UserIcon from "@/assets/User.vue";
 import CreditCardIcon from "@/assets/CreditCard.vue";
@@ -77,8 +77,24 @@ export default defineComponent({
     CreditCardIcon,
     LogOutIcon
   },
+  props: {
+    isOrgView: {
+      type: Boolean,
+      default: false
+    }
+  },
   emits: [SELECT_NAVBAR_OPTION, LOGOUT],
-  setup(_, context) {
+  setup(props, context) {
+    const toOrgOrParticipantText = computed(() => {
+      if (!props.isOrgView) return "Organization";
+      return "To Events";
+    });
+
+    const toOrgOrParticipantUrl = computed(() => {
+      if (!props.isOrgView) return "/org/team";
+      return "/";
+    });
+
     function selectOption() {
       context.emit(SELECT_NAVBAR_OPTION);
     }
@@ -88,6 +104,8 @@ export default defineComponent({
     }
 
     return {
+      toOrgOrParticipantText,
+      toOrgOrParticipantUrl,
       selectOption,
       logout
     };

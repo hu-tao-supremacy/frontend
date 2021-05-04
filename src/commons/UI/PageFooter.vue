@@ -63,7 +63,7 @@ export default defineComponent({
           "https://api.github.com/orgs/hu-tao-supremacy/public_members"
         )
       ).json();
-      if (data.sort) {
+      if (data.length) {
         data.sort((a: GithubMember, b: GithubMember) =>
           a.login.localeCompare(b.login)
         );

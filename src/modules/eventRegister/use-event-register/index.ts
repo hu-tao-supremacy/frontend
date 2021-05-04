@@ -96,6 +96,7 @@ const useEventRegister = () => {
   );
 
   const hasQuestions = computed(() => {
+    console.log(questionData.length !== 0);
     return questionData.length !== 0;
   });
 

@@ -5,7 +5,9 @@
       <div v-if="checkStep2(step)" class="container flex flex-col">
         <div class="mt-4 font-heading text-4xl">Summary</div>
         <PersonalInfoDes class="mt-3" :user="user" :faculty="userFaculty" />
-        <EventAnswer class="mt-3" :question="questionData" />
+        <div v-if="hasQuestions">
+          <EventAnswer class="mt-3" :question="questionData" />
+        </div>
         <div class="flex justify-between mt-10">
           <base-button @click="decreaseStep" class="w-18 h-4 color"
             >Back</base-button

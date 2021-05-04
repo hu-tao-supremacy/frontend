@@ -8,7 +8,8 @@
         Your event has been created!
       </h1>
       <p class="text-gray-5 text-center mb-7 leading-relaxed">
-        Your event has been created.
+        Your event has been posted <br />
+        and open for registration by the targeted attendee!
       </p>
       <base-button @click="closeModal" class="w-16 py-px">Close</base-button>
     </div></base-modal

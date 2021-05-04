@@ -18,7 +18,7 @@
           :key="member.id"
           :imgUrl="member.avatar_url"
           :name="member.login"
-          href="https://github.com/hu-tao-supremacy"
+          :href="member.html_url"
         />
       </div>
     </div>

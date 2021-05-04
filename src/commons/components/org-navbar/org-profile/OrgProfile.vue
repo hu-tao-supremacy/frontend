@@ -2,7 +2,7 @@
   <div
     v-if="profileImg"
     class="w-6 h-6 rounded-lg overflow-hidden flex-shrink-0"
-    :class="{ 'border-2 border-orange-5': isSelected }"
+    :class="{ 'border-2 border-main-5': isSelected }"
   >
     <LazyImage
       :width="100"

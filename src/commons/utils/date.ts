@@ -33,7 +33,7 @@ export const getMainTimetable = (durations?: Duration[]) => {
 };
 
 export const getEventStartTime = (durations?: Duration[]) => {
-  if (!durations) {
+  if (!durations || durations.length === 0) {
     return null;
   }
   const sortedDuration = [...durations]?.sort((durationA, durationB) => {

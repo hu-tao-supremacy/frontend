@@ -22,17 +22,19 @@
       <div class="flex mt-2.5 space-x-3">
         <h1 class="font-heading text-4xl">Dashboard</h1>
         <div class="flex justify-between // w-full">
-          <BaseButton
-            :disabled="isExporting"
-            @click="changeExportStatus()"
-            class="flex justify-center items-center // h-5 px-2 space-x-1 flex-shrink-0"
-          >
-            <div>Export Data</div>
-            <base-icon class="w-3 h-3">
-              <download-icon />
-            </base-icon>
-          </BaseButton>
-          {{ isExporting ? "Loading" : "" }}
+          <div class="flex">
+            <BaseButton
+              :disabled="isExporting"
+              @click="changeExportStatus()"
+              class="flex justify-center items-center // h-5 px-2 space-x-1 flex-shrink-0"
+            >
+              <div>Export Data</div>
+              <base-icon class="w-3 h-3">
+                <download-icon />
+              </base-icon>
+            </BaseButton>
+            <LoadingSpinner class="ml-2" v-if="isExporting" />
+          </div>
           <BaseButton
             class="flex justify-center items-center // h-5 px-2 space-x-1 flex-shrink-0"
             @click="showQrReader"
@@ -71,6 +73,7 @@ import QrReader from "@/commons/UI/qr-reader/QrReader.vue";
 import { checkInOrg, useExportData } from "./api";
 import { Parser } from "json2csv";
 import FileSaver from "file-saver";
+import LoadingSpinner from "@/commons/UI/LoadingSpinner.vue";
 
 export default defineComponent({
   name: "Dashboard",
@@ -82,7 +85,8 @@ export default defineComponent({
     BaseButton,
     SimpleCard,
     MaximizeIcon,
-    QrReader
+    QrReader,
+    LoadingSpinner
   },
   setup() {
     const { event, eventId } = useOrgEvent();
@@ -110,7 +114,7 @@ export default defineComponent({
       }
       const attendeeResult = result.data.event.attendees.map(attendee => {
         const answers = attendee.answers.map(answer => ({
-          ["question:" + answer.question.title]: answer.value
+          [answer.question.title]: answer.value
         }));
         const answersObject = Object.assign({}, ...answers);
         const attendeeObject = {

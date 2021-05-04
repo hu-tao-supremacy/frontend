@@ -19,5 +19,9 @@ export const useUserProfileApi = () =>
           address
         }
       }
-    `
+    `,
+    null,
+    {
+      fetchPolicy: "no-cache"
+    }
   );

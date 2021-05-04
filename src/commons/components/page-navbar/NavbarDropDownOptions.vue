@@ -17,7 +17,7 @@
       </div>
     </router-link>
     <span class="mx-2 border-t border-gray-3 mb-0.5"></span>
-    <router-link to="/wallet">
+    <router-link to="/user-profile">
       <div
         class="group flex items-center rounded-sm px-3 mb-0.5 cursor-pointer hover:text-white hover:bg-primary"
         @click="selectOption"

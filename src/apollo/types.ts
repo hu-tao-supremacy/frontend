@@ -23,6 +23,7 @@ export type Answer = {
   userEventId: Scalars["Int"];
   questionId: Scalars["Int"];
   value: Scalars["String"];
+  question: Question;
 };
 
 export type AnswerInput = {
@@ -725,15 +726,6 @@ export type GetCurrentUserQuery = { __typename?: "Query" } & {
   >;
 };
 
-export type SetEventQuestionsMutationVariables = Exact<{
-  input: SetEventQuestionsInput;
-}>;
-
-export type SetEventQuestionsMutation = { __typename?: "Mutation" } & Pick<
-  Mutation,
-  "setEventQuestions"
->;
-
 export type GetQuestionGroupsQueryVariables = Exact<{
   id: Scalars["Int"];
 }>;
@@ -1056,6 +1048,15 @@ export type CreateEventMutation = { __typename?: "Mutation" } & {
   createEvent: { __typename?: "Event" } & Pick<Event, "id">;
 };
 
+export type SetEventQuestionsMutationVariables = Exact<{
+  input: SetEventQuestionsInput;
+}>;
+
+export type SetEventQuestionsMutation = { __typename?: "Mutation" } & Pick<
+  Mutation,
+  "setEventQuestions"
+>;
+
 export type GetCurrentUserInfoQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetCurrentUserInfoQuery = { __typename?: "Query" } & {
@@ -1106,6 +1107,47 @@ export type CheckInMutation = { __typename?: "Mutation" } & {
       user: { __typename?: "User" } & Pick<
         User,
         "id" | "firstName" | "lastName"
+      >;
+    };
+};
+
+export type ExportDataQueryVariables = Exact<{
+  id: Scalars["Int"];
+}>;
+
+export type ExportDataQuery = { __typename?: "Query" } & {
+  event: { __typename?: "Event" } & Pick<Event, "id"> & {
+      attendees: Array<
+        { __typename?: "UserEvent" } & Pick<
+          UserEvent,
+          "id" | "rating" | "ticket" | "status"
+        > & {
+            user: { __typename?: "User" } & Pick<
+              User,
+              | "id"
+              | "firstName"
+              | "lastName"
+              | "gender"
+              | "chulaId"
+              | "phoneNumber"
+              | "email"
+              | "district"
+              | "province"
+              | "zipCode"
+              | "address"
+            >;
+            answers: Array<
+              { __typename?: "Answer" } & Pick<
+                Answer,
+                "id" | "questionId" | "value"
+              > & {
+                  question: { __typename?: "Question" } & Pick<
+                    Question,
+                    "id" | "title"
+                  >;
+                }
+            >;
+          }
       >;
     };
 };

@@ -23,6 +23,8 @@
         <h1 class="font-heading text-4xl">Dashboard</h1>
         <div class="flex justify-between // w-full">
           <BaseButton
+            :disabled="isExporting"
+            @click="changeExportStatus()"
             class="flex justify-center items-center // h-5 px-2 space-x-1 flex-shrink-0"
           >
             <div>Export Data</div>
@@ -30,6 +32,7 @@
               <download-icon />
             </base-icon>
           </BaseButton>
+          {{ isExporting ? "Loading" : "" }}
           <BaseButton
             class="flex justify-center items-center // h-5 px-2 space-x-1 flex-shrink-0"
             @click="showQrReader"
@@ -65,7 +68,9 @@ import BaseIcon from "@/commons/UI/BaseIcon.vue";
 import SimpleCard from "../components/simple-card/SimpleCard.vue";
 import { UserEventStatus } from "@/apollo/types";
 import QrReader from "@/commons/UI/qr-reader/QrReader.vue";
-import { checkInOrg } from "./api";
+import { checkInOrg, useExportData } from "./api";
+import { Parser } from "json2csv";
+import FileSaver from "file-saver";
 
 export default defineComponent({
   name: "Dashboard",
@@ -86,6 +91,50 @@ export default defineComponent({
     const checkInAttendeeName = ref("");
     const textMessage = ref("");
     const { checkIn, onCheckInDone, onCheckInError } = checkInOrg();
+    const isExporting = ref(false);
+    const { onDataExport, onDataExportError } = useExportData(
+      isExporting,
+      eventId
+    );
+    const changeExportStatus = () => {
+      isExporting.value = !isExporting.value;
+    };
+
+    onDataExportError(() => {
+      isExporting.value = false;
+    });
+
+    onDataExport(result => {
+      if (!result.data) {
+        isExporting.value = false;
+      }
+      const attendeeResult = result.data.event.attendees.map(attendee => {
+        const answers = attendee.answers.map(answer => ({
+          ["question:" + answer.question.title]: answer.value
+        }));
+        const answersObject = Object.assign({}, ...answers);
+        const attendeeObject = {
+          rating: attendee.rating,
+          ticket: attendee.ticket,
+          status: attendee.status,
+          ...answersObject,
+          ...attendee.user
+        };
+        delete attendeeObject.__typename;
+        return attendeeObject;
+      });
+
+      try {
+        const parser = new Parser();
+        const csv = parser.parse(attendeeResult);
+        const blob = new Blob([csv], { type: "text/csv" });
+        FileSaver.saveAs(blob, `${event.value?.name}.csv`);
+        isExporting.value = false;
+      } catch (err) {
+        console.error(err);
+        isExporting.value = false;
+      }
+    });
 
     const image = computed(() => {
       return {
@@ -152,7 +201,9 @@ export default defineComponent({
       checkTicket,
       isCheckinSuccess,
       checkInAttendeeName,
-      textMessage
+      textMessage,
+      changeExportStatus,
+      isExporting
     };
   }
 });

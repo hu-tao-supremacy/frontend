@@ -725,15 +725,6 @@ export type GetCurrentUserQuery = { __typename?: "Query" } & {
   >;
 };
 
-export type SetEventQuestionsMutationVariables = Exact<{
-  input: SetEventQuestionsInput;
-}>;
-
-export type SetEventQuestionsMutation = { __typename?: "Mutation" } & Pick<
-  Mutation,
-  "setEventQuestions"
->;
-
 export type GetQuestionGroupsQueryVariables = Exact<{
   id: Scalars["Int"];
 }>;
@@ -778,6 +769,7 @@ export type GetEventByIdQuery = { __typename?: "Query" } & {
     | "posterImageHash"
     | "coverImageUrl"
     | "coverImageHash"
+    | "registrationDueDate"
   > & {
       location?: Maybe<
         { __typename?: "Location" } & Pick<Location, "id" | "name">
@@ -1055,6 +1047,15 @@ export type CreateEventMutationVariables = Exact<{
 export type CreateEventMutation = { __typename?: "Mutation" } & {
   createEvent: { __typename?: "Event" } & Pick<Event, "id">;
 };
+
+export type SetEventQuestionsMutationVariables = Exact<{
+  input: SetEventQuestionsInput;
+}>;
+
+export type SetEventQuestionsMutation = { __typename?: "Mutation" } & Pick<
+  Mutation,
+  "setEventQuestions"
+>;
 
 export type GetCurrentUserInfoQueryVariables = Exact<{ [key: string]: never }>;
 

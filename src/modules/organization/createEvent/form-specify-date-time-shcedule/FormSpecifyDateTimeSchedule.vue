@@ -8,13 +8,13 @@
     <BaseTextInput
       :modelValue="startTime"
       :readonly="true"
-      class="w-9 h-3.75 text-primary mr-1"
+      class="w-12 h-3.75 text-primary mr-1"
     />
     <p class="mr-1">~</p>
     <BaseTextInput
       :modelValue="finishTime"
       :readonly="true"
-      class="w-9 h-3.75 text-primary mr-1"
+      class="w-12 h-3.75 text-primary mr-1"
     />
     <button
       @click="deleteDuration"

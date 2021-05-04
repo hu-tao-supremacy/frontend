@@ -19,7 +19,7 @@
             :optionValues="hourValues"
             :hasDropDownIcon="false"
             placeholder=""
-            class="h-3.75 w-9"
+            class="h-3.75 w-12"
           />
         </section>
         <p class="mt-3.5">~</p>
@@ -32,7 +32,7 @@
             :optionValues="hourValues"
             :hasDropDownIcon="false"
             placeholder=""
-            class="h-3.75 w-9"
+            class="h-3.75 w-12"
           />
         </section>
       </div>

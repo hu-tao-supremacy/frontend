@@ -7,6 +7,7 @@
 </template>
 
 <script lang="ts">
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { computed, defineAsyncComponent, defineComponent, provide } from "vue";
 import apolloClient from "./apollo/client";
 import { DefaultApolloClient } from "@vue/apollo-composable";
@@ -49,7 +50,7 @@ export default defineComponent({
       next();
     });
     //  hook the progress bar to finish after we've finished moving router-view
-    this.$router.afterEach(_ => {
+    this.$router.afterEach(() => {
       //  finish the progress bar
       (this as any).$Progress.finish();
     });

@@ -33,7 +33,7 @@
         target="_blank"
         rel="noopener noreferrer"
         v-if="eventOrg && eventOrg.facebookPage"
-        :href="eventOrg && eventOrg.facebookPage"
+        :href="eventOrg && `https://${eventOrg.facebookPage}`"
       >
         <FacebookIconCircle />
       </a>
@@ -41,7 +41,7 @@
         target="_blank"
         rel="noopener noreferrer"
         v-if="eventOrg && eventOrg.lineOfficialAccount"
-        :href="eventOrg && eventOrg.lineOfficialAccount"
+        :href="eventOrg && `https://${eventOrg.lineOfficialAccount}`"
       >
         <LineIconCircle />
       </a>
@@ -49,7 +49,7 @@
         target="_blank"
         rel="noopener noreferrer"
         v-if="eventOrg && eventOrg.instagram"
-        :href="eventOrg && eventOrg.instagram"
+        :href="eventOrg && `https://${eventOrg.instagram}`"
       >
         <InstagramIconCircle />
       </a>
@@ -57,7 +57,7 @@
         target="_blank"
         rel="noopener noreferrer"
         v-if="eventOrg && eventOrg.email"
-        :href="eventOrg && eventOrg.email"
+        :href="eventOrg && `mailto:${eventOrg.email}`"
       >
         <base-circle-button class="p-1 text-black"
           ><base-icon width="16" height="16"><MailIcon /></base-icon

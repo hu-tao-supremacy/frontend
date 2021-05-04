@@ -2,8 +2,8 @@
   <div
     class="flex flex-col justify-between // w-27 h-14 // p-2 // text-lg // bg-white // rounded-2xl shadow-sm"
   >
-    <h5 class="font-bold text-gray-5">{{ text }}</h5>
-    <h1 class="font-bold text-4xl">{{ count }}</h1>
+    <h5 class="font-semibold text-gray-5">{{ text }}</h5>
+    <h1 class="font-semibold text-4xl">{{ count }}</h1>
   </div>
 </template>
 

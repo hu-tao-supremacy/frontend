@@ -10,7 +10,7 @@
           alt="will change to api"
           :url="image.url"
           :placeholder="image.hash"
-          class="object-cover w-full h-full"
+          class="object-cover w-full h-full rounded-full"
         />
       </div>
       <div class="flex flex-col">
@@ -36,13 +36,17 @@
       <div class="flex flex-col // space-y-1">
         <h3 class="text-2xl font-heading">Contact</h3>
         <ul class="space-y-0.25">
-          <li>Facebook : {{ contact.facebook }}</li>
-          <li>Instagram : {{ contact.instagram }}</li>
           <li>
-            Line :
+            <span class="font-bold">Facebook</span> : {{ contact.facebook }}
+          </li>
+          <li>
+            <span class="font-bold">Instagram</span> : {{ contact.instagram }}
+          </li>
+          <li>
+            <span class="font-bold">Line</span> :
             {{ contact.line }}
           </li>
-          <li>Email : {{ contact.email }}</li>
+          <li><span class="font-bold">Email</span> : {{ contact.email }}</li>
         </ul>
       </div>
     </div>

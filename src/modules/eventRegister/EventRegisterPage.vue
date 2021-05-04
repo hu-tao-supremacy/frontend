@@ -4,7 +4,7 @@
       <RegistrationStatus :step="step" />
       <div v-if="checkStep2(step)" class="container flex flex-col">
         <div class="mt-4 font-heading text-4xl">Summary</div>
-        <PersonalInfoDes class="mt-3" :user="user" />
+        <PersonalInfoDes class="mt-3" :user="user" :faculty="userFaculty" />
         <EventAnswer class="mt-3" :question="questionData" />
         <div class="flex justify-between mt-10">
           <base-button @click="decreaseStep" class="w-18 h-4 color"
@@ -36,7 +36,7 @@
       </div>
       <div v-else class="container flex flex-col">
         <div class="mt-4 font-heading text-4xl">Personal Information</div>
-        <PersonalInfo class="mt-3" :user="user" />
+        <PersonalInfo class="mt-3" :user="user" :faculty="userFaculty" />
         <div v-if="hasQuestions">
           <div class="font-heading text-4xl mt-4">Additional Question</div>
           <QuestionText
@@ -90,6 +90,7 @@ export default defineComponent({
     const placeholder = "Write your answer here!";
     const {
       user,
+      userFaculty,
       step,
       increaseStep,
       decreaseStep,
@@ -107,6 +108,7 @@ export default defineComponent({
     return {
       placeholder,
       user,
+      userFaculty,
       step,
       increaseStep,
       decreaseStep,

@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, Ref, ref, watch } from "vue";
+import { computed, defineComponent } from "vue";
 import MoreEvents from "@/commons/components/more-events/MoreEvents.vue";
 import { useSearchedItems } from "./api";
 import { useResult } from "@vue/apollo-composable";

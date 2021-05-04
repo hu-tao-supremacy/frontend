@@ -9,9 +9,11 @@ import { useEventRegisterApi } from "../api";
 import { updateAnswer } from "../api";
 import { useRoute, useRouter } from "vue-router";
 import { useResult } from "@vue/apollo-composable";
+import FacultyData from "@/commons/constant/faculty";
 
 const useEventRegister = () => {
   const step = ref(1);
+  const userFaculty = ref("");
   const questionData = reactive([] as Question[]);
   const { addAnswer } = updateAnswer();
   const route = useRoute();
@@ -33,6 +35,14 @@ const useEventRegister = () => {
       question => question.seq
     );
     Object.assign(questionData, questions);
+
+    const faculty = FacultyData.find(
+      code => code.code === result.data.currentUser?.chulaId?.slice(-2)
+    )?.name;
+
+    if (faculty !== "undefined") {
+      userFaculty.value = faculty!;
+    }
   });
 
   const increaseStep = () => {
@@ -91,6 +101,7 @@ const useEventRegister = () => {
 
   return {
     user,
+    userFaculty,
     step,
     increaseStep,
     decreaseStep,

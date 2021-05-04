@@ -1,7 +1,10 @@
 <template>
-  <div class="flex flex-col justify-center pt-4 pb-6">
-    <UserProfile class="content-max-width-s" />
-    <UpdateUserSuccessModal v-if="isSuccessModalShown" />
+  <div class="flex justify-center pt-4 pb-6">
+    <UserProfile @submit-form="showSuccessModal" class="content-max-width-s" />
+    <UpdateUserSuccessModal
+      v-if="isSuccessModalShown"
+      @close-modal="hideSuccessModal"
+    />
   </div>
 </template>
 

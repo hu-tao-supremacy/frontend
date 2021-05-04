@@ -25,7 +25,10 @@
     <div
       class="flex flex-col items-end justify-between text-right text-white pr-3 py-1"
     >
-      <base-transparent-button class="flex items-center group">
+      <base-transparent-button
+        @click="backToTop"
+        class="flex items-center group"
+      >
         Back to the top
         <span class="text-primary ml-1 group-hover:text-primary-5"
           ><base-icon width="16px" height="16px"><ChevronsUpIcon /></base-icon
@@ -74,7 +77,11 @@ export default defineComponent({
       return githubMembers.value.length !== 0;
     });
 
-    return { githubMembers, hasGithubMember };
+    function backToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    return { githubMembers, hasGithubMember, backToTop };
   }
 });
 </script>

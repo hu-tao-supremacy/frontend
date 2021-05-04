@@ -49,6 +49,7 @@
       </div>
       <NavbarDropDownOptions
         v-show="isDropDownShown"
+        :isOrgView="isOrgView"
         @select-navbar-option="hideDropDown"
         @logout="logout"
         class="w-25 absolute top-full right-0 mt-1.5"

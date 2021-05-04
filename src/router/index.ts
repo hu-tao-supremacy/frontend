@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from "vue-router";
 import authGuard from "./authGuard";
 
 const Home = () => import("@/modules/home/Home.vue");
-const Test = () => import("@/modules/test/TestPage.vue");
 const EventInfo = () => import("@/modules/eventInfo/EventInfoPage.vue");
 const Wallet = () => import("@/modules/wallet/WalletPage.vue");
 const UserCheckIn = () => import("@/modules/userCheckIn/UserCheckInPage.vue");
@@ -75,10 +74,6 @@ const router = createRouter({
         {
           path: "",
           component: Home
-        },
-        {
-          path: "test",
-          component: Test
         },
         {
           path: "event/:id",

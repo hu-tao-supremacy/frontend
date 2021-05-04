@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center">
+  <div class="flex px-4 justify-center">
     <div class="content-max-width w-full mt-4 mb-10">
       <h1 class="font-heading text-4xl">Member Management</h1>
       <Table :data="members" />

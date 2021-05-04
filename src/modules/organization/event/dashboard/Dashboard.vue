@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center">
+  <div class="flex px-4 flex-col items-center">
     <QrReader
       v-if="isQrReaderShown"
       @ticket="checkTicket"

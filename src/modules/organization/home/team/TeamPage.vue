@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full flex flex-col py-4 items-center">
+  <div class="w-full h-full flex flex-col px-4 py-4 items-center">
     <div class="flex flex-col content-max-width w-full">
       <OrgBanner :loading="loading" :org="organization" class="mb-3" />
       <section class="flex justify-between mb-3">

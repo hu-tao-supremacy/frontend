@@ -32,7 +32,7 @@ const useEventRegister = () => {
     if (result.data.event.attendance) {
       router.push("/");
     }
-    const questions = result.data.event.questionGroups[0]?.questions.sort(
+    const questions = [...result.data.event.questionGroups[0]?.questions].sort(
       question => question.seq
     );
     if (checkIfEventStarted(event.value?.durations)) {

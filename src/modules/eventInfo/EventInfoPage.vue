@@ -9,8 +9,8 @@
         :isEventStarted="isEventStarted"
       />
       <div class="text-4xl font-heading mt-7">Event Information</div>
-      <div class="event w-full mt-3 grid gap-4">
-        <div class="flex flex-col">
+      <div class="flex w-full mt-3">
+        <div class="flex flex-col mr-4 w-full">
           <EventDetail
             class="event-inner mb-3"
             :eventDetail="event?.description"
@@ -22,19 +22,21 @@
             :eventOrg="event?.organization"
           />
         </div>
-        <div class="flex flex-col h-0 min-h-full">
-          <div class="text-lg font-heading mb-1">Event Schedule</div>
-          <div class="overflow-y-auto overflow-x-hidden">
-            <div
-              class="event-schedule-container rounded-lg flex flex-col justify-center items-center pt-1 px-1 bg-gray-2"
-            >
-              <EventSchedule
-                class="mb-1"
-                v-for="duration in event?.durations"
-                :key="duration.id"
-                :eventsSchedule="duration"
-                :location="event.location"
-              />
+        <div class="flex-shrink-0">
+          <div class="flex flex-col h-0 min-h-full">
+            <div class="text-lg font-heading mb-1">Event Schedule</div>
+            <div class="overflow-y-auto overflow-x-hidden">
+              <div
+                class="event-schedule-container rounded-lg flex flex-col justify-center items-center pt-1 px-1 bg-gray-2"
+              >
+                <EventSchedule
+                  class="mb-1"
+                  v-for="duration in event?.durations"
+                  :key="duration.id"
+                  :eventsSchedule="duration"
+                  :location="event.location"
+                />
+              </div>
             </div>
           </div>
         </div>

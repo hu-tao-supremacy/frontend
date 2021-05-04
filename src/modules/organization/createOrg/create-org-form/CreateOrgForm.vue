@@ -34,7 +34,7 @@
             (JPEG or .PNG, Less than 5MB)
           </p>
         </div>
-        <p v-show="!isValidImageSize" class="text-sm text-red-5 mt-0.25 ml-1.5">
+        <p v-show="!isValidImageSize" class="text-sm text-red-5 mt-0.25">
           Image size is too large
         </p>
       </div>

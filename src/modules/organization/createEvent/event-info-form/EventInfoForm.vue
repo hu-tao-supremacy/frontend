@@ -95,10 +95,7 @@
           (e.g. .JPEG, .PNG, .GIF Less than 5MB) size: 160x240
         </p>
       </div>
-      <p
-        v-show="!isValidImageSizePoster"
-        class="text-sm text-red-5 mt-0.25 ml-1.5"
-      >
+      <p v-show="!isValidImageSizePoster" class="text-sm text-red-5 mt-0.25">
         Image size is too large
       </p>
     </section>
@@ -115,10 +112,7 @@
           (e.g. .JPEG, .PNG, .GIF Less than 5MB) size: 960x240
         </p>
       </div>
-      <p
-        v-show="+isValidImageSizeCover"
-        class="text-sm text-red-5 mt-0.25 ml-1.5"
-      >
+      <p v-show="+isValidImageSizeCover" class="text-sm text-red-5 mt-0.25">
         Image size is too large
       </p>
     </section>

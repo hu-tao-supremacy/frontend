@@ -12,7 +12,7 @@ export function validateEmail(email: string) {
  */
 export function validateFacebookUrl(url: string) {
   if (url === "") return true;
-  const expression = /^(?:(?:http|https):\/\/)?(?:www.)?facebook.com\/(?:.)*$/;
+  const expression = /^(?:www.)?facebook.com\/(?:.)*$/;
   return expression.test(url.toLowerCase());
 }
 
@@ -21,7 +21,7 @@ export function validateFacebookUrl(url: string) {
  */
 export function validateInstagramUrl(url: string) {
   if (url === "") return true;
-  const expression = /^(?:(?:http|https):\/\/)?(?:www.)?instagram.com\/(?:.)*$/;
+  const expression = /^(?:www.)?instagram.com\/(?:.)*$/;
   return expression.test(url.toLowerCase());
 }
 
@@ -30,7 +30,7 @@ export function validateInstagramUrl(url: string) {
  */
 export function validateLineOfficialUrl(url: string) {
   if (url === "") return true;
-  const expression = /^(?:(?:http|https):\/\/)?(?:www.)?line.me\/R\/ti\/p\/(?:.)*$/;
+  const expression = /^(?:www.)?line.me\/R\/ti\/p\/(?:.)*$/;
   return expression.test(url.toLowerCase());
 }
 

@@ -14,7 +14,15 @@
           <div style="color: red;" class="frame"></div>
         </qr-stream>
       </div>
-      <div class="mt-5 mb-3 text-2xl">{{ status }}</div>
+      <div
+        class="mt-5 mb-3 text-2xl"
+        :class="{ 'text-red-5': !isCheckinSuccess }"
+      >
+        <span v-show="isCheckinSuccess" class="text-primary">{{
+          attendeeName
+        }}</span
+        >{{ textMessage }}
+      </div>
       <base-button @click="closeModal" class="w-16 py-px">Close</base-button>
     </div></base-modal
   >
@@ -34,9 +42,17 @@ export default defineComponent({
     QrStream
   },
   props: {
-    status: {
+    attendeeName: {
       type: String,
-      Default: ""
+      default: ""
+    },
+    isCheckinSuccess: {
+      type: Boolean,
+      default: false
+    },
+    textMessage: {
+      type: String,
+      default: ""
     }
   },
   emits: [CLOSE_MODAL, TICKET],

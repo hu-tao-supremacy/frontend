@@ -1,13 +1,13 @@
 <template>
-  <base-modal :isClosable="false"
+  <base-modal maxModalWidth="680px" :isClosable="false"
     ><div class="flex flex-col items-center">
       <base-icon :width="85" :height="85" class="text-green-5 mb-4"
         ><CheckCircleIcon
       /></base-icon>
-      <h1 class="font-heading text-3xl mb-2">
+      <h1 class="font-heading text-center text-3xl mb-2">
         Your feedback form has been created!
       </h1>
-      <p class="text-gray-5 text-center mb-7 leading-relaxed">
+      <p class="text-gray-5 mb-7 text-center leading-relaxed">
         Your feedback form has been created.<br />
         Now participants can feedback submit feedback after joined the event.
       </p>

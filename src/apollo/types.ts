@@ -559,7 +559,7 @@ export type TagInput = {
 
 export type UpdateEventInput = {
   organizationId?: Maybe<Scalars["Int"]>;
-  location?: Maybe<LocationInput>;
+  location?: Maybe<CreateEventLocationInput>;
   description?: Maybe<Scalars["String"]>;
   name?: Maybe<Scalars["String"]>;
   attendeeLimit?: Maybe<Scalars["Int"]>;
@@ -1265,6 +1265,24 @@ export type GetUserTicketQuery = { __typename?: "Query" } & {
     | "lastName"
     | "email"
     | "phoneNumber"
+  >;
+};
+
+export type GetUserProfileItemQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetUserProfileItemQuery = { __typename?: "Query" } & {
+  currentUser: { __typename?: "User" } & Pick<
+    User,
+    | "id"
+    | "profilePictureUrl"
+    | "gender"
+    | "academicYear"
+    | "email"
+    | "phoneNumber"
+    | "district"
+    | "province"
+    | "zipCode"
+    | "address"
   >;
 };
 

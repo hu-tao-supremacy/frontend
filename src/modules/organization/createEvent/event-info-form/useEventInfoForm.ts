@@ -60,6 +60,13 @@ export default function useEventInfoForm(
     return dateTime.toISOString();
   });
 
+  const isValidImageSizePoster = computed(() => {
+    return !posterImgFile.value || posterImgFile.value?.size < 5000000;
+  });
+  const isValidImageSizeCover = computed(() => {
+    return !coverImgFile.value || coverImgFile.value?.size < 5000000;
+  });
+
   const isValidEventInfo = computed(() => {
     if (
       name.value === "" ||
@@ -125,6 +132,8 @@ export default function useEventInfoForm(
     posterImg,
     posterImgFile,
     coverImg,
-    coverImgFile
+    coverImgFile,
+    isValidImageSizePoster,
+    isValidImageSizeCover
   };
 }

@@ -3,15 +3,17 @@ import { computed, Ref, ref, SetupContext } from "vue";
 import Fuse from "fuse.js";
 
 export default function useSingleNameSelect(
+  initialValue: Ref<unknown>,
+  initialName: Ref<string>,
   optionNames: Ref<string[]>,
   optionValues: Ref<unknown[]>,
   doesResetAfterSelect: boolean,
   context: SetupContext<"update:modelValue"[]>
 ) {
   const searchText = ref("");
-  const selectedOption: Ref<{ name: string; value: unknown }> = ref({
-    name: "",
-    value: null
+  const selectedOption = ref({
+    name: initialName,
+    value: initialValue
   });
 
   const options = computed(() => {

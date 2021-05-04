@@ -4,7 +4,9 @@
       v-if="isQrReaderShown"
       @ticket="checkTicket"
       @close-modal="closeQrReader"
-      :status="checkInStatus"
+      :isCheckinSuccess="isCheckinSuccess"
+      :attendeeName="checkInAttendeeName"
+      :textMessage="textMessage"
     />
     <div class="content-max-width w-full mt-4 mb-10">
       <div class="flex-shrink-0 w-full h-20 // rounded-lg overflow-hidden">
@@ -80,7 +82,9 @@ export default defineComponent({
   setup() {
     const { event, eventId } = useOrgEvent();
     const isQrReaderShown = ref(false);
-    const checkInStatus = ref("");
+    const isCheckinSuccess = ref(false);
+    const checkInAttendeeName = ref("");
+    const textMessage = ref("");
     const { checkIn, onCheckInDone, onCheckInError } = checkInOrg();
 
     const image = computed(() => {
@@ -118,11 +122,15 @@ export default defineComponent({
     }
 
     onCheckInDone(attendee => {
-      checkInStatus.value = `${attendee.data?.checkIn.user.firstName} ${attendee.data?.checkIn.user.lastName}: Checked In`;
+      isCheckinSuccess.value = true;
+      checkInAttendeeName.value = `${attendee.data?.checkIn.user.firstName} ${attendee.data?.checkIn.user.lastName}`;
+      textMessage.value = ": Checked In";
     });
 
     onCheckInError(() => {
-      checkInStatus.value = "Can't Check-in";
+      isCheckinSuccess.value = false;
+      checkInAttendeeName.value = "";
+      textMessage.value = "Check-in failed. Please try again.";
     });
 
     function showQrReader() {
@@ -143,7 +151,9 @@ export default defineComponent({
       closeQrReader,
       isQrReaderShown,
       checkTicket,
-      checkInStatus
+      isCheckinSuccess,
+      checkInAttendeeName,
+      textMessage
     };
   }
 });

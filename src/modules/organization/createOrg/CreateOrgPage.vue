@@ -31,8 +31,6 @@ export default defineComponent({
 
     function closeSuccessModal() {
       isSuccessModalShown.value = false;
-      //Perform redirect to some other page after create org
-      console.log("To team page");
     }
 
     return { isSuccessModalShown, showSuccessModal, closeSuccessModal };

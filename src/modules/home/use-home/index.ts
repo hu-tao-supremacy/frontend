@@ -8,6 +8,7 @@ const useHome = () => {
   const { isSignIn, user } = useUser();
   const { result: homeResult } = useHomeApi();
   const { result: recommendedEventsResult } = useRecommendationEvent(isSignIn);
+
   const upcommingEvents = useResult(
     homeResult,
     generateDummyArray(4),
@@ -18,6 +19,12 @@ const useHome = () => {
     homeResult,
     generateDummyArray(4),
     data => data.onlineEvents
+  );
+
+  const onsiteEvents = useResult(
+    homeResult,
+    generateDummyArray(4),
+    data => data.onSiteEvents
   );
 
   const featureEvents = useResult(
@@ -46,16 +53,12 @@ const useHome = () => {
     return recommendedEventsData.value;
   });
 
-  const nearbyEvents = computed(() => {
-    return generateDummyArray(4);
-  });
-
   return {
     featureEvents,
     recommendedEvents,
     upcommingEvents,
     onlineEvents,
-    nearbyEvents,
+    onsiteEvents,
     featuredOrganizations
   };
 };

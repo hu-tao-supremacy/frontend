@@ -47,7 +47,7 @@
       <div class="flex flex-col w-1/3">
         <div>Year</div>
         <BaseTextInput
-          :modelValue="user && user.academicYear"
+          :modelValue="user && String(user.academicYear)"
           class="w-full h-4 disabled: bg-white text-primary-6"
           disabled
         />
@@ -120,15 +120,14 @@ export default defineComponent({
   props: {
     user: {
       type: Object as () => ComputedRef<GetEventRegisterQuery["currentUser"]>
+    },
+    faculty: {
+      type: String
     }
   },
   components: {
     BaseTextInput,
     BaseTextArea
-  },
-  setup() {
-    const faculty = "Engineering";
-    return { faculty };
   }
 });
 </script>

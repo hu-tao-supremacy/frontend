@@ -14,9 +14,11 @@ const OrgHome = () => import("@/modules/organization/home/OrgHomePage.vue");
 const CreateOrg = () =>
   import("@/modules/organization/createOrg/CreateOrgPage.vue");
 const CreateFeedback = () =>
-  import("@/modules/createEventFeedback/CreateEventFeedbackPage.vue");
+  import(
+    "@/modules/organization/createEventFeedback/CreateEventFeedbackPage.vue"
+  );
 const CreateForm = () =>
-  import("@/modules/createEventForm/CreateEventFormPage.vue");
+  import("@/modules/organization/createEventForm/CreateEventFormPage.vue");
 const MemberManagementPage = () =>
   import("@/modules/organization/member-management/MemberManagementPage.vue");
 const AttendeeManagementPage = () =>
@@ -58,6 +60,8 @@ const MoreUpcoming = () =>
   import("@/modules/viewMore/view-more-upcoming/ViewMoreUpcomingPage.vue");
 const MoreOnline = () =>
   import("@/modules/viewMore/view-more-online/ViewMoreOnlinePage.vue");
+const MoreOnsite = () =>
+  import("@/modules/viewMore/view-more-onsite/ViewMoreOnsitePage.vue");
 const SearchedEvents = () =>
   import("@/modules/viewMore/search/SearchedPage.vue");
 
@@ -125,6 +129,10 @@ const router = createRouter({
         {
           path: "/more-online-events",
           component: MoreOnline
+        },
+        {
+          path: "/more-onsite-events",
+          component: MoreOnsite
         },
         {
           path: "/search",

@@ -21,7 +21,7 @@
             {{ profile && profile.firstName }} {{ profile && profile.lastName }}
           </h1>
           <router-link to="/user-profile">
-            <base-transparent-button @click="editInfo"
+            <base-transparent-button
               ><base-icon width="20px" height="20px"><EditIcon /></base-icon
             ></base-transparent-button>
           </router-link>
@@ -143,7 +143,6 @@ export default defineComponent({
     const {
       ticketStatusView,
       changeTicketStatusView,
-      editInfo,
       isOngoingTicketView,
       isPendingTicketView,
       isHistoryTicketView
@@ -169,7 +168,6 @@ export default defineComponent({
     return {
       ticketStatusView,
       changeTicketStatusView,
-      editInfo,
       isOngoingTicketView,
       isPendingTicketView,
       isHistoryTicketView,

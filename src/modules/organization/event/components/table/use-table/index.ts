@@ -34,21 +34,20 @@ const useTable = (data?: Ref<DataProps[] | undefined>) => {
     });
   });
 
-  const sort = (data: DataProps[]) =>
-    computed(() => {
-      switch (sortingOption.value) {
-        case SortOption.Descending:
-          return data.sort((a, b) =>
-            sortDescending(a.user.firstName, b.user.firstName)
-          );
-        case SortOption.Ascending:
-          return data.sort((a, b) =>
-            sortAscending(a.user.firstName, b.user.firstName)
-          );
-        default:
-          return data;
-      }
-    });
+  const sort = (data: DataProps[]) => {
+    switch (sortingOption.value) {
+      case SortOption.Descending:
+        return data.sort((a, b) =>
+          sortDescending(a.user.firstName, b.user.firstName)
+        );
+      case SortOption.Ascending:
+        return data.sort((a, b) =>
+          sortAscending(a.user.firstName, b.user.firstName)
+        );
+      default:
+        return data;
+    }
+  };
 
   const filteredData = computed(() => {
     if (!data?.value || !fuse.value) return [];
@@ -58,7 +57,7 @@ const useTable = (data?: Ref<DataProps[] | undefined>) => {
         ? data.value
         : fuse.value.search(searchValue.value);
 
-    return sort(searchedData).value;
+    return sort(searchedData);
   });
 
   const { reviewRequest, onReviewRequestDone } = useReviewRequest();

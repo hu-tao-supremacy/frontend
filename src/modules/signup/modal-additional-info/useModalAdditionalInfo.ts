@@ -107,7 +107,8 @@ export default function useModalAdditionalInfo(
         province: userProvince.value,
         zipCode: userZipCode.value,
         phoneNumber: userPhone.value,
-        academicYear: Number(userYear.value)
+        academicYear: Number(userYear.value),
+        gender: userGender.value
       } as UpdateUserInput;
       context.emit(SUBMIT_MODAL, userInfo);
     }

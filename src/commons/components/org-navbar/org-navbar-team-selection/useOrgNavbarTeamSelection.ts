@@ -19,9 +19,7 @@ export default function useOrgNavbarTeamSelection(
   }
 
   function toMemberPage() {
-    //Later will put router link to go to member page
     router.push(`/member-management/${currentSelectedTeamId.value}`);
-    console.log(currentSelectedTeamId.value);
   }
 
   function toOrgSetting() {

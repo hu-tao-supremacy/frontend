@@ -10,6 +10,7 @@ import { updateAnswer } from "../api";
 import { useRoute, useRouter } from "vue-router";
 import { useResult } from "@vue/apollo-composable";
 import FacultyData from "@/commons/constant/faculty";
+import { checkIfEventStarted } from "@/commons/utils/date";
 
 const useEventRegister = () => {
   const step = ref(1);
@@ -31,17 +32,22 @@ const useEventRegister = () => {
     if (result.data.event.attendance) {
       router.push("/");
     }
-    const questions = result.data.event.questionGroups[0]?.questions.sort(
-      question => question.seq
-    );
-    Object.assign(questionData, questions);
+    if (result.data.event.questionGroups.length !== 0) {
+      const questions = [
+        ...result.data.event.questionGroups[0]?.questions
+      ].sort(question => question.seq);
+      Object.assign(questionData, questions);
+    }
+    if (checkIfEventStarted(event.value?.durations)) {
+      router.push("/404");
+    }
 
     const faculty = FacultyData.find(
       code => code.code === result.data.currentUser?.chulaId?.slice(-2)
     )?.name;
 
-    if (faculty !== "undefined") {
-      userFaculty.value = faculty!;
+    if (faculty) {
+      userFaculty.value = faculty;
     }
   });
 
@@ -96,7 +102,6 @@ const useEventRegister = () => {
   );
 
   const hasQuestions = computed(() => {
-    console.log(questionData.length !== 0);
     return questionData.length !== 0;
   });
 

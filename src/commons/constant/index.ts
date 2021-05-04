@@ -32,6 +32,12 @@ export const GENDER = {
   "Not Specified": Gender.Ns
 };
 
+export const GENDER_MAPPER = {
+  [Gender.M]: "Male",
+  [Gender.F]: "Female",
+  [Gender.Ns]: "Not Specified"
+};
+
 export enum OrgEventNavbarSelection {
   DASHBOARD = "dashboard",
   MANAGE_ATTENDEE = "manageAttendee",

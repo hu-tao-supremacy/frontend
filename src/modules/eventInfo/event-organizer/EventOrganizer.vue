@@ -57,7 +57,7 @@
         target="_blank"
         rel="noopener noreferrer"
         v-if="eventOrg && eventOrg.email"
-        :href="eventOrg && eventOrg.email"
+        :href="eventOrg && `mailto:${eventOrg.email}`"
       >
         <base-circle-button class="p-1 text-black"
           ><base-icon width="16" height="16"><MailIcon /></base-icon

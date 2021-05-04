@@ -1,3 +1,3 @@
 /* eslint-disable */
-declare module 'vue3-qr-reader' 
-  
+declare module '@aacassandra/vue3-progressbar'
+declare module 'vue3-qr-reader'

@@ -1,6 +1,5 @@
 <template>
   <div class="p-2">
-    <UserProfile class="mb-4" />
     <InfoBanner
       :style="{ maxWidth: '960px' }"
       :eventBanner="test.eventBanner"
@@ -26,7 +25,6 @@ import EventDetail from "@/modules/eventInfo/event-detail/EventDetail.vue";
 import EventOrganizer from "@/modules/eventInfo/event-organizer/EventOrganizer.vue";
 import { testData, questionData } from "./testData";
 import OrgCard from "@/modules/orgInfo/org-card/OrgCard.vue";
-import UserProfile from "@/modules/userProfile/UserProfile.vue";
 
 export default defineComponent({
   name: "TestPage",
@@ -34,8 +32,7 @@ export default defineComponent({
     InfoBanner,
     EventDetail,
     EventOrganizer,
-    OrgCard,
-    UserProfile
+    OrgCard
   },
   setup() {
     const test = testData;

@@ -44,6 +44,8 @@ const OrganizationProvider = () =>
   import(
     "@/modules/organization/useOrganization/components/OrganizationProvider.vue"
   );
+const UserProfilePage = () =>
+  import("@/modules/userProfile/UserProfilePage.vue");
 
 const router = createRouter({
   history: createWebHistory(),
@@ -83,10 +85,11 @@ const router = createRouter({
           component: EventFeedback
         },
         {
-          path: "/org-info/:id",
+          path: "org-info/:id",
           component: OrgInfo
         },
-        { path: "/404", component: NotFound }
+        { path: "user-profile", component: UserProfilePage },
+        { path: "404", component: NotFound }
       ]
     },
     {
@@ -106,7 +109,7 @@ const router = createRouter({
             { path: "create-event", component: CreateEventPage },
             { path: "create-org", component: CreateOrg },
             {
-              path: "/create-event-form/:id",
+              path: "create-event-form/:id",
               component: CreateForm
             }
           ]

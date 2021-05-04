@@ -25,7 +25,7 @@
       />
     </section>
     <base-button class="w-20 h-3.75" @click="login" v-if="!isLogIn"
-      >Login in with CU SSO</base-button
+      >Login with CU SSO</base-button
     >
     <section
       v-else

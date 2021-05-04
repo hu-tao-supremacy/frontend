@@ -3,14 +3,24 @@
     <h1 class="font-heading text-4xl mb-2">User Profile</h1>
     <form @submit.prevent="submitForm" class="flex flex-col">
       <section class="flex items-center mb-3">
-        <!-- <UserProfile
-        :hasBorder="false"
-        nameInitialFontSize="text-4xl"
-        :user="user"
-        widthHeight="w-16 h-16"
-        class="flex-shrink-0 mr-3"
-      /> -->
-        <div class="w-16 h-16 rounded-full flex-shrink-0 bg-primary mr-3"></div>
+        <div
+          class="w-16 h-16 rounded-full bg-primary-2 flex items-center justify-center overflow-hidden flex-shrink-0 mr-3"
+          :class="{ 'border-2 border-primary': !fileLoaded }"
+        >
+          <base-icon
+            v-if="!fileLoaded"
+            width="48"
+            height="48"
+            class="text-primary"
+            ><ImageGalleryIcon
+          /></base-icon>
+          <img
+            v-else
+            :src="uploadedImg"
+            alt=""
+            class="object-cover w-full h-full"
+          />
+        </div>
         <div class="flex flex-col space-y-1">
           <BaseUploadImgButton
             v-model="uploadedImgFile"
@@ -26,11 +36,12 @@
           <section class="flex flex-col mr-2 w-full">
             <label for="gender" class="mb-0.25">Gender</label>
             <BaseSelect
-              v-model="userGender"
-              :optionNames="['M']"
-              :optionValues="['Male']"
               id="gender"
               name="gender"
+              v-model="gender"
+              :initialDisplayedName="genderNameInitialValue"
+              :optionNames="genderNames"
+              :optionValues="genderValues"
               class="h-3.75"
             />
           </section>
@@ -45,11 +56,15 @@
           v-model.trim="email"
           inputName="email"
           label="Personal Email"
+          :isError="!isValidEmail"
+          errorText="Please input valid email"
         />
         <BaseLabelAndTextInput
           v-model.trim="phoneNumber"
           inputName="phone"
           label="Phone Number"
+          :isError="!isValidPhone"
+          errorText="Please input phone number without '-'"
         />
         <div class="flex space-x-2">
           <section class="flex flex-col w-21 flex-shrink-0">
@@ -58,11 +73,12 @@
               id="district"
               name="district"
               v-model="location"
+              :initialDisplayedName="district"
               :isSearchable="true"
-              :optionNames="['Pathumwan']"
-              :optionValues="['Pathumwan']"
+              :optionNames="districtOptionNames"
+              :optionValues="districtOptionValues"
+              :isError="!isValidLocation"
               class="w-full h-3.75"
-              :isError="false"
             />
             <p v-show="false" class="text-sm text-red-5 mt-0.25 ml-1.5">
               Please select district
@@ -73,6 +89,7 @@
             inputName="province"
             label="Province"
             :disabled="true"
+            placeholder="autofilled"
             class="w-21 flex-shrink-0"
           />
           <BaseLabelAndTextInput
@@ -80,6 +97,7 @@
             inputName="zipCode"
             label="Zip Code"
             :disabled="true"
+            placeholder="auto"
             class="w-full"
           />
         </div>
@@ -88,14 +106,14 @@
           inputName="address"
           label="Address"
           :isExpandableTextInput="true"
-          :expandableTextInputMinHeight="54"
+          expandableTextInputMinHeight="54px"
         />
       </section>
       <base-button
         class="w-11 h-3.75 self-end"
         type="submit"
         value="submit"
-        :disabled="false"
+        :disabled="!isValidForm"
         >Save</base-button
       >
     </form>
@@ -103,47 +121,31 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, Ref } from "vue";
-import UserProfile from "@/commons/UI/user-profile/UserProfile.vue";
+import { defineComponent } from "vue";
 import BaseUploadImgButton from "@/commons/UI/BaseUploadImgButton.vue";
 import BaseSelect from "@/commons/UI/select/SingleNameSelect.vue";
 import BaseLabelAndTextInput from "@/commons/UI/BaseLabelAndTextInput.vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
-import { User } from "@/apollo/types";
+import ImageGalleryIcon from "@/assets/ImageGallery.vue";
+import { SUBMIT_FORM } from "@/commons/constant";
+import useUserProfile from "./useUserProfile";
 
 export default defineComponent({
   name: "UserProfile",
   components: {
-    // UserProfile,
     BaseUploadImgButton,
     BaseSelect,
     BaseLabelAndTextInput,
-    BaseButton
+    BaseButton,
+    ImageGalleryIcon
   },
-  setup() {
-    const user = { firstName: "Pattarapon", lastName: "Kittisrisawai" } as User;
-    const uploadedImg: Ref<string | null> = ref(null);
-    const uploadedImgFile: Ref<Blob | null> = ref(null);
-    const userGender = ref("");
-    const year = ref("");
-    const email = ref("");
-    const phoneNumber = ref("");
-    const location = ref("");
-    const district = ref("");
-    const province = ref("Bangkok");
-    const zipCode = ref("10330");
-    const address = ref("");
-
-    function submitForm() {
-      console.log("Submit");
-    }
-
-    return {
-      user,
+  emits: [SUBMIT_FORM],
+  setup(_, context) {
+    const {
       uploadedImg,
       uploadedImgFile,
-      userGender,
       year,
+      gender,
       email,
       phoneNumber,
       location,
@@ -151,6 +153,41 @@ export default defineComponent({
       province,
       zipCode,
       address,
+      genderNames,
+      genderNameInitialValue,
+      genderValues,
+      districtOptionNames,
+      districtOptionValues,
+      fileLoaded,
+      isValidEmail,
+      isValidPhone,
+      isValidLocation,
+      isValidForm,
+      submitForm
+    } = useUserProfile(context);
+
+    return {
+      uploadedImg,
+      uploadedImgFile,
+      year,
+      gender,
+      email,
+      phoneNumber,
+      location,
+      district,
+      province,
+      zipCode,
+      address,
+      genderNames,
+      genderNameInitialValue,
+      genderValues,
+      districtOptionNames,
+      districtOptionValues,
+      fileLoaded,
+      isValidEmail,
+      isValidPhone,
+      isValidLocation,
+      isValidForm,
       submitForm
     };
   }

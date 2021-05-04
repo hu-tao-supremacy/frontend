@@ -16,7 +16,7 @@
         <BaseGithubProfileCircle
           v-for="member in githubMembers"
           :key="member.id"
-          :imgUrl="member.avatar_url"
+          :imgUrl="`${member.avatar_url}&s=48`"
           :name="member.login"
           :href="member.html_url"
         />

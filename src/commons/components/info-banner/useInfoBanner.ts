@@ -9,7 +9,8 @@ import { format } from "date-fns";
 const useInfoBanner = (
   isSignIn: Ref<boolean>,
   attendance: Ref<boolean>,
-  event?: Ref<EventBanner | undefined>
+  event?: Ref<EventBanner | undefined>,
+  isEventStarted?: Ref<boolean>
 ) => {
   const router = useRouter();
   const date = computed(() => {
@@ -31,9 +32,15 @@ const useInfoBanner = (
   });
 
   const location = computed(() => event?.value?.location?.name || "-");
-  const registerMessage = computed(() =>
-    attendance.value ? "Registered" : "Register"
-  );
+  const registerMessage = computed(() => {
+    if (attendance.value) {
+      return "Registered";
+    }
+    if (isEventStarted?.value) {
+      return "Finished";
+    }
+    return "Register";
+  });
 
   const register = () => {
     if (!isSignIn.value) {

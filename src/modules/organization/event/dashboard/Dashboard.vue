@@ -117,7 +117,6 @@ export default defineComponent({
     });
 
     function checkTicket(decoded: string) {
-      console.log(decoded);
       checkIn({ input: { eventId, ticket: decoded } });
     }
 

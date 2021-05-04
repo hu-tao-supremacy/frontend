@@ -54,14 +54,14 @@ const useEventRegister = () => {
   };
 
   const sendAnswer = () => {
-    const output: CreateJoinRequestAnswerInput[] = questionData.map(
-      question => {
+    const output: CreateJoinRequestAnswerInput[] = questionData
+      .map(question => {
         return {
           questionId: question.id,
           value: question.answer?.value
         };
-      }
-    );
+      })
+      .filter(question => !!question.value);
     const answerData = {
       answers: output,
       eventId: event.value?.id

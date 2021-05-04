@@ -67,7 +67,7 @@ import BaseButton from "@/commons/UI/BaseButton.vue";
 import AlertIcon from "@/assets/Alert.vue";
 import QuestionTextPreview from "@/modules/question/question-text-preview/QuestionTextPreview.vue";
 import CreateEventSuccessModal from "./create-event-success-modal/CreateEventSuccessModal.vue";
-import useCreateEventForm from "./use-create-event-form";
+import useCreateEventForm from "../organization/createEventForm/use-create-event-form";
 
 export default defineComponent({
   name: "CreateForm",

@@ -128,6 +128,7 @@ const router = createRouter({
         },
         {
           path: "/search",
+          name: "Search",
           component: SearchedEvents
         },
         { path: "/404", component: NotFound }

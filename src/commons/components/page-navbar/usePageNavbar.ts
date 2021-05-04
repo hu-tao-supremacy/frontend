@@ -30,7 +30,7 @@ export default function usePageNavbar(isOrgView: boolean) {
   }
 
   function searchEvent(searchInput: string) {
-    router.push({ path: "/search", query: { q: searchInput } });
+    router.push({ name: "Search", query: { q: searchInput } });
   }
 
   return {

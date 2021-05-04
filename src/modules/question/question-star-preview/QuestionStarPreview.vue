@@ -12,7 +12,7 @@
         class="text-primary mr-2"
         ><AlertIcon
       /></base-icon>
-      <div class="text-lg font-bold font-heading">
+      <div class="text-lg font-heading">
         Click on satisfaction level from 1 star (Unsatisfactory) to 5 stars
         (Excellent).
       </div>

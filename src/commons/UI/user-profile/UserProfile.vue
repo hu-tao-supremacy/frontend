@@ -12,11 +12,7 @@
       alt="profileImage"
       class="h-full object-cover w-full"
     />
-    <div
-      class="font-bold font-heading text-primary"
-      :class="nameInitialFontSize"
-      v-else
-    >
+    <div class="font-heading text-primary" :class="nameInitialFontSize" v-else>
       {{ initial }}
     </div>
   </div>

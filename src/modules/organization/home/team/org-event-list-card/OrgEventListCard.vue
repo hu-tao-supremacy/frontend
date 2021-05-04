@@ -68,7 +68,6 @@
       </div>
       <router-link :to="`/org/event/${event.id}`">
         <base-icon
-          @click="toEventDashboard"
           :width="32"
           :height="32"
           class="text-white cursor-pointer hover:text-gray-4"
@@ -118,8 +117,7 @@ export default defineComponent({
       eventTime,
       isInRegistrationTime,
       attendeeCount,
-      attendeeText,
-      toEventDashboard
+      attendeeText
     } = useOrgEventListCard(event);
 
     return {
@@ -127,8 +125,7 @@ export default defineComponent({
       eventTime,
       isInRegistrationTime,
       attendeeCount,
-      attendeeText,
-      toEventDashboard
+      attendeeText
     };
   }
 });

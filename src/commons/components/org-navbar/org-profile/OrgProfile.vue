@@ -16,9 +16,11 @@
   <div
     v-else
     class="flex justify-center items-center w-6 h-6 rounded-lg bg-primary-3 flex-shrink-0"
-    :class="{ 'border-2 border-primary-5': isSelected }"
+    :class="{ 'border-4 border-primary-5': isSelected }"
   >
-    <h1 class="text-lg max-w-full font-heading font-bold text-primary truncate">
+    <h1
+      class="text-lg max-w-full font-heading font-semibold text-primary truncate"
+    >
       {{ orgInitial }}
     </h1>
   </div>

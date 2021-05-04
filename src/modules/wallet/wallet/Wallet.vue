@@ -20,9 +20,11 @@
           <h1 class="font-heading text-4xl mr-3">
             {{ profile && profile.firstName }} {{ profile && profile.lastName }}
           </h1>
-          <base-transparent-button @click="editInfo"
-            ><base-icon width="20px" height="20px"><EditIcon /></base-icon
-          ></base-transparent-button>
+          <router-link to="/user-profile">
+            <base-transparent-button @click="editInfo"
+              ><base-icon width="20px" height="20px"><EditIcon /></base-icon
+            ></base-transparent-button>
+          </router-link>
         </div>
         <p class="text-gray-6 mb-1">{{ profile && profile.email }}</p>
         <div class="flex items-center">

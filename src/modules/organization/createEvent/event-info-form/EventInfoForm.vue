@@ -112,7 +112,7 @@
           (e.g. .JPEG, .PNG, .GIF Less than 5MB) size: 960x240
         </p>
       </div>
-      <p v-show="+isValidImageSizeCover" class="text-sm text-red-5 mt-0.25">
+      <p v-show="!isValidImageSizeCover" class="text-sm text-red-5 mt-0.25">
         Image size is too large
       </p>
     </section>

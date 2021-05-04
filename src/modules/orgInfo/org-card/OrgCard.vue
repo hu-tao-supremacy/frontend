@@ -37,16 +37,19 @@
         <h3 class="text-2xl font-heading">Contact</h3>
         <ul class="space-y-0.25">
           <li>
-            <span class="font-bold">Facebook</span> : {{ contact.facebook }}
+            <span class="font-semibold">Facebook</span> : {{ contact.facebook }}
           </li>
           <li>
-            <span class="font-bold">Instagram</span> : {{ contact.instagram }}
+            <span class="font-semibold">Instagram</span> :
+            {{ contact.instagram }}
           </li>
           <li>
-            <span class="font-bold">Line</span> :
+            <span class="font-semibold">Line</span> :
             {{ contact.line }}
           </li>
-          <li><span class="font-bold">Email</span> : {{ contact.email }}</li>
+          <li>
+            <span class="font-semibold">Email</span> : {{ contact.email }}
+          </li>
         </ul>
       </div>
     </div>

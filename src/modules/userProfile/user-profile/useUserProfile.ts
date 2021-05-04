@@ -74,6 +74,10 @@ export default function useUserProfile(context: SetupContext<"submit-form"[]>) {
     );
   });
 
+  const isValidImageSize = computed(() => {
+    return !uploadedImgFile.value || uploadedImgFile.value?.size < 5000000;
+  });
+
   const isValidForm = computed(() => {
     return (
       isValidEmail.value &&
@@ -87,7 +91,8 @@ export default function useUserProfile(context: SetupContext<"submit-form"[]>) {
       address.value !== "" &&
       isValidYear.value &&
       year.value &&
-      gender.value
+      gender.value &&
+      isValidImageSize.value
     );
   });
 
@@ -117,10 +122,10 @@ export default function useUserProfile(context: SetupContext<"submit-form"[]>) {
       zipCode: zipCode.value,
       gender: gender.value,
       academicYear: Number(year.value),
-      profilePictureUrl: uploadedImgFile.value
+      profilePicture: uploadedImgFile.value
     };
-    //Connect to api here
-    console.log("Submit", userProfile);
+
+    context.emit(SUBMIT_FORM, userProfile);
   }
 
   function submitWithoutImg() {
@@ -134,14 +139,12 @@ export default function useUserProfile(context: SetupContext<"submit-form"[]>) {
       gender: gender.value,
       academicYear: Number(year.value)
     };
-    //Connect to api here
-    console.log("Submit", userProfile);
+    context.emit(SUBMIT_FORM, userProfile);
   }
 
   function submitForm() {
     if (!uploadedImgFile.value) submitWithoutImg();
     else submitWithImg();
-    context.emit(SUBMIT_FORM);
   }
 
   return {
@@ -166,6 +169,7 @@ export default function useUserProfile(context: SetupContext<"submit-form"[]>) {
     isValidPhone,
     isValidLocation,
     isValidForm,
+    isValidImageSize,
     submitForm
   };
 }

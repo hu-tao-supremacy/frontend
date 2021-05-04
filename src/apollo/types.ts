@@ -926,6 +926,22 @@ export type GetHomeItemQuery = { __typename?: "Query" } & {
         >;
       }
   >;
+  onSiteEvents: Array<
+    { __typename?: "Event" } & Pick<
+      Event,
+      "id" | "description" | "name" | "posterImageUrl" | "posterImageHash"
+    > & {
+        durations: Array<
+          { __typename?: "EventDuration" } & Pick<
+            EventDuration,
+            "id" | "start" | "finish"
+          >
+        >;
+        location?: Maybe<
+          { __typename?: "Location" } & Pick<Location, "id" | "name">
+        >;
+      }
+  >;
   featuredOrganizations: Array<
     { __typename?: "Organization" } & Pick<
       Organization,
@@ -1320,6 +1336,34 @@ export type GetOnlineItemsQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetOnlineItemsQuery = { __typename?: "Query" } & {
   onlineEvents: Array<
+    { __typename?: "Event" } & Pick<
+      Event,
+      | "id"
+      | "description"
+      | "name"
+      | "coverImageUrl"
+      | "coverImageHash"
+      | "posterImageUrl"
+      | "posterImageHash"
+    > & {
+        durations: Array<
+          { __typename?: "EventDuration" } & Pick<
+            EventDuration,
+            "id" | "start" | "finish"
+          >
+        >;
+        location?: Maybe<
+          { __typename?: "Location" } & Pick<Location, "id" | "name">
+        >;
+        tags: Array<{ __typename?: "Tag" } & Pick<Tag, "id" | "name">>;
+      }
+  >;
+};
+
+export type GetOnsiteItemsQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetOnsiteItemsQuery = { __typename?: "Query" } & {
+  onSiteEvents: Array<
     { __typename?: "Event" } & Pick<
       Event,
       | "id"

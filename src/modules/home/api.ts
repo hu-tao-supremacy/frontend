@@ -60,6 +60,22 @@ export const useHomeApi = () =>
           name
         }
       }
+      onSiteEvents(n: 4) {
+        id
+        description
+        name
+        posterImageUrl
+        posterImageHash
+        durations {
+          id
+          start
+          finish
+        }
+        location {
+          id
+          name
+        }
+      }
       featuredOrganizations(n: 4) {
         id
         abbreviation

@@ -23,7 +23,7 @@ import BaseModal from "@/commons/UI/BaseModal.vue";
 import BaseButton from "@/commons/UI/BaseButton.vue";
 import CheckCircleIcon from "@/assets/CheckCircle.vue";
 import { CLOSE_MODAL } from "@/commons/constant";
-import useOrgEvent from "../organization/event/use-org-event";
+import useOrgEvent from "@/modules/organization/event/use-org-event";
 
 export default defineComponent({
   name: "CreateEventFeebackSuccess",

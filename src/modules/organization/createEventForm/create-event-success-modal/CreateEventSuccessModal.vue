@@ -8,13 +8,7 @@
         Your event has been created!
       </h1>
       <p class="text-gray-5 text-center mb-7 leading-relaxed">
-        Your organization has been created.<br />
-        To be a verified organization, verification is needed.<br />
-        Please contact
-        <a href="mailto:admin@onepass.com" class="text-primary"
-          >admin@onepass.com</a
-        >
-        for verification.
+        Your event has been created.
       </p>
       <base-button @click="closeModal" class="w-16 py-px">Close</base-button>
     </div></base-modal

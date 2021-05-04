@@ -1,4 +1,4 @@
-import { createQuestion } from "./../api";
+import { createQuestion } from "../api";
 import { computed, reactive, ref } from "vue";
 import { useRoute } from "vue-router";
 import {

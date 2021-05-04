@@ -32,13 +32,15 @@ const useEventRegister = () => {
     if (result.data.event.attendance) {
       router.push("/");
     }
-    const questions = [...result.data.event.questionGroups[0]?.questions].sort(
-      question => question.seq
-    );
+    if (result.data.event.questionGroups.length !== 0) {
+      const questions = [
+        ...result.data.event.questionGroups[0]?.questions
+      ].sort(question => question.seq);
+      Object.assign(questionData, questions);
+    }
     if (checkIfEventStarted(event.value?.durations)) {
       router.push("/404");
     }
-    Object.assign(questionData, questions);
 
     const faculty = FacultyData.find(
       code => code.code === result.data.currentUser?.chulaId?.slice(-2)
@@ -100,7 +102,6 @@ const useEventRegister = () => {
   );
 
   const hasQuestions = computed(() => {
-    console.log(questionData.length !== 0);
     return questionData.length !== 0;
   });
 

@@ -42,26 +42,11 @@ export default function useTicket(
     }
   });
 
-  function checkIn() {
-    if (!isOngoing.value) {
-      return;
-    }
-    //Do something when check in
-    console.log("Do checkin");
-  }
-
-  function giveFeedback() {
-    //Do something when click to give feedback
-    console.log("Give feedback");
-  }
-
   return {
     isPending,
     isOngoing,
     isHistory,
     isAttended,
-    checkIn,
-    giveFeedback,
     date,
     time,
     routerLinkId,

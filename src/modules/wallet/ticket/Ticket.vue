@@ -57,8 +57,11 @@
     </section>
     <section class="rounded-r-2xl flex flex-col pt-2 pb-1 px-2 shadow-sm">
       <div class="flex font-heading text-lg items-center mb-1">
-        <h2 class="mr-1">Ticket ID:</h2>
+        <h2 v-if="ticketID" class="mr-1">Ticket ID:</h2>
         <p v-if="isPending" class="text-primary">Pending</p>
+        <p v-else-if="isRejected" class="text-gray-6">
+          Rejected
+        </p>
         <p v-else class="text-primary">{{ ticketID }}</p>
       </div>
       <div class="text-sm mb-1">
@@ -141,7 +144,8 @@ export default defineComponent({
       time,
       routerLinkId,
       isAttended,
-      isSubmittedFeedback
+      isSubmittedFeedback,
+      isRejected
     } = useTicket(props.ticketStatus, event);
     return {
       isPending,
@@ -151,7 +155,8 @@ export default defineComponent({
       time,
       routerLinkId,
       isAttended,
-      isSubmittedFeedback
+      isSubmittedFeedback,
+      isRejected
     };
   }
 });

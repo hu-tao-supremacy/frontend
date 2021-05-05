@@ -97,12 +97,12 @@
       />
       <TicketComponent
         v-show="isPendingTicketView"
-        v-for="(ticket, index) in findPendingEvents"
+        v-for="(ticket, index) in findPendingRejectedEvents"
         :key="index"
         :ticketStatus="ticket.attendance.status"
         :event="ticket"
         :parentBgColor="'bg-white'"
-        :class="{ 'mb-2': index != findPendingEvents.length - 1 }"
+        :class="{ 'mb-2': index != findPendingRejectedEvents.length - 1 }"
       />
       <TicketComponent
         v-show="isHistoryTicketView"
@@ -153,9 +153,11 @@ export default defineComponent({
         value => value.attendance?.status === UserEventStatus.Approved
       )
     );
-    const findPendingEvents = computed(() =>
+    const findPendingRejectedEvents = computed(() =>
       props.profile?.history?.filter(
-        value => value.attendance?.status === UserEventStatus.Pending
+        value =>
+          value.attendance?.status === UserEventStatus.Pending ||
+          value.attendance?.status === UserEventStatus.Rejected
       )
     );
 
@@ -173,7 +175,7 @@ export default defineComponent({
       isHistoryTicketView,
       UserEventStatus,
       findApprovedEvents,
-      findPendingEvents,
+      findPendingRejectedEvents,
       historyTickets
     };
   }

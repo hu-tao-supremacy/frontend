@@ -1,7 +1,6 @@
 import {
   CheckInMutation,
   ExportDataQuery,
-  Event,
   MutationCheckInArgs
 } from "@/apollo/types";
 import { useMutation, useQuery } from "@vue/apollo-composable";

@@ -45,10 +45,7 @@
         /></base-icon>
       </div>
     </section>
-    <section
-      v-show="isDropdown && isExpand"
-      class="flex flex-col h-11 pt-2 pb-1"
-    >
+    <section v-show="isDropdown && isExpand" class="flex flex-col py-1 px-0.25">
       <base-icon-and-detail
         @click="toMemberPage"
         :detail="'Member'"
@@ -57,7 +54,7 @@
         :iconColor="'group-hover:text-white'"
         :iconClass="'mr-3'"
         :detailClass="'group-hover:text-white'"
-        class="group px-2 h-4 w-full rounded-lg border-2 border-white hover:bg-blue-11 cursor-pointer"
+        class="group px-2 h-4 w-full rounded-lg hover:bg-blue-11 cursor-pointer"
         ><UsersIcon
       /></base-icon-and-detail>
     </section>

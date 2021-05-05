@@ -22,16 +22,10 @@ export default function useOrgNavbarTeamSelection(
     router.push(`/member-management/${currentSelectedTeamId.value}`);
   }
 
-  function toOrgSetting() {
-    //Later will put router link to go to org setting page
-    console.log("To org setting");
-  }
-
   return {
     isDropdown,
     collapseDropDown,
     toggleDropDown,
-    toMemberPage,
-    toOrgSetting
+    toMemberPage
   };
 }

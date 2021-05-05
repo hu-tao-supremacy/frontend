@@ -25,7 +25,6 @@
           class="w-full h-4 disabled: bg-white text-primary-6"
           disabled
         />
-        {{ gender }}
       </div>
     </div>
     <div class="flex mt-4">

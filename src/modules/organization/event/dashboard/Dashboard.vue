@@ -164,9 +164,7 @@ export default defineComponent({
     });
 
     const feedbackReceivedCount = computed(() => {
-      return attendees.value?.filter(attendee =>
-        attendee.answers.length === 0 ? false : true
-      ).length;
+      return attendees.value?.filter(attendee => !!attendee.rating).length;
     });
 
     function checkTicket(decoded: string) {

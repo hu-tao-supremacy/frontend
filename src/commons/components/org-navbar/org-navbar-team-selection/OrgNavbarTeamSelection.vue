@@ -60,17 +60,6 @@
         class="group px-2 h-4 w-full rounded-lg border-2 border-white hover:bg-blue-11 cursor-pointer"
         ><UsersIcon
       /></base-icon-and-detail>
-      <base-icon-and-detail
-        @click="toOrgSetting"
-        :detail="'Organization setting'"
-        :iconWidth="16"
-        :iconHeight="16"
-        :iconColor="'group-hover:text-white'"
-        :iconClass="'mr-3'"
-        :detailClass="'group-hover:text-white'"
-        class="group px-2 h-4 w-full rounded-lg border-2 border-white hover:bg-blue-11 cursor-pointer"
-        ><SettingsIcon
-      /></base-icon-and-detail>
     </section>
   </div>
 </template>
@@ -82,7 +71,6 @@ import OrgProfile from "../org-profile/OrgProfile.vue";
 import ChevronDownIcon from "@/assets/ChevronDown.vue";
 import ChevronUpIcon from "@/assets/ChevronUp.vue";
 import UsersIcon from "@/assets/Users.vue";
-import SettingsIcon from "@/assets/Settings.vue";
 import { Organization } from "@/apollo/types";
 import useOrgNavbarTeamSelection from "./useOrgNavbarTeamSelection";
 
@@ -93,8 +81,7 @@ export default defineComponent({
     OrgProfile,
     ChevronDownIcon,
     ChevronUpIcon,
-    UsersIcon,
-    SettingsIcon
+    UsersIcon
   },
   props: {
     isExpand: {
@@ -117,16 +104,14 @@ export default defineComponent({
       isDropdown,
       collapseDropDown,
       toggleDropDown,
-      toMemberPage,
-      toOrgSetting
+      toMemberPage
     } = useOrgNavbarTeamSelection(isExpand, isSelected);
 
     return {
       isDropdown,
       collapseDropDown,
       toggleDropDown,
-      toMemberPage,
-      toOrgSetting
+      toMemberPage
     };
   }
 });

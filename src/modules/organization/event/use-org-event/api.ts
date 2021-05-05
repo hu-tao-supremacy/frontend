@@ -17,6 +17,7 @@ export const useOrgEventApi = (variables: GetEventAttendeeQueryVariables) =>
           posterImageUrl
           posterImageHash
           attendees {
+            rating
             user {
               id
               firstName

@@ -1168,7 +1168,10 @@ export type GetEventAttendeeQuery = { __typename?: "Query" } & {
     | "coverImageHash"
   > & {
       attendees: Array<
-        { __typename?: "UserEvent" } & Pick<UserEvent, "status" | "ticket"> & {
+        { __typename?: "UserEvent" } & Pick<
+          UserEvent,
+          "rating" | "status" | "ticket"
+        > & {
             user: { __typename?: "User" } & Pick<
               User,
               | "id"

@@ -15,7 +15,7 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn build
       - name: Deploy to Netlify
-        uses: nwtgck/actions-netlify@v1.1
+        uses: nwtgck/actions-netlify@v1.2.1
         with:
           publish-dir: "./dist"
           production-branch: master

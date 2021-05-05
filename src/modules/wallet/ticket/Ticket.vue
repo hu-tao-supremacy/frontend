@@ -57,8 +57,11 @@
     </section>
     <section class="rounded-r-2xl flex flex-col pt-2 pb-1 px-2 shadow-sm">
       <div class="flex font-heading text-lg items-center mb-1">
-        <h2 class="mr-1">Ticket ID:</h2>
+        <h2 v-if="ticketID" class="mr-1">Ticket ID:</h2>
         <p v-if="isPending" class="text-primary">Pending</p>
+        <p v-else-if="isRejected" class="text-gray-6">
+          Rejected
+        </p>
         <p v-else class="text-primary">{{ ticketID }}</p>
       </div>
       <div class="text-sm mb-1">
@@ -72,16 +75,14 @@
           ><PinIcon
         /></base-icon-and-detail>
       </div>
-      <router-link :to="routerLinkId">
-        <base-button
-          v-if="isOngoing"
-          class="check-in-btn self-center mt-auto h-3.5 w-full"
+      <router-link :to="routerLinkId" class="mt-auto self-center w-full">
+        <base-button v-if="isOngoing" class="check-in-btn h-3.5 w-full"
           >Check in</base-button
         >
         <base-button
           v-else-if="isAttended"
           :disabled="isSubmittedFeedback"
-          class="check-in-btn self-center mt-auto h-3.5 w-full"
+          class="check-in-btn h-3.5 w-full"
           >{{
             isSubmittedFeedback ? "Submited Feedback" : "Feedback"
           }}</base-button
@@ -141,7 +142,8 @@ export default defineComponent({
       time,
       routerLinkId,
       isAttended,
-      isSubmittedFeedback
+      isSubmittedFeedback,
+      isRejected
     } = useTicket(props.ticketStatus, event);
     return {
       isPending,
@@ -151,7 +153,8 @@ export default defineComponent({
       time,
       routerLinkId,
       isAttended,
-      isSubmittedFeedback
+      isSubmittedFeedback,
+      isRejected
     };
   }
 });

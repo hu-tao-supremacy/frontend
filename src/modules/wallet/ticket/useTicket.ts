@@ -22,6 +22,10 @@ export default function useTicket(
     return ticketStatus === UserEventStatus.Attended;
   });
 
+  const isRejected = computed(() => {
+    return ticketStatus === UserEventStatus.Rejected;
+  });
+
   const date = computed(() => {
     return getDisplayDate(event?.value.durations as EventDuration[]);
   });
@@ -50,6 +54,7 @@ export default function useTicket(
     date,
     time,
     routerLinkId,
-    isSubmittedFeedback
+    isSubmittedFeedback,
+    isRejected
   };
 }

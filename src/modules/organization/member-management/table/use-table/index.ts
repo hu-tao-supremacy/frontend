@@ -27,7 +27,7 @@ const useTable = (data?: Ref<User[] | undefined>) => {
     });
   });
 
-  const sort = (data: User[]) => () => {
+  const sort = (data: User[]) => {
     switch (sortingOption.value) {
       case SortOption.Descending:
         return data.sort((a, b) => sortDescending(a.firstName, b.firstName));

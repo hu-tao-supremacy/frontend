@@ -29,11 +29,15 @@ export default function useCreateOrgForm(
   const selectedMembers = ref<GetCurrentUserInfoQuery["currentUser"][]>([]);
   const { result: userInfo } = useUserInfo();
   const orgOwner = useResult(userInfo, null, data => data.currentUser);
-  watch(orgOwner, () => {
-    if (orgOwner.value) {
-      selectedMembers.value.push(orgOwner.value);
-    }
-  });
+  watch(
+    () => orgOwner,
+    () => {
+      if (orgOwner.value) {
+        selectedMembers.value.push(orgOwner.value);
+      }
+    },
+    { deep: true }
+  );
 
   const orgContactPerson = ref({
     name: "",

@@ -75,16 +75,14 @@
           ><PinIcon
         /></base-icon-and-detail>
       </div>
-      <router-link :to="routerLinkId">
-        <base-button
-          v-if="isOngoing"
-          class="check-in-btn self-center mt-auto h-3.5 w-full"
+      <router-link :to="routerLinkId" class="mt-auto self-center w-full">
+        <base-button v-if="isOngoing" class="check-in-btn h-3.5 w-full"
           >Check in</base-button
         >
         <base-button
           v-else-if="isAttended"
           :disabled="isSubmittedFeedback"
-          class="check-in-btn self-center mt-auto h-3.5 w-full"
+          class="check-in-btn h-3.5 w-full"
           >{{
             isSubmittedFeedback ? "Submited Feedback" : "Feedback"
           }}</base-button
